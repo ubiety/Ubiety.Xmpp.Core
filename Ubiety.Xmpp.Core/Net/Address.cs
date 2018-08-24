@@ -31,7 +31,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="client">Instance of the main client</param>
         public Address(IClient client)
         {
-            _resolver = new Resolver("8.8.8.8") {UseCache = true, Timeout = 5, TransportType = TransportType.Tcp};
+            _resolver = new Resolver("8.8.8.8") { UseCache = true, Timeout = 5, TransportType = TransportType.Tcp };
             _client = client;
         }
 
@@ -99,7 +99,7 @@ namespace Ubiety.Xmpp.Core.Net
             if (response?.Answers.Count > 0)
             {
                 IsIPv6 = true;
-                return ((RecordAaaa) response.Answers[0].Record).Address;
+                return ((RecordAaaa)response.Answers[0].Record).Address;
             }
 
             response = _resolver.Query(host, QuestionType.A, QuestionClass.IN);

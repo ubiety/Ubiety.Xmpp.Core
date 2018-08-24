@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ubiety.Xmpp.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Ubiety.Xmpp.Core.Common.Jid">
+            <inheritdoc />
+            <summary>
+            JID class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.Resource">
+            <summary>
+            Gets the JID resource
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.Server">
+            <summary>
+            Gets the server of the JID
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.User">
+            <summary>
+            Gets the user name of the JID
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.Id">
+            <summary>
+            Gets or sets the id as a string
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Interfaces.IClient">
+            <summary>
+                Defines a client interface
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Interfaces.IClient.Id">
+            <summary>
+                Gets or sets the user JID
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Net.Address">
+            <summary>
+                Address class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.Address.#ctor(Ubiety.Xmpp.Core.Interfaces.IClient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.Address" /> class
+            </summary>
+            <param name="client">Instance of the main client</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.Address.IsIPv6">
+            <summary>
+                Gets a value indicating whether the address is IPv6
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.Address.Hostname">
+            <summary>
+                Gets the hostname of the address
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.Address.NextIpAddress">
+            <summary>
+                Gets the next IP address for the server
+            </summary>
+            <returns><see cref="T:System.Net.IPAddress" /> of the XMPP server</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.XmppClient">
+            <summary>
+                Main XMPP client class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.XmppClient.Id">
+            <inheritdoc cref="P:Ubiety.Xmpp.Core.XmppClient.Id" />
+        </member>
+    </members>
+</doc>

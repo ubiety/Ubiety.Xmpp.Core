@@ -21,6 +21,15 @@ namespace Ubiety.Xmpp.Core.Common
         private string _id;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Jid"/> class
+        /// </summary>
+        /// <param name="id">String version of the ID</param>
+        public Jid(string id)
+        {
+            Id = id;
+        }
+
+        /// <summary>
         /// Gets the JID resource
         /// </summary>
         public string Resource
@@ -60,10 +69,85 @@ namespace Ubiety.Xmpp.Core.Common
             set => Parse(value);
         }
 
+        /// <summary>
+        /// Implicitly converts a string into a <see cref="Jid"/>
+        /// </summary>
+        /// <param name="id">String version of the ID</param>
+        public static implicit operator Jid(string id)
+        {
+            return new Jid(id);
+        }
+
+        /// <summary>
+        /// Implicitly converts a <see cref="Jid"/> to a string
+        /// </summary>
+        /// <param name="id"><see cref="Jid"/> of the ID</param>
+        public static implicit operator string(Jid id)
+        {
+            return id.Id;
+        }
+
+        /// <summary>
+        /// Compares equality of one <see cref="Jid"/> to another
+        /// </summary>
+        /// <param name="one">First <see cref="Jid"/></param>
+        /// <param name="two">Second <see cref="Jid"/></param>
+        /// <returns>True if the Jids are equal</returns>
+        public static bool operator ==(Jid one, Jid two)
+        {
+            return one != null && one.Equals(two);
+        }
+
+        /// <summary>
+        /// Compares the inequality of one <see cref="Jid"/> to another
+        /// </summary>
+        /// <param name="one">First <see cref="Jid"/></param>
+        /// <param name="two">Second <see cref="Jid"/></param>
+        /// <returns>True if the Jids are not equal</returns>
+        public static bool operator !=(Jid one, Jid two)
+        {
+            return one != null && !one.Equals(two);
+        }
+
         /// <inheritdoc/>
         public bool Equals(Jid other)
         {
             return Id.Equals(other.Id);
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            switch (obj)
+            {
+                case null:
+                    return false;
+                case string _:
+                    return Id.Equals(obj);
+            }
+
+            return obj is Jid jid && Id.Equals(jid.Id);
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = 17;
+
+                hash = (hash * 23) + User.GetHashCode();
+                hash = (hash * 23) + Server.GetHashCode();
+                hash = (hash * 23) + Resource.GetHashCode();
+
+                return hash;
+            }
+        }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return Id;
         }
 
         private static string Escape(string user)
