@@ -22,14 +22,14 @@ namespace Ubiety.Xmpp.Core.Net
     {
         private const int BufferSize = 4096;
         private readonly byte[] _buffer;
-        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private readonly IClient _client;
+        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private Address _address;
         private Socket _socket;
         private Stream _stream;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AsyncSocket"/> class
+        ///     Initializes a new instance of the <see cref="AsyncSocket" /> class
         /// </summary>
         /// <param name="client">Client to use for the server connection</param>
         public AsyncSocket(IClient client)
@@ -39,19 +39,19 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <inheritdoc />
-        public event EventHandler<DataEventArgs> Data;
-
-        /// <inheritdoc/>
-        public event EventHandler Connection;
-
-        /// <inheritdoc/>
-        public bool Connected { get; private set; }
-
-        /// <inheritdoc />
         public void Dispose()
         {
             _socket.Dispose();
         }
+
+        /// <inheritdoc />
+        public event EventHandler<DataEventArgs> Data;
+
+        /// <inheritdoc />
+        public event EventHandler Connection;
+
+        /// <inheritdoc />
+        public bool Connected { get; private set; }
 
         /// <inheritdoc />
         public void Connect()
@@ -86,7 +86,7 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        /// Raise the data event with the specified arguments
+        ///     Raise the data event with the specified arguments
         /// </summary>
         /// <param name="e">Data event arguments</param>
         protected virtual void OnData(DataEventArgs e)
@@ -95,14 +95,15 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        /// Raise the connection event
+        ///     Raise the connection event
         /// </summary>
         protected virtual void OnConnection()
         {
             Connection?.Invoke(this, new EventArgs());
         }
 
-        private static bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        private static bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
+            SslPolicyErrors sslPolicyErrors)
         {
             return sslPolicyErrors == SslPolicyErrors.None;
         }
@@ -114,10 +115,7 @@ namespace Ubiety.Xmpp.Core.Net
             OnConnection();
 
             _stream = new NetworkStream(socket);
-            if (_client.UseSsl)
-            {
-                StartSsl();
-            }
+            if (_client.UseSsl) StartSsl();
 
             _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
         }
@@ -128,10 +126,7 @@ namespace Ubiety.Xmpp.Core.Net
 
             secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);
 
-            if (secureStream.IsAuthenticated)
-            {
-                _stream = secureStream;
-            }
+            if (secureStream.IsAuthenticated) _stream = secureStream;
         }
 
         private void ReceiveCompleted(IAsyncResult ar)
@@ -139,7 +134,7 @@ namespace Ubiety.Xmpp.Core.Net
             _stream.EndRead(ar);
             var message = _utf8.GetString(_buffer.TrimNullBytes());
 
-            OnData(new DataEventArgs { Message = message });
+            OnData(new DataEventArgs {Message = message});
 
             _buffer.Clear();
 

@@ -17,12 +17,12 @@ namespace Ubiety.Xmpp.Core
         Jid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the port of the server
+        ///     Gets or sets the port of the server
         /// </summary>
         int Port { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether the socket should use SSL
+        ///     Gets a value indicating whether the socket should use SSL
         /// </summary>
         bool UseSsl { get; }
     }

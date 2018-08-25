@@ -11,17 +11,17 @@ namespace Ubiety.Xmpp.Core.Common
 {
     /// <inheritdoc />
     /// <summary>
-    /// JID class
+    ///     JID class
     /// </summary>
     public class Jid : IEquatable<Jid>
     {
+        private string _id;
         private string _resource;
         private string _server;
         private string _user;
-        private string _id;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Jid"/> class
+        ///     Initializes a new instance of the <see cref="Jid" /> class
         /// </summary>
         /// <param name="id">String version of the ID</param>
         public Jid(string id)
@@ -30,7 +30,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets the JID resource
+        ///     Gets the JID resource
         /// </summary>
         public string Resource
         {
@@ -39,7 +39,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets the server of the JID
+        ///     Gets the server of the JID
         /// </summary>
         public string Server
         {
@@ -48,7 +48,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets the user name of the JID
+        ///     Gets the user name of the JID
         /// </summary>
         public string User
         {
@@ -61,7 +61,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets or sets the id as a string
+        ///     Gets or sets the id as a string
         /// </summary>
         public string Id
         {
@@ -69,8 +69,14 @@ namespace Ubiety.Xmpp.Core.Common
             set => Parse(value);
         }
 
+        /// <inheritdoc />
+        public bool Equals(Jid other)
+        {
+            return Id.Equals(other.Id);
+        }
+
         /// <summary>
-        /// Implicitly converts a string into a <see cref="Jid"/>
+        ///     Implicitly converts a string into a <see cref="Jid" />
         /// </summary>
         /// <param name="id">String version of the ID</param>
         public static implicit operator Jid(string id)
@@ -79,19 +85,19 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Implicitly converts a <see cref="Jid"/> to a string
+        ///     Implicitly converts a <see cref="Jid" /> to a string
         /// </summary>
-        /// <param name="id"><see cref="Jid"/> of the ID</param>
+        /// <param name="id"><see cref="Jid" /> of the ID</param>
         public static implicit operator string(Jid id)
         {
             return id.Id;
         }
 
         /// <summary>
-        /// Compares equality of one <see cref="Jid"/> to another
+        ///     Compares equality of one <see cref="Jid" /> to another
         /// </summary>
-        /// <param name="one">First <see cref="Jid"/></param>
-        /// <param name="two">Second <see cref="Jid"/></param>
+        /// <param name="one">First <see cref="Jid" /></param>
+        /// <param name="two">Second <see cref="Jid" /></param>
         /// <returns>True if the Jids are equal</returns>
         public static bool operator ==(Jid one, Jid two)
         {
@@ -99,23 +105,17 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Compares the inequality of one <see cref="Jid"/> to another
+        ///     Compares the inequality of one <see cref="Jid" /> to another
         /// </summary>
-        /// <param name="one">First <see cref="Jid"/></param>
-        /// <param name="two">Second <see cref="Jid"/></param>
+        /// <param name="one">First <see cref="Jid" /></param>
+        /// <param name="two">Second <see cref="Jid" /></param>
         /// <returns>True if the Jids are not equal</returns>
         public static bool operator !=(Jid one, Jid two)
         {
             return one != null && !one.Equals(two);
         }
 
-        /// <inheritdoc/>
-        public bool Equals(Jid other)
-        {
-            return Id.Equals(other.Id);
-        }
-
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             switch (obj)
@@ -129,22 +129,22 @@ namespace Ubiety.Xmpp.Core.Common
             return obj is Jid jid && Id.Equals(jid.Id);
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked
             {
                 var hash = 17;
 
-                hash = (hash * 23) + User.GetHashCode();
-                hash = (hash * 23) + Server.GetHashCode();
-                hash = (hash * 23) + Resource.GetHashCode();
+                hash = hash * 23 + User.GetHashCode();
+                hash = hash * 23 + Server.GetHashCode();
+                hash = hash * 23 + Resource.GetHashCode();
 
                 return hash;
             }
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override string ToString()
         {
             return Id;
@@ -161,9 +161,7 @@ namespace Ubiety.Xmpp.Core.Common
                 {
                     case ' ':
                         if (count == 0 || count == user.Length - 1)
-                        {
                             throw new FormatException("Username cannot start or end with a space");
-                        }
 
                         u.Append(@"\20");
                         break;
@@ -208,6 +206,7 @@ namespace Ubiety.Xmpp.Core.Common
         private string Unescape()
         {
             var re = new Regex(@"\\([2-5][0267face])");
+
             string Evaluator(Match m)
             {
                 switch (m.Groups[1].Value)

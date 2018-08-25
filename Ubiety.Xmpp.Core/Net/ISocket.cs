@@ -8,32 +8,32 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    /// Defines a socket interface
+    ///     Defines a socket interface
     /// </summary>
     public interface ISocket
     {
         /// <summary>
-        /// Raised when data is received from the server
-        /// </summary>
-        event EventHandler<DataEventArgs> Data;
-
-        /// <summary>
-        /// Raised when the socket is connected to the server
-        /// </summary>
-        event EventHandler Connection;
-
-        /// <summary>
-        /// Gets a value indicating whether the socket is connected
+        ///     Gets a value indicating whether the socket is connected
         /// </summary>
         bool Connected { get; }
 
         /// <summary>
-        /// Connect to an XMPP server
+        ///     Raised when data is received from the server
+        /// </summary>
+        event EventHandler<DataEventArgs> Data;
+
+        /// <summary>
+        ///     Raised when the socket is connected to the server
+        /// </summary>
+        event EventHandler Connection;
+
+        /// <summary>
+        ///     Connect to an XMPP server
         /// </summary>
         void Connect();
 
         /// <summary>
-        /// Disconnects from the server
+        ///     Disconnects from the server
         /// </summary>
         void Disconnect();
     }

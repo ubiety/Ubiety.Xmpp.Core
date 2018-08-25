@@ -5,14 +5,14 @@
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    /// Builds a new XmppClient
+    ///     Builds a new XmppClient
     /// </summary>
     public class XmppClientBuilder
     {
         private XmppClient _client;
 
         /// <summary>
-        /// Begin the build process
+        ///     Begin the build process
         /// </summary>
         /// <returns>Builder instance</returns>
         public XmppClientBuilder Begin()
@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        /// Builds the client
+        ///     Builds the client
         /// </summary>
         /// <returns>Client with the options provided</returns>
         public XmppClient Build()
