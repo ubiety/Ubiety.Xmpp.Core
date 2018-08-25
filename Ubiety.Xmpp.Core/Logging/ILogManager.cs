@@ -12,32 +12,18 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Builds a new XmppClient
+    ///     Defines the interface for the log manager
     /// </summary>
-    public class XmppClientBuilder
+    public interface ILogManager
     {
-        private XmppClient _client;
-
         /// <summary>
-        ///     Begin the build process
+        ///     Get a log instance for the requested name
         /// </summary>
-        /// <returns>Builder instance</returns>
-        public XmppClientBuilder Begin()
-        {
-            _client = new XmppClient();
-            return this;
-        }
-
-        /// <summary>
-        ///     Builds the client
-        /// </summary>
-        /// <returns>Client with the options provided</returns>
-        public XmppClient Build()
-        {
-            return _client;
-        }
+        /// <param name="name">Name of the instance</param>
+        /// <returns>Instance of a log</returns>
+        ILog Get(string name);
     }
 }

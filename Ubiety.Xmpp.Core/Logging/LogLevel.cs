@@ -12,32 +12,32 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Builds a new XmppClient
+    ///     Log severity level
     /// </summary>
-    public class XmppClientBuilder
+    public enum LogLevel
     {
-        private XmppClient _client;
-
         /// <summary>
-        ///     Begin the build process
+        ///     Critical severity
         /// </summary>
-        /// <returns>Builder instance</returns>
-        public XmppClientBuilder Begin()
-        {
-            _client = new XmppClient();
-            return this;
-        }
-
+        Critical,
         /// <summary>
-        ///     Builds the client
+        ///     Error severity
         /// </summary>
-        /// <returns>Client with the options provided</returns>
-        public XmppClient Build()
-        {
-            return _client;
-        }
+        Error,
+        /// <summary>
+        ///     Warning severity
+        /// </summary>
+        Warning,
+        /// <summary>
+        ///     Information severity
+        /// </summary>
+        Information,
+        /// <summary>
+        ///     Debug severity
+        /// </summary>
+        Debug
     }
 }
