@@ -1,19 +1,4 @@
 {
-  "metadata": [
-    {
-      "src": [
-        {
-          "files": [
-            "**.csproj"
-          ],
-          "src": "C:\\Users\\coder\\source\\repos\\Ubiety.Xmpp.Core\\Ubiety.Xmpp.Core"
-        }
-      ],
-      "dest": "api",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
-    }
-  ],
   "build": {
     "content": [
       {
@@ -61,5 +46,20 @@
     "keepFileLink": false,
     "cleanupCacheHistory": false,
     "disableGitFeatures": false
-  }
+  },
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "**.csproj"
+          ],
+          "src": "C:\\Users\\coder\\source\\repos\\Ubiety.Xmpp.Core\\Ubiety.Xmpp.Core"
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    }
+  ]
 }
