@@ -12,29 +12,18 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using Ubiety.Xmpp.Core.Common;
-
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Main XMPP client class
+    ///     Defines the interface for the log manager
     /// </summary>
-    public class XmppClient : IClient
+    public interface ILogManager
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppClient" /> class
+        ///     Get a log instance for the requested name
         /// </summary>
-        internal XmppClient()
-        {
-        }
-
-        /// <inheritdoc />
-        public Jid Id { get; set; }
-
-        /// <inheritdoc />
-        public int Port { get; set; }
-
-        /// <inheritdoc />
-        public bool UseSsl { get; internal set; }
+        /// <param name="name">Name of the instance</param>
+        /// <returns>Instance of a log</returns>
+        ILog Get(string name);
     }
 }

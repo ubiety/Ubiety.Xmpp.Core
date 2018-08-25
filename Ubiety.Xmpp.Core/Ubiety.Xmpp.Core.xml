@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ubiety.Xmpp.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Ubiety.Xmpp.Core.Common.DataEventArgs">
+            <inheritdoc />
+            <summary>
+                Socket data event arguments
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.DataEventArgs.Message">
+            <summary>
+                Gets or sets the message from the server
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Common.Jid">
+            <inheritdoc />
+            <summary>
+                JID class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> class
+            </summary>
+            <param name="id">String version of the ID</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.Resource">
+            <summary>
+                Gets the JID resource
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.Server">
+            <summary>
+                Gets the server of the JID
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.User">
+            <summary>
+                Gets the user name of the JID
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.Jid.Id">
+            <summary>
+                Gets or sets the id as a string
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.op_Implicit(System.String)~Ubiety.Xmpp.Core.Common.Jid">
+            <summary>
+                Implicitly converts a string into a <see cref="T:Ubiety.Xmpp.Core.Common.Jid" />
+            </summary>
+            <param name="id">String version of the ID</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.op_Implicit(Ubiety.Xmpp.Core.Common.Jid)~System.String">
+            <summary>
+                Implicitly converts a <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> to a string
+            </summary>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the ID</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.op_Equality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)">
+            <summary>
+                Compares equality of one <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> to another
+            </summary>
+            <param name="one">First <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /></param>
+            <param name="two">Second <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /></param>
+            <returns>True if the Jids are equal</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.op_Inequality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)">
+            <summary>
+                Compares the inequality of one <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> to another
+            </summary>
+            <param name="one">First <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /></param>
+            <param name="two">Second <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /></param>
+            <returns>True if the Jids are not equal</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.IClient">
+            <summary>
+                Defines a client interface
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.IClient.Id">
+            <summary>
+                Gets or sets the user JID
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.IClient.Port">
+            <summary>
+                Gets or sets the port of the server
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.IClient.UseSsl">
+            <summary>
+                Gets a value indicating whether the socket should use SSL
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions">
+            <summary>
+                Byte extension methods
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.TrimNullBytes(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+                Trims null byte values from the end of an array
+            </summary>
+            <param name="bytes">Byte array to trim</param>
+            <returns>Trimmed array</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.Clear(System.Byte[])">
+            <summary>
+                Clears a byte array
+            </summary>
+            <param name="data">Byte array to clear</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Logging.ILog">
+            <summary>
+                Defines an interface for logging
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Object)">
+            <summary>
+                Log a generic message
+            </summary>
+            <param name="level">Severity level of the message</param>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.String,System.Object[])">
+            <summary>
+                Log a generic message with formatting
+            </summary>
+            <param name="level">Severity level of the message</param>
+            <param name="message">String message to log</param>
+            <param name="args">Formatting parameters</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.Object)">
+            <summary>
+                Log a message with an exception
+            </summary>
+            <param name="level">Severity level of the message</param>
+            <param name="exception">Exception to log</param>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.String,System.Object[])">
+            <summary>
+                Log a formatted message with an exception
+            </summary>
+            <param name="level">Severity level of the message</param>
+            <param name="exception">Exception to log</param>
+            <param name="message">Message to log</param>
+            <param name="args">Formatting parameters</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Logging.ILogManager">
+            <summary>
+                Defines the interface for the log manager
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.ILogManager.Get(System.String)">
+            <summary>
+                Get a log instance for the requested name
+            </summary>
+            <param name="name">Name of the instance</param>
+            <returns>Instance of a log</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Logging.Log">
+            <summary>
+                Central log class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.Get``1">
+            <summary>
+                Gets a logger for the type
+            </summary>
+            <typeparam name="T">Type to get a logger for</typeparam>
+            <returns>Logger for the type</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.Get(System.Type)">
+            <summary>
+                Gets a logger for the type
+            </summary>
+            <param name="type">Type to get a logger for</param>
+            <returns>Logger for the type</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.Get(System.String)">
+            <summary>
+                Gets a logger for the type name
+            </summary>
+            <param name="name">Name of the type</param>
+            <returns>Logger for the type name</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.NameFor``1">
+            <summary>
+                Gets the name of the type
+            </summary>
+            <typeparam name="T">Type to get the name for</typeparam>
+            <returns>Name of the type</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.NameFor(System.Type)">
+            <summary>
+                Gets the name of the type
+            </summary>
+            <param name="type">Type to get the name for</param>
+            <returns>Name of the type</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.DefaultManager.Get(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Logging.LogLevel">
+            <summary>
+                Log severity level
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Logging.LogLevel.Critical">
+            <summary>
+                Critical severity
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Logging.LogLevel.Error">
+            <summary>
+                Error severity
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Logging.LogLevel.Warning">
+            <summary>
+                Warning severity
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Logging.LogLevel.Information">
+            <summary>
+                Information severity
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Logging.LogLevel.Debug">
+            <summary>
+                Debug severity
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Net.Address">
+            <summary>
+                Address class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.Address.#ctor(Ubiety.Xmpp.Core.IClient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.Address" /> class
+            </summary>
+            <param name="client">Instance of the main client</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.Address.IsIPv6">
+            <summary>
+                Gets a value indicating whether the address is IPv6
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.Address.Hostname">
+            <summary>
+                Gets the hostname of the address
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.Address.NextIpAddress">
+            <summary>
+                Gets the next IP address for the server
+            </summary>
+            <returns><see cref="T:System.Net.IPAddress" /> of the XMPP server</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Net.AsyncSocket">
+            <summary>
+                An asynchronous socket for connecting to a server
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.#ctor(Ubiety.Xmpp.Core.IClient)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.AsyncSocket" /> class
+            </summary>
+            <param name="client">Client to use for the server connection</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncSocket.Data">
+            <inheritdoc />
+        </member>
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncSocket.Connection">
+            <inheritdoc />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.AsyncSocket.Connected">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Connect">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Disconnect">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.OnData(Ubiety.Xmpp.Core.Common.DataEventArgs)">
+            <summary>
+                Raise the data event with the specified arguments
+            </summary>
+            <param name="e">Data event arguments</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.OnConnection">
+            <summary>
+                Raise the connection event
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Net.ISocket">
+            <summary>
+                Defines a socket interface
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.ISocket.Connected">
+            <summary>
+                Gets a value indicating whether the socket is connected
+            </summary>
+        </member>
+        <member name="E:Ubiety.Xmpp.Core.Net.ISocket.Data">
+            <summary>
+                Raised when data is received from the server
+            </summary>
+        </member>
+        <member name="E:Ubiety.Xmpp.Core.Net.ISocket.Connection">
+            <summary>
+                Raised when the socket is connected to the server
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.ISocket.Connect">
+            <summary>
+                Connect to an XMPP server
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.ISocket.Disconnect">
+            <summary>
+                Disconnects from the server
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.XmppClient">
+            <summary>
+                Main XMPP client class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClient.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.XmppClient" /> class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.XmppClient.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.XmppClient.Port">
+            <inheritdoc />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.XmppClient.UseSsl">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.XmppClientBuilder">
+            <summary>
+                Builds a new XmppClient
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.Begin">
+            <summary>
+                Begin the build process
+            </summary>
+            <returns>Builder instance</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.EnableLogging(Ubiety.Xmpp.Core.Logging.ILogManager)">
+            <summary>
+                Enable logging with the log manager
+            </summary>
+            <param name="manager">Log manager to use for logging</param>
+            <returns>Builder instance</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.Build">
+            <summary>
+                Builds the client
+            </summary>
+            <returns>Client with the options provided</returns>
+        </member>
+    </members>
+</doc>

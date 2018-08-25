@@ -12,29 +12,32 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using Ubiety.Xmpp.Core.Common;
-
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Main XMPP client class
+    ///     Log severity level
     /// </summary>
-    public class XmppClient : IClient
+    public enum LogLevel
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppClient" /> class
+        ///     Critical severity
         /// </summary>
-        internal XmppClient()
-        {
-        }
-
-        /// <inheritdoc />
-        public Jid Id { get; set; }
-
-        /// <inheritdoc />
-        public int Port { get; set; }
-
-        /// <inheritdoc />
-        public bool UseSsl { get; internal set; }
+        Critical,
+        /// <summary>
+        ///     Error severity
+        /// </summary>
+        Error,
+        /// <summary>
+        ///     Warning severity
+        /// </summary>
+        Warning,
+        /// <summary>
+        ///     Information severity
+        /// </summary>
+        Information,
+        /// <summary>
+        ///     Debug severity
+        /// </summary>
+        Debug
     }
 }

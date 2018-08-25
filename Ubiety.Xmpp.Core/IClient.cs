@@ -17,24 +17,23 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Main XMPP client class
+    ///     Defines a client interface
     /// </summary>
-    public class XmppClient : IClient
+    public interface IClient
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppClient" /> class
+        ///     Gets or sets the user JID
         /// </summary>
-        internal XmppClient()
-        {
-        }
+        Jid Id { get; set; }
 
-        /// <inheritdoc />
-        public Jid Id { get; set; }
+        /// <summary>
+        ///     Gets or sets the port of the server
+        /// </summary>
+        int Port { get; set; }
 
-        /// <inheritdoc />
-        public int Port { get; set; }
-
-        /// <inheritdoc />
-        public bool UseSsl { get; internal set; }
+        /// <summary>
+        ///     Gets a value indicating whether the socket should use SSL
+        /// </summary>
+        bool UseSsl { get; }
     }
 }
