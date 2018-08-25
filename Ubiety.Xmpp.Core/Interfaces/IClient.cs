@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core.Interfaces
         int Port { get; set; }
 
         /// <summary>
-        /// Gets value indicating whether the socket should use SSL
+        /// Gets a value indicating whether the socket should use SSL
         /// </summary>
         bool UseSsl { get; }
     }

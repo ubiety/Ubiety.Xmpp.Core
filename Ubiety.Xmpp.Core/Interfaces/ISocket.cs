@@ -18,10 +18,19 @@ namespace Ubiety.Xmpp.Core.Interfaces
         event EventHandler<DataEventArgs> Data;
 
         /// <summary>
+        /// Raised when the socket is connected to the server
+        /// </summary>
+        event EventHandler Connection;
+
+        /// <summary>
+        /// Gets a value indicating whether the socket is connected
+        /// </summary>
+        bool Connected { get; }
+
+        /// <summary>
         /// Connect to an XMPP server
         /// </summary>
-        /// <param name="client">Client to use for the connection</param>
-        void Connect(IClient client);
+        void Connect();
 
         /// <summary>
         /// Disconnects from the server

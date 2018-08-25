@@ -5,7 +5,10 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
@@ -21,6 +24,7 @@ namespace Ubiety.Xmpp.Core.Net
         private const int BufferSize = 4096;
         private readonly byte[] _buffer;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
+        private readonly IClient _client;
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -28,17 +32,20 @@ namespace Ubiety.Xmpp.Core.Net
         /// <summary>
         /// Initializes a new instance of the <see cref="AsyncSocket"/> class
         /// </summary>
-        public AsyncSocket()
+        /// <param name="client">Client to use for the server connection</param>
+        public AsyncSocket(IClient client)
         {
+            _client = client;
             _buffer = new byte[BufferSize];
         }
 
         /// <inheritdoc />
         public event EventHandler<DataEventArgs> Data;
 
-        /// <summary>
-        /// Gets a value indicating whether the socket is connected
-        /// </summary>
+        /// <inheritdoc/>
+        public event EventHandler Connection;
+
+        /// <inheritdoc/>
         public bool Connected { get; private set; }
 
         /// <inheritdoc />
@@ -48,16 +55,16 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <inheritdoc />
-        public void Connect(IClient client)
+        public void Connect()
         {
-            _address = new Address(client);
+            _address = new Address(_client);
             _socket = _address.IsIPv6
                 ? new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp)
                 : new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             var args = new SocketAsyncEventArgs();
             args.Completed += ConnectCompleted;
-            args.RemoteEndPoint = new IPEndPoint(_address.NextIpAddress(), client.Port);
+            args.RemoteEndPoint = new IPEndPoint(_address.NextIpAddress(), _client.Port);
 
             try
             {
@@ -73,6 +80,9 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Disconnect()
         {
+            Connected = false;
+            _stream.Close();
+            _socket.Shutdown(SocketShutdown.Both);
             _socket.Disconnect(true);
         }
 
@@ -85,13 +95,44 @@ namespace Ubiety.Xmpp.Core.Net
             Data?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// Raise the connection event
+        /// </summary>
+        protected virtual void OnConnection()
+        {
+            Connection?.Invoke(this, new EventArgs());
+        }
+
+        private static bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return sslPolicyErrors == SslPolicyErrors.None;
+        }
+
         private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
         {
             var socket = e.ConnectSocket;
             Connected = true;
+            OnConnection();
 
             _stream = new NetworkStream(socket);
+            if (_client.UseSsl)
+            {
+                StartSsl();
+            }
+
             _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
+        }
+
+        private void StartSsl()
+        {
+            var secureStream = new SslStream(_stream, true, CertificateValidation);
+
+            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);
+
+            if (secureStream.IsAuthenticated)
+            {
+                _stream = secureStream;
+            }
         }
 
         private void ReceiveCompleted(IAsyncResult ar)
