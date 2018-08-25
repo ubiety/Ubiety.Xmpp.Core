@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="docfx.console" Version="2.38.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Libidn.Core" Version="1.0.0" />
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">

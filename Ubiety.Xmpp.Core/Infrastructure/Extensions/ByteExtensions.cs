@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿// <copyright file="ByteExtensions.cs" company="Dieter Lunn">
+// Copyright (c) Dieter Lunn. All rights reserved.
+// </copyright>
+
+using System;
+using System.Collections.Generic;
 
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
@@ -38,6 +43,15 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Clears a byte array
+        /// </summary>
+        /// <param name="data">Byte array to clear</param>
+        public static void Clear(this byte[] data)
+        {
+            Array.Clear(data, 0, data.Length);
         }
     }
 }

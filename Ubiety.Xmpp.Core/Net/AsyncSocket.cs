@@ -1,7 +1,13 @@
-﻿using System;
+﻿// <copyright file="AsyncSocket.cs" company="Dieter Lunn">
+// Copyright (c) Dieter Lunn. All rights reserved.
+// </copyright>
+
+using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Interfaces;
 
@@ -12,18 +18,23 @@ namespace Ubiety.Xmpp.Core.Net
     /// </summary>
     public class AsyncSocket : ISocket, IDisposable
     {
+        private const int BufferSize = 4096;
         private readonly byte[] _buffer;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private Address _address;
         private Socket _socket;
+        private Stream _stream;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AsyncSocket"/> class
         /// </summary>
         public AsyncSocket()
         {
-            _buffer = new byte[2048];
+            _buffer = new byte[BufferSize];
         }
+
+        /// <inheritdoc />
+        public event EventHandler<DataEventArgs> Data;
 
         /// <summary>
         /// Gets a value indicating whether the socket is connected
@@ -62,7 +73,16 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Disconnect()
         {
-            throw new NotImplementedException();
+            _socket.Disconnect(true);
+        }
+
+        /// <summary>
+        /// Raise the data event with the specified arguments
+        /// </summary>
+        /// <param name="e">Data event arguments</param>
+        protected virtual void OnData(DataEventArgs e)
+        {
+            Data?.Invoke(this, e);
         }
 
         private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
@@ -70,17 +90,20 @@ namespace Ubiety.Xmpp.Core.Net
             var socket = e.ConnectSocket;
             Connected = true;
 
-            var args = new SocketAsyncEventArgs();
-            args.Completed += ReceiveCompleted;
-            args.SetBuffer(_buffer, 0, _buffer.Length);
-
-            socket.ReceiveAsync(args);
+            _stream = new NetworkStream(socket);
+            _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
         }
 
-        private void ReceiveCompleted(object sender, SocketAsyncEventArgs e)
+        private void ReceiveCompleted(IAsyncResult ar)
         {
-            var buffer = e.Buffer.TrimNullBytes();
-            var message = _utf8.GetString(buffer);
+            _stream.EndRead(ar);
+            var message = _utf8.GetString(_buffer.TrimNullBytes());
+
+            OnData(new DataEventArgs { Message = message });
+
+            _buffer.Clear();
+
+            _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
         }
     }
 }

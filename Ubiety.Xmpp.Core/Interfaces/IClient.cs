@@ -20,5 +20,10 @@ namespace Ubiety.Xmpp.Core.Interfaces
         /// Gets or sets the port of the server
         /// </summary>
         int Port { get; set; }
+
+        /// <summary>
+        /// Gets value indicating whether the socket should use SSL
+        /// </summary>
+        bool UseSsl { get; }
     }
 }

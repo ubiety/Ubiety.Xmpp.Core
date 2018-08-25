@@ -12,7 +12,13 @@ namespace Ubiety.Xmpp.Core
     /// </summary>
     public class XmppClient : IClient
     {
-        /// <inheritdoc cref="Id" />
+        /// <inheritdoc />
         public Jid Id { get; set; }
+
+        /// <inheritdoc/>
+        public int Port { get; set; }
+
+        /// <inheritdoc/>
+        public bool UseSsl { get; internal set; }
     }
 }
