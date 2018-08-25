@@ -5,7 +5,7 @@
 using System;
 using Ubiety.Xmpp.Core.Common;
 
-namespace Ubiety.Xmpp.Core.Interfaces
+namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
     /// Defines a socket interface

@@ -10,7 +10,6 @@ using Ubiety.Dns.Core;
 using Ubiety.Dns.Core.Common;
 using Ubiety.Dns.Core.Records;
 using Ubiety.Dns.Core.Records.General;
-using Ubiety.Xmpp.Core.Interfaces;
 
 namespace Ubiety.Xmpp.Core.Net
 {

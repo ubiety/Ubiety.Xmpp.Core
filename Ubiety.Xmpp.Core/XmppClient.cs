@@ -3,7 +3,6 @@
 // </copyright>
 
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Interfaces;
 
 namespace Ubiety.Xmpp.Core
 {

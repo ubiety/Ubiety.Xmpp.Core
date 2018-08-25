@@ -4,7 +4,7 @@
 
 using Ubiety.Xmpp.Core.Common;
 
-namespace Ubiety.Xmpp.Core.Interfaces
+namespace Ubiety.Xmpp.Core
 {
     /// <summary>
     ///     Defines a client interface

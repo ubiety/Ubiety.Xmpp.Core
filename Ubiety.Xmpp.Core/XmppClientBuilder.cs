@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="XmppClientBuilder.cs" company="Dieter Lunn">
+// Copyright (c) Dieter Lunn. All rights reserved.
+// </copyright>
 
 namespace Ubiety.Xmpp.Core
 {

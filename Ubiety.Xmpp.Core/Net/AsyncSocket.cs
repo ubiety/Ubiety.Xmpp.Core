@@ -12,7 +12,6 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
-using Ubiety.Xmpp.Core.Interfaces;
 
 namespace Ubiety.Xmpp.Core.Net
 {

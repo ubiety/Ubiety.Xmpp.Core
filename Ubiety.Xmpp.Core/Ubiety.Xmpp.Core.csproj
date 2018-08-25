@@ -30,4 +30,8 @@
     <PackageReference Include="Ubiety.Dns.Core" Version="2.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logging\" />
+  </ItemGroup>
+
 </Project>
