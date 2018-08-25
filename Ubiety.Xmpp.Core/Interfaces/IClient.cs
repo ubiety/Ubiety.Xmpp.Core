@@ -15,5 +15,10 @@ namespace Ubiety.Xmpp.Core.Interfaces
         ///     Gets or sets the user JID
         /// </summary>
         Jid Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the port of the server
+        /// </summary>
+        int Port { get; set; }
     }
 }
