@@ -12,6 +12,13 @@ namespace Ubiety.Xmpp.Core
     /// </summary>
     public class XmppClient : IClient
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="XmppClient"/> class
+        /// </summary>
+        internal XmppClient()
+        {
+        }
+
         /// <inheritdoc />
         public Jid Id { get; set; }
 
