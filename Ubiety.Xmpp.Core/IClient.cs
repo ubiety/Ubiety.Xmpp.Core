@@ -12,19 +12,28 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
+using Ubiety.Xmpp.Core.Common;
 
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core
 {
-    /// <inheritdoc />
     /// <summary>
-    ///     Socket data event arguments
+    ///     Defines a client interface
     /// </summary>
-    public class DataEventArgs : EventArgs
+    public interface IClient
     {
         /// <summary>
-        ///     Gets or sets the message from the server
+        ///     Gets or sets the user JID
         /// </summary>
-        public string Message { get; set; }
+        Jid Id { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the port of the server
+        /// </summary>
+        int Port { get; set; }
+
+        /// <summary>
+        ///     Gets a value indicating whether the socket should use SSL
+        /// </summary>
+        bool UseSsl { get; }
     }
 }

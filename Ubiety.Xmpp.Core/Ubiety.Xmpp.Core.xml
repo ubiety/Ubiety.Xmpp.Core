@@ -87,18 +87,6 @@
         <member name="M:Ubiety.Xmpp.Core.Common.Jid.ToString">
             <inheritdoc/>
         </member>
-        <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions">
-            <summary>
-            Byte extension methods
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.TrimNullBytes(System.Collections.Generic.IList{System.Byte})">
-            <summary>
-            Trims null byte values from the end of an array
-            </summary>
-            <param name="bytes">Byte array to trim</param>
-            <returns>Trimmed array</returns>
-        </member>
         <member name="T:Ubiety.Xmpp.Core.Interfaces.IClient">
             <summary>
                 Defines a client interface
@@ -114,21 +102,58 @@
             Gets or sets the port of the server
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.Interfaces.IClient.UseSsl">
+            <summary>
+            Gets a value indicating whether the socket should use SSL
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Interfaces.ISocket">
             <summary>
             Defines a socket interface
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Interfaces.ISocket.Connect(Ubiety.Xmpp.Core.Interfaces.IClient)">
+        <member name="E:Ubiety.Xmpp.Core.Interfaces.ISocket.Data">
+            <summary>
+            Raised when data is received from the server
+            </summary>
+        </member>
+        <member name="E:Ubiety.Xmpp.Core.Interfaces.ISocket.Connection">
+            <summary>
+            Raised when the socket is connected to the server
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Interfaces.ISocket.Connected">
+            <summary>
+            Gets a value indicating whether the socket is connected
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Interfaces.ISocket.Connect">
             <summary>
             Connect to an XMPP server
             </summary>
-            <param name="client">Client to use for the connection</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Interfaces.ISocket.Disconnect">
             <summary>
             Disconnects from the server
             </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions">
+            <summary>
+            Byte extension methods
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.TrimNullBytes(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Trims null byte values from the end of an array
+            </summary>
+            <param name="bytes">Byte array to trim</param>
+            <returns>Trimmed array</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.Clear(System.Byte[])">
+            <summary>
+            Clears a byte array
+            </summary>
+            <param name="data">Byte array to clear</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Net.Address">
             <summary>
@@ -162,32 +187,25 @@
                 An asynchronous socket for connecting to a server
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.#ctor">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.#ctor(Ubiety.Xmpp.Core.Interfaces.IClient)">
             <summary>
             Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.AsyncSocket"/> class
             </summary>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Net.AsyncSocket.DataEventHandler">
-            <summary>
-            Event handler for the data event
-            </summary>
-            <param name="sender">Object raising the event</param>
-            <param name="e">Data arguments of the event</param>
+            <param name="client">Client to use for the server connection</param>
         </member>
         <member name="E:Ubiety.Xmpp.Core.Net.AsyncSocket.Data">
-            <summary>
-            Raised when data is received from the server
-            </summary>
+            <inheritdoc />
+        </member>
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncSocket.Connection">
+            <inheritdoc/>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.AsyncSocket.Connected">
-            <summary>
-            Gets a value indicating whether the socket is connected
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Dispose">
             <inheritdoc />
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Connect(Ubiety.Xmpp.Core.Interfaces.IClient)">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Connect">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Disconnect">
@@ -199,16 +217,46 @@
             </summary>
             <param name="e">Data event arguments</param>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.OnConnection">
+            <summary>
+            Raise the connection event
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.XmppClient">
             <summary>
                 Main XMPP client class
             </summary>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.XmppClient"/> class
+            </summary>
+        </member>
         <member name="P:Ubiety.Xmpp.Core.XmppClient.Id">
-            <inheritdoc cref="P:Ubiety.Xmpp.Core.XmppClient.Id" />
+            <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.XmppClient.Port">
             <inheritdoc/>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.XmppClient.UseSsl">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.XmppClientBuilder">
+            <summary>
+            Builds a new XmppClient
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.Begin">
+            <summary>
+            Begin the build process
+            </summary>
+            <returns>Builder instance</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.Build">
+            <summary>
+            Builds the client
+            </summary>
+            <returns>Client with the options provided</returns>
         </member>
     </members>
 </doc>

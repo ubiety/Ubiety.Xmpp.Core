@@ -12,19 +12,18 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
-
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core.Logging
 {
-    /// <inheritdoc />
     /// <summary>
-    ///     Socket data event arguments
+    ///     Defines the interface for the log manager
     /// </summary>
-    public class DataEventArgs : EventArgs
+    public interface ILogManager
     {
         /// <summary>
-        ///     Gets or sets the message from the server
+        ///     Get a log instance for the requested name
         /// </summary>
-        public string Message { get; set; }
+        /// <param name="name">Name of the instance</param>
+        /// <returns>Instance of a log</returns>
+        ILog Get(string name);
     }
 }

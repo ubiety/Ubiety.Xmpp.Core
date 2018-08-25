@@ -12,19 +12,32 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
-
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core.Logging
 {
-    /// <inheritdoc />
     /// <summary>
-    ///     Socket data event arguments
+    ///     Log severity level
     /// </summary>
-    public class DataEventArgs : EventArgs
+    public enum LogLevel
     {
         /// <summary>
-        ///     Gets or sets the message from the server
+        ///     Critical severity
         /// </summary>
-        public string Message { get; set; }
+        Critical,
+        /// <summary>
+        ///     Error severity
+        /// </summary>
+        Error,
+        /// <summary>
+        ///     Warning severity
+        /// </summary>
+        Warning,
+        /// <summary>
+        ///     Information severity
+        /// </summary>
+        Information,
+        /// <summary>
+        ///     Debug severity
+        /// </summary>
+        Debug
     }
 }
