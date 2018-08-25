@@ -12,6 +12,8 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using Ubiety.Xmpp.Core.Logging;
+
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
@@ -20,6 +22,7 @@ namespace Ubiety.Xmpp.Core
     public class XmppClientBuilder
     {
         private XmppClient _client;
+        private ILogManager _logManager;
 
         /// <summary>
         ///     Begin the build process
@@ -32,11 +35,27 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
+        ///     Enable logging with the log manager
+        /// </summary>
+        /// <param name="manager">Log manager to use for logging</param>
+        /// <returns>Builder instance</returns>
+        public XmppClientBuilder EnableLogging(ILogManager manager)
+        {
+            _logManager = manager;
+            return this;
+        }
+
+        /// <summary>
         ///     Builds the client
         /// </summary>
         /// <returns>Client with the options provided</returns>
         public XmppClient Build()
         {
+            if (!(_logManager is null))
+            {
+                Log.Initialize(_logManager);
+            }
+
             return _client;
         }
     }
