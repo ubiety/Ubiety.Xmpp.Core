@@ -21,7 +21,6 @@ namespace Ubiety.Xmpp.Core
     /// </summary>
     public class XmppClientBuilder
     {
-        private XmppClient _client;
         private ILogManager _logManager;
         private bool _useIpv6;
         private bool _useSsl;
@@ -77,9 +76,9 @@ namespace Ubiety.Xmpp.Core
                 Log.Initialize(_logManager);
             }
 
-            _client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl};
+             var client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl};
 
-            return _client;
+            return client;
         }
     }
 }

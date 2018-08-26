@@ -24,6 +24,6 @@ namespace Ubiety.Xmpp.Core.Logging
         /// </summary>
         /// <param name="name">Name of the instance</param>
         /// <returns>Instance of a log</returns>
-        ILog Get(string name);
+        ILog GetLogger(string name);
     }
 }

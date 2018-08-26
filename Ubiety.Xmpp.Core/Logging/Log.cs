@@ -36,7 +36,7 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Logger for the type</returns>
         public static ILog Get<T>()
         {
-            return _manager.Get(NameFor<T>());
+            return _manager.GetLogger(NameFor<T>());
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Logger for the type</returns>
         public static ILog Get(Type type)
         {
-            return _manager.Get(NameFor(type));
+            return _manager.GetLogger(NameFor(type));
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Logger for the type name</returns>
         public static ILog Get(string name)
         {
-            return _manager.Get(name);
+            return _manager.GetLogger(name);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Ubiety.Xmpp.Core.Logging
         private class DefaultManager : ILogManager
         {
             /// <inheritdoc />
-            public ILog Get(string name)
+            public ILog GetLogger(string name)
             {
                 return new DefaultLogger(name);
             }

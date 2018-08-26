@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.Design;
 using Serilog;
 using Ubiety.Xmpp.Core.Logging;
 
@@ -7,7 +6,7 @@ namespace Ubiety.Xmpp.App
 {
     public class SerilogManager : ILogManager
     {
-        public ILog Get(string name)
+        public ILog GetLogger(string name)
         {
             return new SerilogLogger(name);
         }
@@ -27,19 +26,9 @@ namespace Ubiety.Xmpp.App
                 Log(level, message.ToString());
             }
 
-            public void Log(LogLevel level, string message, params object[] args)
-            {
-                Log(level, Format(message, args));
-            }
-
             public void Log(LogLevel level, Exception exception, object message)
             {
                 LogException(level, exception, message.ToString());
-            }
-
-            public void Log(LogLevel level, Exception exception, string message, params object[] args)
-            {
-                LogException(level, exception, Format(message, args));
             }
 
             private void Log(LogLevel level, string message)
@@ -86,11 +75,6 @@ namespace Ubiety.Xmpp.App
                         Serilog.Log.Debug(exception, msg);
                         break;
                 }
-            }
-
-            private static string Format(string format, object[] args)
-            {
-                return args != null && args.Length != 0 ? string.Format(format, args) : format;
             }
         }
     }

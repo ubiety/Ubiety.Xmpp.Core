@@ -23,7 +23,7 @@ namespace Ubiety.Xmpp.Core.Common
     /// <summary>
     ///     JID class
     /// </summary>
-    public class Jid : IEquatable<Jid>
+    public sealed class Jid : IEquatable<Jid>
     {
         private string _id;
         private string _resource;

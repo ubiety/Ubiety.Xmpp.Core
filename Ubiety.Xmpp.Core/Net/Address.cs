@@ -145,7 +145,7 @@ namespace Ubiety.Xmpp.Core.Net
 
             _logger.Log(LogLevel.Debug, $"No SRV records found for {Hostname}");
             _srvFailed = true;
-            return null;
+            return new List<RecordSrv>();
         }
     }
 }
