@@ -68,9 +68,10 @@ namespace Ubiety.Xmpp.Core.Net
         public bool Connected { get; private set; }
 
         /// <inheritdoc />
-        public void Connect()
+        public void Connect(Jid jid)
         {
             _logger.Log(LogLevel.Debug, "Connecting to server");
+            _client.Id = jid;
             _address = new Address(_client);
             _logger.Log(LogLevel.Debug, "Creating socket");
             _socket = _address.IsIPv6

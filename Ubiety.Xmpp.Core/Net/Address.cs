@@ -39,12 +39,14 @@ namespace Ubiety.Xmpp.Core.Net
         /// <summary>
         ///     Initializes a new instance of the <see cref="Address" /> class
         /// </summary>
-        /// <param name="client">Instance of the main client</param>
+        /// <param name="client"><see cref="IClient"/> for configuration</param>
         public Address(IClient client)
         {
             _logger = Log.Get<Address>();
             _resolver = new Resolver("8.8.8.8") { UseCache = true, Timeout = 5, TransportType = TransportType.Tcp };
             _client = client;
+
+            _logger.Log(LogLevel.Debug, "Address created");
         }
 
         /// <summary>
