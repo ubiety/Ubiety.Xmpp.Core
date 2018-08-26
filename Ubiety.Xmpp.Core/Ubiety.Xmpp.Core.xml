@@ -107,6 +107,17 @@
                 Gets a value indicating whether the socket should use SSL
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.IClient.UseIPv6">
+            <summary>
+                Gets a value indicating whether the socket should use IPv6
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.IClient.Connect(Ubiety.Xmpp.Core.Common.Jid)">
+            <summary>
+                Connect to an XMPP server using a JID
+            </summary>
+            <param name="jid"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> to use for connecting</param>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions">
             <summary>
                 Byte extension methods
@@ -256,7 +267,7 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.Address" /> class
             </summary>
-            <param name="client">Instance of the main client</param>
+            <param name="client"><see cref="T:Ubiety.Xmpp.Core.IClient"/> for configuration</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.Address.IsIPv6">
             <summary>
@@ -297,7 +308,7 @@
         <member name="P:Ubiety.Xmpp.Core.Net.AsyncSocket.Connected">
             <inheritdoc />
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Connect">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Disconnect">
@@ -334,10 +345,11 @@
                 Raised when the socket is connected to the server
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.ISocket.Connect">
+        <member name="M:Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)">
             <summary>
                 Connect to an XMPP server
             </summary>
+            <param name="jid"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.ISocket.Disconnect">
             <summary>
@@ -363,6 +375,12 @@
         <member name="P:Ubiety.Xmpp.Core.XmppClient.UseSsl">
             <inheritdoc />
         </member>
+        <member name="P:Ubiety.Xmpp.Core.XmppClient.UseIPv6">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClient.Connect(Ubiety.Xmpp.Core.Common.Jid)">
+            <inheritdoc />
+        </member>
         <member name="T:Ubiety.Xmpp.Core.XmppClientBuilder">
             <summary>
                 Builds a new XmppClient
@@ -379,6 +397,18 @@
                 Enable logging with the log manager
             </summary>
             <param name="manager">Log manager to use for logging</param>
+            <returns>Builder instance</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.UseIPv6">
+            <summary>
+                Enables IPv6 support in the library
+            </summary>
+            <returns>Builder instance</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.UseSsl">
+            <summary>
+                Enables SSL support for the socket
+            </summary>
             <returns>Builder instance</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.Build">

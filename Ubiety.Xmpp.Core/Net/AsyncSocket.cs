@@ -55,7 +55,8 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Dispose()
         {
-            _socket.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <inheritdoc />
@@ -121,6 +122,21 @@ namespace Ubiety.Xmpp.Core.Net
         {
             _logger.Log(LogLevel.Debug, "Firing connection event");
             Connection?.Invoke(this, new EventArgs());
+        }
+
+        /// <summary>
+        ///     Dispose of class resources
+        /// </summary>
+        /// <param name="disposing">Are we disposing from a direct call</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_socket != null)
+                {
+                    _socket.Dispose();
+                }
+            }
         }
 
         private static bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
