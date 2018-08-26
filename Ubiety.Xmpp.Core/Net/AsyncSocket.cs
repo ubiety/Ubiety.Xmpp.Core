@@ -132,10 +132,7 @@ namespace Ubiety.Xmpp.Core.Net
         {
             if (disposing)
             {
-                if (_socket != null)
-                {
-                    _socket.Dispose();
-                }
+                _socket?.Dispose();
             }
         }
 
