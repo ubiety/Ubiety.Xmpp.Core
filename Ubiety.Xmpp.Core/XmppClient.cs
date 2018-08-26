@@ -51,6 +51,7 @@ namespace Ubiety.Xmpp.Core
         /// <inheritdoc />
         public void Connect(Jid jid)
         {
+            _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
             _socket.Connect(jid);
         }
     }
