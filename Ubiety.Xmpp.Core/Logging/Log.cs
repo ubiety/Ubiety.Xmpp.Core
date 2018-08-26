@@ -105,29 +105,14 @@ namespace Ubiety.Xmpp.Core.Logging
                     Log(level, message.ToString());
                 }
 
-                public void Log(LogLevel level, string message, params object[] args)
-                {
-                    Log(level, Format(message, args));
-                }
-
                 public void Log(LogLevel level, Exception exception, object message)
                 {
                     Log(level, $"{message}{Environment.NewLine}{exception}");
                 }
 
-                public void Log(LogLevel level, Exception exception, string message, params object[] args)
-                {
-                    Log(level, $"{Format(message, args)}{Environment.NewLine}{exception}");
-                }
-
                 private void Log(LogLevel level, string message)
                 {
                     Console.WriteLine($"[{_name}::{level}] {message}");
-                }
-
-                private static string Format(string format, object[] args)
-                {
-                    return args != null && args.Length != 0 ? string.Format(format, args) : format;
                 }
             }
         }
