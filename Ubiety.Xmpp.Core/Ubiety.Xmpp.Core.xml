@@ -287,7 +287,7 @@
         </member>
         <member name="T:Ubiety.Xmpp.Core.Net.AsyncSocket">
             <summary>
-                An asynchronous socket for connecting to a server
+                An asynchronous socket for connecting to an XMPP server
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.#ctor(Ubiety.Xmpp.Core.IClient)">
@@ -324,6 +324,12 @@
             <summary>
                 Raise the connection event
             </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Dispose(System.Boolean)">
+            <summary>
+                Dispose of class resources
+            </summary>
+            <param name="disposing">Are we disposing from a direct call</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Net.ISocket">
             <summary>

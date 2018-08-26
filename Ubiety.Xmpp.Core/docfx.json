@@ -54,7 +54,7 @@
           "files": [
             "**.csproj"
           ],
-          "src": "C:\\Users\\coder\\source\\repos\\Ubiety.Xmpp.Core\\Ubiety.Xmpp.Core"
+          "src": "."
         }
       ],
       "dest": "api",

@@ -27,7 +27,7 @@ using Ubiety.Xmpp.Core.Logging;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    ///     An asynchronous socket for connecting to a server
+    ///     An asynchronous socket for connecting to an XMPP server
     /// </summary>
     public class AsyncSocket : ISocket, IDisposable
     {
