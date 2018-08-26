@@ -40,5 +40,11 @@ namespace Ubiety.Xmpp.Core
         ///     Gets a value indicating whether the socket should use IPv6
         /// </summary>
         bool UseIPv6 { get; }
+
+        /// <summary>
+        ///     Connect to an XMPP server using a JID
+        /// </summary>
+        /// <param name="jid"><see cref="Jid"/> to use for connecting</param>
+        void Connect(Jid jid);
     }
 }

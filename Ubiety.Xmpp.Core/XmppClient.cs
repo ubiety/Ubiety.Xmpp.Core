@@ -14,6 +14,7 @@
 
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Net;
 
 namespace Ubiety.Xmpp.Core
 {
@@ -23,6 +24,7 @@ namespace Ubiety.Xmpp.Core
     public class XmppClient : IClient
     {
         private readonly ILog _logger;
+        private readonly AsyncSocket _socket;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppClient" /> class
@@ -30,6 +32,7 @@ namespace Ubiety.Xmpp.Core
         internal XmppClient()
         {
             _logger = Log.Get<XmppClient>();
+            _socket = new AsyncSocket(this);
             _logger.Log(LogLevel.Debug, "XmppClient created");
         }
 
@@ -44,5 +47,11 @@ namespace Ubiety.Xmpp.Core
 
         /// <inheritdoc />
         public bool UseIPv6 { get; internal set; }
+
+        /// <inheritdoc />
+        public void Connect(Jid jid)
+        {
+            _socket.Connect(jid);
+        }
     }
 }
