@@ -100,6 +100,7 @@ namespace Ubiety.Xmpp.Core.Net
             }
             else
             {
+                _logger.Log(LogLevel.Debug, $"Found IP: {ip}");
                 return ip;
             }
 

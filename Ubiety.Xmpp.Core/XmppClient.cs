@@ -18,6 +18,7 @@ using Ubiety.Xmpp.Core.Net;
 
 namespace Ubiety.Xmpp.Core
 {
+    /// <inheritdoc />
     /// <summary>
     ///     Main XMPP client class
     /// </summary>

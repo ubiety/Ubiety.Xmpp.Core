@@ -148,14 +148,6 @@
             <param name="level">Severity level of the message</param>
             <param name="message">Message to log</param>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.String,System.Object[])">
-            <summary>
-                Log a generic message with formatting
-            </summary>
-            <param name="level">Severity level of the message</param>
-            <param name="message">String message to log</param>
-            <param name="args">Formatting parameters</param>
-        </member>
         <member name="M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.Object)">
             <summary>
                 Log a message with an exception
@@ -163,15 +155,6 @@
             <param name="level">Severity level of the message</param>
             <param name="exception">Exception to log</param>
             <param name="message">Message to log</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.String,System.Object[])">
-            <summary>
-                Log a formatted message with an exception
-            </summary>
-            <param name="level">Severity level of the message</param>
-            <param name="exception">Exception to log</param>
-            <param name="message">Message to log</param>
-            <param name="args">Formatting parameters</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Logging.ILogManager">
             <summary>
@@ -363,6 +346,7 @@
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.XmppClient">
+            <inheritdoc />
             <summary>
                 Main XMPP client class
             </summary>

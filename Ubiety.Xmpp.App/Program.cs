@@ -1,9 +1,10 @@
 ﻿using System;
 using Ubiety.Xmpp.Core;
+using Ubiety.Xmpp.Core.Common;
 
 namespace Ubiety.Xmpp.App
 {
-    internal class Program
+    internal static class Program
     {
         private static void Main(string[] args)
         {
@@ -11,6 +12,10 @@ namespace Ubiety.Xmpp.App
                 .Begin()
                 .EnableLogging(new SerilogManager())
                 .Build();
+
+            var id = new Jid("dieter@dieterlunn.ca");
+
+            client.Connect(id);
             Console.ReadLine();
         }
     }
