@@ -30,7 +30,6 @@ namespace Ubiety.Xmpp.Core
         /// <returns>Builder instance</returns>
         public XmppClientBuilder Begin()
         {
-            _client = new XmppClient();
             return this;
         }
 
@@ -55,6 +54,8 @@ namespace Ubiety.Xmpp.Core
             {
                 Log.Initialize(_logManager);
             }
+
+            _client = new XmppClient();
 
             return _client;
         }

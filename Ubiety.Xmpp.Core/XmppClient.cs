@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Logging;
 
 namespace Ubiety.Xmpp.Core
 {
@@ -21,11 +22,15 @@ namespace Ubiety.Xmpp.Core
     /// </summary>
     public class XmppClient : IClient
     {
+        private readonly ILog _logger;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppClient" /> class
         /// </summary>
         internal XmppClient()
         {
+            _logger = Log.Get<XmppClient>();
+            _logger.Log(LogLevel.Debug, "XmppClient created");
         }
 
         /// <inheritdoc />
