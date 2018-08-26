@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using Serilog;
 using Ubiety.Xmpp.Core.Logging;
 
@@ -33,32 +34,56 @@ namespace Ubiety.Xmpp.App
 
             public void Log(LogLevel level, Exception exception, object message)
             {
-                throw new NotImplementedException();
+                LogException(level, exception, message.ToString());
             }
 
             public void Log(LogLevel level, Exception exception, string message, params object[] args)
             {
-                throw new NotImplementedException();
+                LogException(level, exception, Format(message, args));
             }
 
             private void Log(LogLevel level, string message)
             {
+                var msg = $"{_name} :: {message}";
                 switch (level)
                 {
                     case LogLevel.Critical:
-                        Serilog.Log.Fatal($"{_name} :: {message}");
+                        Serilog.Log.Fatal(msg);
                         break;
                     case LogLevel.Error:
-                        Serilog.Log.Error($"{_name} :: {message}");
+                        Serilog.Log.Error(msg);
                         break;
                     case LogLevel.Warning:
-                        Serilog.Log.Warning($"{_name} :: {message}");
+                        Serilog.Log.Warning(msg);
                         break;
                     case LogLevel.Information:
-                        Serilog.Log.Information($"{_name} :: {message}");
+                        Serilog.Log.Information(msg);
                         break;
                     case LogLevel.Debug:
-                        Serilog.Log.Debug($"{_name} :: {message}");
+                        Serilog.Log.Debug(msg);
+                        break;
+                }
+            }
+
+            private void LogException(LogLevel level, Exception exception, string message)
+            {
+                var msg = $"{_name} :: {message}";
+                switch (level)
+                {
+                    case LogLevel.Critical:
+                        Serilog.Log.Fatal(exception, msg);
+                        break;
+                    case LogLevel.Error:
+                        Serilog.Log.Error(exception, msg);
+                        break;
+                    case LogLevel.Warning:
+                        Serilog.Log.Warning(exception, msg);
+                        break;
+                    case LogLevel.Information:
+                        Serilog.Log.Information(exception, msg);
+                        break;
+                    case LogLevel.Debug:
+                        Serilog.Log.Debug(exception, msg);
                         break;
                 }
             }

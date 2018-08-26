@@ -41,5 +41,8 @@ namespace Ubiety.Xmpp.Core
 
         /// <inheritdoc />
         public bool UseSsl { get; internal set; }
+
+        /// <inheritdoc />
+        public bool UseIPv6 { get; internal set; }
     }
 }

@@ -22,6 +22,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
+using Ubiety.Xmpp.Core.Logging;
 
 namespace Ubiety.Xmpp.Core.Net
 {
@@ -34,6 +35,7 @@ namespace Ubiety.Xmpp.Core.Net
         private readonly byte[] _buffer;
         private readonly IClient _client;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
+        private readonly ILog _logger;
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -44,8 +46,10 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="client">Client to use for the server connection</param>
         public AsyncSocket(IClient client)
         {
+            _logger = Log.Get<AsyncSocket>();
             _client = client;
             _buffer = new byte[BufferSize];
+            _logger.Log(LogLevel.Debug, "AsyncSocket created");
         }
 
         /// <inheritdoc />
@@ -66,7 +70,9 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Connect()
         {
+            _logger.Log(LogLevel.Debug, "Connecting to server");
             _address = new Address(_client);
+            _logger.Log(LogLevel.Debug, "Creating socket");
             _socket = _address.IsIPv6
                 ? new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp)
                 : new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -81,6 +87,7 @@ namespace Ubiety.Xmpp.Core.Net
             }
             catch (SocketException e)
             {
+                _logger.Log(LogLevel.Error, e, "Error connecting to the server");
                 Console.WriteLine(e);
                 throw;
             }
@@ -89,6 +96,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Disconnect()
         {
+            _logger.Log(LogLevel.Debug, "Disconnecting from the server");
             Connected = false;
             _stream.Close();
             _socket.Shutdown(SocketShutdown.Both);
@@ -101,6 +109,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="e">Data event arguments</param>
         protected virtual void OnData(DataEventArgs e)
         {
+            _logger.Log(LogLevel.Debug, "Firing data event");
             Data?.Invoke(this, e);
         }
 
@@ -109,6 +118,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// </summary>
         protected virtual void OnConnection()
         {
+            _logger.Log(LogLevel.Debug, "Firing connection event");
             Connection?.Invoke(this, new EventArgs());
         }
 
@@ -120,6 +130,7 @@ namespace Ubiety.Xmpp.Core.Net
 
         private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
         {
+            _logger.Log(LogLevel.Debug, "Connection complete");
             var socket = e.ConnectSocket;
             Connected = true;
             OnConnection();
@@ -127,11 +138,13 @@ namespace Ubiety.Xmpp.Core.Net
             _stream = new NetworkStream(socket);
             if (_client.UseSsl) StartSsl();
 
+            _logger.Log(LogLevel.Debug, "Starting to read data");
             _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
         }
 
         private void StartSsl()
         {
+            _logger.Log(LogLevel.Debug, "Starting SSL encryption");
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
             secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);

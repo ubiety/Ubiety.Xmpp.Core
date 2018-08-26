@@ -23,6 +23,7 @@ namespace Ubiety.Xmpp.Core
     {
         private XmppClient _client;
         private ILogManager _logManager;
+        private bool _useIpv6;
 
         /// <summary>
         ///     Begin the build process
@@ -45,6 +46,16 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
+        ///     Enables IPv6 support in the library
+        /// </summary>
+        /// <returns>Builder instance</returns>
+        public XmppClientBuilder UseIPv6()
+        {
+            _useIpv6 = true;
+            return this;
+        }
+
+        /// <summary>
         ///     Builds the client
         /// </summary>
         /// <returns>Client with the options provided</returns>
@@ -55,7 +66,7 @@ namespace Ubiety.Xmpp.Core
                 Log.Initialize(_logManager);
             }
 
-            _client = new XmppClient();
+            _client = new XmppClient { UseIPv6 = _useIpv6 };
 
             return _client;
         }
