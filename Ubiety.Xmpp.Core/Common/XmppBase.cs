@@ -14,6 +14,7 @@
 
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
+using Ubiety.Xmpp.Core.Registries;
 using Ubiety.Xmpp.Core.States;
 
 namespace Ubiety.Xmpp.Core.Common
@@ -48,6 +49,11 @@ namespace Ubiety.Xmpp.Core.Common
         ///     Gets or sets the current state
         /// </summary>
         public IState State { get; set; }
+
+        /// <summary>
+        ///     Gets the tag registry
+        /// </summary>
+        public TagRegistry Registry { get; internal set; }
 
         /// <summary>
         ///     Gets or sets the client socket

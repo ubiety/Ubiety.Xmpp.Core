@@ -8,6 +8,6 @@
         /// <summary>
         ///     Stream namespace
         /// </summary>
-        public static string Stream => "http://etherx.jabber.org/streams";
+        public const string Stream = "http://etherx.jabber.org/streams";
     }
 }

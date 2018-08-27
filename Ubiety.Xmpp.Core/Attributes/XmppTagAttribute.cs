@@ -13,11 +13,12 @@ namespace Ubiety.Xmpp.Core.Attributes
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppTagAttribute"/> class
         /// </summary>
-        /// <param name="name">XML name of the tag</param>
+        /// <param name="localName">local name of the tag</param>
+        /// <param name="namespaceName">namespace name of the tag</param>
         /// <param name="tagType">Class type of the tag</param>
-        public XmppTagAttribute(XName name, Type tagType)
+        public XmppTagAttribute(string localName, string namespaceName, Type tagType)
         {
-            Name = name;
+            Name = XName.Get(localName, namespaceName);
             TagType = tagType;
         }
 

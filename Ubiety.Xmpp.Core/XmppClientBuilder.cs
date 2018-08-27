@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Registries;
 
 namespace Ubiety.Xmpp.Core
 {
@@ -76,7 +77,11 @@ namespace Ubiety.Xmpp.Core
                 Log.Initialize(_logManager);
             }
 
-             var client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl};
+            var type = typeof(XmppClientBuilder);
+            var registry = new TagRegistry();
+            registry.AddAssembly(type.Assembly);
+
+            var client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry};
 
             return client;
         }
