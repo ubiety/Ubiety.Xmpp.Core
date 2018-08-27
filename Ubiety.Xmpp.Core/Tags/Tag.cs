@@ -32,5 +32,16 @@ namespace Ubiety.Xmpp.Core.Tags
         protected Tag(XStreamingElement other) : base(other)
         {
         }
+
+        /// <summary>
+        ///     Gets the value of a tag attribute
+        /// </summary>
+        /// <param name="name">Name of the attribute</param>
+        /// <returns>String contents of the attribute</returns>
+        protected string GetAttributeValue(XName name)
+        {
+            var attribute = Attribute(name);
+            return attribute?.Value;
+        }
     }
 }
