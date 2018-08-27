@@ -12,21 +12,20 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System;
+using Ubiety.Xmpp.Core.Tags;
+
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     XML namespaces for tags
+    ///     Tag event arguments
     /// </summary>
-    public static class Namespaces
+    /// <inheritdoc />
+    public class TagEventArgs : EventArgs
     {
         /// <summary>
-        ///     Stream namespace
+        ///     Tag to send
         /// </summary>
-        public const string Stream = "http://etherx.jabber.org/streams";
-
-        /// <summary>
-        ///     Client namespace
-        /// </summary>
-        public const string Client = "jabber:client";
+        public Tag Tag { get; set; }
     }
 }

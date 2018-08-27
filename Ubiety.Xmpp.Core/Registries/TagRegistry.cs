@@ -72,7 +72,7 @@ namespace Ubiety.Xmpp.Core.Registries
         /// <returns>Tag requested from the registry</returns>
         public T GetTag<T>(XName name)
         {
-            T tag = default(T);
+            var tag = default(T);
 
             Logger.Log(LogLevel.Debug, $"Finding tag {name.LocalName}...");
 
@@ -82,10 +82,7 @@ namespace Ubiety.Xmpp.Core.Registries
                 if (constructor is null)
                 {
                     constructor = type.GetConstructor(new[] {typeof(XName)});
-                    if (constructor != null)
-                    {
-                        tag = (T) constructor.Invoke(new object[] {name});
-                    }
+                    if (constructor != null) tag = (T) constructor.Invoke(new object[] {name});
                 }
                 else
                 {

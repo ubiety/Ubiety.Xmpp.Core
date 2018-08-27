@@ -71,6 +71,8 @@ namespace Ubiety.Xmpp.Core.Common
         private void _socket_Connection(object sender, System.EventArgs e)
         {
             _logger.Log(LogLevel.Debug, "Setting connection state");
+            State = new ConnectedState();
+            State.Execute(this);
         }
     }
 }

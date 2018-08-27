@@ -12,21 +12,20 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Common
+using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Tags;
+
+namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     XML namespaces for tags
+    ///     Disconnected state
     /// </summary>
-    public static class Namespaces
+    public class DisconnectedState : IState
     {
-        /// <summary>
-        ///     Stream namespace
-        /// </summary>
-        public const string Stream = "http://etherx.jabber.org/streams";
-
-        /// <summary>
-        ///     Client namespace
-        /// </summary>
-        public const string Client = "jabber:client";
+        /// <inheritdoc />
+        public void Execute(XmppBase xmpp, Tag tag = null)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

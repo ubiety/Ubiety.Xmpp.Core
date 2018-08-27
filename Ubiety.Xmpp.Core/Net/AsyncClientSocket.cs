@@ -105,6 +105,22 @@ namespace Ubiety.Xmpp.Core.Net
             _socket.Disconnect(true);
         }
 
+        /// <inheritdoc />
+        public void Send(string message)
+        {
+            if (!Connected)
+            {
+                return;
+            }
+            
+            _logger.Log(LogLevel.Debug, $"Sending message: {message}");
+
+            var bytes = _utf8.GetBytes(message);
+            var args = new SocketAsyncEventArgs();
+            args.SetBuffer(bytes, 0, bytes.Length);
+            _socket.SendAsync(args);
+        }
+
         /// <summary>
         ///     Raise the data event with the specified arguments
         /// </summary>
