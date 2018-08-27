@@ -31,7 +31,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure
     {
         private readonly Queue<string> _dataQueue;
         private readonly XmppBase _xmpp;
-        private XmlParserContext _context;
         private XmlNamespaceManager _namespaceManager;
         private bool _running;
 
@@ -45,16 +44,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             _xmpp.ClientSocket.Data += ClientSocket_Data;
         }
 
-        /// <summary>
-        ///     Gets the current XML context
-        /// </summary>
-        public XmlParserContext Context =>
-            _context ?? (_context = new XmlParserContext(null, NamespaceManager, null, XmlSpace.None));
-
-        /// <summary>
-        ///     Gets the current XML namespace manager
-        /// </summary>
-        public XmlNamespaceManager NamespaceManager
+        private XmlNamespaceManager NamespaceManager
         {
             get
             {
@@ -89,11 +79,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             _running = false;
         }
 
-        /// <summary>
-        ///     Raise the tag event
-        /// </summary>
-        /// <param name="tag">Tag to send</param>
-        public void OnTag(Tag tag)
+        private void OnTag(Tag tag)
         {
             Tag?.Invoke(this, new TagEventArgs {Tag = tag});
         }
@@ -120,9 +106,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             {
                 var document = new XDocument();
                 var reader = new StringReader(message);
+                var context = new XmlParserContext(null, NamespaceManager, null, XmlSpace.None);
                 var xmlReader = XmlReader.Create(reader,
                     new XmlReaderSettings {ConformanceLevel = ConformanceLevel.Fragment, IgnoreWhitespace = true},
-                    _context);
+                    context);
 
                 xmlReader.MoveToContent();
                 while (xmlReader.ReadState != ReadState.EndOfFile) document.Add(XNode.ReadFrom(xmlReader));
