@@ -12,18 +12,16 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Logging
+namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Defines the interface for the log manager
+    ///     XML namespaces for tags
     /// </summary>
-    public interface ILogManager
+    public static class Namespaces
     {
         /// <summary>
-        ///     Get a log instance for the requested name
+        ///     Stream namespace
         /// </summary>
-        /// <param name="name">Name of the instance</param>
-        /// <returns>Instance of a log</returns>
-        ILog GetLogger(string name);
+        public const string Stream = "http://etherx.jabber.org/streams";
     }
 }

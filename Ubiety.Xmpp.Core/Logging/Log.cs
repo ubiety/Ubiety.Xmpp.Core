@@ -36,7 +36,7 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Logger for the type</returns>
         public static ILog Get<T>()
         {
-            return _manager.Get(NameFor<T>());
+            return _manager.GetLogger(NameFor<T>());
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Logger for the type</returns>
         public static ILog Get(Type type)
         {
-            return _manager.Get(NameFor(type));
+            return _manager.GetLogger(NameFor(type));
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Logger for the type name</returns>
         public static ILog Get(string name)
         {
-            return _manager.Get(name);
+            return _manager.GetLogger(name);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Ubiety.Xmpp.Core.Logging
         private class DefaultManager : ILogManager
         {
             /// <inheritdoc />
-            public ILog Get(string name)
+            public ILog GetLogger(string name)
             {
                 return new DefaultLogger(name);
             }
@@ -105,29 +105,14 @@ namespace Ubiety.Xmpp.Core.Logging
                     Log(level, message.ToString());
                 }
 
-                public void Log(LogLevel level, string message, params object[] args)
-                {
-                    Log(level, Format(message, args));
-                }
-
                 public void Log(LogLevel level, Exception exception, object message)
                 {
                     Log(level, $"{message}{Environment.NewLine}{exception}");
                 }
 
-                public void Log(LogLevel level, Exception exception, string message, params object[] args)
-                {
-                    Log(level, $"{Format(message, args)}{Environment.NewLine}{exception}");
-                }
-
                 private void Log(LogLevel level, string message)
                 {
                     Console.WriteLine($"[{_name}::{level}] {message}");
-                }
-
-                private static string Format(string format, object[] args)
-                {
-                    return args != null && args.Length != 0 ? string.Format(format, args) : format;
                 }
             }
         }

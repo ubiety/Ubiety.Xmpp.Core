@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Registries;
 
 namespace Ubiety.Xmpp.Core
 {
@@ -21,8 +22,9 @@ namespace Ubiety.Xmpp.Core
     /// </summary>
     public class XmppClientBuilder
     {
-        private XmppClient _client;
         private ILogManager _logManager;
+        private bool _useIpv6;
+        private bool _useSsl;
 
         /// <summary>
         ///     Begin the build process
@@ -30,7 +32,6 @@ namespace Ubiety.Xmpp.Core
         /// <returns>Builder instance</returns>
         public XmppClientBuilder Begin()
         {
-            _client = new XmppClient();
             return this;
         }
 
@@ -46,6 +47,26 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
+        ///     Enables IPv6 support in the library
+        /// </summary>
+        /// <returns>Builder instance</returns>
+        public XmppClientBuilder UseIPv6()
+        {
+            _useIpv6 = true;
+            return this;
+        }
+
+        /// <summary>
+        ///     Enables SSL support for the socket
+        /// </summary>
+        /// <returns>Builder instance</returns>
+        public XmppClientBuilder UseSsl()
+        {
+            _useSsl = true;
+            return this;
+        }
+
+        /// <summary>
         ///     Builds the client
         /// </summary>
         /// <returns>Client with the options provided</returns>
@@ -56,7 +77,13 @@ namespace Ubiety.Xmpp.Core
                 Log.Initialize(_logManager);
             }
 
-            return _client;
+            var type = typeof(XmppClientBuilder);
+            var registry = new TagRegistry();
+            registry.AddAssembly(type.Assembly);
+
+            var client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry};
+
+            return client;
         }
     }
 }

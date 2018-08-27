@@ -1,0 +1,14 @@
+{
+  "ServerUri": "https://sonarcloud.io/",
+  "Organization": {
+    "Key": "coder2000-github",
+    "Name": "Dieter Lunn"
+  },
+  "ProjectKey": "xmpp-core",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AWNL5gaviprWWeJOizAy",
+      "ProfileTimestamp": "2018-07-18T05:34:53-05:00"
+    }
+  }
+}

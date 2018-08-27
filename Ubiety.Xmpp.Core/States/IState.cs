@@ -12,18 +12,19 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Logging
+using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Tags;
+
+namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Defines the interface for the log manager
+    ///     Describes a state
     /// </summary>
-    public interface ILogManager
+    public interface IState
     {
         /// <summary>
-        ///     Get a log instance for the requested name
+        ///     Executes the current state
         /// </summary>
-        /// <param name="name">Name of the instance</param>
-        /// <returns>Instance of a log</returns>
-        ILog GetLogger(string name);
+        void Execute(XmppBase xmpp, Tag tag = null);
     }
 }

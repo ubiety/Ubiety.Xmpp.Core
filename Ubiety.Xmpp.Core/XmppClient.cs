@@ -13,28 +13,40 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Net;
+using Ubiety.Xmpp.Core.States;
 
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
     ///     Main XMPP client class
     /// </summary>
-    public class XmppClient : IClient
+    public class XmppClient : XmppBase, IClient
     {
+        private readonly ILog _logger;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppClient" /> class
         /// </summary>
+        /// <inheritdoc />
         internal XmppClient()
         {
+            _logger = Log.Get<XmppClient>();
+            ClientSocket = new AsyncClientSocket(this);
+            _logger.Log(LogLevel.Debug, "XmppClient created");
         }
 
         /// <inheritdoc />
         public Jid Id { get; set; }
 
         /// <inheritdoc />
-        public int Port { get; set; }
-
-        /// <inheritdoc />
-        public bool UseSsl { get; internal set; }
+        public void Connect(Jid jid)
+        {
+            _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
+            Id = jid;
+            State = new ConnectingState();
+            State.Execute(this);
+        }
     }
 }

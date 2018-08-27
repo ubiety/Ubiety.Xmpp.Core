@@ -12,18 +12,28 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Logging
+using System;
+using System.Collections.Generic;
+
+namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     Defines the interface for the log manager
+    ///     Enumerable extensions
     /// </summary>
-    public interface ILogManager
+    public static class EnumerableExtensions
     {
         /// <summary>
-        ///     Get a log instance for the requested name
+        ///     Applies an action on each item in the enumerable
         /// </summary>
-        /// <param name="name">Name of the instance</param>
-        /// <returns>Instance of a log</returns>
-        ILog GetLogger(string name);
+        /// <typeparam name="T">Type of the item</typeparam>
+        /// <param name="enumerable">Enumerable to iterate</param>
+        /// <param name="action">Action to perform</param>
+        public static void Apply<T>(this IEnumerable<T> enumerable, Action<T> action)
+        {
+            foreach (var item in enumerable)
+            {
+                action.Invoke(item);
+            }
+        }
     }
 }

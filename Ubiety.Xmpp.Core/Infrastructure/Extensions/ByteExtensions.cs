@@ -29,21 +29,18 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         /// <returns>Trimmed array</returns>
         public static byte[] TrimNullBytes(this IList<byte> bytes)
         {
-            if (bytes.Count <= 1) return null;
-
+            if (bytes.Count <= 1) return new byte[0];
             var lastByte = bytes.Count - 1;
             while (bytes[lastByte] == 0x00)
             {
                 lastByte--;
                 if (lastByte < 0) break;
-
-                var newArray = new byte[lastByte + 1];
-                for (var i = 0; i < lastByte + 1; i++) newArray[i] = bytes[i];
-
-                return newArray;
             }
 
-            return null;
+            var newArray = new byte[lastByte + 1];
+            for (var i = 0; i < lastByte + 1; i++) newArray[i] = bytes[i];
+
+            return newArray;
         }
 
         /// <summary>

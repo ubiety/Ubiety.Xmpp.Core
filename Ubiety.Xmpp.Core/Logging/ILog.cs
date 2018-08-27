@@ -29,28 +29,11 @@ namespace Ubiety.Xmpp.Core.Logging
         void Log(LogLevel level, object message);
 
         /// <summary>
-        ///     Log a generic message with formatting
-        /// </summary>
-        /// <param name="level">Severity level of the message</param>
-        /// <param name="message">String message to log</param>
-        /// <param name="args">Formatting parameters</param>
-        void Log(LogLevel level, string message, params object[] args);
-
-        /// <summary>
         ///     Log a message with an exception
         /// </summary>
         /// <param name="level">Severity level of the message</param>
         /// <param name="exception">Exception to log</param>
         /// <param name="message">Message to log</param>
         void Log(LogLevel level, Exception exception, object message);
-
-        /// <summary>
-        ///     Log a formatted message with an exception
-        /// </summary>
-        /// <param name="level">Severity level of the message</param>
-        /// <param name="exception">Exception to log</param>
-        /// <param name="message">Message to log</param>
-        /// <param name="args">Formatting parameters</param>
-        void Log(LogLevel level, Exception exception, string message, params object[] args);
     }
 }
