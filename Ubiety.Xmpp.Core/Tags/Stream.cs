@@ -30,6 +30,24 @@ namespace Ubiety.Xmpp.Core.Tags
         public static XName XmlName { get; } = XName.Get("stream", Namespaces.Stream);
 
         /// <summary>
+        ///     Gets or sets the stream version
+        /// </summary>
+        public string Version
+        {
+            get => GetAttributeValue("version");
+            set => SetAttributeValue("version", value);
+        }
+
+        /// <summary>
+        ///     Gets or sets the stream namespace
+        /// </summary>
+        public string Namespace
+        {
+            get => GetAttributeValue("xmlns");
+            set => SetAttributeValue("xmlns", value);
+        }
+
+        /// <summary>
         ///     Gets the start tag of the stream
         /// </summary>
         public string StartTag
