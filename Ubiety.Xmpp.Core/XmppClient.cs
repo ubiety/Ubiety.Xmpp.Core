@@ -15,25 +15,25 @@
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
+using Ubiety.Xmpp.Core.States;
 
 namespace Ubiety.Xmpp.Core
 {
-    /// <inheritdoc />
     /// <summary>
     ///     Main XMPP client class
     /// </summary>
-    public class XmppClient : IClient
+    public class XmppClient : XmppBase, IClient
     {
         private readonly ILog _logger;
-        private readonly AsyncSocket _socket;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppClient" /> class
         /// </summary>
+        /// <inheritdoc />
         internal XmppClient()
         {
             _logger = Log.Get<XmppClient>();
-            _socket = new AsyncSocket(this);
+            ClientSocket = new AsyncClientSocket(this);
             _logger.Log(LogLevel.Debug, "XmppClient created");
         }
 
@@ -41,19 +41,12 @@ namespace Ubiety.Xmpp.Core
         public Jid Id { get; set; }
 
         /// <inheritdoc />
-        public int Port { get; set; }
-
-        /// <inheritdoc />
-        public bool UseSsl { get; internal set; }
-
-        /// <inheritdoc />
-        public bool UseIPv6 { get; internal set; }
-
-        /// <inheritdoc />
         public void Connect(Jid jid)
         {
             _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
-            _socket.Connect(jid);
+            Id = jid;
+            State = new ConnectingState();
+            State.Execute(this);
         }
     }
 }

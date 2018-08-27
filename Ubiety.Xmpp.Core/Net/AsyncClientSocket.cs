@@ -29,9 +29,9 @@ namespace Ubiety.Xmpp.Core.Net
     /// <summary>
     ///     An asynchronous socket for connecting to an XMPP server
     /// </summary>
-    public class AsyncSocket : ISocket, IDisposable
+    public class AsyncClientSocket : ISocket, IDisposable
     {
-        private const int BufferSize = 4096;
+        private const int BufferSize = 64 * 1024;
         private readonly byte[] _buffer;
         private readonly IClient _client;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
@@ -41,12 +41,12 @@ namespace Ubiety.Xmpp.Core.Net
         private Stream _stream;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="AsyncSocket" /> class
+        ///     Initializes a new instance of the <see cref="AsyncClientSocket" /> class
         /// </summary>
         /// <param name="client">Client to use for the server connection</param>
-        public AsyncSocket(IClient client)
+        public AsyncClientSocket(IClient client)
         {
-            _logger = Log.Get<AsyncSocket>();
+            _logger = Log.Get<AsyncClientSocket>();
             _client = client;
             _buffer = new byte[BufferSize];
             _logger.Log(LogLevel.Debug, "AsyncSocket created");

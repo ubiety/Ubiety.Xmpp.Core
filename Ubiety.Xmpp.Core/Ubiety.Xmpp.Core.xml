@@ -87,6 +87,35 @@
         <member name="M:Ubiety.Xmpp.Core.Common.Jid.ToString">
             <inheritdoc />
         </member>
+        <member name="T:Ubiety.Xmpp.Core.Common.XmppBase">
+            <summary>
+                Base XMPP implementation
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.XmppBase.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Common.XmppBase"/> class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.Port">
+            <inheritdoc cref="T:Ubiety.Xmpp.Core.IClient" />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseSsl">
+            <inheritdoc cref="T:Ubiety.Xmpp.Core.IClient" />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6">
+            <inheritdoc cref="T:Ubiety.Xmpp.Core.IClient" />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.State">
+            <summary>
+                Gets or sets the current state
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket">
+            <summary>
+                Gets or sets the client socket
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.IClient">
             <summary>
                 Defines a client interface
@@ -161,7 +190,7 @@
                 Defines the interface for the log manager
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Logging.ILogManager.Get(System.String)">
+        <member name="M:Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger(System.String)">
             <summary>
                 Get a log instance for the requested name
             </summary>
@@ -208,7 +237,7 @@
             <param name="type">Type to get the name for</param>
             <returns>Name of the type</returns>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Logging.Log.DefaultManager.Get(System.String)">
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.DefaultManager.GetLogger(System.String)">
             <inheritdoc />
         </member>
         <member name="T:Ubiety.Xmpp.Core.Logging.LogLevel">
@@ -268,47 +297,47 @@
             </summary>
             <returns><see cref="T:System.Net.IPAddress" /> of the XMPP server</returns>
         </member>
-        <member name="T:Ubiety.Xmpp.Core.Net.AsyncSocket">
+        <member name="T:Ubiety.Xmpp.Core.Net.AsyncClientSocket">
             <summary>
                 An asynchronous socket for connecting to an XMPP server
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.#ctor(Ubiety.Xmpp.Core.IClient)">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.#ctor(Ubiety.Xmpp.Core.IClient)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.AsyncSocket" /> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.AsyncClientSocket" /> class
             </summary>
             <param name="client">Client to use for the server connection</param>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Dispose">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose">
             <inheritdoc />
         </member>
-        <member name="E:Ubiety.Xmpp.Core.Net.AsyncSocket.Data">
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data">
             <inheritdoc />
         </member>
-        <member name="E:Ubiety.Xmpp.Core.Net.AsyncSocket.Connection">
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection">
             <inheritdoc />
         </member>
-        <member name="P:Ubiety.Xmpp.Core.Net.AsyncSocket.Connected">
+        <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected">
             <inheritdoc />
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)">
             <inheritdoc />
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Disconnect">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect">
             <inheritdoc />
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.OnData(Ubiety.Xmpp.Core.Common.DataEventArgs)">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.OnData(Ubiety.Xmpp.Core.Common.DataEventArgs)">
             <summary>
                 Raise the data event with the specified arguments
             </summary>
             <param name="e">Data event arguments</param>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.OnConnection">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.OnConnection">
             <summary>
                 Raise the connection event
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncSocket.Dispose(System.Boolean)">
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose(System.Boolean)">
             <summary>
                 Dispose of class resources
             </summary>
@@ -345,8 +374,47 @@
                 Disconnects from the server
             </summary>
         </member>
-        <member name="T:Ubiety.Xmpp.Core.XmppClient">
+        <member name="T:Ubiety.Xmpp.Core.States.ConnectingState">
+            <summary>
+                Connecting state for the protocol
+            </summary>
             <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.States.ConnectingState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.States.IState">
+            <summary>
+                Describes a state
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.States.IState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)">
+            <summary>
+                Executes the current state
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Tag">
+            <summary>
+                An XMPP tag
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XName)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XName,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XName,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XStreamingElement)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.XmppClient">
             <summary>
                 Main XMPP client class
             </summary>
@@ -355,17 +423,9 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.XmppClient" /> class
             </summary>
+            <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.XmppClient.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.XmppClient.Port">
-            <inheritdoc />
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.XmppClient.UseSsl">
-            <inheritdoc />
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.XmppClient.UseIPv6">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.XmppClient.Connect(Ubiety.Xmpp.Core.Common.Jid)">

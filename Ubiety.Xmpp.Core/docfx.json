@@ -1,5 +1,6 @@
 {
   "build": {
+    "cleanupCacheHistory": false,
     "content": [
       {
         "files": [
@@ -16,13 +17,13 @@
         ]
       }
     ],
-    "resource": [
-      {
-        "files": [
-          "images/**"
-        ]
-      }
-    ],
+    "dest": "_site",
+    "disableGitFeatures": false,
+    "fileMetadataFiles": [],
+    "globalMetadataFiles": [],
+    "keepFileLink": false,
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
     "overwrite": [
       {
         "files": [
@@ -34,18 +35,17 @@
         ]
       }
     ],
-    "dest": "_site",
-    "globalMetadataFiles": [],
-    "fileMetadataFiles": [],
+    "postProcessors": [],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
     "template": [
       "default"
-    ],
-    "postProcessors": [],
-    "markdownEngineName": "markdig",
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+    ]
   },
   "metadata": [
     {
