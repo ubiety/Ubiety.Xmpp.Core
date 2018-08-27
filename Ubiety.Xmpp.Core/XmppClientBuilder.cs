@@ -27,15 +27,6 @@ namespace Ubiety.Xmpp.Core
         private bool _useSsl;
 
         /// <summary>
-        ///     Begin the build process
-        /// </summary>
-        /// <returns>Builder instance</returns>
-        public XmppClientBuilder Begin()
-        {
-            return this;
-        }
-
-        /// <summary>
         ///     Enable logging with the log manager
         /// </summary>
         /// <param name="manager">Log manager to use for logging</param>
