@@ -39,7 +39,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <inheritdoc cref="IClient" />
-        public int Port { get; set; }
+        public int Port { get; set; } = 5222;
 
         /// <inheritdoc cref="IClient" />
         public bool UseSsl { get; internal set; }

@@ -51,6 +51,14 @@
             </summary>
             <param name="id">String version of the ID</param>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.#ctor(System.String,System.String,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> class
+            </summary>
+            <param name="username">Username of the user</param>
+            <param name="server">XMPP server of the user</param>
+            <param name="resource">Server resource</param>
+        </member>
         <member name="P:Ubiety.Xmpp.Core.Common.Jid.Resource">
             <summary>
                 Gets the JID resource
