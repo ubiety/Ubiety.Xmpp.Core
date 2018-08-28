@@ -30,8 +30,8 @@ namespace Ubiety.Xmpp.Core.Net
     internal class Address
     {
         private readonly IClient _client;
-        private readonly Resolver _resolver;
         private readonly ILog _logger;
+        private readonly Resolver _resolver;
         private int _srvAttempts;
         private bool _srvFailed;
         private List<RecordSrv> _srvRecords;
@@ -39,11 +39,11 @@ namespace Ubiety.Xmpp.Core.Net
         /// <summary>
         ///     Initializes a new instance of the <see cref="Address" /> class
         /// </summary>
-        /// <param name="client"><see cref="IClient"/> for configuration</param>
+        /// <param name="client"><see cref="IClient" /> for configuration</param>
         public Address(IClient client)
         {
             _logger = Log.Get<Address>();
-            _resolver = new Resolver("8.8.8.8") { UseCache = true, Timeout = 5, TransportType = TransportType.Tcp };
+            _resolver = new Resolver("8.8.8.8") {UseCache = true, Timeout = 5, TransportType = TransportType.Tcp};
             _client = client;
 
             _logger.Log(LogLevel.Debug, "Address created");
@@ -87,10 +87,7 @@ namespace Ubiety.Xmpp.Core.Net
                 return Resolve();
             }
 
-            if (_srvAttempts >= _srvRecords.Count)
-            {
-                return null;
-            }
+            if (_srvAttempts >= _srvRecords.Count) return null;
 
             _logger.Log(LogLevel.Debug, "Resolving the next SRV record");
             var ip = Resolve(_srvRecords[_srvAttempts].Target);
@@ -122,11 +119,12 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, $"IPv6 address found for {Hostname}");
                 IsIPv6 = true;
-                return ((RecordAaaa)response.Answers[0].Record).Address;
+                return ((RecordAaaa) response.Answers[0].Record).Address;
             }
 
             _logger.Log(LogLevel.Debug, "Resolving a standard IPv4 A record");
             response = _resolver.Query(host, QuestionType.A, QuestionClass.IN);
+            _logger.Log(LogLevel.Debug, "IP found");
             return response.Answers.Select(answer => answer.Record).OfType<RecordA>().Select(a => a.Address)
                 .FirstOrDefault();
         }

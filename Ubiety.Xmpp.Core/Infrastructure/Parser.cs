@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.States;
 using Ubiety.Xmpp.Core.Tags;
 
@@ -31,6 +32,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
     {
         private readonly Queue<string> _dataQueue;
         private readonly XmppBase _xmpp;
+        private readonly ILog _logger;
         private XmlNamespaceManager _namespaceManager;
         private bool _running;
 
@@ -39,9 +41,11 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         /// </summary>
         public Parser(XmppBase xmpp)
         {
+            _logger = Log.Get<Parser>();
             _xmpp = xmpp;
             _dataQueue = new Queue<string>();
             _xmpp.ClientSocket.Data += ClientSocket_Data;
+            _logger.Log(LogLevel.Debug, "Parser created");
         }
 
         private XmlNamespaceManager NamespaceManager
@@ -90,13 +94,12 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             {
                 if (_xmpp.State is DisconnectedState || !_running) break;
 
+                if (_dataQueue.Count <= 0) continue;
                 var message = _dataQueue.Dequeue();
 
                 if (message.Equals("</stream:stream>")) _xmpp.State = new DisconnectedState();
 
-                var tag = ParseTag(message);
-
-                OnTag(tag);
+                OnTag(ParseTag(message));
             }
         }
 
@@ -118,7 +121,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                _logger.Log(LogLevel.Error, e, "Error parsing tag");
                 throw;
             }
         }

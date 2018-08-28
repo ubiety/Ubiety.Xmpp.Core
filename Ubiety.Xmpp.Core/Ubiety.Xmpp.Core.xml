@@ -144,7 +144,7 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Common.XmppBase.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Common.XmppBase"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Common.XmppBase" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.Port">
@@ -169,6 +169,11 @@
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket">
             <summary>
                 Gets or sets the client socket
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.Parser">
+            <summary>
+                XMPP protocol parser
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.IClient">
@@ -256,16 +261,6 @@
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Infrastructure.Parser" /> class
             </summary>
         </member>
-        <member name="P:Ubiety.Xmpp.Core.Infrastructure.Parser.Context">
-            <summary>
-                Gets the current XML context
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Infrastructure.Parser.NamespaceManager">
-            <summary>
-                Gets the current XML namespace manager
-            </summary>
-        </member>
         <member name="E:Ubiety.Xmpp.Core.Infrastructure.Parser.Tag">
             <summary>
                 Tag event
@@ -280,12 +275,6 @@
             <summary>
                 Stop the parsing process
             </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Parser.OnTag(Ubiety.Xmpp.Core.Tags.Tag)">
-            <summary>
-                Raise the tag event
-            </summary>
-            <param name="tag">Tag to send</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Logging.ILog">
             <summary>
@@ -401,7 +390,7 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Net.Address" /> class
             </summary>
-            <param name="client"><see cref="T:Ubiety.Xmpp.Core.IClient"/> for configuration</param>
+            <param name="client"><see cref="T:Ubiety.Xmpp.Core.IClient" /> for configuration</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.Address.IsIPv6">
             <summary>

@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System;
 using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
@@ -29,14 +30,12 @@ namespace Ubiety.Xmpp.Core.Common
         private AsyncClientSocket _clientSocket;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppBase"/> class
+        ///     Initializes a new instance of the <see cref="XmppBase" /> class
         /// </summary>
         protected XmppBase()
         {
             _logger = Log.Get<XmppBase>();
             _logger.Log(LogLevel.Debug, "XmppBase created");
-            Parser = new Parser(this);
-            Parser.Tag += Parser_Tag;
         }
 
         /// <inheritdoc cref="IClient" />
@@ -71,17 +70,20 @@ namespace Ubiety.Xmpp.Core.Common
             }
         }
 
-        private Parser Parser { get; }
+        /// <summary>
+        ///     XMPP protocol parser
+        /// </summary>
+        protected Parser Parser { get; set; }
 
-        private void _socket_Connection(object sender, System.EventArgs e)
+        private void _socket_Connection(object sender, EventArgs e)
         {
             _logger.Log(LogLevel.Debug, "Setting connection state");
             Parser.Start();
             State = new ConnectedState();
             State.Execute(this);
         }
-    
-        private void Parser_Tag(object sender, TagEventArgs e)
+
+        protected void Parser_Tag(object sender, TagEventArgs e)
         {
             State.Execute(this, e.Tag);
         }

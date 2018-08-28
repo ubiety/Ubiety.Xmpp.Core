@@ -34,8 +34,8 @@ namespace Ubiety.Xmpp.Core.Net
         private const int BufferSize = 64 * 1024;
         private readonly byte[] _buffer;
         private readonly IClient _client;
-        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private readonly ILog _logger;
+        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -49,7 +49,7 @@ namespace Ubiety.Xmpp.Core.Net
             _logger = Log.Get<AsyncClientSocket>();
             _client = client;
             _buffer = new byte[BufferSize];
-            _logger.Log(LogLevel.Debug, "AsyncSocket created");
+            _logger.Log(LogLevel.Debug, "AsyncClientSocket created");
         }
 
         /// <inheritdoc />
@@ -85,7 +85,9 @@ namespace Ubiety.Xmpp.Core.Net
 
             try
             {
-                _socket.ConnectAsync(args);
+                _logger.Log(LogLevel.Debug, "Starting async connection");
+
+                if (!_socket.ConnectAsync(args)) ConnectCompleted(this, args);
             }
             catch (SocketException e)
             {
@@ -108,11 +110,8 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Send(string message)
         {
-            if (!Connected)
-            {
-                return;
-            }
-            
+            if (!Connected) return;
+
             _logger.Log(LogLevel.Debug, $"Sending message: {message}");
 
             var bytes = _utf8.GetBytes(message);
@@ -146,10 +145,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="disposing">Are we disposing from a direct call</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                _socket?.Dispose();
-            }
+            if (disposing) _socket?.Dispose();
         }
 
         private static bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
@@ -161,6 +157,13 @@ namespace Ubiety.Xmpp.Core.Net
         private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
         {
             _logger.Log(LogLevel.Debug, "Connection complete");
+
+            if (e.SocketError != SocketError.Success)
+            {
+                _logger.Log(LogLevel.Error, $"Error connecting to server: {e.SocketError}");
+                return;
+            }
+
             var socket = e.ConnectSocket;
             Connected = true;
             OnConnection();
