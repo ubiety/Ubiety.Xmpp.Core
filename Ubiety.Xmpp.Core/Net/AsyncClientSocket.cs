@@ -190,6 +190,8 @@ namespace Ubiety.Xmpp.Core.Net
             _stream.EndRead(ar);
             var message = _utf8.GetString(_buffer.TrimNullBytes());
 
+            _logger.Log(LogLevel.Debug, $"Received message: {message}");
+
             OnData(new DataEventArgs {Message = message});
 
             _buffer.Clear();

@@ -19,10 +19,12 @@ namespace Ubiety.Xmpp.Core.Common
     /// </summary>
     public static class Namespaces
     {
-        /// <summary>
-        ///     Stream namespace
-        /// </summary>
+#pragma warning disable S1075 // URIs should not be hardcoded
+                             /// <summary>
+                             ///     Stream namespace
+                             /// </summary>
         public const string Stream = "http://etherx.jabber.org/streams";
+#pragma warning restore S1075 // URIs should not be hardcoded
 
         /// <summary>
         ///     Client namespace

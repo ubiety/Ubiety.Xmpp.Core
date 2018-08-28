@@ -12,6 +12,10 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Xml.Linq;
 
 namespace Ubiety.Xmpp.Core.Tags
@@ -48,6 +52,17 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
+        ///     Get child tags
+        /// </summary>
+        /// <typeparam name="T">Type of tags</typeparam>
+        /// <param name="name">Name of the tags</param>
+        /// <returns></returns>
+        public IEnumerable<T> Elements<T>(XName name) where T : XElement
+        {
+            return base.Elements(name).Select(element => Convert<T>(element));
+        }
+
+        /// <summary>
         ///     Gets the value of a tag attribute
         /// </summary>
         /// <param name="name">Name of the attribute</param>
@@ -56,6 +71,26 @@ namespace Ubiety.Xmpp.Core.Tags
         {
             var attribute = Attribute(name);
             return attribute?.Value;
+        }
+
+        private static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
+        {
+            var results = from constructor in type.GetTypeInfo().DeclaredConstructors
+                let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
+                where constructorParameters.Length == parameters.Count &&
+                      !constructorParameters.Except(parameters).Any() &&
+                      !parameters.Except(constructorParameters).Any()
+                select constructor;
+
+            return results.FirstOrDefault();
+        }
+
+        private T Convert<T>(XElement element) where T : XElement
+        {
+            if (element is null) return default(T);
+
+            var constructor = GetConstructor(typeof(T), new[] {typeof(XElement)});
+            return (T) constructor?.Invoke(new object[] {element});
         }
     }
 }

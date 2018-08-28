@@ -18,7 +18,11 @@ namespace Ubiety.Xmpp.App
             public SerilogLogger(string name)
             {
                 _name = name;
-                Serilog.Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.Console().CreateLogger();
+                Serilog.Log.Logger = new LoggerConfiguration()
+                    .MinimumLevel.Debug()
+                    .WriteTo.Console()
+                    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+                    .CreateLogger();
             }
             
             public void Log(LogLevel level, object message)

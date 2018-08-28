@@ -13,11 +13,13 @@
 //   limitations under the License.
 
 using System;
+using System.Linq;
 using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.Registries;
 using Ubiety.Xmpp.Core.States;
+using Ubiety.Xmpp.Core.Tags.Stream;
 
 namespace Ubiety.Xmpp.Core.Common
 {
@@ -37,6 +39,11 @@ namespace Ubiety.Xmpp.Core.Common
             _logger = Log.Get<XmppBase>();
             _logger.Log(LogLevel.Debug, "XmppBase created");
         }
+
+        /// <summary>
+        ///     Raised when a stream error occurs
+        /// </summary>
+        public event EventHandler<ErrorEventArgs> Error; 
 
         /// <inheritdoc cref="IClient" />
         public int Port { get; set; } = 5222;
@@ -75,6 +82,11 @@ namespace Ubiety.Xmpp.Core.Common
         /// </summary>
         protected Parser Parser { get; set; }
 
+        private void OnError(object sender, ErrorEventArgs e)
+        {
+            Error?.Invoke(sender, e);
+        }
+
         private void _socket_Connection(object sender, EventArgs e)
         {
             _logger.Log(LogLevel.Debug, "Setting connection state");
@@ -83,8 +95,19 @@ namespace Ubiety.Xmpp.Core.Common
             State.Execute(this);
         }
 
+        /// <summary>
+        ///     Received a tag from the parser
+        /// </summary>
+        /// <param name="sender">Object sending the event</param>
+        /// <param name="e">Event arguments containing the tag</param>
         protected void Parser_Tag(object sender, TagEventArgs e)
         {
+            if (e.Tag is Stream stream && stream.Errors.Any())
+            {
+                OnError(this, new ErrorEventArgs {Message = "Error occured"});
+                State = new DisconnectState();                    
+            }
+
             State.Execute(this, e.Tag);
         }
     }

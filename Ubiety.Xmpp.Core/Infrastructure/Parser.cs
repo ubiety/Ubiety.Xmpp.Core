@@ -97,7 +97,12 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                 if (_dataQueue.Count <= 0) continue;
                 var message = _dataQueue.Dequeue();
 
-                if (message.Equals("</stream:stream>")) _xmpp.State = new DisconnectedState();
+                if (message.Equals("</stream:stream>"))
+                {
+                    _xmpp.State = new DisconnectState();
+                    _xmpp.State.Execute(_xmpp);
+                    return;
+                }
 
                 OnTag(ParseTag(message));
             }

@@ -12,12 +12,13 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
 
-namespace Ubiety.Xmpp.Core.Tags
+namespace Ubiety.Xmpp.Core.Tags.Stream
 {
     /// <summary>
     ///     XMPP Stream tag
@@ -62,6 +63,11 @@ namespace Ubiety.Xmpp.Core.Tags
             get => GetAttributeValue("xmlns");
             set => SetAttributeValue("xmlns", value);
         }
+
+        /// <summary>
+        ///     Gets the stream errors
+        /// </summary>
+        public IEnumerable<Error> Errors => Elements<Error>(XName.Get("error", Namespaces.Stream));
 
         /// <summary>
         ///     Gets the start tag of the stream
