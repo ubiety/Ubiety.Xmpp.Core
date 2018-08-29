@@ -128,6 +128,7 @@ namespace Ubiety.Xmpp.Core.Net
         {
             _logger.Log(LogLevel.Debug, "Firing data event");
             Data?.Invoke(this, e);
+            _buffer.Clear();
         }
 
         /// <summary>

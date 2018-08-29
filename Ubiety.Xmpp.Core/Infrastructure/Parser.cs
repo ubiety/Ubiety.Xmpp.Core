@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.States;
 using Ubiety.Xmpp.Core.Tags;
@@ -31,8 +32,8 @@ namespace Ubiety.Xmpp.Core.Infrastructure
     public sealed class Parser
     {
         private readonly Queue<string> _dataQueue;
-        private readonly XmppBase _xmpp;
         private readonly ILog _logger;
+        private readonly XmppBase _xmpp;
         private XmlNamespaceManager _namespaceManager;
         private bool _running;
 
@@ -97,15 +98,88 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                 if (_dataQueue.Count <= 0) continue;
                 var message = _dataQueue.Dequeue();
 
+                if (message.Contains("<stream:stream") && !message.Contains("</stream:stream>"))
+                {
+                    _logger.Log(LogLevel.Debug, "Adding end tag");
+                    message += "</stream:stream>";
+                }
+
                 if (message.Equals("</stream:stream>"))
                 {
+                    _logger.Log(LogLevel.Debug, "Ending stream and disconnecting");
                     _xmpp.State = new DisconnectState();
                     _xmpp.State.Execute(_xmpp);
                     return;
                 }
 
-                OnTag(ParseTag(message));
+                var element = ParseMessage(message);
+
+                OnTag(ParseTag(element));
             }
+        }
+
+        private string ParseMessage(string message)
+        {
+            do
+            {
+                var tagOpenPosition = message.FirstUnescaped('<');
+                var tagClosePosition = message.FirstUnescaped('>');
+                var firstSpace = message.FirstUnescaped(' ');
+
+                var valid = false;
+                var elementEndPosition = 0;
+
+                if (tagOpenPosition == -1 || tagClosePosition == -1) return string.Empty;
+
+                if (message.Substring(tagOpenPosition, 2) == "<?" &&
+                    message.Substring(tagClosePosition - 1, 2) == "?>" || message[tagOpenPosition + 1] == '/')
+                {
+                    // Empty element
+                    elementEndPosition += tagClosePosition + 1;
+                }
+                else if (message[tagClosePosition - 1] == '/')
+                {
+                    // Self closing tag
+                    elementEndPosition += tagClosePosition + 1;
+                    valid = true;
+                }
+                else
+                {
+                    // Open tag
+                    var nameLength = -1;
+
+                    if (tagClosePosition == -1 || firstSpace < tagClosePosition)
+                        nameLength = firstSpace;
+                    else if (firstSpace == -1 || tagClosePosition < firstSpace) nameLength = tagClosePosition;
+
+                    if (nameLength == -1) return string.Empty;
+
+                    var elementName = message.Substring(tagOpenPosition + 1, nameLength - 1);
+                    var endTagPosition = FindEndTag(message.Substring(tagClosePosition + 1), elementName);
+
+                    var absoluteEnd = endTagPosition + tagClosePosition + 1;
+
+                    if (endTagPosition != -1 && absoluteEnd <= message.Length)
+                    {
+                        elementEndPosition = absoluteEnd;
+                        valid = true;
+                    }
+                    else
+                    {
+                        return string.Empty;
+                    }
+                }
+
+                var element = message.Substring(0, elementEndPosition);
+
+                return valid ? element : string.Empty;
+
+            } while (!String.IsNullOrEmpty(message));
+        }
+
+        private int FindEndTag(string data, string elementName)
+        {
+            throw new NotImplementedException();
         }
 
         private Tag ParseTag(string message)
