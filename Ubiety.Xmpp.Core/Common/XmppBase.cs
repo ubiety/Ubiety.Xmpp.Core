@@ -105,6 +105,7 @@ namespace Ubiety.Xmpp.Core.Common
             if (e.Tag is Stream stream && stream.Errors.Any())
             {
                 OnError(this, new ErrorEventArgs {Message = "Error occured"});
+                Parser.Stop();
                 State = new DisconnectState();                    
             }
 

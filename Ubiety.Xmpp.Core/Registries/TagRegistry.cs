@@ -14,9 +14,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
+using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
@@ -97,6 +99,49 @@ namespace Ubiety.Xmpp.Core.Registries
             Logger.Log(LogLevel.Debug, "Tag found");
 
             return tag;
+        }
+
+        /// <summary>
+        ///     Get a tag from the registry based on the provided XML element
+        /// </summary>
+        /// <typeparam name="T">Type of tag to return</typeparam>
+        /// <param name="element">Element to search for</param>
+        /// <returns>Tag from the registry</returns>
+        public T GetTag<T>(XElement element)
+        {
+            try
+            {
+                var gotType = _types.TryGetValue(element.Name, out var type);
+
+                if (!gotType)
+                    switch (element.Name.LocalName)
+                    {
+                        case "iq":
+                        case "presence":
+                        case "message":
+                        case "error":
+                            element.Name = XName.Get(element.Name.LocalName, Namespaces.Client);
+                            gotType = _types.TryGetValue(element.Name, out type);
+                            break;
+                    }
+
+                if (gotType)
+                {
+                    var constructor = type.GetConstructor(new[] {element.GetType()});
+                    if (!(constructor is null)) return (T) constructor.Invoke(new object[] {element});
+
+                    var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] {typeof(Tag)});
+                    if (!(defaultConstructorInfo is null))
+                        return (T) defaultConstructorInfo.Invoke(new object[] {element});
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+            return default(T);
         }
     }
 }

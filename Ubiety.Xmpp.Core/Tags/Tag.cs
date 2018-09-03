@@ -36,30 +36,33 @@ namespace Ubiety.Xmpp.Core.Tags
         {
         }
 
-        /// <inheritdoc />
-        protected Tag(XName name, object content) : base(name, content)
-        {
-        }
-
-        /// <inheritdoc />
-        protected Tag(XName name, params object[] content) : base(name, content)
-        {
-        }
-
-        /// <inheritdoc />
-        protected Tag(XStreamingElement other) : base(other)
-        {
-        }
-
         /// <summary>
         ///     Get child tags
         /// </summary>
         /// <typeparam name="T">Type of tags</typeparam>
         /// <param name="name">Name of the tags</param>
         /// <returns></returns>
-        public IEnumerable<T> Elements<T>(XName name) where T : XElement
+        protected IEnumerable<T> Elements<T>(XName name) where T : XElement
         {
             return base.Elements(name).Select(element => Convert<T>(element));
+        }
+
+        /// <summary>
+        ///     Gets the constructor for a tag
+        /// </summary>
+        /// <param name="type">Type of the tag</param>
+        /// <param name="parameters">Constructor parameters</param>
+        /// <returns>Constructor info of the tag constructor</returns>
+        public static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
+        {
+            var results = from constructor in type.GetTypeInfo().DeclaredConstructors
+                let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
+                where constructorParameters.Length == parameters.Count &&
+                      !constructorParameters.Except(parameters).Any() &&
+                      !parameters.Except(constructorParameters).Any()
+                select constructor;
+
+            return results.FirstOrDefault();
         }
 
         /// <summary>
@@ -73,19 +76,7 @@ namespace Ubiety.Xmpp.Core.Tags
             return attribute?.Value;
         }
 
-        private static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
-        {
-            var results = from constructor in type.GetTypeInfo().DeclaredConstructors
-                let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
-                where constructorParameters.Length == parameters.Count &&
-                      !constructorParameters.Except(parameters).Any() &&
-                      !parameters.Except(constructorParameters).Any()
-                select constructor;
-
-            return results.FirstOrDefault();
-        }
-
-        private T Convert<T>(XElement element) where T : XElement
+        private static T Convert<T>(XElement element) where T : XElement
         {
             if (element is null) return default(T);
 

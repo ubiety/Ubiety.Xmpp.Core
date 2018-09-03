@@ -188,14 +188,19 @@ namespace Ubiety.Xmpp.Core.Net
 
         private void ReceiveCompleted(IAsyncResult ar)
         {
+            if (!Connected) return;
+
             _stream.EndRead(ar);
             var message = _utf8.GetString(_buffer.TrimNullBytes());
 
-            _logger.Log(LogLevel.Debug, $"Received message: {message}");
+            if (!string.IsNullOrEmpty(message))
+            {
+                _logger.Log(LogLevel.Debug, $"Received message: {message}");
 
-            OnData(new DataEventArgs {Message = message});
+                OnData(new DataEventArgs {Message = message});
 
-            _buffer.Clear();
+                _buffer.Clear();
+            }
 
             _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
         }
