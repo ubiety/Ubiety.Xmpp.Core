@@ -124,7 +124,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <summary>
         ///     Sends a tag to the server
         /// </summary>
-        /// <param name="tag"><see cref="Tag"/> to send</param>
+        /// <param name="tag"><see cref="Tag" /> to send</param>
         public void Send(Tag tag)
         {
             Send(tag.ToString());
@@ -140,7 +140,11 @@ namespace Ubiety.Xmpp.Core.Net
 
             secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);
 
-            if (secureStream.IsAuthenticated) _stream = secureStream;
+            if (secureStream.IsAuthenticated)
+            {
+                _logger.Log(LogLevel.Debug, "Stream is encrypted");
+                _stream = secureStream;
+            }
         }
 
         /// <summary>
@@ -151,7 +155,6 @@ namespace Ubiety.Xmpp.Core.Net
         {
             _logger.Log(LogLevel.Debug, "Firing data event");
             Data?.Invoke(this, e);
-            _buffer.Clear();
         }
 
         /// <summary>
@@ -172,10 +175,16 @@ namespace Ubiety.Xmpp.Core.Net
             if (disposing) _socket?.Dispose();
         }
 
-        private static bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
+        private bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
             SslPolicyErrors sslPolicyErrors)
         {
-            return sslPolicyErrors == SslPolicyErrors.None;
+            if (sslPolicyErrors == SslPolicyErrors.None) return true;
+
+            _logger.Log(LogLevel.Debug, certificate.ToString());
+
+            _logger.Log(LogLevel.Error, $"Policy errors: {sslPolicyErrors}");
+
+            return false;
         }
 
         private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
@@ -193,7 +202,6 @@ namespace Ubiety.Xmpp.Core.Net
             OnConnection();
 
             _stream = new NetworkStream(socket);
-            if (_client.UseSsl) StartSsl();
 
             _logger.Log(LogLevel.Debug, "Starting to read data");
             _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
