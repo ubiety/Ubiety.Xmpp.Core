@@ -15,32 +15,28 @@
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Tags.Tls;
 
-namespace Ubiety.Xmpp.Core.Tags.Stream
+namespace Ubiety.Xmpp.Core.Tags.Tls
 {
     /// <inheritdoc />
-    [XmppTag("features", Namespaces.Stream, typeof(Features))]
-    public class Features : Tag
+    [XmppTag("starttls", Namespaces.Tls, typeof(StartTls))]
+    public class StartTls : Tag
     {
         /// <inheritdoc />
-        public Features(XElement other) : base(other)
+        public StartTls(XElement other) : base(other)
         {
         }
 
         /// <inheritdoc />
-        public Features() : base(XmlName)
+        public StartTls() : base(XmlName)
         {
         }
 
-        /// <summary>
-        ///     XML name of the tag
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
+        public static XName XmlName { get; } = XName.Get("starttls", Namespaces.Tls);
 
         /// <summary>
-        ///     Gets the starttls child
+        ///     Gets a value indicating whether TLS is required or not
         /// </summary>
-        public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
+        public bool Required => !(Element<Required>(XName.Get("required", Namespaces.Tls)) is null);
     }
 }

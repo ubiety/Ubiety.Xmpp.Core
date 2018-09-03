@@ -15,32 +15,23 @@
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Tags.Tls;
 
-namespace Ubiety.Xmpp.Core.Tags.Stream
+namespace Ubiety.Xmpp.Core.Tags.Tls
 {
     /// <inheritdoc />
-    [XmppTag("features", Namespaces.Stream, typeof(Features))]
-    public class Features : Tag
+    [XmppTag("proceed", Namespaces.Tls, typeof(Proceed))]
+    public class Proceed : Tag
     {
         /// <inheritdoc />
-        public Features(XElement other) : base(other)
+        public Proceed(XElement other) : base(other)
         {
         }
 
         /// <inheritdoc />
-        public Features() : base(XmlName)
+        public Proceed() : base(XmlName)
         {
         }
 
-        /// <summary>
-        ///     XML name of the tag
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
-
-        /// <summary>
-        ///     Gets the starttls child
-        /// </summary>
-        public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
+        public static XName XmlName { get; } = XName.Get("proceed", Namespaces.Tls);
     }
 }

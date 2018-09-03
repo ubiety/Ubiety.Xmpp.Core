@@ -13,34 +13,27 @@
 //   limitations under the License.
 
 using System.Xml.Linq;
-using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Tls;
 
-namespace Ubiety.Xmpp.Core.Tags.Stream
+namespace Ubiety.Xmpp.Core.States
 {
     /// <inheritdoc />
-    [XmppTag("features", Namespaces.Stream, typeof(Features))]
-    public class Features : Tag
+    public class StartTlsState : IState
     {
         /// <inheritdoc />
-        public Features(XElement other) : base(other)
+        public void Execute(XmppBase xmpp, Tag tag = null)
         {
+            if (tag is Proceed)
+            {
+                xmpp.ClientSocket.StartSsl();
+                xmpp.State = new ConnectedState();
+                return;
+            }
+
+            var starttls = xmpp.Registry.GetTag<StartTls>(XName.Get("starttls", Namespaces.Tls));
+            xmpp.ClientSocket.Send(starttls);
         }
-
-        /// <inheritdoc />
-        public Features() : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     XML name of the tag
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
-
-        /// <summary>
-        ///     Gets the starttls child
-        /// </summary>
-        public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
     }
 }

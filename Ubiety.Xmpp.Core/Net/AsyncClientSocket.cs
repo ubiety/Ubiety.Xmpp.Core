@@ -23,6 +23,7 @@ using System.Text;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Tags;
 
 namespace Ubiety.Xmpp.Core.Net
 {
@@ -121,6 +122,28 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
+        ///     Sends a tag to the server
+        /// </summary>
+        /// <param name="tag"><see cref="Tag"/> to send</param>
+        public void Send(Tag tag)
+        {
+            Send(tag.ToString());
+        }
+
+        /// <summary>
+        ///     Starts SSL/TLS connection
+        /// </summary>
+        public void StartSsl()
+        {
+            _logger.Log(LogLevel.Debug, "Starting SSL encryption");
+            var secureStream = new SslStream(_stream, true, CertificateValidation);
+
+            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);
+
+            if (secureStream.IsAuthenticated) _stream = secureStream;
+        }
+
+        /// <summary>
         ///     Raise the data event with the specified arguments
         /// </summary>
         /// <param name="e">Data event arguments</param>
@@ -174,16 +197,6 @@ namespace Ubiety.Xmpp.Core.Net
 
             _logger.Log(LogLevel.Debug, "Starting to read data");
             _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
-        }
-
-        private void StartSsl()
-        {
-            _logger.Log(LogLevel.Debug, "Starting SSL encryption");
-            var secureStream = new SslStream(_stream, true, CertificateValidation);
-
-            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);
-
-            if (secureStream.IsAuthenticated) _stream = secureStream;
         }
 
         private void ReceiveCompleted(IAsyncResult ar)

@@ -151,7 +151,12 @@
         </member>
         <member name="F:Ubiety.Xmpp.Core.Common.Namespaces.XmppStreams">
             <summary>
-                Xmpp streams namespace
+                XMPP streams namespace
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.Namespaces.Tls">
+            <summary>
+                XMPP TLS namespace
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Common.TagEventArgs">
@@ -493,6 +498,17 @@
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(System.String)">
             <inheritdoc />
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(Ubiety.Xmpp.Core.Tags.Tag)">
+            <summary>
+                Sends a tag to the server
+            </summary>
+            <param name="tag"><see cref="T:Ubiety.Xmpp.Core.Tags.Tag"/> to send</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl">
+            <summary>
+                Starts SSL/TLS connection
+            </summary>
+        </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.OnData(Ubiety.Xmpp.Core.Common.DataEventArgs)">
             <summary>
                 Raise the data event with the specified arguments
@@ -628,6 +644,18 @@
                 Executes the current state
             </summary>
         </member>
+        <member name="T:Ubiety.Xmpp.Core.States.StartTlsState">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.States.StartTlsState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.States.StreamFeaturesState">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.States.StreamFeaturesState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)">
+            <inheritdoc />
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition">
             <summary>
                 Undefined condition XMPP error
@@ -710,6 +738,25 @@
                 Error XML name
             </summary>
         </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Stream.Features">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Features.#ctor(System.Xml.Linq.XElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Features.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.XmlName">
+            <summary>
+                XML name of the tag
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.StartTls">
+            <summary>
+                Gets the starttls child
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Stream.Stream">
             <summary>
                 XMPP Stream tag
@@ -746,6 +793,11 @@
                 Gets the stream errors
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Stream.Features">
+            <summary>
+                Gets the stream features
+            </summary>
+        </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Stream.StartTag">
             <summary>
                 Gets the start tag of the stream
@@ -769,7 +821,15 @@
             </summary>
             <typeparam name="T">Type of tags</typeparam>
             <param name="name">Name of the tags</param>
-            <returns></returns>
+            <returns>Enumerable of the tags</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.Element``1(System.Xml.Linq.XName)">
+            <summary>
+                Get a child tag
+            </summary>
+            <typeparam name="T">Type of the child to get</typeparam>
+            <param name="name">XML name of the tag</param>
+            <returns>Child tag</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})">
             <summary>
@@ -808,6 +868,38 @@
         <member name="P:Ubiety.Xmpp.Core.Tags.Text.XmlName">
             <summary>
                 Xml name of the tag
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Proceed.#ctor(System.Xml.Linq.XElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Proceed.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Tls.Required">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Required.#ctor(System.Xml.Linq.XElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Required.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tls.StartTls.#ctor(System.Xml.Linq.XElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tls.StartTls.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Tls.StartTls.Required">
+            <summary>
+                Gets a value indicating whether TLS is required or not
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.XmppBuilder">

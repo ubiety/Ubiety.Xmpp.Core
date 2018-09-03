@@ -32,8 +32,13 @@ namespace Ubiety.Xmpp.Core.Common
         public const string Client = "jabber:client";
 
         /// <summary>
-        ///     Xmpp streams namespace
+        ///     XMPP streams namespace
         /// </summary>
         public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
+
+        /// <summary>
+        ///     XMPP TLS namespace
+        /// </summary>
+        public const string Tls = "urn:ietf:params:xml:ns:xmpp-tls";
     }
 }
