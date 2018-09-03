@@ -36,7 +36,20 @@ namespace Ubiety.Xmpp.Core.Common
         /// <param name="id">String version of the ID</param>
         public Jid(string id)
         {
-            Id = id;
+            Id = id ?? throw new ArgumentNullException(nameof(id));
+        }
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Jid"/> class
+        /// </summary>
+        /// <param name="username">Username of the user</param>
+        /// <param name="server">XMPP server of the user</param>
+        /// <param name="resource">Server resource</param>
+        public Jid(string username, string server, string resource = "")
+        {
+            User = username ?? throw new ArgumentNullException(nameof(username));
+            Server = server ?? throw new  ArgumentNullException(nameof(server));
+            Resource = resource;
         }
 
         /// <summary>

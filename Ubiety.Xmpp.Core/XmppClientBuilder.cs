@@ -27,15 +27,6 @@ namespace Ubiety.Xmpp.Core
         private bool _useSsl;
 
         /// <summary>
-        ///     Begin the build process
-        /// </summary>
-        /// <returns>Builder instance</returns>
-        public XmppClientBuilder Begin()
-        {
-            return this;
-        }
-
-        /// <summary>
         ///     Enable logging with the log manager
         /// </summary>
         /// <param name="manager">Log manager to use for logging</param>
@@ -72,16 +63,13 @@ namespace Ubiety.Xmpp.Core
         /// <returns>Client with the options provided</returns>
         public XmppClient Build()
         {
-            if (!(_logManager is null))
-            {
-                Log.Initialize(_logManager);
-            }
+            if (!(_logManager is null)) Log.Initialize(_logManager);
 
             var type = typeof(XmppClientBuilder);
             var registry = new TagRegistry();
             registry.AddAssembly(type.Assembly);
 
-            var client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry};
+            var client = new XmppClient {UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry};
 
             return client;
         }

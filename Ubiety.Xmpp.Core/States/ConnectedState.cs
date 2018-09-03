@@ -12,31 +12,31 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
+using Ubiety.Xmpp.Core.Tags.Stream;
 
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Connecting state for the protocol
+    ///     Connected to the server state
     /// </summary>
     /// <inheritdoc />
-    public class ConnectingState : IState
+    public class ConnectedState : IState
     {
-        private static readonly ILog Logger;
-
-        static ConnectingState()
-        {
-            Logger = Log.Get<ConnectingState>();
-        }
-
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             if (!(xmpp is XmppClient client)) return;
-            Logger.Log(LogLevel.Debug, "Connecting to server");
-            client.ClientSocket.Connect(client.Id);
+            var stream = xmpp.Registry.GetTag<Stream>(XName.Get("stream", Namespaces.Stream));
+            stream.Version = "1.0";
+            stream.To = client.Id.Server;
+            stream.Namespace = Namespaces.Client;
+
+            client.ClientSocket.Send($"<?xml version='1.0' encoding='UTF-8'?> {stream.StartTag}");
+
+            xmpp.State = new StreamFeaturesState();
         }
     }
 }

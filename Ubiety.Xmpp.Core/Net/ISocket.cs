@@ -47,5 +47,11 @@ namespace Ubiety.Xmpp.Core.Net
         ///     Disconnects from the server
         /// </summary>
         void Disconnect();
+
+        /// <summary>
+        ///     Send a message to the server
+        /// </summary>
+        /// <param name="message">Message to send</param>
+        void Send(string message);
     }
 }

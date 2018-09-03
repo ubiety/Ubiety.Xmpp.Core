@@ -12,28 +12,39 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Common
+using System;
+
+namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     XML namespaces for tags
+    ///     Builds an XMPP connection
     /// </summary>
-    public static class Namespaces
+    public class XmppBuilder
     {
-#pragma warning disable S1075 // URIs should not be hardcoded
         /// <summary>
-        ///     Stream namespace
+        ///     Begins the build process
         /// </summary>
-        public const string Stream = "http://etherx.jabber.org/streams";
-#pragma warning restore S1075 // URIs should not be hardcoded
+        /// <returns></returns>
+        public XmppBuilder Begin()
+        {
+            return this;
+        }
 
         /// <summary>
-        ///     Client namespace
+        ///     Build a client connection
         /// </summary>
-        public const string Client = "jabber:client";
+        /// <returns></returns>
+        public XmppClientBuilder BuildClient()
+        {
+            return new XmppClientBuilder();
+        }
 
         /// <summary>
-        ///     Xmpp streams namespace
+        ///     Build a server connection
         /// </summary>
-        public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
+        public void BuildServer()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

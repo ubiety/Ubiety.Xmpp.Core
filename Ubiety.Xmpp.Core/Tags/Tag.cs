@@ -12,6 +12,10 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Xml.Linq;
 
 namespace Ubiety.Xmpp.Core.Tags
@@ -32,19 +36,44 @@ namespace Ubiety.Xmpp.Core.Tags
         {
         }
 
-        /// <inheritdoc />
-        protected Tag(XName name, object content) : base(name, content)
+        /// <summary>
+        ///     Get child tags
+        /// </summary>
+        /// <typeparam name="T">Type of tags</typeparam>
+        /// <param name="name">Name of the tags</param>
+        /// <returns>Enumerable of the tags</returns>
+        protected IEnumerable<T> Elements<T>(XName name) where T : XElement
         {
+            return base.Elements(name).Select(Convert<T>);
         }
 
-        /// <inheritdoc />
-        protected Tag(XName name, params object[] content) : base(name, content)
+        /// <summary>
+        ///     Get a child tag
+        /// </summary>
+        /// <typeparam name="T">Type of the child to get</typeparam>
+        /// <param name="name">XML name of the tag</param>
+        /// <returns>Child tag</returns>
+        protected T Element<T>(XName name) where T : XElement
         {
+            return Convert<T>(base.Element(name));
         }
 
-        /// <inheritdoc />
-        protected Tag(XStreamingElement other) : base(other)
+        /// <summary>
+        ///     Gets the constructor for a tag
+        /// </summary>
+        /// <param name="type">Type of the tag</param>
+        /// <param name="parameters">Constructor parameters</param>
+        /// <returns>Constructor info of the tag constructor</returns>
+        public static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
         {
+            var results = from constructor in type.GetTypeInfo().DeclaredConstructors
+                let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
+                where constructorParameters.Length == parameters.Count &&
+                      !constructorParameters.Except(parameters).Any() &&
+                      !parameters.Except(constructorParameters).Any()
+                select constructor;
+
+            return results.FirstOrDefault();
         }
 
         /// <summary>
@@ -56,6 +85,14 @@ namespace Ubiety.Xmpp.Core.Tags
         {
             var attribute = Attribute(name);
             return attribute?.Value;
+        }
+
+        private static T Convert<T>(XElement element) where T : XElement
+        {
+            if (element is null) return default(T);
+
+            var constructor = GetConstructor(typeof(T), new[] {typeof(XElement)});
+            return (T) constructor?.Invoke(new object[] {element});
         }
     }
 }

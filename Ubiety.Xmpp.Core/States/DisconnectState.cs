@@ -19,24 +19,24 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Connecting state for the protocol
+    ///     State to disconnect from the server
     /// </summary>
     /// <inheritdoc />
-    public class ConnectingState : IState
+    public class DisconnectState : IState
     {
         private static readonly ILog Logger;
 
-        static ConnectingState()
+        static DisconnectState()
         {
-            Logger = Log.Get<ConnectingState>();
+            Logger = Log.Get<DisconnectState>();
         }
 
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
-            if (!(xmpp is XmppClient client)) return;
-            Logger.Log(LogLevel.Debug, "Connecting to server");
-            client.ClientSocket.Connect(client.Id);
+            Logger.Log(LogLevel.Debug, "Disconnecting from the server");
+            xmpp.ClientSocket.Disconnect();
+            xmpp.State = new DisconnectedState();
         }
     }
 }

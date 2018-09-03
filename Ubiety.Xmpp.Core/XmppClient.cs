@@ -12,7 +12,9 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.States;
@@ -35,6 +37,8 @@ namespace Ubiety.Xmpp.Core
             _logger = Log.Get<XmppClient>();
             ClientSocket = new AsyncClientSocket(this);
             _logger.Log(LogLevel.Debug, "XmppClient created");
+            Parser = new Parser(this);
+            Parser.Tag += Parser_Tag;
         }
 
         /// <inheritdoc />
@@ -43,6 +47,8 @@ namespace Ubiety.Xmpp.Core
         /// <inheritdoc />
         public void Connect(Jid jid)
         {
+            if (jid is null) throw new ArgumentNullException(nameof(jid));
+
             _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
             Id = jid;
             State = new ConnectingState();

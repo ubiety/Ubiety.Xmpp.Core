@@ -12,28 +12,38 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Common
+using System.Xml.Linq;
+using Ubiety.Xmpp.Core.Attributes;
+using Ubiety.Xmpp.Core.Common;
+
+namespace Ubiety.Xmpp.Core.Tags.Stream
 {
     /// <summary>
-    ///     XML namespaces for tags
+    ///     Stream error tag
     /// </summary>
-    public static class Namespaces
+    [XmppTag("error", Namespaces.Stream, typeof(Error))]
+    public class Error : Tag
     {
-#pragma warning disable S1075 // URIs should not be hardcoded
+        /// <inheritdoc />
         /// <summary>
-        ///     Stream namespace
+        ///     Initializes a new instance of the <see cref="Error" /> class
         /// </summary>
-        public const string Stream = "http://etherx.jabber.org/streams";
-#pragma warning restore S1075 // URIs should not be hardcoded
+        public Error() : base(XmlName)
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Error" /> class
+        /// </summary>
+        /// <param name="other">Other tag</param>
+        public Error(XElement other) : base(other)
+        {
+        }
 
         /// <summary>
-        ///     Client namespace
+        ///     Error XML name
         /// </summary>
-        public const string Client = "jabber:client";
-
-        /// <summary>
-        ///     Xmpp streams namespace
-        /// </summary>
-        public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
+        public static XName XmlName { get; } = XName.Get("error", Namespaces.Stream);
     }
 }

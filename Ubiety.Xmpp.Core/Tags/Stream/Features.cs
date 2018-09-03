@@ -12,28 +12,29 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Common
+using System.Xml.Linq;
+using Ubiety.Xmpp.Core.Attributes;
+using Ubiety.Xmpp.Core.Common;
+
+namespace Ubiety.Xmpp.Core.Tags.Stream
 {
-    /// <summary>
-    ///     XML namespaces for tags
-    /// </summary>
-    public static class Namespaces
+    /// <inheritdoc />
+    [XmppTag("features", Namespaces.Stream, typeof(Features))]
+    public class Features : Tag
     {
-#pragma warning disable S1075 // URIs should not be hardcoded
-        /// <summary>
-        ///     Stream namespace
-        /// </summary>
-        public const string Stream = "http://etherx.jabber.org/streams";
-#pragma warning restore S1075 // URIs should not be hardcoded
+        /// <inheritdoc />
+        public Features(XElement other) : base(other)
+        {
+        }
+
+        /// <inheritdoc />
+        public Features() : base(XmlName)
+        {
+        }
 
         /// <summary>
-        ///     Client namespace
+        ///     XML name of the tag
         /// </summary>
-        public const string Client = "jabber:client";
-
-        /// <summary>
-        ///     Xmpp streams namespace
-        /// </summary>
-        public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
+        public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
     }
 }
