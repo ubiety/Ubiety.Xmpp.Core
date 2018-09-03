@@ -12,20 +12,29 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System.Xml.Linq;
+using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.Tags.Stream
 {
-    /// <summary>
-    ///     Disconnected state
-    /// </summary>
-    public class DisconnectedState : IState
+    /// <inheritdoc />
+    [XmppTag("features", Namespaces.Stream, typeof(Features))]
+    public class Features : Tag
     {
         /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
+        public Features(XElement other) : base(other)
         {
-            // Disconnected from a server - nothing to do
         }
+
+        /// <inheritdoc />
+        public Features() : base(XmlName)
+        {
+        }
+
+        /// <summary>
+        ///     XML name of the tag
+        /// </summary>
+        public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
     }
 }

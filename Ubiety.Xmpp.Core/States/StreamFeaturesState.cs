@@ -17,15 +17,13 @@ using Ubiety.Xmpp.Core.Tags;
 
 namespace Ubiety.Xmpp.Core.States
 {
-    /// <summary>
-    ///     Disconnected state
-    /// </summary>
-    public class DisconnectedState : IState
+    /// <inheritdoc />
+    public class StreamFeaturesState : IState
     {
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
-            // Disconnected from a server - nothing to do
+            throw new System.NotImplementedException();
         }
     }
 }

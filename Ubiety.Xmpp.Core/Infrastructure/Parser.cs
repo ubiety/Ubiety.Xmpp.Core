@@ -14,7 +14,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
@@ -31,6 +33,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         private readonly Queue<string> _dataQueue;
         private readonly ILog _logger;
         private readonly XmppBase _xmpp;
+        private XmlNamespaceManager _namespaceManager;
         private bool _running;
 
         /// <summary>
@@ -43,6 +46,23 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             _dataQueue = new Queue<string>();
             _xmpp.ClientSocket.Data += ClientSocket_Data;
             _logger.Log(LogLevel.Debug, "Parser created");
+        }
+
+        private XmlNamespaceManager NamespaceManager
+        {
+            get
+            {
+                if (!(_namespaceManager is null))
+                {
+                    return _namespaceManager;
+                }
+
+                _namespaceManager = new XmlNamespaceManager(new NameTable());
+                _namespaceManager.AddNamespace("", Namespaces.Client);
+                _namespaceManager.AddNamespace("stream", Namespaces.Stream);
+
+                return _namespaceManager;
+            }
         }
 
         /// <summary>
@@ -74,6 +94,8 @@ namespace Ubiety.Xmpp.Core.Infrastructure
 
         private void ProcessQueue()
         {
+            const string endStream = "</stream:stream>";
+
             while (true)
             {
                 if (_xmpp.State is DisconnectedState || !_running) break;
@@ -81,21 +103,30 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                 if (_dataQueue.Count <= 0) continue;
                 var message = _dataQueue.Dequeue();
 
-                if (message.Contains("<stream:stream") && !message.Contains("</stream:stream>"))
-                {
-                    _logger.Log(LogLevel.Debug, "Adding end tag");
-                    message += "</stream:stream>";
-                }
-
-                if (message.Equals("</stream:stream>"))
+                if (message.Contains(endStream))
                 {
                     _logger.Log(LogLevel.Debug, "Ending stream and disconnecting");
                     _xmpp.State = new DisconnectState();
                     _xmpp.State.Execute(_xmpp);
-                    return;
+
+                    if (message.Equals(endStream))
+                    {
+                        return;
+                    }
+
+                    message = message.Replace(endStream, string.Empty);
                 }
 
-                var root = XElement.Parse(message);
+                if (message.Contains("<stream:stream") && !message.Contains(endStream))
+                {
+                    _logger.Log(LogLevel.Debug, "Adding end tag");
+                    message += endStream;
+                }
+
+                var context = new XmlParserContext(null, NamespaceManager, null, XmlSpace.None);
+                var reader = new XmlTextReader(message, XmlNodeType.Element, context);
+
+                var root = XElement.Load(reader);
 
                 var tag = _xmpp.Registry.GetTag<Tag>(root);
 

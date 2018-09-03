@@ -41,10 +41,21 @@ namespace Ubiety.Xmpp.Core.Tags
         /// </summary>
         /// <typeparam name="T">Type of tags</typeparam>
         /// <param name="name">Name of the tags</param>
-        /// <returns></returns>
+        /// <returns>Enumerable of the tags</returns>
         protected IEnumerable<T> Elements<T>(XName name) where T : XElement
         {
-            return base.Elements(name).Select(element => Convert<T>(element));
+            return base.Elements(name).Select(Convert<T>);
+        }
+
+        /// <summary>
+        ///     Get a child tag
+        /// </summary>
+        /// <typeparam name="T">Type of the child to get</typeparam>
+        /// <param name="name">XML name of the tag</param>
+        /// <returns>Child tag</returns>
+        protected T Element<T>(XName name) where T : XElement
+        {
+            return Convert<T>(base.Element(name));
         }
 
         /// <summary>

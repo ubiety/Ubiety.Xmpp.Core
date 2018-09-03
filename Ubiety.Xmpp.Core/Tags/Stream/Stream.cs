@@ -70,6 +70,11 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         public IEnumerable<Error> Errors => Elements<Error>(XName.Get("error", Namespaces.Stream));
 
         /// <summary>
+        ///     Gets the stream features
+        /// </summary>
+        public Features Features => Element<Features>(XName.Get("features", Namespaces.Stream));
+
+        /// <summary>
         ///     Gets the start tag of the stream
         /// </summary>
         public string StartTag

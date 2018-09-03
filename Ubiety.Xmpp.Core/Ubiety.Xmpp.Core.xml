@@ -49,6 +49,11 @@
                 Gets or sets the error message
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.ErrorEventArgs.StreamError">
+            <summary>
+                Stream error
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Common.Jid">
             <inheritdoc />
             <summary>
