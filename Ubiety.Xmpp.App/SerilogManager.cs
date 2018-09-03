@@ -21,7 +21,7 @@ namespace Ubiety.Xmpp.App
                 Serilog.Log.Logger = new LoggerConfiguration()
                     .MinimumLevel.Debug()
                     .WriteTo.Console()
-                    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+                    .WriteTo.File("log.txt")
                     .CreateLogger();
             }
             

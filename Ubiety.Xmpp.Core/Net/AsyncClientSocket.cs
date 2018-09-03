@@ -17,7 +17,6 @@ using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
-using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Ubiety.Xmpp.Core.Common;
@@ -57,7 +56,6 @@ namespace Ubiety.Xmpp.Core.Net
         public void Dispose()
         {
             Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         /// <inheritdoc />
@@ -138,7 +136,7 @@ namespace Ubiety.Xmpp.Core.Net
             _logger.Log(LogLevel.Debug, "Starting SSL encryption");
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
-            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);
+            secureStream.AuthenticateAsClient(_address.Hostname);
 
             if (secureStream.IsAuthenticated)
             {

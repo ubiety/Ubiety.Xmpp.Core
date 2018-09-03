@@ -502,7 +502,7 @@
             <summary>
                 Sends a tag to the server
             </summary>
-            <param name="tag"><see cref="T:Ubiety.Xmpp.Core.Tags.Tag"/> to send</param>
+            <param name="tag"><see cref="T:Ubiety.Xmpp.Core.Tags.Tag" /> to send</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl">
             <summary>
