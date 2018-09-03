@@ -13,10 +13,17 @@ namespace Ubiety.Xmpp.App
                 .EnableLogging(new SerilogManager())
                 .Build();
 
+            client.Error += Client_Error;
+
             var id = new Jid("dieter@dieterlunn.ca");
 
             client.Connect(id);
             Console.ReadLine();
+        }
+
+        private static void Client_Error(object sender, ErrorEventArgs e)
+        {
+            Console.WriteLine(e.StreamError);
         }
     }
 }

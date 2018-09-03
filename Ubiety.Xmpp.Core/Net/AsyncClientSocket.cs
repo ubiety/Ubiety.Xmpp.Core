@@ -202,7 +202,14 @@ namespace Ubiety.Xmpp.Core.Net
                 _buffer.Clear();
             }
 
-            _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
+            try
+            {
+                _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
+            }
+            catch (ObjectDisposedException e)
+            {
+                _logger.Log(LogLevel.Error, e, "Stream disposed");
+            }
         }
     }
 }

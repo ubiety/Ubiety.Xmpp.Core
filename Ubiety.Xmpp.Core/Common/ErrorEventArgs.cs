@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using System;
+using Ubiety.Xmpp.Core.Tags.Stream;
 
 namespace Ubiety.Xmpp.Core.Common
 {
@@ -25,5 +26,10 @@ namespace Ubiety.Xmpp.Core.Common
         ///     Gets or sets the error message
         /// </summary>
         public string Message { get; set; }
+
+        /// <summary>
+        ///     Stream error
+        /// </summary>
+        public Error StreamError { get; set; }
     }
 }
