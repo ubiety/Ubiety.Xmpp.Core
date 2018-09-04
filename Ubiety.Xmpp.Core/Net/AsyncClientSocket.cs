@@ -19,8 +19,8 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading.Tasks;
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
 
@@ -32,7 +32,6 @@ namespace Ubiety.Xmpp.Core.Net
     public class AsyncClientSocket : ISocket, IDisposable
     {
         private const int BufferSize = 64 * 1024;
-        private readonly byte[] _buffer;
         private readonly IClient _client;
         private readonly ILog _logger;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
@@ -48,7 +47,6 @@ namespace Ubiety.Xmpp.Core.Net
         {
             _logger = Log.Get<AsyncClientSocket>();
             _client = client;
-            _buffer = new byte[BufferSize];
             _logger.Log(LogLevel.Debug, "AsyncClientSocket created");
         }
 
@@ -152,7 +150,7 @@ namespace Ubiety.Xmpp.Core.Net
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
                 _stream = secureStream;
                 Connected = true;
-                _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
+                BeginRead();
             }
         }
 
@@ -217,37 +215,32 @@ namespace Ubiety.Xmpp.Core.Net
             _stream = new NetworkStream(socket);
 
             _logger.Log(LogLevel.Debug, "Starting to read data");
-            _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
+            BeginRead();
         }
 
-        private void ReceiveCompleted(IAsyncResult ar)
+        private void BeginRead()
         {
-            if (!Connected)
+            while (Connected)
             {
-                _logger.Log(LogLevel.Debug, "Not connected. End reading");
-                return;
+                var message = ReadData();
+                _logger.Log(LogLevel.Debug, $"Received message: {message.Result}");
+                OnData(new DataEventArgs { Message = message.Result });
             }
+        }
 
-            _stream.EndRead(ar);
-            var message = _utf8.GetString(_buffer.TrimNullBytes());
+        private Task<string> ReadData()
+        {
+            var buffer = new byte[BufferSize];
+            var received = _stream.ReadAsync(buffer, 0, BufferSize);
 
-            if (!string.IsNullOrEmpty(message))
+            var task = received.ContinueWith(getString =>
             {
-                _logger.Log(LogLevel.Debug, $"Received message: {message}");
+                Array.Resize(ref buffer, received.Result);
+                var message = _utf8.GetString(buffer);
+                return message;
+            });
 
-                OnData(new DataEventArgs { Message = message });
-
-                _buffer.Clear();
-            }
-
-            try
-            {
-                _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
-            }
-            catch (ObjectDisposedException e)
-            {
-                _logger.Log(LogLevel.Error, e, "Stream disposed");
-            }
+            return task;
         }
     }
 }

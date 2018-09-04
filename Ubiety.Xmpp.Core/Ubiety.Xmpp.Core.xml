@@ -51,7 +51,7 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.ErrorEventArgs.StreamError">
             <summary>
-                Stream error
+                Gets or sets the stream error
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Common.Jid">
@@ -94,9 +94,6 @@
                 Gets or sets the id as a string
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)">
-            <inheritdoc />
-        </member>
         <member name="M:Ubiety.Xmpp.Core.Common.Jid.op_Implicit(System.String)~Ubiety.Xmpp.Core.Common.Jid">
             <summary>
                 Implicitly converts a string into a <see cref="T:Ubiety.Xmpp.Core.Common.Jid" />
@@ -124,6 +121,9 @@
             <param name="one">First <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /></param>
             <param name="two">Second <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /></param>
             <returns>True if the Jids are not equal</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)">
+            <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Common.Jid.Equals(System.Object)">
             <inheritdoc />
@@ -167,7 +167,7 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.TagEventArgs.Tag">
             <summary>
-                Tag to send
+                Gets or sets the tag
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Common.XmppBase">
@@ -186,13 +186,19 @@
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.Port">
-            <inheritdoc cref="T:Ubiety.Xmpp.Core.IClient" />
+            <summary>
+                Gets or sets the XMPP port
+            </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseSsl">
-            <inheritdoc cref="T:Ubiety.Xmpp.Core.IClient" />
+            <summary>
+                Gets a value indicating whether we should use SSL/TLS
+            </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6">
-            <inheritdoc cref="T:Ubiety.Xmpp.Core.IClient" />
+            <summary>
+                Gets a value indicating whether we should use IPv6
+            </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.State">
             <summary>
@@ -211,7 +217,7 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.Parser">
             <summary>
-                XMPP protocol parser
+                Gets or sets the XMPP protocol parser
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag(System.Object,Ubiety.Xmpp.Core.Common.TagEventArgs)">
@@ -265,24 +271,6 @@
             <param name="assembly">Assembly to iterate</param>
             <returns>Enumerable of attributes</returns>
         </member>
-        <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions">
-            <summary>
-                Byte extension methods
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.TrimNullBytes(System.Collections.Generic.IList{System.Byte})">
-            <summary>
-                Trims null byte values from the end of an array
-            </summary>
-            <param name="bytes">Byte array to trim</param>
-            <returns>Trimmed array</returns>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.Clear(System.Byte[])">
-            <summary>
-                Clears a byte array
-            </summary>
-            <param name="data">Byte array to clear</param>
-        </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions">
             <summary>
                 Enumerable extensions
@@ -307,7 +295,7 @@
             </summary>
             <param name="data">Data to read</param>
             <param name="token">Character to locate</param>
-            <returns></returns>
+            <returns>Position of the character</returns>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Parser">
             <summary>
@@ -318,6 +306,7 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Infrastructure.Parser" /> class
             </summary>
+            <param name="xmpp">XMPP instance</param>
         </member>
         <member name="E:Ubiety.Xmpp.Core.Infrastructure.Parser.Tag">
             <summary>
@@ -406,6 +395,12 @@
             <param name="type">Type to get the name for</param>
             <returns>Name of the type</returns>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Logging.Log.Initialize(Ubiety.Xmpp.Core.Logging.ILogManager)">
+            <summary>
+                Initializes the logger
+            </summary>
+            <param name="manager">Log manager</param>
+        </member>
         <member name="M:Ubiety.Xmpp.Core.Logging.Log.DefaultManager.GetLogger(System.String)">
             <inheritdoc />
         </member>
@@ -477,9 +472,6 @@
             </summary>
             <param name="client">Client to use for the server connection</param>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose">
-            <inheritdoc />
-        </member>
         <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data">
             <inheritdoc />
         </member>
@@ -487,6 +479,9 @@
             <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected">
+            <inheritdoc />
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)">
@@ -531,11 +526,6 @@
                 Defines a socket interface
             </summary>
         </member>
-        <member name="P:Ubiety.Xmpp.Core.Net.ISocket.Connected">
-            <summary>
-                Gets a value indicating whether the socket is connected
-            </summary>
-        </member>
         <member name="E:Ubiety.Xmpp.Core.Net.ISocket.Data">
             <summary>
                 Raised when data is received from the server
@@ -544,6 +534,11 @@
         <member name="E:Ubiety.Xmpp.Core.Net.ISocket.Connection">
             <summary>
                 Raised when the socket is connected to the server
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.ISocket.Connected">
+            <summary>
+                Gets a value indicating whether the socket is connected
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)">
@@ -643,6 +638,8 @@
             <summary>
                 Executes the current state
             </summary>
+            <param name="xmpp">XMPP instance</param>
+            <param name="tag">Tag for the state to work with</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.StartTlsState">
             <inheritdoc />
@@ -666,18 +663,16 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition"/> class
             </summary>
-            <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition.#ctor(System.Xml.Linq.XElement)">
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition"/> class
             </summary>
             <param name="element">Element to base the tag on</param>
-            <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition.XmlName">
             <summary>
-                XML name of the tag
+                Gets the XML name of the tag
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Stanza">
@@ -691,14 +686,12 @@
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stanza"/> class
             </summary>
             <param name="name">Name of the tag with namespace</param>
-            <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stanza.#ctor(System.Xml.Linq.XElement)">
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stanza"/> class
             </summary>
             <param name="other">Tag to create the stanza with</param>
-            <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Stanza.To">
             <summary>
@@ -721,13 +714,11 @@
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Error.#ctor">
-            <inheritdoc />
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Error" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Error.#ctor(System.Xml.Linq.XElement)">
-            <inheritdoc />
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Error" /> class
             </summary>
@@ -735,21 +726,26 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Error.XmlName">
             <summary>
-                Error XML name
+                Gets the Error XML name
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Stream.Features">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Features.#ctor(System.Xml.Linq.XElement)">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Features"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Features.#ctor">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Features"/> class
+            </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.XmlName">
             <summary>
-                XML name of the tag
+                Gets the XML name of the tag
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.StartTls">
@@ -810,10 +806,24 @@
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XElement)">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tag"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XName)">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tag"/> class
+            </summary>
+            <param name="name"><see cref="T:System.Xml.Linq.XName"/> of the tag</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})">
+            <summary>
+                Gets the constructor for a tag
+            </summary>
+            <param name="type">Type of the tag</param>
+            <param name="parameters">Constructor parameters</param>
+            <returns>Constructor info of the tag constructor</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.Elements``1(System.Xml.Linq.XName)">
             <summary>
@@ -830,14 +840,6 @@
             <typeparam name="T">Type of the child to get</typeparam>
             <param name="name">XML name of the tag</param>
             <returns>Child tag</returns>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})">
-            <summary>
-                Gets the constructor for a tag
-            </summary>
-            <param name="type">Type of the tag</param>
-            <param name="parameters">Constructor parameters</param>
-            <returns>Constructor info of the tag constructor</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.GetAttributeValue(System.Xml.Linq.XName)">
             <summary>
@@ -856,46 +858,74 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Text"/> class
             </summary>
-            <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Text.#ctor(System.Xml.Linq.XElement)">
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Text"/> class
             </summary>
             <param name="other">Element to base the tag on</param>
-            <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Text.XmlName">
             <summary>
-                Xml name of the tag
+                Gets the XML name of the tag
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Proceed.#ctor(System.Xml.Linq.XElement)">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Proceed.#ctor">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed"/> class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Tls.Proceed.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Tls.Required">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Required.#ctor(System.Xml.Linq.XElement)">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Required"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Required.#ctor">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Required"/> class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Tls.Required.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls">
             <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.StartTls.#ctor(System.Xml.Linq.XElement)">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.StartTls.#ctor">
-            <inheritdoc />
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls"/> class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Tls.StartTls.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Tls.StartTls.Required">
             <summary>
@@ -911,13 +941,13 @@
             <summary>
                 Begins the build process
             </summary>
-            <returns></returns>
+            <returns>Returns the current instance</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.XmppBuilder.BuildClient">
             <summary>
                 Build a client connection
             </summary>
-            <returns></returns>
+            <returns>Returns a new <see cref="T:Ubiety.Xmpp.Core.XmppClientBuilder"/> instance</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.XmppBuilder.BuildServer">
             <summary>
@@ -933,7 +963,6 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.XmppClient" /> class
             </summary>
-            <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.XmppClient.Id">
             <inheritdoc />

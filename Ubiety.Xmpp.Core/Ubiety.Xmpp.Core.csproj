@@ -14,6 +14,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Libidn.Core" Version="1.0.0" />
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
