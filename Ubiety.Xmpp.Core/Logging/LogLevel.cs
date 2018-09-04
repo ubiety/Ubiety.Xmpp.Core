@@ -23,18 +23,22 @@ namespace Ubiety.Xmpp.Core.Logging
         ///     Critical severity
         /// </summary>
         Critical,
+
         /// <summary>
         ///     Error severity
         /// </summary>
         Error,
+
         /// <summary>
         ///     Warning severity
         /// </summary>
         Warning,
+
         /// <summary>
         ///     Information severity
         /// </summary>
         Information,
+
         /// <summary>
         ///     Debug severity
         /// </summary>

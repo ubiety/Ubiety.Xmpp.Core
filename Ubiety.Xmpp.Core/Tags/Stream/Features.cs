@@ -23,18 +23,25 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
     [XmppTag("features", Namespaces.Stream, typeof(Features))]
     public class Features : Tag
     {
-        /// <inheritdoc />
-        public Features(XElement other) : base(other)
-        {
-        }
-
-        /// <inheritdoc />
-        public Features() : base(XmlName)
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Features"/> class
+        /// </summary>
+        /// <param name="other"><see cref="XElement"/> to derive tag from</param>
+        public Features(XElement other)
+            : base(other)
         {
         }
 
         /// <summary>
-        ///     XML name of the tag
+        ///     Initializes a new instance of the <see cref="Features"/> class
+        /// </summary>
+        public Features()
+            : base(XmlName)
+        {
+        }
+
+        /// <summary>
+        ///     Gets the XML name of the tag
         /// </summary>
         public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
 

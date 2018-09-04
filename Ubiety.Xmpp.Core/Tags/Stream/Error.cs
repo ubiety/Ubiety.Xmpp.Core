@@ -24,25 +24,25 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
     [XmppTag("error", Namespaces.Stream, typeof(Error))]
     public class Error : Tag
     {
-        /// <inheritdoc />
         /// <summary>
         ///     Initializes a new instance of the <see cref="Error" /> class
         /// </summary>
-        public Error() : base(XmlName)
+        public Error()
+            : base(XmlName)
         {
         }
 
-        /// <inheritdoc />
         /// <summary>
         ///     Initializes a new instance of the <see cref="Error" /> class
         /// </summary>
         /// <param name="other">Other tag</param>
-        public Error(XElement other) : base(other)
+        public Error(XElement other)
+            : base(other)
         {
         }
 
         /// <summary>
-        ///     Error XML name
+        ///     Gets the Error XML name
         /// </summary>
         public static XName XmlName { get; } = XName.Get("error", Namespaces.Stream);
     }

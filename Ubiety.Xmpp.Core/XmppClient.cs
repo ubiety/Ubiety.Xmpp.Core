@@ -31,7 +31,6 @@ namespace Ubiety.Xmpp.Core
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppClient" /> class
         /// </summary>
-        /// <inheritdoc />
         internal XmppClient()
         {
             _logger = Log.Get<XmppClient>();
@@ -47,7 +46,10 @@ namespace Ubiety.Xmpp.Core
         /// <inheritdoc />
         public void Connect(Jid jid)
         {
-            if (jid is null) throw new ArgumentNullException(nameof(jid));
+            if (jid is null)
+            {
+                throw new ArgumentNullException(nameof(jid));
+            }
 
             _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
             Id = jid;

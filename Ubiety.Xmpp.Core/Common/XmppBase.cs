@@ -43,15 +43,21 @@ namespace Ubiety.Xmpp.Core.Common
         /// <summary>
         ///     Raised when a stream error occurs
         /// </summary>
-        public event EventHandler<ErrorEventArgs> Error; 
+        public event EventHandler<ErrorEventArgs> Error;
 
-        /// <inheritdoc cref="IClient" />
+        /// <summary>
+        ///     Gets or sets the XMPP port
+        /// </summary>
         public int Port { get; set; } = 5222;
 
-        /// <inheritdoc cref="IClient" />
+        /// <summary>
+        ///     Gets a value indicating whether we should use SSL/TLS
+        /// </summary>
         public bool UseSsl { get; internal set; }
 
-        /// <inheritdoc cref="IClient" />
+        /// <summary>
+        ///     Gets a value indicating whether we should use IPv6
+        /// </summary>
         public bool UseIPv6 { get; internal set; }
 
         /// <summary>
@@ -73,27 +79,14 @@ namespace Ubiety.Xmpp.Core.Common
             protected set
             {
                 _clientSocket = value;
-                _clientSocket.Connection += _socket_Connection;
+                _clientSocket.Connection += Socket_Connection;
             }
         }
 
         /// <summary>
-        ///     XMPP protocol parser
+        ///     Gets or sets the XMPP protocol parser
         /// </summary>
         protected Parser Parser { get; set; }
-
-        private void OnError(object sender, ErrorEventArgs e)
-        {
-            Error?.Invoke(sender, e);
-        }
-
-        private void _socket_Connection(object sender, EventArgs e)
-        {
-            _logger.Log(LogLevel.Debug, "Setting connection state");
-            Parser.Start();
-            State = new ConnectedState();
-            State.Execute(this);
-        }
 
         /// <summary>
         ///     Received a tag from the parser
@@ -104,12 +97,25 @@ namespace Ubiety.Xmpp.Core.Common
         {
             if (e.Tag is Stream stream && stream.Errors.Any())
             {
-                OnError(this, new ErrorEventArgs {Message = "Error occured", StreamError = stream.Errors.FirstOrDefault()});
+                OnError(this, new ErrorEventArgs { Message = "Error occured", StreamError = stream.Errors.FirstOrDefault() });
                 Parser.Stop();
-                State = new DisconnectState();                    
+                State = new DisconnectState();
             }
 
             State.Execute(this, e.Tag);
+        }
+
+        private void OnError(object sender, ErrorEventArgs e)
+        {
+            Error?.Invoke(sender, e);
+        }
+
+        private void Socket_Connection(object sender, EventArgs e)
+        {
+            _logger.Log(LogLevel.Debug, "Setting connection state");
+            Parser.Start();
+            State = new ConnectedState();
+            State.Execute(this);
         }
     }
 }

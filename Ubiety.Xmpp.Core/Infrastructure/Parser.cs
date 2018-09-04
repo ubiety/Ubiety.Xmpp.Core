@@ -14,7 +14,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
@@ -39,6 +38,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         /// <summary>
         ///     Initializes a new instance of the <see cref="Parser" /> class
         /// </summary>
+        /// <param name="xmpp">XMPP instance</param>
         public Parser(XmppBase xmpp)
         {
             _logger = Log.Get<Parser>();
@@ -48,27 +48,27 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             _logger.Log(LogLevel.Debug, "Parser created");
         }
 
-        private XmlNamespaceManager NamespaceManager
-        {
-            get
-            {
-                if (!(_namespaceManager is null))
-                {
-                    return _namespaceManager;
-                }
-
-                _namespaceManager = new XmlNamespaceManager(new NameTable());
-                _namespaceManager.AddNamespace("", Namespaces.Client);
-                _namespaceManager.AddNamespace("stream", Namespaces.Stream);
-
-                return _namespaceManager;
-            }
-        }
-
         /// <summary>
         ///     Tag event
         /// </summary>
         public event EventHandler<TagEventArgs> Tag;
+
+        private XmlNamespaceManager NamespaceManager
+        {
+            get
+            {
+                if (_namespaceManager is null)
+                {
+                    _namespaceManager = new XmlNamespaceManager(new NameTable());
+                    _namespaceManager.AddNamespace(string.Empty, Namespaces.Client);
+                    _namespaceManager.AddNamespace("stream", Namespaces.Stream);
+
+                    return _namespaceManager;
+                }
+
+                return _namespaceManager;
+            }
+        }
 
         /// <summary>
         ///     Starts the parsing process
@@ -89,7 +89,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
 
         private void OnTag(Tag tag)
         {
-            Tag?.Invoke(this, new TagEventArgs {Tag = tag});
+            Tag?.Invoke(this, new TagEventArgs { Tag = tag });
         }
 
         private void ProcessQueue()
@@ -98,9 +98,16 @@ namespace Ubiety.Xmpp.Core.Infrastructure
 
             while (true)
             {
-                if (_xmpp.State is DisconnectedState || !_running) break;
+                if (_xmpp.State is DisconnectedState || !_running)
+                {
+                    break;
+                }
 
-                if (_dataQueue.Count <= 0) continue;
+                if (_dataQueue.Count <= 0)
+                {
+                    continue;
+                }
+
                 var message = _dataQueue.Dequeue();
 
                 if (message.Contains(endStream))

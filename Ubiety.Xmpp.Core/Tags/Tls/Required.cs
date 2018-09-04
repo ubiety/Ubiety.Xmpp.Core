@@ -22,16 +22,26 @@ namespace Ubiety.Xmpp.Core.Tags.Tls
     [XmppTag("required", Namespaces.Tls, typeof(Required))]
     public class Required : Tag
     {
-        /// <inheritdoc />
-        public Required(XElement other) : base(other)
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Required"/> class
+        /// </summary>
+        /// <param name="other"><see cref="XElement"/> to derive the tag from</param>
+        public Required(XElement other)
+            : base(other)
         {
         }
 
-        /// <inheritdoc />
-        public Required() : base(XmlName)
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Required"/> class
+        /// </summary>
+        public Required()
+            : base(XmlName)
         {
         }
 
+        /// <summary>
+        ///     Gets the XML name of the tag
+        /// </summary>
         public static XName XmlName { get; } = XName.Get("required", Namespaces.Tls);
     }
 }

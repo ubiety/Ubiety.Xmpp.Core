@@ -48,7 +48,7 @@ namespace Ubiety.Xmpp.Core.States
                     return;
             }
 
-            if (xmpp.UseSsl && !(features.StartTls is null) || features.StartTls.Required)
+            if ((xmpp.UseSsl && features.StartTls != null) || features.StartTls.Required)
             {
                 Logger.Log(LogLevel.Debug, "SSL/TLS is required or it is supported and we want to use it");
                 xmpp.State = new StartTlsState();

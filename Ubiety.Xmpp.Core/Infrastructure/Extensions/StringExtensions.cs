@@ -24,7 +24,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         /// </summary>
         /// <param name="data">Data to read</param>
         /// <param name="token">Character to locate</param>
-        /// <returns></returns>
+        /// <returns>Position of the character</returns>
         public static int FirstUnescaped(this string data, char token)
         {
             var position = -1;
@@ -36,7 +36,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
                     return -1;
                 }
 
-                if (index == 0 || data[index -1] != '\\')
+                if (index == 0 || data[index - 1] != '\\')
                 {
                     position = index;
                 }

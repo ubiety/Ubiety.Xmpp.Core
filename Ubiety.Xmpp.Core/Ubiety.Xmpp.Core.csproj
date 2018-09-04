@@ -16,6 +16,10 @@
   <ItemGroup>
     <PackageReference Include="Libidn.Core" Version="1.0.0" />
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Ubiety.Dns.Core" Version="2.2.1" />
   </ItemGroup>
 

@@ -28,7 +28,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Message { get; set; }
 
         /// <summary>
-        ///     Stream error
+        ///     Gets or sets the stream error
         /// </summary>
         public Error StreamError { get; set; }
     }

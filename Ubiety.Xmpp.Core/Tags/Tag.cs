@@ -26,36 +26,22 @@ namespace Ubiety.Xmpp.Core.Tags
     /// <inheritdoc />
     public abstract class Tag : XElement
     {
-        /// <inheritdoc />
-        protected Tag(XElement other) : base(other)
-        {
-        }
-
-        /// <inheritdoc />
-        protected Tag(XName name) : base(name)
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Tag"/> class
+        /// </summary>
+        /// <param name="other"><see cref="XElement"/> to derive the tag from</param>
+        protected Tag(XElement other)
+            : base(other)
         {
         }
 
         /// <summary>
-        ///     Get child tags
+        ///     Initializes a new instance of the <see cref="Tag"/> class
         /// </summary>
-        /// <typeparam name="T">Type of tags</typeparam>
-        /// <param name="name">Name of the tags</param>
-        /// <returns>Enumerable of the tags</returns>
-        protected IEnumerable<T> Elements<T>(XName name) where T : XElement
+        /// <param name="name"><see cref="XName"/> of the tag</param>
+        protected Tag(XName name)
+            : base(name)
         {
-            return base.Elements(name).Select(Convert<T>);
-        }
-
-        /// <summary>
-        ///     Get a child tag
-        /// </summary>
-        /// <typeparam name="T">Type of the child to get</typeparam>
-        /// <param name="name">XML name of the tag</param>
-        /// <returns>Child tag</returns>
-        protected T Element<T>(XName name) where T : XElement
-        {
-            return Convert<T>(base.Element(name));
         }
 
         /// <summary>
@@ -77,6 +63,30 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
+        ///     Get child tags
+        /// </summary>
+        /// <typeparam name="T">Type of tags</typeparam>
+        /// <param name="name">Name of the tags</param>
+        /// <returns>Enumerable of the tags</returns>
+        protected IEnumerable<T> Elements<T>(XName name)
+            where T : XElement
+        {
+            return Elements(name).Select(Convert<T>);
+        }
+
+        /// <summary>
+        ///     Get a child tag
+        /// </summary>
+        /// <typeparam name="T">Type of the child to get</typeparam>
+        /// <param name="name">XML name of the tag</param>
+        /// <returns>Child tag</returns>
+        protected T Element<T>(XName name)
+            where T : XElement
+        {
+            return Convert<T>(Element(name));
+        }
+
+        /// <summary>
         ///     Gets the value of a tag attribute
         /// </summary>
         /// <param name="name">Name of the attribute</param>
@@ -87,12 +97,16 @@ namespace Ubiety.Xmpp.Core.Tags
             return attribute?.Value;
         }
 
-        private static T Convert<T>(XElement element) where T : XElement
+        private static T Convert<T>(XElement element)
+            where T : XElement
         {
-            if (element is null) return default(T);
+            if (element is null)
+            {
+                return default(T);
+            }
 
-            var constructor = GetConstructor(typeof(T), new[] {typeof(XElement)});
-            return (T) constructor?.Invoke(new object[] {element});
+            var constructor = GetConstructor(typeof(T), new[] { typeof(XElement) });
+            return (T)constructor?.Invoke(new object[] { element });
         }
     }
 }

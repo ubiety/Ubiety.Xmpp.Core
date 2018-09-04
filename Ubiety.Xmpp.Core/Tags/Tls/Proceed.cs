@@ -22,16 +22,26 @@ namespace Ubiety.Xmpp.Core.Tags.Tls
     [XmppTag("proceed", Namespaces.Tls, typeof(Proceed))]
     public class Proceed : Tag
     {
-        /// <inheritdoc />
-        public Proceed(XElement other) : base(other)
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Proceed"/> class
+        /// </summary>
+        /// <param name="other"><see cref="XElement"/> to derive tag from</param>
+        public Proceed(XElement other)
+            : base(other)
         {
         }
 
-        /// <inheritdoc />
-        public Proceed() : base(XmlName)
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Proceed"/> class
+        /// </summary>
+        public Proceed()
+            : base(XmlName)
         {
         }
 
+        /// <summary>
+        ///     Gets the XML name of the tag
+        /// </summary>
         public static XName XmlName { get; } = XName.Get("proceed", Namespaces.Tls);
     }
 }

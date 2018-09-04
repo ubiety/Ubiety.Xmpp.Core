@@ -29,7 +29,8 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         /// <summary>
         ///     Initializes a new instance of the <see cref="Stream"/> class
         /// </summary>
-        public Stream() : base(XmlName)
+        public Stream()
+            : base(XmlName)
         {
         }
 
@@ -37,7 +38,8 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         ///     Initializes a new instance of the <see cref="Stream"/> class
         /// </summary>
         /// <param name="other">Element to base the tag on</param>
-        public Stream(XElement other) : base(other)
+        public Stream(XElement other)
+            : base(other)
         {
         }
 
