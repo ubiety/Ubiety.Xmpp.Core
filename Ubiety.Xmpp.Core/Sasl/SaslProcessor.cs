@@ -28,7 +28,11 @@ namespace Ubiety.Xmpp.Core.Sasl
     public abstract class SaslProcessor
     {
         private readonly Hashtable _directives = new Hashtable();
-        protected static XmppBase _xmpp;
+
+        /// <summary>
+        ///     Gets or sets the current client instance
+        /// </summary>
+        protected static XmppBase Client { get; set; }
 
         /// <summary>
         ///     Gets or sets the user <see cref="Jid"/> for the session
@@ -60,7 +64,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         /// <returns>SASL processor of the most secure supported type</returns>
         public static SaslProcessor CreateProcessor(MechanismTypes serverTypes, MechanismTypes clientTypes, XmppBase xmpp)
         {
-            _xmpp = xmpp;
+            Client = xmpp;
 
             if ((serverTypes & clientTypes & MechanismTypes.Plain) == MechanismTypes.Plain)
             {

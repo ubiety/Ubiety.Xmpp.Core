@@ -134,6 +134,46 @@
         <member name="M:Ubiety.Xmpp.Core.Common.Jid.ToString">
             <inheritdoc />
         </member>
+        <member name="T:Ubiety.Xmpp.Core.Common.MechanismTypes">
+            <summary>
+                Type of authentication mechanmism
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.None">
+            <summary>
+                No authentication mechanism
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.Plain">
+            <summary>
+                Plain authentication
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.DigestMd5">
+            <summary>
+                DigestMD5 authentication
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.External">
+            <summary>
+                External authentication
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram">
+            <summary>
+                SCRAM-SHA-1 authentication
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.ScramPlus">
+            <summary>
+                SCRAM-SHA-1-PLUS authentication
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.Default">
+            <summary>
+                Default authentication methods - Currently SCRAM-SHA-1 and SCRAM-SHA-1-PLUS
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Common.Namespaces">
             <summary>
                 XML namespaces for tags
@@ -157,6 +197,11 @@
         <member name="F:Ubiety.Xmpp.Core.Common.Namespaces.Tls">
             <summary>
                 XMPP TLS namespace
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.Namespaces.Sasl">
+            <summary>
+                XMPP SASL namespace
             </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Common.TagEventArgs">
@@ -190,6 +235,11 @@
                 Gets or sets the XMPP port
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseSsl">
+            <summary>
+                Gets a value indicating whether the socket should use SSL/TLS
+            </summary>
+        </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6">
             <summary>
                 Gets a value indicating whether we should use IPv6
@@ -208,6 +258,11 @@
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket">
             <summary>
                 Gets or sets the client socket
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor">
+            <summary>
+                Gets or sets the SASL processor for the session
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.Parser">
@@ -237,9 +292,19 @@
                 Gets or sets the port of the server
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.IClient.UseSsl">
+            <summary>
+                Gets a value indicating whether the socket should use SSL/TLS
+            </summary>
+        </member>
         <member name="P:Ubiety.Xmpp.Core.IClient.UseIPv6">
             <summary>
                 Gets a value indicating whether the socket should use IPv6
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.IClient.Authenticated">
+            <summary>
+                Gets a value indicating whether the user is authenticated
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.IClient.State">
@@ -594,6 +659,110 @@
             <param name="element">Element to search for</param>
             <returns>Tag from the registry</returns>
         </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Md5Processor">
+            <summary>
+                MD5 SASL processor
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Md5Processor"/> class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
+            <summary>
+                Initializes the SASL processor
+            </summary>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user to authenticate</param>
+            <param name="password">Password to use for authentication</param>
+            <returns>Next tag to send to the server</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Md5Processor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
+            <summary>
+                Process the next SASL step
+            </summary>
+            <param name="tag">Tag from the server</param>
+            <returns>Next tag to send to the server</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.PlainProcessor">
+            <summary>
+                PLAIN SASL authentication processor
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.PlainProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
+            <summary>
+                Process the next SASL step
+            </summary>
+            <param name="tag">Tag from the server</param>
+            <returns>Tag to send the server</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.PlainProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
+            <summary>
+                Initializes the PLAIN SASL processor
+            </summary>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user to authenticate</param>
+            <param name="password">Password to use for authentication</param>
+            <returns>Tag to send to server</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.SaslProcessor">
+            <summary>
+                SASL authentication processor
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Id">
+            <summary>
+                Gets or sets the user <see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> for the session
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Password">
+            <summary>
+                Gets or sets the user password for the session
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Item(System.String)">
+            <summary>
+                Gets or sets the SASL processor directives
+            </summary>
+            <param name="directive">Directive to use</param>
+            <returns>Value of the directive</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateProcessor(Ubiety.Xmpp.Core.Common.MechanismTypes,Ubiety.Xmpp.Core.Common.MechanismTypes,Ubiety.Xmpp.Core.Common.XmppBase)">
+            <summary>
+                Creates a new SASL authentication processor
+            </summary>
+            <param name="serverTypes">Server supported authentication mechanisms</param>
+            <param name="clientTypes">Client supported authentication mechanisms</param>
+            <param name="xmpp"><see cref="T:Ubiety.Xmpp.Core.Common.XmppBase"/> instance</param>
+            <returns>SASL processor of the most secure supported type</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
+            <summary>
+                Process the next step in SASL authentication
+            </summary>
+            <param name="tag">Tag received from the server</param>
+            <returns>Next tag to send</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
+            <summary>
+                Initializes the SASL instance
+            </summary>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user for authentication</param>
+            <param name="password">Password for authentication</param>
+            <returns>Tag to send to server</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+                Converts a byte array to a hexidecimal string
+            </summary>
+            <param name="buffer">Byte array buffer</param>
+            <returns>Hexidecimal encoded string</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64">
+            <summary>
+                Gets a random Int64
+            </summary>
+            <returns>Random Int64</returns>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.States.ConnectedState">
             <summary>
                 Connected to the server state
@@ -671,6 +840,140 @@
             <param name="element">Element to base the tag on</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Sasl.Auth">
+            <summary>
+                SASL Auth tag
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Auth.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Auth"/> class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Auth.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Auth"/> class
+            </summary>
+            <param name="element"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Auth.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Auth.MechanismType">
+            <summary>
+                Gets or sets the authentication mechanism
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Sasl.Failure">
+            <summary>
+                SASL authentication success tag
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Failure.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Failure"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Failure.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Failure"/> class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Failure.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism">
+            <summary>
+                SASL authentication mechanism
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism"/> class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism"/> class
+            </summary>
+            <param name="element"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.Type">
+            <summary>
+                Gets or sets the mechanmish type
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.ToTypeFromString(System.String)">
+            <summary>
+                Convert a mechanism to its type format
+            </summary>
+            <param name="type">String type of the mechanism</param>
+            <returns>Type of the mechanism</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.ToStringFromType(Ubiety.Xmpp.Core.Common.MechanismTypes)">
+            <summary>
+                Converts a mechanism type to a string
+            </summary>
+            <param name="type">Type to convert</param>
+            <returns>String name of the mechanism</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms">
+            <summary>
+                SASL authentication mechanisms
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms"/> class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms"/> class
+            </summary>
+            <param name="element"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.SupportedTypes">
+            <summary>
+                Gets the supported mechanism types for the server
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Sasl.Success">
+            <summary>
+                SASL authentication success tag
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Success"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Success"/> class
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName">
             <summary>
                 Gets the XML name of the tag
             </summary>
@@ -753,6 +1056,11 @@
                 Gets the starttls child
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.Mechanisms">
+            <summary>
+                Gets the supported SASL mechanisms
+            </summary>
+        </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.FeatureCount">
             <summary>
                 Gets a count of the features
@@ -821,6 +1129,11 @@
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tag"/> class
             </summary>
             <param name="name"><see cref="T:System.Xml.Linq.XName"/> of the tag</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Tag.Bytes">
+            <summary>
+                Gets the tag contents as a byte array
+            </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})">
             <summary>
@@ -972,6 +1285,11 @@
         <member name="P:Ubiety.Xmpp.Core.XmppClient.Id">
             <inheritdoc />
         </member>
+        <member name="P:Ubiety.Xmpp.Core.XmppClient.Authenticated">
+            <summary>
+                Gets a value indicating whether the user is authenticated
+            </summary>
+        </member>
         <member name="M:Ubiety.Xmpp.Core.XmppClient.Connect(Ubiety.Xmpp.Core.Common.Jid)">
             <inheritdoc />
         </member>
@@ -990,6 +1308,12 @@
         <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.UseIPv6">
             <summary>
                 Enables IPv6 support in the library
+            </summary>
+            <returns>Builder instance</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.UseSsl">
+            <summary>
+                Enables SSL/TLS support
             </summary>
             <returns>Builder instance</returns>
         </member>

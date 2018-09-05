@@ -45,6 +45,15 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
+        ///     Gets or sets the tag contents as a byte array
+        /// </summary>
+        public byte[] Bytes
+        {
+            get => System.Convert.FromBase64String(Value);
+            set => Value = System.Convert.ToBase64String(value);
+        }
+
+        /// <summary>
         ///     Gets the constructor for a tag
         /// </summary>
         /// <param name="type">Type of the tag</param>
