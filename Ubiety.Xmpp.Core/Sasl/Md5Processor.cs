@@ -56,7 +56,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             base.Initialize(id, password);
 
-            var auth = Client.Registry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
+            var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
             auth.MechanismType = MechanismTypes.DigestMd5;
             return auth;
         }

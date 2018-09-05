@@ -12,7 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Stream;
@@ -30,7 +29,7 @@ namespace Ubiety.Xmpp.Core.States
         {
             if (xmpp is XmppClient client)
             {
-                var stream = xmpp.Registry.GetTag<Stream>(XName.Get("stream", Namespaces.Stream));
+                var stream = xmpp.Registry.GetTag<Stream>(Stream.XmlName);
                 stream.Version = "1.0";
                 stream.To = client.Id.Server;
                 stream.Namespace = Namespaces.Client;

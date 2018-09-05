@@ -12,7 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
@@ -42,7 +41,7 @@ namespace Ubiety.Xmpp.Core.States
             }
 
             _logger.Log(LogLevel.Debug, "Sending starttls");
-            var starttls = xmpp.Registry.GetTag<StartTls>(XName.Get("starttls", Namespaces.Tls));
+            var starttls = xmpp.Registry.GetTag<StartTls>(StartTls.XmlName);
             xmpp.ClientSocket.Send(starttls);
         }
     }
