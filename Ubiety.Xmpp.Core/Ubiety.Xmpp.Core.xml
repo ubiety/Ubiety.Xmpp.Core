@@ -252,6 +252,11 @@
                 Gets a value indicating whether the socket should use IPv6
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.IClient.State">
+            <summary>
+                Gets the current state
+            </summary>
+        </member>
         <member name="M:Ubiety.Xmpp.Core.IClient.Connect(Ubiety.Xmpp.Core.Common.Jid)">
             <summary>
                 Connect to an XMPP server using a JID

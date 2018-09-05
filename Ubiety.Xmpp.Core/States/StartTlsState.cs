@@ -36,8 +36,8 @@ namespace Ubiety.Xmpp.Core.States
             if (tag is Proceed)
             {
                 _logger.Log(LogLevel.Debug, "Clear to start SSL/TLS connection");
-                xmpp.ClientSocket.StartSsl();
                 xmpp.State = new ConnectedState();
+                xmpp.ClientSocket.StartSsl();
                 return;
             }
 

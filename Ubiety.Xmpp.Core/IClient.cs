@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.States;
 
 namespace Ubiety.Xmpp.Core
 {
@@ -40,6 +41,11 @@ namespace Ubiety.Xmpp.Core
         ///     Gets a value indicating whether the socket should use IPv6
         /// </summary>
         bool UseIPv6 { get; }
+
+        /// <summary>
+        ///     Gets the current state
+        /// </summary>
+        IState State { get; }
 
         /// <summary>
         ///     Connect to an XMPP server using a JID

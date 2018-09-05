@@ -122,9 +122,7 @@ namespace Ubiety.Xmpp.Core.Net
             _logger.Log(LogLevel.Debug, $"Sending message: {message}");
 
             var bytes = _utf8.GetBytes(message);
-            var args = new SocketAsyncEventArgs();
-            args.SetBuffer(bytes, 0, bytes.Length);
-            _socket.SendAsync(args);
+            _stream.WriteAsync(bytes, 0, bytes.Length);
         }
 
         /// <summary>
@@ -151,6 +149,7 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
                 _stream = secureStream;
+                _client.State.Execute((XmppClient)_client);
             }
         }
 
@@ -226,10 +225,10 @@ namespace Ubiety.Xmpp.Core.Net
             }
 
             var socket = e.ConnectSocket;
+            _stream = new NetworkStream(socket);
+
             Connected = true;
             OnConnection();
-
-            _stream = new NetworkStream(socket);
 
             _logger.Log(LogLevel.Debug, "Starting to read data");
             BeginRead();
