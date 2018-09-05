@@ -19,6 +19,7 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
@@ -31,10 +32,11 @@ namespace Ubiety.Xmpp.Core.Net
     /// </summary>
     public class AsyncClientSocket : ISocket, IDisposable
     {
-        private const int BufferSize = 64 * 1024;
+        private const int BufferSize = 4 * 1024;
         private readonly IClient _client;
         private readonly ILog _logger;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
+        private readonly AutoResetEvent _resetEvent;
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -48,6 +50,7 @@ namespace Ubiety.Xmpp.Core.Net
             _logger = Log.Get<AsyncClientSocket>();
             _client = client;
             _logger.Log(LogLevel.Debug, "AsyncClientSocket created");
+            _resetEvent = new AutoResetEvent(false);
         }
 
         /// <inheritdoc />
@@ -138,7 +141,6 @@ namespace Ubiety.Xmpp.Core.Net
         /// </summary>
         public void StartSsl()
         {
-            Connected = false;
             _logger.Log(LogLevel.Debug, "Starting SSL encryption");
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
@@ -149,9 +151,16 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
                 _stream = secureStream;
-                Connected = true;
-                BeginRead();
             }
+        }
+
+        /// <summary>
+        ///     Set that we are clear to read data
+        /// </summary>
+        public void SetReadClear()
+        {
+            _logger.Log(LogLevel.Debug, "Setting read clear to true");
+            _resetEvent.Set();
         }
 
         /// <summary>
@@ -189,6 +198,14 @@ namespace Ubiety.Xmpp.Core.Net
         {
             if (sslPolicyErrors == SslPolicyErrors.None)
             {
+                return true;
+            }
+
+            if (chain.ChainStatus.Length == 1 &&
+                (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors || certificate.Subject == certificate.Issuer) &&
+                (chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot))
+            {
+                // Trust self signed certificates
                 return true;
             }
 
@@ -230,6 +247,7 @@ namespace Ubiety.Xmpp.Core.Net
 
         private Task<string> ReadData()
         {
+            _resetEvent.WaitOne();
             var buffer = new byte[BufferSize];
             var received = _stream.ReadAsync(buffer, 0, BufferSize);
 

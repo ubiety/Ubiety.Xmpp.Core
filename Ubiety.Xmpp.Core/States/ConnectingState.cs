@@ -38,6 +38,7 @@ namespace Ubiety.Xmpp.Core.States
             {
                 Logger.Log(LogLevel.Debug, "Connecting to server");
                 client.ClientSocket.Connect(client.Id);
+                client.ClientSocket.SetReadClear();
             }
         }
     }

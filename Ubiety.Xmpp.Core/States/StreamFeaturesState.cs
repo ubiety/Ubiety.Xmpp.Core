@@ -34,6 +34,8 @@ namespace Ubiety.Xmpp.Core.States
         {
             Features features;
 
+            xmpp.ClientSocket.SetReadClear();
+
             Logger.Log(LogLevel.Debug, "Starting to parse features");
             switch (tag)
             {

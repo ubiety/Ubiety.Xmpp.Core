@@ -504,6 +504,11 @@
                 Starts SSL/TLS connection
             </summary>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear">
+            <summary>
+                Set that we are clear to read data
+            </summary>
+        </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.OnData(Ubiety.Xmpp.Core.Common.DataEventArgs)">
             <summary>
                 Raise the data event with the specified arguments

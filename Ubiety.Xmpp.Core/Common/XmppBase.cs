@@ -102,6 +102,7 @@ namespace Ubiety.Xmpp.Core.Common
                 State = new DisconnectState();
             }
 
+            _logger.Log(LogLevel.Debug, "Received a tag. Executing current state");
             State.Execute(this, e.Tag);
         }
 

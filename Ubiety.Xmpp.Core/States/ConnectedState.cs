@@ -36,6 +36,7 @@ namespace Ubiety.Xmpp.Core.States
                 stream.Namespace = Namespaces.Client;
 
                 client.ClientSocket.Send($"<?xml version='1.0' encoding='UTF-8'?> {stream.StartTag}");
+                client.ClientSocket.SetReadClear();
 
                 xmpp.State = new StreamFeaturesState();
             }

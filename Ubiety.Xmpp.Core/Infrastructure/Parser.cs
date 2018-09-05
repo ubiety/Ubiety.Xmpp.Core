@@ -75,6 +75,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         /// </summary>
         public void Start()
         {
+            _logger.Log(LogLevel.Debug, "Starting parsing process");
             _running = true;
             Task.Run(() => ProcessQueue());
         }
@@ -100,6 +101,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             {
                 if (_xmpp.State is DisconnectedState || !_running)
                 {
+                    _logger.Log(LogLevel.Debug, "Disconnected or stopped");
                     break;
                 }
 
@@ -136,6 +138,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                 var root = XElement.Load(reader);
 
                 var tag = _xmpp.Registry.GetTag<Tag>(root);
+                _logger.Log(LogLevel.Debug, $"Found tag {tag}");
 
                 OnTag(tag);
             }
