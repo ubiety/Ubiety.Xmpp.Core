@@ -48,7 +48,7 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Enables SSL support for the socket
+        ///     Enables SSL/TLS support
         /// </summary>
         /// <returns>Builder instance</returns>
         public XmppClientBuilder UseSsl()

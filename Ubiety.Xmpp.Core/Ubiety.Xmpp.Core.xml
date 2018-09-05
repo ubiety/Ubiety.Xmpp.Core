@@ -190,11 +190,6 @@
                 Gets or sets the XMPP port
             </summary>
         </member>
-        <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseSsl">
-            <summary>
-                Gets a value indicating whether we should use SSL/TLS
-            </summary>
-        </member>
         <member name="P:Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6">
             <summary>
                 Gets a value indicating whether we should use IPv6
@@ -240,11 +235,6 @@
         <member name="P:Ubiety.Xmpp.Core.IClient.Port">
             <summary>
                 Gets or sets the port of the server
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.IClient.UseSsl">
-            <summary>
-                Gets a value indicating whether the socket should use SSL
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.IClient.UseIPv6">
@@ -763,6 +753,11 @@
                 Gets the starttls child
             </summary>
         </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.FeatureCount">
+            <summary>
+                Gets a count of the features
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Stream.Stream">
             <summary>
                 XMPP Stream tag
@@ -995,12 +990,6 @@
         <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.UseIPv6">
             <summary>
                 Enables IPv6 support in the library
-            </summary>
-            <returns>Builder instance</returns>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.XmppClientBuilder.UseSsl">
-            <summary>
-                Enables SSL support for the socket
             </summary>
             <returns>Builder instance</returns>
         </member>

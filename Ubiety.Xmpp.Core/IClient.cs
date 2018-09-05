@@ -33,7 +33,7 @@ namespace Ubiety.Xmpp.Core
         int Port { get; set; }
 
         /// <summary>
-        ///     Gets a value indicating whether the socket should use SSL
+        ///     Gets a value indicating whether the socket should use SSL/TLS
         /// </summary>
         bool UseSsl { get; }
 

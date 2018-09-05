@@ -51,7 +51,7 @@ namespace Ubiety.Xmpp.Core.Common
         public int Port { get; set; } = 5222;
 
         /// <summary>
-        ///     Gets a value indicating whether we should use SSL/TLS
+        ///     Gets a value indicating whether the socket should use SSL/TLS
         /// </summary>
         public bool UseSsl { get; internal set; }
 

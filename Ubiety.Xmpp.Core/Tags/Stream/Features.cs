@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System.Linq;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
@@ -49,5 +50,10 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         ///     Gets the starttls child
         /// </summary>
         public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
+
+        /// <summary>
+        ///     Gets a count of the features
+        /// </summary>
+        public int FeatureCount => Elements().Count();
     }
 }
