@@ -12,50 +12,49 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.States;
+using System;
 
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Defines a client interface
+    ///     Type of authentication mechanmism
     /// </summary>
-    public interface IClient
+    [Flags]
+    public enum MechanismTypes
     {
         /// <summary>
-        ///     Gets or sets the user JID
+        ///     No authentication mechanism
         /// </summary>
-        Jid Id { get; set; }
+        None,
 
         /// <summary>
-        ///     Gets or sets the port of the server
+        ///     Plain authentication
         /// </summary>
-        int Port { get; set; }
+        Plain = 1 << 0,
 
         /// <summary>
-        ///     Gets a value indicating whether the socket should use SSL/TLS
+        ///     DigestMD5 authentication
         /// </summary>
-        bool UseSsl { get; }
+        DigestMd5 = 1 << 1,
 
         /// <summary>
-        ///     Gets a value indicating whether the socket should use IPv6
+        ///     External authentication
         /// </summary>
-        bool UseIPv6 { get; }
+        External = 1 << 2,
 
         /// <summary>
-        ///     Gets a value indicating whether the user is authenticated
+        ///     SCRAM-SHA-1 authentication
         /// </summary>
-        bool Authenticated { get; }
+        Scram = 1 << 3,
 
         /// <summary>
-        ///     Gets the current state
+        ///     SCRAM-SHA-1-PLUS authentication
         /// </summary>
-        IState State { get; }
+        ScramPlus = 1 << 4,
 
         /// <summary>
-        ///     Connect to an XMPP server using a JID
+        ///     Default authentication methods - Currently SCRAM-SHA-1 and SCRAM-SHA-1-PLUS
         /// </summary>
-        /// <param name="jid"><see cref="Jid"/> to use for connecting</param>
-        void Connect(Jid jid);
+        Default = Scram | ScramPlus
     }
 }

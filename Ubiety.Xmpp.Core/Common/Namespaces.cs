@@ -40,5 +40,10 @@ namespace Ubiety.Xmpp.Core.Common
         ///     XMPP TLS namespace
         /// </summary>
         public const string Tls = "urn:ietf:params:xml:ns:xmpp-tls";
+
+        /// <summary>
+        ///     XMPP SASL namespace
+        /// </summary>
+        public const string Sasl = "urn:ietf:params:xml:ns:xmpp-sasl";
     }
 }

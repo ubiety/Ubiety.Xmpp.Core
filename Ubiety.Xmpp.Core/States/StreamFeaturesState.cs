@@ -14,6 +14,7 @@
 
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
@@ -56,6 +57,11 @@ namespace Ubiety.Xmpp.Core.States
                 xmpp.State = new StartTlsState();
                 xmpp.State.Execute(xmpp);
                 return;
+            }
+
+            if (xmpp is XmppClient client && !client.Authenticated)
+            {
+                client.SaslProcessor = SaslProcessor.CreateProcessor(features.Mechanisms.SupportedTypes, MechanismTypes.Default);
             }
         }
     }

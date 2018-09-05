@@ -43,6 +43,11 @@ namespace Ubiety.Xmpp.Core
         /// <inheritdoc />
         public Jid Id { get; set; }
 
+        /// <summary>
+        ///     Gets a value indicating whether the user is authenticated
+        /// </summary>
+        public bool Authenticated { get; internal set; }
+
         /// <inheritdoc />
         public void Connect(Jid jid)
         {

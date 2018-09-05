@@ -18,6 +18,7 @@ using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.Registries;
+using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.States;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
@@ -82,6 +83,11 @@ namespace Ubiety.Xmpp.Core.Common
                 _clientSocket.Connection += Socket_Connection;
             }
         }
+
+        /// <summary>
+        ///     Gets or sets the SASL processor for the session
+        /// </summary>
+        public SaslProcessor SaslProcessor { get; set; }
 
         /// <summary>
         ///     Gets or sets the XMPP protocol parser
