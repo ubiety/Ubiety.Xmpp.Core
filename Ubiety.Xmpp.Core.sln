@@ -5,10 +5,12 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Core", "Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj", "{26BA0D5F-07E9-41DD-99F6-ED2751BC6955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ubiety.Xmpp.App", "Ubiety.Xmpp.App\Ubiety.Xmpp.App.csproj", "{1564B610-E117-4E11-ABE7-9821808BAD51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.App", "Ubiety.Xmpp.App\Ubiety.Xmpp.App.csproj", "{1564B610-E117-4E11-ABE7-9821808BAD51}"
 	ProjectSection(ProjectDependencies) = postProject
 		{26BA0D5F-07E9-41DD-99F6-ED2751BC6955} = {26BA0D5F-07E9-41DD-99F6-ED2751BC6955}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ubiety.Stringprep.Core", "Ubiety.Stringprep.Core\Ubiety.Stringprep.Core.csproj", "{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,10 @@ Global
 		{1564B610-E117-4E11-ABE7-9821808BAD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1564B610-E117-4E11-ABE7-9821808BAD51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1564B610-E117-4E11-ABE7-9821808BAD51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
