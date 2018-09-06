@@ -33,4 +33,14 @@
     <PackageReference Include="Ubiety.Dns.Core" Version="2.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ubiety.Stringprep.Core\Ubiety.Stringprep.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>System</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

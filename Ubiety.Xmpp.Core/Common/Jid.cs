@@ -15,7 +15,8 @@
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using Gnu.Inet.Encoding;
+using StringPrep;
+using Ubiety.Xmpp.Core.Stringprep;
 
 namespace Ubiety.Xmpp.Core.Common
 {
@@ -25,6 +26,9 @@ namespace Ubiety.Xmpp.Core.Common
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
+        private readonly IPreparationProcess nameprep = NameprepProfile.Create();
+        private readonly IPreparationProcess resourceprep = ResourceprepProfile.Create();
+
         private string _id;
         private string _resource;
         private string _server;
@@ -58,7 +62,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Resource
         {
             get => _resource;
-            private set => _resource = value is null ? null : Stringprep.ResourcePrep(value);
+            private set => _resource = value is null ? null : resourceprep.Run(value);
         }
 
         /// <summary>
@@ -67,7 +71,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Server
         {
             get => _server;
-            private set => _server = value is null ? null : Stringprep.NamePrep(value);
+            private set => _server = value is null ? null : nameprep.Run(value);
         }
 
         /// <summary>
@@ -79,7 +83,7 @@ namespace Ubiety.Xmpp.Core.Common
             private set
             {
                 var temp = Escape(value);
-                _user = Stringprep.NamePrep(temp);
+                _user = nameprep.Run(temp);
             }
         }
 

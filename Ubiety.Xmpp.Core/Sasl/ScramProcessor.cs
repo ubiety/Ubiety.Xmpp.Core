@@ -16,7 +16,9 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using Gnu.Inet.Encoding;
+using StringPrep;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
@@ -27,6 +29,7 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// </summary>
     public class ScramProcessor : SaslProcessor
     {
+        private readonly IPreparationProcess saslprep = SaslprepProfile.Create();
         private readonly Encoding _encoding = Encoding.UTF8;
         private string _nonce;
         private string _clientFirst;
@@ -112,7 +115,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         private byte[] Hi()
         {
             var prev = new byte[20];
-            var password = _encoding.GetBytes(Stringprep.SASLPrep(Password));
+            var password = _encoding.GetBytes(saslprep.Run(Password));
 
             var key = new byte[_salt.Length + 4];
             Array.Copy(_salt, key, _salt.Length);
