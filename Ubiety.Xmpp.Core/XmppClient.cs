@@ -44,12 +44,17 @@ namespace Ubiety.Xmpp.Core
         public Jid Id { get; set; }
 
         /// <summary>
+        ///     Gets or sets the user password
+        /// </summary>
+        public string Password { get; set; }
+
+        /// <summary>
         ///     Gets a value indicating whether the user is authenticated
         /// </summary>
         public bool Authenticated { get; internal set; }
 
         /// <inheritdoc />
-        public void Connect(Jid jid)
+        public void Connect(Jid jid, string password)
         {
             if (jid is null)
             {
@@ -58,6 +63,7 @@ namespace Ubiety.Xmpp.Core
 
             _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
             Id = jid;
+            Password = password;
             State = new ConnectingState();
             State.Execute(this);
         }

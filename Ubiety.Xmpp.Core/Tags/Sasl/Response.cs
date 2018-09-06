@@ -21,22 +21,22 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
     /// <summary>
     ///     SASL authentication success tag
     /// </summary>
-    [XmppTag("success", Namespaces.Sasl, typeof(Response))]
-    public class Success : Tag
+    [XmppTag("response", Namespaces.Sasl, typeof(Response))]
+    public class Response : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Success"/> class
+        ///     Initializes a new instance of the <see cref="Response"/> class
         /// </summary>
         /// <param name="other"><see cref="XElement"/> to derive the tag from</param>
-        public Success(XElement other)
+        public Response(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Success"/> class
+        ///     Initializes a new instance of the <see cref="Response"/> class
         /// </summary>
-        public Success()
+        public Response()
             : base(XmlName)
         {
         }
@@ -44,6 +44,6 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         /// <summary>
         ///     Gets the XML name of the tag
         /// </summary>
-        public static XName XmlName { get; } = XName.Get("success", Namespaces.Sasl);
+        public static XName XmlName { get; } = XName.Get("response", Namespaces.Sasl);
     }
 }

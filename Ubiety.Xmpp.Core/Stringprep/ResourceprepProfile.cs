@@ -21,6 +21,10 @@ namespace Ubiety.Xmpp.Core.Stringprep
     /// </summary>
     public static class ResourceprepProfile
     {
+        /// <summary>
+        ///     Create the profile
+        /// </summary>
+        /// <returns>Process</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()

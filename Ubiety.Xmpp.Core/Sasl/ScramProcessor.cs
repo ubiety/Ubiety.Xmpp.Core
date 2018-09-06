@@ -15,7 +15,6 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
-using Gnu.Inet.Encoding;
 using StringPrep;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Stringprep;
@@ -34,8 +33,10 @@ namespace Ubiety.Xmpp.Core.Sasl
         private string _nonce;
         private string _clientFirst;
         private string _clientFinal;
+        private string _clientProof;
         private byte[] _serverFirst;
         private byte[] _salt;
+        private byte[] _serverSignature;
         private int _iterations;
 
         /// <summary>
@@ -71,8 +72,10 @@ namespace Ubiety.Xmpp.Core.Sasl
             {
                 case Challenge c:
                     return ProcessChallenge(c);
-                case Success s:
-                    break;
+                case Response s:
+                    var response = _encoding.GetString(s.Bytes);
+                    var signature = Convert.FromBase64String(response.Substring(2));
+                    return _encoding.GetString(signature) == _encoding.GetString(_serverSignature) ? s : null;
                 case Failure f:
                     return f;
                 default:
@@ -102,6 +105,13 @@ namespace Ubiety.Xmpp.Core.Sasl
             _clientFinal = $"c=biws,r={snonce}";
 
             CalculateProofs();
+
+            _clientFinal += $",p={_clientProof}";
+
+            var message = Client.Registry.GetTag<Response>(Response.XmlName);
+            message.Bytes = _encoding.GetBytes(_clientFinal);
+
+            return message;
         }
 
         private void CalculateProofs()
@@ -110,6 +120,27 @@ namespace Ubiety.Xmpp.Core.Sasl
             SHA1 hash = new SHA1CryptoServiceProvider();
 
             var saltedPassword = Hi();
+
+            hmac.Key = saltedPassword;
+            var clientKey = hmac.ComputeHash(_encoding.GetBytes("Client Key"));
+            var serverKey = hmac.ComputeHash(_encoding.GetBytes("Server Key"));
+            var storedKey = hash.ComputeHash(clientKey);
+
+            var auth = _encoding.GetBytes($"{_clientFirst},{_encoding.GetString(_serverFirst)},{_clientFinal}");
+
+            hmac.Key = storedKey;
+            var signature = hmac.ComputeHash(auth);
+
+            hmac.Key = serverKey;
+            _serverSignature = hmac.ComputeHash(auth);
+
+            var proof = new byte[20];
+            for (int i = 0; i < signature.Length; i++)
+            {
+                proof[i] = (byte)(clientKey[i] ^ signature[i]);
+            }
+
+            _clientProof = Convert.ToBase64String(proof);
         }
 
         private byte[] Hi()

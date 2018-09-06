@@ -28,6 +28,11 @@ namespace Ubiety.Xmpp.Core
         Jid Id { get; set; }
 
         /// <summary>
+        ///     Gets or sets the user password
+        /// </summary>
+        string Password { get; set; }
+
+        /// <summary>
         ///     Gets or sets the port of the server
         /// </summary>
         int Port { get; set; }
@@ -56,6 +61,7 @@ namespace Ubiety.Xmpp.Core
         ///     Connect to an XMPP server using a JID
         /// </summary>
         /// <param name="jid"><see cref="Jid"/> to use for connecting</param>
-        void Connect(Jid jid);
+        /// <param name="password">Password to connect with</param>
+        void Connect(Jid jid, string password);
     }
 }

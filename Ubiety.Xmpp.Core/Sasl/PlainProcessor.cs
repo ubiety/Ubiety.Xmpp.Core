@@ -48,7 +48,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var auth = $"{(char)0}{id.User}{(char)0}{password}";
 
-            var authTag = _xmpp.Registry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
+            var authTag = Client.Registry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
             authTag.MechanismType = MechanismTypes.Plain;
             authTag.Value = Convert.ToBase64String(Encoding.UTF8.GetBytes(auth));
 

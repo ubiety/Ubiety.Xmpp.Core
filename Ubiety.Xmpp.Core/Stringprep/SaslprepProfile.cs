@@ -17,36 +17,36 @@ using StringPrep;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    ///     SASLPrep Stringprep profile
+    /// SASLPrep Stringprep profile
     /// </summary>
     public static class SaslprepProfile
     {
         /// <summary>
-        ///     Create the profile
+        /// Create the profile
         /// </summary>
         /// <returns>Profile process</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()
-        .WithMappingStep(MappingTable.Build()
-          .WithValueRangeTable(Prohibited.ASCIISpaceCharacters, ' ')
-          .WithMappingTable(Mapping.MappedToNothing)
-          .Compile())
-        .WithNormalizationStep()
-        .WithProhibitedValueStep(ValueRangeTable.Create(
-          Prohibited.NonASCIISpaceCharacters,
-          Prohibited.ASCIIControlCharacters,
-          Prohibited.NonASCIIControlCharacters,
-          Prohibited.PrivateUseCharacters,
-          Prohibited.NonCharacterCodePoints,
-          Prohibited.SurrogateCodePoints,
-          Prohibited.InappropriateForPlainText,
-          Prohibited.InappropriateForCanonicalRepresentation,
-          Prohibited.TaggingCharacters))
-        .WithBidirectionalStep()
-        .WithProhibitedValueStep(ValueRangeTable.Create(
-          Unassigned.UnassignedCodePoints))
-        .Compile();
+                .WithMappingStep(MappingTable.Build()
+                    .WithValueRangeTable(Prohibited.ASCIISpaceCharacters, ' ')
+                    .WithMappingTable(Mapping.MappedToNothing)
+                    .Compile())
+                .WithNormalizationStep()
+                .WithProhibitedValueStep(ValueRangeTable.Create(
+                    Prohibited.NonASCIISpaceCharacters,
+                    Prohibited.ASCIIControlCharacters,
+                    Prohibited.NonASCIIControlCharacters,
+                    Prohibited.PrivateUseCharacters,
+                    Prohibited.NonCharacterCodePoints,
+                    Prohibited.SurrogateCodePoints,
+                    Prohibited.InappropriateForPlainText,
+                    Prohibited.InappropriateForCanonicalRepresentation,
+                    Prohibited.TaggingCharacters))
+                .WithBidirectionalStep()
+                .WithProhibitedValueStep(ValueRangeTable.Create(
+                    Unassigned.UnassignedCodePoints))
+                .Compile();
         }
     }
 }

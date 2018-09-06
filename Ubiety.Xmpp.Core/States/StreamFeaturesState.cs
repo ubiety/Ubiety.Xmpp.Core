@@ -63,6 +63,16 @@ namespace Ubiety.Xmpp.Core.States
             {
                 Logger.Log(LogLevel.Debug, "Starting authentication");
                 client.SaslProcessor = SaslProcessor.CreateProcessor(features.Mechanisms.SupportedTypes, MechanismTypes.Default, client);
+                if (client.SaslProcessor is null)
+                {
+                    client.State = new DisconnectState();
+                    client.State.Execute(client);
+                    return;
+                }
+
+                client.ClientSocket.Send(client.SaslProcessor.Initialize(client.Id, client.Password));
+                client.State = new SaslState();
+                return;
             }
         }
     }

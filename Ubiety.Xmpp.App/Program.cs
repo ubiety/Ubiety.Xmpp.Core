@@ -17,7 +17,7 @@ namespace Ubiety.Xmpp.App
 
             var id = new Jid("dieter@dieterlunn.ca");
 
-            client.Connect(id);
+            client.Connect(id, "admin");
             Console.ReadLine();
         }
 

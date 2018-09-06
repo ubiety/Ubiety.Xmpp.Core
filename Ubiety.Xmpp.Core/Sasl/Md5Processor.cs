@@ -70,7 +70,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             switch (tag)
             {
-                case Success s:
+                case Response s:
                     PopulateDirectives(s);
                     return s;
                 case Failure f:
