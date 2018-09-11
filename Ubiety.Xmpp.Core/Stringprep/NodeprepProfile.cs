@@ -17,14 +17,29 @@ using StringPrep;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    ///     XMPP Nameprep Stringprep profile
+    ///     XMPP Nodeprep Stringprep profile
     /// </summary>
-    public static class NameprepProfile
+    public static class NodeprepProfile
     {
         /// <summary>
-        ///     Create Nameprep profile
+        ///     Nodeprep prohibited code points
         /// </summary>
-        /// <returns>Nameprep process</returns>
+        public static readonly int[] NodeprepProhibited = new int[]
+        {
+            0x0022, 0x0022,
+            0x0026, 0x0026,
+            0x0027, 0x0027,
+            0x002F, 0x002F,
+            0x003A, 0x003A,
+            0x003C, 0x003C,
+            0x003E, 0x003E,
+            0x0040, 0x0040,
+        };
+
+        /// <summary>
+        ///     Create Nodeprep profile
+        /// </summary>
+        /// <returns>Nodeprep process</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()
@@ -35,6 +50,8 @@ namespace Ubiety.Xmpp.Core.Stringprep
                 .WithNormalizationStep()
                 .WithProhibitedValueStep(ValueRangeTable.Create(
                     Prohibited.C_1_1,
+                    Prohibited.C_1_2,
+                    Prohibited.C_2_1,
                     Prohibited.C_2_2,
                     Prohibited.C_3,
                     Prohibited.C_4,
@@ -42,7 +59,8 @@ namespace Ubiety.Xmpp.Core.Stringprep
                     Prohibited.C_6,
                     Prohibited.C_7,
                     Prohibited.C_8,
-                    Prohibited.C_9))
+                    Prohibited.C_9,
+                    NodeprepProhibited))
                 .WithBidirectionalStep()
                 .WithProhibitedValueStep(ValueRangeTable.Create(
                     Unassigned.A_1))

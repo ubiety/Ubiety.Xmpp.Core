@@ -26,6 +26,7 @@ namespace Ubiety.Xmpp.Core.Common
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
+        private readonly IPreparationProcess nodeprep = NodeprepProfile.Create();
         private readonly IPreparationProcess nameprep = NameprepProfile.Create();
         private readonly IPreparationProcess resourceprep = ResourceprepProfile.Create();
 
@@ -48,7 +49,7 @@ namespace Ubiety.Xmpp.Core.Common
         /// </summary>
         /// <param name="username">Username of the user</param>
         /// <param name="server">XMPP server of the user</param>
-        /// <param name="resource">Server resource</param>
+        /// <param name="resource">Server resource (if empty will be set by the server)</param>
         public Jid(string username, string server, string resource = "")
         {
             User = username ?? throw new ArgumentNullException(nameof(username));
@@ -83,7 +84,7 @@ namespace Ubiety.Xmpp.Core.Common
             private set
             {
                 var temp = Escape(value);
-                _user = nameprep.Run(temp);
+                _user = nodeprep.Run(temp);
             }
         }
 

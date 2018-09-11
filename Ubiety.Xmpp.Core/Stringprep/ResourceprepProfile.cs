@@ -29,7 +29,8 @@ namespace Ubiety.Xmpp.Core.Stringprep
         {
             return PreparationProcess.Build()
                 .WithMappingStep(MappingTable.Build()
-                .WithMappingTable(Mapping.B_1).Compile())
+                    .WithMappingTable(Mapping.B_1)
+                    .Compile())
                 .WithNormalizationStep()
                 .WithProhibitedValueStep(ValueRangeTable.Create(
                     Prohibited.C_1_2,

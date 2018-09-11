@@ -72,7 +72,7 @@
             </summary>
             <param name="username">Username of the user</param>
             <param name="server">XMPP server of the user</param>
-            <param name="resource">Server resource</param>
+            <param name="resource">Server resource (if empty will be set by the server)</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Common.Jid.Resource">
             <summary>
@@ -875,6 +875,22 @@
                 Create Nameprep profile
             </summary>
             <returns>Nameprep process</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Stringprep.NodeprepProfile">
+            <summary>
+                XMPP Nodeprep Stringprep profile
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Stringprep.NodeprepProfile.NodeprepProhibited">
+            <summary>
+                Nodeprep prohibited code points
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Stringprep.NodeprepProfile.Create">
+            <summary>
+                Create Nodeprep profile
+            </summary>
+            <returns>Nodeprep process</returns>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Stringprep.ResourceprepProfile">
             <summary>

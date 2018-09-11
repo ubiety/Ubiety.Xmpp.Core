@@ -30,14 +30,13 @@ namespace Ubiety.Xmpp.Core.States
         /// <param name="tag">Tag from the server</param>
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
-            xmpp.ClientSocket.SetReadClear();
-
             if (xmpp is XmppClient client)
             {
                 var result = xmpp.SaslProcessor.Step(tag);
                 switch (result)
                 {
                     case Success s:
+                        xmpp.ClientSocket.SetReadClear();
                         client.Authenticated = true;
                         client.State = new ConnectedState();
                         client.State.Execute(client);
@@ -47,6 +46,7 @@ namespace Ubiety.Xmpp.Core.States
                         client.State.Execute(client);
                         break;
                     default:
+                        xmpp.ClientSocket.SetReadClear();
                         client.ClientSocket.Send(result);
                         break;
                 }

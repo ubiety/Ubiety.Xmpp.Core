@@ -109,8 +109,8 @@
     <Rule Id="S2225" Action="Warning" />
     <Rule Id="S2228" Action="None" />
     <Rule Id="S2234" Action="Warning" />
-    <Rule Id="S2245" Action="None" />
-    <Rule Id="S2255" Action="None" />
+    <Rule Id="S2245" Action="Warning" />
+    <Rule Id="S2255" Action="Warning" />
     <Rule Id="S2259" Action="Warning" />
     <Rule Id="S2275" Action="Warning" />
     <Rule Id="S2278" Action="Warning" />
@@ -141,7 +141,7 @@
     <Rule Id="S2436" Action="Warning" />
     <Rule Id="S2437" Action="Warning" />
     <Rule Id="S2486" Action="Warning" />
-    <Rule Id="S2551" Action="None" />
+    <Rule Id="S2551" Action="Warning" />
     <Rule Id="S2583" Action="Warning" />
     <Rule Id="S2589" Action="Warning" />
     <Rule Id="S2631" Action="Warning" />
@@ -274,7 +274,7 @@
     <Rule Id="S3928" Action="Warning" />
     <Rule Id="S3956" Action="None" />
     <Rule Id="S3962" Action="None" />
-    <Rule Id="S3963" Action="None" />
+    <Rule Id="S3963" Action="Warning" />
     <Rule Id="S3966" Action="Warning" />
     <Rule Id="S3967" Action="None" />
     <Rule Id="S3971" Action="Warning" />
@@ -345,7 +345,7 @@
     <Rule Id="S4456" Action="Warning" />
     <Rule Id="S4457" Action="Warning" />
     <Rule Id="S4462" Action="None" />
-    <Rule Id="S4524" Action="None" />
+    <Rule Id="S4524" Action="Warning" />
     <Rule Id="S4564" Action="None" />
     <Rule Id="S4581" Action="Warning" />
     <Rule Id="S4586" Action="Warning" />

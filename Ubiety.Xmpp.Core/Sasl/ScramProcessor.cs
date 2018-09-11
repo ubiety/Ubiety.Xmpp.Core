@@ -13,10 +13,12 @@
 //   limitations under the License.
 
 using System;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using StringPrep;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
@@ -28,8 +30,9 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// </summary>
     public class ScramProcessor : SaslProcessor
     {
-        private readonly IPreparationProcess saslprep = SaslprepProfile.Create();
+        private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private readonly Encoding _encoding = Encoding.UTF8;
+        private ILog _logger;
         private string _nonce;
         private string _clientFirst;
         private string _clientFinal;
@@ -49,10 +52,14 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             base.Initialize(id, password);
 
-            _nonce = NextInt64().ToString();
-            var message = $"n,,n={Id.User},r={_nonce}";
+            _logger = Log.Get<ScramProcessor>();
 
-            _clientFirst = message.Substring(3);
+            _logger.Log(LogLevel.Debug, "Initializing SCRAM SASL processor");
+
+            _nonce = NextInt64().ToString(CultureInfo.InvariantCulture);
+            _clientFirst = $"n={_saslprep.Run(Id.User)},r={_nonce}";
+
+            var message = $"n,,{_clientFirst}";
 
             var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
             auth.MechanismType = MechanismTypes.Scram;
@@ -71,6 +78,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             switch (tag)
             {
                 case Challenge c:
+                    _logger.Log(LogLevel.Debug, "Received challenge");
                     return ProcessChallenge(c);
                 case Response s:
                     var response = _encoding.GetString(s.Bytes);
@@ -103,10 +111,13 @@ namespace Ubiety.Xmpp.Core.Sasl
             _iterations = int.Parse(i);
 
             _clientFinal = $"c=biws,r={snonce}";
+            _logger.Log(LogLevel.Debug, $"Client final before proof: {_clientFinal}");
 
             CalculateProofs();
 
             _clientFinal += $",p={_clientProof}";
+
+            _logger.Log(LogLevel.Debug, $"Client final after proof: {_clientFinal}");
 
             var message = Client.Registry.GetTag<Response>(Response.XmlName);
             message.Bytes = _encoding.GetBytes(_clientFinal);
@@ -135,7 +146,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             _serverSignature = hmac.ComputeHash(auth);
 
             var proof = new byte[20];
-            for (int i = 0; i < signature.Length; i++)
+            for (int i = 0; i < signature.Length; ++i)
             {
                 proof[i] = (byte)(clientKey[i] ^ signature[i]);
             }
@@ -146,7 +157,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         private byte[] Hi()
         {
             var prev = new byte[20];
-            var password = _encoding.GetBytes(saslprep.Run(Password));
+            var password = _encoding.GetBytes(_saslprep.Run(Password));
 
             var key = new byte[_salt.Length + 4];
             Array.Copy(_salt, key, _salt.Length);
@@ -157,10 +168,10 @@ namespace Ubiety.Xmpp.Core.Sasl
             var result = hmac.ComputeHash(key);
             Array.Copy(result, prev, result.Length);
 
-            for (int i = 0; i < _iterations; i++)
+            for (int i = 0; i < _iterations; ++i)
             {
                 var temp = hmac.ComputeHash(prev);
-                for (int j = 0; j < temp.Length; j++)
+                for (int j = 0; j < temp.Length; ++j)
                 {
                     result[j] ^= temp[j];
                 }
