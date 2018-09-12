@@ -39,14 +39,14 @@ namespace Ubiety.Xmpp.Core.Sasl
         /// <summary>
         ///     Initializes the PLAIN SASL processor
         /// </summary>
-        /// <param name="id"><see cref="Jid"/> of the user to authenticate</param>
+        /// <param name="id"><see cref="Jid" /> of the user to authenticate</param>
         /// <param name="password">Password to use for authentication</param>
         /// <returns>Tag to send to server</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
 
-            var auth = $"{(char)0}{id.User}{(char)0}{password}";
+            var auth = $"{(char) 0}{id.User}{(char) 0}{password}";
 
             var authTag = Client.Registry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
             authTag.MechanismType = MechanismTypes.Plain;

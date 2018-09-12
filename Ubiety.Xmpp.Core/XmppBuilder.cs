@@ -33,7 +33,7 @@ namespace Ubiety.Xmpp.Core
         /// <summary>
         ///     Build a client connection
         /// </summary>
-        /// <returns>Returns a new <see cref="XmppClientBuilder"/> instance</returns>
+        /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance</returns>
         public XmppClientBuilder BuildClient()
         {
             return new XmppClientBuilder();

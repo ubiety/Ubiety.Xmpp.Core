@@ -71,16 +71,13 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Name of the type</returns>
         public static string NameFor(Type type)
         {
-            if (!type.IsGenericType)
-            {
-                return type.FullName;
-            }
+            if (!type.IsGenericType) return type.FullName;
 
             var name = type.GetGenericTypeDefinition().FullName;
 
             return name.Substring(0, name.IndexOf('`')) + "<" + string.Join(
-                ",",
-                type.GetGenericArguments().Select(NameFor).ToArray()) + ">";
+                       ",",
+                       type.GetGenericArguments().Select(NameFor).ToArray()) + ">";
         }
 
         /// <summary>

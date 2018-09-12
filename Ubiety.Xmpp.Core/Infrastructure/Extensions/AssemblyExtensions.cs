@@ -24,7 +24,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
     public static class AssemblyExtensions
     {
         /// <summary>
-        ///    Gets all attributes of a specific type from the assembly
+        ///     Gets all attributes of a specific type from the assembly
         /// </summary>
         /// <typeparam name="T">Type of the attribute to retrieve</typeparam>
         /// <param name="assembly">Assembly to iterate</param>
@@ -35,10 +35,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
             var attributes = new List<T>();
             var types = assembly.GetTypes();
 
-            foreach (var type in types)
-            {
-                type.GetCustomAttributes<T>(true).Apply(attributes.Add);
-            }
+            foreach (var type in types) type.GetCustomAttributes<T>(true).Apply(attributes.Add);
 
             return attributes;
         }

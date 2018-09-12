@@ -56,10 +56,7 @@ namespace Ubiety.Xmpp.Core
         /// <inheritdoc />
         public void Connect(Jid jid, string password)
         {
-            if (jid is null)
-            {
-                throw new ArgumentNullException(nameof(jid));
-            }
+            if (jid is null) throw new ArgumentNullException(nameof(jid));
 
             _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
             Id = jid;

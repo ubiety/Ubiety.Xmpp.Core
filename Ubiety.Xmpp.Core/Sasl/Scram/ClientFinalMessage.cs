@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
     public class ClientFinalMessage
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ClientFinalMessage"/> class
+        ///     Initializes a new instance of the <see cref="ClientFinalMessage" /> class
         /// </summary>
         /// <param name="firstMessage">Client first message</param>
         /// <param name="serverMessage">Server message</param>

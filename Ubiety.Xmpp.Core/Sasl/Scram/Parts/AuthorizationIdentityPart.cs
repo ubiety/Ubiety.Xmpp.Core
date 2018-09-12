@@ -20,7 +20,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class AuthorizationIdentityPart : ScramPart<string>
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="AuthorizationIdentityPart"/> class
+        ///     Initializes a new instance of the <see cref="AuthorizationIdentityPart" /> class
         /// </summary>
         /// <param name="value">Value of the part</param>
         public AuthorizationIdentityPart(string value)

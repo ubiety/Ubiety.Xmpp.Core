@@ -24,7 +24,7 @@ namespace Ubiety.Xmpp.App
                     .WriteTo.File("log.txt")
                     .CreateLogger();
             }
-            
+
             public void Log(LogLevel level, object message)
             {
                 Log(level, message.ToString());

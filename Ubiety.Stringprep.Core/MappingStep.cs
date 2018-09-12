@@ -1,38 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace StringPrep
 {
-  internal class MappingStep : IPreparationProcess
-  {
-    private readonly IMappingTable _table;
-
-    public MappingStep(IMappingTable table)
+    internal class MappingStep : IPreparationProcess
     {
-      _table = table;
-    }
+        private readonly IMappingTable _table;
 
-    public string Run(string input)
-    {
-      var sb = new StringBuilder();
-      foreach(var c in input)
-      {
-        if (_table.HasReplacement(c))
+        public MappingStep(IMappingTable table)
         {
-          foreach (var r in _table.GetReplacement(c))
-          {
-            sb.Append(Convert.ToChar(r));
-          }
+            _table = table;
         }
-        else
+
+        public string Run(string input)
         {
-          sb.Append(c);
+            var sb = new StringBuilder();
+            foreach (var c in input)
+                if (_table.HasReplacement(c))
+                    foreach (var r in _table.GetReplacement(c))
+                        sb.Append(Convert.ToChar(r));
+                else
+                    sb.Append(c);
+            return sb.ToString();
         }
-      }
-      return sb.ToString();
     }
-  }
 }

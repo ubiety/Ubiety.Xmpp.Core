@@ -48,11 +48,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             _logger.Log(LogLevel.Debug, "Parser created");
         }
 
-        /// <summary>
-        ///     Tag event
-        /// </summary>
-        public event EventHandler<TagEventArgs> Tag;
-
         private XmlNamespaceManager NamespaceManager
         {
             get
@@ -69,6 +64,11 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                 return _namespaceManager;
             }
         }
+
+        /// <summary>
+        ///     Tag event
+        /// </summary>
+        public event EventHandler<TagEventArgs> Tag;
 
         /// <summary>
         ///     Starts the parsing process
@@ -90,7 +90,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
 
         private void OnTag(Tag tag)
         {
-            Tag?.Invoke(this, new TagEventArgs { Tag = tag });
+            Tag?.Invoke(this, new TagEventArgs {Tag = tag});
         }
 
         private void ProcessQueue()
@@ -105,10 +105,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                     break;
                 }
 
-                if (_dataQueue.Count <= 0)
-                {
-                    continue;
-                }
+                if (_dataQueue.Count <= 0) continue;
 
                 var message = _dataQueue.Dequeue();
 
@@ -118,10 +115,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                     _xmpp.State = new DisconnectState();
                     _xmpp.State.Execute(_xmpp);
 
-                    if (message.Equals(endStream))
-                    {
-                        return;
-                    }
+                    if (message.Equals(endStream)) return;
 
                     message = message.Replace(endStream, string.Empty);
                 }

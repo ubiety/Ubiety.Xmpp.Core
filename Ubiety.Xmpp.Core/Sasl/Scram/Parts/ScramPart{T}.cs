@@ -21,7 +21,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class ScramPart<T> : ScramPart
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ScramPart{T}"/> class
+        ///     Initializes a new instance of the <see cref="ScramPart{T}" /> class
         /// </summary>
         /// <param name="label">Part label</param>
         /// <param name="value">Part value</param>
@@ -36,7 +36,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         /// </summary>
         public T Value { get; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override string ToString()
         {
             return $"{Label}={Value}";

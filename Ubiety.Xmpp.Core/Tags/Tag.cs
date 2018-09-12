@@ -27,18 +27,18 @@ namespace Ubiety.Xmpp.Core.Tags
     public abstract class Tag : XElement
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Tag"/> class
+        ///     Initializes a new instance of the <see cref="Tag" /> class
         /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive the tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive the tag from</param>
         protected Tag(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Tag"/> class
+        ///     Initializes a new instance of the <see cref="Tag" /> class
         /// </summary>
-        /// <param name="name"><see cref="XName"/> of the tag</param>
+        /// <param name="name"><see cref="XName" /> of the tag</param>
         protected Tag(XName name)
             : base(name)
         {
@@ -109,13 +109,10 @@ namespace Ubiety.Xmpp.Core.Tags
         private static T Convert<T>(XElement element)
             where T : XElement
         {
-            if (element is null)
-            {
-                return default(T);
-            }
+            if (element is null) return default(T);
 
-            var constructor = GetConstructor(typeof(T), new[] { typeof(XElement) });
-            return (T)constructor?.Invoke(new object[] { element });
+            var constructor = GetConstructor(typeof(T), new[] {typeof(XElement)});
+            return (T) constructor?.Invoke(new object[] {element});
         }
     }
 }

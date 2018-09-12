@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class SaltPart : ScramPart<byte[]>
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="SaltPart"/> class
+        ///     Initializes a new instance of the <see cref="SaltPart" /> class
         /// </summary>
         /// <param name="value">Salt value</param>
         public SaltPart(byte[] value)
@@ -31,7 +31,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="SaltPart"/> class
+        ///     Initializes a new instance of the <see cref="SaltPart" /> class
         /// </summary>
         /// <param name="value">String version of the salt</param>
         public SaltPart(string value)
@@ -39,7 +39,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         {
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override string ToString()
         {
             return $"{Label}={Convert.ToBase64String(Value)}";

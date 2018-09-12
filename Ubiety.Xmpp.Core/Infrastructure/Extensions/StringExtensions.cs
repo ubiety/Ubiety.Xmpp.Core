@@ -31,15 +31,9 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
             while (position == -1 && !string.IsNullOrEmpty(data))
             {
                 var index = data.IndexOf(token);
-                if (index == -1)
-                {
-                    return -1;
-                }
+                if (index == -1) return -1;
 
-                if (index == 0 || data[index - 1] != '\\')
-                {
-                    position = index;
-                }
+                if (index == 0 || data[index - 1] != '\\') position = index;
 
                 data = data.Substring(index + 1);
             }

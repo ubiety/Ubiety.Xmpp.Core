@@ -28,9 +28,9 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
         private ServerMessage(IterationPart iterations, NoncePart nonce, SaltPart salt)
         {
             _logger = Log.Get<ServerMessage>();
-            
+
             _logger.Log(LogLevel.Debug, $"Server first message: {FirstMessage}");
-            
+
             Iterations = iterations;
             Nonce = nonce;
             Salt = salt;

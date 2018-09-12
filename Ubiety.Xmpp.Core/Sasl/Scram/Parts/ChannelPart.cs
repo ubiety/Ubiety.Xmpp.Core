@@ -23,9 +23,9 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class ChannelPart : ScramPart<string>
     {
         private static readonly Encoding Encoding = Encoding.UTF8;
-        
+
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ChannelPart"/> class
+        ///     Initializes a new instance of the <see cref="ChannelPart" /> class
         /// </summary>
         /// <param name="value">Channel value</param>
         public ChannelPart(string value)

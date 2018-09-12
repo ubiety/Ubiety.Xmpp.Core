@@ -83,15 +83,12 @@ namespace Ubiety.Xmpp.Core.Registries
                 var constructor = type.GetConstructor(new Type[] { });
                 if (constructor is null)
                 {
-                    constructor = type.GetConstructor(new[] { typeof(XName) });
-                    if (constructor != null)
-                    {
-                        tag = (T)constructor.Invoke(new object[] { name });
-                    }
+                    constructor = type.GetConstructor(new[] {typeof(XName)});
+                    if (constructor != null) tag = (T) constructor.Invoke(new object[] {name});
                 }
                 else
                 {
-                    tag = (T)constructor.Invoke(new object[] { });
+                    tag = (T) constructor.Invoke(new object[] { });
                 }
             }
             else
@@ -117,7 +114,6 @@ namespace Ubiety.Xmpp.Core.Registries
                 var gotType = _types.TryGetValue(element.Name, out var type);
 
                 if (!gotType)
-                {
                     switch (element.Name.LocalName)
                     {
                         case "iq":
@@ -128,23 +124,19 @@ namespace Ubiety.Xmpp.Core.Registries
                             gotType = _types.TryGetValue(element.Name, out type);
                             break;
                     }
-                }
 
                 if (gotType)
                 {
-                    var constructor = type.GetConstructor(new[] { element.GetType() });
+                    var constructor = type.GetConstructor(new[] {element.GetType()});
                     if (constructor is null)
                     {
-                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
-                        if (defaultConstructorInfo is null)
-                        {
-                            return default(T);
-                        }
+                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] {typeof(Tag)});
+                        if (defaultConstructorInfo is null) return default(T);
 
-                        return (T)defaultConstructorInfo.Invoke(new object[] { element });
+                        return (T) defaultConstructorInfo.Invoke(new object[] {element});
                     }
 
-                    return (T)constructor.Invoke(new object[] { element });
+                    return (T) constructor.Invoke(new object[] {element});
                 }
             }
             catch (Exception e)

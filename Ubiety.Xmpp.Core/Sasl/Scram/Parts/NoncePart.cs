@@ -20,7 +20,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class NoncePart : ScramPart<string>
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="NoncePart"/> class
+        ///     Initializes a new instance of the <see cref="NoncePart" /> class
         /// </summary>
         /// <param name="value">Nonce value</param>
         public NoncePart(string value)
@@ -29,7 +29,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="NoncePart"/> class
+        ///     Initializes a new instance of the <see cref="NoncePart" /> class
         /// </summary>
         /// <param name="clientNonce">Client nonce value</param>
         /// <param name="serverNonce">Server nonce value</param>

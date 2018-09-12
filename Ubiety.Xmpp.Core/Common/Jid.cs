@@ -26,8 +26,8 @@ namespace Ubiety.Xmpp.Core.Common
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
-        private readonly IPreparationProcess nodeprep = NodeprepProfile.Create();
         private readonly IPreparationProcess nameprep = NameprepProfile.Create();
+        private readonly IPreparationProcess nodeprep = NodeprepProfile.Create();
         private readonly IPreparationProcess resourceprep = ResourceprepProfile.Create();
 
         private string _id;
@@ -45,7 +45,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Jid"/> class
+        ///     Initializes a new instance of the <see cref="Jid" /> class
         /// </summary>
         /// <param name="username">Username of the user</param>
         /// <param name="server">XMPP server of the user</param>
@@ -97,6 +97,12 @@ namespace Ubiety.Xmpp.Core.Common
             set => Parse(value);
         }
 
+        /// <inheritdoc />
+        public bool Equals(Jid other)
+        {
+            return Id.Equals(other.Id);
+        }
+
         /// <summary>
         ///     Implicitly converts a string into a <see cref="Jid" />
         /// </summary>
@@ -138,12 +144,6 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <inheritdoc />
-        public bool Equals(Jid other)
-        {
-            return Id.Equals(other.Id);
-        }
-
-        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             switch (obj)
@@ -164,9 +164,9 @@ namespace Ubiety.Xmpp.Core.Common
             {
                 var hash = 17;
 
-                hash = (hash * 23) + User.GetHashCode();
-                hash = (hash * 23) + Server.GetHashCode();
-                hash = (hash * 23) + Resource.GetHashCode();
+                hash = hash * 23 + User.GetHashCode();
+                hash = hash * 23 + Server.GetHashCode();
+                hash = hash * 23 + Resource.GetHashCode();
 
                 return hash;
             }
@@ -189,9 +189,7 @@ namespace Ubiety.Xmpp.Core.Common
                 {
                     case ' ':
                         if (count == 0 || count == user.Length - 1)
-                        {
                             throw new FormatException("Username cannot start or end with a space");
-                        }
 
                         u.Append(@"\20");
                         break;

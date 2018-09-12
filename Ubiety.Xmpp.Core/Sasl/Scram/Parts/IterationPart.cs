@@ -20,7 +20,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class IterationPart : ScramPart<int>
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="IterationPart"/> class
+        ///     Initializes a new instance of the <see cref="IterationPart" /> class
         /// </summary>
         /// <param name="value">Iteration value</param>
         public IterationPart(int value)
@@ -29,7 +29,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="IterationPart"/> class
+        ///     Initializes a new instance of the <see cref="IterationPart" /> class
         /// </summary>
         /// <param name="value">String version of the iteration value</param>
         public IterationPart(string value)

@@ -43,7 +43,7 @@ namespace Ubiety.Xmpp.Core.Net
         public Address(IClient client)
         {
             _logger = Log.Get<Address>();
-            _resolver = new Resolver("8.8.8.8") { UseCache = true, Timeout = 5, TransportType = TransportType.Tcp };
+            _resolver = new Resolver("8.8.8.8") {UseCache = true, Timeout = 5, TransportType = TransportType.Tcp};
             _client = client;
 
             _logger.Log(LogLevel.Debug, "Address created");
@@ -87,10 +87,7 @@ namespace Ubiety.Xmpp.Core.Net
                 return Resolve();
             }
 
-            if (_srvAttempts >= _srvRecords.Count)
-            {
-                return null;
-            }
+            if (_srvAttempts >= _srvRecords.Count) return null;
 
             _logger.Log(LogLevel.Debug, "Resolving the next SRV record");
             var ip = Resolve(_srvRecords[_srvAttempts].Target);
@@ -122,7 +119,7 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, $"IPv6 address found for {Hostname}");
                 IsIPv6 = true;
-                return ((RecordAaaa)response.Answers[0].Record).Address;
+                return ((RecordAaaa) response.Answers[0].Record).Address;
             }
 
             _logger.Log(LogLevel.Debug, "Resolving a standard IPv4 A record");

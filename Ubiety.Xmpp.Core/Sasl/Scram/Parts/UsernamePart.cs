@@ -20,7 +20,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class UsernamePart : ScramPart<string>
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UsernamePart"/> class
+        ///     Initializes a new instance of the <see cref="UsernamePart" /> class
         /// </summary>
         /// <param name="value">Value of the part</param>
         public UsernamePart(string value)
@@ -28,7 +28,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         {
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override string ToString()
         {
             return $"{Label}={Value}";

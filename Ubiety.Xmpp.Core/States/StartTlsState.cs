@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core.States
     /// <inheritdoc />
     public class StartTlsState : IState
     {
-        private static ILog _logger;
+        private static readonly ILog _logger;
 
         static StartTlsState()
         {

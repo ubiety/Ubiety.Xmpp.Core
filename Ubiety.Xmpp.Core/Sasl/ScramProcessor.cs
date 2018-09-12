@@ -33,17 +33,17 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// </summary>
     public class ScramProcessor : SaslProcessor
     {
-        private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
-        private readonly Encoding _encoding = Encoding.UTF8;
         private readonly bool _channelBinding;
-        private ILog _logger;
-        private ClientFirstMessage _clientFirstMessage;
+        private readonly Encoding _encoding = Encoding.UTF8;
+        private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private ClientFinalMessage _clientFinalMessage;
+        private ClientFirstMessage _clientFirstMessage;
+        private ILog _logger;
         private ServerMessage _serverMessage;
         private byte[] _serverSignature;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ScramProcessor"/> class
+        ///     Initializes a new instance of the <see cref="ScramProcessor" /> class
         /// </summary>
         /// <param name="channelBinding">Do we want to use channel binding</param>
         public ScramProcessor(bool channelBinding)
@@ -54,7 +54,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         /// <summary>
         ///     Initializes the SASL processor
         /// </summary>
-        /// <param name="id"><see cref="Jid"/> of the user for the session</param>
+        /// <param name="id"><see cref="Jid" /> of the user for the session</param>
         /// <param name="password">Password of the user</param>
         /// <returns>Next tag to send to the server</returns>
         public override Tag Initialize(Jid id, string password)
@@ -129,7 +129,8 @@ namespace Ubiety.Xmpp.Core.Sasl
             var serverKey = hmac.ComputeHash(_encoding.GetBytes("Server Key"));
             var storedKey = hash.ComputeHash(clientKey);
 
-            var authMessage = $"{_clientFirstMessage.BareMessage},{ServerMessage.FirstMessage},{_clientFinalMessage.MessageWithoutProof}";
+            var authMessage =
+                $"{_clientFirstMessage.BareMessage},{ServerMessage.FirstMessage},{_clientFinalMessage.MessageWithoutProof}";
             _logger.Log(LogLevel.Debug, $"Auth message: {authMessage}");
             var auth = _encoding.GetBytes(authMessage);
 
@@ -153,7 +154,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             var iteration = hmac.ComputeHash(completeSalt);
             var result = iteration;
 
-            for (int i = 0; i < _serverMessage.Iterations.Value; ++i)
+            for (var i = 0; i < _serverMessage.Iterations.Value; ++i)
             {
                 iteration = hmac.ComputeHash(iteration);
                 result = result.ExclusiveOr(iteration);

@@ -24,7 +24,7 @@ namespace Ubiety.Xmpp.Core.Stringprep
         /// <summary>
         ///     Nodeprep prohibited code points
         /// </summary>
-        public static readonly int[] NodeprepProhibited = new int[]
+        public static readonly int[] NodeprepProhibited =
         {
             0x0022, 0x0022,
             0x0026, 0x0026,
@@ -33,7 +33,7 @@ namespace Ubiety.Xmpp.Core.Stringprep
             0x003A, 0x003A,
             0x003C, 0x003C,
             0x003E, 0x003E,
-            0x0040, 0x0040,
+            0x0040, 0x0040
         };
 
         /// <summary>

@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
     public class ClientFirstMessage
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ClientFirstMessage"/> class
+        ///     Initializes a new instance of the <see cref="ClientFirstMessage" /> class
         /// </summary>
         /// <param name="username">Username of the user to authenticate</param>
         /// <param name="nonce">Nonce for the messages</param>
@@ -50,18 +50,12 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
         public string FirstAuthMessage => $"{Gs2Header},{BareMessage}";
 
         /// <summary>
-        ///     Gets a value indicating whether we are using channel binding
-        /// </summary>
-        public bool ChannelBinding { get; }
-
-        /// <summary>
-        ///     Gets the username
-        /// </summary>
-        internal UsernamePart Username { get; }
-
-        /// <summary>
         ///     Gets the nonce
         /// </summary>
         internal NoncePart Nonce { get; }
+
+        private bool ChannelBinding { get; }
+
+        private UsernamePart Username { get; }
     }
 }

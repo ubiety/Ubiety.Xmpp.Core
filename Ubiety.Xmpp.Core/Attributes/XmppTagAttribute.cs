@@ -25,7 +25,7 @@ namespace Ubiety.Xmpp.Core.Attributes
     public sealed class XmppTagAttribute : Attribute
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppTagAttribute"/> class
+        ///     Initializes a new instance of the <see cref="XmppTagAttribute" /> class
         /// </summary>
         /// <param name="localName">local name of the tag</param>
         /// <param name="namespaceName">namespace name of the tag</param>

@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     internal class ClientProofPart : ScramPart<byte[]>
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ClientProofPart"/> class
+        ///     Initializes a new instance of the <see cref="ClientProofPart" /> class
         /// </summary>
         /// <param name="value">Client proof value</param>
         public ClientProofPart(string value)
@@ -31,7 +31,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ClientProofPart"/> class
+        ///     Initializes a new instance of the <see cref="ClientProofPart" /> class
         /// </summary>
         /// <param name="value">Client proof calue</param>
         public ClientProofPart(byte[] value)
@@ -39,7 +39,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         {
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override string ToString()
         {
             return $"{Label}={Convert.ToBase64String(Value)}";

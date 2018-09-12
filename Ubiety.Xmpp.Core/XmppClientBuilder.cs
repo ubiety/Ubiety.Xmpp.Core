@@ -63,16 +63,13 @@ namespace Ubiety.Xmpp.Core
         /// <returns>Client with the options provided</returns>
         public XmppClient Build()
         {
-            if (_logManager != null)
-            {
-                Log.Initialize(_logManager);
-            }
+            if (_logManager != null) Log.Initialize(_logManager);
 
             var type = typeof(XmppClientBuilder);
             var registry = new TagRegistry();
             registry.AddAssembly(type.Assembly);
 
-            var client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry };
+            var client = new XmppClient {UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry};
 
             return client;
         }

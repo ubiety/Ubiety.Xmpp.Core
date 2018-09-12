@@ -35,8 +35,8 @@ namespace Ubiety.Xmpp.Core.Net
         private const int BufferSize = 4 * 1024;
         private readonly IClient _client;
         private readonly ILog _logger;
-        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private readonly AutoResetEvent _resetEvent;
+        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -54,6 +54,13 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <inheritdoc />
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <inheritdoc />
         public event EventHandler<DataEventArgs> Data;
 
         /// <inheritdoc />
@@ -61,13 +68,6 @@ namespace Ubiety.Xmpp.Core.Net
 
         /// <inheritdoc />
         public bool Connected { get; private set; }
-
-        /// <inheritdoc />
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
 
         /// <inheritdoc />
         public void Connect(Jid jid)
@@ -88,10 +88,7 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Starting async connection");
 
-                if (!_socket.ConnectAsync(args))
-                {
-                    ConnectCompleted(this, args);
-                }
+                if (!_socket.ConnectAsync(args)) ConnectCompleted(this, args);
             }
             catch (SocketException e)
             {
@@ -114,10 +111,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Send(string message)
         {
-            if (!Connected)
-            {
-                return;
-            }
+            if (!Connected) return;
 
             _logger.Log(LogLevel.Debug, $"Sending message: {message}");
 
@@ -149,7 +143,7 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
                 _stream = secureStream;
-                _client.State.Execute((XmppClient)_client);
+                _client.State.Execute((XmppClient) _client);
             }
         }
 
@@ -187,26 +181,19 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="disposing">Are we disposing from a direct call</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                _socket?.Dispose();
-            }
+            if (disposing) _socket?.Dispose();
         }
 
-        private bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        private bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
+            SslPolicyErrors sslPolicyErrors)
         {
-            if (sslPolicyErrors == SslPolicyErrors.None)
-            {
-                return true;
-            }
+            if (sslPolicyErrors == SslPolicyErrors.None) return true;
 
             if (chain.ChainStatus.Length == 1 &&
-                (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors || certificate.Subject == certificate.Issuer) &&
-                (chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot))
-            {
-                // Trust self signed certificates
+                (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors ||
+                 certificate.Subject == certificate.Issuer) &&
+                chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot)
                 return true;
-            }
 
             _logger.Log(LogLevel.Debug, certificate.ToString());
             _logger.Log(LogLevel.Error, $"Policy errors: {sslPolicyErrors}");
@@ -240,7 +227,7 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 var message = ReadData();
                 _logger.Log(LogLevel.Debug, $"Received message: {message.Result}");
-                OnData(new DataEventArgs { Message = message.Result });
+                OnData(new DataEventArgs {Message = message.Result});
             }
         }
 

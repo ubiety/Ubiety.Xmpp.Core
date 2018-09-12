@@ -60,7 +60,7 @@ namespace Ubiety.Xmpp.Core
         /// <summary>
         ///     Connect to an XMPP server using a JID
         /// </summary>
-        /// <param name="jid"><see cref="Jid"/> to use for connecting</param>
+        /// <param name="jid"><see cref="Jid" /> to use for connecting</param>
         /// <param name="password">Password to connect with</param>
         void Connect(Jid jid, string password);
     }

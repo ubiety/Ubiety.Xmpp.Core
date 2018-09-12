@@ -23,16 +23,16 @@ namespace Ubiety.Xmpp.Core.Tags.Tls
     public class Proceed : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Proceed"/> class
+        ///     Initializes a new instance of the <see cref="Proceed" /> class
         /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive tag from</param>
         public Proceed(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Proceed"/> class
+        ///     Initializes a new instance of the <see cref="Proceed" /> class
         /// </summary>
         public Proceed()
             : base(XmlName)
