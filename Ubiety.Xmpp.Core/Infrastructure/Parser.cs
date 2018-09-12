@@ -48,27 +48,27 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             _logger.Log(LogLevel.Debug, "Parser created");
         }
 
-        private XmlNamespaceManager NamespaceManager
-        {
-            get
-            {
-                if (_namespaceManager is null)
-                {
-                    _namespaceManager = new XmlNamespaceManager(new NameTable());
-                    _namespaceManager.AddNamespace(string.Empty, Namespaces.Client);
-                    _namespaceManager.AddNamespace("stream", Namespaces.Stream);
-
-                    return _namespaceManager;
-                }
-
-                return _namespaceManager;
-            }
-        }
-
         /// <summary>
         ///     Tag event
         /// </summary>
         public event EventHandler<TagEventArgs> Tag;
+
+        private XmlNamespaceManager NamespaceManager
+        {
+            get
+            {
+                if (!(_namespaceManager is null))
+                {
+                    return _namespaceManager;
+                }
+
+                _namespaceManager = new XmlNamespaceManager(new NameTable());
+                _namespaceManager.AddNamespace(string.Empty, Namespaces.Client);
+                _namespaceManager.AddNamespace("stream", Namespaces.Stream);
+
+                return _namespaceManager;
+            }
+        }
 
         /// <summary>
         ///     Starts the parsing process
@@ -105,7 +105,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                     break;
                 }
 
-                if (_dataQueue.Count <= 0) continue;
+                if (_dataQueue.Count <= 0)
+                {
+                    continue;
+                }
 
                 var message = _dataQueue.Dequeue();
 
@@ -115,7 +118,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure
                     _xmpp.State = new DisconnectState();
                     _xmpp.State.Execute(_xmpp);
 
-                    if (message.Equals(endStream)) return;
+                    if (message.Equals(endStream))
+                    {
+                        return;
+                    }
 
                     message = message.Replace(endStream, string.Empty);
                 }

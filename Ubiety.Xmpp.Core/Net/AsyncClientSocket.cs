@@ -54,13 +54,6 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <inheritdoc />
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        /// <inheritdoc />
         public event EventHandler<DataEventArgs> Data;
 
         /// <inheritdoc />
@@ -68,6 +61,13 @@ namespace Ubiety.Xmpp.Core.Net
 
         /// <inheritdoc />
         public bool Connected { get; private set; }
+
+        /// <inheritdoc />
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
         /// <inheritdoc />
         public void Connect(Jid jid)
@@ -88,7 +88,10 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Starting async connection");
 
-                if (!_socket.ConnectAsync(args)) ConnectCompleted(this, args);
+                if (!_socket.ConnectAsync(args))
+                {
+                    ConnectCompleted(this, args);
+                }
             }
             catch (SocketException e)
             {
@@ -111,7 +114,10 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Send(string message)
         {
-            if (!Connected) return;
+            if (!Connected)
+            {
+                return;
+            }
 
             _logger.Log(LogLevel.Debug, $"Sending message: {message}");
 
@@ -143,7 +149,7 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
                 _stream = secureStream;
-                _client.State.Execute((XmppClient) _client);
+                _client.State.Execute((XmppClient)_client);
             }
         }
 
@@ -181,19 +187,30 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="disposing">Are we disposing from a direct call</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing) _socket?.Dispose();
+            if (disposing)
+            {
+                _socket?.Dispose();
+            }
         }
 
-        private bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
+        private bool CertificateValidation(
+            object sender,
+            X509Certificate certificate,
+            X509Chain chain,
             SslPolicyErrors sslPolicyErrors)
         {
-            if (sslPolicyErrors == SslPolicyErrors.None) return true;
+            if (sslPolicyErrors == SslPolicyErrors.None)
+            {
+                return true;
+            }
 
             if (chain.ChainStatus.Length == 1 &&
                 (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors ||
                  certificate.Subject == certificate.Issuer) &&
                 chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot)
+            {
                 return true;
+            }
 
             _logger.Log(LogLevel.Debug, certificate.ToString());
             _logger.Log(LogLevel.Error, $"Policy errors: {sslPolicyErrors}");

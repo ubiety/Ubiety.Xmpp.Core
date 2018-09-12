@@ -47,7 +47,7 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         public static XName XmlName { get; } = XName.Get("mechanism", Namespaces.Sasl);
 
         /// <summary>
-        ///     Gets or sets the mechanmish type
+        ///     Gets or sets the mechanism type
         /// </summary>
         public MechanismTypes Type
         {

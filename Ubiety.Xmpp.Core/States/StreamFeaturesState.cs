@@ -62,8 +62,10 @@ namespace Ubiety.Xmpp.Core.States
             if (xmpp is XmppClient client && !client.Authenticated)
             {
                 Logger.Log(LogLevel.Debug, "Starting authentication");
-                client.SaslProcessor = SaslProcessor.CreateProcessor(features.Mechanisms.SupportedTypes,
-                    MechanismTypes.Default, client);
+                client.SaslProcessor = SaslProcessor.CreateProcessor(
+                    features.Mechanisms.SupportedTypes,
+                    MechanismTypes.Default,
+                    client);
                 if (client.SaslProcessor is null)
                 {
                     client.State = new DisconnectState();

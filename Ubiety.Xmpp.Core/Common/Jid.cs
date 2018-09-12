@@ -26,9 +26,9 @@ namespace Ubiety.Xmpp.Core.Common
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
-        private readonly IPreparationProcess nameprep = NameprepProfile.Create();
-        private readonly IPreparationProcess nodeprep = NodeprepProfile.Create();
-        private readonly IPreparationProcess resourceprep = ResourceprepProfile.Create();
+        private readonly IPreparationProcess _nameprep = NameprepProfile.Create();
+        private readonly IPreparationProcess _nodeprep = NodeprepProfile.Create();
+        private readonly IPreparationProcess _resourceprep = ResourceprepProfile.Create();
 
         private string _id;
         private string _resource;
@@ -63,7 +63,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Resource
         {
             get => _resource;
-            private set => _resource = value is null ? null : resourceprep.Run(value);
+            private set => _resource = value is null ? null : _resourceprep.Run(value);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Server
         {
             get => _server;
-            private set => _server = value is null ? null : nameprep.Run(value);
+            private set => _server = value is null ? null : _nameprep.Run(value);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Ubiety.Xmpp.Core.Common
             private set
             {
                 var temp = Escape(value);
-                _user = nodeprep.Run(temp);
+                _user = _nodeprep.Run(temp);
             }
         }
 
@@ -95,12 +95,6 @@ namespace Ubiety.Xmpp.Core.Common
         {
             get => _id ?? BuildJid();
             set => Parse(value);
-        }
-
-        /// <inheritdoc />
-        public bool Equals(Jid other)
-        {
-            return Id.Equals(other.Id);
         }
 
         /// <summary>
@@ -144,6 +138,12 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <inheritdoc />
+        public bool Equals(Jid other)
+        {
+            return Id.Equals(other.Id);
+        }
+
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             switch (obj)
@@ -164,9 +164,9 @@ namespace Ubiety.Xmpp.Core.Common
             {
                 var hash = 17;
 
-                hash = hash * 23 + User.GetHashCode();
-                hash = hash * 23 + Server.GetHashCode();
-                hash = hash * 23 + Resource.GetHashCode();
+                hash = (hash * 23) + User.GetHashCode();
+                hash = (hash * 23) + Server.GetHashCode();
+                hash = (hash * 23) + Resource.GetHashCode();
 
                 return hash;
             }
@@ -189,7 +189,9 @@ namespace Ubiety.Xmpp.Core.Common
                 {
                     case ' ':
                         if (count == 0 || count == user.Length - 1)
+                        {
                             throw new FormatException("Username cannot start or end with a space");
+                        }
 
                         u.Append(@"\20");
                         break;

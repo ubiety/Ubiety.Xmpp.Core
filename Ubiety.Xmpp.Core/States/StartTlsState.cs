@@ -22,11 +22,11 @@ namespace Ubiety.Xmpp.Core.States
     /// <inheritdoc />
     public class StartTlsState : IState
     {
-        private static readonly ILog _logger;
+        private static readonly ILog Logger;
 
         static StartTlsState()
         {
-            _logger = Log.Get<StartTlsState>();
+            Logger = Log.Get<StartTlsState>();
         }
 
         /// <inheritdoc />
@@ -34,13 +34,13 @@ namespace Ubiety.Xmpp.Core.States
         {
             if (tag is Proceed)
             {
-                _logger.Log(LogLevel.Debug, "Clear to start SSL/TLS connection");
+                Logger.Log(LogLevel.Debug, "Clear to start SSL/TLS connection");
                 xmpp.State = new ConnectedState();
                 xmpp.ClientSocket.StartSsl();
                 return;
             }
 
-            _logger.Log(LogLevel.Debug, "Sending starttls");
+            Logger.Log(LogLevel.Debug, "Sending starttls");
             var starttls = xmpp.Registry.GetTag<StartTls>(StartTls.XmlName);
             xmpp.ClientSocket.Send(starttls);
         }

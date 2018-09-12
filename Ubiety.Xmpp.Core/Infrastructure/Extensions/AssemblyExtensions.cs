@@ -35,7 +35,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
             var attributes = new List<T>();
             var types = assembly.GetTypes();
 
-            foreach (var type in types) type.GetCustomAttributes<T>(true).Apply(attributes.Add);
+            foreach (var type in types)
+            {
+                type.GetCustomAttributes<T>(true).Apply(attributes.Add);
+            }
 
             return attributes;
         }

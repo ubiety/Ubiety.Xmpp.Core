@@ -15,7 +15,7 @@
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     Byte extention methods
+    ///     Byte extension methods
     /// </summary>
     public static class ByteExtensions
     {
@@ -28,7 +28,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         public static byte[] ExclusiveOr(this byte[] original, byte[] comparison)
         {
             var result = new byte[original.Length];
-            for (var i = 0; i < original.Length; i++) result[i] = (byte) (original[i] ^ comparison[i]);
+            for (var i = 0; i < original.Length; i++)
+            {
+                result[i] = (byte)(original[i] ^ comparison[i]);
+            }
 
             return result;
         }

@@ -35,13 +35,13 @@ namespace Ubiety.Xmpp.Core.States
                 var result = xmpp.SaslProcessor.Step(tag);
                 switch (result)
                 {
-                    case Success s:
+                    case Success _:
                         xmpp.ClientSocket.SetReadClear();
                         client.Authenticated = true;
                         client.State = new ConnectedState();
                         client.State.Execute(client);
                         break;
-                    case Failure f:
+                    case Failure _:
                         client.State = new DisconnectState();
                         client.State.Execute(client);
                         break;

@@ -42,6 +42,11 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
+        ///     Raised when a stream error occurs
+        /// </summary>
+        public event EventHandler<ErrorEventArgs> Error;
+
+        /// <summary>
         ///     Gets or sets the XMPP port
         /// </summary>
         public int Port { get; set; } = 5222;
@@ -90,11 +95,6 @@ namespace Ubiety.Xmpp.Core.Common
         protected Parser Parser { get; set; }
 
         /// <summary>
-        ///     Raised when a stream error occurs
-        /// </summary>
-        public event EventHandler<ErrorEventArgs> Error;
-
-        /// <summary>
         ///     Received a tag from the parser
         /// </summary>
         /// <param name="sender">Object sending the event</param>
@@ -103,7 +103,8 @@ namespace Ubiety.Xmpp.Core.Common
         {
             if (e.Tag is Stream stream && stream.Errors.Any())
             {
-                OnError(this,
+                OnError(
+                    this,
                     new ErrorEventArgs {Message = "Error occured", StreamError = stream.Errors.FirstOrDefault()});
                 Parser.Stop();
                 State = new DisconnectState();

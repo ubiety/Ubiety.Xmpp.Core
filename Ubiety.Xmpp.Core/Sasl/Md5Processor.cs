@@ -28,7 +28,8 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// </summary>
     public class Md5Processor : SaslProcessor
     {
-        private readonly Regex _csv = new Regex(@"(?<tag>[^=]+)=(?:(?<data>[^,""]+)|(?:""(?<data>[^""]*)"")),?",
+        private readonly Regex _csv = new Regex(
+            @"(?<tag>[^=]+)=(?:(?<data>[^,""]+)|(?:""(?<data>[^""]*)"")),?",
             RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
         private readonly Encoding _encoding = Encoding.UTF8;
@@ -79,7 +80,10 @@ namespace Ubiety.Xmpp.Core.Sasl
                 default:
                     PopulateDirectives(tag);
                     var response = Client.Registry.GetTag<Auth>(Auth.XmlName);
-                    if (this["rspauth"] != null) return response;
+                    if (this["rspauth"] != null)
+                    {
+                        return response;
+                    }
 
                     GenerateResponseHash();
                     response.Bytes = GenerateResponse();
@@ -92,7 +96,10 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             var col = _csv.Matches(_encoding.GetString(tag.Bytes));
 
-            foreach (Match item in col) this[item.Groups["tag"].Value] = item.Groups["data"].Value;
+            foreach (Match item in col)
+            {
+                this[item.Groups["tag"].Value] = item.Groups["data"].Value;
+            }
 
             _digestUri = this["realm"] != null ? $"xmpp/{this["realm"]}" : $"xmpp/{Id.Server}";
         }
@@ -113,7 +120,9 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var a2 = $"AUTHENTICATE:{_digestUri}";
             if (string.Compare(this["qop"], "auth", StringComparison.Ordinal) != 0)
+            {
                 a2 += ":00000000000000000000000000000000";
+            }
 
             var a2Final = _md5.ComputeHash(encoding.GetBytes(a2));
 

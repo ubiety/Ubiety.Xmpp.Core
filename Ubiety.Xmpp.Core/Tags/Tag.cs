@@ -109,10 +109,13 @@ namespace Ubiety.Xmpp.Core.Tags
         private static T Convert<T>(XElement element)
             where T : XElement
         {
-            if (element is null) return default(T);
+            if (element is null)
+            {
+                return default(T);
+            }
 
             var constructor = GetConstructor(typeof(T), new[] {typeof(XElement)});
-            return (T) constructor?.Invoke(new object[] {element});
+            return (T)constructor?.Invoke(new object[] {element});
         }
     }
 }

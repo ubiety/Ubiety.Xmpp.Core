@@ -63,7 +63,10 @@ namespace Ubiety.Xmpp.Core
         /// <returns>Client with the options provided</returns>
         public XmppClient Build()
         {
-            if (_logManager != null) Log.Initialize(_logManager);
+            if (_logManager != null)
+            {
+                Log.Initialize(_logManager);
+            }
 
             var type = typeof(XmppClientBuilder);
             var registry = new TagRegistry();

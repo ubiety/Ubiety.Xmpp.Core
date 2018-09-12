@@ -86,7 +86,9 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
                 var tag = new StringBuilder(
                     $"<{XmlName.LocalName}:{XmlName.LocalName} xmlns:{XmlName.LocalName}=\'{XmlName.NamespaceName}\'");
                 foreach (var attribute in Attributes())
+                {
                     tag.Append($" {attribute.Name.LocalName}=\'{attribute.Value}\'");
+                }
 
                 tag.Append(">");
 
