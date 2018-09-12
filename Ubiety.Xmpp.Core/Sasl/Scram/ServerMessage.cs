@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using System.Linq;
+using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Sasl.Scram.Parts;
 
 namespace Ubiety.Xmpp.Core.Sasl.Scram
@@ -22,21 +23,14 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
     /// </summary>
     public class ServerMessage
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ServerMessage"/> class
-        /// </summary>
-        /// <param name="iterations">Iterations</param>
-        /// <param name="nonce">Nonce</param>
-        /// <param name="salt">Salt</param>
-        public ServerMessage(int iterations, string nonce, byte[] salt)
-        {
-            Iterations = new IterationPart(iterations);
-            Nonce = new NoncePart(nonce);
-            Salt = new SaltPart(salt);
-        }
+        private readonly ILog _logger;
 
         private ServerMessage(IterationPart iterations, NoncePart nonce, SaltPart salt)
         {
+            _logger = Log.Get<ServerMessage>();
+            
+            _logger.Log(LogLevel.Debug, $"Server first message: {FirstMessage}");
+            
             Iterations = iterations;
             Nonce = nonce;
             Salt = salt;

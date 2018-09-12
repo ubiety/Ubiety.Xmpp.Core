@@ -35,11 +35,21 @@ namespace Ubiety.Xmpp.Core.Sasl
     {
         private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private readonly Encoding _encoding = Encoding.UTF8;
+        private readonly bool _channelBinding;
         private ILog _logger;
         private ClientFirstMessage _clientFirstMessage;
         private ClientFinalMessage _clientFinalMessage;
         private ServerMessage _serverMessage;
         private byte[] _serverSignature;
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="ScramProcessor"/> class
+        /// </summary>
+        /// <param name="channelBinding">Do we want to use channel binding</param>
+        public ScramProcessor(bool channelBinding)
+        {
+            _channelBinding = channelBinding;
+        }
 
         /// <summary>
         ///     Initializes the SASL processor
@@ -57,10 +67,10 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var nonce = NextInt64().ToString(CultureInfo.InvariantCulture);
 
-            _clientFirstMessage = new ClientFirstMessage(Id.User, nonce);
+            _clientFirstMessage = new ClientFirstMessage(Id.User, nonce, _channelBinding);
 
             var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
-            auth.MechanismType = MechanismTypes.Scram;
+            auth.MechanismType = _channelBinding ? MechanismTypes.ScramPlus : MechanismTypes.Scram;
             auth.Bytes = _encoding.GetBytes(_clientFirstMessage.FirstAuthMessage);
 
             return auth;

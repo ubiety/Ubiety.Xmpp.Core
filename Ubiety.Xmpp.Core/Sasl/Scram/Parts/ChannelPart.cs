@@ -12,6 +12,9 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System;
+using System.Text;
+
 namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
 {
     /// <summary>
@@ -19,12 +22,14 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
     /// </summary>
     internal class ChannelPart : ScramPart<string>
     {
+        private static readonly Encoding Encoding = Encoding.UTF8;
+        
         /// <summary>
         ///     Initializes a new instance of the <see cref="ChannelPart"/> class
         /// </summary>
         /// <param name="value">Channel value</param>
         public ChannelPart(string value)
-            : base(ChannelLabel, value)
+            : base(ChannelLabel, Convert.ToBase64String(Encoding.GetBytes(value)))
         {
         }
     }

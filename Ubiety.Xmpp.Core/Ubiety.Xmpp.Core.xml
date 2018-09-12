@@ -787,26 +787,6 @@
             </summary>
             <returns>Random Int64</returns>
         </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.ScramProcessor">
-            <summary>
-                SCRAM-SHA-1 SASL Processor
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
-            <summary>
-                Initializes the SASL processor
-            </summary>
-            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user for the session</param>
-            <param name="password">Password of the user</param>
-            <returns>Next tag to send to the server</returns>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
-            <summary>
-                Process the next SASL step
-            </summary>
-            <param name="tag">Tag received from the server</param>
-            <returns>Next tag to send to the server</returns>
-        </member>
         <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage">
             <summary>
                 SCRAM client final message
@@ -855,19 +835,20 @@
                 SCRAM SASL client messages
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.#ctor(System.String,System.String)">
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.#ctor(System.String,System.String,System.Boolean)">
             <summary>
                 Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage"/> class
             </summary>
             <param name="username">Username of the user to authenticate</param>
             <param name="nonce">Nonce for the messages</param>
+            <param name="channelBinding">Are we using channel binding</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Gs2Header">
             <summary>
                 Gets the GS2 header
             </summary>
         </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Message">
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.BareMessage">
             <summary>
                 Gets the client first message
             </summary>
@@ -875,6 +856,11 @@
         <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.FirstAuthMessage">
             <summary>
                 Gets the first client authentication message
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.ChannelBinding">
+            <summary>
+                Gets a value indicating whether we are using channel binding
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Username">
@@ -1104,14 +1090,6 @@
                 SCRAM SASL server messages
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.#ctor(System.Int32,System.String,System.Byte[])">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage"/> class
-            </summary>
-            <param name="iterations">Iterations</param>
-            <param name="nonce">Nonce</param>
-            <param name="salt">Salt</param>
-        </member>
         <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.FirstMessage">
             <summary>
                 Gets the servers first message
@@ -1138,6 +1116,32 @@
             </summary>
             <param name="response">Response from the server</param>
             <returns>Server message</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.ScramProcessor">
+            <summary>
+                SCRAM-SHA-1 SASL Processor
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.#ctor(System.Boolean)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.ScramProcessor"/> class
+            </summary>
+            <param name="channelBinding">Do we want to use channel binding</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
+            <summary>
+                Initializes the SASL processor
+            </summary>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user for the session</param>
+            <param name="password">Password of the user</param>
+            <returns>Next tag to send to the server</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
+            <summary>
+                Process the next SASL step
+            </summary>
+            <param name="tag">Tag received from the server</param>
+            <returns>Next tag to send to the server</returns>
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.ConnectedState">
             <summary>

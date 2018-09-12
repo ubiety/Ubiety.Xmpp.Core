@@ -26,16 +26,18 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
         /// </summary>
         /// <param name="username">Username of the user to authenticate</param>
         /// <param name="nonce">Nonce for the messages</param>
-        public ClientFirstMessage(string username, string nonce)
+        /// <param name="channelBinding">Are we using channel binding</param>
+        public ClientFirstMessage(string username, string nonce, bool channelBinding)
         {
             Username = new UsernamePart(username);
             Nonce = new NoncePart(nonce);
+            ChannelBinding = channelBinding;
         }
 
         /// <summary>
         ///     Gets the GS2 header
         /// </summary>
-        public string Gs2Header => "n,,";
+        public string Gs2Header => ChannelBinding ? "p=tls-unique,," : "n,,";
 
         /// <summary>
         ///     Gets the client first message
@@ -46,6 +48,11 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
         ///     Gets the first client authentication message
         /// </summary>
         public string FirstAuthMessage => $"{Gs2Header},{BareMessage}";
+
+        /// <summary>
+        ///     Gets a value indicating whether we are using channel binding
+        /// </summary>
+        public bool ChannelBinding { get; }
 
         /// <summary>
         ///     Gets the username

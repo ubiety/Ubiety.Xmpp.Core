@@ -66,9 +66,14 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             Client = xmpp;
 
+            if ((serverTypes & clientTypes & MechanismTypes.ScramPlus) == MechanismTypes.ScramPlus)
+            {
+                return new ScramProcessor(true);
+            }
+
             if ((serverTypes & clientTypes & MechanismTypes.Scram) == MechanismTypes.Scram)
             {
-                return new ScramProcessor();
+                return new ScramProcessor(false);
             }
 
             if ((serverTypes & clientTypes & MechanismTypes.DigestMd5) == MechanismTypes.DigestMd5)
