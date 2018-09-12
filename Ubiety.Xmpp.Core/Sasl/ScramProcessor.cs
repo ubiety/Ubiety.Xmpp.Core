@@ -14,11 +14,14 @@
 
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using StringPrep;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Sasl.Scram;
 using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
@@ -33,14 +36,10 @@ namespace Ubiety.Xmpp.Core.Sasl
         private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private readonly Encoding _encoding = Encoding.UTF8;
         private ILog _logger;
-        private string _nonce;
-        private string _clientFirst;
-        private string _clientFinal;
-        private string _clientProof;
-        private byte[] _serverFirst;
-        private byte[] _salt;
+        private ClientFirstMessage _clientFirstMessage;
+        private ClientFinalMessage _clientFinalMessage;
+        private ServerMessage _serverMessage;
         private byte[] _serverSignature;
-        private int _iterations;
 
         /// <summary>
         ///     Initializes the SASL processor
@@ -56,14 +55,13 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             _logger.Log(LogLevel.Debug, "Initializing SCRAM SASL processor");
 
-            _nonce = NextInt64().ToString(CultureInfo.InvariantCulture);
-            _clientFirst = $"n={_saslprep.Run(Id.User)},r={_nonce}";
+            var nonce = NextInt64().ToString(CultureInfo.InvariantCulture);
 
-            var message = $"n,,{_clientFirst}";
+            _clientFirstMessage = new ClientFirstMessage(Id.User, nonce);
 
             var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
             auth.MechanismType = MechanismTypes.Scram;
-            auth.Bytes = _encoding.GetBytes(message);
+            auth.Bytes = _encoding.GetBytes(_clientFirstMessage.FirstAuthMessage);
 
             return auth;
         }
@@ -93,34 +91,18 @@ namespace Ubiety.Xmpp.Core.Sasl
 
         private Tag ProcessChallenge(Challenge tag)
         {
-            _serverFirst = tag.Bytes;
             var response = _encoding.GetString(tag.Bytes);
 
-            var tokens = response.Split(',');
-            var snonce = tokens[0].Substring(2);
-            var prefix = snonce.Substring(0, _nonce.Length);
-            if (string.CompareOrdinal(prefix, _nonce) != 0)
-            {
-                return default(Tag);
-            }
+            _serverMessage = ServerMessage.ParseResponse(response);
 
-            var salt = tokens[1].Substring(2);
-            _salt = Convert.FromBase64String(salt);
-
-            var i = tokens[2].Substring(2);
-            _iterations = int.Parse(i);
-
-            _clientFinal = $"c=biws,r={snonce}";
-            _logger.Log(LogLevel.Debug, $"Client final before proof: {_clientFinal}");
+            _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverMessage);
 
             CalculateProofs();
 
-            _clientFinal += $",p={_clientProof}";
-
-            _logger.Log(LogLevel.Debug, $"Client final after proof: {_clientFinal}");
+            _logger.Log(LogLevel.Debug, $"Client final after proof: {_clientFinalMessage.Message}");
 
             var message = Client.Registry.GetTag<Response>(Response.XmlName);
-            message.Bytes = _encoding.GetBytes(_clientFinal);
+            message.Bytes = _encoding.GetBytes(_clientFinalMessage.Message);
 
             return message;
         }
@@ -137,7 +119,9 @@ namespace Ubiety.Xmpp.Core.Sasl
             var serverKey = hmac.ComputeHash(_encoding.GetBytes("Server Key"));
             var storedKey = hash.ComputeHash(clientKey);
 
-            var auth = _encoding.GetBytes($"{_clientFirst},{_encoding.GetString(_serverFirst)},{_clientFinal}");
+            var authMessage = $"{_clientFirstMessage.BareMessage},{ServerMessage.FirstMessage},{_clientFinalMessage.MessageWithoutProof}";
+            _logger.Log(LogLevel.Debug, $"Auth message: {authMessage}");
+            var auth = _encoding.GetBytes(authMessage);
 
             hmac.Key = storedKey;
             var signature = hmac.ComputeHash(auth);
@@ -145,38 +129,24 @@ namespace Ubiety.Xmpp.Core.Sasl
             hmac.Key = serverKey;
             _serverSignature = hmac.ComputeHash(auth);
 
-            var proof = new byte[20];
-            for (int i = 0; i < signature.Length; ++i)
-            {
-                proof[i] = (byte)(clientKey[i] ^ signature[i]);
-            }
+            var proof = clientKey.ExclusiveOr(signature);
 
-            _clientProof = Convert.ToBase64String(proof);
+            _clientFinalMessage.SetProof(proof);
         }
 
         private byte[] Hi()
         {
-            var prev = new byte[20];
             var password = _encoding.GetBytes(_saslprep.Run(Password));
-
-            var key = new byte[_salt.Length + 4];
-            Array.Copy(_salt, key, _salt.Length);
-            byte[] g = { 0, 0, 0, 1 };
-            Array.Copy(g, 0, key, _salt.Length, 4);
+            var completeSalt = _serverMessage.Salt.Value.Concat(BitConverter.GetBytes(1)).ToArray();
 
             var hmac = new HMACSHA1(password);
-            var result = hmac.ComputeHash(key);
-            Array.Copy(result, prev, result.Length);
+            var iteration = hmac.ComputeHash(completeSalt);
+            var result = iteration;
 
-            for (int i = 0; i < _iterations; ++i)
+            for (int i = 0; i < _serverMessage.Iterations.Value; ++i)
             {
-                var temp = hmac.ComputeHash(prev);
-                for (int j = 0; j < temp.Length; ++j)
-                {
-                    result[j] ^= temp[j];
-                }
-
-                Array.Copy(temp, prev, temp.Length);
+                iteration = hmac.ComputeHash(iteration);
+                result = result.ExclusiveOr(iteration);
             }
 
             return result;

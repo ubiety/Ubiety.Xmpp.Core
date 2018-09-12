@@ -337,6 +337,19 @@
             <param name="assembly">Assembly to iterate</param>
             <returns>Enumerable of attributes</returns>
         </member>
+        <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions">
+            <summary>
+                Byte extention methods
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.ExclusiveOr(System.Byte[],System.Byte[])">
+            <summary>
+                Combine two byte arrays using exclusive or
+            </summary>
+            <param name="original">Original array</param>
+            <param name="comparison">Comparison array</param>
+            <returns>Result of exclusive or operation</returns>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions">
             <summary>
                 Enumerable extensions
@@ -793,6 +806,338 @@
             </summary>
             <param name="tag">Tag received from the server</param>
             <returns>Next tag to send to the server</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage">
+            <summary>
+                SCRAM client final message
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.#ctor(Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage,Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage"/> class
+            </summary>
+            <param name="firstMessage">Client first message</param>
+            <param name="serverMessage">Server message</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.MessageWithoutProof">
+            <summary>
+                Gets the final message without the client proof
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.Message">
+            <summary>
+                Gets the final message with client proof
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.Nonce">
+            <summary>
+                Gets the nonce
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.Channel">
+            <summary>
+                Gets the channel
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.ClientProof">
+            <summary>
+                Gets the client proof
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.SetProof(System.Byte[])">
+            <summary>
+                Sets the client proof
+            </summary>
+            <param name="proof">Client proof</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage">
+            <summary>
+                SCRAM SASL client messages
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.#ctor(System.String,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage"/> class
+            </summary>
+            <param name="username">Username of the user to authenticate</param>
+            <param name="nonce">Nonce for the messages</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Gs2Header">
+            <summary>
+                Gets the GS2 header
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Message">
+            <summary>
+                Gets the client first message
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.FirstAuthMessage">
+            <summary>
+                Gets the first client authentication message
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Username">
+            <summary>
+                Gets the username
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Nonce">
+            <summary>
+                Gets the nonce
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.AuthorizationIdentityPart">
+            <summary>
+                Authorization Identity SCRAM part
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.AuthorizationIdentityPart.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.AuthorizationIdentityPart"/> class
+            </summary>
+            <param name="value">Value of the part</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ChannelPart">
+            <summary>
+                SCRAM channel part
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ChannelPart.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ChannelPart"/> class
+            </summary>
+            <param name="value">Channel value</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart">
+            <summary>
+                SCRAM client proof part
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart"/> class
+            </summary>
+            <param name="value">Client proof value</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart.#ctor(System.Byte[])">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart"/> class
+            </summary>
+            <param name="value">Client proof calue</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart">
+            <summary>
+                SCRAM iteration part
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart.#ctor(System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart"/> class
+            </summary>
+            <param name="value">Iteration value</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart"/> class
+            </summary>
+            <param name="value">String version of the iteration value</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart">
+            <summary>
+                NONCE SCRAM SASL part
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart"/> class
+            </summary>
+            <param name="value">Nonce value</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart.#ctor(System.String,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart"/> class
+            </summary>
+            <param name="clientNonce">Client nonce value</param>
+            <param name="serverNonce">Server nonce value</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart">
+            <summary>
+                SASL SCRAM salt part
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart.#ctor(System.Byte[])">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart"/> class
+            </summary>
+            <param name="value">Salt value</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart"/> class
+            </summary>
+            <param name="value">String version of the salt</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart">
+            <summary>
+                SCRAM message part
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.AuthorizationIdentityLabel">
+            <summary>
+                Authorization identity label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.UsernameLabel">
+            <summary>
+                Username label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.MessageLabel">
+            <summary>
+                Message label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.NonceLabel">
+            <summary>
+                Nonce label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ChannelLabel">
+            <summary>
+                Channel label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.SaltLabel">
+            <summary>
+                Salt label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.IterationLabel">
+            <summary>
+                Iteration label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ClientProofLabel">
+            <summary>
+                Client proof label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ServerSignatureLabel">
+            <summary>
+                Server signature label
+            </summary>
+        </member>
+        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ErrorLabel">
+            <summary>
+                Error label
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.#ctor(System.Char)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart"/> class
+            </summary>
+            <param name="label">SCRAM label of the part</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.Label">
+            <summary>
+                Gets the SCRAM part label
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ParseAll(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Parse all parts
+            </summary>
+            <param name="parts">Collection of parts to parse</param>
+            <returns>Collection of part objects</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.Parse(System.String)">
+            <summary>
+                Parse a part into its object form
+            </summary>
+            <param name="part">String version of the part</param>
+            <returns>Object version of the part</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1">
+            <summary>
+                SCRAM SASL part
+            </summary>
+            <typeparam name="T">Type of the part value</typeparam>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1.#ctor(System.Char,`0)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1"/> class
+            </summary>
+            <param name="label">Part label</param>
+            <param name="value">Part value</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1.Value">
+            <summary>
+                Gets the part value
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart">
+            <summary>
+                Username SCRAM SASL part
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart"/> class
+            </summary>
+            <param name="value">Value of the part</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage">
+            <summary>
+                SCRAM SASL server messages
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.#ctor(System.Int32,System.String,System.Byte[])">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage"/> class
+            </summary>
+            <param name="iterations">Iterations</param>
+            <param name="nonce">Nonce</param>
+            <param name="salt">Salt</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.FirstMessage">
+            <summary>
+                Gets the servers first message
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.Iterations">
+            <summary>
+                Gets the iterations
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.Nonce">
+            <summary>
+                Gets the nonce
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.Salt">
+            <summary>
+                Gets the salt
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.ParseResponse(System.String)">
+            <summary>
+                Parse the server response
+            </summary>
+            <param name="response">Response from the server</param>
+            <returns>Server message</returns>
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.ConnectedState">
             <summary>
