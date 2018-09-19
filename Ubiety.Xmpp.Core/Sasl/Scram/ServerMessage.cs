@@ -23,12 +23,10 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
     /// </summary>
     public class ServerMessage
     {
-        private readonly ILog _logger;
+        private readonly ILog _logger = Log.Get<ServerMessage>();
 
         private ServerMessage(IterationPart iterations, NoncePart nonce, SaltPart salt)
         {
-            _logger = Log.Get<ServerMessage>();
-
             _logger.Log(LogLevel.Debug, $"Server first message: {FirstMessage}");
 
             Iterations = iterations;
