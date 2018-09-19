@@ -26,7 +26,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
     public class ClientFinalMessage
     {
         private readonly ILog _logger = Log.Get<ClientFinalMessage>();
-        
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="ClientFinalMessage" /> class
         /// </summary>
@@ -45,9 +45,9 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
             {
                 var bindingToken = new byte[binding.Size];
                 Marshal.Copy(binding.DangerousGetHandle(), bindingToken, 0, binding.Size);
-                header = $"{firstMessage.Gs2Header}{bindingToken[bindingToken.Length - 1]}";                
+                header = $"{firstMessage.Gs2Header}{bindingToken[bindingToken.Length - 1]}";
             }
-            
+
             _logger.Log(LogLevel.Debug, $"Header: {header}");
 
             Channel = new ChannelPart(header.RemoveWhitespace());

@@ -1165,6 +1165,7 @@
             <inheritdoc />
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.DisconnectedState">
+            <inheritdoc />
             <summary>
                 Disconnected state
             </summary>
@@ -1197,6 +1198,7 @@
             <summary>
                 SASL XMPP state
             </summary>
+            <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.States.SaslState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)">
             <summary>
@@ -1204,6 +1206,7 @@
             </summary>
             <param name="xmpp">Xmpp client to use</param>
             <param name="tag">Tag from the server</param>
+            <inheritdoc />
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.StartTlsState">
             <inheritdoc />

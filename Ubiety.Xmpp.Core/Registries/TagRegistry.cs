@@ -128,18 +128,18 @@ namespace Ubiety.Xmpp.Core.Registries
                 if (gotType)
                 {
                     var constructor = type.GetConstructor(new[] { element.GetType() });
-                    if (!(constructor is null))
+                    if (constructor is null)
                     {
-                        return (T)constructor.Invoke(new object[] { element });
+                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
+                        if (defaultConstructorInfo is null)
+                        {
+                            return default(T);
+                        }
+
+                        return (T)defaultConstructorInfo.Invoke(new object[] { element });
                     }
 
-                    var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
-                    if (defaultConstructorInfo is null)
-                    {
-                        return default(T);
-                    }
-
-                    return (T)defaultConstructorInfo.Invoke(new object[] { element });
+                    return (T)constructor.Invoke(new object[] { element });
                 }
             }
             catch (Exception e)

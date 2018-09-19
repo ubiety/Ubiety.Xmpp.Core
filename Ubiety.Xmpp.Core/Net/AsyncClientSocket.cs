@@ -34,7 +34,7 @@ namespace Ubiety.Xmpp.Core.Net
     {
         private const int BufferSize = 4 * 1024;
         private readonly IClient _client;
-        private readonly ILog _logger;
+        private readonly ILog _logger = Log.Get<AsyncClientSocket>();
         private readonly AutoResetEvent _resetEvent;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private Address _address;
@@ -47,7 +47,6 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="client">Client to use for the server connection</param>
         public AsyncClientSocket(IClient client)
         {
-            _logger = Log.Get<AsyncClientSocket>();
             _client = client;
             _logger.Log(LogLevel.Debug, "AsyncClientSocket created");
             _resetEvent = new AutoResetEvent(false);
