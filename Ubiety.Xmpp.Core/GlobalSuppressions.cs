@@ -6,11 +6,17 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly:
-    SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1636:File header copyright text must match",
+    SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1636:File header copyright text must match",
         Justification = "Reviewed")]
 [assembly:
-    SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1101:Prefix local calls with this", Justification =
-        "Reviewed")]
+    SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules",
+        "SA1101:Prefix local calls with this",
+        Justification = "Reviewed")]
 [assembly:
-    SuppressMessage("StyleCop.CSharp.NamingRules", "SA1309:Field names must not begin with underscore", Justification =
-        "Reviewed")]
+    SuppressMessage(
+        "StyleCop.CSharp.NamingRules",
+        "SA1309:Field names must not begin with underscore",
+        Justification = "Reviewed")]

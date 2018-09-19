@@ -90,7 +90,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
 
         private void OnTag(Tag tag)
         {
-            Tag?.Invoke(this, new TagEventArgs {Tag = tag});
+            Tag?.Invoke(this, new TagEventArgs { Tag = tag });
         }
 
         private void ProcessQueue()

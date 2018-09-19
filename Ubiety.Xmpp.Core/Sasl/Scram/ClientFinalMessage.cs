@@ -12,6 +12,10 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System.Runtime.InteropServices;
+using System.Security.Authentication.ExtendedProtection;
+using Ubiety.Xmpp.Core.Infrastructure.Extensions;
+using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Sasl.Scram.Parts;
 
 namespace Ubiety.Xmpp.Core.Sasl.Scram
@@ -21,14 +25,32 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
     /// </summary>
     public class ClientFinalMessage
     {
+        private readonly ILog _logger = Log.Get<ClientFinalMessage>();
+        
         /// <summary>
         ///     Initializes a new instance of the <see cref="ClientFinalMessage" /> class
         /// </summary>
         /// <param name="firstMessage">Client first message</param>
         /// <param name="serverMessage">Server message</param>
-        public ClientFinalMessage(ClientFirstMessage firstMessage, ServerMessage serverMessage)
+        /// <param name="binding">Channel binding data</param>
+        public ClientFinalMessage(ClientFirstMessage firstMessage, ServerMessage serverMessage, ChannelBinding binding = null)
         {
-            Channel = new ChannelPart(firstMessage.Gs2Header);
+            string header;
+
+            if (binding is null)
+            {
+                header = firstMessage.Gs2Header;
+            }
+            else
+            {
+                var bindingToken = new byte[binding.Size];
+                Marshal.Copy(binding.DangerousGetHandle(), bindingToken, 0, binding.Size);
+                header = $"{firstMessage.Gs2Header}{bindingToken[bindingToken.Length - 1]}";                
+            }
+            
+            _logger.Log(LogLevel.Debug, $"Header: {header}");
+
+            Channel = new ChannelPart(header.RemoveWhitespace());
             Nonce = new NoncePart(firstMessage.Nonce.Value, serverMessage.Nonce.Value);
         }
 

@@ -104,7 +104,7 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram.Parts
         /// <returns>Object version of the part</returns>
         public static ScramPart Parse(string part)
         {
-            var parts = part.Split(new[] {'='}, 2);
+            var parts = part.Split(new[] { '=' }, 2);
             if (parts.Length != 2)
             {
                 throw new FormatException();

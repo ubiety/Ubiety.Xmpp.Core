@@ -62,6 +62,11 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public bool Connected { get; private set; }
 
+        /// <summary>
+        ///     Gets or sets the SslStream transport context
+        /// </summary>
+        internal TransportContext TransportContext { get; set; }
+
         /// <inheritdoc />
         public void Dispose()
         {
@@ -148,6 +153,7 @@ namespace Ubiety.Xmpp.Core.Net
             if (secureStream.IsAuthenticated)
             {
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
+                TransportContext = secureStream.TransportContext;
                 _stream = secureStream;
                 _client.State.Execute((XmppClient)_client);
             }
@@ -244,7 +250,7 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 var message = ReadData();
                 _logger.Log(LogLevel.Debug, $"Received message: {message.Result}");
-                OnData(new DataEventArgs {Message = message.Result});
+                OnData(new DataEventArgs { Message = message.Result });
             }
         }
 

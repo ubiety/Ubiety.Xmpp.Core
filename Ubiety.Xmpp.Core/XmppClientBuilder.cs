@@ -72,7 +72,7 @@ namespace Ubiety.Xmpp.Core
             var registry = new TagRegistry();
             registry.AddAssembly(type.Assembly);
 
-            var client = new XmppClient {UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry};
+            var client = new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry };
 
             return client;
         }

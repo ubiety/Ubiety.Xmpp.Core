@@ -15,6 +15,7 @@
 using System;
 using System.Globalization;
 using System.Linq;
+using System.Security.Authentication.ExtendedProtection;
 using System.Security.Cryptography;
 using System.Text;
 using StringPrep;
@@ -62,7 +63,6 @@ namespace Ubiety.Xmpp.Core.Sasl
             base.Initialize(id, password);
 
             _logger = Log.Get<ScramProcessor>();
-
             _logger.Log(LogLevel.Debug, "Initializing SCRAM SASL processor");
 
             var nonce = NextInt64().ToString(CultureInfo.InvariantCulture);
@@ -105,7 +105,17 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             _serverMessage = ServerMessage.ParseResponse(response);
 
-            _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverMessage);
+            if (_channelBinding)
+            {
+                var binding = Client.ClientSocket.TransportContext.GetChannelBinding(ChannelBindingKind.Unique);
+                _logger.Log(LogLevel.Debug, $"Channel data: {binding}");
+                _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverMessage, binding);
+                _logger.Log(LogLevel.Debug, $"Channel header: {_clientFinalMessage.Channel}");
+            }
+            else
+            {
+                _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverMessage);
+            }
 
             CalculateProofs();
 

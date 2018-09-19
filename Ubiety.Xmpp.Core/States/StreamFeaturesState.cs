@@ -23,12 +23,7 @@ namespace Ubiety.Xmpp.Core.States
     /// <inheritdoc />
     public class StreamFeaturesState : IState
     {
-        private static readonly ILog Logger;
-
-        static StreamFeaturesState()
-        {
-            Logger = Log.Get<StreamFeaturesState>();
-        }
+        private static readonly ILog Logger = Log.Get<StreamFeaturesState>();
 
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
