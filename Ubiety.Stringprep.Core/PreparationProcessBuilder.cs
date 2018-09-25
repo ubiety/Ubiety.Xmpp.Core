@@ -11,7 +11,7 @@ namespace StringPrep
         {
             return WithBidirectionalStep(
                 ValueRangeTable.Create(Prohibited.ChangeDisplayPropertiesOrDeprecated),
-                ValueRangeTable.Create(Bidirectional.R_AL),
+                ValueRangeTable.Create(Bidirectional.RAL),
                 ValueRangeTable.Create(Bidirectional.L));
         }
 

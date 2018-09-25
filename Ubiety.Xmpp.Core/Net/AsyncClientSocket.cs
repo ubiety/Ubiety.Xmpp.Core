@@ -17,6 +17,7 @@ using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
@@ -62,9 +63,9 @@ namespace Ubiety.Xmpp.Core.Net
         public bool Connected { get; private set; }
 
         /// <summary>
-        ///     Gets or sets the SslStream transport context
+        ///     Gets the SslStream transport context
         /// </summary>
-        internal TransportContext TransportContext { get; set; }
+        internal TransportContext TransportContext { get; private set; }
 
         /// <inheritdoc />
         public void Dispose()
@@ -147,7 +148,8 @@ namespace Ubiety.Xmpp.Core.Net
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
             _logger.Log(LogLevel.Debug, "Authenticating as client...");
-            secureStream.AuthenticateAsClient(_address.Hostname);
+            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls12 | SslProtocols.Tls11, false);
+            _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol.ToString()}");
 
             if (secureStream.IsAuthenticated)
             {

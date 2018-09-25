@@ -35,22 +35,11 @@ namespace Ubiety.Xmpp.Core.Sasl.Scram
         /// <param name="binding">Channel binding data</param>
         public ClientFinalMessage(ClientFirstMessage firstMessage, ServerMessage serverMessage, ChannelBinding binding = null)
         {
-            string header;
-
-            if (binding is null)
-            {
-                header = firstMessage.Gs2Header;
-            }
-            else
-            {
-                var bindingToken = new byte[binding.Size];
-                Marshal.Copy(binding.DangerousGetHandle(), bindingToken, 0, binding.Size);
-                header = $"{firstMessage.Gs2Header}{bindingToken[bindingToken.Length - 1]}";
-            }
+            var header = binding is null ? firstMessage.Gs2Header : $"{firstMessage.Gs2Header}{binding}";
 
             _logger.Log(LogLevel.Debug, $"Header: {header}");
 
-            Channel = new ChannelPart(header.RemoveWhitespace());
+            Channel = new ChannelPart(header);
             Nonce = new NoncePart(firstMessage.Nonce.Value, serverMessage.Nonce.Value);
         }
 

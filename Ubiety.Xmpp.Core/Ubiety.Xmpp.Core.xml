@@ -569,7 +569,7 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.TransportContext">
             <summary>
-                Gets or sets the SslStream transport context
+                Gets the SslStream transport context
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose">

@@ -109,22 +109,26 @@ namespace StringPrep
         private static List<int> DoRemove(List<int> list, int[] removals)
         {
             for (var i = 0; i < removals.Length; i += 2)
-            for (var j = 0; j < list.Count; j += 2)
-                if (removals[i] == list[j])
+            {
+                for (var j = 0; j < list.Count; j += 2)
                 {
-                    list.RemoveAt(j--);
-                    CloseRemove(list, removals, ref i, ref j);
+                    if (removals[i] == list[j])
+                    {
+                        list.RemoveAt(j--);
+                        CloseRemove(list, removals, ref i, ref j);
+                    }
+                    else if (removals[i] > list[j] && removals[i] < list[j + 1])
+                    {
+                        list.Insert(++j, removals[i] - 1);
+                        CloseRemove(list, removals, ref i, ref j);
+                    }
+                    else if (removals[i] < list[j] && (i == 0 || removals[i] > list[j - 1]))
+                    {
+                        list.RemoveAt(j--);
+                        CloseRemove(list, removals, ref i, ref j);
+                    }
                 }
-                else if (removals[i] > list[j] && removals[i] < list[j + 1])
-                {
-                    list.Insert(++j, removals[i] - 1);
-                    CloseRemove(list, removals, ref i, ref j);
-                }
-                else if (removals[i] < list[j] && (i == 0 || removals[i] > list[j - 1]))
-                {
-                    list.RemoveAt(j--);
-                    CloseRemove(list, removals, ref i, ref j);
-                }
+            }
 
             return list;
         }
