@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     [Serializable]
     public class ProhibitedValueException : Exception

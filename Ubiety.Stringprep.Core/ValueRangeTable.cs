@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     public class ValueRangeTable : IValueRangeTable
     {

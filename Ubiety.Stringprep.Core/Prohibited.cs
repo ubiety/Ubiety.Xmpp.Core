@@ -1,4 +1,6 @@
-﻿namespace StringPrep
+﻿using Ubiety.Stringprep.Core.Generated;
+
+namespace Ubiety.Stringprep.Core
 {
     public static class Prohibited
     {

@@ -23,7 +23,7 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     /// <summary>
     ///     Bidirectional stringprep step

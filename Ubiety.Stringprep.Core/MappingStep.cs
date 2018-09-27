@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     internal class MappingStep : IPreparationProcess
     {

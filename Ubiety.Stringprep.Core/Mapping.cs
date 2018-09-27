@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Ubiety.Stringprep.Core.Generated;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     public static class Mapping
     {

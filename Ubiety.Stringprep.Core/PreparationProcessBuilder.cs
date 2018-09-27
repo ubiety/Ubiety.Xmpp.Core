@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     internal class PreparationProcessBuilder : IPreparationProcessBuilder
     {

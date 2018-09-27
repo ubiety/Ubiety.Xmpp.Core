@@ -18,7 +18,7 @@ using System.Linq;
 using System.Security.Authentication.ExtendedProtection;
 using System.Security.Cryptography;
 using System.Text;
-using StringPrep;
+using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;

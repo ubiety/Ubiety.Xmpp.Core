@@ -23,7 +23,9 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace StringPrep
+using Ubiety.Stringprep.Core.Generated;
+
+namespace Ubiety.Stringprep.Core
 {
     /// <summary>
     ///     Bidirectional tables

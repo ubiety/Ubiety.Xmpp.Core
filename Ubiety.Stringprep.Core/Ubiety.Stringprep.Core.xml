@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ubiety.Stringprep.Core</name>
+    </assembly>
+    <members>
+        <member name="T:StringPrep.Bidirectional">
+            <summary>
+                Bidirectional tables
+            </summary>
+        </member>
+        <member name="F:StringPrep.Bidirectional.D1">
+            <summary>
+                Table D1
+            </summary>
+        </member>
+        <member name="F:StringPrep.Bidirectional.RAL">
+            <summary>
+                Table RAL
+            </summary>
+        </member>
+        <member name="F:StringPrep.Bidirectional.D2">
+            <summary>
+                Table D2
+            </summary>
+        </member>
+        <member name="F:StringPrep.Bidirectional.L">
+            <summary>
+                Table L
+            </summary>
+        </member>
+        <member name="T:StringPrep.BidirectionalFormatException">
+            <summary>
+                Bidirectinal format exception
+            </summary>
+        </member>
+        <member name="M:StringPrep.BidirectionalFormatException.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:StringPrep.BidirectionalFormatException"/> class
+            </summary>
+        </member>
+        <member name="M:StringPrep.BidirectionalFormatException.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:StringPrep.BidirectionalFormatException"/> class
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:StringPrep.BidirectionalFormatException.#ctor(System.String,System.Exception)">
+            <summary>
+                Initializes a new instance of the <see cref="T:StringPrep.BidirectionalFormatException"/> class
+            </summary>
+            <param name="message">Exception message</param>
+            <param name="innerException">Inner exception</param>
+        </member>
+        <member name="M:StringPrep.BidirectionalFormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Initializes a new instance of the <see cref="T:StringPrep.BidirectionalFormatException"/> class
+            </summary>
+            <param name="info">Serialization info</param>
+            <param name="context">Streaming context</param>
+        </member>
+        <member name="T:StringPrep.BidirectionalStep">
+            <summary>
+                Bidirectional stringprep step
+            </summary>
+        </member>
+        <member name="M:StringPrep.BidirectionalStep.#ctor(StringPrep.IValueRangeTable,StringPrep.IValueRangeTable,StringPrep.IValueRangeTable)">
+            <summary>
+                Initializes a new instance of the <see cref="T:StringPrep.BidirectionalStep"/> class
+            </summary>
+            <param name="prohibitedTable">Prohibited character table</param>
+            <param name="ralTable">RandAL character table</param>
+            <param name="lTable">L character table</param>
+        </member>
+        <member name="M:StringPrep.BidirectionalStep.Run(System.String)">
+            <summary>
+                Run the stringprep step
+            </summary>
+            <param name="input">Input to run the step on</param>
+            <returns>String parsed for unicode characters</returns>
+        </member>
+        <member name="T:StringPrep.CompositeMappingTable">
+            <summary>
+                Composite mapping table
+            </summary>
+        </member>
+        <member name="M:StringPrep.CompositeMappingTable.#ctor(System.Collections.Generic.ICollection{StringPrep.IMappingTable})">
+            <summary>
+                Initializes a new instance of the <see cref="T:StringPrep.CompositeMappingTable"/> class
+            </summary>
+            <param name="mappingTables">Mapping tables</param>
+        </member>
+        <member name="M:StringPrep.CompositeMappingTable.HasReplacement(System.Int32)">
+            <summary>
+                Does the value have a replacement
+            </summary>
+            <param name="value">Value to find replacement for</param>
+            <returns>A value indicating whether there is a replacement or not</returns>
+        </member>
+        <member name="M:StringPrep.CompositeMappingTable.GetReplacement(System.Int32)">
+            <summary>
+                Gets the replacement for the value
+            </summary>
+            <param name="value">Value to get the replacement for</param>
+            <returns>Replacement for the value</returns>
+        </member>
+        <member name="T:StringPrep.DictionaryMappingTable">
+            <summary>
+                Dictionary mapping table
+            </summary>
+        </member>
+        <member name="M:StringPrep.DictionaryMappingTable.#ctor(System.Collections.Generic.IDictionary{System.Int32,System.Int32[]})">
+            <summary>
+                Initializes a new instance of the <see cref="T:StringPrep.DictionaryMappingTable"/> class
+            </summary>
+            <param name="values">Mapping values</param>
+        </member>
+        <member name="M:StringPrep.DictionaryMappingTable.HasReplacement(System.Int32)">
+            <summary>
+                Does the value have a replacement
+            </summary>
+            <param name="value">Value to replace</param>
+            <returns>A value indicating whether or not it can be replaced</returns>
+        </member>
+        <member name="M:StringPrep.DictionaryMappingTable.GetReplacement(System.Int32)">
+            <summary>
+                Gets the replacement value
+            </summary>
+            <param name="value">Value to replace</param>
+            <returns>Replacement value</returns>
+        </member>
+        <member name="T:StringPrep.Tables">
+            <summary>
+                Character tables
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.A1">
+            <summary>
+                A.1 Unassigned code points in Unicode 3.2
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.B1">
+            <summary>
+                B.1 Commonly mapped to nothing
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.B2">
+            <summary>
+                B.2 Mapping for case-folding used with NFKC
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.B3">
+            <summary>
+                B.3 Mapping for case-folding used with no normalization
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C11">
+            <summary>
+                C.1.1 ASCII space characters
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C12">
+            <summary>
+                C.1.2 Non-ASCII space characters
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C21">
+            <summary>
+                C.2.1 ASCII control characters
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C22">
+            <summary>
+                C.2.2 Non-ASCII control characters
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C3">
+            <summary>
+                C.3 Private use
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C4">
+            <summary>
+                C.4 Non-character code points
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C5">
+            <summary>
+                C.5 Surrogate codes
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C6">
+            <summary>
+                C.6 Inappropriate for plain text
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C7">
+            <summary>
+                C.7 Inappropriate for canonical representation
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C8">
+            <summary>
+                C.8 Change display properties or are deprecated
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.C9">
+            <summary>
+                C.9 Tagging characters
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.D1">
+            <summary>
+                D.1 Characters with bidirectional property "R" or "AL"
+            </summary>
+        </member>
+        <member name="F:StringPrep.Tables.D2">
+            <summary>
+                D.2 Characters with bidirectional property "L"
+            </summary>
+        </member>
+        <member name="T:StringPrep.IMappingTable">
+            <summary>
+                Mapping table interface
+            </summary>
+        </member>
+        <member name="M:StringPrep.IMappingTable.HasReplacement(System.Int32)">
+            <summary>
+                Does the value have a replacement
+            </summary>
+            <param name="value">Value to replace</param>
+            <returns>A value indicating whether there is a replacement or not</returns>
+        </member>
+        <member name="M:StringPrep.IMappingTable.GetReplacement(System.Int32)">
+            <summary>
+                Gets the value replacement
+            </summary>
+            <param name="value">Value to replace</param>
+            <returns>Replacement value</returns>
+        </member>
+    </members>
+</doc>

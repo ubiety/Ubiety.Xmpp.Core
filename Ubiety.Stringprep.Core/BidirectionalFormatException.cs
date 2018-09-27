@@ -26,10 +26,10 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     /// <summary>
-    ///     Bidirectinal format exception
+    ///     Bidirectional format exception
     /// </summary>
     [Serializable]
     public class BidirectionalFormatException : Exception

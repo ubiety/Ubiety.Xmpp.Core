@@ -14,6 +14,7 @@ namespace Ubiety.Xmpp.App
         private class SerilogLogger : ILog
         {
             private readonly string _name;
+            private const string _messageTemplate = "{Name} :: {Message}";
 
             public SerilogLogger(string name)
             {
@@ -37,46 +38,44 @@ namespace Ubiety.Xmpp.App
 
             private void Log(LogLevel level, string message)
             {
-                var msg = $"{_name} :: {message}";
                 switch (level)
                 {
                     case LogLevel.Critical:
-                        Serilog.Log.Fatal(msg);
+                        Serilog.Log.Fatal(_messageTemplate, _name, message);
                         break;
                     case LogLevel.Error:
-                        Serilog.Log.Error(msg);
+                        Serilog.Log.Error(_messageTemplate, _name, message);
                         break;
                     case LogLevel.Warning:
-                        Serilog.Log.Warning(msg);
+                        Serilog.Log.Warning(_messageTemplate, _name, message);
                         break;
                     case LogLevel.Information:
-                        Serilog.Log.Information(msg);
+                        Serilog.Log.Information(_messageTemplate, _name, message);
                         break;
                     case LogLevel.Debug:
-                        Serilog.Log.Debug(msg);
+                        Serilog.Log.Debug(_messageTemplate, _name, message);
                         break;
                 }
             }
 
             private void LogException(LogLevel level, Exception exception, string message)
             {
-                var msg = $"{_name} :: {message}";
                 switch (level)
                 {
                     case LogLevel.Critical:
-                        Serilog.Log.Fatal(exception, msg);
+                        Serilog.Log.Fatal(exception, _messageTemplate, _name, message);
                         break;
                     case LogLevel.Error:
-                        Serilog.Log.Error(exception, msg);
+                        Serilog.Log.Error(exception, _messageTemplate, _name, message);
                         break;
                     case LogLevel.Warning:
-                        Serilog.Log.Warning(exception, msg);
+                        Serilog.Log.Warning(exception, _messageTemplate, _name, message);
                         break;
                     case LogLevel.Information:
-                        Serilog.Log.Information(exception, msg);
+                        Serilog.Log.Information(exception, _messageTemplate, _name, message);
                         break;
                     case LogLevel.Debug:
-                        Serilog.Log.Debug(exception, msg);
+                        Serilog.Log.Debug(exception, _messageTemplate, _name, message);
                         break;
                 }
             }

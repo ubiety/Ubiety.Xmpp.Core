@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     public abstract class MappingTable : IMappingTable
     {

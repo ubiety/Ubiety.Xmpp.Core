@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     internal static class ValueRangeCompiler
     {
