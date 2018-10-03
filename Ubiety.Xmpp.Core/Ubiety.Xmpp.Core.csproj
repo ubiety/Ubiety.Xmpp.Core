@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ubiety.Scram.Core\Ubiety.Scram.Core.csproj" />
     <ProjectReference Include="..\Ubiety.Stringprep.Core\Ubiety.Stringprep.Core.csproj" />
   </ItemGroup>
 

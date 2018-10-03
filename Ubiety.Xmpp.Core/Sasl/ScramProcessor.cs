@@ -13,34 +13,34 @@
 //   limitations under the License.
 
 using System;
-using System.Globalization;
 using System.Linq;
-using System.Security.Authentication.ExtendedProtection;
 using System.Security.Cryptography;
 using System.Text;
+using Ubiety.Scram.Core.Model;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
-using Ubiety.Xmpp.Core.Sasl.Scram;
 using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
 namespace Ubiety.Xmpp.Core.Sasl
 {
+    /// <inheritdoc />
     /// <summary>
     ///     SCRAM-SHA-1 SASL Processor
     /// </summary>
     public class ScramProcessor : SaslProcessor
     {
+        private static readonly ILog Logger = Log.Get<ScramProcessor>();
         private readonly bool _channelBinding;
         private readonly Encoding _encoding = Encoding.UTF8;
         private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private ClientFinalMessage _clientFinalMessage;
         private ClientFirstMessage _clientFirstMessage;
-        private ILog _logger;
-        private ServerMessage _serverMessage;
+        private ServerFirstMessage _serverFirstMessage;
+        private string _serverResponse;
         private byte[] _serverSignature;
 
         /// <summary>
@@ -52,30 +52,32 @@ namespace Ubiety.Xmpp.Core.Sasl
             _channelBinding = channelBinding;
         }
 
+        /// <inheritdoc />
         /// <summary>
         ///     Initializes the SASL processor
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the user for the session</param>
+        /// <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the user for the session</param>
         /// <param name="password">Password of the user</param>
         /// <returns>Next tag to send to the server</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
 
-            _logger = Log.Get<ScramProcessor>();
-            _logger.Log(LogLevel.Debug, "Initializing SCRAM SASL processor");
+            Logger.Log(LogLevel.Debug, "Initializing SCRAM SASL processor");
 
-            var nonce = NextInt64().ToString(CultureInfo.InvariantCulture);
+            var nonce = CreateNonce();
 
-            _clientFirstMessage = new ClientFirstMessage(Id.User, nonce, _channelBinding);
+            _clientFirstMessage = new ClientFirstMessage(Id.User, nonce);
+            Logger.Log(LogLevel.Debug, _clientFirstMessage.Message);
 
             var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
             auth.MechanismType = _channelBinding ? MechanismTypes.ScramPlus : MechanismTypes.Scram;
-            auth.Bytes = _encoding.GetBytes(_clientFirstMessage.FirstAuthMessage);
+            auth.Bytes = _encoding.GetBytes(_clientFirstMessage.Message);
 
             return auth;
         }
 
+        /// <inheritdoc />
         /// <summary>
         ///     Process the next SASL step
         /// </summary>
@@ -86,7 +88,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             switch (tag)
             {
                 case Challenge c:
-                    _logger.Log(LogLevel.Debug, "Received challenge");
+                    Logger.Log(LogLevel.Debug, "Received challenge");
                     return ProcessChallenge(c);
                 case Response s:
                     var response = _encoding.GetString(s.Bytes);
@@ -99,27 +101,17 @@ namespace Ubiety.Xmpp.Core.Sasl
             }
         }
 
-        private Tag ProcessChallenge(Challenge tag)
+        private Tag ProcessChallenge(Tag tag)
         {
-            var response = _encoding.GetString(tag.Bytes);
+            _serverResponse = _encoding.GetString(tag.Bytes);
 
-            _serverMessage = ServerMessage.ParseResponse(response);
+            _serverFirstMessage = ServerFirstMessage.ParseResponse(_serverResponse);
 
-            if (_channelBinding)
-            {
-                var binding = Client.ClientSocket.TransportContext.GetChannelBinding(ChannelBindingKind.Unique);
-                _logger.Log(LogLevel.Debug, $"Channel data: {binding}");
-                _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverMessage, binding);
-                _logger.Log(LogLevel.Debug, $"Channel header: {_clientFinalMessage.Channel}");
-            }
-            else
-            {
-                _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverMessage);
-            }
+            _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage);
 
             CalculateProofs();
 
-            _logger.Log(LogLevel.Debug, $"Client final after proof: {_clientFinalMessage.Message}");
+            Logger.Log(LogLevel.Debug, $"Client final after proof: {_clientFinalMessage.Message}");
 
             var message = Client.Registry.GetTag<Response>(Response.XmlName);
             message.Bytes = _encoding.GetBytes(_clientFinalMessage.Message);
@@ -140,8 +132,8 @@ namespace Ubiety.Xmpp.Core.Sasl
             var storedKey = hash.ComputeHash(clientKey);
 
             var authMessage =
-                $"{_clientFirstMessage.BareMessage},{ServerMessage.FirstMessage},{_clientFinalMessage.MessageWithoutProof}";
-            _logger.Log(LogLevel.Debug, $"Auth message: {authMessage}");
+                $"{_clientFirstMessage.BareMessage},{_serverResponse},{_clientFinalMessage.MessageWithoutProof}";
+            Logger.Log(LogLevel.Debug, $"Auth message: {authMessage}");
             var auth = _encoding.GetBytes(authMessage);
 
             hmac.Key = storedKey;
@@ -158,13 +150,13 @@ namespace Ubiety.Xmpp.Core.Sasl
         private byte[] Hi()
         {
             var password = _encoding.GetBytes(_saslprep.Run(Password));
-            var completeSalt = _serverMessage.Salt.Value.Concat(BitConverter.GetBytes(1)).ToArray();
+            var completeSalt = _serverFirstMessage.Salt.Value.Concat(BitConverter.GetBytes(1)).ToArray();
 
             var hmac = new HMACSHA1(password);
             var iteration = hmac.ComputeHash(completeSalt);
             var result = iteration;
 
-            for (var i = 0; i < _serverMessage.Iterations.Value; ++i)
+            for (var i = 0; i < _serverFirstMessage.Iterations.Value; ++i)
             {
                 iteration = hmac.ComputeHash(iteration);
                 result = result.ExclusiveOr(iteration);
