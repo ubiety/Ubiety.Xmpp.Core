@@ -1,4 +1,5 @@
-﻿// This is free and unencumbered software released into the public domain.
+﻿extensions: .cs
+// This is free and unencumbered software released into the public domain.
 //
 // Anyone is free to copy, modify, publish, use, compile, sell, or
 // distribute this software, either in source code form or as a compiled
@@ -22,30 +23,3 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 //
 // For more information, please refer to <http://unlicense.org/>
-
-namespace Ubiety.Scram.Core.Model
-{
-    public class ClientFinalMessage
-    {
-        public ClientFinalMessage(ClientFirstMessage clientFirstMessage, ServerFirstMessage serverFirstMessage)
-        {
-            Channel = new ChannelAttribute(clientFirstMessage.Gs2Header);
-            Nonce = new NonceAttribute(serverFirstMessage.Nonce.Value);
-        }
-
-        public ChannelAttribute Channel { get; }
-
-        public NonceAttribute Nonce { get; }
-
-        public ClientProofAttribute Proof { get; private set; }
-
-        public string MessageWithoutProof => $"{Channel},{Nonce}";
-
-        public string Message => $"{MessageWithoutProof},{Proof}";
-
-        public void SetProof(byte[] proof)
-        {
-            Proof = new ClientProofAttribute(proof);
-        }
-    }
-}

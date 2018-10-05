@@ -35,14 +35,14 @@ namespace Ubiety.Stringprep.Core
     public class BidirectionalFormatException : Exception
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BidirectionalFormatException"/> class
+        ///     Initializes a new instance of the <see cref="BidirectionalFormatException" /> class
         /// </summary>
         public BidirectionalFormatException()
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BidirectionalFormatException"/> class
+        ///     Initializes a new instance of the <see cref="BidirectionalFormatException" /> class
         /// </summary>
         /// <param name="message">Exception message</param>
         public BidirectionalFormatException(string message)
@@ -51,7 +51,7 @@ namespace Ubiety.Stringprep.Core
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BidirectionalFormatException"/> class
+        ///     Initializes a new instance of the <see cref="BidirectionalFormatException" /> class
         /// </summary>
         /// <param name="message">Exception message</param>
         /// <param name="innerException">Inner exception</param>
@@ -61,7 +61,7 @@ namespace Ubiety.Stringprep.Core
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BidirectionalFormatException"/> class
+        ///     Initializes a new instance of the <see cref="BidirectionalFormatException" /> class
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>

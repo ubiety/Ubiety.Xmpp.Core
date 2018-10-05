@@ -23,45 +23,31 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-using System.Collections.Generic;
+using System;
 using System.Linq;
 
-namespace Ubiety.Stringprep.Core
+namespace Ubiety.Scram.Core
 {
-    /// <summary>
-    ///     Composite mapping table
-    /// </summary>
-    internal class CompositeMappingTable : MappingTable
+    internal class ServerSignatureAttribute : ScramAttribute<byte[]>, IEquatable<ServerSignatureAttribute>
     {
-        private readonly ICollection<IMappingTable> _mappingTables;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="CompositeMappingTable" /> class
-        /// </summary>
-        /// <param name="mappingTables">Mapping tables</param>
-        public CompositeMappingTable(ICollection<IMappingTable> mappingTables)
+        public ServerSignatureAttribute(byte[] value)
+            : base(ServerSignatureName, value)
         {
-            _mappingTables = mappingTables;
         }
 
-        /// <summary>
-        ///     Does the value have a replacement
-        /// </summary>
-        /// <param name="value">Value to find replacement for</param>
-        /// <returns>A value indicating whether there is a replacement or not</returns>
-        public override bool HasReplacement(int value)
+        public ServerSignatureAttribute(string value)
+            : base(ServerSignatureName, Convert.FromBase64String(value))
         {
-            return _mappingTables.Any(table => table.HasReplacement(value));
         }
 
-        /// <summary>
-        ///     Gets the replacement for the value
-        /// </summary>
-        /// <param name="value">Value to get the replacement for</param>
-        /// <returns>Replacement for the value</returns>
-        public override int[] GetReplacement(int value)
+        public bool Equals(byte[] other)
         {
-            return _mappingTables.FirstOrDefault(table => table.HasReplacement(value))?.GetReplacement(value);
+            return Value.SequenceEqual(other);
+        }
+
+        public bool Equals(ServerSignatureAttribute other)
+        {
+            return false;
         }
     }
 }

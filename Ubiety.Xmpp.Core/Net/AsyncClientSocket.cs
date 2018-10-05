@@ -54,18 +54,13 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <inheritdoc />
-        public event EventHandler<DataEventArgs> Data;
-
-        /// <inheritdoc />
         public event EventHandler Connection;
 
         /// <inheritdoc />
-        public bool Connected { get; private set; }
+        public event EventHandler<DataEventArgs> Data;
 
-        /// <summary>
-        ///     Gets the SslStream transport context
-        /// </summary>
-        internal TransportContext TransportContext { get; private set; }
+        /// <inheritdoc />
+        public bool Connected { get; private set; }
 
         /// <inheritdoc />
         public void Dispose()
@@ -154,7 +149,6 @@ namespace Ubiety.Xmpp.Core.Net
             if (secureStream.IsAuthenticated)
             {
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
-                TransportContext = secureStream.TransportContext;
                 _stream = secureStream;
                 _client.State.Execute((XmppClient)_client);
             }

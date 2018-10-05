@@ -806,6 +806,7 @@
             <returns>String GUID for NONCE</returns>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Sasl.ScramProcessor">
+            <inheritdoc />
             <summary>
                 SCRAM-SHA-1 SASL Processor
             </summary>
@@ -817,6 +818,7 @@
             <param name="channelBinding">Do we want to use channel binding</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
+            <inheritdoc />
             <summary>
                 Initializes the SASL processor
             </summary>
@@ -825,6 +827,7 @@
             <returns>Next tag to send to the server</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
+            <inheritdoc />
             <summary>
                 Process the next SASL step
             </summary>

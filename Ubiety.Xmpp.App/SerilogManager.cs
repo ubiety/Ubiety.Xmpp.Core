@@ -13,8 +13,8 @@ namespace Ubiety.Xmpp.App
 
         private class SerilogLogger : ILog
         {
-            private readonly string _name;
             private const string _messageTemplate = "{Name} :: {Message}";
+            private readonly string _name;
 
             public SerilogLogger(string name)
             {

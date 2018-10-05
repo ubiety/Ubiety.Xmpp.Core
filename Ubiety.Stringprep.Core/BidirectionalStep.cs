@@ -35,7 +35,7 @@ namespace Ubiety.Stringprep.Core
         private readonly IValueRangeTable _ralTable;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BidirectionalStep"/> class
+        ///     Initializes a new instance of the <see cref="BidirectionalStep" /> class
         /// </summary>
         /// <param name="prohibitedTable">Prohibited character table</param>
         /// <param name="ralTable">RandAL character table</param>

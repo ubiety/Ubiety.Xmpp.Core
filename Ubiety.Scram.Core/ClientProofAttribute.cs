@@ -23,44 +23,25 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-using System.Collections.Generic;
+using System;
 
-namespace Ubiety.Stringprep.Core
+namespace Ubiety.Scram.Core
 {
-    /// <summary>
-    ///     Dictionary mapping table
-    /// </summary>
-    internal class DictionaryMappingTable : MappingTable
+    public class ClientProofAttribute : ScramAttribute<byte[]>
     {
-        private readonly SortedList<int, int[]> _mappings;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="DictionaryMappingTable" /> class
-        /// </summary>
-        /// <param name="values">Mapping values</param>
-        internal DictionaryMappingTable(IDictionary<int, int[]> values)
+        public ClientProofAttribute(string value)
+            : base(ClientProofName, Convert.FromBase64String(value))
         {
-            _mappings = new SortedList<int, int[]>(values);
         }
 
-        /// <summary>
-        ///     Does the value have a replacement
-        /// </summary>
-        /// <param name="value">Value to replace</param>
-        /// <returns>A value indicating whether or not it can be replaced</returns>
-        public override bool HasReplacement(int value)
+        public ClientProofAttribute(byte[] value)
+            : base(ClientProofName, value)
         {
-            return _mappings.ContainsKey(value);
         }
 
-        /// <summary>
-        ///     Gets the replacement value
-        /// </summary>
-        /// <param name="value">Value to replace</param>
-        /// <returns>Replacement value</returns>
-        public override int[] GetReplacement(int value)
+        public override string ToString()
         {
-            return _mappings[value];
+            return $"{Name}={Convert.ToBase64String(Value)}";
         }
     }
 }

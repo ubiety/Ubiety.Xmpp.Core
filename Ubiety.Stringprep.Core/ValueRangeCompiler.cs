@@ -8,7 +8,10 @@ namespace Ubiety.Stringprep.Core
     {
         public static int[] Compile(int[][] baseTables, int[] inclusions, int[] removals)
         {
-            foreach (var table in baseTables) Sort(table);
+            foreach (var table in baseTables)
+            {
+                Sort(table);
+            }
 
             Sort(inclusions);
             Sort(removals);
@@ -25,30 +28,53 @@ namespace Ubiety.Stringprep.Core
             var ends = new int[l];
 
             for (var i = 0; i < table.Length; i++)
+            {
                 if (i % 2 == 0)
+                {
                     starts[i / 2] = table[i];
+                }
                 else
+                {
                     ends[i / 2] = table[i];
+                }
+            }
 
             Array.Sort(starts, ends);
             for (var i = 0; i < table.Length; i++)
+            {
                 if (i % 2 == 0)
+                {
                     table[i] = starts[i / 2];
+                }
                 else
+                {
                     table[i] = ends[i / 2];
+                }
+            }
         }
 
         private static void CheckSanity(int[] table)
         {
-            if (table.Length % 2 != 0) throw new ArgumentException("Not a range table", nameof(table));
+            if (table.Length % 2 != 0)
+            {
+                throw new ArgumentException("Not a range table", nameof(table));
+            }
+
             for (var i = 0; i < table.Length - 1; i += 2)
+            {
                 if (table[i + 1] < table[i])
+                {
                     throw new ArgumentException("Not a range table", nameof(table));
+                }
+            }
         }
 
         private static List<int> DoCombine(int[][] tables)
         {
-            if (tables.Length == 1) return tables[0].ToList();
+            if (tables.Length == 1)
+            {
+                return tables[0].ToList();
+            }
 
             var combined = new List<int>();
             var idx = new int[tables.Length];
@@ -59,7 +85,11 @@ namespace Ubiety.Stringprep.Core
                 var min = -1;
                 for (var i = 0; i < tables.Length; i++)
                 {
-                    if (tables[i].Length <= idx[i]) continue;
+                    if (tables[i].Length <= idx[i])
+                    {
+                        continue;
+                    }
+
                     var current = tables[i][idx[i]];
                     if (min == -1 || current < min)
                     {
@@ -80,6 +110,7 @@ namespace Ubiety.Stringprep.Core
         private static List<int> DoInclude(List<int> list, int[] inclusions)
         {
             for (var i = 0; i < inclusions.Length; i += 2)
+            {
                 if (inclusions[i] < list[0])
                 {
                     list.InsertRange(0, new[] {inclusions[i], inclusions[i + 1]});
@@ -89,12 +120,14 @@ namespace Ubiety.Stringprep.Core
                     var j = 0;
                     var set = false;
                     for (; j < list.Count; j += 2)
+                    {
                         if (inclusions[i] <= list[j])
                         {
                             list.InsertRange(j, new[] {inclusions[i], inclusions[i + 1]});
                             set = false;
                             break;
                         }
+                    }
 
                     if (!set)
                     {
@@ -102,6 +135,7 @@ namespace Ubiety.Stringprep.Core
                         list.Add(inclusions[i + 1]);
                     }
                 }
+            }
 
             return list;
         }
@@ -136,22 +170,26 @@ namespace Ubiety.Stringprep.Core
         private static void CloseRemove(List<int> list, int[] removals, ref int i, ref int j)
         {
             for (i++; i < removals.Length; i += 2)
-            for (j++; j < list.Count; j += 2)
-                if (removals[i] == list[j])
+            {
+                for (j++; j < list.Count; j += 2)
                 {
-                    list.RemoveAt(j);
-                    return;
+                    if (removals[i] == list[j])
+                    {
+                        list.RemoveAt(j);
+                        return;
+                    }
+                    else if (removals[i] < list[j])
+                    {
+                        list.Insert(j, removals[i] + 1);
+                        return;
+                    }
+                    else if (removals[i] > list[j] && (j + 1 >= list.Count || removals[i] < list[j + 1]))
+                    {
+                        list.RemoveAt(j);
+                        return;
+                    }
                 }
-                else if (removals[i] < list[j])
-                {
-                    list.Insert(j, removals[i] + 1);
-                    return;
-                }
-                else if (removals[i] > list[j] && (j + 1 >= list.Count || removals[i] < list[j + 1]))
-                {
-                    list.RemoveAt(j);
-                    return;
-                }
+            }
         }
 
         private static List<int> DoReduce(List<int> list)
@@ -162,7 +200,9 @@ namespace Ubiety.Stringprep.Core
                     if (list[i + 1] <= list[i]) // next 'start' value is either included in or abuts current range
                     {
                         if (list[i + 2] > list[i]) // next 'end' value should become the current end value
+                        {
                             list[i] = list[i + 2];
+                        }
 
                         list.RemoveRange(i + 1, 2);
                         break;

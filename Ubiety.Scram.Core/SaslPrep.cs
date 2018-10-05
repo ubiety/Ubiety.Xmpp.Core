@@ -23,44 +23,39 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-using System.Collections.Generic;
+using Ubiety.Stringprep.Core;
 
-namespace Ubiety.Stringprep.Core
+namespace Ubiety.Scram.Core
 {
-    /// <summary>
-    ///     Dictionary mapping table
-    /// </summary>
-    internal class DictionaryMappingTable : MappingTable
+    internal static class SaslPrep
     {
-        private readonly SortedList<int, int[]> _mappings;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="DictionaryMappingTable" /> class
-        /// </summary>
-        /// <param name="values">Mapping values</param>
-        internal DictionaryMappingTable(IDictionary<int, int[]> values)
+        public static string Run(string input)
         {
-            _mappings = new SortedList<int, int[]>(values);
+            return Create().Run(input);
         }
 
-        /// <summary>
-        ///     Does the value have a replacement
-        /// </summary>
-        /// <param name="value">Value to replace</param>
-        /// <returns>A value indicating whether or not it can be replaced</returns>
-        public override bool HasReplacement(int value)
+        private static IPreparationProcess Create()
         {
-            return _mappings.ContainsKey(value);
-        }
-
-        /// <summary>
-        ///     Gets the replacement value
-        /// </summary>
-        /// <param name="value">Value to replace</param>
-        /// <returns>Replacement value</returns>
-        public override int[] GetReplacement(int value)
-        {
-            return _mappings[value];
+            return PreparationProcess.Build()
+                .WithMappingStep(MappingTable.Build()
+                    .WithValueRangeTable(Prohibited.ASCIISpaceCharacters, ' ')
+                    .WithMappingTable(Mapping.MappedToNothing)
+                    .Compile())
+                .WithNormalizationStep()
+                .WithProhibitedValueStep(ValueRangeTable.Create(
+                    Prohibited.NonASCIISpaceCharacters,
+                    Prohibited.ASCIIControlCharacters,
+                    Prohibited.NonASCIIControlCharacters,
+                    Prohibited.PrivateUseCharacters,
+                    Prohibited.NonCharacterCodePoints,
+                    Prohibited.SurrogateCodePoints,
+                    Prohibited.InappropriateForPlainText,
+                    Prohibited.InappropriateForCanonicalRepresentation,
+                    Prohibited.TaggingCharacters))
+                .WithBidirectionalStep()
+                .WithProhibitedValueStep(ValueRangeTable.Create(
+                    Unassigned.UnassignedCodePoints))
+                .Compile();
         }
     }
 }
