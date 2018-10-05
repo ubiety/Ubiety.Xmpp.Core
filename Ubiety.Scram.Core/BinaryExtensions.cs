@@ -33,7 +33,7 @@ namespace Ubiety.Scram.Core
         {
             if (originalBytes.Length != compareBytes.Length)
             {
-                throw new ArgumentException(nameof(originalBytes));
+                throw new ArgumentException($"Argument {nameof(originalBytes)} is not the same length as argument {nameof(compareBytes)}");
             }
 
             var result = new byte[originalBytes.Length];

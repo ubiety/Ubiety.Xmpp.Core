@@ -558,19 +558,14 @@
             </summary>
             <param name="client">Client to use for the server connection</param>
         </member>
-        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data">
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection">
             <inheritdoc />
         </member>
-        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection">
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data">
             <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected">
             <inheritdoc />
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.TransportContext">
-            <summary>
-                Gets the SslStream transport context
-            </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose">
             <inheritdoc />

@@ -67,7 +67,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var nonce = CreateNonce();
 
-            _clientFirstMessage = new ClientFirstMessage(Id.User, nonce);
+            _clientFirstMessage = new ClientFirstMessage(_saslprep.Run(Id.User), nonce);
             Logger.Log(LogLevel.Debug, _clientFirstMessage.Message);
 
             var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);

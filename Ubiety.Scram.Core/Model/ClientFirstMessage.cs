@@ -41,6 +41,6 @@ namespace Ubiety.Scram.Core.Model
 
         public string BareMessage => $"{Username},{Nonce}";
 
-        public string Message => $"{Gs2Header},{BareMessage}";
+        public string Message => $"{Gs2Header}{BareMessage}";
     }
 }

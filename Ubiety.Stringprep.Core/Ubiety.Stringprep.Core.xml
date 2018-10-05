@@ -36,25 +36,25 @@
         </member>
         <member name="M:Ubiety.Stringprep.Core.BidirectionalFormatException.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Stringprep.Core.BidirectionalFormatException.#ctor(System.String)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException" /> class
             </summary>
             <param name="message">Exception message</param>
         </member>
         <member name="M:Ubiety.Stringprep.Core.BidirectionalFormatException.#ctor(System.String,System.Exception)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException" /> class
             </summary>
             <param name="message">Exception message</param>
             <param name="innerException">Inner exception</param>
         </member>
         <member name="M:Ubiety.Stringprep.Core.BidirectionalFormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalFormatException" /> class
             </summary>
             <param name="info">Serialization info</param>
             <param name="context">Streaming context</param>
@@ -66,7 +66,7 @@
         </member>
         <member name="M:Ubiety.Stringprep.Core.BidirectionalStep.#ctor(Ubiety.Stringprep.Core.IValueRangeTable,Ubiety.Stringprep.Core.IValueRangeTable,Ubiety.Stringprep.Core.IValueRangeTable)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalStep"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.BidirectionalStep" /> class
             </summary>
             <param name="prohibitedTable">Prohibited character table</param>
             <param name="ralTable">RandAL character table</param>
@@ -86,7 +86,7 @@
         </member>
         <member name="M:Ubiety.Stringprep.Core.CompositeMappingTable.#ctor(System.Collections.Generic.ICollection{Ubiety.Stringprep.Core.IMappingTable})">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.CompositeMappingTable"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.CompositeMappingTable" /> class
             </summary>
             <param name="mappingTables">Mapping tables</param>
         </member>
@@ -111,7 +111,7 @@
         </member>
         <member name="M:Ubiety.Stringprep.Core.DictionaryMappingTable.#ctor(System.Collections.Generic.IDictionary{System.Int32,System.Int32[]})">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.DictionaryMappingTable"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Stringprep.Core.DictionaryMappingTable" /> class
             </summary>
             <param name="values">Mapping values</param>
         </member>

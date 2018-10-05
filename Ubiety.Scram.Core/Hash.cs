@@ -55,9 +55,9 @@ namespace Ubiety.Scram.Core
             return _hashAlgorithm.ComputeHash(value);
         }
 
-        public byte[] ComputeHash(byte[] value, byte[] salt)
+        public byte[] ComputeHash(byte[] value, byte[] key)
         {
-            var hmacAlgorithm = _hmacFactory(salt);
+            var hmacAlgorithm = _hmacFactory(key);
             return hmacAlgorithm.ComputeHash(value);
         }
 
@@ -69,21 +69,22 @@ namespace Ubiety.Scram.Core
 
             for (var i = 1; i < iterations; i++)
             {
-                iteration = ComputeHash(value, iteration);
-                final = final.ExclusiveOr(iteration);
+                var temp = ComputeHash(iteration, value);
+                final = final.ExclusiveOr(temp);
+                iteration = temp;
             }
 
             return final;
         }
 
-        private static HMAC GetHmacSha1(byte[] salt)
+        private static HMAC GetHmacSha1(byte[] key)
         {
-            return new HMACSHA1(salt);
+            return new HMACSHA1(key);
         }
 
-        private static HMAC GetHmacSha256(byte[] salt)
+        private static HMAC GetHmacSha256(byte[] key)
         {
-            return new HMACSHA256(salt);
+            return new HMACSHA256(key);
         }
     }
 }
