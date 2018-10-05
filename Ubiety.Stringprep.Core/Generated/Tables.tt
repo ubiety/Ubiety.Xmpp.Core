@@ -1,0 +1,101 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+using System.Collections.Generic;
+
+namespace StringPrep
+{
+  internal static class Tables
+  {
+<#
+  FileStream codePoints = File.Open(this.Host.ResolvePath(@"..\Resources\tables.txt"), FileMode.Open);
+
+  string line;
+  using (var reader = new StreamReader(codePoints))
+  {
+    char? context = null;
+    string tableName = "";
+    string type = "int[]";
+
+    while ((line = reader.ReadLine()) != null)
+    {
+        if (string.IsNullOrWhiteSpace(line)) continue;
+        if (Regex.IsMatch(line, "^[A-D]\\.[1-9]"))
+        {
+          var parts = line.Split(new []{' '}, 2, StringSplitOptions.None);
+          type = parts[0].StartsWith("B") ? "Dictionary<int, int[]>" : "int[]";
+          tableName = parts[0].Replace('.', '_');
+          context = parts[0][0];
+#>
+      /// <#= line #>
+<#
+      }
+      else if (Regex.IsMatch(line, "^----- End Table .*? -----$"))
+      {
+#>
+    };
+
+<#
+      }
+      else if (Regex.IsMatch(line, "^----- Start Table .*? -----$"))
+      {
+#>
+    public static readonly <#= type #> <#= tableName #> = new <#= type #>
+    {
+<#
+      }
+      else if (context == 'A' || context == 'D')
+      {
+        string start, end;
+        if (line.IndexOf('-') > -1)
+        {
+          var parts = line.Split('-');
+          start = parts[0];
+          end = parts[1];
+        }
+        else
+        {
+          start = line;
+          end = line;
+        }
+#>
+      0x<#= start #>, 0x<#= end #>,
+<#
+      }
+      else if (context == 'B')
+      {
+        var parts = line.Split(';');
+        var replacements = parts[1].Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
+#>
+      { 0x<#= parts[0] #>, new int[] { <# for (var i = 0; i < replacements.Count(); i++) {#>0x<#= replacements[i] #>,<#}#> } }, //<#= parts[2] #>
+<#
+      }
+      else if (context == 'C')
+      {
+        var parts = line.Split(';');
+        var comment = parts[1];
+        string start, end;
+        if (parts[0].IndexOf('-') > -1)
+        {
+          parts = parts[0].Split('-');
+          start = parts[0];
+          end = parts[1];
+        }
+        else
+        {
+          start = end = parts[0];
+        }
+#>
+      0x<#= start #>, 0x<#= end #>, //<#= comment #>
+<#
+      }
+    }
+  }
+#>
+  }
+}

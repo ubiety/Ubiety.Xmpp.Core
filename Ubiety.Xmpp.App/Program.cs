@@ -15,9 +15,7 @@ namespace Ubiety.Xmpp.App
 
             client.Error += Client_Error;
 
-            var id = new Jid("dieter@dieterlunn.ca");
-
-            client.Connect(id);
+            client.Connect("dieter@dieterlunn.ca", "8o0tcAmp");
             Console.ReadLine();
         }
 

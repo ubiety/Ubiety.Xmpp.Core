@@ -18,6 +18,7 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="SerilogAnalyzer" Version="0.14.0" />
   </ItemGroup>
 
   <ItemGroup>

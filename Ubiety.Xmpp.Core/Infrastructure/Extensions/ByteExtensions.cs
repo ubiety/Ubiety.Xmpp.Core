@@ -12,9 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
-using System.Collections.Generic;
-
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
@@ -23,33 +20,20 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
     public static class ByteExtensions
     {
         /// <summary>
-        ///     Trims null byte values from the end of an array
+        ///     Combine two byte arrays using exclusive or
         /// </summary>
-        /// <param name="bytes">Byte array to trim</param>
-        /// <returns>Trimmed array</returns>
-        public static byte[] TrimNullBytes(this IList<byte> bytes)
+        /// <param name="original">Original array</param>
+        /// <param name="comparison">Comparison array</param>
+        /// <returns>Result of exclusive or operation</returns>
+        public static byte[] ExclusiveOr(this byte[] original, byte[] comparison)
         {
-            if (bytes.Count <= 1) return new byte[0];
-            var lastByte = bytes.Count - 1;
-            while (bytes[lastByte] == 0x00)
+            var result = new byte[original.Length];
+            for (var i = 0; i < original.Length; i++)
             {
-                lastByte--;
-                if (lastByte < 0) break;
+                result[i] = (byte)(original[i] ^ comparison[i]);
             }
 
-            var newArray = new byte[lastByte + 1];
-            for (var i = 0; i < lastByte + 1; i++) newArray[i] = bytes[i];
-
-            return newArray;
-        }
-
-        /// <summary>
-        ///     Clears a byte array
-        /// </summary>
-        /// <param name="data">Byte array to clear</param>
-        public static void Clear(this byte[] data)
-        {
-            Array.Clear(data, 0, data.Length);
+            return result;
         }
     }
 }

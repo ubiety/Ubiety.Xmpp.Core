@@ -20,9 +20,11 @@ using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Tags;
 
 namespace Ubiety.Xmpp.Core.Net
 {
@@ -31,10 +33,10 @@ namespace Ubiety.Xmpp.Core.Net
     /// </summary>
     public class AsyncClientSocket : ISocket, IDisposable
     {
-        private const int BufferSize = 64 * 1024;
-        private readonly byte[] _buffer;
+        private const int BufferSize = 4 * 1024;
         private readonly IClient _client;
-        private readonly ILog _logger;
+        private readonly ILog _logger = Log.Get<AsyncClientSocket>();
+        private readonly AutoResetEvent _resetEvent;
         private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private Address _address;
         private Socket _socket;
@@ -46,11 +48,19 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="client">Client to use for the server connection</param>
         public AsyncClientSocket(IClient client)
         {
-            _logger = Log.Get<AsyncClientSocket>();
             _client = client;
-            _buffer = new byte[BufferSize];
             _logger.Log(LogLevel.Debug, "AsyncClientSocket created");
+            _resetEvent = new AutoResetEvent(false);
         }
+
+        /// <inheritdoc />
+        public event EventHandler Connection;
+
+        /// <inheritdoc />
+        public event EventHandler<DataEventArgs> Data;
+
+        /// <inheritdoc />
+        public bool Connected { get; private set; }
 
         /// <inheritdoc />
         public void Dispose()
@@ -58,15 +68,6 @@ namespace Ubiety.Xmpp.Core.Net
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        /// <inheritdoc />
-        public event EventHandler<DataEventArgs> Data;
-
-        /// <inheritdoc />
-        public event EventHandler Connection;
-
-        /// <inheritdoc />
-        public bool Connected { get; private set; }
 
         /// <inheritdoc />
         public void Connect(Jid jid)
@@ -87,7 +88,10 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Starting async connection");
 
-                if (!_socket.ConnectAsync(args)) ConnectCompleted(this, args);
+                if (!_socket.ConnectAsync(args))
+                {
+                    ConnectCompleted(this, args);
+                }
             }
             catch (SocketException e)
             {
@@ -110,14 +114,53 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Send(string message)
         {
-            if (!Connected) return;
+            if (!Connected)
+            {
+                return;
+            }
 
             _logger.Log(LogLevel.Debug, $"Sending message: {message}");
 
             var bytes = _utf8.GetBytes(message);
-            var args = new SocketAsyncEventArgs();
-            args.SetBuffer(bytes, 0, bytes.Length);
-            _socket.SendAsync(args);
+            _stream.WriteAsync(bytes, 0, bytes.Length);
+        }
+
+        /// <summary>
+        ///     Sends a tag to the server
+        /// </summary>
+        /// <param name="tag"><see cref="Tag" /> to send</param>
+        public void Send(Tag tag)
+        {
+            Send(tag.ToString());
+        }
+
+        /// <summary>
+        ///     Starts SSL/TLS connection
+        /// </summary>
+        public void StartSsl()
+        {
+            _logger.Log(LogLevel.Debug, "Starting SSL encryption");
+            var secureStream = new SslStream(_stream, true, CertificateValidation);
+
+            _logger.Log(LogLevel.Debug, "Authenticating as client...");
+            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls12 | SslProtocols.Tls11, false);
+            _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol.ToString()}");
+
+            if (secureStream.IsAuthenticated)
+            {
+                _logger.Log(LogLevel.Debug, "Stream is encrypted");
+                _stream = secureStream;
+                _client.State.Execute((XmppClient)_client);
+            }
+        }
+
+        /// <summary>
+        ///     Set that we are clear to read data
+        /// </summary>
+        public void SetReadClear()
+        {
+            _logger.Log(LogLevel.Debug, "Setting read clear to true");
+            _resetEvent.Set();
         }
 
         /// <summary>
@@ -128,7 +171,6 @@ namespace Ubiety.Xmpp.Core.Net
         {
             _logger.Log(LogLevel.Debug, "Firing data event");
             Data?.Invoke(this, e);
-            _buffer.Clear();
         }
 
         /// <summary>
@@ -146,13 +188,35 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="disposing">Are we disposing from a direct call</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing) _socket?.Dispose();
+            if (disposing)
+            {
+                _socket?.Dispose();
+            }
         }
 
-        private static bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain,
+        private bool CertificateValidation(
+            object sender,
+            X509Certificate certificate,
+            X509Chain chain,
             SslPolicyErrors sslPolicyErrors)
         {
-            return sslPolicyErrors == SslPolicyErrors.None;
+            if (sslPolicyErrors == SslPolicyErrors.None)
+            {
+                return true;
+            }
+
+            if (chain.ChainStatus.Length == 1 &&
+                (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors ||
+                 certificate.Subject == certificate.Issuer) &&
+                chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot)
+            {
+                return true;
+            }
+
+            _logger.Log(LogLevel.Debug, certificate.ToString());
+            _logger.Log(LogLevel.Error, $"Policy errors: {sslPolicyErrors}");
+
+            return false;
         }
 
         private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
@@ -166,50 +230,39 @@ namespace Ubiety.Xmpp.Core.Net
             }
 
             var socket = e.ConnectSocket;
+            _stream = new NetworkStream(socket);
+
             Connected = true;
             OnConnection();
 
-            _stream = new NetworkStream(socket);
-            if (_client.UseSsl) StartSsl();
-
             _logger.Log(LogLevel.Debug, "Starting to read data");
-            _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
+            BeginRead();
         }
 
-        private void StartSsl()
+        private void BeginRead()
         {
-            _logger.Log(LogLevel.Debug, "Starting SSL encryption");
-            var secureStream = new SslStream(_stream, true, CertificateValidation);
-
-            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls, false);
-
-            if (secureStream.IsAuthenticated) _stream = secureStream;
+            while (Connected)
+            {
+                var message = ReadData();
+                _logger.Log(LogLevel.Debug, $"Received message: {message.Result}");
+                OnData(new DataEventArgs { Message = message.Result });
+            }
         }
 
-        private void ReceiveCompleted(IAsyncResult ar)
+        private Task<string> ReadData()
         {
-            if (!Connected) return;
+            _resetEvent.WaitOne();
+            var buffer = new byte[BufferSize];
+            var received = _stream.ReadAsync(buffer, 0, BufferSize);
 
-            _stream.EndRead(ar);
-            var message = _utf8.GetString(_buffer.TrimNullBytes());
-
-            if (!string.IsNullOrEmpty(message))
+            var task = received.ContinueWith(getString =>
             {
-                _logger.Log(LogLevel.Debug, $"Received message: {message}");
+                Array.Resize(ref buffer, received.Result);
+                var message = _utf8.GetString(buffer);
+                return message;
+            });
 
-                OnData(new DataEventArgs {Message = message});
-
-                _buffer.Clear();
-            }
-
-            try
-            {
-                _stream.BeginRead(_buffer, 0, BufferSize, ReceiveCompleted, null);
-            }
-            catch (ObjectDisposedException e)
-            {
-                _logger.Log(LogLevel.Error, e, "Stream disposed");
-            }
+            return task;
         }
     }
 }

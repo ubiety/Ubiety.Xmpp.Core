@@ -24,11 +24,6 @@ namespace Ubiety.Xmpp.Core.Logging
     {
         private static ILogManager _manager = new DefaultManager();
 
-        internal static void Initialize(ILogManager manager)
-        {
-            _manager = manager;
-        }
-
         /// <summary>
         ///     Gets a logger for the type
         /// </summary>
@@ -76,11 +71,25 @@ namespace Ubiety.Xmpp.Core.Logging
         /// <returns>Name of the type</returns>
         public static string NameFor(Type type)
         {
-            if (!type.IsGenericType) return type.FullName;
+            if (!type.IsGenericType)
+            {
+                return type.FullName;
+            }
+
             var name = type.GetGenericTypeDefinition().FullName;
 
-            return name.Substring(0, name.IndexOf('`')) + "<" + string.Join(",",
+            return name.Substring(0, name.IndexOf('`')) + "<" + string.Join(
+                       ",",
                        type.GetGenericArguments().Select(NameFor).ToArray()) + ">";
+        }
+
+        /// <summary>
+        ///     Initializes the logger
+        /// </summary>
+        /// <param name="manager">Log manager</param>
+        internal static void Initialize(ILogManager manager)
+        {
+            _manager = manager;
         }
 
         private class DefaultManager : ILogManager

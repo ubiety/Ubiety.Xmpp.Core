@@ -14,7 +14,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
@@ -30,13 +29,8 @@ namespace Ubiety.Xmpp.Core.Registries
     /// </summary>
     public class TagRegistry
     {
-        private static readonly ILog Logger;
+        private static readonly ILog Logger = Log.Get<TagRegistry>();
         private readonly Dictionary<XName, Type> _types = new Dictionary<XName, Type>();
-
-        static TagRegistry()
-        {
-            Logger = Log.Get<TagRegistry>();
-        }
 
         /// <summary>
         ///     Add tags from the assembly to the registry
@@ -61,7 +55,8 @@ namespace Ubiety.Xmpp.Core.Registries
         /// <param name="name">Name of the tag</param>
         /// <param name="ns">Namespace of the tag</param>
         /// <returns>Tag requested from the registry</returns>
-        public T GetTag<T>(string name, string ns) where T : Tag
+        public T GetTag<T>(string name, string ns)
+            where T : Tag
         {
             return GetTag<T>(XName.Get(name, ns));
         }
@@ -83,12 +78,15 @@ namespace Ubiety.Xmpp.Core.Registries
                 var constructor = type.GetConstructor(new Type[] { });
                 if (constructor is null)
                 {
-                    constructor = type.GetConstructor(new[] {typeof(XName)});
-                    if (constructor != null) tag = (T) constructor.Invoke(new object[] {name});
+                    constructor = type.GetConstructor(new[] { typeof(XName) });
+                    if (constructor != null)
+                    {
+                        tag = (T)constructor.Invoke(new object[] { name });
+                    }
                 }
                 else
                 {
-                    tag = (T) constructor.Invoke(new object[] { });
+                    tag = (T)constructor.Invoke(new object[] { });
                 }
             }
             else
@@ -114,6 +112,7 @@ namespace Ubiety.Xmpp.Core.Registries
                 var gotType = _types.TryGetValue(element.Name, out var type);
 
                 if (!gotType)
+                {
                     switch (element.Name.LocalName)
                     {
                         case "iq":
@@ -124,15 +123,23 @@ namespace Ubiety.Xmpp.Core.Registries
                             gotType = _types.TryGetValue(element.Name, out type);
                             break;
                     }
+                }
 
                 if (gotType)
                 {
-                    var constructor = type.GetConstructor(new[] {element.GetType()});
-                    if (!(constructor is null)) return (T) constructor.Invoke(new object[] {element});
+                    var constructor = type.GetConstructor(new[] { element.GetType() });
+                    if (constructor is null)
+                    {
+                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
+                        if (defaultConstructorInfo is null)
+                        {
+                            return default(T);
+                        }
 
-                    var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] {typeof(Tag)});
-                    if (!(defaultConstructorInfo is null))
-                        return (T) defaultConstructorInfo.Invoke(new object[] {element});
+                        return (T)defaultConstructorInfo.Invoke(new object[] { element });
+                    }
+
+                    return (T)constructor.Invoke(new object[] { element });
                 }
             }
             catch (Exception e)

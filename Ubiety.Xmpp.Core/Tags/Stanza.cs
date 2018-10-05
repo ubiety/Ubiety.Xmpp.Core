@@ -24,20 +24,20 @@ namespace Ubiety.Xmpp.Core.Tags
     public class Stanza : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stanza"/> class
+        ///     Initializes a new instance of the <see cref="Stanza" /> class
         /// </summary>
         /// <param name="name">Name of the tag with namespace</param>
-        /// <inheritdoc />
-        public Stanza(XName name) : base(name)
+        public Stanza(XName name)
+            : base(name)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stanza"/> class
+        ///     Initializes a new instance of the <see cref="Stanza" /> class
         /// </summary>
         /// <param name="other">Tag to create the stanza with</param>
-        /// <inheritdoc />
-        public Stanza(XElement other) : base(other)
+        public Stanza(XElement other)
+            : base(other)
         {
         }
 

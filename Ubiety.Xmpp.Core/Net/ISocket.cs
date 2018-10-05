@@ -23,11 +23,6 @@ namespace Ubiety.Xmpp.Core.Net
     public interface ISocket
     {
         /// <summary>
-        ///     Gets a value indicating whether the socket is connected
-        /// </summary>
-        bool Connected { get; }
-
-        /// <summary>
         ///     Raised when data is received from the server
         /// </summary>
         event EventHandler<DataEventArgs> Data;
@@ -38,9 +33,14 @@ namespace Ubiety.Xmpp.Core.Net
         event EventHandler Connection;
 
         /// <summary>
+        ///     Gets a value indicating whether the socket is connected
+        /// </summary>
+        bool Connected { get; }
+
+        /// <summary>
         ///     Connect to an XMPP server
         /// </summary>
-        /// <param name="jid"><see cref="Jid"/> of the user</param>
+        /// <param name="jid"><see cref="Jid" /> of the user</param>
         void Connect(Jid jid);
 
         /// <summary>

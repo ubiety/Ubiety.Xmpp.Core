@@ -26,26 +26,24 @@ namespace Ubiety.Xmpp.Core.Tags.Error
     public class UndefinedCondition : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UndefinedCondition"/> class
+        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class
         /// </summary>
-        /// <inheritdoc />
-        public UndefinedCondition() : base(XmlName)
+        public UndefinedCondition()
+            : base(XmlName)
         {
-
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UndefinedCondition"/> class
+        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class
         /// </summary>
         /// <param name="element">Element to base the tag on</param>
-        /// <inheritdoc />
-        public UndefinedCondition(XElement element) : base(element)
+        public UndefinedCondition(XElement element)
+            : base(element)
         {
-
         }
 
         /// <summary>
-        ///     XML name of the tag
+        ///     Gets the XML name of the tag
         /// </summary>
         public static XName XmlName { get; } = XName.Get("undefined-condition", Namespaces.XmppStreams);
     }
