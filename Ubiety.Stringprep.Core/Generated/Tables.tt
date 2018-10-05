@@ -8,7 +8,7 @@
 <#@ output extension=".cs" #>
 using System.Collections.Generic;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core.Generated
 {
   internal static class Tables
   {
@@ -29,10 +29,12 @@ namespace StringPrep
         {
           var parts = line.Split(new []{' '}, 2, StringSplitOptions.None);
           type = parts[0].StartsWith("B") ? "Dictionary<int, int[]>" : "int[]";
-          tableName = parts[0].Replace('.', '_');
+          tableName = parts[0].Replace(".", string.Empty);
           context = parts[0][0];
 #>
+      /// <summary>
       /// <#= line #>
+      /// </summary>
 <#
       }
       else if (Regex.IsMatch(line, "^----- End Table .*? -----$"))
@@ -72,7 +74,7 @@ namespace StringPrep
         var parts = line.Split(';');
         var replacements = parts[1].Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
 #>
-      { 0x<#= parts[0] #>, new int[] { <# for (var i = 0; i < replacements.Count(); i++) {#>0x<#= replacements[i] #>,<#}#> } }, //<#= parts[2] #>
+      { 0x<#= parts[0] #>, new int[] { <# for (var i = 0; i < replacements.Count(); i++) {#>0x<#= replacements[i] #>, <#}#> } }, //<#= parts[2] #>
 <#
       }
       else if (context == 'C')
