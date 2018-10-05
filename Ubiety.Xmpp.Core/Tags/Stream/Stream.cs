@@ -27,7 +27,7 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
     public class Stream : Stanza
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stream"/> class
+        ///     Initializes a new instance of the <see cref="Stream" /> class
         /// </summary>
         public Stream()
             : base(XmlName)
@@ -35,7 +35,7 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stream"/> class
+        ///     Initializes a new instance of the <see cref="Stream" /> class
         /// </summary>
         /// <param name="other">Element to base the tag on</param>
         public Stream(XElement other)
@@ -83,7 +83,8 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         {
             get
             {
-                var tag = new StringBuilder($"<{XmlName.LocalName}:{XmlName.LocalName} xmlns:{XmlName.LocalName}=\'{XmlName.NamespaceName}\'");
+                var tag = new StringBuilder(
+                    $"<{XmlName.LocalName}:{XmlName.LocalName} xmlns:{XmlName.LocalName}=\'{XmlName.NamespaceName}\'");
                 foreach (var attribute in Attributes())
                 {
                     tag.Append($" {attribute.Name.LocalName}=\'{attribute.Value}\'");

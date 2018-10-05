@@ -12,6 +12,8 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System.Linq;
+
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
@@ -45,6 +47,16 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
             }
 
             return position;
+        }
+
+        /// <summary>
+        ///     Remove whitespace in a string
+        /// </summary>
+        /// <param name="data">Data to remove whitespace from</param>
+        /// <returns>String with no whitespace</returns>
+        public static string RemoveWhitespace(this string data)
+        {
+            return new string(data.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
         }
     }
 }

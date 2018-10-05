@@ -25,7 +25,7 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
     public class Auth : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Auth"/> class
+        ///     Initializes a new instance of the <see cref="Auth" /> class
         /// </summary>
         public Auth()
             : base(XmlName)
@@ -33,9 +33,9 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Auth"/> class
+        ///     Initializes a new instance of the <see cref="Auth" /> class
         /// </summary>
-        /// <param name="element"><see cref="XElement"/> to derive the tag from</param>
+        /// <param name="element"><see cref="XElement" /> to derive the tag from</param>
         public Auth(XElement element)
             : base(element)
         {

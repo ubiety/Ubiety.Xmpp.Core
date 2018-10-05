@@ -26,16 +26,16 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
     public class Features : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Features"/> class
+        ///     Initializes a new instance of the <see cref="Features" /> class
         /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive tag from</param>
         public Features(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Features"/> class
+        ///     Initializes a new instance of the <see cref="Features" /> class
         /// </summary>
         public Features()
             : base(XmlName)

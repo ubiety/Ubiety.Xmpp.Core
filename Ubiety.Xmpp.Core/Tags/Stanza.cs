@@ -24,7 +24,7 @@ namespace Ubiety.Xmpp.Core.Tags
     public class Stanza : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stanza"/> class
+        ///     Initializes a new instance of the <see cref="Stanza" /> class
         /// </summary>
         /// <param name="name">Name of the tag with namespace</param>
         public Stanza(XName name)
@@ -33,7 +33,7 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stanza"/> class
+        ///     Initializes a new instance of the <see cref="Stanza" /> class
         /// </summary>
         /// <param name="other">Tag to create the stanza with</param>
         public Stanza(XElement other)

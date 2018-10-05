@@ -15,7 +15,7 @@
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using StringPrep;
+using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Stringprep;
 
 namespace Ubiety.Xmpp.Core.Common
@@ -26,9 +26,9 @@ namespace Ubiety.Xmpp.Core.Common
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
-        private readonly IPreparationProcess nodeprep = NodeprepProfile.Create();
-        private readonly IPreparationProcess nameprep = NameprepProfile.Create();
-        private readonly IPreparationProcess resourceprep = ResourceprepProfile.Create();
+        private readonly IPreparationProcess _nameprep = NameprepProfile.Create();
+        private readonly IPreparationProcess _nodeprep = NodeprepProfile.Create();
+        private readonly IPreparationProcess _resourceprep = ResourceprepProfile.Create();
 
         private string _id;
         private string _resource;
@@ -45,7 +45,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Jid"/> class
+        ///     Initializes a new instance of the <see cref="Jid" /> class
         /// </summary>
         /// <param name="username">Username of the user</param>
         /// <param name="server">XMPP server of the user</param>
@@ -63,7 +63,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Resource
         {
             get => _resource;
-            private set => _resource = value is null ? null : resourceprep.Run(value);
+            private set => _resource = value is null ? null : _resourceprep.Run(value);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Server
         {
             get => _server;
-            private set => _server = value is null ? null : nameprep.Run(value);
+            private set => _server = value is null ? null : _nameprep.Run(value);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Ubiety.Xmpp.Core.Common
             private set
             {
                 var temp = Escape(value);
-                _user = nodeprep.Run(temp);
+                _user = _nodeprep.Run(temp);
             }
         }
 

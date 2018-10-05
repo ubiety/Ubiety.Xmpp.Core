@@ -79,8 +79,8 @@ namespace Ubiety.Xmpp.Core.Logging
             var name = type.GetGenericTypeDefinition().FullName;
 
             return name.Substring(0, name.IndexOf('`')) + "<" + string.Join(
-                ",",
-                type.GetGenericArguments().Select(NameFor).ToArray()) + ">";
+                       ",",
+                       type.GetGenericArguments().Select(NameFor).ToArray()) + ">";
         }
 
         /// <summary>

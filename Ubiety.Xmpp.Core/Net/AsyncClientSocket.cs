@@ -17,6 +17,7 @@ using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
@@ -34,9 +35,9 @@ namespace Ubiety.Xmpp.Core.Net
     {
         private const int BufferSize = 4 * 1024;
         private readonly IClient _client;
-        private readonly ILog _logger;
-        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
+        private readonly ILog _logger = Log.Get<AsyncClientSocket>();
         private readonly AutoResetEvent _resetEvent;
+        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -47,17 +48,16 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="client">Client to use for the server connection</param>
         public AsyncClientSocket(IClient client)
         {
-            _logger = Log.Get<AsyncClientSocket>();
             _client = client;
             _logger.Log(LogLevel.Debug, "AsyncClientSocket created");
             _resetEvent = new AutoResetEvent(false);
         }
 
         /// <inheritdoc />
-        public event EventHandler<DataEventArgs> Data;
+        public event EventHandler Connection;
 
         /// <inheritdoc />
-        public event EventHandler Connection;
+        public event EventHandler<DataEventArgs> Data;
 
         /// <inheritdoc />
         public bool Connected { get; private set; }
@@ -143,7 +143,8 @@ namespace Ubiety.Xmpp.Core.Net
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
             _logger.Log(LogLevel.Debug, "Authenticating as client...");
-            secureStream.AuthenticateAsClient(_address.Hostname);
+            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls12 | SslProtocols.Tls11, false);
+            _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol.ToString()}");
 
             if (secureStream.IsAuthenticated)
             {
@@ -193,7 +194,11 @@ namespace Ubiety.Xmpp.Core.Net
             }
         }
 
-        private bool CertificateValidation(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        private bool CertificateValidation(
+            object sender,
+            X509Certificate certificate,
+            X509Chain chain,
+            SslPolicyErrors sslPolicyErrors)
         {
             if (sslPolicyErrors == SslPolicyErrors.None)
             {
@@ -201,10 +206,10 @@ namespace Ubiety.Xmpp.Core.Net
             }
 
             if (chain.ChainStatus.Length == 1 &&
-                (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors || certificate.Subject == certificate.Issuer) &&
-                (chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot))
+                (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors ||
+                 certificate.Subject == certificate.Issuer) &&
+                chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot)
             {
-                // Trust self signed certificates
                 return true;
             }
 

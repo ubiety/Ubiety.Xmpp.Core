@@ -1,15 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
-  public class ProhibitedValueException : Exception
-  {
-    public ProhibitedValueException(char prohibited) : base($"The string contains the prohibited value: '{prohibited}'")
+    [Serializable]
+    public class ProhibitedValueException : Exception
     {
+        public ProhibitedValueException()
+        {
+        }
+
+        public ProhibitedValueException(char prohibited)
+            : base($"The string contains the prohibited value: '{prohibited}'")
+        {
+        }
+
+        public ProhibitedValueException(string message)
+            : base(message)
+        {
+        }
+
+        public ProhibitedValueException(string message, Exception innerException)
+            : base(message, innerException)
+        {
+        }
+
+        protected ProhibitedValueException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
     }
-  }
 }

@@ -21,6 +21,7 @@ namespace Ubiety.Xmpp.Core.States
     /// <summary>
     ///     SASL XMPP state
     /// </summary>
+    /// <inheritdoc />
     public class SaslState : IState
     {
         /// <summary>
@@ -28,6 +29,7 @@ namespace Ubiety.Xmpp.Core.States
         /// </summary>
         /// <param name="xmpp">Xmpp client to use</param>
         /// <param name="tag">Tag from the server</param>
+        /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             if (xmpp is XmppClient client)
@@ -35,13 +37,13 @@ namespace Ubiety.Xmpp.Core.States
                 var result = xmpp.SaslProcessor.Step(tag);
                 switch (result)
                 {
-                    case Success s:
+                    case Success _:
                         xmpp.ClientSocket.SetReadClear();
                         client.Authenticated = true;
                         client.State = new ConnectedState();
                         client.State.Execute(client);
                         break;
-                    case Failure f:
+                    case Failure _:
                         client.State = new DisconnectState();
                         client.State.Execute(client);
                         break;

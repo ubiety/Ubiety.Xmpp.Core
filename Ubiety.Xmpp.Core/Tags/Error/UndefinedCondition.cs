@@ -26,7 +26,7 @@ namespace Ubiety.Xmpp.Core.Tags.Error
     public class UndefinedCondition : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UndefinedCondition"/> class
+        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class
         /// </summary>
         public UndefinedCondition()
             : base(XmlName)
@@ -34,7 +34,7 @@ namespace Ubiety.Xmpp.Core.Tags.Error
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UndefinedCondition"/> class
+        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class
         /// </summary>
         /// <param name="element">Element to base the tag on</param>
         public UndefinedCondition(XElement element)

@@ -17,7 +17,7 @@ using System;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Type of authentication mechanmism
+    ///     Type of authentication mechanism
     /// </summary>
     [Flags]
     public enum MechanismTypes

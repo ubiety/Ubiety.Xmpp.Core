@@ -12,7 +12,7 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Attributes.XmppTagAttribute.#ctor(System.String,System.String,System.Type)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Attributes.XmppTagAttribute"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Attributes.XmppTagAttribute" /> class
             </summary>
             <param name="localName">local name of the tag</param>
             <param name="namespaceName">namespace name of the tag</param>
@@ -68,7 +68,7 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Common.Jid.#ctor(System.String,System.String,System.String)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> class
             </summary>
             <param name="username">Username of the user</param>
             <param name="server">XMPP server of the user</param>
@@ -136,7 +136,7 @@
         </member>
         <member name="T:Ubiety.Xmpp.Core.Common.MechanismTypes">
             <summary>
-                Type of authentication mechanmism
+                Type of authentication mechanism
             </summary>
         </member>
         <member name="F:Ubiety.Xmpp.Core.Common.MechanismTypes.None">
@@ -321,7 +321,7 @@
             <summary>
                 Connect to an XMPP server using a JID
             </summary>
-            <param name="jid"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> to use for connecting</param>
+            <param name="jid"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> to use for connecting</param>
             <param name="password">Password to connect with</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions">
@@ -331,7 +331,7 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions.GetAttributes``1(System.Reflection.Assembly)">
             <summary>
-               Gets all attributes of a specific type from the assembly
+                Gets all attributes of a specific type from the assembly
             </summary>
             <typeparam name="T">Type of the attribute to retrieve</typeparam>
             <param name="assembly">Assembly to iterate</param>
@@ -339,7 +339,7 @@
         </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions">
             <summary>
-                Byte extention methods
+                Byte extension methods
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.ByteExtensions.ExclusiveOr(System.Byte[],System.Byte[])">
@@ -375,6 +375,13 @@
             <param name="data">Data to read</param>
             <param name="token">Character to locate</param>
             <returns>Position of the character</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions.RemoveWhitespace(System.String)">
+            <summary>
+                Remove whitespace in a string
+            </summary>
+            <param name="data">Data to remove whitespace from</param>
+            <returns>String with no whitespace</returns>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Parser">
             <summary>
@@ -551,10 +558,10 @@
             </summary>
             <param name="client">Client to use for the server connection</param>
         </member>
-        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data">
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection">
             <inheritdoc />
         </member>
-        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection">
+        <member name="E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data">
             <inheritdoc />
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected">
@@ -629,7 +636,7 @@
             <summary>
                 Connect to an XMPP server
             </summary>
-            <param name="jid"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user</param>
+            <param name="jid"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the user</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.ISocket.Disconnect">
             <summary>
@@ -685,14 +692,14 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Md5Processor"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Md5Processor" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
             <summary>
                 Initializes the SASL processor
             </summary>
-            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user to authenticate</param>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the user to authenticate</param>
             <param name="password">Password to use for authentication</param>
             <returns>Next tag to send to the server</returns>
         </member>
@@ -719,7 +726,7 @@
             <summary>
                 Initializes the PLAIN SASL processor
             </summary>
-            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user to authenticate</param>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the user to authenticate</param>
             <param name="password">Password to use for authentication</param>
             <returns>Tag to send to server</returns>
         </member>
@@ -735,7 +742,7 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Id">
             <summary>
-                Gets or sets the user <see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> for the session
+                Gets or sets the user <see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> for the session
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Password">
@@ -756,7 +763,7 @@
             </summary>
             <param name="serverTypes">Server supported authentication mechanisms</param>
             <param name="clientTypes">Client supported authentication mechanisms</param>
-            <param name="xmpp"><see cref="T:Ubiety.Xmpp.Core.Common.XmppBase"/> instance</param>
+            <param name="xmpp"><see cref="T:Ubiety.Xmpp.Core.Common.XmppBase" /> instance</param>
             <returns>SASL processor of the most secure supported type</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
@@ -770,16 +777,16 @@
             <summary>
                 Initializes the SASL instance
             </summary>
-            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user for authentication</param>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the user for authentication</param>
             <param name="password">Password for authentication</param>
             <returns>Tag to send to server</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable{System.Byte})">
             <summary>
-                Converts a byte array to a hexidecimal string
+                Converts a byte array to a hexadecimal string
             </summary>
             <param name="buffer">Byte array buffer</param>
-            <returns>Hexidecimal encoded string</returns>
+            <returns>Hexadecimal encoded string</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64">
             <summary>
@@ -787,357 +794,40 @@
             </summary>
             <returns>Random Int64</returns>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateNonce">
+            <summary>
+                Create a new NONCE
+            </summary>
+            <returns>String GUID for NONCE</returns>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Sasl.ScramProcessor">
+            <inheritdoc />
             <summary>
                 SCRAM-SHA-1 SASL Processor
             </summary>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.#ctor(System.Boolean)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.ScramProcessor" /> class
+            </summary>
+            <param name="channelBinding">Do we want to use channel binding</param>
+        </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)">
+            <inheritdoc />
             <summary>
                 Initializes the SASL processor
             </summary>
-            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid"/> of the user for the session</param>
+            <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the user for the session</param>
             <param name="password">Password of the user</param>
             <returns>Next tag to send to the server</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Sasl.ScramProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)">
+            <inheritdoc />
             <summary>
                 Process the next SASL step
             </summary>
             <param name="tag">Tag received from the server</param>
             <returns>Next tag to send to the server</returns>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage">
-            <summary>
-                SCRAM client final message
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.#ctor(Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage,Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage"/> class
-            </summary>
-            <param name="firstMessage">Client first message</param>
-            <param name="serverMessage">Server message</param>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.MessageWithoutProof">
-            <summary>
-                Gets the final message without the client proof
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.Message">
-            <summary>
-                Gets the final message with client proof
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.Nonce">
-            <summary>
-                Gets the nonce
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.Channel">
-            <summary>
-                Gets the channel
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.ClientProof">
-            <summary>
-                Gets the client proof
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFinalMessage.SetProof(System.Byte[])">
-            <summary>
-                Sets the client proof
-            </summary>
-            <param name="proof">Client proof</param>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage">
-            <summary>
-                SCRAM SASL client messages
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.#ctor(System.String,System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage"/> class
-            </summary>
-            <param name="username">Username of the user to authenticate</param>
-            <param name="nonce">Nonce for the messages</param>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Gs2Header">
-            <summary>
-                Gets the GS2 header
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Message">
-            <summary>
-                Gets the client first message
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.FirstAuthMessage">
-            <summary>
-                Gets the first client authentication message
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Username">
-            <summary>
-                Gets the username
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ClientFirstMessage.Nonce">
-            <summary>
-                Gets the nonce
-            </summary>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.AuthorizationIdentityPart">
-            <summary>
-                Authorization Identity SCRAM part
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.AuthorizationIdentityPart.#ctor(System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.AuthorizationIdentityPart"/> class
-            </summary>
-            <param name="value">Value of the part</param>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ChannelPart">
-            <summary>
-                SCRAM channel part
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ChannelPart.#ctor(System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ChannelPart"/> class
-            </summary>
-            <param name="value">Channel value</param>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart">
-            <summary>
-                SCRAM client proof part
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart.#ctor(System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart"/> class
-            </summary>
-            <param name="value">Client proof value</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart.#ctor(System.Byte[])">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart"/> class
-            </summary>
-            <param name="value">Client proof calue</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ClientProofPart.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart">
-            <summary>
-                SCRAM iteration part
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart.#ctor(System.Int32)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart"/> class
-            </summary>
-            <param name="value">Iteration value</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart.#ctor(System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.IterationPart"/> class
-            </summary>
-            <param name="value">String version of the iteration value</param>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart">
-            <summary>
-                NONCE SCRAM SASL part
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart.#ctor(System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart"/> class
-            </summary>
-            <param name="value">Nonce value</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart.#ctor(System.String,System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.NoncePart"/> class
-            </summary>
-            <param name="clientNonce">Client nonce value</param>
-            <param name="serverNonce">Server nonce value</param>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart">
-            <summary>
-                SASL SCRAM salt part
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart.#ctor(System.Byte[])">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart"/> class
-            </summary>
-            <param name="value">Salt value</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart.#ctor(System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart"/> class
-            </summary>
-            <param name="value">String version of the salt</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.SaltPart.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart">
-            <summary>
-                SCRAM message part
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.AuthorizationIdentityLabel">
-            <summary>
-                Authorization identity label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.UsernameLabel">
-            <summary>
-                Username label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.MessageLabel">
-            <summary>
-                Message label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.NonceLabel">
-            <summary>
-                Nonce label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ChannelLabel">
-            <summary>
-                Channel label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.SaltLabel">
-            <summary>
-                Salt label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.IterationLabel">
-            <summary>
-                Iteration label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ClientProofLabel">
-            <summary>
-                Client proof label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ServerSignatureLabel">
-            <summary>
-                Server signature label
-            </summary>
-        </member>
-        <member name="F:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ErrorLabel">
-            <summary>
-                Error label
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.#ctor(System.Char)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart"/> class
-            </summary>
-            <param name="label">SCRAM label of the part</param>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.Label">
-            <summary>
-                Gets the SCRAM part label
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.ParseAll(System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-                Parse all parts
-            </summary>
-            <param name="parts">Collection of parts to parse</param>
-            <returns>Collection of part objects</returns>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart.Parse(System.String)">
-            <summary>
-                Parse a part into its object form
-            </summary>
-            <param name="part">String version of the part</param>
-            <returns>Object version of the part</returns>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1">
-            <summary>
-                SCRAM SASL part
-            </summary>
-            <typeparam name="T">Type of the part value</typeparam>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1.#ctor(System.Char,`0)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1"/> class
-            </summary>
-            <param name="label">Part label</param>
-            <param name="value">Part value</param>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1.Value">
-            <summary>
-                Gets the part value
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.ScramPart`1.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart">
-            <summary>
-                Username SCRAM SASL part
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart.#ctor(System.String)">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart"/> class
-            </summary>
-            <param name="value">Value of the part</param>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.Parts.UsernamePart.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="T:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage">
-            <summary>
-                SCRAM SASL server messages
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.#ctor(System.Int32,System.String,System.Byte[])">
-            <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage"/> class
-            </summary>
-            <param name="iterations">Iterations</param>
-            <param name="nonce">Nonce</param>
-            <param name="salt">Salt</param>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.FirstMessage">
-            <summary>
-                Gets the servers first message
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.Iterations">
-            <summary>
-                Gets the iterations
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.Nonce">
-            <summary>
-                Gets the nonce
-            </summary>
-        </member>
-        <member name="P:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.Salt">
-            <summary>
-                Gets the salt
-            </summary>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.Sasl.Scram.ServerMessage.ParseResponse(System.String)">
-            <summary>
-                Parse the server response
-            </summary>
-            <param name="response">Response from the server</param>
-            <returns>Server message</returns>
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.ConnectedState">
             <summary>
@@ -1158,6 +848,7 @@
             <inheritdoc />
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.DisconnectedState">
+            <inheritdoc />
             <summary>
                 Disconnected state
             </summary>
@@ -1190,6 +881,7 @@
             <summary>
                 SASL XMPP state
             </summary>
+            <inheritdoc />
         </member>
         <member name="M:Ubiety.Xmpp.Core.States.SaslState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)">
             <summary>
@@ -1197,6 +889,7 @@
             </summary>
             <param name="xmpp">Xmpp client to use</param>
             <param name="tag">Tag from the server</param>
+            <inheritdoc />
         </member>
         <member name="T:Ubiety.Xmpp.Core.States.StartTlsState">
             <inheritdoc />
@@ -1250,12 +943,12 @@
         </member>
         <member name="T:Ubiety.Xmpp.Core.Stringprep.SaslprepProfile">
             <summary>
-            SASLPrep Stringprep profile
+                SASLPrep Stringprep profile
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Stringprep.SaslprepProfile.Create">
             <summary>
-            Create the profile
+                Create the profile
             </summary>
             <returns>Profile process</returns>
         </member>
@@ -1267,12 +960,12 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition" /> class
             </summary>
             <param name="element">Element to base the tag on</param>
         </member>
@@ -1288,14 +981,14 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Auth.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Auth"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Auth" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Auth.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Auth"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Auth" /> class
             </summary>
-            <param name="element"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="element"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Auth.XmlName">
             <summary>
@@ -1314,13 +1007,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Challenge.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Challenge"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Challenge" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Challenge.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Challenge"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Challenge" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Challenge.XmlName">
@@ -1335,13 +1028,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Failure.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Failure"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Failure" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Failure.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Failure"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Failure" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Failure.XmlName">
@@ -1356,14 +1049,14 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism" /> class
             </summary>
-            <param name="element"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+            <param name="element"><see cref="T:System.Xml.Linq.XElement" /> to derive tag from</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.XmlName">
             <summary>
@@ -1372,7 +1065,7 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.Type">
             <summary>
-                Gets or sets the mechanmish type
+                Gets or sets the mechanism type
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.ToTypeFromString(System.String)">
@@ -1396,14 +1089,14 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms" /> class
             </summary>
-            <param name="element"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+            <param name="element"><see cref="T:System.Xml.Linq.XElement" /> to derive tag from</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.XmlName">
             <summary>
@@ -1422,13 +1115,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Response.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Response"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Response" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Response.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Response"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Response" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Response.XmlName">
@@ -1443,13 +1136,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Success"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Success" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Success"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Sasl.Success" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName">
@@ -1465,13 +1158,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stanza.#ctor(System.Xml.Linq.XName)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stanza"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stanza" /> class
             </summary>
             <param name="name">Name of the tag with namespace</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stanza.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stanza"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stanza" /> class
             </summary>
             <param name="other">Tag to create the stanza with</param>
         </member>
@@ -1516,13 +1209,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Features.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Features"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Features" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Features.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Features"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Features" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Stream.Features.XmlName">
@@ -1552,12 +1245,12 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Stream.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Stream"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Stream" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Stream.Stream.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Stream"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Stream.Stream" /> class
             </summary>
             <param name="other">Element to base the tag on</param>
         </member>
@@ -1599,15 +1292,15 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tag"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tag" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tag.#ctor(System.Xml.Linq.XName)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tag"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tag" /> class
             </summary>
-            <param name="name"><see cref="T:System.Xml.Linq.XName"/> of the tag</param>
+            <param name="name"><see cref="T:System.Xml.Linq.XName" /> of the tag</param>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Tag.Bytes">
             <summary>
@@ -1653,12 +1346,12 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Text.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Text"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Text" /> class
             </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Text.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Text"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Text" /> class
             </summary>
             <param name="other">Element to base the tag on</param>
         </member>
@@ -1672,13 +1365,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Proceed.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Proceed.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Proceed" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Tls.Proceed.XmlName">
@@ -1691,13 +1384,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Required.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Required"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Required" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.Required.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Required"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.Required" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Tls.Required.XmlName">
@@ -1710,13 +1403,13 @@
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.StartTls.#ctor(System.Xml.Linq.XElement)">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls" /> class
             </summary>
-            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive the tag from</param>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement" /> to derive the tag from</param>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Tags.Tls.StartTls.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls"/> class
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Tls.StartTls" /> class
             </summary>
         </member>
         <member name="P:Ubiety.Xmpp.Core.Tags.Tls.StartTls.XmlName">
@@ -1744,7 +1437,7 @@
             <summary>
                 Build a client connection
             </summary>
-            <returns>Returns a new <see cref="T:Ubiety.Xmpp.Core.XmppClientBuilder"/> instance</returns>
+            <returns>Returns a new <see cref="T:Ubiety.Xmpp.Core.XmppClientBuilder" /> instance</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.XmppBuilder.BuildServer">
             <summary>

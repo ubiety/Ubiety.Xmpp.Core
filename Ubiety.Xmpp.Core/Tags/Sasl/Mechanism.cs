@@ -25,7 +25,7 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
     public class Mechanism : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanism"/> class
+        ///     Initializes a new instance of the <see cref="Mechanism" /> class
         /// </summary>
         public Mechanism()
             : base(XmlName)
@@ -33,9 +33,9 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanism"/> class
+        ///     Initializes a new instance of the <see cref="Mechanism" /> class
         /// </summary>
-        /// <param name="element"><see cref="XElement"/> to derive tag from</param>
+        /// <param name="element"><see cref="XElement" /> to derive tag from</param>
         public Mechanism(XElement element)
             : base(element)
         {
@@ -47,19 +47,13 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         public static XName XmlName { get; } = XName.Get("mechanism", Namespaces.Sasl);
 
         /// <summary>
-        ///     Gets or sets the mechanmish type
+        ///     Gets or sets the mechanism type
         /// </summary>
         public MechanismTypes Type
         {
-            get
-            {
-                return ToTypeFromString(Value);
-            }
+            get => ToTypeFromString(Value);
 
-            set
-            {
-                Value = ToStringFromType(value);
-            }
+            set => Value = ToStringFromType(value);
         }
 
         /// <summary>

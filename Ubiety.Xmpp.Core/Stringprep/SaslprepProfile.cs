@@ -12,17 +12,17 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using StringPrep;
+using Ubiety.Stringprep.Core;
 
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    /// SASLPrep Stringprep profile
+    ///     SASLPrep Stringprep profile
     /// </summary>
     public static class SaslprepProfile
     {
         /// <summary>
-        /// Create the profile
+        ///     Create the profile
         /// </summary>
         /// <returns>Profile process</returns>
         public static IPreparationProcess Create()

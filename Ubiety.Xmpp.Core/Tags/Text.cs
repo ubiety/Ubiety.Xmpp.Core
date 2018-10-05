@@ -26,7 +26,7 @@ namespace Ubiety.Xmpp.Core.Tags
     public class Text : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Text"/> class
+        ///     Initializes a new instance of the <see cref="Text" /> class
         /// </summary>
         public Text()
             : base(XmlName)
@@ -34,7 +34,7 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Text"/> class
+        ///     Initializes a new instance of the <see cref="Text" /> class
         /// </summary>
         /// <param name="other">Element to base the tag on</param>
         public Text(XElement other)

@@ -40,7 +40,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <summary>
         ///     Connect to an XMPP server
         /// </summary>
-        /// <param name="jid"><see cref="Jid"/> of the user</param>
+        /// <param name="jid"><see cref="Jid" /> of the user</param>
         void Connect(Jid jid);
 
         /// <summary>

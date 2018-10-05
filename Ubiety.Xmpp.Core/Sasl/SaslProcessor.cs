@@ -35,7 +35,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         protected static XmppBase Client { get; set; }
 
         /// <summary>
-        ///     Gets or sets the user <see cref="Jid"/> for the session
+        ///     Gets or sets the user <see cref="Jid" /> for the session
         /// </summary>
         protected Jid Id { get; set; }
 
@@ -60,15 +60,25 @@ namespace Ubiety.Xmpp.Core.Sasl
         /// </summary>
         /// <param name="serverTypes">Server supported authentication mechanisms</param>
         /// <param name="clientTypes">Client supported authentication mechanisms</param>
-        /// <param name="xmpp"><see cref="XmppBase"/> instance</param>
+        /// <param name="xmpp"><see cref="XmppBase" /> instance</param>
         /// <returns>SASL processor of the most secure supported type</returns>
-        public static SaslProcessor CreateProcessor(MechanismTypes serverTypes, MechanismTypes clientTypes, XmppBase xmpp)
+        public static SaslProcessor CreateProcessor(
+            MechanismTypes serverTypes,
+            MechanismTypes clientTypes,
+            XmppBase xmpp)
         {
             Client = xmpp;
 
+            /* Disable SCRAM PLUS
+            if ((serverTypes & clientTypes & MechanismTypes.ScramPlus) == MechanismTypes.ScramPlus)
+            {
+                return new ScramProcessor(true);
+            }
+            */
+
             if ((serverTypes & clientTypes & MechanismTypes.Scram) == MechanismTypes.Scram)
             {
-                return new ScramProcessor();
+                return new ScramProcessor(false);
             }
 
             if ((serverTypes & clientTypes & MechanismTypes.DigestMd5) == MechanismTypes.DigestMd5)
@@ -94,7 +104,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         /// <summary>
         ///     Initializes the SASL instance
         /// </summary>
-        /// <param name="id"><see cref="Jid"/> of the user for authentication</param>
+        /// <param name="id"><see cref="Jid" /> of the user for authentication</param>
         /// <param name="password">Password for authentication</param>
         /// <returns>Tag to send to server</returns>
         public virtual Tag Initialize(Jid id, string password)
@@ -106,10 +116,10 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Converts a byte array to a hexidecimal string
+        ///     Converts a byte array to a hexadecimal string
         /// </summary>
         /// <param name="buffer">Byte array buffer</param>
-        /// <returns>Hexidecimal encoded string</returns>
+        /// <returns>Hexadecimal encoded string</returns>
         protected static string HexString(IEnumerable<byte> buffer)
         {
             var s = new StringBuilder();
@@ -131,6 +141,15 @@ namespace Ubiety.Xmpp.Core.Sasl
             var random = new RNGCryptoServiceProvider();
             random.GetBytes(bytes);
             return BitConverter.ToInt64(bytes, 0);
+        }
+
+        /// <summary>
+        ///     Create a new NONCE
+        /// </summary>
+        /// <returns>String GUID for NONCE</returns>
+        protected static string CreateNonce()
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }

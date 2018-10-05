@@ -25,16 +25,16 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
     public class Failure : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Failure"/> class
+        ///     Initializes a new instance of the <see cref="Failure" /> class
         /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive the tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive the tag from</param>
         public Failure(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Failure"/> class
+        ///     Initializes a new instance of the <see cref="Failure" /> class
         /// </summary>
         public Failure()
             : base(XmlName)

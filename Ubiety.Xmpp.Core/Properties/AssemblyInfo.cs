@@ -13,7 +13,6 @@
 //   limitations under the License.
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -46,4 +45,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("0.4.0.0")]
 [assembly: AssemblyFileVersion("0.4.0.0")]
 
-[assembly: AssemblyInformationalVersion("0.4.0-unstable.16+Branch.develop.Sha.b7668ab98a35ef0e0b5910292d311a40146590e7")]
+[assembly:
+    AssemblyInformationalVersion("0.4.0-unstable.16+Branch.develop.Sha.b7668ab98a35ef0e0b5910292d311a40146590e7")]

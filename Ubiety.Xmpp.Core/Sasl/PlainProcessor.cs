@@ -39,7 +39,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         /// <summary>
         ///     Initializes the PLAIN SASL processor
         /// </summary>
-        /// <param name="id"><see cref="Jid"/> of the user to authenticate</param>
+        /// <param name="id"><see cref="Jid" /> of the user to authenticate</param>
         /// <param name="password">Password to use for authentication</param>
         /// <returns>Tag to send to server</returns>
         public override Tag Initialize(Jid id, string password)

@@ -25,16 +25,16 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
     public class Response : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Response"/> class
+        ///     Initializes a new instance of the <see cref="Response" /> class
         /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive the tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive the tag from</param>
         public Response(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Response"/> class
+        ///     Initializes a new instance of the <see cref="Response" /> class
         /// </summary>
         public Response()
             : base(XmlName)

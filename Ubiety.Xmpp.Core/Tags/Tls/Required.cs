@@ -23,16 +23,16 @@ namespace Ubiety.Xmpp.Core.Tags.Tls
     public class Required : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Required"/> class
+        ///     Initializes a new instance of the <see cref="Required" /> class
         /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive the tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive the tag from</param>
         public Required(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Required"/> class
+        ///     Initializes a new instance of the <see cref="Required" /> class
         /// </summary>
         public Required()
             : base(XmlName)
