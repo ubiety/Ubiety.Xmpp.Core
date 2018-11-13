@@ -24,12 +24,7 @@ namespace Ubiety.Xmpp.Core.States
     /// <inheritdoc />
     public class DisconnectState : IState
     {
-        private static readonly ILog Logger;
-
-        static DisconnectState()
-        {
-            Logger = Log.Get<DisconnectState>();
-        }
+        private static readonly ILog Logger = Log.Get<DisconnectState>();
 
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)

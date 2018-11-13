@@ -69,10 +69,12 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             Client = xmpp;
 
+            /* Disable SCRAM PLUS
             if ((serverTypes & clientTypes & MechanismTypes.ScramPlus) == MechanismTypes.ScramPlus)
             {
                 return new ScramProcessor(true);
             }
+            */
 
             if ((serverTypes & clientTypes & MechanismTypes.Scram) == MechanismTypes.Scram)
             {
@@ -139,6 +141,15 @@ namespace Ubiety.Xmpp.Core.Sasl
             var random = new RNGCryptoServiceProvider();
             random.GetBytes(bytes);
             return BitConverter.ToInt64(bytes, 0);
+        }
+
+        /// <summary>
+        ///     Create a new NONCE
+        /// </summary>
+        /// <returns>String GUID for NONCE</returns>
+        protected static string CreateNonce()
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }

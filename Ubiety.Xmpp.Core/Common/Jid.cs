@@ -15,7 +15,7 @@
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using StringPrep;
+using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Stringprep;
 
 namespace Ubiety.Xmpp.Core.Common

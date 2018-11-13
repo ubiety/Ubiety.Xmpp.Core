@@ -30,7 +30,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
     public sealed class Parser
     {
         private readonly Queue<string> _dataQueue;
-        private readonly ILog _logger;
+        private readonly ILog _logger = Log.Get<Parser>();
         private readonly XmppBase _xmpp;
         private XmlNamespaceManager _namespaceManager;
         private bool _running;
@@ -41,7 +41,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         /// <param name="xmpp">XMPP instance</param>
         public Parser(XmppBase xmpp)
         {
-            _logger = Log.Get<Parser>();
             _xmpp = xmpp;
             _dataQueue = new Queue<string>();
             _xmpp.ClientSocket.Data += ClientSocket_Data;
@@ -57,14 +56,12 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         {
             get
             {
-                if (!(_namespaceManager is null))
+                if (_namespaceManager is null)
                 {
-                    return _namespaceManager;
+                    _namespaceManager = new XmlNamespaceManager(new NameTable());
+                    _namespaceManager.AddNamespace(string.Empty, Namespaces.Client);
+                    _namespaceManager.AddNamespace("stream", Namespaces.Stream);
                 }
-
-                _namespaceManager = new XmlNamespaceManager(new NameTable());
-                _namespaceManager.AddNamespace(string.Empty, Namespaces.Client);
-                _namespaceManager.AddNamespace("stream", Namespaces.Stream);
 
                 return _namespaceManager;
             }
@@ -90,7 +87,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
 
         private void OnTag(Tag tag)
         {
-            Tag?.Invoke(this, new TagEventArgs {Tag = tag});
+            Tag?.Invoke(this, new TagEventArgs { Tag = tag });
         }
 
         private void ProcessQueue()

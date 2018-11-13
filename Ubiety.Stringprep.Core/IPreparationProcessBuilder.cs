@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace StringPrep
+namespace Ubiety.Stringprep.Core
 {
     public interface IPreparationProcessBuilder
     {

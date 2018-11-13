@@ -114,8 +114,8 @@ namespace Ubiety.Xmpp.Core.Tags
                 return default(T);
             }
 
-            var constructor = GetConstructor(typeof(T), new[] {typeof(XElement)});
-            return (T)constructor?.Invoke(new object[] {element});
+            var constructor = GetConstructor(typeof(T), new[] { typeof(XElement) });
+            return (T)constructor?.Invoke(new object[] { element });
         }
     }
 }

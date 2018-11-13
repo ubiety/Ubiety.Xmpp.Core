@@ -1,11 +1,41 @@
-﻿using System.Collections.Generic;
+﻿// This is free and unencumbered software released into the public domain.
+//
+// Anyone is free to copy, modify, publish, use, compile, sell, or
+// distribute this software, either in source code form or as a compiled
+// binary, for any purpose, commercial or non-commercial, and by any
+// means.
+//
+// In jurisdictions that recognize copyright laws, the author or authors
+// of this software dedicate any and all copyright interest in the
+// software to the public domain. We make this dedication for the benefit
+// of the public at large and to the detriment of our heirs and
+// successors. We intend this dedication to be an overt act of
+// relinquishment in perpetuity of all present and future rights to this
+// software under copyright law.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+// OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+// OTHER DEALINGS IN THE SOFTWARE.
+//
+// For more information, please refer to <http://unlicense.org/>
 
-namespace StringPrep
+using System.Collections.Generic;
+
+namespace Ubiety.Stringprep.Core.Generated
 {
+    /// <summary>
+    ///     Character tables
+    /// </summary>
     internal static class Tables
     {
-        /// A.1 Unassigned code points in Unicode 3.2
-        public static readonly int[] A_1 =
+        /// <summary>
+        ///     A.1 Unassigned code points in Unicode 3.2
+        /// </summary>
+        public static readonly int[] A1 =
         {
             0x0221, 0x0221,
             0x0234, 0x024F,
@@ -405,2266 +435,2277 @@ namespace StringPrep
             0xE0080, 0xEFFFD
         };
 
-        /// B.1 Commonly mapped to nothing
-        public static readonly Dictionary<int, int[]> B_1 = new Dictionary<int, int[]>
+        /// <summary>
+        ///     B.1 Commonly mapped to nothing
+        /// </summary>
+        public static readonly Dictionary<int, int[]> B1 = new Dictionary<int, int[]>
         {
-            {0x00AD, new int[] { }}, // Map to nothing
-            {0x034F, new int[] { }}, // Map to nothing
-            {0x1806, new int[] { }}, // Map to nothing
-            {0x180B, new int[] { }}, // Map to nothing
-            {0x180C, new int[] { }}, // Map to nothing
-            {0x180D, new int[] { }}, // Map to nothing
-            {0x200B, new int[] { }}, // Map to nothing
-            {0x200C, new int[] { }}, // Map to nothing
-            {0x200D, new int[] { }}, // Map to nothing
-            {0x2060, new int[] { }}, // Map to nothing
-            {0xFE00, new int[] { }}, // Map to nothing
-            {0xFE01, new int[] { }}, // Map to nothing
-            {0xFE02, new int[] { }}, // Map to nothing
-            {0xFE03, new int[] { }}, // Map to nothing
-            {0xFE04, new int[] { }}, // Map to nothing
-            {0xFE05, new int[] { }}, // Map to nothing
-            {0xFE06, new int[] { }}, // Map to nothing
-            {0xFE07, new int[] { }}, // Map to nothing
-            {0xFE08, new int[] { }}, // Map to nothing
-            {0xFE09, new int[] { }}, // Map to nothing
-            {0xFE0A, new int[] { }}, // Map to nothing
-            {0xFE0B, new int[] { }}, // Map to nothing
-            {0xFE0C, new int[] { }}, // Map to nothing
-            {0xFE0D, new int[] { }}, // Map to nothing
-            {0xFE0E, new int[] { }}, // Map to nothing
-            {0xFE0F, new int[] { }}, // Map to nothing
-            {0xFEFF, new int[] { }} // Map to nothing
+            { 0x00AD, new int[] { } }, // Map to nothing
+            { 0x034F, new int[] { } }, // Map to nothing
+            { 0x1806, new int[] { } }, // Map to nothing
+            { 0x180B, new int[] { } }, // Map to nothing
+            { 0x180C, new int[] { } }, // Map to nothing
+            { 0x180D, new int[] { } }, // Map to nothing
+            { 0x200B, new int[] { } }, // Map to nothing
+            { 0x200C, new int[] { } }, // Map to nothing
+            { 0x200D, new int[] { } }, // Map to nothing
+            { 0x2060, new int[] { } }, // Map to nothing
+            { 0xFE00, new int[] { } }, // Map to nothing
+            { 0xFE01, new int[] { } }, // Map to nothing
+            { 0xFE02, new int[] { } }, // Map to nothing
+            { 0xFE03, new int[] { } }, // Map to nothing
+            { 0xFE04, new int[] { } }, // Map to nothing
+            { 0xFE05, new int[] { } }, // Map to nothing
+            { 0xFE06, new int[] { } }, // Map to nothing
+            { 0xFE07, new int[] { } }, // Map to nothing
+            { 0xFE08, new int[] { } }, // Map to nothing
+            { 0xFE09, new int[] { } }, // Map to nothing
+            { 0xFE0A, new int[] { } }, // Map to nothing
+            { 0xFE0B, new int[] { } }, // Map to nothing
+            { 0xFE0C, new int[] { } }, // Map to nothing
+            { 0xFE0D, new int[] { } }, // Map to nothing
+            { 0xFE0E, new int[] { } }, // Map to nothing
+            { 0xFE0F, new int[] { } }, // Map to nothing
+            { 0xFEFF, new int[] { } } // Map to nothing
         };
 
-        /// B.2 Mapping for case-folding used with NFKC
-        public static readonly Dictionary<int, int[]> B_2 = new Dictionary<int, int[]>
+        /// <summary>
+        ///     B.2 Mapping for case-folding used with NFKC
+        /// </summary>
+        public static readonly Dictionary<int, int[]> B2 = new Dictionary<int, int[]>
         {
-            {0x0041, new[] {0x0061}}, // Case map
-            {0x0042, new[] {0x0062}}, // Case map
-            {0x0043, new[] {0x0063}}, // Case map
-            {0x0044, new[] {0x0064}}, // Case map
-            {0x0045, new[] {0x0065}}, // Case map
-            {0x0046, new[] {0x0066}}, // Case map
-            {0x0047, new[] {0x0067}}, // Case map
-            {0x0048, new[] {0x0068}}, // Case map
-            {0x0049, new[] {0x0069}}, // Case map
-            {0x004A, new[] {0x006A}}, // Case map
-            {0x004B, new[] {0x006B}}, // Case map
-            {0x004C, new[] {0x006C}}, // Case map
-            {0x004D, new[] {0x006D}}, // Case map
-            {0x004E, new[] {0x006E}}, // Case map
-            {0x004F, new[] {0x006F}}, // Case map
-            {0x0050, new[] {0x0070}}, // Case map
-            {0x0051, new[] {0x0071}}, // Case map
-            {0x0052, new[] {0x0072}}, // Case map
-            {0x0053, new[] {0x0073}}, // Case map
-            {0x0054, new[] {0x0074}}, // Case map
-            {0x0055, new[] {0x0075}}, // Case map
-            {0x0056, new[] {0x0076}}, // Case map
-            {0x0057, new[] {0x0077}}, // Case map
-            {0x0058, new[] {0x0078}}, // Case map
-            {0x0059, new[] {0x0079}}, // Case map
-            {0x005A, new[] {0x007A}}, // Case map
-            {0x00B5, new[] {0x03BC}}, // Case map
-            {0x00C0, new[] {0x00E0}}, // Case map
-            {0x00C1, new[] {0x00E1}}, // Case map
-            {0x00C2, new[] {0x00E2}}, // Case map
-            {0x00C3, new[] {0x00E3}}, // Case map
-            {0x00C4, new[] {0x00E4}}, // Case map
-            {0x00C5, new[] {0x00E5}}, // Case map
-            {0x00C6, new[] {0x00E6}}, // Case map
-            {0x00C7, new[] {0x00E7}}, // Case map
-            {0x00C8, new[] {0x00E8}}, // Case map
-            {0x00C9, new[] {0x00E9}}, // Case map
-            {0x00CA, new[] {0x00EA}}, // Case map
-            {0x00CB, new[] {0x00EB}}, // Case map
-            {0x00CC, new[] {0x00EC}}, // Case map
-            {0x00CD, new[] {0x00ED}}, // Case map
-            {0x00CE, new[] {0x00EE}}, // Case map
-            {0x00CF, new[] {0x00EF}}, // Case map
-            {0x00D0, new[] {0x00F0}}, // Case map
-            {0x00D1, new[] {0x00F1}}, // Case map
-            {0x00D2, new[] {0x00F2}}, // Case map
-            {0x00D3, new[] {0x00F3}}, // Case map
-            {0x00D4, new[] {0x00F4}}, // Case map
-            {0x00D5, new[] {0x00F5}}, // Case map
-            {0x00D6, new[] {0x00F6}}, // Case map
-            {0x00D8, new[] {0x00F8}}, // Case map
-            {0x00D9, new[] {0x00F9}}, // Case map
-            {0x00DA, new[] {0x00FA}}, // Case map
-            {0x00DB, new[] {0x00FB}}, // Case map
-            {0x00DC, new[] {0x00FC}}, // Case map
-            {0x00DD, new[] {0x00FD}}, // Case map
-            {0x00DE, new[] {0x00FE}}, // Case map
-            {0x00DF, new[] {0x0073, 0x0073}}, // Case map
-            {0x0100, new[] {0x0101}}, // Case map
-            {0x0102, new[] {0x0103}}, // Case map
-            {0x0104, new[] {0x0105}}, // Case map
-            {0x0106, new[] {0x0107}}, // Case map
-            {0x0108, new[] {0x0109}}, // Case map
-            {0x010A, new[] {0x010B}}, // Case map
-            {0x010C, new[] {0x010D}}, // Case map
-            {0x010E, new[] {0x010F}}, // Case map
-            {0x0110, new[] {0x0111}}, // Case map
-            {0x0112, new[] {0x0113}}, // Case map
-            {0x0114, new[] {0x0115}}, // Case map
-            {0x0116, new[] {0x0117}}, // Case map
-            {0x0118, new[] {0x0119}}, // Case map
-            {0x011A, new[] {0x011B}}, // Case map
-            {0x011C, new[] {0x011D}}, // Case map
-            {0x011E, new[] {0x011F}}, // Case map
-            {0x0120, new[] {0x0121}}, // Case map
-            {0x0122, new[] {0x0123}}, // Case map
-            {0x0124, new[] {0x0125}}, // Case map
-            {0x0126, new[] {0x0127}}, // Case map
-            {0x0128, new[] {0x0129}}, // Case map
-            {0x012A, new[] {0x012B}}, // Case map
-            {0x012C, new[] {0x012D}}, // Case map
-            {0x012E, new[] {0x012F}}, // Case map
-            {0x0130, new[] {0x0069, 0x0307}}, // Case map
-            {0x0132, new[] {0x0133}}, // Case map
-            {0x0134, new[] {0x0135}}, // Case map
-            {0x0136, new[] {0x0137}}, // Case map
-            {0x0139, new[] {0x013A}}, // Case map
-            {0x013B, new[] {0x013C}}, // Case map
-            {0x013D, new[] {0x013E}}, // Case map
-            {0x013F, new[] {0x0140}}, // Case map
-            {0x0141, new[] {0x0142}}, // Case map
-            {0x0143, new[] {0x0144}}, // Case map
-            {0x0145, new[] {0x0146}}, // Case map
-            {0x0147, new[] {0x0148}}, // Case map
-            {0x0149, new[] {0x02BC, 0x006E}}, // Case map
-            {0x014A, new[] {0x014B}}, // Case map
-            {0x014C, new[] {0x014D}}, // Case map
-            {0x014E, new[] {0x014F}}, // Case map
-            {0x0150, new[] {0x0151}}, // Case map
-            {0x0152, new[] {0x0153}}, // Case map
-            {0x0154, new[] {0x0155}}, // Case map
-            {0x0156, new[] {0x0157}}, // Case map
-            {0x0158, new[] {0x0159}}, // Case map
-            {0x015A, new[] {0x015B}}, // Case map
-            {0x015C, new[] {0x015D}}, // Case map
-            {0x015E, new[] {0x015F}}, // Case map
-            {0x0160, new[] {0x0161}}, // Case map
-            {0x0162, new[] {0x0163}}, // Case map
-            {0x0164, new[] {0x0165}}, // Case map
-            {0x0166, new[] {0x0167}}, // Case map
-            {0x0168, new[] {0x0169}}, // Case map
-            {0x016A, new[] {0x016B}}, // Case map
-            {0x016C, new[] {0x016D}}, // Case map
-            {0x016E, new[] {0x016F}}, // Case map
-            {0x0170, new[] {0x0171}}, // Case map
-            {0x0172, new[] {0x0173}}, // Case map
-            {0x0174, new[] {0x0175}}, // Case map
-            {0x0176, new[] {0x0177}}, // Case map
-            {0x0178, new[] {0x00FF}}, // Case map
-            {0x0179, new[] {0x017A}}, // Case map
-            {0x017B, new[] {0x017C}}, // Case map
-            {0x017D, new[] {0x017E}}, // Case map
-            {0x017F, new[] {0x0073}}, // Case map
-            {0x0181, new[] {0x0253}}, // Case map
-            {0x0182, new[] {0x0183}}, // Case map
-            {0x0184, new[] {0x0185}}, // Case map
-            {0x0186, new[] {0x0254}}, // Case map
-            {0x0187, new[] {0x0188}}, // Case map
-            {0x0189, new[] {0x0256}}, // Case map
-            {0x018A, new[] {0x0257}}, // Case map
-            {0x018B, new[] {0x018C}}, // Case map
-            {0x018E, new[] {0x01DD}}, // Case map
-            {0x018F, new[] {0x0259}}, // Case map
-            {0x0190, new[] {0x025B}}, // Case map
-            {0x0191, new[] {0x0192}}, // Case map
-            {0x0193, new[] {0x0260}}, // Case map
-            {0x0194, new[] {0x0263}}, // Case map
-            {0x0196, new[] {0x0269}}, // Case map
-            {0x0197, new[] {0x0268}}, // Case map
-            {0x0198, new[] {0x0199}}, // Case map
-            {0x019C, new[] {0x026F}}, // Case map
-            {0x019D, new[] {0x0272}}, // Case map
-            {0x019F, new[] {0x0275}}, // Case map
-            {0x01A0, new[] {0x01A1}}, // Case map
-            {0x01A2, new[] {0x01A3}}, // Case map
-            {0x01A4, new[] {0x01A5}}, // Case map
-            {0x01A6, new[] {0x0280}}, // Case map
-            {0x01A7, new[] {0x01A8}}, // Case map
-            {0x01A9, new[] {0x0283}}, // Case map
-            {0x01AC, new[] {0x01AD}}, // Case map
-            {0x01AE, new[] {0x0288}}, // Case map
-            {0x01AF, new[] {0x01B0}}, // Case map
-            {0x01B1, new[] {0x028A}}, // Case map
-            {0x01B2, new[] {0x028B}}, // Case map
-            {0x01B3, new[] {0x01B4}}, // Case map
-            {0x01B5, new[] {0x01B6}}, // Case map
-            {0x01B7, new[] {0x0292}}, // Case map
-            {0x01B8, new[] {0x01B9}}, // Case map
-            {0x01BC, new[] {0x01BD}}, // Case map
-            {0x01C4, new[] {0x01C6}}, // Case map
-            {0x01C5, new[] {0x01C6}}, // Case map
-            {0x01C7, new[] {0x01C9}}, // Case map
-            {0x01C8, new[] {0x01C9}}, // Case map
-            {0x01CA, new[] {0x01CC}}, // Case map
-            {0x01CB, new[] {0x01CC}}, // Case map
-            {0x01CD, new[] {0x01CE}}, // Case map
-            {0x01CF, new[] {0x01D0}}, // Case map
-            {0x01D1, new[] {0x01D2}}, // Case map
-            {0x01D3, new[] {0x01D4}}, // Case map
-            {0x01D5, new[] {0x01D6}}, // Case map
-            {0x01D7, new[] {0x01D8}}, // Case map
-            {0x01D9, new[] {0x01DA}}, // Case map
-            {0x01DB, new[] {0x01DC}}, // Case map
-            {0x01DE, new[] {0x01DF}}, // Case map
-            {0x01E0, new[] {0x01E1}}, // Case map
-            {0x01E2, new[] {0x01E3}}, // Case map
-            {0x01E4, new[] {0x01E5}}, // Case map
-            {0x01E6, new[] {0x01E7}}, // Case map
-            {0x01E8, new[] {0x01E9}}, // Case map
-            {0x01EA, new[] {0x01EB}}, // Case map
-            {0x01EC, new[] {0x01ED}}, // Case map
-            {0x01EE, new[] {0x01EF}}, // Case map
-            {0x01F0, new[] {0x006A, 0x030C}}, // Case map
-            {0x01F1, new[] {0x01F3}}, // Case map
-            {0x01F2, new[] {0x01F3}}, // Case map
-            {0x01F4, new[] {0x01F5}}, // Case map
-            {0x01F6, new[] {0x0195}}, // Case map
-            {0x01F7, new[] {0x01BF}}, // Case map
-            {0x01F8, new[] {0x01F9}}, // Case map
-            {0x01FA, new[] {0x01FB}}, // Case map
-            {0x01FC, new[] {0x01FD}}, // Case map
-            {0x01FE, new[] {0x01FF}}, // Case map
-            {0x0200, new[] {0x0201}}, // Case map
-            {0x0202, new[] {0x0203}}, // Case map
-            {0x0204, new[] {0x0205}}, // Case map
-            {0x0206, new[] {0x0207}}, // Case map
-            {0x0208, new[] {0x0209}}, // Case map
-            {0x020A, new[] {0x020B}}, // Case map
-            {0x020C, new[] {0x020D}}, // Case map
-            {0x020E, new[] {0x020F}}, // Case map
-            {0x0210, new[] {0x0211}}, // Case map
-            {0x0212, new[] {0x0213}}, // Case map
-            {0x0214, new[] {0x0215}}, // Case map
-            {0x0216, new[] {0x0217}}, // Case map
-            {0x0218, new[] {0x0219}}, // Case map
-            {0x021A, new[] {0x021B}}, // Case map
-            {0x021C, new[] {0x021D}}, // Case map
-            {0x021E, new[] {0x021F}}, // Case map
-            {0x0220, new[] {0x019E}}, // Case map
-            {0x0222, new[] {0x0223}}, // Case map
-            {0x0224, new[] {0x0225}}, // Case map
-            {0x0226, new[] {0x0227}}, // Case map
-            {0x0228, new[] {0x0229}}, // Case map
-            {0x022A, new[] {0x022B}}, // Case map
-            {0x022C, new[] {0x022D}}, // Case map
-            {0x022E, new[] {0x022F}}, // Case map
-            {0x0230, new[] {0x0231}}, // Case map
-            {0x0232, new[] {0x0233}}, // Case map
-            {0x0345, new[] {0x03B9}}, // Case map
-            {0x037A, new[] {0x0020, 0x03B9}}, // Additional folding
-            {0x0386, new[] {0x03AC}}, // Case map
-            {0x0388, new[] {0x03AD}}, // Case map
-            {0x0389, new[] {0x03AE}}, // Case map
-            {0x038A, new[] {0x03AF}}, // Case map
-            {0x038C, new[] {0x03CC}}, // Case map
-            {0x038E, new[] {0x03CD}}, // Case map
-            {0x038F, new[] {0x03CE}}, // Case map
-            {0x0390, new[] {0x03B9, 0x0308, 0x0301}}, // Case map
-            {0x0391, new[] {0x03B1}}, // Case map
-            {0x0392, new[] {0x03B2}}, // Case map
-            {0x0393, new[] {0x03B3}}, // Case map
-            {0x0394, new[] {0x03B4}}, // Case map
-            {0x0395, new[] {0x03B5}}, // Case map
-            {0x0396, new[] {0x03B6}}, // Case map
-            {0x0397, new[] {0x03B7}}, // Case map
-            {0x0398, new[] {0x03B8}}, // Case map
-            {0x0399, new[] {0x03B9}}, // Case map
-            {0x039A, new[] {0x03BA}}, // Case map
-            {0x039B, new[] {0x03BB}}, // Case map
-            {0x039C, new[] {0x03BC}}, // Case map
-            {0x039D, new[] {0x03BD}}, // Case map
-            {0x039E, new[] {0x03BE}}, // Case map
-            {0x039F, new[] {0x03BF}}, // Case map
-            {0x03A0, new[] {0x03C0}}, // Case map
-            {0x03A1, new[] {0x03C1}}, // Case map
-            {0x03A3, new[] {0x03C3}}, // Case map
-            {0x03A4, new[] {0x03C4}}, // Case map
-            {0x03A5, new[] {0x03C5}}, // Case map
-            {0x03A6, new[] {0x03C6}}, // Case map
-            {0x03A7, new[] {0x03C7}}, // Case map
-            {0x03A8, new[] {0x03C8}}, // Case map
-            {0x03A9, new[] {0x03C9}}, // Case map
-            {0x03AA, new[] {0x03CA}}, // Case map
-            {0x03AB, new[] {0x03CB}}, // Case map
-            {0x03B0, new[] {0x03C5, 0x0308, 0x0301}}, // Case map
-            {0x03C2, new[] {0x03C3}}, // Case map
-            {0x03D0, new[] {0x03B2}}, // Case map
-            {0x03D1, new[] {0x03B8}}, // Case map
-            {0x03D2, new[] {0x03C5}}, // Additional folding
-            {0x03D3, new[] {0x03CD}}, // Additional folding
-            {0x03D4, new[] {0x03CB}}, // Additional folding
-            {0x03D5, new[] {0x03C6}}, // Case map
-            {0x03D6, new[] {0x03C0}}, // Case map
-            {0x03D8, new[] {0x03D9}}, // Case map
-            {0x03DA, new[] {0x03DB}}, // Case map
-            {0x03DC, new[] {0x03DD}}, // Case map
-            {0x03DE, new[] {0x03DF}}, // Case map
-            {0x03E0, new[] {0x03E1}}, // Case map
-            {0x03E2, new[] {0x03E3}}, // Case map
-            {0x03E4, new[] {0x03E5}}, // Case map
-            {0x03E6, new[] {0x03E7}}, // Case map
-            {0x03E8, new[] {0x03E9}}, // Case map
-            {0x03EA, new[] {0x03EB}}, // Case map
-            {0x03EC, new[] {0x03ED}}, // Case map
-            {0x03EE, new[] {0x03EF}}, // Case map
-            {0x03F0, new[] {0x03BA}}, // Case map
-            {0x03F1, new[] {0x03C1}}, // Case map
-            {0x03F2, new[] {0x03C3}}, // Case map
-            {0x03F4, new[] {0x03B8}}, // Case map
-            {0x03F5, new[] {0x03B5}}, // Case map
-            {0x0400, new[] {0x0450}}, // Case map
-            {0x0401, new[] {0x0451}}, // Case map
-            {0x0402, new[] {0x0452}}, // Case map
-            {0x0403, new[] {0x0453}}, // Case map
-            {0x0404, new[] {0x0454}}, // Case map
-            {0x0405, new[] {0x0455}}, // Case map
-            {0x0406, new[] {0x0456}}, // Case map
-            {0x0407, new[] {0x0457}}, // Case map
-            {0x0408, new[] {0x0458}}, // Case map
-            {0x0409, new[] {0x0459}}, // Case map
-            {0x040A, new[] {0x045A}}, // Case map
-            {0x040B, new[] {0x045B}}, // Case map
-            {0x040C, new[] {0x045C}}, // Case map
-            {0x040D, new[] {0x045D}}, // Case map
-            {0x040E, new[] {0x045E}}, // Case map
-            {0x040F, new[] {0x045F}}, // Case map
-            {0x0410, new[] {0x0430}}, // Case map
-            {0x0411, new[] {0x0431}}, // Case map
-            {0x0412, new[] {0x0432}}, // Case map
-            {0x0413, new[] {0x0433}}, // Case map
-            {0x0414, new[] {0x0434}}, // Case map
-            {0x0415, new[] {0x0435}}, // Case map
-            {0x0416, new[] {0x0436}}, // Case map
-            {0x0417, new[] {0x0437}}, // Case map
-            {0x0418, new[] {0x0438}}, // Case map
-            {0x0419, new[] {0x0439}}, // Case map
-            {0x041A, new[] {0x043A}}, // Case map
-            {0x041B, new[] {0x043B}}, // Case map
-            {0x041C, new[] {0x043C}}, // Case map
-            {0x041D, new[] {0x043D}}, // Case map
-            {0x041E, new[] {0x043E}}, // Case map
-            {0x041F, new[] {0x043F}}, // Case map
-            {0x0420, new[] {0x0440}}, // Case map
-            {0x0421, new[] {0x0441}}, // Case map
-            {0x0422, new[] {0x0442}}, // Case map
-            {0x0423, new[] {0x0443}}, // Case map
-            {0x0424, new[] {0x0444}}, // Case map
-            {0x0425, new[] {0x0445}}, // Case map
-            {0x0426, new[] {0x0446}}, // Case map
-            {0x0427, new[] {0x0447}}, // Case map
-            {0x0428, new[] {0x0448}}, // Case map
-            {0x0429, new[] {0x0449}}, // Case map
-            {0x042A, new[] {0x044A}}, // Case map
-            {0x042B, new[] {0x044B}}, // Case map
-            {0x042C, new[] {0x044C}}, // Case map
-            {0x042D, new[] {0x044D}}, // Case map
-            {0x042E, new[] {0x044E}}, // Case map
-            {0x042F, new[] {0x044F}}, // Case map
-            {0x0460, new[] {0x0461}}, // Case map
-            {0x0462, new[] {0x0463}}, // Case map
-            {0x0464, new[] {0x0465}}, // Case map
-            {0x0466, new[] {0x0467}}, // Case map
-            {0x0468, new[] {0x0469}}, // Case map
-            {0x046A, new[] {0x046B}}, // Case map
-            {0x046C, new[] {0x046D}}, // Case map
-            {0x046E, new[] {0x046F}}, // Case map
-            {0x0470, new[] {0x0471}}, // Case map
-            {0x0472, new[] {0x0473}}, // Case map
-            {0x0474, new[] {0x0475}}, // Case map
-            {0x0476, new[] {0x0477}}, // Case map
-            {0x0478, new[] {0x0479}}, // Case map
-            {0x047A, new[] {0x047B}}, // Case map
-            {0x047C, new[] {0x047D}}, // Case map
-            {0x047E, new[] {0x047F}}, // Case map
-            {0x0480, new[] {0x0481}}, // Case map
-            {0x048A, new[] {0x048B}}, // Case map
-            {0x048C, new[] {0x048D}}, // Case map
-            {0x048E, new[] {0x048F}}, // Case map
-            {0x0490, new[] {0x0491}}, // Case map
-            {0x0492, new[] {0x0493}}, // Case map
-            {0x0494, new[] {0x0495}}, // Case map
-            {0x0496, new[] {0x0497}}, // Case map
-            {0x0498, new[] {0x0499}}, // Case map
-            {0x049A, new[] {0x049B}}, // Case map
-            {0x049C, new[] {0x049D}}, // Case map
-            {0x049E, new[] {0x049F}}, // Case map
-            {0x04A0, new[] {0x04A1}}, // Case map
-            {0x04A2, new[] {0x04A3}}, // Case map
-            {0x04A4, new[] {0x04A5}}, // Case map
-            {0x04A6, new[] {0x04A7}}, // Case map
-            {0x04A8, new[] {0x04A9}}, // Case map
-            {0x04AA, new[] {0x04AB}}, // Case map
-            {0x04AC, new[] {0x04AD}}, // Case map
-            {0x04AE, new[] {0x04AF}}, // Case map
-            {0x04B0, new[] {0x04B1}}, // Case map
-            {0x04B2, new[] {0x04B3}}, // Case map
-            {0x04B4, new[] {0x04B5}}, // Case map
-            {0x04B6, new[] {0x04B7}}, // Case map
-            {0x04B8, new[] {0x04B9}}, // Case map
-            {0x04BA, new[] {0x04BB}}, // Case map
-            {0x04BC, new[] {0x04BD}}, // Case map
-            {0x04BE, new[] {0x04BF}}, // Case map
-            {0x04C1, new[] {0x04C2}}, // Case map
-            {0x04C3, new[] {0x04C4}}, // Case map
-            {0x04C5, new[] {0x04C6}}, // Case map
-            {0x04C7, new[] {0x04C8}}, // Case map
-            {0x04C9, new[] {0x04CA}}, // Case map
-            {0x04CB, new[] {0x04CC}}, // Case map
-            {0x04CD, new[] {0x04CE}}, // Case map
-            {0x04D0, new[] {0x04D1}}, // Case map
-            {0x04D2, new[] {0x04D3}}, // Case map
-            {0x04D4, new[] {0x04D5}}, // Case map
-            {0x04D6, new[] {0x04D7}}, // Case map
-            {0x04D8, new[] {0x04D9}}, // Case map
-            {0x04DA, new[] {0x04DB}}, // Case map
-            {0x04DC, new[] {0x04DD}}, // Case map
-            {0x04DE, new[] {0x04DF}}, // Case map
-            {0x04E0, new[] {0x04E1}}, // Case map
-            {0x04E2, new[] {0x04E3}}, // Case map
-            {0x04E4, new[] {0x04E5}}, // Case map
-            {0x04E6, new[] {0x04E7}}, // Case map
-            {0x04E8, new[] {0x04E9}}, // Case map
-            {0x04EA, new[] {0x04EB}}, // Case map
-            {0x04EC, new[] {0x04ED}}, // Case map
-            {0x04EE, new[] {0x04EF}}, // Case map
-            {0x04F0, new[] {0x04F1}}, // Case map
-            {0x04F2, new[] {0x04F3}}, // Case map
-            {0x04F4, new[] {0x04F5}}, // Case map
-            {0x04F8, new[] {0x04F9}}, // Case map
-            {0x0500, new[] {0x0501}}, // Case map
-            {0x0502, new[] {0x0503}}, // Case map
-            {0x0504, new[] {0x0505}}, // Case map
-            {0x0506, new[] {0x0507}}, // Case map
-            {0x0508, new[] {0x0509}}, // Case map
-            {0x050A, new[] {0x050B}}, // Case map
-            {0x050C, new[] {0x050D}}, // Case map
-            {0x050E, new[] {0x050F}}, // Case map
-            {0x0531, new[] {0x0561}}, // Case map
-            {0x0532, new[] {0x0562}}, // Case map
-            {0x0533, new[] {0x0563}}, // Case map
-            {0x0534, new[] {0x0564}}, // Case map
-            {0x0535, new[] {0x0565}}, // Case map
-            {0x0536, new[] {0x0566}}, // Case map
-            {0x0537, new[] {0x0567}}, // Case map
-            {0x0538, new[] {0x0568}}, // Case map
-            {0x0539, new[] {0x0569}}, // Case map
-            {0x053A, new[] {0x056A}}, // Case map
-            {0x053B, new[] {0x056B}}, // Case map
-            {0x053C, new[] {0x056C}}, // Case map
-            {0x053D, new[] {0x056D}}, // Case map
-            {0x053E, new[] {0x056E}}, // Case map
-            {0x053F, new[] {0x056F}}, // Case map
-            {0x0540, new[] {0x0570}}, // Case map
-            {0x0541, new[] {0x0571}}, // Case map
-            {0x0542, new[] {0x0572}}, // Case map
-            {0x0543, new[] {0x0573}}, // Case map
-            {0x0544, new[] {0x0574}}, // Case map
-            {0x0545, new[] {0x0575}}, // Case map
-            {0x0546, new[] {0x0576}}, // Case map
-            {0x0547, new[] {0x0577}}, // Case map
-            {0x0548, new[] {0x0578}}, // Case map
-            {0x0549, new[] {0x0579}}, // Case map
-            {0x054A, new[] {0x057A}}, // Case map
-            {0x054B, new[] {0x057B}}, // Case map
-            {0x054C, new[] {0x057C}}, // Case map
-            {0x054D, new[] {0x057D}}, // Case map
-            {0x054E, new[] {0x057E}}, // Case map
-            {0x054F, new[] {0x057F}}, // Case map
-            {0x0550, new[] {0x0580}}, // Case map
-            {0x0551, new[] {0x0581}}, // Case map
-            {0x0552, new[] {0x0582}}, // Case map
-            {0x0553, new[] {0x0583}}, // Case map
-            {0x0554, new[] {0x0584}}, // Case map
-            {0x0555, new[] {0x0585}}, // Case map
-            {0x0556, new[] {0x0586}}, // Case map
-            {0x0587, new[] {0x0565, 0x0582}}, // Case map
-            {0x1E00, new[] {0x1E01}}, // Case map
-            {0x1E02, new[] {0x1E03}}, // Case map
-            {0x1E04, new[] {0x1E05}}, // Case map
-            {0x1E06, new[] {0x1E07}}, // Case map
-            {0x1E08, new[] {0x1E09}}, // Case map
-            {0x1E0A, new[] {0x1E0B}}, // Case map
-            {0x1E0C, new[] {0x1E0D}}, // Case map
-            {0x1E0E, new[] {0x1E0F}}, // Case map
-            {0x1E10, new[] {0x1E11}}, // Case map
-            {0x1E12, new[] {0x1E13}}, // Case map
-            {0x1E14, new[] {0x1E15}}, // Case map
-            {0x1E16, new[] {0x1E17}}, // Case map
-            {0x1E18, new[] {0x1E19}}, // Case map
-            {0x1E1A, new[] {0x1E1B}}, // Case map
-            {0x1E1C, new[] {0x1E1D}}, // Case map
-            {0x1E1E, new[] {0x1E1F}}, // Case map
-            {0x1E20, new[] {0x1E21}}, // Case map
-            {0x1E22, new[] {0x1E23}}, // Case map
-            {0x1E24, new[] {0x1E25}}, // Case map
-            {0x1E26, new[] {0x1E27}}, // Case map
-            {0x1E28, new[] {0x1E29}}, // Case map
-            {0x1E2A, new[] {0x1E2B}}, // Case map
-            {0x1E2C, new[] {0x1E2D}}, // Case map
-            {0x1E2E, new[] {0x1E2F}}, // Case map
-            {0x1E30, new[] {0x1E31}}, // Case map
-            {0x1E32, new[] {0x1E33}}, // Case map
-            {0x1E34, new[] {0x1E35}}, // Case map
-            {0x1E36, new[] {0x1E37}}, // Case map
-            {0x1E38, new[] {0x1E39}}, // Case map
-            {0x1E3A, new[] {0x1E3B}}, // Case map
-            {0x1E3C, new[] {0x1E3D}}, // Case map
-            {0x1E3E, new[] {0x1E3F}}, // Case map
-            {0x1E40, new[] {0x1E41}}, // Case map
-            {0x1E42, new[] {0x1E43}}, // Case map
-            {0x1E44, new[] {0x1E45}}, // Case map
-            {0x1E46, new[] {0x1E47}}, // Case map
-            {0x1E48, new[] {0x1E49}}, // Case map
-            {0x1E4A, new[] {0x1E4B}}, // Case map
-            {0x1E4C, new[] {0x1E4D}}, // Case map
-            {0x1E4E, new[] {0x1E4F}}, // Case map
-            {0x1E50, new[] {0x1E51}}, // Case map
-            {0x1E52, new[] {0x1E53}}, // Case map
-            {0x1E54, new[] {0x1E55}}, // Case map
-            {0x1E56, new[] {0x1E57}}, // Case map
-            {0x1E58, new[] {0x1E59}}, // Case map
-            {0x1E5A, new[] {0x1E5B}}, // Case map
-            {0x1E5C, new[] {0x1E5D}}, // Case map
-            {0x1E5E, new[] {0x1E5F}}, // Case map
-            {0x1E60, new[] {0x1E61}}, // Case map
-            {0x1E62, new[] {0x1E63}}, // Case map
-            {0x1E64, new[] {0x1E65}}, // Case map
-            {0x1E66, new[] {0x1E67}}, // Case map
-            {0x1E68, new[] {0x1E69}}, // Case map
-            {0x1E6A, new[] {0x1E6B}}, // Case map
-            {0x1E6C, new[] {0x1E6D}}, // Case map
-            {0x1E6E, new[] {0x1E6F}}, // Case map
-            {0x1E70, new[] {0x1E71}}, // Case map
-            {0x1E72, new[] {0x1E73}}, // Case map
-            {0x1E74, new[] {0x1E75}}, // Case map
-            {0x1E76, new[] {0x1E77}}, // Case map
-            {0x1E78, new[] {0x1E79}}, // Case map
-            {0x1E7A, new[] {0x1E7B}}, // Case map
-            {0x1E7C, new[] {0x1E7D}}, // Case map
-            {0x1E7E, new[] {0x1E7F}}, // Case map
-            {0x1E80, new[] {0x1E81}}, // Case map
-            {0x1E82, new[] {0x1E83}}, // Case map
-            {0x1E84, new[] {0x1E85}}, // Case map
-            {0x1E86, new[] {0x1E87}}, // Case map
-            {0x1E88, new[] {0x1E89}}, // Case map
-            {0x1E8A, new[] {0x1E8B}}, // Case map
-            {0x1E8C, new[] {0x1E8D}}, // Case map
-            {0x1E8E, new[] {0x1E8F}}, // Case map
-            {0x1E90, new[] {0x1E91}}, // Case map
-            {0x1E92, new[] {0x1E93}}, // Case map
-            {0x1E94, new[] {0x1E95}}, // Case map
-            {0x1E96, new[] {0x0068, 0x0331}}, // Case map
-            {0x1E97, new[] {0x0074, 0x0308}}, // Case map
-            {0x1E98, new[] {0x0077, 0x030A}}, // Case map
-            {0x1E99, new[] {0x0079, 0x030A}}, // Case map
-            {0x1E9A, new[] {0x0061, 0x02BE}}, // Case map
-            {0x1E9B, new[] {0x1E61}}, // Case map
-            {0x1EA0, new[] {0x1EA1}}, // Case map
-            {0x1EA2, new[] {0x1EA3}}, // Case map
-            {0x1EA4, new[] {0x1EA5}}, // Case map
-            {0x1EA6, new[] {0x1EA7}}, // Case map
-            {0x1EA8, new[] {0x1EA9}}, // Case map
-            {0x1EAA, new[] {0x1EAB}}, // Case map
-            {0x1EAC, new[] {0x1EAD}}, // Case map
-            {0x1EAE, new[] {0x1EAF}}, // Case map
-            {0x1EB0, new[] {0x1EB1}}, // Case map
-            {0x1EB2, new[] {0x1EB3}}, // Case map
-            {0x1EB4, new[] {0x1EB5}}, // Case map
-            {0x1EB6, new[] {0x1EB7}}, // Case map
-            {0x1EB8, new[] {0x1EB9}}, // Case map
-            {0x1EBA, new[] {0x1EBB}}, // Case map
-            {0x1EBC, new[] {0x1EBD}}, // Case map
-            {0x1EBE, new[] {0x1EBF}}, // Case map
-            {0x1EC0, new[] {0x1EC1}}, // Case map
-            {0x1EC2, new[] {0x1EC3}}, // Case map
-            {0x1EC4, new[] {0x1EC5}}, // Case map
-            {0x1EC6, new[] {0x1EC7}}, // Case map
-            {0x1EC8, new[] {0x1EC9}}, // Case map
-            {0x1ECA, new[] {0x1ECB}}, // Case map
-            {0x1ECC, new[] {0x1ECD}}, // Case map
-            {0x1ECE, new[] {0x1ECF}}, // Case map
-            {0x1ED0, new[] {0x1ED1}}, // Case map
-            {0x1ED2, new[] {0x1ED3}}, // Case map
-            {0x1ED4, new[] {0x1ED5}}, // Case map
-            {0x1ED6, new[] {0x1ED7}}, // Case map
-            {0x1ED8, new[] {0x1ED9}}, // Case map
-            {0x1EDA, new[] {0x1EDB}}, // Case map
-            {0x1EDC, new[] {0x1EDD}}, // Case map
-            {0x1EDE, new[] {0x1EDF}}, // Case map
-            {0x1EE0, new[] {0x1EE1}}, // Case map
-            {0x1EE2, new[] {0x1EE3}}, // Case map
-            {0x1EE4, new[] {0x1EE5}}, // Case map
-            {0x1EE6, new[] {0x1EE7}}, // Case map
-            {0x1EE8, new[] {0x1EE9}}, // Case map
-            {0x1EEA, new[] {0x1EEB}}, // Case map
-            {0x1EEC, new[] {0x1EED}}, // Case map
-            {0x1EEE, new[] {0x1EEF}}, // Case map
-            {0x1EF0, new[] {0x1EF1}}, // Case map
-            {0x1EF2, new[] {0x1EF3}}, // Case map
-            {0x1EF4, new[] {0x1EF5}}, // Case map
-            {0x1EF6, new[] {0x1EF7}}, // Case map
-            {0x1EF8, new[] {0x1EF9}}, // Case map
-            {0x1F08, new[] {0x1F00}}, // Case map
-            {0x1F09, new[] {0x1F01}}, // Case map
-            {0x1F0A, new[] {0x1F02}}, // Case map
-            {0x1F0B, new[] {0x1F03}}, // Case map
-            {0x1F0C, new[] {0x1F04}}, // Case map
-            {0x1F0D, new[] {0x1F05}}, // Case map
-            {0x1F0E, new[] {0x1F06}}, // Case map
-            {0x1F0F, new[] {0x1F07}}, // Case map
-            {0x1F18, new[] {0x1F10}}, // Case map
-            {0x1F19, new[] {0x1F11}}, // Case map
-            {0x1F1A, new[] {0x1F12}}, // Case map
-            {0x1F1B, new[] {0x1F13}}, // Case map
-            {0x1F1C, new[] {0x1F14}}, // Case map
-            {0x1F1D, new[] {0x1F15}}, // Case map
-            {0x1F28, new[] {0x1F20}}, // Case map
-            {0x1F29, new[] {0x1F21}}, // Case map
-            {0x1F2A, new[] {0x1F22}}, // Case map
-            {0x1F2B, new[] {0x1F23}}, // Case map
-            {0x1F2C, new[] {0x1F24}}, // Case map
-            {0x1F2D, new[] {0x1F25}}, // Case map
-            {0x1F2E, new[] {0x1F26}}, // Case map
-            {0x1F2F, new[] {0x1F27}}, // Case map
-            {0x1F38, new[] {0x1F30}}, // Case map
-            {0x1F39, new[] {0x1F31}}, // Case map
-            {0x1F3A, new[] {0x1F32}}, // Case map
-            {0x1F3B, new[] {0x1F33}}, // Case map
-            {0x1F3C, new[] {0x1F34}}, // Case map
-            {0x1F3D, new[] {0x1F35}}, // Case map
-            {0x1F3E, new[] {0x1F36}}, // Case map
-            {0x1F3F, new[] {0x1F37}}, // Case map
-            {0x1F48, new[] {0x1F40}}, // Case map
-            {0x1F49, new[] {0x1F41}}, // Case map
-            {0x1F4A, new[] {0x1F42}}, // Case map
-            {0x1F4B, new[] {0x1F43}}, // Case map
-            {0x1F4C, new[] {0x1F44}}, // Case map
-            {0x1F4D, new[] {0x1F45}}, // Case map
-            {0x1F50, new[] {0x03C5, 0x0313}}, // Case map
-            {0x1F52, new[] {0x03C5, 0x0313, 0x0300}}, // Case map
-            {0x1F54, new[] {0x03C5, 0x0313, 0x0301}}, // Case map
-            {0x1F56, new[] {0x03C5, 0x0313, 0x0342}}, // Case map
-            {0x1F59, new[] {0x1F51}}, // Case map
-            {0x1F5B, new[] {0x1F53}}, // Case map
-            {0x1F5D, new[] {0x1F55}}, // Case map
-            {0x1F5F, new[] {0x1F57}}, // Case map
-            {0x1F68, new[] {0x1F60}}, // Case map
-            {0x1F69, new[] {0x1F61}}, // Case map
-            {0x1F6A, new[] {0x1F62}}, // Case map
-            {0x1F6B, new[] {0x1F63}}, // Case map
-            {0x1F6C, new[] {0x1F64}}, // Case map
-            {0x1F6D, new[] {0x1F65}}, // Case map
-            {0x1F6E, new[] {0x1F66}}, // Case map
-            {0x1F6F, new[] {0x1F67}}, // Case map
-            {0x1F80, new[] {0x1F00, 0x03B9}}, // Case map
-            {0x1F81, new[] {0x1F01, 0x03B9}}, // Case map
-            {0x1F82, new[] {0x1F02, 0x03B9}}, // Case map
-            {0x1F83, new[] {0x1F03, 0x03B9}}, // Case map
-            {0x1F84, new[] {0x1F04, 0x03B9}}, // Case map
-            {0x1F85, new[] {0x1F05, 0x03B9}}, // Case map
-            {0x1F86, new[] {0x1F06, 0x03B9}}, // Case map
-            {0x1F87, new[] {0x1F07, 0x03B9}}, // Case map
-            {0x1F88, new[] {0x1F00, 0x03B9}}, // Case map
-            {0x1F89, new[] {0x1F01, 0x03B9}}, // Case map
-            {0x1F8A, new[] {0x1F02, 0x03B9}}, // Case map
-            {0x1F8B, new[] {0x1F03, 0x03B9}}, // Case map
-            {0x1F8C, new[] {0x1F04, 0x03B9}}, // Case map
-            {0x1F8D, new[] {0x1F05, 0x03B9}}, // Case map
-            {0x1F8E, new[] {0x1F06, 0x03B9}}, // Case map
-            {0x1F8F, new[] {0x1F07, 0x03B9}}, // Case map
-            {0x1F90, new[] {0x1F20, 0x03B9}}, // Case map
-            {0x1F91, new[] {0x1F21, 0x03B9}}, // Case map
-            {0x1F92, new[] {0x1F22, 0x03B9}}, // Case map
-            {0x1F93, new[] {0x1F23, 0x03B9}}, // Case map
-            {0x1F94, new[] {0x1F24, 0x03B9}}, // Case map
-            {0x1F95, new[] {0x1F25, 0x03B9}}, // Case map
-            {0x1F96, new[] {0x1F26, 0x03B9}}, // Case map
-            {0x1F97, new[] {0x1F27, 0x03B9}}, // Case map
-            {0x1F98, new[] {0x1F20, 0x03B9}}, // Case map
-            {0x1F99, new[] {0x1F21, 0x03B9}}, // Case map
-            {0x1F9A, new[] {0x1F22, 0x03B9}}, // Case map
-            {0x1F9B, new[] {0x1F23, 0x03B9}}, // Case map
-            {0x1F9C, new[] {0x1F24, 0x03B9}}, // Case map
-            {0x1F9D, new[] {0x1F25, 0x03B9}}, // Case map
-            {0x1F9E, new[] {0x1F26, 0x03B9}}, // Case map
-            {0x1F9F, new[] {0x1F27, 0x03B9}}, // Case map
-            {0x1FA0, new[] {0x1F60, 0x03B9}}, // Case map
-            {0x1FA1, new[] {0x1F61, 0x03B9}}, // Case map
-            {0x1FA2, new[] {0x1F62, 0x03B9}}, // Case map
-            {0x1FA3, new[] {0x1F63, 0x03B9}}, // Case map
-            {0x1FA4, new[] {0x1F64, 0x03B9}}, // Case map
-            {0x1FA5, new[] {0x1F65, 0x03B9}}, // Case map
-            {0x1FA6, new[] {0x1F66, 0x03B9}}, // Case map
-            {0x1FA7, new[] {0x1F67, 0x03B9}}, // Case map
-            {0x1FA8, new[] {0x1F60, 0x03B9}}, // Case map
-            {0x1FA9, new[] {0x1F61, 0x03B9}}, // Case map
-            {0x1FAA, new[] {0x1F62, 0x03B9}}, // Case map
-            {0x1FAB, new[] {0x1F63, 0x03B9}}, // Case map
-            {0x1FAC, new[] {0x1F64, 0x03B9}}, // Case map
-            {0x1FAD, new[] {0x1F65, 0x03B9}}, // Case map
-            {0x1FAE, new[] {0x1F66, 0x03B9}}, // Case map
-            {0x1FAF, new[] {0x1F67, 0x03B9}}, // Case map
-            {0x1FB2, new[] {0x1F70, 0x03B9}}, // Case map
-            {0x1FB3, new[] {0x03B1, 0x03B9}}, // Case map
-            {0x1FB4, new[] {0x03AC, 0x03B9}}, // Case map
-            {0x1FB6, new[] {0x03B1, 0x0342}}, // Case map
-            {0x1FB7, new[] {0x03B1, 0x0342, 0x03B9}}, // Case map
-            {0x1FB8, new[] {0x1FB0}}, // Case map
-            {0x1FB9, new[] {0x1FB1}}, // Case map
-            {0x1FBA, new[] {0x1F70}}, // Case map
-            {0x1FBB, new[] {0x1F71}}, // Case map
-            {0x1FBC, new[] {0x03B1, 0x03B9}}, // Case map
-            {0x1FBE, new[] {0x03B9}}, // Case map
-            {0x1FC2, new[] {0x1F74, 0x03B9}}, // Case map
-            {0x1FC3, new[] {0x03B7, 0x03B9}}, // Case map
-            {0x1FC4, new[] {0x03AE, 0x03B9}}, // Case map
-            {0x1FC6, new[] {0x03B7, 0x0342}}, // Case map
-            {0x1FC7, new[] {0x03B7, 0x0342, 0x03B9}}, // Case map
-            {0x1FC8, new[] {0x1F72}}, // Case map
-            {0x1FC9, new[] {0x1F73}}, // Case map
-            {0x1FCA, new[] {0x1F74}}, // Case map
-            {0x1FCB, new[] {0x1F75}}, // Case map
-            {0x1FCC, new[] {0x03B7, 0x03B9}}, // Case map
-            {0x1FD2, new[] {0x03B9, 0x0308, 0x0300}}, // Case map
-            {0x1FD3, new[] {0x03B9, 0x0308, 0x0301}}, // Case map
-            {0x1FD6, new[] {0x03B9, 0x0342}}, // Case map
-            {0x1FD7, new[] {0x03B9, 0x0308, 0x0342}}, // Case map
-            {0x1FD8, new[] {0x1FD0}}, // Case map
-            {0x1FD9, new[] {0x1FD1}}, // Case map
-            {0x1FDA, new[] {0x1F76}}, // Case map
-            {0x1FDB, new[] {0x1F77}}, // Case map
-            {0x1FE2, new[] {0x03C5, 0x0308, 0x0300}}, // Case map
-            {0x1FE3, new[] {0x03C5, 0x0308, 0x0301}}, // Case map
-            {0x1FE4, new[] {0x03C1, 0x0313}}, // Case map
-            {0x1FE6, new[] {0x03C5, 0x0342}}, // Case map
-            {0x1FE7, new[] {0x03C5, 0x0308, 0x0342}}, // Case map
-            {0x1FE8, new[] {0x1FE0}}, // Case map
-            {0x1FE9, new[] {0x1FE1}}, // Case map
-            {0x1FEA, new[] {0x1F7A}}, // Case map
-            {0x1FEB, new[] {0x1F7B}}, // Case map
-            {0x1FEC, new[] {0x1FE5}}, // Case map
-            {0x1FF2, new[] {0x1F7C, 0x03B9}}, // Case map
-            {0x1FF3, new[] {0x03C9, 0x03B9}}, // Case map
-            {0x1FF4, new[] {0x03CE, 0x03B9}}, // Case map
-            {0x1FF6, new[] {0x03C9, 0x0342}}, // Case map
-            {0x1FF7, new[] {0x03C9, 0x0342, 0x03B9}}, // Case map
-            {0x1FF8, new[] {0x1F78}}, // Case map
-            {0x1FF9, new[] {0x1F79}}, // Case map
-            {0x1FFA, new[] {0x1F7C}}, // Case map
-            {0x1FFB, new[] {0x1F7D}}, // Case map
-            {0x1FFC, new[] {0x03C9, 0x03B9}}, // Case map
-            {0x20A8, new[] {0x0072, 0x0073}}, // Additional folding
-            {0x2102, new[] {0x0063}}, // Additional folding
-            {0x2103, new[] {0x00B0, 0x0063}}, // Additional folding
-            {0x2107, new[] {0x025B}}, // Additional folding
-            {0x2109, new[] {0x00B0, 0x0066}}, // Additional folding
-            {0x210B, new[] {0x0068}}, // Additional folding
-            {0x210C, new[] {0x0068}}, // Additional folding
-            {0x210D, new[] {0x0068}}, // Additional folding
-            {0x2110, new[] {0x0069}}, // Additional folding
-            {0x2111, new[] {0x0069}}, // Additional folding
-            {0x2112, new[] {0x006C}}, // Additional folding
-            {0x2115, new[] {0x006E}}, // Additional folding
-            {0x2116, new[] {0x006E, 0x006F}}, // Additional folding
-            {0x2119, new[] {0x0070}}, // Additional folding
-            {0x211A, new[] {0x0071}}, // Additional folding
-            {0x211B, new[] {0x0072}}, // Additional folding
-            {0x211C, new[] {0x0072}}, // Additional folding
-            {0x211D, new[] {0x0072}}, // Additional folding
-            {0x2120, new[] {0x0073, 0x006D}}, // Additional folding
-            {0x2121, new[] {0x0074, 0x0065, 0x006C}}, // Additional folding
-            {0x2122, new[] {0x0074, 0x006D}}, // Additional folding
-            {0x2124, new[] {0x007A}}, // Additional folding
-            {0x2126, new[] {0x03C9}}, // Case map
-            {0x2128, new[] {0x007A}}, // Additional folding
-            {0x212A, new[] {0x006B}}, // Case map
-            {0x212B, new[] {0x00E5}}, // Case map
-            {0x212C, new[] {0x0062}}, // Additional folding
-            {0x212D, new[] {0x0063}}, // Additional folding
-            {0x2130, new[] {0x0065}}, // Additional folding
-            {0x2131, new[] {0x0066}}, // Additional folding
-            {0x2133, new[] {0x006D}}, // Additional folding
-            {0x213E, new[] {0x03B3}}, // Additional folding
-            {0x213F, new[] {0x03C0}}, // Additional folding
-            {0x2145, new[] {0x0064}}, // Additional folding
-            {0x2160, new[] {0x2170}}, // Case map
-            {0x2161, new[] {0x2171}}, // Case map
-            {0x2162, new[] {0x2172}}, // Case map
-            {0x2163, new[] {0x2173}}, // Case map
-            {0x2164, new[] {0x2174}}, // Case map
-            {0x2165, new[] {0x2175}}, // Case map
-            {0x2166, new[] {0x2176}}, // Case map
-            {0x2167, new[] {0x2177}}, // Case map
-            {0x2168, new[] {0x2178}}, // Case map
-            {0x2169, new[] {0x2179}}, // Case map
-            {0x216A, new[] {0x217A}}, // Case map
-            {0x216B, new[] {0x217B}}, // Case map
-            {0x216C, new[] {0x217C}}, // Case map
-            {0x216D, new[] {0x217D}}, // Case map
-            {0x216E, new[] {0x217E}}, // Case map
-            {0x216F, new[] {0x217F}}, // Case map
-            {0x24B6, new[] {0x24D0}}, // Case map
-            {0x24B7, new[] {0x24D1}}, // Case map
-            {0x24B8, new[] {0x24D2}}, // Case map
-            {0x24B9, new[] {0x24D3}}, // Case map
-            {0x24BA, new[] {0x24D4}}, // Case map
-            {0x24BB, new[] {0x24D5}}, // Case map
-            {0x24BC, new[] {0x24D6}}, // Case map
-            {0x24BD, new[] {0x24D7}}, // Case map
-            {0x24BE, new[] {0x24D8}}, // Case map
-            {0x24BF, new[] {0x24D9}}, // Case map
-            {0x24C0, new[] {0x24DA}}, // Case map
-            {0x24C1, new[] {0x24DB}}, // Case map
-            {0x24C2, new[] {0x24DC}}, // Case map
-            {0x24C3, new[] {0x24DD}}, // Case map
-            {0x24C4, new[] {0x24DE}}, // Case map
-            {0x24C5, new[] {0x24DF}}, // Case map
-            {0x24C6, new[] {0x24E0}}, // Case map
-            {0x24C7, new[] {0x24E1}}, // Case map
-            {0x24C8, new[] {0x24E2}}, // Case map
-            {0x24C9, new[] {0x24E3}}, // Case map
-            {0x24CA, new[] {0x24E4}}, // Case map
-            {0x24CB, new[] {0x24E5}}, // Case map
-            {0x24CC, new[] {0x24E6}}, // Case map
-            {0x24CD, new[] {0x24E7}}, // Case map
-            {0x24CE, new[] {0x24E8}}, // Case map
-            {0x24CF, new[] {0x24E9}}, // Case map
-            {0x3371, new[] {0x0068, 0x0070, 0x0061}}, // Additional folding
-            {0x3373, new[] {0x0061, 0x0075}}, // Additional folding
-            {0x3375, new[] {0x006F, 0x0076}}, // Additional folding
-            {0x3380, new[] {0x0070, 0x0061}}, // Additional folding
-            {0x3381, new[] {0x006E, 0x0061}}, // Additional folding
-            {0x3382, new[] {0x03BC, 0x0061}}, // Additional folding
-            {0x3383, new[] {0x006D, 0x0061}}, // Additional folding
-            {0x3384, new[] {0x006B, 0x0061}}, // Additional folding
-            {0x3385, new[] {0x006B, 0x0062}}, // Additional folding
-            {0x3386, new[] {0x006D, 0x0062}}, // Additional folding
-            {0x3387, new[] {0x0067, 0x0062}}, // Additional folding
-            {0x338A, new[] {0x0070, 0x0066}}, // Additional folding
-            {0x338B, new[] {0x006E, 0x0066}}, // Additional folding
-            {0x338C, new[] {0x03BC, 0x0066}}, // Additional folding
-            {0x3390, new[] {0x0068, 0x007A}}, // Additional folding
-            {0x3391, new[] {0x006B, 0x0068, 0x007A}}, // Additional folding
-            {0x3392, new[] {0x006D, 0x0068, 0x007A}}, // Additional folding
-            {0x3393, new[] {0x0067, 0x0068, 0x007A}}, // Additional folding
-            {0x3394, new[] {0x0074, 0x0068, 0x007A}}, // Additional folding
-            {0x33A9, new[] {0x0070, 0x0061}}, // Additional folding
-            {0x33AA, new[] {0x006B, 0x0070, 0x0061}}, // Additional folding
-            {0x33AB, new[] {0x006D, 0x0070, 0x0061}}, // Additional folding
-            {0x33AC, new[] {0x0067, 0x0070, 0x0061}}, // Additional folding
-            {0x33B4, new[] {0x0070, 0x0076}}, // Additional folding
-            {0x33B5, new[] {0x006E, 0x0076}}, // Additional folding
-            {0x33B6, new[] {0x03BC, 0x0076}}, // Additional folding
-            {0x33B7, new[] {0x006D, 0x0076}}, // Additional folding
-            {0x33B8, new[] {0x006B, 0x0076}}, // Additional folding
-            {0x33B9, new[] {0x006D, 0x0076}}, // Additional folding
-            {0x33BA, new[] {0x0070, 0x0077}}, // Additional folding
-            {0x33BB, new[] {0x006E, 0x0077}}, // Additional folding
-            {0x33BC, new[] {0x03BC, 0x0077}}, // Additional folding
-            {0x33BD, new[] {0x006D, 0x0077}}, // Additional folding
-            {0x33BE, new[] {0x006B, 0x0077}}, // Additional folding
-            {0x33BF, new[] {0x006D, 0x0077}}, // Additional folding
-            {0x33C0, new[] {0x006B, 0x03C9}}, // Additional folding
-            {0x33C1, new[] {0x006D, 0x03C9}}, // Additional folding
-            {0x33C3, new[] {0x0062, 0x0071}}, // Additional folding
-            {0x33C6, new[] {0x0063, 0x2215, 0x006B, 0x0067}}, // Additional folding
-            {0x33C7, new[] {0x0063, 0x006F, 0x002E}}, // Additional folding
-            {0x33C8, new[] {0x0064, 0x0062}}, // Additional folding
-            {0x33C9, new[] {0x0067, 0x0079}}, // Additional folding
-            {0x33CB, new[] {0x0068, 0x0070}}, // Additional folding
-            {0x33CD, new[] {0x006B, 0x006B}}, // Additional folding
-            {0x33CE, new[] {0x006B, 0x006D}}, // Additional folding
-            {0x33D7, new[] {0x0070, 0x0068}}, // Additional folding
-            {0x33D9, new[] {0x0070, 0x0070, 0x006D}}, // Additional folding
-            {0x33DA, new[] {0x0070, 0x0072}}, // Additional folding
-            {0x33DC, new[] {0x0073, 0x0076}}, // Additional folding
-            {0x33DD, new[] {0x0077, 0x0062}}, // Additional folding
-            {0xFB00, new[] {0x0066, 0x0066}}, // Case map
-            {0xFB01, new[] {0x0066, 0x0069}}, // Case map
-            {0xFB02, new[] {0x0066, 0x006C}}, // Case map
-            {0xFB03, new[] {0x0066, 0x0066, 0x0069}}, // Case map
-            {0xFB04, new[] {0x0066, 0x0066, 0x006C}}, // Case map
-            {0xFB05, new[] {0x0073, 0x0074}}, // Case map
-            {0xFB06, new[] {0x0073, 0x0074}}, // Case map
-            {0xFB13, new[] {0x0574, 0x0576}}, // Case map
-            {0xFB14, new[] {0x0574, 0x0565}}, // Case map
-            {0xFB15, new[] {0x0574, 0x056B}}, // Case map
-            {0xFB16, new[] {0x057E, 0x0576}}, // Case map
-            {0xFB17, new[] {0x0574, 0x056D}}, // Case map
-            {0xFF21, new[] {0xFF41}}, // Case map
-            {0xFF22, new[] {0xFF42}}, // Case map
-            {0xFF23, new[] {0xFF43}}, // Case map
-            {0xFF24, new[] {0xFF44}}, // Case map
-            {0xFF25, new[] {0xFF45}}, // Case map
-            {0xFF26, new[] {0xFF46}}, // Case map
-            {0xFF27, new[] {0xFF47}}, // Case map
-            {0xFF28, new[] {0xFF48}}, // Case map
-            {0xFF29, new[] {0xFF49}}, // Case map
-            {0xFF2A, new[] {0xFF4A}}, // Case map
-            {0xFF2B, new[] {0xFF4B}}, // Case map
-            {0xFF2C, new[] {0xFF4C}}, // Case map
-            {0xFF2D, new[] {0xFF4D}}, // Case map
-            {0xFF2E, new[] {0xFF4E}}, // Case map
-            {0xFF2F, new[] {0xFF4F}}, // Case map
-            {0xFF30, new[] {0xFF50}}, // Case map
-            {0xFF31, new[] {0xFF51}}, // Case map
-            {0xFF32, new[] {0xFF52}}, // Case map
-            {0xFF33, new[] {0xFF53}}, // Case map
-            {0xFF34, new[] {0xFF54}}, // Case map
-            {0xFF35, new[] {0xFF55}}, // Case map
-            {0xFF36, new[] {0xFF56}}, // Case map
-            {0xFF37, new[] {0xFF57}}, // Case map
-            {0xFF38, new[] {0xFF58}}, // Case map
-            {0xFF39, new[] {0xFF59}}, // Case map
-            {0xFF3A, new[] {0xFF5A}}, // Case map
-            {0x10400, new[] {0x10428}}, // Case map
-            {0x10401, new[] {0x10429}}, // Case map
-            {0x10402, new[] {0x1042A}}, // Case map
-            {0x10403, new[] {0x1042B}}, // Case map
-            {0x10404, new[] {0x1042C}}, // Case map
-            {0x10405, new[] {0x1042D}}, // Case map
-            {0x10406, new[] {0x1042E}}, // Case map
-            {0x10407, new[] {0x1042F}}, // Case map
-            {0x10408, new[] {0x10430}}, // Case map
-            {0x10409, new[] {0x10431}}, // Case map
-            {0x1040A, new[] {0x10432}}, // Case map
-            {0x1040B, new[] {0x10433}}, // Case map
-            {0x1040C, new[] {0x10434}}, // Case map
-            {0x1040D, new[] {0x10435}}, // Case map
-            {0x1040E, new[] {0x10436}}, // Case map
-            {0x1040F, new[] {0x10437}}, // Case map
-            {0x10410, new[] {0x10438}}, // Case map
-            {0x10411, new[] {0x10439}}, // Case map
-            {0x10412, new[] {0x1043A}}, // Case map
-            {0x10413, new[] {0x1043B}}, // Case map
-            {0x10414, new[] {0x1043C}}, // Case map
-            {0x10415, new[] {0x1043D}}, // Case map
-            {0x10416, new[] {0x1043E}}, // Case map
-            {0x10417, new[] {0x1043F}}, // Case map
-            {0x10418, new[] {0x10440}}, // Case map
-            {0x10419, new[] {0x10441}}, // Case map
-            {0x1041A, new[] {0x10442}}, // Case map
-            {0x1041B, new[] {0x10443}}, // Case map
-            {0x1041C, new[] {0x10444}}, // Case map
-            {0x1041D, new[] {0x10445}}, // Case map
-            {0x1041E, new[] {0x10446}}, // Case map
-            {0x1041F, new[] {0x10447}}, // Case map
-            {0x10420, new[] {0x10448}}, // Case map
-            {0x10421, new[] {0x10449}}, // Case map
-            {0x10422, new[] {0x1044A}}, // Case map
-            {0x10423, new[] {0x1044B}}, // Case map
-            {0x10424, new[] {0x1044C}}, // Case map
-            {0x10425, new[] {0x1044D}}, // Case map
-            {0x1D400, new[] {0x0061}}, // Additional folding
-            {0x1D401, new[] {0x0062}}, // Additional folding
-            {0x1D402, new[] {0x0063}}, // Additional folding
-            {0x1D403, new[] {0x0064}}, // Additional folding
-            {0x1D404, new[] {0x0065}}, // Additional folding
-            {0x1D405, new[] {0x0066}}, // Additional folding
-            {0x1D406, new[] {0x0067}}, // Additional folding
-            {0x1D407, new[] {0x0068}}, // Additional folding
-            {0x1D408, new[] {0x0069}}, // Additional folding
-            {0x1D409, new[] {0x006A}}, // Additional folding
-            {0x1D40A, new[] {0x006B}}, // Additional folding
-            {0x1D40B, new[] {0x006C}}, // Additional folding
-            {0x1D40C, new[] {0x006D}}, // Additional folding
-            {0x1D40D, new[] {0x006E}}, // Additional folding
-            {0x1D40E, new[] {0x006F}}, // Additional folding
-            {0x1D40F, new[] {0x0070}}, // Additional folding
-            {0x1D410, new[] {0x0071}}, // Additional folding
-            {0x1D411, new[] {0x0072}}, // Additional folding
-            {0x1D412, new[] {0x0073}}, // Additional folding
-            {0x1D413, new[] {0x0074}}, // Additional folding
-            {0x1D414, new[] {0x0075}}, // Additional folding
-            {0x1D415, new[] {0x0076}}, // Additional folding
-            {0x1D416, new[] {0x0077}}, // Additional folding
-            {0x1D417, new[] {0x0078}}, // Additional folding
-            {0x1D418, new[] {0x0079}}, // Additional folding
-            {0x1D419, new[] {0x007A}}, // Additional folding
-            {0x1D434, new[] {0x0061}}, // Additional folding
-            {0x1D435, new[] {0x0062}}, // Additional folding
-            {0x1D436, new[] {0x0063}}, // Additional folding
-            {0x1D437, new[] {0x0064}}, // Additional folding
-            {0x1D438, new[] {0x0065}}, // Additional folding
-            {0x1D439, new[] {0x0066}}, // Additional folding
-            {0x1D43A, new[] {0x0067}}, // Additional folding
-            {0x1D43B, new[] {0x0068}}, // Additional folding
-            {0x1D43C, new[] {0x0069}}, // Additional folding
-            {0x1D43D, new[] {0x006A}}, // Additional folding
-            {0x1D43E, new[] {0x006B}}, // Additional folding
-            {0x1D43F, new[] {0x006C}}, // Additional folding
-            {0x1D440, new[] {0x006D}}, // Additional folding
-            {0x1D441, new[] {0x006E}}, // Additional folding
-            {0x1D442, new[] {0x006F}}, // Additional folding
-            {0x1D443, new[] {0x0070}}, // Additional folding
-            {0x1D444, new[] {0x0071}}, // Additional folding
-            {0x1D445, new[] {0x0072}}, // Additional folding
-            {0x1D446, new[] {0x0073}}, // Additional folding
-            {0x1D447, new[] {0x0074}}, // Additional folding
-            {0x1D448, new[] {0x0075}}, // Additional folding
-            {0x1D449, new[] {0x0076}}, // Additional folding
-            {0x1D44A, new[] {0x0077}}, // Additional folding
-            {0x1D44B, new[] {0x0078}}, // Additional folding
-            {0x1D44C, new[] {0x0079}}, // Additional folding
-            {0x1D44D, new[] {0x007A}}, // Additional folding
-            {0x1D468, new[] {0x0061}}, // Additional folding
-            {0x1D469, new[] {0x0062}}, // Additional folding
-            {0x1D46A, new[] {0x0063}}, // Additional folding
-            {0x1D46B, new[] {0x0064}}, // Additional folding
-            {0x1D46C, new[] {0x0065}}, // Additional folding
-            {0x1D46D, new[] {0x0066}}, // Additional folding
-            {0x1D46E, new[] {0x0067}}, // Additional folding
-            {0x1D46F, new[] {0x0068}}, // Additional folding
-            {0x1D470, new[] {0x0069}}, // Additional folding
-            {0x1D471, new[] {0x006A}}, // Additional folding
-            {0x1D472, new[] {0x006B}}, // Additional folding
-            {0x1D473, new[] {0x006C}}, // Additional folding
-            {0x1D474, new[] {0x006D}}, // Additional folding
-            {0x1D475, new[] {0x006E}}, // Additional folding
-            {0x1D476, new[] {0x006F}}, // Additional folding
-            {0x1D477, new[] {0x0070}}, // Additional folding
-            {0x1D478, new[] {0x0071}}, // Additional folding
-            {0x1D479, new[] {0x0072}}, // Additional folding
-            {0x1D47A, new[] {0x0073}}, // Additional folding
-            {0x1D47B, new[] {0x0074}}, // Additional folding
-            {0x1D47C, new[] {0x0075}}, // Additional folding
-            {0x1D47D, new[] {0x0076}}, // Additional folding
-            {0x1D47E, new[] {0x0077}}, // Additional folding
-            {0x1D47F, new[] {0x0078}}, // Additional folding
-            {0x1D480, new[] {0x0079}}, // Additional folding
-            {0x1D481, new[] {0x007A}}, // Additional folding
-            {0x1D49C, new[] {0x0061}}, // Additional folding
-            {0x1D49E, new[] {0x0063}}, // Additional folding
-            {0x1D49F, new[] {0x0064}}, // Additional folding
-            {0x1D4A2, new[] {0x0067}}, // Additional folding
-            {0x1D4A5, new[] {0x006A}}, // Additional folding
-            {0x1D4A6, new[] {0x006B}}, // Additional folding
-            {0x1D4A9, new[] {0x006E}}, // Additional folding
-            {0x1D4AA, new[] {0x006F}}, // Additional folding
-            {0x1D4AB, new[] {0x0070}}, // Additional folding
-            {0x1D4AC, new[] {0x0071}}, // Additional folding
-            {0x1D4AE, new[] {0x0073}}, // Additional folding
-            {0x1D4AF, new[] {0x0074}}, // Additional folding
-            {0x1D4B0, new[] {0x0075}}, // Additional folding
-            {0x1D4B1, new[] {0x0076}}, // Additional folding
-            {0x1D4B2, new[] {0x0077}}, // Additional folding
-            {0x1D4B3, new[] {0x0078}}, // Additional folding
-            {0x1D4B4, new[] {0x0079}}, // Additional folding
-            {0x1D4B5, new[] {0x007A}}, // Additional folding
-            {0x1D4D0, new[] {0x0061}}, // Additional folding
-            {0x1D4D1, new[] {0x0062}}, // Additional folding
-            {0x1D4D2, new[] {0x0063}}, // Additional folding
-            {0x1D4D3, new[] {0x0064}}, // Additional folding
-            {0x1D4D4, new[] {0x0065}}, // Additional folding
-            {0x1D4D5, new[] {0x0066}}, // Additional folding
-            {0x1D4D6, new[] {0x0067}}, // Additional folding
-            {0x1D4D7, new[] {0x0068}}, // Additional folding
-            {0x1D4D8, new[] {0x0069}}, // Additional folding
-            {0x1D4D9, new[] {0x006A}}, // Additional folding
-            {0x1D4DA, new[] {0x006B}}, // Additional folding
-            {0x1D4DB, new[] {0x006C}}, // Additional folding
-            {0x1D4DC, new[] {0x006D}}, // Additional folding
-            {0x1D4DD, new[] {0x006E}}, // Additional folding
-            {0x1D4DE, new[] {0x006F}}, // Additional folding
-            {0x1D4DF, new[] {0x0070}}, // Additional folding
-            {0x1D4E0, new[] {0x0071}}, // Additional folding
-            {0x1D4E1, new[] {0x0072}}, // Additional folding
-            {0x1D4E2, new[] {0x0073}}, // Additional folding
-            {0x1D4E3, new[] {0x0074}}, // Additional folding
-            {0x1D4E4, new[] {0x0075}}, // Additional folding
-            {0x1D4E5, new[] {0x0076}}, // Additional folding
-            {0x1D4E6, new[] {0x0077}}, // Additional folding
-            {0x1D4E7, new[] {0x0078}}, // Additional folding
-            {0x1D4E8, new[] {0x0079}}, // Additional folding
-            {0x1D4E9, new[] {0x007A}}, // Additional folding
-            {0x1D504, new[] {0x0061}}, // Additional folding
-            {0x1D505, new[] {0x0062}}, // Additional folding
-            {0x1D507, new[] {0x0064}}, // Additional folding
-            {0x1D508, new[] {0x0065}}, // Additional folding
-            {0x1D509, new[] {0x0066}}, // Additional folding
-            {0x1D50A, new[] {0x0067}}, // Additional folding
-            {0x1D50D, new[] {0x006A}}, // Additional folding
-            {0x1D50E, new[] {0x006B}}, // Additional folding
-            {0x1D50F, new[] {0x006C}}, // Additional folding
-            {0x1D510, new[] {0x006D}}, // Additional folding
-            {0x1D511, new[] {0x006E}}, // Additional folding
-            {0x1D512, new[] {0x006F}}, // Additional folding
-            {0x1D513, new[] {0x0070}}, // Additional folding
-            {0x1D514, new[] {0x0071}}, // Additional folding
-            {0x1D516, new[] {0x0073}}, // Additional folding
-            {0x1D517, new[] {0x0074}}, // Additional folding
-            {0x1D518, new[] {0x0075}}, // Additional folding
-            {0x1D519, new[] {0x0076}}, // Additional folding
-            {0x1D51A, new[] {0x0077}}, // Additional folding
-            {0x1D51B, new[] {0x0078}}, // Additional folding
-            {0x1D51C, new[] {0x0079}}, // Additional folding
-            {0x1D538, new[] {0x0061}}, // Additional folding
-            {0x1D539, new[] {0x0062}}, // Additional folding
-            {0x1D53B, new[] {0x0064}}, // Additional folding
-            {0x1D53C, new[] {0x0065}}, // Additional folding
-            {0x1D53D, new[] {0x0066}}, // Additional folding
-            {0x1D53E, new[] {0x0067}}, // Additional folding
-            {0x1D540, new[] {0x0069}}, // Additional folding
-            {0x1D541, new[] {0x006A}}, // Additional folding
-            {0x1D542, new[] {0x006B}}, // Additional folding
-            {0x1D543, new[] {0x006C}}, // Additional folding
-            {0x1D544, new[] {0x006D}}, // Additional folding
-            {0x1D546, new[] {0x006F}}, // Additional folding
-            {0x1D54A, new[] {0x0073}}, // Additional folding
-            {0x1D54B, new[] {0x0074}}, // Additional folding
-            {0x1D54C, new[] {0x0075}}, // Additional folding
-            {0x1D54D, new[] {0x0076}}, // Additional folding
-            {0x1D54E, new[] {0x0077}}, // Additional folding
-            {0x1D54F, new[] {0x0078}}, // Additional folding
-            {0x1D550, new[] {0x0079}}, // Additional folding
-            {0x1D56C, new[] {0x0061}}, // Additional folding
-            {0x1D56D, new[] {0x0062}}, // Additional folding
-            {0x1D56E, new[] {0x0063}}, // Additional folding
-            {0x1D56F, new[] {0x0064}}, // Additional folding
-            {0x1D570, new[] {0x0065}}, // Additional folding
-            {0x1D571, new[] {0x0066}}, // Additional folding
-            {0x1D572, new[] {0x0067}}, // Additional folding
-            {0x1D573, new[] {0x0068}}, // Additional folding
-            {0x1D574, new[] {0x0069}}, // Additional folding
-            {0x1D575, new[] {0x006A}}, // Additional folding
-            {0x1D576, new[] {0x006B}}, // Additional folding
-            {0x1D577, new[] {0x006C}}, // Additional folding
-            {0x1D578, new[] {0x006D}}, // Additional folding
-            {0x1D579, new[] {0x006E}}, // Additional folding
-            {0x1D57A, new[] {0x006F}}, // Additional folding
-            {0x1D57B, new[] {0x0070}}, // Additional folding
-            {0x1D57C, new[] {0x0071}}, // Additional folding
-            {0x1D57D, new[] {0x0072}}, // Additional folding
-            {0x1D57E, new[] {0x0073}}, // Additional folding
-            {0x1D57F, new[] {0x0074}}, // Additional folding
-            {0x1D580, new[] {0x0075}}, // Additional folding
-            {0x1D581, new[] {0x0076}}, // Additional folding
-            {0x1D582, new[] {0x0077}}, // Additional folding
-            {0x1D583, new[] {0x0078}}, // Additional folding
-            {0x1D584, new[] {0x0079}}, // Additional folding
-            {0x1D585, new[] {0x007A}}, // Additional folding
-            {0x1D5A0, new[] {0x0061}}, // Additional folding
-            {0x1D5A1, new[] {0x0062}}, // Additional folding
-            {0x1D5A2, new[] {0x0063}}, // Additional folding
-            {0x1D5A3, new[] {0x0064}}, // Additional folding
-            {0x1D5A4, new[] {0x0065}}, // Additional folding
-            {0x1D5A5, new[] {0x0066}}, // Additional folding
-            {0x1D5A6, new[] {0x0067}}, // Additional folding
-            {0x1D5A7, new[] {0x0068}}, // Additional folding
-            {0x1D5A8, new[] {0x0069}}, // Additional folding
-            {0x1D5A9, new[] {0x006A}}, // Additional folding
-            {0x1D5AA, new[] {0x006B}}, // Additional folding
-            {0x1D5AB, new[] {0x006C}}, // Additional folding
-            {0x1D5AC, new[] {0x006D}}, // Additional folding
-            {0x1D5AD, new[] {0x006E}}, // Additional folding
-            {0x1D5AE, new[] {0x006F}}, // Additional folding
-            {0x1D5AF, new[] {0x0070}}, // Additional folding
-            {0x1D5B0, new[] {0x0071}}, // Additional folding
-            {0x1D5B1, new[] {0x0072}}, // Additional folding
-            {0x1D5B2, new[] {0x0073}}, // Additional folding
-            {0x1D5B3, new[] {0x0074}}, // Additional folding
-            {0x1D5B4, new[] {0x0075}}, // Additional folding
-            {0x1D5B5, new[] {0x0076}}, // Additional folding
-            {0x1D5B6, new[] {0x0077}}, // Additional folding
-            {0x1D5B7, new[] {0x0078}}, // Additional folding
-            {0x1D5B8, new[] {0x0079}}, // Additional folding
-            {0x1D5B9, new[] {0x007A}}, // Additional folding
-            {0x1D5D4, new[] {0x0061}}, // Additional folding
-            {0x1D5D5, new[] {0x0062}}, // Additional folding
-            {0x1D5D6, new[] {0x0063}}, // Additional folding
-            {0x1D5D7, new[] {0x0064}}, // Additional folding
-            {0x1D5D8, new[] {0x0065}}, // Additional folding
-            {0x1D5D9, new[] {0x0066}}, // Additional folding
-            {0x1D5DA, new[] {0x0067}}, // Additional folding
-            {0x1D5DB, new[] {0x0068}}, // Additional folding
-            {0x1D5DC, new[] {0x0069}}, // Additional folding
-            {0x1D5DD, new[] {0x006A}}, // Additional folding
-            {0x1D5DE, new[] {0x006B}}, // Additional folding
-            {0x1D5DF, new[] {0x006C}}, // Additional folding
-            {0x1D5E0, new[] {0x006D}}, // Additional folding
-            {0x1D5E1, new[] {0x006E}}, // Additional folding
-            {0x1D5E2, new[] {0x006F}}, // Additional folding
-            {0x1D5E3, new[] {0x0070}}, // Additional folding
-            {0x1D5E4, new[] {0x0071}}, // Additional folding
-            {0x1D5E5, new[] {0x0072}}, // Additional folding
-            {0x1D5E6, new[] {0x0073}}, // Additional folding
-            {0x1D5E7, new[] {0x0074}}, // Additional folding
-            {0x1D5E8, new[] {0x0075}}, // Additional folding
-            {0x1D5E9, new[] {0x0076}}, // Additional folding
-            {0x1D5EA, new[] {0x0077}}, // Additional folding
-            {0x1D5EB, new[] {0x0078}}, // Additional folding
-            {0x1D5EC, new[] {0x0079}}, // Additional folding
-            {0x1D5ED, new[] {0x007A}}, // Additional folding
-            {0x1D608, new[] {0x0061}}, // Additional folding
-            {0x1D609, new[] {0x0062}}, // Additional folding
-            {0x1D60A, new[] {0x0063}}, // Additional folding
-            {0x1D60B, new[] {0x0064}}, // Additional folding
-            {0x1D60C, new[] {0x0065}}, // Additional folding
-            {0x1D60D, new[] {0x0066}}, // Additional folding
-            {0x1D60E, new[] {0x0067}}, // Additional folding
-            {0x1D60F, new[] {0x0068}}, // Additional folding
-            {0x1D610, new[] {0x0069}}, // Additional folding
-            {0x1D611, new[] {0x006A}}, // Additional folding
-            {0x1D612, new[] {0x006B}}, // Additional folding
-            {0x1D613, new[] {0x006C}}, // Additional folding
-            {0x1D614, new[] {0x006D}}, // Additional folding
-            {0x1D615, new[] {0x006E}}, // Additional folding
-            {0x1D616, new[] {0x006F}}, // Additional folding
-            {0x1D617, new[] {0x0070}}, // Additional folding
-            {0x1D618, new[] {0x0071}}, // Additional folding
-            {0x1D619, new[] {0x0072}}, // Additional folding
-            {0x1D61A, new[] {0x0073}}, // Additional folding
-            {0x1D61B, new[] {0x0074}}, // Additional folding
-            {0x1D61C, new[] {0x0075}}, // Additional folding
-            {0x1D61D, new[] {0x0076}}, // Additional folding
-            {0x1D61E, new[] {0x0077}}, // Additional folding
-            {0x1D61F, new[] {0x0078}}, // Additional folding
-            {0x1D620, new[] {0x0079}}, // Additional folding
-            {0x1D621, new[] {0x007A}}, // Additional folding
-            {0x1D63C, new[] {0x0061}}, // Additional folding
-            {0x1D63D, new[] {0x0062}}, // Additional folding
-            {0x1D63E, new[] {0x0063}}, // Additional folding
-            {0x1D63F, new[] {0x0064}}, // Additional folding
-            {0x1D640, new[] {0x0065}}, // Additional folding
-            {0x1D641, new[] {0x0066}}, // Additional folding
-            {0x1D642, new[] {0x0067}}, // Additional folding
-            {0x1D643, new[] {0x0068}}, // Additional folding
-            {0x1D644, new[] {0x0069}}, // Additional folding
-            {0x1D645, new[] {0x006A}}, // Additional folding
-            {0x1D646, new[] {0x006B}}, // Additional folding
-            {0x1D647, new[] {0x006C}}, // Additional folding
-            {0x1D648, new[] {0x006D}}, // Additional folding
-            {0x1D649, new[] {0x006E}}, // Additional folding
-            {0x1D64A, new[] {0x006F}}, // Additional folding
-            {0x1D64B, new[] {0x0070}}, // Additional folding
-            {0x1D64C, new[] {0x0071}}, // Additional folding
-            {0x1D64D, new[] {0x0072}}, // Additional folding
-            {0x1D64E, new[] {0x0073}}, // Additional folding
-            {0x1D64F, new[] {0x0074}}, // Additional folding
-            {0x1D650, new[] {0x0075}}, // Additional folding
-            {0x1D651, new[] {0x0076}}, // Additional folding
-            {0x1D652, new[] {0x0077}}, // Additional folding
-            {0x1D653, new[] {0x0078}}, // Additional folding
-            {0x1D654, new[] {0x0079}}, // Additional folding
-            {0x1D655, new[] {0x007A}}, // Additional folding
-            {0x1D670, new[] {0x0061}}, // Additional folding
-            {0x1D671, new[] {0x0062}}, // Additional folding
-            {0x1D672, new[] {0x0063}}, // Additional folding
-            {0x1D673, new[] {0x0064}}, // Additional folding
-            {0x1D674, new[] {0x0065}}, // Additional folding
-            {0x1D675, new[] {0x0066}}, // Additional folding
-            {0x1D676, new[] {0x0067}}, // Additional folding
-            {0x1D677, new[] {0x0068}}, // Additional folding
-            {0x1D678, new[] {0x0069}}, // Additional folding
-            {0x1D679, new[] {0x006A}}, // Additional folding
-            {0x1D67A, new[] {0x006B}}, // Additional folding
-            {0x1D67B, new[] {0x006C}}, // Additional folding
-            {0x1D67C, new[] {0x006D}}, // Additional folding
-            {0x1D67D, new[] {0x006E}}, // Additional folding
-            {0x1D67E, new[] {0x006F}}, // Additional folding
-            {0x1D67F, new[] {0x0070}}, // Additional folding
-            {0x1D680, new[] {0x0071}}, // Additional folding
-            {0x1D681, new[] {0x0072}}, // Additional folding
-            {0x1D682, new[] {0x0073}}, // Additional folding
-            {0x1D683, new[] {0x0074}}, // Additional folding
-            {0x1D684, new[] {0x0075}}, // Additional folding
-            {0x1D685, new[] {0x0076}}, // Additional folding
-            {0x1D686, new[] {0x0077}}, // Additional folding
-            {0x1D687, new[] {0x0078}}, // Additional folding
-            {0x1D688, new[] {0x0079}}, // Additional folding
-            {0x1D689, new[] {0x007A}}, // Additional folding
-            {0x1D6A8, new[] {0x03B1}}, // Additional folding
-            {0x1D6A9, new[] {0x03B2}}, // Additional folding
-            {0x1D6AA, new[] {0x03B3}}, // Additional folding
-            {0x1D6AB, new[] {0x03B4}}, // Additional folding
-            {0x1D6AC, new[] {0x03B5}}, // Additional folding
-            {0x1D6AD, new[] {0x03B6}}, // Additional folding
-            {0x1D6AE, new[] {0x03B7}}, // Additional folding
-            {0x1D6AF, new[] {0x03B8}}, // Additional folding
-            {0x1D6B0, new[] {0x03B9}}, // Additional folding
-            {0x1D6B1, new[] {0x03BA}}, // Additional folding
-            {0x1D6B2, new[] {0x03BB}}, // Additional folding
-            {0x1D6B3, new[] {0x03BC}}, // Additional folding
-            {0x1D6B4, new[] {0x03BD}}, // Additional folding
-            {0x1D6B5, new[] {0x03BE}}, // Additional folding
-            {0x1D6B6, new[] {0x03BF}}, // Additional folding
-            {0x1D6B7, new[] {0x03C0}}, // Additional folding
-            {0x1D6B8, new[] {0x03C1}}, // Additional folding
-            {0x1D6B9, new[] {0x03B8}}, // Additional folding
-            {0x1D6BA, new[] {0x03C3}}, // Additional folding
-            {0x1D6BB, new[] {0x03C4}}, // Additional folding
-            {0x1D6BC, new[] {0x03C5}}, // Additional folding
-            {0x1D6BD, new[] {0x03C6}}, // Additional folding
-            {0x1D6BE, new[] {0x03C7}}, // Additional folding
-            {0x1D6BF, new[] {0x03C8}}, // Additional folding
-            {0x1D6C0, new[] {0x03C9}}, // Additional folding
-            {0x1D6D3, new[] {0x03C3}}, // Additional folding
-            {0x1D6E2, new[] {0x03B1}}, // Additional folding
-            {0x1D6E3, new[] {0x03B2}}, // Additional folding
-            {0x1D6E4, new[] {0x03B3}}, // Additional folding
-            {0x1D6E5, new[] {0x03B4}}, // Additional folding
-            {0x1D6E6, new[] {0x03B5}}, // Additional folding
-            {0x1D6E7, new[] {0x03B6}}, // Additional folding
-            {0x1D6E8, new[] {0x03B7}}, // Additional folding
-            {0x1D6E9, new[] {0x03B8}}, // Additional folding
-            {0x1D6EA, new[] {0x03B9}}, // Additional folding
-            {0x1D6EB, new[] {0x03BA}}, // Additional folding
-            {0x1D6EC, new[] {0x03BB}}, // Additional folding
-            {0x1D6ED, new[] {0x03BC}}, // Additional folding
-            {0x1D6EE, new[] {0x03BD}}, // Additional folding
-            {0x1D6EF, new[] {0x03BE}}, // Additional folding
-            {0x1D6F0, new[] {0x03BF}}, // Additional folding
-            {0x1D6F1, new[] {0x03C0}}, // Additional folding
-            {0x1D6F2, new[] {0x03C1}}, // Additional folding
-            {0x1D6F3, new[] {0x03B8}}, // Additional folding
-            {0x1D6F4, new[] {0x03C3}}, // Additional folding
-            {0x1D6F5, new[] {0x03C4}}, // Additional folding
-            {0x1D6F6, new[] {0x03C5}}, // Additional folding
-            {0x1D6F7, new[] {0x03C6}}, // Additional folding
-            {0x1D6F8, new[] {0x03C7}}, // Additional folding
-            {0x1D6F9, new[] {0x03C8}}, // Additional folding
-            {0x1D6FA, new[] {0x03C9}}, // Additional folding
-            {0x1D70D, new[] {0x03C3}}, // Additional folding
-            {0x1D71C, new[] {0x03B1}}, // Additional folding
-            {0x1D71D, new[] {0x03B2}}, // Additional folding
-            {0x1D71E, new[] {0x03B3}}, // Additional folding
-            {0x1D71F, new[] {0x03B4}}, // Additional folding
-            {0x1D720, new[] {0x03B5}}, // Additional folding
-            {0x1D721, new[] {0x03B6}}, // Additional folding
-            {0x1D722, new[] {0x03B7}}, // Additional folding
-            {0x1D723, new[] {0x03B8}}, // Additional folding
-            {0x1D724, new[] {0x03B9}}, // Additional folding
-            {0x1D725, new[] {0x03BA}}, // Additional folding
-            {0x1D726, new[] {0x03BB}}, // Additional folding
-            {0x1D727, new[] {0x03BC}}, // Additional folding
-            {0x1D728, new[] {0x03BD}}, // Additional folding
-            {0x1D729, new[] {0x03BE}}, // Additional folding
-            {0x1D72A, new[] {0x03BF}}, // Additional folding
-            {0x1D72B, new[] {0x03C0}}, // Additional folding
-            {0x1D72C, new[] {0x03C1}}, // Additional folding
-            {0x1D72D, new[] {0x03B8}}, // Additional folding
-            {0x1D72E, new[] {0x03C3}}, // Additional folding
-            {0x1D72F, new[] {0x03C4}}, // Additional folding
-            {0x1D730, new[] {0x03C5}}, // Additional folding
-            {0x1D731, new[] {0x03C6}}, // Additional folding
-            {0x1D732, new[] {0x03C7}}, // Additional folding
-            {0x1D733, new[] {0x03C8}}, // Additional folding
-            {0x1D734, new[] {0x03C9}}, // Additional folding
-            {0x1D747, new[] {0x03C3}}, // Additional folding
-            {0x1D756, new[] {0x03B1}}, // Additional folding
-            {0x1D757, new[] {0x03B2}}, // Additional folding
-            {0x1D758, new[] {0x03B3}}, // Additional folding
-            {0x1D759, new[] {0x03B4}}, // Additional folding
-            {0x1D75A, new[] {0x03B5}}, // Additional folding
-            {0x1D75B, new[] {0x03B6}}, // Additional folding
-            {0x1D75C, new[] {0x03B7}}, // Additional folding
-            {0x1D75D, new[] {0x03B8}}, // Additional folding
-            {0x1D75E, new[] {0x03B9}}, // Additional folding
-            {0x1D75F, new[] {0x03BA}}, // Additional folding
-            {0x1D760, new[] {0x03BB}}, // Additional folding
-            {0x1D761, new[] {0x03BC}}, // Additional folding
-            {0x1D762, new[] {0x03BD}}, // Additional folding
-            {0x1D763, new[] {0x03BE}}, // Additional folding
-            {0x1D764, new[] {0x03BF}}, // Additional folding
-            {0x1D765, new[] {0x03C0}}, // Additional folding
-            {0x1D766, new[] {0x03C1}}, // Additional folding
-            {0x1D767, new[] {0x03B8}}, // Additional folding
-            {0x1D768, new[] {0x03C3}}, // Additional folding
-            {0x1D769, new[] {0x03C4}}, // Additional folding
-            {0x1D76A, new[] {0x03C5}}, // Additional folding
-            {0x1D76B, new[] {0x03C6}}, // Additional folding
-            {0x1D76C, new[] {0x03C7}}, // Additional folding
-            {0x1D76D, new[] {0x03C8}}, // Additional folding
-            {0x1D76E, new[] {0x03C9}}, // Additional folding
-            {0x1D781, new[] {0x03C3}}, // Additional folding
-            {0x1D790, new[] {0x03B1}}, // Additional folding
-            {0x1D791, new[] {0x03B2}}, // Additional folding
-            {0x1D792, new[] {0x03B3}}, // Additional folding
-            {0x1D793, new[] {0x03B4}}, // Additional folding
-            {0x1D794, new[] {0x03B5}}, // Additional folding
-            {0x1D795, new[] {0x03B6}}, // Additional folding
-            {0x1D796, new[] {0x03B7}}, // Additional folding
-            {0x1D797, new[] {0x03B8}}, // Additional folding
-            {0x1D798, new[] {0x03B9}}, // Additional folding
-            {0x1D799, new[] {0x03BA}}, // Additional folding
-            {0x1D79A, new[] {0x03BB}}, // Additional folding
-            {0x1D79B, new[] {0x03BC}}, // Additional folding
-            {0x1D79C, new[] {0x03BD}}, // Additional folding
-            {0x1D79D, new[] {0x03BE}}, // Additional folding
-            {0x1D79E, new[] {0x03BF}}, // Additional folding
-            {0x1D79F, new[] {0x03C0}}, // Additional folding
-            {0x1D7A0, new[] {0x03C1}}, // Additional folding
-            {0x1D7A1, new[] {0x03B8}}, // Additional folding
-            {0x1D7A2, new[] {0x03C3}}, // Additional folding
-            {0x1D7A3, new[] {0x03C4}}, // Additional folding
-            {0x1D7A4, new[] {0x03C5}}, // Additional folding
-            {0x1D7A5, new[] {0x03C6}}, // Additional folding
-            {0x1D7A6, new[] {0x03C7}}, // Additional folding
-            {0x1D7A7, new[] {0x03C8}}, // Additional folding
-            {0x1D7A8, new[] {0x03C9}}, // Additional folding
-            {0x1D7BB, new[] {0x03C3}} // Additional folding
+            { 0x0041, new[] { 0x0061 } }, // Case map
+            { 0x0042, new[] { 0x0062 } }, // Case map
+            { 0x0043, new[] { 0x0063 } }, // Case map
+            { 0x0044, new[] { 0x0064 } }, // Case map
+            { 0x0045, new[] { 0x0065 } }, // Case map
+            { 0x0046, new[] { 0x0066 } }, // Case map
+            { 0x0047, new[] { 0x0067 } }, // Case map
+            { 0x0048, new[] { 0x0068 } }, // Case map
+            { 0x0049, new[] { 0x0069 } }, // Case map
+            { 0x004A, new[] { 0x006A } }, // Case map
+            { 0x004B, new[] { 0x006B } }, // Case map
+            { 0x004C, new[] { 0x006C } }, // Case map
+            { 0x004D, new[] { 0x006D } }, // Case map
+            { 0x004E, new[] { 0x006E } }, // Case map
+            { 0x004F, new[] { 0x006F } }, // Case map
+            { 0x0050, new[] { 0x0070 } }, // Case map
+            { 0x0051, new[] { 0x0071 } }, // Case map
+            { 0x0052, new[] { 0x0072 } }, // Case map
+            { 0x0053, new[] { 0x0073 } }, // Case map
+            { 0x0054, new[] { 0x0074 } }, // Case map
+            { 0x0055, new[] { 0x0075 } }, // Case map
+            { 0x0056, new[] { 0x0076 } }, // Case map
+            { 0x0057, new[] { 0x0077 } }, // Case map
+            { 0x0058, new[] { 0x0078 } }, // Case map
+            { 0x0059, new[] { 0x0079 } }, // Case map
+            { 0x005A, new[] { 0x007A } }, // Case map
+            { 0x00B5, new[] { 0x03BC } }, // Case map
+            { 0x00C0, new[] { 0x00E0 } }, // Case map
+            { 0x00C1, new[] { 0x00E1 } }, // Case map
+            { 0x00C2, new[] { 0x00E2 } }, // Case map
+            { 0x00C3, new[] { 0x00E3 } }, // Case map
+            { 0x00C4, new[] { 0x00E4 } }, // Case map
+            { 0x00C5, new[] { 0x00E5 } }, // Case map
+            { 0x00C6, new[] { 0x00E6 } }, // Case map
+            { 0x00C7, new[] { 0x00E7 } }, // Case map
+            { 0x00C8, new[] { 0x00E8 } }, // Case map
+            { 0x00C9, new[] { 0x00E9 } }, // Case map
+            { 0x00CA, new[] { 0x00EA } }, // Case map
+            { 0x00CB, new[] { 0x00EB } }, // Case map
+            { 0x00CC, new[] { 0x00EC } }, // Case map
+            { 0x00CD, new[] { 0x00ED } }, // Case map
+            { 0x00CE, new[] { 0x00EE } }, // Case map
+            { 0x00CF, new[] { 0x00EF } }, // Case map
+            { 0x00D0, new[] { 0x00F0 } }, // Case map
+            { 0x00D1, new[] { 0x00F1 } }, // Case map
+            { 0x00D2, new[] { 0x00F2 } }, // Case map
+            { 0x00D3, new[] { 0x00F3 } }, // Case map
+            { 0x00D4, new[] { 0x00F4 } }, // Case map
+            { 0x00D5, new[] { 0x00F5 } }, // Case map
+            { 0x00D6, new[] { 0x00F6 } }, // Case map
+            { 0x00D8, new[] { 0x00F8 } }, // Case map
+            { 0x00D9, new[] { 0x00F9 } }, // Case map
+            { 0x00DA, new[] { 0x00FA } }, // Case map
+            { 0x00DB, new[] { 0x00FB } }, // Case map
+            { 0x00DC, new[] { 0x00FC } }, // Case map
+            { 0x00DD, new[] { 0x00FD } }, // Case map
+            { 0x00DE, new[] { 0x00FE } }, // Case map
+            { 0x00DF, new[] { 0x0073, 0x0073 } }, // Case map
+            { 0x0100, new[] { 0x0101 } }, // Case map
+            { 0x0102, new[] { 0x0103 } }, // Case map
+            { 0x0104, new[] { 0x0105 } }, // Case map
+            { 0x0106, new[] { 0x0107 } }, // Case map
+            { 0x0108, new[] { 0x0109 } }, // Case map
+            { 0x010A, new[] { 0x010B } }, // Case map
+            { 0x010C, new[] { 0x010D } }, // Case map
+            { 0x010E, new[] { 0x010F } }, // Case map
+            { 0x0110, new[] { 0x0111 } }, // Case map
+            { 0x0112, new[] { 0x0113 } }, // Case map
+            { 0x0114, new[] { 0x0115 } }, // Case map
+            { 0x0116, new[] { 0x0117 } }, // Case map
+            { 0x0118, new[] { 0x0119 } }, // Case map
+            { 0x011A, new[] { 0x011B } }, // Case map
+            { 0x011C, new[] { 0x011D } }, // Case map
+            { 0x011E, new[] { 0x011F } }, // Case map
+            { 0x0120, new[] { 0x0121 } }, // Case map
+            { 0x0122, new[] { 0x0123 } }, // Case map
+            { 0x0124, new[] { 0x0125 } }, // Case map
+            { 0x0126, new[] { 0x0127 } }, // Case map
+            { 0x0128, new[] { 0x0129 } }, // Case map
+            { 0x012A, new[] { 0x012B } }, // Case map
+            { 0x012C, new[] { 0x012D } }, // Case map
+            { 0x012E, new[] { 0x012F } }, // Case map
+            { 0x0130, new[] { 0x0069, 0x0307 } }, // Case map
+            { 0x0132, new[] { 0x0133 } }, // Case map
+            { 0x0134, new[] { 0x0135 } }, // Case map
+            { 0x0136, new[] { 0x0137 } }, // Case map
+            { 0x0139, new[] { 0x013A } }, // Case map
+            { 0x013B, new[] { 0x013C } }, // Case map
+            { 0x013D, new[] { 0x013E } }, // Case map
+            { 0x013F, new[] { 0x0140 } }, // Case map
+            { 0x0141, new[] { 0x0142 } }, // Case map
+            { 0x0143, new[] { 0x0144 } }, // Case map
+            { 0x0145, new[] { 0x0146 } }, // Case map
+            { 0x0147, new[] { 0x0148 } }, // Case map
+            { 0x0149, new[] { 0x02BC, 0x006E } }, // Case map
+            { 0x014A, new[] { 0x014B } }, // Case map
+            { 0x014C, new[] { 0x014D } }, // Case map
+            { 0x014E, new[] { 0x014F } }, // Case map
+            { 0x0150, new[] { 0x0151 } }, // Case map
+            { 0x0152, new[] { 0x0153 } }, // Case map
+            { 0x0154, new[] { 0x0155 } }, // Case map
+            { 0x0156, new[] { 0x0157 } }, // Case map
+            { 0x0158, new[] { 0x0159 } }, // Case map
+            { 0x015A, new[] { 0x015B } }, // Case map
+            { 0x015C, new[] { 0x015D } }, // Case map
+            { 0x015E, new[] { 0x015F } }, // Case map
+            { 0x0160, new[] { 0x0161 } }, // Case map
+            { 0x0162, new[] { 0x0163 } }, // Case map
+            { 0x0164, new[] { 0x0165 } }, // Case map
+            { 0x0166, new[] { 0x0167 } }, // Case map
+            { 0x0168, new[] { 0x0169 } }, // Case map
+            { 0x016A, new[] { 0x016B } }, // Case map
+            { 0x016C, new[] { 0x016D } }, // Case map
+            { 0x016E, new[] { 0x016F } }, // Case map
+            { 0x0170, new[] { 0x0171 } }, // Case map
+            { 0x0172, new[] { 0x0173 } }, // Case map
+            { 0x0174, new[] { 0x0175 } }, // Case map
+            { 0x0176, new[] { 0x0177 } }, // Case map
+            { 0x0178, new[] { 0x00FF } }, // Case map
+            { 0x0179, new[] { 0x017A } }, // Case map
+            { 0x017B, new[] { 0x017C } }, // Case map
+            { 0x017D, new[] { 0x017E } }, // Case map
+            { 0x017F, new[] { 0x0073 } }, // Case map
+            { 0x0181, new[] { 0x0253 } }, // Case map
+            { 0x0182, new[] { 0x0183 } }, // Case map
+            { 0x0184, new[] { 0x0185 } }, // Case map
+            { 0x0186, new[] { 0x0254 } }, // Case map
+            { 0x0187, new[] { 0x0188 } }, // Case map
+            { 0x0189, new[] { 0x0256 } }, // Case map
+            { 0x018A, new[] { 0x0257 } }, // Case map
+            { 0x018B, new[] { 0x018C } }, // Case map
+            { 0x018E, new[] { 0x01DD } }, // Case map
+            { 0x018F, new[] { 0x0259 } }, // Case map
+            { 0x0190, new[] { 0x025B } }, // Case map
+            { 0x0191, new[] { 0x0192 } }, // Case map
+            { 0x0193, new[] { 0x0260 } }, // Case map
+            { 0x0194, new[] { 0x0263 } }, // Case map
+            { 0x0196, new[] { 0x0269 } }, // Case map
+            { 0x0197, new[] { 0x0268 } }, // Case map
+            { 0x0198, new[] { 0x0199 } }, // Case map
+            { 0x019C, new[] { 0x026F } }, // Case map
+            { 0x019D, new[] { 0x0272 } }, // Case map
+            { 0x019F, new[] { 0x0275 } }, // Case map
+            { 0x01A0, new[] { 0x01A1 } }, // Case map
+            { 0x01A2, new[] { 0x01A3 } }, // Case map
+            { 0x01A4, new[] { 0x01A5 } }, // Case map
+            { 0x01A6, new[] { 0x0280 } }, // Case map
+            { 0x01A7, new[] { 0x01A8 } }, // Case map
+            { 0x01A9, new[] { 0x0283 } }, // Case map
+            { 0x01AC, new[] { 0x01AD } }, // Case map
+            { 0x01AE, new[] { 0x0288 } }, // Case map
+            { 0x01AF, new[] { 0x01B0 } }, // Case map
+            { 0x01B1, new[] { 0x028A } }, // Case map
+            { 0x01B2, new[] { 0x028B } }, // Case map
+            { 0x01B3, new[] { 0x01B4 } }, // Case map
+            { 0x01B5, new[] { 0x01B6 } }, // Case map
+            { 0x01B7, new[] { 0x0292 } }, // Case map
+            { 0x01B8, new[] { 0x01B9 } }, // Case map
+            { 0x01BC, new[] { 0x01BD } }, // Case map
+            { 0x01C4, new[] { 0x01C6 } }, // Case map
+            { 0x01C5, new[] { 0x01C6 } }, // Case map
+            { 0x01C7, new[] { 0x01C9 } }, // Case map
+            { 0x01C8, new[] { 0x01C9 } }, // Case map
+            { 0x01CA, new[] { 0x01CC } }, // Case map
+            { 0x01CB, new[] { 0x01CC } }, // Case map
+            { 0x01CD, new[] { 0x01CE } }, // Case map
+            { 0x01CF, new[] { 0x01D0 } }, // Case map
+            { 0x01D1, new[] { 0x01D2 } }, // Case map
+            { 0x01D3, new[] { 0x01D4 } }, // Case map
+            { 0x01D5, new[] { 0x01D6 } }, // Case map
+            { 0x01D7, new[] { 0x01D8 } }, // Case map
+            { 0x01D9, new[] { 0x01DA } }, // Case map
+            { 0x01DB, new[] { 0x01DC } }, // Case map
+            { 0x01DE, new[] { 0x01DF } }, // Case map
+            { 0x01E0, new[] { 0x01E1 } }, // Case map
+            { 0x01E2, new[] { 0x01E3 } }, // Case map
+            { 0x01E4, new[] { 0x01E5 } }, // Case map
+            { 0x01E6, new[] { 0x01E7 } }, // Case map
+            { 0x01E8, new[] { 0x01E9 } }, // Case map
+            { 0x01EA, new[] { 0x01EB } }, // Case map
+            { 0x01EC, new[] { 0x01ED } }, // Case map
+            { 0x01EE, new[] { 0x01EF } }, // Case map
+            { 0x01F0, new[] { 0x006A, 0x030C } }, // Case map
+            { 0x01F1, new[] { 0x01F3 } }, // Case map
+            { 0x01F2, new[] { 0x01F3 } }, // Case map
+            { 0x01F4, new[] { 0x01F5 } }, // Case map
+            { 0x01F6, new[] { 0x0195 } }, // Case map
+            { 0x01F7, new[] { 0x01BF } }, // Case map
+            { 0x01F8, new[] { 0x01F9 } }, // Case map
+            { 0x01FA, new[] { 0x01FB } }, // Case map
+            { 0x01FC, new[] { 0x01FD } }, // Case map
+            { 0x01FE, new[] { 0x01FF } }, // Case map
+            { 0x0200, new[] { 0x0201 } }, // Case map
+            { 0x0202, new[] { 0x0203 } }, // Case map
+            { 0x0204, new[] { 0x0205 } }, // Case map
+            { 0x0206, new[] { 0x0207 } }, // Case map
+            { 0x0208, new[] { 0x0209 } }, // Case map
+            { 0x020A, new[] { 0x020B } }, // Case map
+            { 0x020C, new[] { 0x020D } }, // Case map
+            { 0x020E, new[] { 0x020F } }, // Case map
+            { 0x0210, new[] { 0x0211 } }, // Case map
+            { 0x0212, new[] { 0x0213 } }, // Case map
+            { 0x0214, new[] { 0x0215 } }, // Case map
+            { 0x0216, new[] { 0x0217 } }, // Case map
+            { 0x0218, new[] { 0x0219 } }, // Case map
+            { 0x021A, new[] { 0x021B } }, // Case map
+            { 0x021C, new[] { 0x021D } }, // Case map
+            { 0x021E, new[] { 0x021F } }, // Case map
+            { 0x0220, new[] { 0x019E } }, // Case map
+            { 0x0222, new[] { 0x0223 } }, // Case map
+            { 0x0224, new[] { 0x0225 } }, // Case map
+            { 0x0226, new[] { 0x0227 } }, // Case map
+            { 0x0228, new[] { 0x0229 } }, // Case map
+            { 0x022A, new[] { 0x022B } }, // Case map
+            { 0x022C, new[] { 0x022D } }, // Case map
+            { 0x022E, new[] { 0x022F } }, // Case map
+            { 0x0230, new[] { 0x0231 } }, // Case map
+            { 0x0232, new[] { 0x0233 } }, // Case map
+            { 0x0345, new[] { 0x03B9 } }, // Case map
+            { 0x037A, new[] { 0x0020, 0x03B9 } }, // Additional folding
+            { 0x0386, new[] { 0x03AC } }, // Case map
+            { 0x0388, new[] { 0x03AD } }, // Case map
+            { 0x0389, new[] { 0x03AE } }, // Case map
+            { 0x038A, new[] { 0x03AF } }, // Case map
+            { 0x038C, new[] { 0x03CC } }, // Case map
+            { 0x038E, new[] { 0x03CD } }, // Case map
+            { 0x038F, new[] { 0x03CE } }, // Case map
+            { 0x0390, new[] { 0x03B9, 0x0308, 0x0301 } }, // Case map
+            { 0x0391, new[] { 0x03B1 } }, // Case map
+            { 0x0392, new[] { 0x03B2 } }, // Case map
+            { 0x0393, new[] { 0x03B3 } }, // Case map
+            { 0x0394, new[] { 0x03B4 } }, // Case map
+            { 0x0395, new[] { 0x03B5 } }, // Case map
+            { 0x0396, new[] { 0x03B6 } }, // Case map
+            { 0x0397, new[] { 0x03B7 } }, // Case map
+            { 0x0398, new[] { 0x03B8 } }, // Case map
+            { 0x0399, new[] { 0x03B9 } }, // Case map
+            { 0x039A, new[] { 0x03BA } }, // Case map
+            { 0x039B, new[] { 0x03BB } }, // Case map
+            { 0x039C, new[] { 0x03BC } }, // Case map
+            { 0x039D, new[] { 0x03BD } }, // Case map
+            { 0x039E, new[] { 0x03BE } }, // Case map
+            { 0x039F, new[] { 0x03BF } }, // Case map
+            { 0x03A0, new[] { 0x03C0 } }, // Case map
+            { 0x03A1, new[] { 0x03C1 } }, // Case map
+            { 0x03A3, new[] { 0x03C3 } }, // Case map
+            { 0x03A4, new[] { 0x03C4 } }, // Case map
+            { 0x03A5, new[] { 0x03C5 } }, // Case map
+            { 0x03A6, new[] { 0x03C6 } }, // Case map
+            { 0x03A7, new[] { 0x03C7 } }, // Case map
+            { 0x03A8, new[] { 0x03C8 } }, // Case map
+            { 0x03A9, new[] { 0x03C9 } }, // Case map
+            { 0x03AA, new[] { 0x03CA } }, // Case map
+            { 0x03AB, new[] { 0x03CB } }, // Case map
+            { 0x03B0, new[] { 0x03C5, 0x0308, 0x0301 } }, // Case map
+            { 0x03C2, new[] { 0x03C3 } }, // Case map
+            { 0x03D0, new[] { 0x03B2 } }, // Case map
+            { 0x03D1, new[] { 0x03B8 } }, // Case map
+            { 0x03D2, new[] { 0x03C5 } }, // Additional folding
+            { 0x03D3, new[] { 0x03CD } }, // Additional folding
+            { 0x03D4, new[] { 0x03CB } }, // Additional folding
+            { 0x03D5, new[] { 0x03C6 } }, // Case map
+            { 0x03D6, new[] { 0x03C0 } }, // Case map
+            { 0x03D8, new[] { 0x03D9 } }, // Case map
+            { 0x03DA, new[] { 0x03DB } }, // Case map
+            { 0x03DC, new[] { 0x03DD } }, // Case map
+            { 0x03DE, new[] { 0x03DF } }, // Case map
+            { 0x03E0, new[] { 0x03E1 } }, // Case map
+            { 0x03E2, new[] { 0x03E3 } }, // Case map
+            { 0x03E4, new[] { 0x03E5 } }, // Case map
+            { 0x03E6, new[] { 0x03E7 } }, // Case map
+            { 0x03E8, new[] { 0x03E9 } }, // Case map
+            { 0x03EA, new[] { 0x03EB } }, // Case map
+            { 0x03EC, new[] { 0x03ED } }, // Case map
+            { 0x03EE, new[] { 0x03EF } }, // Case map
+            { 0x03F0, new[] { 0x03BA } }, // Case map
+            { 0x03F1, new[] { 0x03C1 } }, // Case map
+            { 0x03F2, new[] { 0x03C3 } }, // Case map
+            { 0x03F4, new[] { 0x03B8 } }, // Case map
+            { 0x03F5, new[] { 0x03B5 } }, // Case map
+            { 0x0400, new[] { 0x0450 } }, // Case map
+            { 0x0401, new[] { 0x0451 } }, // Case map
+            { 0x0402, new[] { 0x0452 } }, // Case map
+            { 0x0403, new[] { 0x0453 } }, // Case map
+            { 0x0404, new[] { 0x0454 } }, // Case map
+            { 0x0405, new[] { 0x0455 } }, // Case map
+            { 0x0406, new[] { 0x0456 } }, // Case map
+            { 0x0407, new[] { 0x0457 } }, // Case map
+            { 0x0408, new[] { 0x0458 } }, // Case map
+            { 0x0409, new[] { 0x0459 } }, // Case map
+            { 0x040A, new[] { 0x045A } }, // Case map
+            { 0x040B, new[] { 0x045B } }, // Case map
+            { 0x040C, new[] { 0x045C } }, // Case map
+            { 0x040D, new[] { 0x045D } }, // Case map
+            { 0x040E, new[] { 0x045E } }, // Case map
+            { 0x040F, new[] { 0x045F } }, // Case map
+            { 0x0410, new[] { 0x0430 } }, // Case map
+            { 0x0411, new[] { 0x0431 } }, // Case map
+            { 0x0412, new[] { 0x0432 } }, // Case map
+            { 0x0413, new[] { 0x0433 } }, // Case map
+            { 0x0414, new[] { 0x0434 } }, // Case map
+            { 0x0415, new[] { 0x0435 } }, // Case map
+            { 0x0416, new[] { 0x0436 } }, // Case map
+            { 0x0417, new[] { 0x0437 } }, // Case map
+            { 0x0418, new[] { 0x0438 } }, // Case map
+            { 0x0419, new[] { 0x0439 } }, // Case map
+            { 0x041A, new[] { 0x043A } }, // Case map
+            { 0x041B, new[] { 0x043B } }, // Case map
+            { 0x041C, new[] { 0x043C } }, // Case map
+            { 0x041D, new[] { 0x043D } }, // Case map
+            { 0x041E, new[] { 0x043E } }, // Case map
+            { 0x041F, new[] { 0x043F } }, // Case map
+            { 0x0420, new[] { 0x0440 } }, // Case map
+            { 0x0421, new[] { 0x0441 } }, // Case map
+            { 0x0422, new[] { 0x0442 } }, // Case map
+            { 0x0423, new[] { 0x0443 } }, // Case map
+            { 0x0424, new[] { 0x0444 } }, // Case map
+            { 0x0425, new[] { 0x0445 } }, // Case map
+            { 0x0426, new[] { 0x0446 } }, // Case map
+            { 0x0427, new[] { 0x0447 } }, // Case map
+            { 0x0428, new[] { 0x0448 } }, // Case map
+            { 0x0429, new[] { 0x0449 } }, // Case map
+            { 0x042A, new[] { 0x044A } }, // Case map
+            { 0x042B, new[] { 0x044B } }, // Case map
+            { 0x042C, new[] { 0x044C } }, // Case map
+            { 0x042D, new[] { 0x044D } }, // Case map
+            { 0x042E, new[] { 0x044E } }, // Case map
+            { 0x042F, new[] { 0x044F } }, // Case map
+            { 0x0460, new[] { 0x0461 } }, // Case map
+            { 0x0462, new[] { 0x0463 } }, // Case map
+            { 0x0464, new[] { 0x0465 } }, // Case map
+            { 0x0466, new[] { 0x0467 } }, // Case map
+            { 0x0468, new[] { 0x0469 } }, // Case map
+            { 0x046A, new[] { 0x046B } }, // Case map
+            { 0x046C, new[] { 0x046D } }, // Case map
+            { 0x046E, new[] { 0x046F } }, // Case map
+            { 0x0470, new[] { 0x0471 } }, // Case map
+            { 0x0472, new[] { 0x0473 } }, // Case map
+            { 0x0474, new[] { 0x0475 } }, // Case map
+            { 0x0476, new[] { 0x0477 } }, // Case map
+            { 0x0478, new[] { 0x0479 } }, // Case map
+            { 0x047A, new[] { 0x047B } }, // Case map
+            { 0x047C, new[] { 0x047D } }, // Case map
+            { 0x047E, new[] { 0x047F } }, // Case map
+            { 0x0480, new[] { 0x0481 } }, // Case map
+            { 0x048A, new[] { 0x048B } }, // Case map
+            { 0x048C, new[] { 0x048D } }, // Case map
+            { 0x048E, new[] { 0x048F } }, // Case map
+            { 0x0490, new[] { 0x0491 } }, // Case map
+            { 0x0492, new[] { 0x0493 } }, // Case map
+            { 0x0494, new[] { 0x0495 } }, // Case map
+            { 0x0496, new[] { 0x0497 } }, // Case map
+            { 0x0498, new[] { 0x0499 } }, // Case map
+            { 0x049A, new[] { 0x049B } }, // Case map
+            { 0x049C, new[] { 0x049D } }, // Case map
+            { 0x049E, new[] { 0x049F } }, // Case map
+            { 0x04A0, new[] { 0x04A1 } }, // Case map
+            { 0x04A2, new[] { 0x04A3 } }, // Case map
+            { 0x04A4, new[] { 0x04A5 } }, // Case map
+            { 0x04A6, new[] { 0x04A7 } }, // Case map
+            { 0x04A8, new[] { 0x04A9 } }, // Case map
+            { 0x04AA, new[] { 0x04AB } }, // Case map
+            { 0x04AC, new[] { 0x04AD } }, // Case map
+            { 0x04AE, new[] { 0x04AF } }, // Case map
+            { 0x04B0, new[] { 0x04B1 } }, // Case map
+            { 0x04B2, new[] { 0x04B3 } }, // Case map
+            { 0x04B4, new[] { 0x04B5 } }, // Case map
+            { 0x04B6, new[] { 0x04B7 } }, // Case map
+            { 0x04B8, new[] { 0x04B9 } }, // Case map
+            { 0x04BA, new[] { 0x04BB } }, // Case map
+            { 0x04BC, new[] { 0x04BD } }, // Case map
+            { 0x04BE, new[] { 0x04BF } }, // Case map
+            { 0x04C1, new[] { 0x04C2 } }, // Case map
+            { 0x04C3, new[] { 0x04C4 } }, // Case map
+            { 0x04C5, new[] { 0x04C6 } }, // Case map
+            { 0x04C7, new[] { 0x04C8 } }, // Case map
+            { 0x04C9, new[] { 0x04CA } }, // Case map
+            { 0x04CB, new[] { 0x04CC } }, // Case map
+            { 0x04CD, new[] { 0x04CE } }, // Case map
+            { 0x04D0, new[] { 0x04D1 } }, // Case map
+            { 0x04D2, new[] { 0x04D3 } }, // Case map
+            { 0x04D4, new[] { 0x04D5 } }, // Case map
+            { 0x04D6, new[] { 0x04D7 } }, // Case map
+            { 0x04D8, new[] { 0x04D9 } }, // Case map
+            { 0x04DA, new[] { 0x04DB } }, // Case map
+            { 0x04DC, new[] { 0x04DD } }, // Case map
+            { 0x04DE, new[] { 0x04DF } }, // Case map
+            { 0x04E0, new[] { 0x04E1 } }, // Case map
+            { 0x04E2, new[] { 0x04E3 } }, // Case map
+            { 0x04E4, new[] { 0x04E5 } }, // Case map
+            { 0x04E6, new[] { 0x04E7 } }, // Case map
+            { 0x04E8, new[] { 0x04E9 } }, // Case map
+            { 0x04EA, new[] { 0x04EB } }, // Case map
+            { 0x04EC, new[] { 0x04ED } }, // Case map
+            { 0x04EE, new[] { 0x04EF } }, // Case map
+            { 0x04F0, new[] { 0x04F1 } }, // Case map
+            { 0x04F2, new[] { 0x04F3 } }, // Case map
+            { 0x04F4, new[] { 0x04F5 } }, // Case map
+            { 0x04F8, new[] { 0x04F9 } }, // Case map
+            { 0x0500, new[] { 0x0501 } }, // Case map
+            { 0x0502, new[] { 0x0503 } }, // Case map
+            { 0x0504, new[] { 0x0505 } }, // Case map
+            { 0x0506, new[] { 0x0507 } }, // Case map
+            { 0x0508, new[] { 0x0509 } }, // Case map
+            { 0x050A, new[] { 0x050B } }, // Case map
+            { 0x050C, new[] { 0x050D } }, // Case map
+            { 0x050E, new[] { 0x050F } }, // Case map
+            { 0x0531, new[] { 0x0561 } }, // Case map
+            { 0x0532, new[] { 0x0562 } }, // Case map
+            { 0x0533, new[] { 0x0563 } }, // Case map
+            { 0x0534, new[] { 0x0564 } }, // Case map
+            { 0x0535, new[] { 0x0565 } }, // Case map
+            { 0x0536, new[] { 0x0566 } }, // Case map
+            { 0x0537, new[] { 0x0567 } }, // Case map
+            { 0x0538, new[] { 0x0568 } }, // Case map
+            { 0x0539, new[] { 0x0569 } }, // Case map
+            { 0x053A, new[] { 0x056A } }, // Case map
+            { 0x053B, new[] { 0x056B } }, // Case map
+            { 0x053C, new[] { 0x056C } }, // Case map
+            { 0x053D, new[] { 0x056D } }, // Case map
+            { 0x053E, new[] { 0x056E } }, // Case map
+            { 0x053F, new[] { 0x056F } }, // Case map
+            { 0x0540, new[] { 0x0570 } }, // Case map
+            { 0x0541, new[] { 0x0571 } }, // Case map
+            { 0x0542, new[] { 0x0572 } }, // Case map
+            { 0x0543, new[] { 0x0573 } }, // Case map
+            { 0x0544, new[] { 0x0574 } }, // Case map
+            { 0x0545, new[] { 0x0575 } }, // Case map
+            { 0x0546, new[] { 0x0576 } }, // Case map
+            { 0x0547, new[] { 0x0577 } }, // Case map
+            { 0x0548, new[] { 0x0578 } }, // Case map
+            { 0x0549, new[] { 0x0579 } }, // Case map
+            { 0x054A, new[] { 0x057A } }, // Case map
+            { 0x054B, new[] { 0x057B } }, // Case map
+            { 0x054C, new[] { 0x057C } }, // Case map
+            { 0x054D, new[] { 0x057D } }, // Case map
+            { 0x054E, new[] { 0x057E } }, // Case map
+            { 0x054F, new[] { 0x057F } }, // Case map
+            { 0x0550, new[] { 0x0580 } }, // Case map
+            { 0x0551, new[] { 0x0581 } }, // Case map
+            { 0x0552, new[] { 0x0582 } }, // Case map
+            { 0x0553, new[] { 0x0583 } }, // Case map
+            { 0x0554, new[] { 0x0584 } }, // Case map
+            { 0x0555, new[] { 0x0585 } }, // Case map
+            { 0x0556, new[] { 0x0586 } }, // Case map
+            { 0x0587, new[] { 0x0565, 0x0582 } }, // Case map
+            { 0x1E00, new[] { 0x1E01 } }, // Case map
+            { 0x1E02, new[] { 0x1E03 } }, // Case map
+            { 0x1E04, new[] { 0x1E05 } }, // Case map
+            { 0x1E06, new[] { 0x1E07 } }, // Case map
+            { 0x1E08, new[] { 0x1E09 } }, // Case map
+            { 0x1E0A, new[] { 0x1E0B } }, // Case map
+            { 0x1E0C, new[] { 0x1E0D } }, // Case map
+            { 0x1E0E, new[] { 0x1E0F } }, // Case map
+            { 0x1E10, new[] { 0x1E11 } }, // Case map
+            { 0x1E12, new[] { 0x1E13 } }, // Case map
+            { 0x1E14, new[] { 0x1E15 } }, // Case map
+            { 0x1E16, new[] { 0x1E17 } }, // Case map
+            { 0x1E18, new[] { 0x1E19 } }, // Case map
+            { 0x1E1A, new[] { 0x1E1B } }, // Case map
+            { 0x1E1C, new[] { 0x1E1D } }, // Case map
+            { 0x1E1E, new[] { 0x1E1F } }, // Case map
+            { 0x1E20, new[] { 0x1E21 } }, // Case map
+            { 0x1E22, new[] { 0x1E23 } }, // Case map
+            { 0x1E24, new[] { 0x1E25 } }, // Case map
+            { 0x1E26, new[] { 0x1E27 } }, // Case map
+            { 0x1E28, new[] { 0x1E29 } }, // Case map
+            { 0x1E2A, new[] { 0x1E2B } }, // Case map
+            { 0x1E2C, new[] { 0x1E2D } }, // Case map
+            { 0x1E2E, new[] { 0x1E2F } }, // Case map
+            { 0x1E30, new[] { 0x1E31 } }, // Case map
+            { 0x1E32, new[] { 0x1E33 } }, // Case map
+            { 0x1E34, new[] { 0x1E35 } }, // Case map
+            { 0x1E36, new[] { 0x1E37 } }, // Case map
+            { 0x1E38, new[] { 0x1E39 } }, // Case map
+            { 0x1E3A, new[] { 0x1E3B } }, // Case map
+            { 0x1E3C, new[] { 0x1E3D } }, // Case map
+            { 0x1E3E, new[] { 0x1E3F } }, // Case map
+            { 0x1E40, new[] { 0x1E41 } }, // Case map
+            { 0x1E42, new[] { 0x1E43 } }, // Case map
+            { 0x1E44, new[] { 0x1E45 } }, // Case map
+            { 0x1E46, new[] { 0x1E47 } }, // Case map
+            { 0x1E48, new[] { 0x1E49 } }, // Case map
+            { 0x1E4A, new[] { 0x1E4B } }, // Case map
+            { 0x1E4C, new[] { 0x1E4D } }, // Case map
+            { 0x1E4E, new[] { 0x1E4F } }, // Case map
+            { 0x1E50, new[] { 0x1E51 } }, // Case map
+            { 0x1E52, new[] { 0x1E53 } }, // Case map
+            { 0x1E54, new[] { 0x1E55 } }, // Case map
+            { 0x1E56, new[] { 0x1E57 } }, // Case map
+            { 0x1E58, new[] { 0x1E59 } }, // Case map
+            { 0x1E5A, new[] { 0x1E5B } }, // Case map
+            { 0x1E5C, new[] { 0x1E5D } }, // Case map
+            { 0x1E5E, new[] { 0x1E5F } }, // Case map
+            { 0x1E60, new[] { 0x1E61 } }, // Case map
+            { 0x1E62, new[] { 0x1E63 } }, // Case map
+            { 0x1E64, new[] { 0x1E65 } }, // Case map
+            { 0x1E66, new[] { 0x1E67 } }, // Case map
+            { 0x1E68, new[] { 0x1E69 } }, // Case map
+            { 0x1E6A, new[] { 0x1E6B } }, // Case map
+            { 0x1E6C, new[] { 0x1E6D } }, // Case map
+            { 0x1E6E, new[] { 0x1E6F } }, // Case map
+            { 0x1E70, new[] { 0x1E71 } }, // Case map
+            { 0x1E72, new[] { 0x1E73 } }, // Case map
+            { 0x1E74, new[] { 0x1E75 } }, // Case map
+            { 0x1E76, new[] { 0x1E77 } }, // Case map
+            { 0x1E78, new[] { 0x1E79 } }, // Case map
+            { 0x1E7A, new[] { 0x1E7B } }, // Case map
+            { 0x1E7C, new[] { 0x1E7D } }, // Case map
+            { 0x1E7E, new[] { 0x1E7F } }, // Case map
+            { 0x1E80, new[] { 0x1E81 } }, // Case map
+            { 0x1E82, new[] { 0x1E83 } }, // Case map
+            { 0x1E84, new[] { 0x1E85 } }, // Case map
+            { 0x1E86, new[] { 0x1E87 } }, // Case map
+            { 0x1E88, new[] { 0x1E89 } }, // Case map
+            { 0x1E8A, new[] { 0x1E8B } }, // Case map
+            { 0x1E8C, new[] { 0x1E8D } }, // Case map
+            { 0x1E8E, new[] { 0x1E8F } }, // Case map
+            { 0x1E90, new[] { 0x1E91 } }, // Case map
+            { 0x1E92, new[] { 0x1E93 } }, // Case map
+            { 0x1E94, new[] { 0x1E95 } }, // Case map
+            { 0x1E96, new[] { 0x0068, 0x0331 } }, // Case map
+            { 0x1E97, new[] { 0x0074, 0x0308 } }, // Case map
+            { 0x1E98, new[] { 0x0077, 0x030A } }, // Case map
+            { 0x1E99, new[] { 0x0079, 0x030A } }, // Case map
+            { 0x1E9A, new[] { 0x0061, 0x02BE } }, // Case map
+            { 0x1E9B, new[] { 0x1E61 } }, // Case map
+            { 0x1EA0, new[] { 0x1EA1 } }, // Case map
+            { 0x1EA2, new[] { 0x1EA3 } }, // Case map
+            { 0x1EA4, new[] { 0x1EA5 } }, // Case map
+            { 0x1EA6, new[] { 0x1EA7 } }, // Case map
+            { 0x1EA8, new[] { 0x1EA9 } }, // Case map
+            { 0x1EAA, new[] { 0x1EAB } }, // Case map
+            { 0x1EAC, new[] { 0x1EAD } }, // Case map
+            { 0x1EAE, new[] { 0x1EAF } }, // Case map
+            { 0x1EB0, new[] { 0x1EB1 } }, // Case map
+            { 0x1EB2, new[] { 0x1EB3 } }, // Case map
+            { 0x1EB4, new[] { 0x1EB5 } }, // Case map
+            { 0x1EB6, new[] { 0x1EB7 } }, // Case map
+            { 0x1EB8, new[] { 0x1EB9 } }, // Case map
+            { 0x1EBA, new[] { 0x1EBB } }, // Case map
+            { 0x1EBC, new[] { 0x1EBD } }, // Case map
+            { 0x1EBE, new[] { 0x1EBF } }, // Case map
+            { 0x1EC0, new[] { 0x1EC1 } }, // Case map
+            { 0x1EC2, new[] { 0x1EC3 } }, // Case map
+            { 0x1EC4, new[] { 0x1EC5 } }, // Case map
+            { 0x1EC6, new[] { 0x1EC7 } }, // Case map
+            { 0x1EC8, new[] { 0x1EC9 } }, // Case map
+            { 0x1ECA, new[] { 0x1ECB } }, // Case map
+            { 0x1ECC, new[] { 0x1ECD } }, // Case map
+            { 0x1ECE, new[] { 0x1ECF } }, // Case map
+            { 0x1ED0, new[] { 0x1ED1 } }, // Case map
+            { 0x1ED2, new[] { 0x1ED3 } }, // Case map
+            { 0x1ED4, new[] { 0x1ED5 } }, // Case map
+            { 0x1ED6, new[] { 0x1ED7 } }, // Case map
+            { 0x1ED8, new[] { 0x1ED9 } }, // Case map
+            { 0x1EDA, new[] { 0x1EDB } }, // Case map
+            { 0x1EDC, new[] { 0x1EDD } }, // Case map
+            { 0x1EDE, new[] { 0x1EDF } }, // Case map
+            { 0x1EE0, new[] { 0x1EE1 } }, // Case map
+            { 0x1EE2, new[] { 0x1EE3 } }, // Case map
+            { 0x1EE4, new[] { 0x1EE5 } }, // Case map
+            { 0x1EE6, new[] { 0x1EE7 } }, // Case map
+            { 0x1EE8, new[] { 0x1EE9 } }, // Case map
+            { 0x1EEA, new[] { 0x1EEB } }, // Case map
+            { 0x1EEC, new[] { 0x1EED } }, // Case map
+            { 0x1EEE, new[] { 0x1EEF } }, // Case map
+            { 0x1EF0, new[] { 0x1EF1 } }, // Case map
+            { 0x1EF2, new[] { 0x1EF3 } }, // Case map
+            { 0x1EF4, new[] { 0x1EF5 } }, // Case map
+            { 0x1EF6, new[] { 0x1EF7 } }, // Case map
+            { 0x1EF8, new[] { 0x1EF9 } }, // Case map
+            { 0x1F08, new[] { 0x1F00 } }, // Case map
+            { 0x1F09, new[] { 0x1F01 } }, // Case map
+            { 0x1F0A, new[] { 0x1F02 } }, // Case map
+            { 0x1F0B, new[] { 0x1F03 } }, // Case map
+            { 0x1F0C, new[] { 0x1F04 } }, // Case map
+            { 0x1F0D, new[] { 0x1F05 } }, // Case map
+            { 0x1F0E, new[] { 0x1F06 } }, // Case map
+            { 0x1F0F, new[] { 0x1F07 } }, // Case map
+            { 0x1F18, new[] { 0x1F10 } }, // Case map
+            { 0x1F19, new[] { 0x1F11 } }, // Case map
+            { 0x1F1A, new[] { 0x1F12 } }, // Case map
+            { 0x1F1B, new[] { 0x1F13 } }, // Case map
+            { 0x1F1C, new[] { 0x1F14 } }, // Case map
+            { 0x1F1D, new[] { 0x1F15 } }, // Case map
+            { 0x1F28, new[] { 0x1F20 } }, // Case map
+            { 0x1F29, new[] { 0x1F21 } }, // Case map
+            { 0x1F2A, new[] { 0x1F22 } }, // Case map
+            { 0x1F2B, new[] { 0x1F23 } }, // Case map
+            { 0x1F2C, new[] { 0x1F24 } }, // Case map
+            { 0x1F2D, new[] { 0x1F25 } }, // Case map
+            { 0x1F2E, new[] { 0x1F26 } }, // Case map
+            { 0x1F2F, new[] { 0x1F27 } }, // Case map
+            { 0x1F38, new[] { 0x1F30 } }, // Case map
+            { 0x1F39, new[] { 0x1F31 } }, // Case map
+            { 0x1F3A, new[] { 0x1F32 } }, // Case map
+            { 0x1F3B, new[] { 0x1F33 } }, // Case map
+            { 0x1F3C, new[] { 0x1F34 } }, // Case map
+            { 0x1F3D, new[] { 0x1F35 } }, // Case map
+            { 0x1F3E, new[] { 0x1F36 } }, // Case map
+            { 0x1F3F, new[] { 0x1F37 } }, // Case map
+            { 0x1F48, new[] { 0x1F40 } }, // Case map
+            { 0x1F49, new[] { 0x1F41 } }, // Case map
+            { 0x1F4A, new[] { 0x1F42 } }, // Case map
+            { 0x1F4B, new[] { 0x1F43 } }, // Case map
+            { 0x1F4C, new[] { 0x1F44 } }, // Case map
+            { 0x1F4D, new[] { 0x1F45 } }, // Case map
+            { 0x1F50, new[] { 0x03C5, 0x0313 } }, // Case map
+            { 0x1F52, new[] { 0x03C5, 0x0313, 0x0300 } }, // Case map
+            { 0x1F54, new[] { 0x03C5, 0x0313, 0x0301 } }, // Case map
+            { 0x1F56, new[] { 0x03C5, 0x0313, 0x0342 } }, // Case map
+            { 0x1F59, new[] { 0x1F51 } }, // Case map
+            { 0x1F5B, new[] { 0x1F53 } }, // Case map
+            { 0x1F5D, new[] { 0x1F55 } }, // Case map
+            { 0x1F5F, new[] { 0x1F57 } }, // Case map
+            { 0x1F68, new[] { 0x1F60 } }, // Case map
+            { 0x1F69, new[] { 0x1F61 } }, // Case map
+            { 0x1F6A, new[] { 0x1F62 } }, // Case map
+            { 0x1F6B, new[] { 0x1F63 } }, // Case map
+            { 0x1F6C, new[] { 0x1F64 } }, // Case map
+            { 0x1F6D, new[] { 0x1F65 } }, // Case map
+            { 0x1F6E, new[] { 0x1F66 } }, // Case map
+            { 0x1F6F, new[] { 0x1F67 } }, // Case map
+            { 0x1F80, new[] { 0x1F00, 0x03B9 } }, // Case map
+            { 0x1F81, new[] { 0x1F01, 0x03B9 } }, // Case map
+            { 0x1F82, new[] { 0x1F02, 0x03B9 } }, // Case map
+            { 0x1F83, new[] { 0x1F03, 0x03B9 } }, // Case map
+            { 0x1F84, new[] { 0x1F04, 0x03B9 } }, // Case map
+            { 0x1F85, new[] { 0x1F05, 0x03B9 } }, // Case map
+            { 0x1F86, new[] { 0x1F06, 0x03B9 } }, // Case map
+            { 0x1F87, new[] { 0x1F07, 0x03B9 } }, // Case map
+            { 0x1F88, new[] { 0x1F00, 0x03B9 } }, // Case map
+            { 0x1F89, new[] { 0x1F01, 0x03B9 } }, // Case map
+            { 0x1F8A, new[] { 0x1F02, 0x03B9 } }, // Case map
+            { 0x1F8B, new[] { 0x1F03, 0x03B9 } }, // Case map
+            { 0x1F8C, new[] { 0x1F04, 0x03B9 } }, // Case map
+            { 0x1F8D, new[] { 0x1F05, 0x03B9 } }, // Case map
+            { 0x1F8E, new[] { 0x1F06, 0x03B9 } }, // Case map
+            { 0x1F8F, new[] { 0x1F07, 0x03B9 } }, // Case map
+            { 0x1F90, new[] { 0x1F20, 0x03B9 } }, // Case map
+            { 0x1F91, new[] { 0x1F21, 0x03B9 } }, // Case map
+            { 0x1F92, new[] { 0x1F22, 0x03B9 } }, // Case map
+            { 0x1F93, new[] { 0x1F23, 0x03B9 } }, // Case map
+            { 0x1F94, new[] { 0x1F24, 0x03B9 } }, // Case map
+            { 0x1F95, new[] { 0x1F25, 0x03B9 } }, // Case map
+            { 0x1F96, new[] { 0x1F26, 0x03B9 } }, // Case map
+            { 0x1F97, new[] { 0x1F27, 0x03B9 } }, // Case map
+            { 0x1F98, new[] { 0x1F20, 0x03B9 } }, // Case map
+            { 0x1F99, new[] { 0x1F21, 0x03B9 } }, // Case map
+            { 0x1F9A, new[] { 0x1F22, 0x03B9 } }, // Case map
+            { 0x1F9B, new[] { 0x1F23, 0x03B9 } }, // Case map
+            { 0x1F9C, new[] { 0x1F24, 0x03B9 } }, // Case map
+            { 0x1F9D, new[] { 0x1F25, 0x03B9 } }, // Case map
+            { 0x1F9E, new[] { 0x1F26, 0x03B9 } }, // Case map
+            { 0x1F9F, new[] { 0x1F27, 0x03B9 } }, // Case map
+            { 0x1FA0, new[] { 0x1F60, 0x03B9 } }, // Case map
+            { 0x1FA1, new[] { 0x1F61, 0x03B9 } }, // Case map
+            { 0x1FA2, new[] { 0x1F62, 0x03B9 } }, // Case map
+            { 0x1FA3, new[] { 0x1F63, 0x03B9 } }, // Case map
+            { 0x1FA4, new[] { 0x1F64, 0x03B9 } }, // Case map
+            { 0x1FA5, new[] { 0x1F65, 0x03B9 } }, // Case map
+            { 0x1FA6, new[] { 0x1F66, 0x03B9 } }, // Case map
+            { 0x1FA7, new[] { 0x1F67, 0x03B9 } }, // Case map
+            { 0x1FA8, new[] { 0x1F60, 0x03B9 } }, // Case map
+            { 0x1FA9, new[] { 0x1F61, 0x03B9 } }, // Case map
+            { 0x1FAA, new[] { 0x1F62, 0x03B9 } }, // Case map
+            { 0x1FAB, new[] { 0x1F63, 0x03B9 } }, // Case map
+            { 0x1FAC, new[] { 0x1F64, 0x03B9 } }, // Case map
+            { 0x1FAD, new[] { 0x1F65, 0x03B9 } }, // Case map
+            { 0x1FAE, new[] { 0x1F66, 0x03B9 } }, // Case map
+            { 0x1FAF, new[] { 0x1F67, 0x03B9 } }, // Case map
+            { 0x1FB2, new[] { 0x1F70, 0x03B9 } }, // Case map
+            { 0x1FB3, new[] { 0x03B1, 0x03B9 } }, // Case map
+            { 0x1FB4, new[] { 0x03AC, 0x03B9 } }, // Case map
+            { 0x1FB6, new[] { 0x03B1, 0x0342 } }, // Case map
+            { 0x1FB7, new[] { 0x03B1, 0x0342, 0x03B9 } }, // Case map
+            { 0x1FB8, new[] { 0x1FB0 } }, // Case map
+            { 0x1FB9, new[] { 0x1FB1 } }, // Case map
+            { 0x1FBA, new[] { 0x1F70 } }, // Case map
+            { 0x1FBB, new[] { 0x1F71 } }, // Case map
+            { 0x1FBC, new[] { 0x03B1, 0x03B9 } }, // Case map
+            { 0x1FBE, new[] { 0x03B9 } }, // Case map
+            { 0x1FC2, new[] { 0x1F74, 0x03B9 } }, // Case map
+            { 0x1FC3, new[] { 0x03B7, 0x03B9 } }, // Case map
+            { 0x1FC4, new[] { 0x03AE, 0x03B9 } }, // Case map
+            { 0x1FC6, new[] { 0x03B7, 0x0342 } }, // Case map
+            { 0x1FC7, new[] { 0x03B7, 0x0342, 0x03B9 } }, // Case map
+            { 0x1FC8, new[] { 0x1F72 } }, // Case map
+            { 0x1FC9, new[] { 0x1F73 } }, // Case map
+            { 0x1FCA, new[] { 0x1F74 } }, // Case map
+            { 0x1FCB, new[] { 0x1F75 } }, // Case map
+            { 0x1FCC, new[] { 0x03B7, 0x03B9 } }, // Case map
+            { 0x1FD2, new[] { 0x03B9, 0x0308, 0x0300 } }, // Case map
+            { 0x1FD3, new[] { 0x03B9, 0x0308, 0x0301 } }, // Case map
+            { 0x1FD6, new[] { 0x03B9, 0x0342 } }, // Case map
+            { 0x1FD7, new[] { 0x03B9, 0x0308, 0x0342 } }, // Case map
+            { 0x1FD8, new[] { 0x1FD0 } }, // Case map
+            { 0x1FD9, new[] { 0x1FD1 } }, // Case map
+            { 0x1FDA, new[] { 0x1F76 } }, // Case map
+            { 0x1FDB, new[] { 0x1F77 } }, // Case map
+            { 0x1FE2, new[] { 0x03C5, 0x0308, 0x0300 } }, // Case map
+            { 0x1FE3, new[] { 0x03C5, 0x0308, 0x0301 } }, // Case map
+            { 0x1FE4, new[] { 0x03C1, 0x0313 } }, // Case map
+            { 0x1FE6, new[] { 0x03C5, 0x0342 } }, // Case map
+            { 0x1FE7, new[] { 0x03C5, 0x0308, 0x0342 } }, // Case map
+            { 0x1FE8, new[] { 0x1FE0 } }, // Case map
+            { 0x1FE9, new[] { 0x1FE1 } }, // Case map
+            { 0x1FEA, new[] { 0x1F7A } }, // Case map
+            { 0x1FEB, new[] { 0x1F7B } }, // Case map
+            { 0x1FEC, new[] { 0x1FE5 } }, // Case map
+            { 0x1FF2, new[] { 0x1F7C, 0x03B9 } }, // Case map
+            { 0x1FF3, new[] { 0x03C9, 0x03B9 } }, // Case map
+            { 0x1FF4, new[] { 0x03CE, 0x03B9 } }, // Case map
+            { 0x1FF6, new[] { 0x03C9, 0x0342 } }, // Case map
+            { 0x1FF7, new[] { 0x03C9, 0x0342, 0x03B9 } }, // Case map
+            { 0x1FF8, new[] { 0x1F78 } }, // Case map
+            { 0x1FF9, new[] { 0x1F79 } }, // Case map
+            { 0x1FFA, new[] { 0x1F7C } }, // Case map
+            { 0x1FFB, new[] { 0x1F7D } }, // Case map
+            { 0x1FFC, new[] { 0x03C9, 0x03B9 } }, // Case map
+            { 0x20A8, new[] { 0x0072, 0x0073 } }, // Additional folding
+            { 0x2102, new[] { 0x0063 } }, // Additional folding
+            { 0x2103, new[] { 0x00B0, 0x0063 } }, // Additional folding
+            { 0x2107, new[] { 0x025B } }, // Additional folding
+            { 0x2109, new[] { 0x00B0, 0x0066 } }, // Additional folding
+            { 0x210B, new[] { 0x0068 } }, // Additional folding
+            { 0x210C, new[] { 0x0068 } }, // Additional folding
+            { 0x210D, new[] { 0x0068 } }, // Additional folding
+            { 0x2110, new[] { 0x0069 } }, // Additional folding
+            { 0x2111, new[] { 0x0069 } }, // Additional folding
+            { 0x2112, new[] { 0x006C } }, // Additional folding
+            { 0x2115, new[] { 0x006E } }, // Additional folding
+            { 0x2116, new[] { 0x006E, 0x006F } }, // Additional folding
+            { 0x2119, new[] { 0x0070 } }, // Additional folding
+            { 0x211A, new[] { 0x0071 } }, // Additional folding
+            { 0x211B, new[] { 0x0072 } }, // Additional folding
+            { 0x211C, new[] { 0x0072 } }, // Additional folding
+            { 0x211D, new[] { 0x0072 } }, // Additional folding
+            { 0x2120, new[] { 0x0073, 0x006D } }, // Additional folding
+            { 0x2121, new[] { 0x0074, 0x0065, 0x006C } }, // Additional folding
+            { 0x2122, new[] { 0x0074, 0x006D } }, // Additional folding
+            { 0x2124, new[] { 0x007A } }, // Additional folding
+            { 0x2126, new[] { 0x03C9 } }, // Case map
+            { 0x2128, new[] { 0x007A } }, // Additional folding
+            { 0x212A, new[] { 0x006B } }, // Case map
+            { 0x212B, new[] { 0x00E5 } }, // Case map
+            { 0x212C, new[] { 0x0062 } }, // Additional folding
+            { 0x212D, new[] { 0x0063 } }, // Additional folding
+            { 0x2130, new[] { 0x0065 } }, // Additional folding
+            { 0x2131, new[] { 0x0066 } }, // Additional folding
+            { 0x2133, new[] { 0x006D } }, // Additional folding
+            { 0x213E, new[] { 0x03B3 } }, // Additional folding
+            { 0x213F, new[] { 0x03C0 } }, // Additional folding
+            { 0x2145, new[] { 0x0064 } }, // Additional folding
+            { 0x2160, new[] { 0x2170 } }, // Case map
+            { 0x2161, new[] { 0x2171 } }, // Case map
+            { 0x2162, new[] { 0x2172 } }, // Case map
+            { 0x2163, new[] { 0x2173 } }, // Case map
+            { 0x2164, new[] { 0x2174 } }, // Case map
+            { 0x2165, new[] { 0x2175 } }, // Case map
+            { 0x2166, new[] { 0x2176 } }, // Case map
+            { 0x2167, new[] { 0x2177 } }, // Case map
+            { 0x2168, new[] { 0x2178 } }, // Case map
+            { 0x2169, new[] { 0x2179 } }, // Case map
+            { 0x216A, new[] { 0x217A } }, // Case map
+            { 0x216B, new[] { 0x217B } }, // Case map
+            { 0x216C, new[] { 0x217C } }, // Case map
+            { 0x216D, new[] { 0x217D } }, // Case map
+            { 0x216E, new[] { 0x217E } }, // Case map
+            { 0x216F, new[] { 0x217F } }, // Case map
+            { 0x24B6, new[] { 0x24D0 } }, // Case map
+            { 0x24B7, new[] { 0x24D1 } }, // Case map
+            { 0x24B8, new[] { 0x24D2 } }, // Case map
+            { 0x24B9, new[] { 0x24D3 } }, // Case map
+            { 0x24BA, new[] { 0x24D4 } }, // Case map
+            { 0x24BB, new[] { 0x24D5 } }, // Case map
+            { 0x24BC, new[] { 0x24D6 } }, // Case map
+            { 0x24BD, new[] { 0x24D7 } }, // Case map
+            { 0x24BE, new[] { 0x24D8 } }, // Case map
+            { 0x24BF, new[] { 0x24D9 } }, // Case map
+            { 0x24C0, new[] { 0x24DA } }, // Case map
+            { 0x24C1, new[] { 0x24DB } }, // Case map
+            { 0x24C2, new[] { 0x24DC } }, // Case map
+            { 0x24C3, new[] { 0x24DD } }, // Case map
+            { 0x24C4, new[] { 0x24DE } }, // Case map
+            { 0x24C5, new[] { 0x24DF } }, // Case map
+            { 0x24C6, new[] { 0x24E0 } }, // Case map
+            { 0x24C7, new[] { 0x24E1 } }, // Case map
+            { 0x24C8, new[] { 0x24E2 } }, // Case map
+            { 0x24C9, new[] { 0x24E3 } }, // Case map
+            { 0x24CA, new[] { 0x24E4 } }, // Case map
+            { 0x24CB, new[] { 0x24E5 } }, // Case map
+            { 0x24CC, new[] { 0x24E6 } }, // Case map
+            { 0x24CD, new[] { 0x24E7 } }, // Case map
+            { 0x24CE, new[] { 0x24E8 } }, // Case map
+            { 0x24CF, new[] { 0x24E9 } }, // Case map
+            { 0x3371, new[] { 0x0068, 0x0070, 0x0061 } }, // Additional folding
+            { 0x3373, new[] { 0x0061, 0x0075 } }, // Additional folding
+            { 0x3375, new[] { 0x006F, 0x0076 } }, // Additional folding
+            { 0x3380, new[] { 0x0070, 0x0061 } }, // Additional folding
+            { 0x3381, new[] { 0x006E, 0x0061 } }, // Additional folding
+            { 0x3382, new[] { 0x03BC, 0x0061 } }, // Additional folding
+            { 0x3383, new[] { 0x006D, 0x0061 } }, // Additional folding
+            { 0x3384, new[] { 0x006B, 0x0061 } }, // Additional folding
+            { 0x3385, new[] { 0x006B, 0x0062 } }, // Additional folding
+            { 0x3386, new[] { 0x006D, 0x0062 } }, // Additional folding
+            { 0x3387, new[] { 0x0067, 0x0062 } }, // Additional folding
+            { 0x338A, new[] { 0x0070, 0x0066 } }, // Additional folding
+            { 0x338B, new[] { 0x006E, 0x0066 } }, // Additional folding
+            { 0x338C, new[] { 0x03BC, 0x0066 } }, // Additional folding
+            { 0x3390, new[] { 0x0068, 0x007A } }, // Additional folding
+            { 0x3391, new[] { 0x006B, 0x0068, 0x007A } }, // Additional folding
+            { 0x3392, new[] { 0x006D, 0x0068, 0x007A } }, // Additional folding
+            { 0x3393, new[] { 0x0067, 0x0068, 0x007A } }, // Additional folding
+            { 0x3394, new[] { 0x0074, 0x0068, 0x007A } }, // Additional folding
+            { 0x33A9, new[] { 0x0070, 0x0061 } }, // Additional folding
+            { 0x33AA, new[] { 0x006B, 0x0070, 0x0061 } }, // Additional folding
+            { 0x33AB, new[] { 0x006D, 0x0070, 0x0061 } }, // Additional folding
+            { 0x33AC, new[] { 0x0067, 0x0070, 0x0061 } }, // Additional folding
+            { 0x33B4, new[] { 0x0070, 0x0076 } }, // Additional folding
+            { 0x33B5, new[] { 0x006E, 0x0076 } }, // Additional folding
+            { 0x33B6, new[] { 0x03BC, 0x0076 } }, // Additional folding
+            { 0x33B7, new[] { 0x006D, 0x0076 } }, // Additional folding
+            { 0x33B8, new[] { 0x006B, 0x0076 } }, // Additional folding
+            { 0x33B9, new[] { 0x006D, 0x0076 } }, // Additional folding
+            { 0x33BA, new[] { 0x0070, 0x0077 } }, // Additional folding
+            { 0x33BB, new[] { 0x006E, 0x0077 } }, // Additional folding
+            { 0x33BC, new[] { 0x03BC, 0x0077 } }, // Additional folding
+            { 0x33BD, new[] { 0x006D, 0x0077 } }, // Additional folding
+            { 0x33BE, new[] { 0x006B, 0x0077 } }, // Additional folding
+            { 0x33BF, new[] { 0x006D, 0x0077 } }, // Additional folding
+            { 0x33C0, new[] { 0x006B, 0x03C9 } }, // Additional folding
+            { 0x33C1, new[] { 0x006D, 0x03C9 } }, // Additional folding
+            { 0x33C3, new[] { 0x0062, 0x0071 } }, // Additional folding
+            { 0x33C6, new[] { 0x0063, 0x2215, 0x006B, 0x0067 } }, // Additional folding
+            { 0x33C7, new[] { 0x0063, 0x006F, 0x002E } }, // Additional folding
+            { 0x33C8, new[] { 0x0064, 0x0062 } }, // Additional folding
+            { 0x33C9, new[] { 0x0067, 0x0079 } }, // Additional folding
+            { 0x33CB, new[] { 0x0068, 0x0070 } }, // Additional folding
+            { 0x33CD, new[] { 0x006B, 0x006B } }, // Additional folding
+            { 0x33CE, new[] { 0x006B, 0x006D } }, // Additional folding
+            { 0x33D7, new[] { 0x0070, 0x0068 } }, // Additional folding
+            { 0x33D9, new[] { 0x0070, 0x0070, 0x006D } }, // Additional folding
+            { 0x33DA, new[] { 0x0070, 0x0072 } }, // Additional folding
+            { 0x33DC, new[] { 0x0073, 0x0076 } }, // Additional folding
+            { 0x33DD, new[] { 0x0077, 0x0062 } }, // Additional folding
+            { 0xFB00, new[] { 0x0066, 0x0066 } }, // Case map
+            { 0xFB01, new[] { 0x0066, 0x0069 } }, // Case map
+            { 0xFB02, new[] { 0x0066, 0x006C } }, // Case map
+            { 0xFB03, new[] { 0x0066, 0x0066, 0x0069 } }, // Case map
+            { 0xFB04, new[] { 0x0066, 0x0066, 0x006C } }, // Case map
+            { 0xFB05, new[] { 0x0073, 0x0074 } }, // Case map
+            { 0xFB06, new[] { 0x0073, 0x0074 } }, // Case map
+            { 0xFB13, new[] { 0x0574, 0x0576 } }, // Case map
+            { 0xFB14, new[] { 0x0574, 0x0565 } }, // Case map
+            { 0xFB15, new[] { 0x0574, 0x056B } }, // Case map
+            { 0xFB16, new[] { 0x057E, 0x0576 } }, // Case map
+            { 0xFB17, new[] { 0x0574, 0x056D } }, // Case map
+            { 0xFF21, new[] { 0xFF41 } }, // Case map
+            { 0xFF22, new[] { 0xFF42 } }, // Case map
+            { 0xFF23, new[] { 0xFF43 } }, // Case map
+            { 0xFF24, new[] { 0xFF44 } }, // Case map
+            { 0xFF25, new[] { 0xFF45 } }, // Case map
+            { 0xFF26, new[] { 0xFF46 } }, // Case map
+            { 0xFF27, new[] { 0xFF47 } }, // Case map
+            { 0xFF28, new[] { 0xFF48 } }, // Case map
+            { 0xFF29, new[] { 0xFF49 } }, // Case map
+            { 0xFF2A, new[] { 0xFF4A } }, // Case map
+            { 0xFF2B, new[] { 0xFF4B } }, // Case map
+            { 0xFF2C, new[] { 0xFF4C } }, // Case map
+            { 0xFF2D, new[] { 0xFF4D } }, // Case map
+            { 0xFF2E, new[] { 0xFF4E } }, // Case map
+            { 0xFF2F, new[] { 0xFF4F } }, // Case map
+            { 0xFF30, new[] { 0xFF50 } }, // Case map
+            { 0xFF31, new[] { 0xFF51 } }, // Case map
+            { 0xFF32, new[] { 0xFF52 } }, // Case map
+            { 0xFF33, new[] { 0xFF53 } }, // Case map
+            { 0xFF34, new[] { 0xFF54 } }, // Case map
+            { 0xFF35, new[] { 0xFF55 } }, // Case map
+            { 0xFF36, new[] { 0xFF56 } }, // Case map
+            { 0xFF37, new[] { 0xFF57 } }, // Case map
+            { 0xFF38, new[] { 0xFF58 } }, // Case map
+            { 0xFF39, new[] { 0xFF59 } }, // Case map
+            { 0xFF3A, new[] { 0xFF5A } }, // Case map
+            { 0x10400, new[] { 0x10428 } }, // Case map
+            { 0x10401, new[] { 0x10429 } }, // Case map
+            { 0x10402, new[] { 0x1042A } }, // Case map
+            { 0x10403, new[] { 0x1042B } }, // Case map
+            { 0x10404, new[] { 0x1042C } }, // Case map
+            { 0x10405, new[] { 0x1042D } }, // Case map
+            { 0x10406, new[] { 0x1042E } }, // Case map
+            { 0x10407, new[] { 0x1042F } }, // Case map
+            { 0x10408, new[] { 0x10430 } }, // Case map
+            { 0x10409, new[] { 0x10431 } }, // Case map
+            { 0x1040A, new[] { 0x10432 } }, // Case map
+            { 0x1040B, new[] { 0x10433 } }, // Case map
+            { 0x1040C, new[] { 0x10434 } }, // Case map
+            { 0x1040D, new[] { 0x10435 } }, // Case map
+            { 0x1040E, new[] { 0x10436 } }, // Case map
+            { 0x1040F, new[] { 0x10437 } }, // Case map
+            { 0x10410, new[] { 0x10438 } }, // Case map
+            { 0x10411, new[] { 0x10439 } }, // Case map
+            { 0x10412, new[] { 0x1043A } }, // Case map
+            { 0x10413, new[] { 0x1043B } }, // Case map
+            { 0x10414, new[] { 0x1043C } }, // Case map
+            { 0x10415, new[] { 0x1043D } }, // Case map
+            { 0x10416, new[] { 0x1043E } }, // Case map
+            { 0x10417, new[] { 0x1043F } }, // Case map
+            { 0x10418, new[] { 0x10440 } }, // Case map
+            { 0x10419, new[] { 0x10441 } }, // Case map
+            { 0x1041A, new[] { 0x10442 } }, // Case map
+            { 0x1041B, new[] { 0x10443 } }, // Case map
+            { 0x1041C, new[] { 0x10444 } }, // Case map
+            { 0x1041D, new[] { 0x10445 } }, // Case map
+            { 0x1041E, new[] { 0x10446 } }, // Case map
+            { 0x1041F, new[] { 0x10447 } }, // Case map
+            { 0x10420, new[] { 0x10448 } }, // Case map
+            { 0x10421, new[] { 0x10449 } }, // Case map
+            { 0x10422, new[] { 0x1044A } }, // Case map
+            { 0x10423, new[] { 0x1044B } }, // Case map
+            { 0x10424, new[] { 0x1044C } }, // Case map
+            { 0x10425, new[] { 0x1044D } }, // Case map
+            { 0x1D400, new[] { 0x0061 } }, // Additional folding
+            { 0x1D401, new[] { 0x0062 } }, // Additional folding
+            { 0x1D402, new[] { 0x0063 } }, // Additional folding
+            { 0x1D403, new[] { 0x0064 } }, // Additional folding
+            { 0x1D404, new[] { 0x0065 } }, // Additional folding
+            { 0x1D405, new[] { 0x0066 } }, // Additional folding
+            { 0x1D406, new[] { 0x0067 } }, // Additional folding
+            { 0x1D407, new[] { 0x0068 } }, // Additional folding
+            { 0x1D408, new[] { 0x0069 } }, // Additional folding
+            { 0x1D409, new[] { 0x006A } }, // Additional folding
+            { 0x1D40A, new[] { 0x006B } }, // Additional folding
+            { 0x1D40B, new[] { 0x006C } }, // Additional folding
+            { 0x1D40C, new[] { 0x006D } }, // Additional folding
+            { 0x1D40D, new[] { 0x006E } }, // Additional folding
+            { 0x1D40E, new[] { 0x006F } }, // Additional folding
+            { 0x1D40F, new[] { 0x0070 } }, // Additional folding
+            { 0x1D410, new[] { 0x0071 } }, // Additional folding
+            { 0x1D411, new[] { 0x0072 } }, // Additional folding
+            { 0x1D412, new[] { 0x0073 } }, // Additional folding
+            { 0x1D413, new[] { 0x0074 } }, // Additional folding
+            { 0x1D414, new[] { 0x0075 } }, // Additional folding
+            { 0x1D415, new[] { 0x0076 } }, // Additional folding
+            { 0x1D416, new[] { 0x0077 } }, // Additional folding
+            { 0x1D417, new[] { 0x0078 } }, // Additional folding
+            { 0x1D418, new[] { 0x0079 } }, // Additional folding
+            { 0x1D419, new[] { 0x007A } }, // Additional folding
+            { 0x1D434, new[] { 0x0061 } }, // Additional folding
+            { 0x1D435, new[] { 0x0062 } }, // Additional folding
+            { 0x1D436, new[] { 0x0063 } }, // Additional folding
+            { 0x1D437, new[] { 0x0064 } }, // Additional folding
+            { 0x1D438, new[] { 0x0065 } }, // Additional folding
+            { 0x1D439, new[] { 0x0066 } }, // Additional folding
+            { 0x1D43A, new[] { 0x0067 } }, // Additional folding
+            { 0x1D43B, new[] { 0x0068 } }, // Additional folding
+            { 0x1D43C, new[] { 0x0069 } }, // Additional folding
+            { 0x1D43D, new[] { 0x006A } }, // Additional folding
+            { 0x1D43E, new[] { 0x006B } }, // Additional folding
+            { 0x1D43F, new[] { 0x006C } }, // Additional folding
+            { 0x1D440, new[] { 0x006D } }, // Additional folding
+            { 0x1D441, new[] { 0x006E } }, // Additional folding
+            { 0x1D442, new[] { 0x006F } }, // Additional folding
+            { 0x1D443, new[] { 0x0070 } }, // Additional folding
+            { 0x1D444, new[] { 0x0071 } }, // Additional folding
+            { 0x1D445, new[] { 0x0072 } }, // Additional folding
+            { 0x1D446, new[] { 0x0073 } }, // Additional folding
+            { 0x1D447, new[] { 0x0074 } }, // Additional folding
+            { 0x1D448, new[] { 0x0075 } }, // Additional folding
+            { 0x1D449, new[] { 0x0076 } }, // Additional folding
+            { 0x1D44A, new[] { 0x0077 } }, // Additional folding
+            { 0x1D44B, new[] { 0x0078 } }, // Additional folding
+            { 0x1D44C, new[] { 0x0079 } }, // Additional folding
+            { 0x1D44D, new[] { 0x007A } }, // Additional folding
+            { 0x1D468, new[] { 0x0061 } }, // Additional folding
+            { 0x1D469, new[] { 0x0062 } }, // Additional folding
+            { 0x1D46A, new[] { 0x0063 } }, // Additional folding
+            { 0x1D46B, new[] { 0x0064 } }, // Additional folding
+            { 0x1D46C, new[] { 0x0065 } }, // Additional folding
+            { 0x1D46D, new[] { 0x0066 } }, // Additional folding
+            { 0x1D46E, new[] { 0x0067 } }, // Additional folding
+            { 0x1D46F, new[] { 0x0068 } }, // Additional folding
+            { 0x1D470, new[] { 0x0069 } }, // Additional folding
+            { 0x1D471, new[] { 0x006A } }, // Additional folding
+            { 0x1D472, new[] { 0x006B } }, // Additional folding
+            { 0x1D473, new[] { 0x006C } }, // Additional folding
+            { 0x1D474, new[] { 0x006D } }, // Additional folding
+            { 0x1D475, new[] { 0x006E } }, // Additional folding
+            { 0x1D476, new[] { 0x006F } }, // Additional folding
+            { 0x1D477, new[] { 0x0070 } }, // Additional folding
+            { 0x1D478, new[] { 0x0071 } }, // Additional folding
+            { 0x1D479, new[] { 0x0072 } }, // Additional folding
+            { 0x1D47A, new[] { 0x0073 } }, // Additional folding
+            { 0x1D47B, new[] { 0x0074 } }, // Additional folding
+            { 0x1D47C, new[] { 0x0075 } }, // Additional folding
+            { 0x1D47D, new[] { 0x0076 } }, // Additional folding
+            { 0x1D47E, new[] { 0x0077 } }, // Additional folding
+            { 0x1D47F, new[] { 0x0078 } }, // Additional folding
+            { 0x1D480, new[] { 0x0079 } }, // Additional folding
+            { 0x1D481, new[] { 0x007A } }, // Additional folding
+            { 0x1D49C, new[] { 0x0061 } }, // Additional folding
+            { 0x1D49E, new[] { 0x0063 } }, // Additional folding
+            { 0x1D49F, new[] { 0x0064 } }, // Additional folding
+            { 0x1D4A2, new[] { 0x0067 } }, // Additional folding
+            { 0x1D4A5, new[] { 0x006A } }, // Additional folding
+            { 0x1D4A6, new[] { 0x006B } }, // Additional folding
+            { 0x1D4A9, new[] { 0x006E } }, // Additional folding
+            { 0x1D4AA, new[] { 0x006F } }, // Additional folding
+            { 0x1D4AB, new[] { 0x0070 } }, // Additional folding
+            { 0x1D4AC, new[] { 0x0071 } }, // Additional folding
+            { 0x1D4AE, new[] { 0x0073 } }, // Additional folding
+            { 0x1D4AF, new[] { 0x0074 } }, // Additional folding
+            { 0x1D4B0, new[] { 0x0075 } }, // Additional folding
+            { 0x1D4B1, new[] { 0x0076 } }, // Additional folding
+            { 0x1D4B2, new[] { 0x0077 } }, // Additional folding
+            { 0x1D4B3, new[] { 0x0078 } }, // Additional folding
+            { 0x1D4B4, new[] { 0x0079 } }, // Additional folding
+            { 0x1D4B5, new[] { 0x007A } }, // Additional folding
+            { 0x1D4D0, new[] { 0x0061 } }, // Additional folding
+            { 0x1D4D1, new[] { 0x0062 } }, // Additional folding
+            { 0x1D4D2, new[] { 0x0063 } }, // Additional folding
+            { 0x1D4D3, new[] { 0x0064 } }, // Additional folding
+            { 0x1D4D4, new[] { 0x0065 } }, // Additional folding
+            { 0x1D4D5, new[] { 0x0066 } }, // Additional folding
+            { 0x1D4D6, new[] { 0x0067 } }, // Additional folding
+            { 0x1D4D7, new[] { 0x0068 } }, // Additional folding
+            { 0x1D4D8, new[] { 0x0069 } }, // Additional folding
+            { 0x1D4D9, new[] { 0x006A } }, // Additional folding
+            { 0x1D4DA, new[] { 0x006B } }, // Additional folding
+            { 0x1D4DB, new[] { 0x006C } }, // Additional folding
+            { 0x1D4DC, new[] { 0x006D } }, // Additional folding
+            { 0x1D4DD, new[] { 0x006E } }, // Additional folding
+            { 0x1D4DE, new[] { 0x006F } }, // Additional folding
+            { 0x1D4DF, new[] { 0x0070 } }, // Additional folding
+            { 0x1D4E0, new[] { 0x0071 } }, // Additional folding
+            { 0x1D4E1, new[] { 0x0072 } }, // Additional folding
+            { 0x1D4E2, new[] { 0x0073 } }, // Additional folding
+            { 0x1D4E3, new[] { 0x0074 } }, // Additional folding
+            { 0x1D4E4, new[] { 0x0075 } }, // Additional folding
+            { 0x1D4E5, new[] { 0x0076 } }, // Additional folding
+            { 0x1D4E6, new[] { 0x0077 } }, // Additional folding
+            { 0x1D4E7, new[] { 0x0078 } }, // Additional folding
+            { 0x1D4E8, new[] { 0x0079 } }, // Additional folding
+            { 0x1D4E9, new[] { 0x007A } }, // Additional folding
+            { 0x1D504, new[] { 0x0061 } }, // Additional folding
+            { 0x1D505, new[] { 0x0062 } }, // Additional folding
+            { 0x1D507, new[] { 0x0064 } }, // Additional folding
+            { 0x1D508, new[] { 0x0065 } }, // Additional folding
+            { 0x1D509, new[] { 0x0066 } }, // Additional folding
+            { 0x1D50A, new[] { 0x0067 } }, // Additional folding
+            { 0x1D50D, new[] { 0x006A } }, // Additional folding
+            { 0x1D50E, new[] { 0x006B } }, // Additional folding
+            { 0x1D50F, new[] { 0x006C } }, // Additional folding
+            { 0x1D510, new[] { 0x006D } }, // Additional folding
+            { 0x1D511, new[] { 0x006E } }, // Additional folding
+            { 0x1D512, new[] { 0x006F } }, // Additional folding
+            { 0x1D513, new[] { 0x0070 } }, // Additional folding
+            { 0x1D514, new[] { 0x0071 } }, // Additional folding
+            { 0x1D516, new[] { 0x0073 } }, // Additional folding
+            { 0x1D517, new[] { 0x0074 } }, // Additional folding
+            { 0x1D518, new[] { 0x0075 } }, // Additional folding
+            { 0x1D519, new[] { 0x0076 } }, // Additional folding
+            { 0x1D51A, new[] { 0x0077 } }, // Additional folding
+            { 0x1D51B, new[] { 0x0078 } }, // Additional folding
+            { 0x1D51C, new[] { 0x0079 } }, // Additional folding
+            { 0x1D538, new[] { 0x0061 } }, // Additional folding
+            { 0x1D539, new[] { 0x0062 } }, // Additional folding
+            { 0x1D53B, new[] { 0x0064 } }, // Additional folding
+            { 0x1D53C, new[] { 0x0065 } }, // Additional folding
+            { 0x1D53D, new[] { 0x0066 } }, // Additional folding
+            { 0x1D53E, new[] { 0x0067 } }, // Additional folding
+            { 0x1D540, new[] { 0x0069 } }, // Additional folding
+            { 0x1D541, new[] { 0x006A } }, // Additional folding
+            { 0x1D542, new[] { 0x006B } }, // Additional folding
+            { 0x1D543, new[] { 0x006C } }, // Additional folding
+            { 0x1D544, new[] { 0x006D } }, // Additional folding
+            { 0x1D546, new[] { 0x006F } }, // Additional folding
+            { 0x1D54A, new[] { 0x0073 } }, // Additional folding
+            { 0x1D54B, new[] { 0x0074 } }, // Additional folding
+            { 0x1D54C, new[] { 0x0075 } }, // Additional folding
+            { 0x1D54D, new[] { 0x0076 } }, // Additional folding
+            { 0x1D54E, new[] { 0x0077 } }, // Additional folding
+            { 0x1D54F, new[] { 0x0078 } }, // Additional folding
+            { 0x1D550, new[] { 0x0079 } }, // Additional folding
+            { 0x1D56C, new[] { 0x0061 } }, // Additional folding
+            { 0x1D56D, new[] { 0x0062 } }, // Additional folding
+            { 0x1D56E, new[] { 0x0063 } }, // Additional folding
+            { 0x1D56F, new[] { 0x0064 } }, // Additional folding
+            { 0x1D570, new[] { 0x0065 } }, // Additional folding
+            { 0x1D571, new[] { 0x0066 } }, // Additional folding
+            { 0x1D572, new[] { 0x0067 } }, // Additional folding
+            { 0x1D573, new[] { 0x0068 } }, // Additional folding
+            { 0x1D574, new[] { 0x0069 } }, // Additional folding
+            { 0x1D575, new[] { 0x006A } }, // Additional folding
+            { 0x1D576, new[] { 0x006B } }, // Additional folding
+            { 0x1D577, new[] { 0x006C } }, // Additional folding
+            { 0x1D578, new[] { 0x006D } }, // Additional folding
+            { 0x1D579, new[] { 0x006E } }, // Additional folding
+            { 0x1D57A, new[] { 0x006F } }, // Additional folding
+            { 0x1D57B, new[] { 0x0070 } }, // Additional folding
+            { 0x1D57C, new[] { 0x0071 } }, // Additional folding
+            { 0x1D57D, new[] { 0x0072 } }, // Additional folding
+            { 0x1D57E, new[] { 0x0073 } }, // Additional folding
+            { 0x1D57F, new[] { 0x0074 } }, // Additional folding
+            { 0x1D580, new[] { 0x0075 } }, // Additional folding
+            { 0x1D581, new[] { 0x0076 } }, // Additional folding
+            { 0x1D582, new[] { 0x0077 } }, // Additional folding
+            { 0x1D583, new[] { 0x0078 } }, // Additional folding
+            { 0x1D584, new[] { 0x0079 } }, // Additional folding
+            { 0x1D585, new[] { 0x007A } }, // Additional folding
+            { 0x1D5A0, new[] { 0x0061 } }, // Additional folding
+            { 0x1D5A1, new[] { 0x0062 } }, // Additional folding
+            { 0x1D5A2, new[] { 0x0063 } }, // Additional folding
+            { 0x1D5A3, new[] { 0x0064 } }, // Additional folding
+            { 0x1D5A4, new[] { 0x0065 } }, // Additional folding
+            { 0x1D5A5, new[] { 0x0066 } }, // Additional folding
+            { 0x1D5A6, new[] { 0x0067 } }, // Additional folding
+            { 0x1D5A7, new[] { 0x0068 } }, // Additional folding
+            { 0x1D5A8, new[] { 0x0069 } }, // Additional folding
+            { 0x1D5A9, new[] { 0x006A } }, // Additional folding
+            { 0x1D5AA, new[] { 0x006B } }, // Additional folding
+            { 0x1D5AB, new[] { 0x006C } }, // Additional folding
+            { 0x1D5AC, new[] { 0x006D } }, // Additional folding
+            { 0x1D5AD, new[] { 0x006E } }, // Additional folding
+            { 0x1D5AE, new[] { 0x006F } }, // Additional folding
+            { 0x1D5AF, new[] { 0x0070 } }, // Additional folding
+            { 0x1D5B0, new[] { 0x0071 } }, // Additional folding
+            { 0x1D5B1, new[] { 0x0072 } }, // Additional folding
+            { 0x1D5B2, new[] { 0x0073 } }, // Additional folding
+            { 0x1D5B3, new[] { 0x0074 } }, // Additional folding
+            { 0x1D5B4, new[] { 0x0075 } }, // Additional folding
+            { 0x1D5B5, new[] { 0x0076 } }, // Additional folding
+            { 0x1D5B6, new[] { 0x0077 } }, // Additional folding
+            { 0x1D5B7, new[] { 0x0078 } }, // Additional folding
+            { 0x1D5B8, new[] { 0x0079 } }, // Additional folding
+            { 0x1D5B9, new[] { 0x007A } }, // Additional folding
+            { 0x1D5D4, new[] { 0x0061 } }, // Additional folding
+            { 0x1D5D5, new[] { 0x0062 } }, // Additional folding
+            { 0x1D5D6, new[] { 0x0063 } }, // Additional folding
+            { 0x1D5D7, new[] { 0x0064 } }, // Additional folding
+            { 0x1D5D8, new[] { 0x0065 } }, // Additional folding
+            { 0x1D5D9, new[] { 0x0066 } }, // Additional folding
+            { 0x1D5DA, new[] { 0x0067 } }, // Additional folding
+            { 0x1D5DB, new[] { 0x0068 } }, // Additional folding
+            { 0x1D5DC, new[] { 0x0069 } }, // Additional folding
+            { 0x1D5DD, new[] { 0x006A } }, // Additional folding
+            { 0x1D5DE, new[] { 0x006B } }, // Additional folding
+            { 0x1D5DF, new[] { 0x006C } }, // Additional folding
+            { 0x1D5E0, new[] { 0x006D } }, // Additional folding
+            { 0x1D5E1, new[] { 0x006E } }, // Additional folding
+            { 0x1D5E2, new[] { 0x006F } }, // Additional folding
+            { 0x1D5E3, new[] { 0x0070 } }, // Additional folding
+            { 0x1D5E4, new[] { 0x0071 } }, // Additional folding
+            { 0x1D5E5, new[] { 0x0072 } }, // Additional folding
+            { 0x1D5E6, new[] { 0x0073 } }, // Additional folding
+            { 0x1D5E7, new[] { 0x0074 } }, // Additional folding
+            { 0x1D5E8, new[] { 0x0075 } }, // Additional folding
+            { 0x1D5E9, new[] { 0x0076 } }, // Additional folding
+            { 0x1D5EA, new[] { 0x0077 } }, // Additional folding
+            { 0x1D5EB, new[] { 0x0078 } }, // Additional folding
+            { 0x1D5EC, new[] { 0x0079 } }, // Additional folding
+            { 0x1D5ED, new[] { 0x007A } }, // Additional folding
+            { 0x1D608, new[] { 0x0061 } }, // Additional folding
+            { 0x1D609, new[] { 0x0062 } }, // Additional folding
+            { 0x1D60A, new[] { 0x0063 } }, // Additional folding
+            { 0x1D60B, new[] { 0x0064 } }, // Additional folding
+            { 0x1D60C, new[] { 0x0065 } }, // Additional folding
+            { 0x1D60D, new[] { 0x0066 } }, // Additional folding
+            { 0x1D60E, new[] { 0x0067 } }, // Additional folding
+            { 0x1D60F, new[] { 0x0068 } }, // Additional folding
+            { 0x1D610, new[] { 0x0069 } }, // Additional folding
+            { 0x1D611, new[] { 0x006A } }, // Additional folding
+            { 0x1D612, new[] { 0x006B } }, // Additional folding
+            { 0x1D613, new[] { 0x006C } }, // Additional folding
+            { 0x1D614, new[] { 0x006D } }, // Additional folding
+            { 0x1D615, new[] { 0x006E } }, // Additional folding
+            { 0x1D616, new[] { 0x006F } }, // Additional folding
+            { 0x1D617, new[] { 0x0070 } }, // Additional folding
+            { 0x1D618, new[] { 0x0071 } }, // Additional folding
+            { 0x1D619, new[] { 0x0072 } }, // Additional folding
+            { 0x1D61A, new[] { 0x0073 } }, // Additional folding
+            { 0x1D61B, new[] { 0x0074 } }, // Additional folding
+            { 0x1D61C, new[] { 0x0075 } }, // Additional folding
+            { 0x1D61D, new[] { 0x0076 } }, // Additional folding
+            { 0x1D61E, new[] { 0x0077 } }, // Additional folding
+            { 0x1D61F, new[] { 0x0078 } }, // Additional folding
+            { 0x1D620, new[] { 0x0079 } }, // Additional folding
+            { 0x1D621, new[] { 0x007A } }, // Additional folding
+            { 0x1D63C, new[] { 0x0061 } }, // Additional folding
+            { 0x1D63D, new[] { 0x0062 } }, // Additional folding
+            { 0x1D63E, new[] { 0x0063 } }, // Additional folding
+            { 0x1D63F, new[] { 0x0064 } }, // Additional folding
+            { 0x1D640, new[] { 0x0065 } }, // Additional folding
+            { 0x1D641, new[] { 0x0066 } }, // Additional folding
+            { 0x1D642, new[] { 0x0067 } }, // Additional folding
+            { 0x1D643, new[] { 0x0068 } }, // Additional folding
+            { 0x1D644, new[] { 0x0069 } }, // Additional folding
+            { 0x1D645, new[] { 0x006A } }, // Additional folding
+            { 0x1D646, new[] { 0x006B } }, // Additional folding
+            { 0x1D647, new[] { 0x006C } }, // Additional folding
+            { 0x1D648, new[] { 0x006D } }, // Additional folding
+            { 0x1D649, new[] { 0x006E } }, // Additional folding
+            { 0x1D64A, new[] { 0x006F } }, // Additional folding
+            { 0x1D64B, new[] { 0x0070 } }, // Additional folding
+            { 0x1D64C, new[] { 0x0071 } }, // Additional folding
+            { 0x1D64D, new[] { 0x0072 } }, // Additional folding
+            { 0x1D64E, new[] { 0x0073 } }, // Additional folding
+            { 0x1D64F, new[] { 0x0074 } }, // Additional folding
+            { 0x1D650, new[] { 0x0075 } }, // Additional folding
+            { 0x1D651, new[] { 0x0076 } }, // Additional folding
+            { 0x1D652, new[] { 0x0077 } }, // Additional folding
+            { 0x1D653, new[] { 0x0078 } }, // Additional folding
+            { 0x1D654, new[] { 0x0079 } }, // Additional folding
+            { 0x1D655, new[] { 0x007A } }, // Additional folding
+            { 0x1D670, new[] { 0x0061 } }, // Additional folding
+            { 0x1D671, new[] { 0x0062 } }, // Additional folding
+            { 0x1D672, new[] { 0x0063 } }, // Additional folding
+            { 0x1D673, new[] { 0x0064 } }, // Additional folding
+            { 0x1D674, new[] { 0x0065 } }, // Additional folding
+            { 0x1D675, new[] { 0x0066 } }, // Additional folding
+            { 0x1D676, new[] { 0x0067 } }, // Additional folding
+            { 0x1D677, new[] { 0x0068 } }, // Additional folding
+            { 0x1D678, new[] { 0x0069 } }, // Additional folding
+            { 0x1D679, new[] { 0x006A } }, // Additional folding
+            { 0x1D67A, new[] { 0x006B } }, // Additional folding
+            { 0x1D67B, new[] { 0x006C } }, // Additional folding
+            { 0x1D67C, new[] { 0x006D } }, // Additional folding
+            { 0x1D67D, new[] { 0x006E } }, // Additional folding
+            { 0x1D67E, new[] { 0x006F } }, // Additional folding
+            { 0x1D67F, new[] { 0x0070 } }, // Additional folding
+            { 0x1D680, new[] { 0x0071 } }, // Additional folding
+            { 0x1D681, new[] { 0x0072 } }, // Additional folding
+            { 0x1D682, new[] { 0x0073 } }, // Additional folding
+            { 0x1D683, new[] { 0x0074 } }, // Additional folding
+            { 0x1D684, new[] { 0x0075 } }, // Additional folding
+            { 0x1D685, new[] { 0x0076 } }, // Additional folding
+            { 0x1D686, new[] { 0x0077 } }, // Additional folding
+            { 0x1D687, new[] { 0x0078 } }, // Additional folding
+            { 0x1D688, new[] { 0x0079 } }, // Additional folding
+            { 0x1D689, new[] { 0x007A } }, // Additional folding
+            { 0x1D6A8, new[] { 0x03B1 } }, // Additional folding
+            { 0x1D6A9, new[] { 0x03B2 } }, // Additional folding
+            { 0x1D6AA, new[] { 0x03B3 } }, // Additional folding
+            { 0x1D6AB, new[] { 0x03B4 } }, // Additional folding
+            { 0x1D6AC, new[] { 0x03B5 } }, // Additional folding
+            { 0x1D6AD, new[] { 0x03B6 } }, // Additional folding
+            { 0x1D6AE, new[] { 0x03B7 } }, // Additional folding
+            { 0x1D6AF, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D6B0, new[] { 0x03B9 } }, // Additional folding
+            { 0x1D6B1, new[] { 0x03BA } }, // Additional folding
+            { 0x1D6B2, new[] { 0x03BB } }, // Additional folding
+            { 0x1D6B3, new[] { 0x03BC } }, // Additional folding
+            { 0x1D6B4, new[] { 0x03BD } }, // Additional folding
+            { 0x1D6B5, new[] { 0x03BE } }, // Additional folding
+            { 0x1D6B6, new[] { 0x03BF } }, // Additional folding
+            { 0x1D6B7, new[] { 0x03C0 } }, // Additional folding
+            { 0x1D6B8, new[] { 0x03C1 } }, // Additional folding
+            { 0x1D6B9, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D6BA, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D6BB, new[] { 0x03C4 } }, // Additional folding
+            { 0x1D6BC, new[] { 0x03C5 } }, // Additional folding
+            { 0x1D6BD, new[] { 0x03C6 } }, // Additional folding
+            { 0x1D6BE, new[] { 0x03C7 } }, // Additional folding
+            { 0x1D6BF, new[] { 0x03C8 } }, // Additional folding
+            { 0x1D6C0, new[] { 0x03C9 } }, // Additional folding
+            { 0x1D6D3, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D6E2, new[] { 0x03B1 } }, // Additional folding
+            { 0x1D6E3, new[] { 0x03B2 } }, // Additional folding
+            { 0x1D6E4, new[] { 0x03B3 } }, // Additional folding
+            { 0x1D6E5, new[] { 0x03B4 } }, // Additional folding
+            { 0x1D6E6, new[] { 0x03B5 } }, // Additional folding
+            { 0x1D6E7, new[] { 0x03B6 } }, // Additional folding
+            { 0x1D6E8, new[] { 0x03B7 } }, // Additional folding
+            { 0x1D6E9, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D6EA, new[] { 0x03B9 } }, // Additional folding
+            { 0x1D6EB, new[] { 0x03BA } }, // Additional folding
+            { 0x1D6EC, new[] { 0x03BB } }, // Additional folding
+            { 0x1D6ED, new[] { 0x03BC } }, // Additional folding
+            { 0x1D6EE, new[] { 0x03BD } }, // Additional folding
+            { 0x1D6EF, new[] { 0x03BE } }, // Additional folding
+            { 0x1D6F0, new[] { 0x03BF } }, // Additional folding
+            { 0x1D6F1, new[] { 0x03C0 } }, // Additional folding
+            { 0x1D6F2, new[] { 0x03C1 } }, // Additional folding
+            { 0x1D6F3, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D6F4, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D6F5, new[] { 0x03C4 } }, // Additional folding
+            { 0x1D6F6, new[] { 0x03C5 } }, // Additional folding
+            { 0x1D6F7, new[] { 0x03C6 } }, // Additional folding
+            { 0x1D6F8, new[] { 0x03C7 } }, // Additional folding
+            { 0x1D6F9, new[] { 0x03C8 } }, // Additional folding
+            { 0x1D6FA, new[] { 0x03C9 } }, // Additional folding
+            { 0x1D70D, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D71C, new[] { 0x03B1 } }, // Additional folding
+            { 0x1D71D, new[] { 0x03B2 } }, // Additional folding
+            { 0x1D71E, new[] { 0x03B3 } }, // Additional folding
+            { 0x1D71F, new[] { 0x03B4 } }, // Additional folding
+            { 0x1D720, new[] { 0x03B5 } }, // Additional folding
+            { 0x1D721, new[] { 0x03B6 } }, // Additional folding
+            { 0x1D722, new[] { 0x03B7 } }, // Additional folding
+            { 0x1D723, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D724, new[] { 0x03B9 } }, // Additional folding
+            { 0x1D725, new[] { 0x03BA } }, // Additional folding
+            { 0x1D726, new[] { 0x03BB } }, // Additional folding
+            { 0x1D727, new[] { 0x03BC } }, // Additional folding
+            { 0x1D728, new[] { 0x03BD } }, // Additional folding
+            { 0x1D729, new[] { 0x03BE } }, // Additional folding
+            { 0x1D72A, new[] { 0x03BF } }, // Additional folding
+            { 0x1D72B, new[] { 0x03C0 } }, // Additional folding
+            { 0x1D72C, new[] { 0x03C1 } }, // Additional folding
+            { 0x1D72D, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D72E, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D72F, new[] { 0x03C4 } }, // Additional folding
+            { 0x1D730, new[] { 0x03C5 } }, // Additional folding
+            { 0x1D731, new[] { 0x03C6 } }, // Additional folding
+            { 0x1D732, new[] { 0x03C7 } }, // Additional folding
+            { 0x1D733, new[] { 0x03C8 } }, // Additional folding
+            { 0x1D734, new[] { 0x03C9 } }, // Additional folding
+            { 0x1D747, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D756, new[] { 0x03B1 } }, // Additional folding
+            { 0x1D757, new[] { 0x03B2 } }, // Additional folding
+            { 0x1D758, new[] { 0x03B3 } }, // Additional folding
+            { 0x1D759, new[] { 0x03B4 } }, // Additional folding
+            { 0x1D75A, new[] { 0x03B5 } }, // Additional folding
+            { 0x1D75B, new[] { 0x03B6 } }, // Additional folding
+            { 0x1D75C, new[] { 0x03B7 } }, // Additional folding
+            { 0x1D75D, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D75E, new[] { 0x03B9 } }, // Additional folding
+            { 0x1D75F, new[] { 0x03BA } }, // Additional folding
+            { 0x1D760, new[] { 0x03BB } }, // Additional folding
+            { 0x1D761, new[] { 0x03BC } }, // Additional folding
+            { 0x1D762, new[] { 0x03BD } }, // Additional folding
+            { 0x1D763, new[] { 0x03BE } }, // Additional folding
+            { 0x1D764, new[] { 0x03BF } }, // Additional folding
+            { 0x1D765, new[] { 0x03C0 } }, // Additional folding
+            { 0x1D766, new[] { 0x03C1 } }, // Additional folding
+            { 0x1D767, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D768, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D769, new[] { 0x03C4 } }, // Additional folding
+            { 0x1D76A, new[] { 0x03C5 } }, // Additional folding
+            { 0x1D76B, new[] { 0x03C6 } }, // Additional folding
+            { 0x1D76C, new[] { 0x03C7 } }, // Additional folding
+            { 0x1D76D, new[] { 0x03C8 } }, // Additional folding
+            { 0x1D76E, new[] { 0x03C9 } }, // Additional folding
+            { 0x1D781, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D790, new[] { 0x03B1 } }, // Additional folding
+            { 0x1D791, new[] { 0x03B2 } }, // Additional folding
+            { 0x1D792, new[] { 0x03B3 } }, // Additional folding
+            { 0x1D793, new[] { 0x03B4 } }, // Additional folding
+            { 0x1D794, new[] { 0x03B5 } }, // Additional folding
+            { 0x1D795, new[] { 0x03B6 } }, // Additional folding
+            { 0x1D796, new[] { 0x03B7 } }, // Additional folding
+            { 0x1D797, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D798, new[] { 0x03B9 } }, // Additional folding
+            { 0x1D799, new[] { 0x03BA } }, // Additional folding
+            { 0x1D79A, new[] { 0x03BB } }, // Additional folding
+            { 0x1D79B, new[] { 0x03BC } }, // Additional folding
+            { 0x1D79C, new[] { 0x03BD } }, // Additional folding
+            { 0x1D79D, new[] { 0x03BE } }, // Additional folding
+            { 0x1D79E, new[] { 0x03BF } }, // Additional folding
+            { 0x1D79F, new[] { 0x03C0 } }, // Additional folding
+            { 0x1D7A0, new[] { 0x03C1 } }, // Additional folding
+            { 0x1D7A1, new[] { 0x03B8 } }, // Additional folding
+            { 0x1D7A2, new[] { 0x03C3 } }, // Additional folding
+            { 0x1D7A3, new[] { 0x03C4 } }, // Additional folding
+            { 0x1D7A4, new[] { 0x03C5 } }, // Additional folding
+            { 0x1D7A5, new[] { 0x03C6 } }, // Additional folding
+            { 0x1D7A6, new[] { 0x03C7 } }, // Additional folding
+            { 0x1D7A7, new[] { 0x03C8 } }, // Additional folding
+            { 0x1D7A8, new[] { 0x03C9 } }, // Additional folding
+            { 0x1D7BB, new[] { 0x03C3 } } // Additional folding
         };
 
-        /// B.3 Mapping for case-folding used with no normalization
-        public static readonly Dictionary<int, int[]> B_3 = new Dictionary<int, int[]>
+        /// <summary>
+        ///     B.3 Mapping for case-folding used with no normalization
+        /// </summary>
+        public static readonly Dictionary<int, int[]> B3 = new Dictionary<int, int[]>
         {
-            {0x0041, new[] {0x0061}}, // Case map
-            {0x0042, new[] {0x0062}}, // Case map
-            {0x0043, new[] {0x0063}}, // Case map
-            {0x0044, new[] {0x0064}}, // Case map
-            {0x0045, new[] {0x0065}}, // Case map
-            {0x0046, new[] {0x0066}}, // Case map
-            {0x0047, new[] {0x0067}}, // Case map
-            {0x0048, new[] {0x0068}}, // Case map
-            {0x0049, new[] {0x0069}}, // Case map
-            {0x004A, new[] {0x006A}}, // Case map
-            {0x004B, new[] {0x006B}}, // Case map
-            {0x004C, new[] {0x006C}}, // Case map
-            {0x004D, new[] {0x006D}}, // Case map
-            {0x004E, new[] {0x006E}}, // Case map
-            {0x004F, new[] {0x006F}}, // Case map
-            {0x0050, new[] {0x0070}}, // Case map
-            {0x0051, new[] {0x0071}}, // Case map
-            {0x0052, new[] {0x0072}}, // Case map
-            {0x0053, new[] {0x0073}}, // Case map
-            {0x0054, new[] {0x0074}}, // Case map
-            {0x0055, new[] {0x0075}}, // Case map
-            {0x0056, new[] {0x0076}}, // Case map
-            {0x0057, new[] {0x0077}}, // Case map
-            {0x0058, new[] {0x0078}}, // Case map
-            {0x0059, new[] {0x0079}}, // Case map
-            {0x005A, new[] {0x007A}}, // Case map
-            {0x00B5, new[] {0x03BC}}, // Case map
-            {0x00C0, new[] {0x00E0}}, // Case map
-            {0x00C1, new[] {0x00E1}}, // Case map
-            {0x00C2, new[] {0x00E2}}, // Case map
-            {0x00C3, new[] {0x00E3}}, // Case map
-            {0x00C4, new[] {0x00E4}}, // Case map
-            {0x00C5, new[] {0x00E5}}, // Case map
-            {0x00C6, new[] {0x00E6}}, // Case map
-            {0x00C7, new[] {0x00E7}}, // Case map
-            {0x00C8, new[] {0x00E8}}, // Case map
-            {0x00C9, new[] {0x00E9}}, // Case map
-            {0x00CA, new[] {0x00EA}}, // Case map
-            {0x00CB, new[] {0x00EB}}, // Case map
-            {0x00CC, new[] {0x00EC}}, // Case map
-            {0x00CD, new[] {0x00ED}}, // Case map
-            {0x00CE, new[] {0x00EE}}, // Case map
-            {0x00CF, new[] {0x00EF}}, // Case map
-            {0x00D0, new[] {0x00F0}}, // Case map
-            {0x00D1, new[] {0x00F1}}, // Case map
-            {0x00D2, new[] {0x00F2}}, // Case map
-            {0x00D3, new[] {0x00F3}}, // Case map
-            {0x00D4, new[] {0x00F4}}, // Case map
-            {0x00D5, new[] {0x00F5}}, // Case map
-            {0x00D6, new[] {0x00F6}}, // Case map
-            {0x00D8, new[] {0x00F8}}, // Case map
-            {0x00D9, new[] {0x00F9}}, // Case map
-            {0x00DA, new[] {0x00FA}}, // Case map
-            {0x00DB, new[] {0x00FB}}, // Case map
-            {0x00DC, new[] {0x00FC}}, // Case map
-            {0x00DD, new[] {0x00FD}}, // Case map
-            {0x00DE, new[] {0x00FE}}, // Case map
-            {0x00DF, new[] {0x0073, 0x0073}}, // Case map
-            {0x0100, new[] {0x0101}}, // Case map
-            {0x0102, new[] {0x0103}}, // Case map
-            {0x0104, new[] {0x0105}}, // Case map
-            {0x0106, new[] {0x0107}}, // Case map
-            {0x0108, new[] {0x0109}}, // Case map
-            {0x010A, new[] {0x010B}}, // Case map
-            {0x010C, new[] {0x010D}}, // Case map
-            {0x010E, new[] {0x010F}}, // Case map
-            {0x0110, new[] {0x0111}}, // Case map
-            {0x0112, new[] {0x0113}}, // Case map
-            {0x0114, new[] {0x0115}}, // Case map
-            {0x0116, new[] {0x0117}}, // Case map
-            {0x0118, new[] {0x0119}}, // Case map
-            {0x011A, new[] {0x011B}}, // Case map
-            {0x011C, new[] {0x011D}}, // Case map
-            {0x011E, new[] {0x011F}}, // Case map
-            {0x0120, new[] {0x0121}}, // Case map
-            {0x0122, new[] {0x0123}}, // Case map
-            {0x0124, new[] {0x0125}}, // Case map
-            {0x0126, new[] {0x0127}}, // Case map
-            {0x0128, new[] {0x0129}}, // Case map
-            {0x012A, new[] {0x012B}}, // Case map
-            {0x012C, new[] {0x012D}}, // Case map
-            {0x012E, new[] {0x012F}}, // Case map
-            {0x0130, new[] {0x0069, 0x0307}}, // Case map
-            {0x0132, new[] {0x0133}}, // Case map
-            {0x0134, new[] {0x0135}}, // Case map
-            {0x0136, new[] {0x0137}}, // Case map
-            {0x0139, new[] {0x013A}}, // Case map
-            {0x013B, new[] {0x013C}}, // Case map
-            {0x013D, new[] {0x013E}}, // Case map
-            {0x013F, new[] {0x0140}}, // Case map
-            {0x0141, new[] {0x0142}}, // Case map
-            {0x0143, new[] {0x0144}}, // Case map
-            {0x0145, new[] {0x0146}}, // Case map
-            {0x0147, new[] {0x0148}}, // Case map
-            {0x0149, new[] {0x02BC, 0x006E}}, // Case map
-            {0x014A, new[] {0x014B}}, // Case map
-            {0x014C, new[] {0x014D}}, // Case map
-            {0x014E, new[] {0x014F}}, // Case map
-            {0x0150, new[] {0x0151}}, // Case map
-            {0x0152, new[] {0x0153}}, // Case map
-            {0x0154, new[] {0x0155}}, // Case map
-            {0x0156, new[] {0x0157}}, // Case map
-            {0x0158, new[] {0x0159}}, // Case map
-            {0x015A, new[] {0x015B}}, // Case map
-            {0x015C, new[] {0x015D}}, // Case map
-            {0x015E, new[] {0x015F}}, // Case map
-            {0x0160, new[] {0x0161}}, // Case map
-            {0x0162, new[] {0x0163}}, // Case map
-            {0x0164, new[] {0x0165}}, // Case map
-            {0x0166, new[] {0x0167}}, // Case map
-            {0x0168, new[] {0x0169}}, // Case map
-            {0x016A, new[] {0x016B}}, // Case map
-            {0x016C, new[] {0x016D}}, // Case map
-            {0x016E, new[] {0x016F}}, // Case map
-            {0x0170, new[] {0x0171}}, // Case map
-            {0x0172, new[] {0x0173}}, // Case map
-            {0x0174, new[] {0x0175}}, // Case map
-            {0x0176, new[] {0x0177}}, // Case map
-            {0x0178, new[] {0x00FF}}, // Case map
-            {0x0179, new[] {0x017A}}, // Case map
-            {0x017B, new[] {0x017C}}, // Case map
-            {0x017D, new[] {0x017E}}, // Case map
-            {0x017F, new[] {0x0073}}, // Case map
-            {0x0181, new[] {0x0253}}, // Case map
-            {0x0182, new[] {0x0183}}, // Case map
-            {0x0184, new[] {0x0185}}, // Case map
-            {0x0186, new[] {0x0254}}, // Case map
-            {0x0187, new[] {0x0188}}, // Case map
-            {0x0189, new[] {0x0256}}, // Case map
-            {0x018A, new[] {0x0257}}, // Case map
-            {0x018B, new[] {0x018C}}, // Case map
-            {0x018E, new[] {0x01DD}}, // Case map
-            {0x018F, new[] {0x0259}}, // Case map
-            {0x0190, new[] {0x025B}}, // Case map
-            {0x0191, new[] {0x0192}}, // Case map
-            {0x0193, new[] {0x0260}}, // Case map
-            {0x0194, new[] {0x0263}}, // Case map
-            {0x0196, new[] {0x0269}}, // Case map
-            {0x0197, new[] {0x0268}}, // Case map
-            {0x0198, new[] {0x0199}}, // Case map
-            {0x019C, new[] {0x026F}}, // Case map
-            {0x019D, new[] {0x0272}}, // Case map
-            {0x019F, new[] {0x0275}}, // Case map
-            {0x01A0, new[] {0x01A1}}, // Case map
-            {0x01A2, new[] {0x01A3}}, // Case map
-            {0x01A4, new[] {0x01A5}}, // Case map
-            {0x01A6, new[] {0x0280}}, // Case map
-            {0x01A7, new[] {0x01A8}}, // Case map
-            {0x01A9, new[] {0x0283}}, // Case map
-            {0x01AC, new[] {0x01AD}}, // Case map
-            {0x01AE, new[] {0x0288}}, // Case map
-            {0x01AF, new[] {0x01B0}}, // Case map
-            {0x01B1, new[] {0x028A}}, // Case map
-            {0x01B2, new[] {0x028B}}, // Case map
-            {0x01B3, new[] {0x01B4}}, // Case map
-            {0x01B5, new[] {0x01B6}}, // Case map
-            {0x01B7, new[] {0x0292}}, // Case map
-            {0x01B8, new[] {0x01B9}}, // Case map
-            {0x01BC, new[] {0x01BD}}, // Case map
-            {0x01C4, new[] {0x01C6}}, // Case map
-            {0x01C5, new[] {0x01C6}}, // Case map
-            {0x01C7, new[] {0x01C9}}, // Case map
-            {0x01C8, new[] {0x01C9}}, // Case map
-            {0x01CA, new[] {0x01CC}}, // Case map
-            {0x01CB, new[] {0x01CC}}, // Case map
-            {0x01CD, new[] {0x01CE}}, // Case map
-            {0x01CF, new[] {0x01D0}}, // Case map
-            {0x01D1, new[] {0x01D2}}, // Case map
-            {0x01D3, new[] {0x01D4}}, // Case map
-            {0x01D5, new[] {0x01D6}}, // Case map
-            {0x01D7, new[] {0x01D8}}, // Case map
-            {0x01D9, new[] {0x01DA}}, // Case map
-            {0x01DB, new[] {0x01DC}}, // Case map
-            {0x01DE, new[] {0x01DF}}, // Case map
-            {0x01E0, new[] {0x01E1}}, // Case map
-            {0x01E2, new[] {0x01E3}}, // Case map
-            {0x01E4, new[] {0x01E5}}, // Case map
-            {0x01E6, new[] {0x01E7}}, // Case map
-            {0x01E8, new[] {0x01E9}}, // Case map
-            {0x01EA, new[] {0x01EB}}, // Case map
-            {0x01EC, new[] {0x01ED}}, // Case map
-            {0x01EE, new[] {0x01EF}}, // Case map
-            {0x01F0, new[] {0x006A, 0x030C}}, // Case map
-            {0x01F1, new[] {0x01F3}}, // Case map
-            {0x01F2, new[] {0x01F3}}, // Case map
-            {0x01F4, new[] {0x01F5}}, // Case map
-            {0x01F6, new[] {0x0195}}, // Case map
-            {0x01F7, new[] {0x01BF}}, // Case map
-            {0x01F8, new[] {0x01F9}}, // Case map
-            {0x01FA, new[] {0x01FB}}, // Case map
-            {0x01FC, new[] {0x01FD}}, // Case map
-            {0x01FE, new[] {0x01FF}}, // Case map
-            {0x0200, new[] {0x0201}}, // Case map
-            {0x0202, new[] {0x0203}}, // Case map
-            {0x0204, new[] {0x0205}}, // Case map
-            {0x0206, new[] {0x0207}}, // Case map
-            {0x0208, new[] {0x0209}}, // Case map
-            {0x020A, new[] {0x020B}}, // Case map
-            {0x020C, new[] {0x020D}}, // Case map
-            {0x020E, new[] {0x020F}}, // Case map
-            {0x0210, new[] {0x0211}}, // Case map
-            {0x0212, new[] {0x0213}}, // Case map
-            {0x0214, new[] {0x0215}}, // Case map
-            {0x0216, new[] {0x0217}}, // Case map
-            {0x0218, new[] {0x0219}}, // Case map
-            {0x021A, new[] {0x021B}}, // Case map
-            {0x021C, new[] {0x021D}}, // Case map
-            {0x021E, new[] {0x021F}}, // Case map
-            {0x0220, new[] {0x019E}}, // Case map
-            {0x0222, new[] {0x0223}}, // Case map
-            {0x0224, new[] {0x0225}}, // Case map
-            {0x0226, new[] {0x0227}}, // Case map
-            {0x0228, new[] {0x0229}}, // Case map
-            {0x022A, new[] {0x022B}}, // Case map
-            {0x022C, new[] {0x022D}}, // Case map
-            {0x022E, new[] {0x022F}}, // Case map
-            {0x0230, new[] {0x0231}}, // Case map
-            {0x0232, new[] {0x0233}}, // Case map
-            {0x0345, new[] {0x03B9}}, // Case map
-            {0x0386, new[] {0x03AC}}, // Case map
-            {0x0388, new[] {0x03AD}}, // Case map
-            {0x0389, new[] {0x03AE}}, // Case map
-            {0x038A, new[] {0x03AF}}, // Case map
-            {0x038C, new[] {0x03CC}}, // Case map
-            {0x038E, new[] {0x03CD}}, // Case map
-            {0x038F, new[] {0x03CE}}, // Case map
-            {0x0390, new[] {0x03B9, 0x0308, 0x0301}}, // Case map
-            {0x0391, new[] {0x03B1}}, // Case map
-            {0x0392, new[] {0x03B2}}, // Case map
-            {0x0393, new[] {0x03B3}}, // Case map
-            {0x0394, new[] {0x03B4}}, // Case map
-            {0x0395, new[] {0x03B5}}, // Case map
-            {0x0396, new[] {0x03B6}}, // Case map
-            {0x0397, new[] {0x03B7}}, // Case map
-            {0x0398, new[] {0x03B8}}, // Case map
-            {0x0399, new[] {0x03B9}}, // Case map
-            {0x039A, new[] {0x03BA}}, // Case map
-            {0x039B, new[] {0x03BB}}, // Case map
-            {0x039C, new[] {0x03BC}}, // Case map
-            {0x039D, new[] {0x03BD}}, // Case map
-            {0x039E, new[] {0x03BE}}, // Case map
-            {0x039F, new[] {0x03BF}}, // Case map
-            {0x03A0, new[] {0x03C0}}, // Case map
-            {0x03A1, new[] {0x03C1}}, // Case map
-            {0x03A3, new[] {0x03C3}}, // Case map
-            {0x03A4, new[] {0x03C4}}, // Case map
-            {0x03A5, new[] {0x03C5}}, // Case map
-            {0x03A6, new[] {0x03C6}}, // Case map
-            {0x03A7, new[] {0x03C7}}, // Case map
-            {0x03A8, new[] {0x03C8}}, // Case map
-            {0x03A9, new[] {0x03C9}}, // Case map
-            {0x03AA, new[] {0x03CA}}, // Case map
-            {0x03AB, new[] {0x03CB}}, // Case map
-            {0x03B0, new[] {0x03C5, 0x0308, 0x0301}}, // Case map
-            {0x03C2, new[] {0x03C3}}, // Case map
-            {0x03D0, new[] {0x03B2}}, // Case map
-            {0x03D1, new[] {0x03B8}}, // Case map
-            {0x03D5, new[] {0x03C6}}, // Case map
-            {0x03D6, new[] {0x03C0}}, // Case map
-            {0x03D8, new[] {0x03D9}}, // Case map
-            {0x03DA, new[] {0x03DB}}, // Case map
-            {0x03DC, new[] {0x03DD}}, // Case map
-            {0x03DE, new[] {0x03DF}}, // Case map
-            {0x03E0, new[] {0x03E1}}, // Case map
-            {0x03E2, new[] {0x03E3}}, // Case map
-            {0x03E4, new[] {0x03E5}}, // Case map
-            {0x03E6, new[] {0x03E7}}, // Case map
-            {0x03E8, new[] {0x03E9}}, // Case map
-            {0x03EA, new[] {0x03EB}}, // Case map
-            {0x03EC, new[] {0x03ED}}, // Case map
-            {0x03EE, new[] {0x03EF}}, // Case map
-            {0x03F0, new[] {0x03BA}}, // Case map
-            {0x03F1, new[] {0x03C1}}, // Case map
-            {0x03F2, new[] {0x03C3}}, // Case map
-            {0x03F4, new[] {0x03B8}}, // Case map
-            {0x03F5, new[] {0x03B5}}, // Case map
-            {0x0400, new[] {0x0450}}, // Case map
-            {0x0401, new[] {0x0451}}, // Case map
-            {0x0402, new[] {0x0452}}, // Case map
-            {0x0403, new[] {0x0453}}, // Case map
-            {0x0404, new[] {0x0454}}, // Case map
-            {0x0405, new[] {0x0455}}, // Case map
-            {0x0406, new[] {0x0456}}, // Case map
-            {0x0407, new[] {0x0457}}, // Case map
-            {0x0408, new[] {0x0458}}, // Case map
-            {0x0409, new[] {0x0459}}, // Case map
-            {0x040A, new[] {0x045A}}, // Case map
-            {0x040B, new[] {0x045B}}, // Case map
-            {0x040C, new[] {0x045C}}, // Case map
-            {0x040D, new[] {0x045D}}, // Case map
-            {0x040E, new[] {0x045E}}, // Case map
-            {0x040F, new[] {0x045F}}, // Case map
-            {0x0410, new[] {0x0430}}, // Case map
-            {0x0411, new[] {0x0431}}, // Case map
-            {0x0412, new[] {0x0432}}, // Case map
-            {0x0413, new[] {0x0433}}, // Case map
-            {0x0414, new[] {0x0434}}, // Case map
-            {0x0415, new[] {0x0435}}, // Case map
-            {0x0416, new[] {0x0436}}, // Case map
-            {0x0417, new[] {0x0437}}, // Case map
-            {0x0418, new[] {0x0438}}, // Case map
-            {0x0419, new[] {0x0439}}, // Case map
-            {0x041A, new[] {0x043A}}, // Case map
-            {0x041B, new[] {0x043B}}, // Case map
-            {0x041C, new[] {0x043C}}, // Case map
-            {0x041D, new[] {0x043D}}, // Case map
-            {0x041E, new[] {0x043E}}, // Case map
-            {0x041F, new[] {0x043F}}, // Case map
-            {0x0420, new[] {0x0440}}, // Case map
-            {0x0421, new[] {0x0441}}, // Case map
-            {0x0422, new[] {0x0442}}, // Case map
-            {0x0423, new[] {0x0443}}, // Case map
-            {0x0424, new[] {0x0444}}, // Case map
-            {0x0425, new[] {0x0445}}, // Case map
-            {0x0426, new[] {0x0446}}, // Case map
-            {0x0427, new[] {0x0447}}, // Case map
-            {0x0428, new[] {0x0448}}, // Case map
-            {0x0429, new[] {0x0449}}, // Case map
-            {0x042A, new[] {0x044A}}, // Case map
-            {0x042B, new[] {0x044B}}, // Case map
-            {0x042C, new[] {0x044C}}, // Case map
-            {0x042D, new[] {0x044D}}, // Case map
-            {0x042E, new[] {0x044E}}, // Case map
-            {0x042F, new[] {0x044F}}, // Case map
-            {0x0460, new[] {0x0461}}, // Case map
-            {0x0462, new[] {0x0463}}, // Case map
-            {0x0464, new[] {0x0465}}, // Case map
-            {0x0466, new[] {0x0467}}, // Case map
-            {0x0468, new[] {0x0469}}, // Case map
-            {0x046A, new[] {0x046B}}, // Case map
-            {0x046C, new[] {0x046D}}, // Case map
-            {0x046E, new[] {0x046F}}, // Case map
-            {0x0470, new[] {0x0471}}, // Case map
-            {0x0472, new[] {0x0473}}, // Case map
-            {0x0474, new[] {0x0475}}, // Case map
-            {0x0476, new[] {0x0477}}, // Case map
-            {0x0478, new[] {0x0479}}, // Case map
-            {0x047A, new[] {0x047B}}, // Case map
-            {0x047C, new[] {0x047D}}, // Case map
-            {0x047E, new[] {0x047F}}, // Case map
-            {0x0480, new[] {0x0481}}, // Case map
-            {0x048A, new[] {0x048B}}, // Case map
-            {0x048C, new[] {0x048D}}, // Case map
-            {0x048E, new[] {0x048F}}, // Case map
-            {0x0490, new[] {0x0491}}, // Case map
-            {0x0492, new[] {0x0493}}, // Case map
-            {0x0494, new[] {0x0495}}, // Case map
-            {0x0496, new[] {0x0497}}, // Case map
-            {0x0498, new[] {0x0499}}, // Case map
-            {0x049A, new[] {0x049B}}, // Case map
-            {0x049C, new[] {0x049D}}, // Case map
-            {0x049E, new[] {0x049F}}, // Case map
-            {0x04A0, new[] {0x04A1}}, // Case map
-            {0x04A2, new[] {0x04A3}}, // Case map
-            {0x04A4, new[] {0x04A5}}, // Case map
-            {0x04A6, new[] {0x04A7}}, // Case map
-            {0x04A8, new[] {0x04A9}}, // Case map
-            {0x04AA, new[] {0x04AB}}, // Case map
-            {0x04AC, new[] {0x04AD}}, // Case map
-            {0x04AE, new[] {0x04AF}}, // Case map
-            {0x04B0, new[] {0x04B1}}, // Case map
-            {0x04B2, new[] {0x04B3}}, // Case map
-            {0x04B4, new[] {0x04B5}}, // Case map
-            {0x04B6, new[] {0x04B7}}, // Case map
-            {0x04B8, new[] {0x04B9}}, // Case map
-            {0x04BA, new[] {0x04BB}}, // Case map
-            {0x04BC, new[] {0x04BD}}, // Case map
-            {0x04BE, new[] {0x04BF}}, // Case map
-            {0x04C1, new[] {0x04C2}}, // Case map
-            {0x04C3, new[] {0x04C4}}, // Case map
-            {0x04C5, new[] {0x04C6}}, // Case map
-            {0x04C7, new[] {0x04C8}}, // Case map
-            {0x04C9, new[] {0x04CA}}, // Case map
-            {0x04CB, new[] {0x04CC}}, // Case map
-            {0x04CD, new[] {0x04CE}}, // Case map
-            {0x04D0, new[] {0x04D1}}, // Case map
-            {0x04D2, new[] {0x04D3}}, // Case map
-            {0x04D4, new[] {0x04D5}}, // Case map
-            {0x04D6, new[] {0x04D7}}, // Case map
-            {0x04D8, new[] {0x04D9}}, // Case map
-            {0x04DA, new[] {0x04DB}}, // Case map
-            {0x04DC, new[] {0x04DD}}, // Case map
-            {0x04DE, new[] {0x04DF}}, // Case map
-            {0x04E0, new[] {0x04E1}}, // Case map
-            {0x04E2, new[] {0x04E3}}, // Case map
-            {0x04E4, new[] {0x04E5}}, // Case map
-            {0x04E6, new[] {0x04E7}}, // Case map
-            {0x04E8, new[] {0x04E9}}, // Case map
-            {0x04EA, new[] {0x04EB}}, // Case map
-            {0x04EC, new[] {0x04ED}}, // Case map
-            {0x04EE, new[] {0x04EF}}, // Case map
-            {0x04F0, new[] {0x04F1}}, // Case map
-            {0x04F2, new[] {0x04F3}}, // Case map
-            {0x04F4, new[] {0x04F5}}, // Case map
-            {0x04F8, new[] {0x04F9}}, // Case map
-            {0x0500, new[] {0x0501}}, // Case map
-            {0x0502, new[] {0x0503}}, // Case map
-            {0x0504, new[] {0x0505}}, // Case map
-            {0x0506, new[] {0x0507}}, // Case map
-            {0x0508, new[] {0x0509}}, // Case map
-            {0x050A, new[] {0x050B}}, // Case map
-            {0x050C, new[] {0x050D}}, // Case map
-            {0x050E, new[] {0x050F}}, // Case map
-            {0x0531, new[] {0x0561}}, // Case map
-            {0x0532, new[] {0x0562}}, // Case map
-            {0x0533, new[] {0x0563}}, // Case map
-            {0x0534, new[] {0x0564}}, // Case map
-            {0x0535, new[] {0x0565}}, // Case map
-            {0x0536, new[] {0x0566}}, // Case map
-            {0x0537, new[] {0x0567}}, // Case map
-            {0x0538, new[] {0x0568}}, // Case map
-            {0x0539, new[] {0x0569}}, // Case map
-            {0x053A, new[] {0x056A}}, // Case map
-            {0x053B, new[] {0x056B}}, // Case map
-            {0x053C, new[] {0x056C}}, // Case map
-            {0x053D, new[] {0x056D}}, // Case map
-            {0x053E, new[] {0x056E}}, // Case map
-            {0x053F, new[] {0x056F}}, // Case map
-            {0x0540, new[] {0x0570}}, // Case map
-            {0x0541, new[] {0x0571}}, // Case map
-            {0x0542, new[] {0x0572}}, // Case map
-            {0x0543, new[] {0x0573}}, // Case map
-            {0x0544, new[] {0x0574}}, // Case map
-            {0x0545, new[] {0x0575}}, // Case map
-            {0x0546, new[] {0x0576}}, // Case map
-            {0x0547, new[] {0x0577}}, // Case map
-            {0x0548, new[] {0x0578}}, // Case map
-            {0x0549, new[] {0x0579}}, // Case map
-            {0x054A, new[] {0x057A}}, // Case map
-            {0x054B, new[] {0x057B}}, // Case map
-            {0x054C, new[] {0x057C}}, // Case map
-            {0x054D, new[] {0x057D}}, // Case map
-            {0x054E, new[] {0x057E}}, // Case map
-            {0x054F, new[] {0x057F}}, // Case map
-            {0x0550, new[] {0x0580}}, // Case map
-            {0x0551, new[] {0x0581}}, // Case map
-            {0x0552, new[] {0x0582}}, // Case map
-            {0x0553, new[] {0x0583}}, // Case map
-            {0x0554, new[] {0x0584}}, // Case map
-            {0x0555, new[] {0x0585}}, // Case map
-            {0x0556, new[] {0x0586}}, // Case map
-            {0x0587, new[] {0x0565, 0x0582}}, // Case map
-            {0x1E00, new[] {0x1E01}}, // Case map
-            {0x1E02, new[] {0x1E03}}, // Case map
-            {0x1E04, new[] {0x1E05}}, // Case map
-            {0x1E06, new[] {0x1E07}}, // Case map
-            {0x1E08, new[] {0x1E09}}, // Case map
-            {0x1E0A, new[] {0x1E0B}}, // Case map
-            {0x1E0C, new[] {0x1E0D}}, // Case map
-            {0x1E0E, new[] {0x1E0F}}, // Case map
-            {0x1E10, new[] {0x1E11}}, // Case map
-            {0x1E12, new[] {0x1E13}}, // Case map
-            {0x1E14, new[] {0x1E15}}, // Case map
-            {0x1E16, new[] {0x1E17}}, // Case map
-            {0x1E18, new[] {0x1E19}}, // Case map
-            {0x1E1A, new[] {0x1E1B}}, // Case map
-            {0x1E1C, new[] {0x1E1D}}, // Case map
-            {0x1E1E, new[] {0x1E1F}}, // Case map
-            {0x1E20, new[] {0x1E21}}, // Case map
-            {0x1E22, new[] {0x1E23}}, // Case map
-            {0x1E24, new[] {0x1E25}}, // Case map
-            {0x1E26, new[] {0x1E27}}, // Case map
-            {0x1E28, new[] {0x1E29}}, // Case map
-            {0x1E2A, new[] {0x1E2B}}, // Case map
-            {0x1E2C, new[] {0x1E2D}}, // Case map
-            {0x1E2E, new[] {0x1E2F}}, // Case map
-            {0x1E30, new[] {0x1E31}}, // Case map
-            {0x1E32, new[] {0x1E33}}, // Case map
-            {0x1E34, new[] {0x1E35}}, // Case map
-            {0x1E36, new[] {0x1E37}}, // Case map
-            {0x1E38, new[] {0x1E39}}, // Case map
-            {0x1E3A, new[] {0x1E3B}}, // Case map
-            {0x1E3C, new[] {0x1E3D}}, // Case map
-            {0x1E3E, new[] {0x1E3F}}, // Case map
-            {0x1E40, new[] {0x1E41}}, // Case map
-            {0x1E42, new[] {0x1E43}}, // Case map
-            {0x1E44, new[] {0x1E45}}, // Case map
-            {0x1E46, new[] {0x1E47}}, // Case map
-            {0x1E48, new[] {0x1E49}}, // Case map
-            {0x1E4A, new[] {0x1E4B}}, // Case map
-            {0x1E4C, new[] {0x1E4D}}, // Case map
-            {0x1E4E, new[] {0x1E4F}}, // Case map
-            {0x1E50, new[] {0x1E51}}, // Case map
-            {0x1E52, new[] {0x1E53}}, // Case map
-            {0x1E54, new[] {0x1E55}}, // Case map
-            {0x1E56, new[] {0x1E57}}, // Case map
-            {0x1E58, new[] {0x1E59}}, // Case map
-            {0x1E5A, new[] {0x1E5B}}, // Case map
-            {0x1E5C, new[] {0x1E5D}}, // Case map
-            {0x1E5E, new[] {0x1E5F}}, // Case map
-            {0x1E60, new[] {0x1E61}}, // Case map
-            {0x1E62, new[] {0x1E63}}, // Case map
-            {0x1E64, new[] {0x1E65}}, // Case map
-            {0x1E66, new[] {0x1E67}}, // Case map
-            {0x1E68, new[] {0x1E69}}, // Case map
-            {0x1E6A, new[] {0x1E6B}}, // Case map
-            {0x1E6C, new[] {0x1E6D}}, // Case map
-            {0x1E6E, new[] {0x1E6F}}, // Case map
-            {0x1E70, new[] {0x1E71}}, // Case map
-            {0x1E72, new[] {0x1E73}}, // Case map
-            {0x1E74, new[] {0x1E75}}, // Case map
-            {0x1E76, new[] {0x1E77}}, // Case map
-            {0x1E78, new[] {0x1E79}}, // Case map
-            {0x1E7A, new[] {0x1E7B}}, // Case map
-            {0x1E7C, new[] {0x1E7D}}, // Case map
-            {0x1E7E, new[] {0x1E7F}}, // Case map
-            {0x1E80, new[] {0x1E81}}, // Case map
-            {0x1E82, new[] {0x1E83}}, // Case map
-            {0x1E84, new[] {0x1E85}}, // Case map
-            {0x1E86, new[] {0x1E87}}, // Case map
-            {0x1E88, new[] {0x1E89}}, // Case map
-            {0x1E8A, new[] {0x1E8B}}, // Case map
-            {0x1E8C, new[] {0x1E8D}}, // Case map
-            {0x1E8E, new[] {0x1E8F}}, // Case map
-            {0x1E90, new[] {0x1E91}}, // Case map
-            {0x1E92, new[] {0x1E93}}, // Case map
-            {0x1E94, new[] {0x1E95}}, // Case map
-            {0x1E96, new[] {0x0068, 0x0331}}, // Case map
-            {0x1E97, new[] {0x0074, 0x0308}}, // Case map
-            {0x1E98, new[] {0x0077, 0x030A}}, // Case map
-            {0x1E99, new[] {0x0079, 0x030A}}, // Case map
-            {0x1E9A, new[] {0x0061, 0x02BE}}, // Case map
-            {0x1E9B, new[] {0x1E61}}, // Case map
-            {0x1EA0, new[] {0x1EA1}}, // Case map
-            {0x1EA2, new[] {0x1EA3}}, // Case map
-            {0x1EA4, new[] {0x1EA5}}, // Case map
-            {0x1EA6, new[] {0x1EA7}}, // Case map
-            {0x1EA8, new[] {0x1EA9}}, // Case map
-            {0x1EAA, new[] {0x1EAB}}, // Case map
-            {0x1EAC, new[] {0x1EAD}}, // Case map
-            {0x1EAE, new[] {0x1EAF}}, // Case map
-            {0x1EB0, new[] {0x1EB1}}, // Case map
-            {0x1EB2, new[] {0x1EB3}}, // Case map
-            {0x1EB4, new[] {0x1EB5}}, // Case map
-            {0x1EB6, new[] {0x1EB7}}, // Case map
-            {0x1EB8, new[] {0x1EB9}}, // Case map
-            {0x1EBA, new[] {0x1EBB}}, // Case map
-            {0x1EBC, new[] {0x1EBD}}, // Case map
-            {0x1EBE, new[] {0x1EBF}}, // Case map
-            {0x1EC0, new[] {0x1EC1}}, // Case map
-            {0x1EC2, new[] {0x1EC3}}, // Case map
-            {0x1EC4, new[] {0x1EC5}}, // Case map
-            {0x1EC6, new[] {0x1EC7}}, // Case map
-            {0x1EC8, new[] {0x1EC9}}, // Case map
-            {0x1ECA, new[] {0x1ECB}}, // Case map
-            {0x1ECC, new[] {0x1ECD}}, // Case map
-            {0x1ECE, new[] {0x1ECF}}, // Case map
-            {0x1ED0, new[] {0x1ED1}}, // Case map
-            {0x1ED2, new[] {0x1ED3}}, // Case map
-            {0x1ED4, new[] {0x1ED5}}, // Case map
-            {0x1ED6, new[] {0x1ED7}}, // Case map
-            {0x1ED8, new[] {0x1ED9}}, // Case map
-            {0x1EDA, new[] {0x1EDB}}, // Case map
-            {0x1EDC, new[] {0x1EDD}}, // Case map
-            {0x1EDE, new[] {0x1EDF}}, // Case map
-            {0x1EE0, new[] {0x1EE1}}, // Case map
-            {0x1EE2, new[] {0x1EE3}}, // Case map
-            {0x1EE4, new[] {0x1EE5}}, // Case map
-            {0x1EE6, new[] {0x1EE7}}, // Case map
-            {0x1EE8, new[] {0x1EE9}}, // Case map
-            {0x1EEA, new[] {0x1EEB}}, // Case map
-            {0x1EEC, new[] {0x1EED}}, // Case map
-            {0x1EEE, new[] {0x1EEF}}, // Case map
-            {0x1EF0, new[] {0x1EF1}}, // Case map
-            {0x1EF2, new[] {0x1EF3}}, // Case map
-            {0x1EF4, new[] {0x1EF5}}, // Case map
-            {0x1EF6, new[] {0x1EF7}}, // Case map
-            {0x1EF8, new[] {0x1EF9}}, // Case map
-            {0x1F08, new[] {0x1F00}}, // Case map
-            {0x1F09, new[] {0x1F01}}, // Case map
-            {0x1F0A, new[] {0x1F02}}, // Case map
-            {0x1F0B, new[] {0x1F03}}, // Case map
-            {0x1F0C, new[] {0x1F04}}, // Case map
-            {0x1F0D, new[] {0x1F05}}, // Case map
-            {0x1F0E, new[] {0x1F06}}, // Case map
-            {0x1F0F, new[] {0x1F07}}, // Case map
-            {0x1F18, new[] {0x1F10}}, // Case map
-            {0x1F19, new[] {0x1F11}}, // Case map
-            {0x1F1A, new[] {0x1F12}}, // Case map
-            {0x1F1B, new[] {0x1F13}}, // Case map
-            {0x1F1C, new[] {0x1F14}}, // Case map
-            {0x1F1D, new[] {0x1F15}}, // Case map
-            {0x1F28, new[] {0x1F20}}, // Case map
-            {0x1F29, new[] {0x1F21}}, // Case map
-            {0x1F2A, new[] {0x1F22}}, // Case map
-            {0x1F2B, new[] {0x1F23}}, // Case map
-            {0x1F2C, new[] {0x1F24}}, // Case map
-            {0x1F2D, new[] {0x1F25}}, // Case map
-            {0x1F2E, new[] {0x1F26}}, // Case map
-            {0x1F2F, new[] {0x1F27}}, // Case map
-            {0x1F38, new[] {0x1F30}}, // Case map
-            {0x1F39, new[] {0x1F31}}, // Case map
-            {0x1F3A, new[] {0x1F32}}, // Case map
-            {0x1F3B, new[] {0x1F33}}, // Case map
-            {0x1F3C, new[] {0x1F34}}, // Case map
-            {0x1F3D, new[] {0x1F35}}, // Case map
-            {0x1F3E, new[] {0x1F36}}, // Case map
-            {0x1F3F, new[] {0x1F37}}, // Case map
-            {0x1F48, new[] {0x1F40}}, // Case map
-            {0x1F49, new[] {0x1F41}}, // Case map
-            {0x1F4A, new[] {0x1F42}}, // Case map
-            {0x1F4B, new[] {0x1F43}}, // Case map
-            {0x1F4C, new[] {0x1F44}}, // Case map
-            {0x1F4D, new[] {0x1F45}}, // Case map
-            {0x1F50, new[] {0x03C5, 0x0313}}, // Case map
-            {0x1F52, new[] {0x03C5, 0x0313, 0x0300}}, // Case map
-            {0x1F54, new[] {0x03C5, 0x0313, 0x0301}}, // Case map
-            {0x1F56, new[] {0x03C5, 0x0313, 0x0342}}, // Case map
-            {0x1F59, new[] {0x1F51}}, // Case map
-            {0x1F5B, new[] {0x1F53}}, // Case map
-            {0x1F5D, new[] {0x1F55}}, // Case map
-            {0x1F5F, new[] {0x1F57}}, // Case map
-            {0x1F68, new[] {0x1F60}}, // Case map
-            {0x1F69, new[] {0x1F61}}, // Case map
-            {0x1F6A, new[] {0x1F62}}, // Case map
-            {0x1F6B, new[] {0x1F63}}, // Case map
-            {0x1F6C, new[] {0x1F64}}, // Case map
-            {0x1F6D, new[] {0x1F65}}, // Case map
-            {0x1F6E, new[] {0x1F66}}, // Case map
-            {0x1F6F, new[] {0x1F67}}, // Case map
-            {0x1F80, new[] {0x1F00, 0x03B9}}, // Case map
-            {0x1F81, new[] {0x1F01, 0x03B9}}, // Case map
-            {0x1F82, new[] {0x1F02, 0x03B9}}, // Case map
-            {0x1F83, new[] {0x1F03, 0x03B9}}, // Case map
-            {0x1F84, new[] {0x1F04, 0x03B9}}, // Case map
-            {0x1F85, new[] {0x1F05, 0x03B9}}, // Case map
-            {0x1F86, new[] {0x1F06, 0x03B9}}, // Case map
-            {0x1F87, new[] {0x1F07, 0x03B9}}, // Case map
-            {0x1F88, new[] {0x1F00, 0x03B9}}, // Case map
-            {0x1F89, new[] {0x1F01, 0x03B9}}, // Case map
-            {0x1F8A, new[] {0x1F02, 0x03B9}}, // Case map
-            {0x1F8B, new[] {0x1F03, 0x03B9}}, // Case map
-            {0x1F8C, new[] {0x1F04, 0x03B9}}, // Case map
-            {0x1F8D, new[] {0x1F05, 0x03B9}}, // Case map
-            {0x1F8E, new[] {0x1F06, 0x03B9}}, // Case map
-            {0x1F8F, new[] {0x1F07, 0x03B9}}, // Case map
-            {0x1F90, new[] {0x1F20, 0x03B9}}, // Case map
-            {0x1F91, new[] {0x1F21, 0x03B9}}, // Case map
-            {0x1F92, new[] {0x1F22, 0x03B9}}, // Case map
-            {0x1F93, new[] {0x1F23, 0x03B9}}, // Case map
-            {0x1F94, new[] {0x1F24, 0x03B9}}, // Case map
-            {0x1F95, new[] {0x1F25, 0x03B9}}, // Case map
-            {0x1F96, new[] {0x1F26, 0x03B9}}, // Case map
-            {0x1F97, new[] {0x1F27, 0x03B9}}, // Case map
-            {0x1F98, new[] {0x1F20, 0x03B9}}, // Case map
-            {0x1F99, new[] {0x1F21, 0x03B9}}, // Case map
-            {0x1F9A, new[] {0x1F22, 0x03B9}}, // Case map
-            {0x1F9B, new[] {0x1F23, 0x03B9}}, // Case map
-            {0x1F9C, new[] {0x1F24, 0x03B9}}, // Case map
-            {0x1F9D, new[] {0x1F25, 0x03B9}}, // Case map
-            {0x1F9E, new[] {0x1F26, 0x03B9}}, // Case map
-            {0x1F9F, new[] {0x1F27, 0x03B9}}, // Case map
-            {0x1FA0, new[] {0x1F60, 0x03B9}}, // Case map
-            {0x1FA1, new[] {0x1F61, 0x03B9}}, // Case map
-            {0x1FA2, new[] {0x1F62, 0x03B9}}, // Case map
-            {0x1FA3, new[] {0x1F63, 0x03B9}}, // Case map
-            {0x1FA4, new[] {0x1F64, 0x03B9}}, // Case map
-            {0x1FA5, new[] {0x1F65, 0x03B9}}, // Case map
-            {0x1FA6, new[] {0x1F66, 0x03B9}}, // Case map
-            {0x1FA7, new[] {0x1F67, 0x03B9}}, // Case map
-            {0x1FA8, new[] {0x1F60, 0x03B9}}, // Case map
-            {0x1FA9, new[] {0x1F61, 0x03B9}}, // Case map
-            {0x1FAA, new[] {0x1F62, 0x03B9}}, // Case map
-            {0x1FAB, new[] {0x1F63, 0x03B9}}, // Case map
-            {0x1FAC, new[] {0x1F64, 0x03B9}}, // Case map
-            {0x1FAD, new[] {0x1F65, 0x03B9}}, // Case map
-            {0x1FAE, new[] {0x1F66, 0x03B9}}, // Case map
-            {0x1FAF, new[] {0x1F67, 0x03B9}}, // Case map
-            {0x1FB2, new[] {0x1F70, 0x03B9}}, // Case map
-            {0x1FB3, new[] {0x03B1, 0x03B9}}, // Case map
-            {0x1FB4, new[] {0x03AC, 0x03B9}}, // Case map
-            {0x1FB6, new[] {0x03B1, 0x0342}}, // Case map
-            {0x1FB7, new[] {0x03B1, 0x0342, 0x03B9}}, // Case map
-            {0x1FB8, new[] {0x1FB0}}, // Case map
-            {0x1FB9, new[] {0x1FB1}}, // Case map
-            {0x1FBA, new[] {0x1F70}}, // Case map
-            {0x1FBB, new[] {0x1F71}}, // Case map
-            {0x1FBC, new[] {0x03B1, 0x03B9}}, // Case map
-            {0x1FBE, new[] {0x03B9}}, // Case map
-            {0x1FC2, new[] {0x1F74, 0x03B9}}, // Case map
-            {0x1FC3, new[] {0x03B7, 0x03B9}}, // Case map
-            {0x1FC4, new[] {0x03AE, 0x03B9}}, // Case map
-            {0x1FC6, new[] {0x03B7, 0x0342}}, // Case map
-            {0x1FC7, new[] {0x03B7, 0x0342, 0x03B9}}, // Case map
-            {0x1FC8, new[] {0x1F72}}, // Case map
-            {0x1FC9, new[] {0x1F73}}, // Case map
-            {0x1FCA, new[] {0x1F74}}, // Case map
-            {0x1FCB, new[] {0x1F75}}, // Case map
-            {0x1FCC, new[] {0x03B7, 0x03B9}}, // Case map
-            {0x1FD2, new[] {0x03B9, 0x0308, 0x0300}}, // Case map
-            {0x1FD3, new[] {0x03B9, 0x0308, 0x0301}}, // Case map
-            {0x1FD6, new[] {0x03B9, 0x0342}}, // Case map
-            {0x1FD7, new[] {0x03B9, 0x0308, 0x0342}}, // Case map
-            {0x1FD8, new[] {0x1FD0}}, // Case map
-            {0x1FD9, new[] {0x1FD1}}, // Case map
-            {0x1FDA, new[] {0x1F76}}, // Case map
-            {0x1FDB, new[] {0x1F77}}, // Case map
-            {0x1FE2, new[] {0x03C5, 0x0308, 0x0300}}, // Case map
-            {0x1FE3, new[] {0x03C5, 0x0308, 0x0301}}, // Case map
-            {0x1FE4, new[] {0x03C1, 0x0313}}, // Case map
-            {0x1FE6, new[] {0x03C5, 0x0342}}, // Case map
-            {0x1FE7, new[] {0x03C5, 0x0308, 0x0342}}, // Case map
-            {0x1FE8, new[] {0x1FE0}}, // Case map
-            {0x1FE9, new[] {0x1FE1}}, // Case map
-            {0x1FEA, new[] {0x1F7A}}, // Case map
-            {0x1FEB, new[] {0x1F7B}}, // Case map
-            {0x1FEC, new[] {0x1FE5}}, // Case map
-            {0x1FF2, new[] {0x1F7C, 0x03B9}}, // Case map
-            {0x1FF3, new[] {0x03C9, 0x03B9}}, // Case map
-            {0x1FF4, new[] {0x03CE, 0x03B9}}, // Case map
-            {0x1FF6, new[] {0x03C9, 0x0342}}, // Case map
-            {0x1FF7, new[] {0x03C9, 0x0342, 0x03B9}}, // Case map
-            {0x1FF8, new[] {0x1F78}}, // Case map
-            {0x1FF9, new[] {0x1F79}}, // Case map
-            {0x1FFA, new[] {0x1F7C}}, // Case map
-            {0x1FFB, new[] {0x1F7D}}, // Case map
-            {0x1FFC, new[] {0x03C9, 0x03B9}}, // Case map
-            {0x2126, new[] {0x03C9}}, // Case map
-            {0x212A, new[] {0x006B}}, // Case map
-            {0x212B, new[] {0x00E5}}, // Case map
-            {0x2160, new[] {0x2170}}, // Case map
-            {0x2161, new[] {0x2171}}, // Case map
-            {0x2162, new[] {0x2172}}, // Case map
-            {0x2163, new[] {0x2173}}, // Case map
-            {0x2164, new[] {0x2174}}, // Case map
-            {0x2165, new[] {0x2175}}, // Case map
-            {0x2166, new[] {0x2176}}, // Case map
-            {0x2167, new[] {0x2177}}, // Case map
-            {0x2168, new[] {0x2178}}, // Case map
-            {0x2169, new[] {0x2179}}, // Case map
-            {0x216A, new[] {0x217A}}, // Case map
-            {0x216B, new[] {0x217B}}, // Case map
-            {0x216C, new[] {0x217C}}, // Case map
-            {0x216D, new[] {0x217D}}, // Case map
-            {0x216E, new[] {0x217E}}, // Case map
-            {0x216F, new[] {0x217F}}, // Case map
-            {0x24B6, new[] {0x24D0}}, // Case map
-            {0x24B7, new[] {0x24D1}}, // Case map
-            {0x24B8, new[] {0x24D2}}, // Case map
-            {0x24B9, new[] {0x24D3}}, // Case map
-            {0x24BA, new[] {0x24D4}}, // Case map
-            {0x24BB, new[] {0x24D5}}, // Case map
-            {0x24BC, new[] {0x24D6}}, // Case map
-            {0x24BD, new[] {0x24D7}}, // Case map
-            {0x24BE, new[] {0x24D8}}, // Case map
-            {0x24BF, new[] {0x24D9}}, // Case map
-            {0x24C0, new[] {0x24DA}}, // Case map
-            {0x24C1, new[] {0x24DB}}, // Case map
-            {0x24C2, new[] {0x24DC}}, // Case map
-            {0x24C3, new[] {0x24DD}}, // Case map
-            {0x24C4, new[] {0x24DE}}, // Case map
-            {0x24C5, new[] {0x24DF}}, // Case map
-            {0x24C6, new[] {0x24E0}}, // Case map
-            {0x24C7, new[] {0x24E1}}, // Case map
-            {0x24C8, new[] {0x24E2}}, // Case map
-            {0x24C9, new[] {0x24E3}}, // Case map
-            {0x24CA, new[] {0x24E4}}, // Case map
-            {0x24CB, new[] {0x24E5}}, // Case map
-            {0x24CC, new[] {0x24E6}}, // Case map
-            {0x24CD, new[] {0x24E7}}, // Case map
-            {0x24CE, new[] {0x24E8}}, // Case map
-            {0x24CF, new[] {0x24E9}}, // Case map
-            {0xFB00, new[] {0x0066, 0x0066}}, // Case map
-            {0xFB01, new[] {0x0066, 0x0069}}, // Case map
-            {0xFB02, new[] {0x0066, 0x006C}}, // Case map
-            {0xFB03, new[] {0x0066, 0x0066, 0x0069}}, // Case map
-            {0xFB04, new[] {0x0066, 0x0066, 0x006C}}, // Case map
-            {0xFB05, new[] {0x0073, 0x0074}}, // Case map
-            {0xFB06, new[] {0x0073, 0x0074}}, // Case map
-            {0xFB13, new[] {0x0574, 0x0576}}, // Case map
-            {0xFB14, new[] {0x0574, 0x0565}}, // Case map
-            {0xFB15, new[] {0x0574, 0x056B}}, // Case map
-            {0xFB16, new[] {0x057E, 0x0576}}, // Case map
-            {0xFB17, new[] {0x0574, 0x056D}}, // Case map
-            {0xFF21, new[] {0xFF41}}, // Case map
-            {0xFF22, new[] {0xFF42}}, // Case map
-            {0xFF23, new[] {0xFF43}}, // Case map
-            {0xFF24, new[] {0xFF44}}, // Case map
-            {0xFF25, new[] {0xFF45}}, // Case map
-            {0xFF26, new[] {0xFF46}}, // Case map
-            {0xFF27, new[] {0xFF47}}, // Case map
-            {0xFF28, new[] {0xFF48}}, // Case map
-            {0xFF29, new[] {0xFF49}}, // Case map
-            {0xFF2A, new[] {0xFF4A}}, // Case map
-            {0xFF2B, new[] {0xFF4B}}, // Case map
-            {0xFF2C, new[] {0xFF4C}}, // Case map
-            {0xFF2D, new[] {0xFF4D}}, // Case map
-            {0xFF2E, new[] {0xFF4E}}, // Case map
-            {0xFF2F, new[] {0xFF4F}}, // Case map
-            {0xFF30, new[] {0xFF50}}, // Case map
-            {0xFF31, new[] {0xFF51}}, // Case map
-            {0xFF32, new[] {0xFF52}}, // Case map
-            {0xFF33, new[] {0xFF53}}, // Case map
-            {0xFF34, new[] {0xFF54}}, // Case map
-            {0xFF35, new[] {0xFF55}}, // Case map
-            {0xFF36, new[] {0xFF56}}, // Case map
-            {0xFF37, new[] {0xFF57}}, // Case map
-            {0xFF38, new[] {0xFF58}}, // Case map
-            {0xFF39, new[] {0xFF59}}, // Case map
-            {0xFF3A, new[] {0xFF5A}}, // Case map
-            {0x10400, new[] {0x10428}}, // Case map
-            {0x10401, new[] {0x10429}}, // Case map
-            {0x10402, new[] {0x1042A}}, // Case map
-            {0x10403, new[] {0x1042B}}, // Case map
-            {0x10404, new[] {0x1042C}}, // Case map
-            {0x10405, new[] {0x1042D}}, // Case map
-            {0x10406, new[] {0x1042E}}, // Case map
-            {0x10407, new[] {0x1042F}}, // Case map
-            {0x10408, new[] {0x10430}}, // Case map
-            {0x10409, new[] {0x10431}}, // Case map
-            {0x1040A, new[] {0x10432}}, // Case map
-            {0x1040B, new[] {0x10433}}, // Case map
-            {0x1040C, new[] {0x10434}}, // Case map
-            {0x1040D, new[] {0x10435}}, // Case map
-            {0x1040E, new[] {0x10436}}, // Case map
-            {0x1040F, new[] {0x10437}}, // Case map
-            {0x10410, new[] {0x10438}}, // Case map
-            {0x10411, new[] {0x10439}}, // Case map
-            {0x10412, new[] {0x1043A}}, // Case map
-            {0x10413, new[] {0x1043B}}, // Case map
-            {0x10414, new[] {0x1043C}}, // Case map
-            {0x10415, new[] {0x1043D}}, // Case map
-            {0x10416, new[] {0x1043E}}, // Case map
-            {0x10417, new[] {0x1043F}}, // Case map
-            {0x10418, new[] {0x10440}}, // Case map
-            {0x10419, new[] {0x10441}}, // Case map
-            {0x1041A, new[] {0x10442}}, // Case map
-            {0x1041B, new[] {0x10443}}, // Case map
-            {0x1041C, new[] {0x10444}}, // Case map
-            {0x1041D, new[] {0x10445}}, // Case map
-            {0x1041E, new[] {0x10446}}, // Case map
-            {0x1041F, new[] {0x10447}}, // Case map
-            {0x10420, new[] {0x10448}}, // Case map
-            {0x10421, new[] {0x10449}}, // Case map
-            {0x10422, new[] {0x1044A}}, // Case map
-            {0x10423, new[] {0x1044B}}, // Case map
-            {0x10424, new[] {0x1044C}}, // Case map
-            {0x10425, new[] {0x1044D}} // Case map
+            { 0x0041, new[] { 0x0061 } }, // Case map
+            { 0x0042, new[] { 0x0062 } }, // Case map
+            { 0x0043, new[] { 0x0063 } }, // Case map
+            { 0x0044, new[] { 0x0064 } }, // Case map
+            { 0x0045, new[] { 0x0065 } }, // Case map
+            { 0x0046, new[] { 0x0066 } }, // Case map
+            { 0x0047, new[] { 0x0067 } }, // Case map
+            { 0x0048, new[] { 0x0068 } }, // Case map
+            { 0x0049, new[] { 0x0069 } }, // Case map
+            { 0x004A, new[] { 0x006A } }, // Case map
+            { 0x004B, new[] { 0x006B } }, // Case map
+            { 0x004C, new[] { 0x006C } }, // Case map
+            { 0x004D, new[] { 0x006D } }, // Case map
+            { 0x004E, new[] { 0x006E } }, // Case map
+            { 0x004F, new[] { 0x006F } }, // Case map
+            { 0x0050, new[] { 0x0070 } }, // Case map
+            { 0x0051, new[] { 0x0071 } }, // Case map
+            { 0x0052, new[] { 0x0072 } }, // Case map
+            { 0x0053, new[] { 0x0073 } }, // Case map
+            { 0x0054, new[] { 0x0074 } }, // Case map
+            { 0x0055, new[] { 0x0075 } }, // Case map
+            { 0x0056, new[] { 0x0076 } }, // Case map
+            { 0x0057, new[] { 0x0077 } }, // Case map
+            { 0x0058, new[] { 0x0078 } }, // Case map
+            { 0x0059, new[] { 0x0079 } }, // Case map
+            { 0x005A, new[] { 0x007A } }, // Case map
+            { 0x00B5, new[] { 0x03BC } }, // Case map
+            { 0x00C0, new[] { 0x00E0 } }, // Case map
+            { 0x00C1, new[] { 0x00E1 } }, // Case map
+            { 0x00C2, new[] { 0x00E2 } }, // Case map
+            { 0x00C3, new[] { 0x00E3 } }, // Case map
+            { 0x00C4, new[] { 0x00E4 } }, // Case map
+            { 0x00C5, new[] { 0x00E5 } }, // Case map
+            { 0x00C6, new[] { 0x00E6 } }, // Case map
+            { 0x00C7, new[] { 0x00E7 } }, // Case map
+            { 0x00C8, new[] { 0x00E8 } }, // Case map
+            { 0x00C9, new[] { 0x00E9 } }, // Case map
+            { 0x00CA, new[] { 0x00EA } }, // Case map
+            { 0x00CB, new[] { 0x00EB } }, // Case map
+            { 0x00CC, new[] { 0x00EC } }, // Case map
+            { 0x00CD, new[] { 0x00ED } }, // Case map
+            { 0x00CE, new[] { 0x00EE } }, // Case map
+            { 0x00CF, new[] { 0x00EF } }, // Case map
+            { 0x00D0, new[] { 0x00F0 } }, // Case map
+            { 0x00D1, new[] { 0x00F1 } }, // Case map
+            { 0x00D2, new[] { 0x00F2 } }, // Case map
+            { 0x00D3, new[] { 0x00F3 } }, // Case map
+            { 0x00D4, new[] { 0x00F4 } }, // Case map
+            { 0x00D5, new[] { 0x00F5 } }, // Case map
+            { 0x00D6, new[] { 0x00F6 } }, // Case map
+            { 0x00D8, new[] { 0x00F8 } }, // Case map
+            { 0x00D9, new[] { 0x00F9 } }, // Case map
+            { 0x00DA, new[] { 0x00FA } }, // Case map
+            { 0x00DB, new[] { 0x00FB } }, // Case map
+            { 0x00DC, new[] { 0x00FC } }, // Case map
+            { 0x00DD, new[] { 0x00FD } }, // Case map
+            { 0x00DE, new[] { 0x00FE } }, // Case map
+            { 0x00DF, new[] { 0x0073, 0x0073 } }, // Case map
+            { 0x0100, new[] { 0x0101 } }, // Case map
+            { 0x0102, new[] { 0x0103 } }, // Case map
+            { 0x0104, new[] { 0x0105 } }, // Case map
+            { 0x0106, new[] { 0x0107 } }, // Case map
+            { 0x0108, new[] { 0x0109 } }, // Case map
+            { 0x010A, new[] { 0x010B } }, // Case map
+            { 0x010C, new[] { 0x010D } }, // Case map
+            { 0x010E, new[] { 0x010F } }, // Case map
+            { 0x0110, new[] { 0x0111 } }, // Case map
+            { 0x0112, new[] { 0x0113 } }, // Case map
+            { 0x0114, new[] { 0x0115 } }, // Case map
+            { 0x0116, new[] { 0x0117 } }, // Case map
+            { 0x0118, new[] { 0x0119 } }, // Case map
+            { 0x011A, new[] { 0x011B } }, // Case map
+            { 0x011C, new[] { 0x011D } }, // Case map
+            { 0x011E, new[] { 0x011F } }, // Case map
+            { 0x0120, new[] { 0x0121 } }, // Case map
+            { 0x0122, new[] { 0x0123 } }, // Case map
+            { 0x0124, new[] { 0x0125 } }, // Case map
+            { 0x0126, new[] { 0x0127 } }, // Case map
+            { 0x0128, new[] { 0x0129 } }, // Case map
+            { 0x012A, new[] { 0x012B } }, // Case map
+            { 0x012C, new[] { 0x012D } }, // Case map
+            { 0x012E, new[] { 0x012F } }, // Case map
+            { 0x0130, new[] { 0x0069, 0x0307 } }, // Case map
+            { 0x0132, new[] { 0x0133 } }, // Case map
+            { 0x0134, new[] { 0x0135 } }, // Case map
+            { 0x0136, new[] { 0x0137 } }, // Case map
+            { 0x0139, new[] { 0x013A } }, // Case map
+            { 0x013B, new[] { 0x013C } }, // Case map
+            { 0x013D, new[] { 0x013E } }, // Case map
+            { 0x013F, new[] { 0x0140 } }, // Case map
+            { 0x0141, new[] { 0x0142 } }, // Case map
+            { 0x0143, new[] { 0x0144 } }, // Case map
+            { 0x0145, new[] { 0x0146 } }, // Case map
+            { 0x0147, new[] { 0x0148 } }, // Case map
+            { 0x0149, new[] { 0x02BC, 0x006E } }, // Case map
+            { 0x014A, new[] { 0x014B } }, // Case map
+            { 0x014C, new[] { 0x014D } }, // Case map
+            { 0x014E, new[] { 0x014F } }, // Case map
+            { 0x0150, new[] { 0x0151 } }, // Case map
+            { 0x0152, new[] { 0x0153 } }, // Case map
+            { 0x0154, new[] { 0x0155 } }, // Case map
+            { 0x0156, new[] { 0x0157 } }, // Case map
+            { 0x0158, new[] { 0x0159 } }, // Case map
+            { 0x015A, new[] { 0x015B } }, // Case map
+            { 0x015C, new[] { 0x015D } }, // Case map
+            { 0x015E, new[] { 0x015F } }, // Case map
+            { 0x0160, new[] { 0x0161 } }, // Case map
+            { 0x0162, new[] { 0x0163 } }, // Case map
+            { 0x0164, new[] { 0x0165 } }, // Case map
+            { 0x0166, new[] { 0x0167 } }, // Case map
+            { 0x0168, new[] { 0x0169 } }, // Case map
+            { 0x016A, new[] { 0x016B } }, // Case map
+            { 0x016C, new[] { 0x016D } }, // Case map
+            { 0x016E, new[] { 0x016F } }, // Case map
+            { 0x0170, new[] { 0x0171 } }, // Case map
+            { 0x0172, new[] { 0x0173 } }, // Case map
+            { 0x0174, new[] { 0x0175 } }, // Case map
+            { 0x0176, new[] { 0x0177 } }, // Case map
+            { 0x0178, new[] { 0x00FF } }, // Case map
+            { 0x0179, new[] { 0x017A } }, // Case map
+            { 0x017B, new[] { 0x017C } }, // Case map
+            { 0x017D, new[] { 0x017E } }, // Case map
+            { 0x017F, new[] { 0x0073 } }, // Case map
+            { 0x0181, new[] { 0x0253 } }, // Case map
+            { 0x0182, new[] { 0x0183 } }, // Case map
+            { 0x0184, new[] { 0x0185 } }, // Case map
+            { 0x0186, new[] { 0x0254 } }, // Case map
+            { 0x0187, new[] { 0x0188 } }, // Case map
+            { 0x0189, new[] { 0x0256 } }, // Case map
+            { 0x018A, new[] { 0x0257 } }, // Case map
+            { 0x018B, new[] { 0x018C } }, // Case map
+            { 0x018E, new[] { 0x01DD } }, // Case map
+            { 0x018F, new[] { 0x0259 } }, // Case map
+            { 0x0190, new[] { 0x025B } }, // Case map
+            { 0x0191, new[] { 0x0192 } }, // Case map
+            { 0x0193, new[] { 0x0260 } }, // Case map
+            { 0x0194, new[] { 0x0263 } }, // Case map
+            { 0x0196, new[] { 0x0269 } }, // Case map
+            { 0x0197, new[] { 0x0268 } }, // Case map
+            { 0x0198, new[] { 0x0199 } }, // Case map
+            { 0x019C, new[] { 0x026F } }, // Case map
+            { 0x019D, new[] { 0x0272 } }, // Case map
+            { 0x019F, new[] { 0x0275 } }, // Case map
+            { 0x01A0, new[] { 0x01A1 } }, // Case map
+            { 0x01A2, new[] { 0x01A3 } }, // Case map
+            { 0x01A4, new[] { 0x01A5 } }, // Case map
+            { 0x01A6, new[] { 0x0280 } }, // Case map
+            { 0x01A7, new[] { 0x01A8 } }, // Case map
+            { 0x01A9, new[] { 0x0283 } }, // Case map
+            { 0x01AC, new[] { 0x01AD } }, // Case map
+            { 0x01AE, new[] { 0x0288 } }, // Case map
+            { 0x01AF, new[] { 0x01B0 } }, // Case map
+            { 0x01B1, new[] { 0x028A } }, // Case map
+            { 0x01B2, new[] { 0x028B } }, // Case map
+            { 0x01B3, new[] { 0x01B4 } }, // Case map
+            { 0x01B5, new[] { 0x01B6 } }, // Case map
+            { 0x01B7, new[] { 0x0292 } }, // Case map
+            { 0x01B8, new[] { 0x01B9 } }, // Case map
+            { 0x01BC, new[] { 0x01BD } }, // Case map
+            { 0x01C4, new[] { 0x01C6 } }, // Case map
+            { 0x01C5, new[] { 0x01C6 } }, // Case map
+            { 0x01C7, new[] { 0x01C9 } }, // Case map
+            { 0x01C8, new[] { 0x01C9 } }, // Case map
+            { 0x01CA, new[] { 0x01CC } }, // Case map
+            { 0x01CB, new[] { 0x01CC } }, // Case map
+            { 0x01CD, new[] { 0x01CE } }, // Case map
+            { 0x01CF, new[] { 0x01D0 } }, // Case map
+            { 0x01D1, new[] { 0x01D2 } }, // Case map
+            { 0x01D3, new[] { 0x01D4 } }, // Case map
+            { 0x01D5, new[] { 0x01D6 } }, // Case map
+            { 0x01D7, new[] { 0x01D8 } }, // Case map
+            { 0x01D9, new[] { 0x01DA } }, // Case map
+            { 0x01DB, new[] { 0x01DC } }, // Case map
+            { 0x01DE, new[] { 0x01DF } }, // Case map
+            { 0x01E0, new[] { 0x01E1 } }, // Case map
+            { 0x01E2, new[] { 0x01E3 } }, // Case map
+            { 0x01E4, new[] { 0x01E5 } }, // Case map
+            { 0x01E6, new[] { 0x01E7 } }, // Case map
+            { 0x01E8, new[] { 0x01E9 } }, // Case map
+            { 0x01EA, new[] { 0x01EB } }, // Case map
+            { 0x01EC, new[] { 0x01ED } }, // Case map
+            { 0x01EE, new[] { 0x01EF } }, // Case map
+            { 0x01F0, new[] { 0x006A, 0x030C } }, // Case map
+            { 0x01F1, new[] { 0x01F3 } }, // Case map
+            { 0x01F2, new[] { 0x01F3 } }, // Case map
+            { 0x01F4, new[] { 0x01F5 } }, // Case map
+            { 0x01F6, new[] { 0x0195 } }, // Case map
+            { 0x01F7, new[] { 0x01BF } }, // Case map
+            { 0x01F8, new[] { 0x01F9 } }, // Case map
+            { 0x01FA, new[] { 0x01FB } }, // Case map
+            { 0x01FC, new[] { 0x01FD } }, // Case map
+            { 0x01FE, new[] { 0x01FF } }, // Case map
+            { 0x0200, new[] { 0x0201 } }, // Case map
+            { 0x0202, new[] { 0x0203 } }, // Case map
+            { 0x0204, new[] { 0x0205 } }, // Case map
+            { 0x0206, new[] { 0x0207 } }, // Case map
+            { 0x0208, new[] { 0x0209 } }, // Case map
+            { 0x020A, new[] { 0x020B } }, // Case map
+            { 0x020C, new[] { 0x020D } }, // Case map
+            { 0x020E, new[] { 0x020F } }, // Case map
+            { 0x0210, new[] { 0x0211 } }, // Case map
+            { 0x0212, new[] { 0x0213 } }, // Case map
+            { 0x0214, new[] { 0x0215 } }, // Case map
+            { 0x0216, new[] { 0x0217 } }, // Case map
+            { 0x0218, new[] { 0x0219 } }, // Case map
+            { 0x021A, new[] { 0x021B } }, // Case map
+            { 0x021C, new[] { 0x021D } }, // Case map
+            { 0x021E, new[] { 0x021F } }, // Case map
+            { 0x0220, new[] { 0x019E } }, // Case map
+            { 0x0222, new[] { 0x0223 } }, // Case map
+            { 0x0224, new[] { 0x0225 } }, // Case map
+            { 0x0226, new[] { 0x0227 } }, // Case map
+            { 0x0228, new[] { 0x0229 } }, // Case map
+            { 0x022A, new[] { 0x022B } }, // Case map
+            { 0x022C, new[] { 0x022D } }, // Case map
+            { 0x022E, new[] { 0x022F } }, // Case map
+            { 0x0230, new[] { 0x0231 } }, // Case map
+            { 0x0232, new[] { 0x0233 } }, // Case map
+            { 0x0345, new[] { 0x03B9 } }, // Case map
+            { 0x0386, new[] { 0x03AC } }, // Case map
+            { 0x0388, new[] { 0x03AD } }, // Case map
+            { 0x0389, new[] { 0x03AE } }, // Case map
+            { 0x038A, new[] { 0x03AF } }, // Case map
+            { 0x038C, new[] { 0x03CC } }, // Case map
+            { 0x038E, new[] { 0x03CD } }, // Case map
+            { 0x038F, new[] { 0x03CE } }, // Case map
+            { 0x0390, new[] { 0x03B9, 0x0308, 0x0301 } }, // Case map
+            { 0x0391, new[] { 0x03B1 } }, // Case map
+            { 0x0392, new[] { 0x03B2 } }, // Case map
+            { 0x0393, new[] { 0x03B3 } }, // Case map
+            { 0x0394, new[] { 0x03B4 } }, // Case map
+            { 0x0395, new[] { 0x03B5 } }, // Case map
+            { 0x0396, new[] { 0x03B6 } }, // Case map
+            { 0x0397, new[] { 0x03B7 } }, // Case map
+            { 0x0398, new[] { 0x03B8 } }, // Case map
+            { 0x0399, new[] { 0x03B9 } }, // Case map
+            { 0x039A, new[] { 0x03BA } }, // Case map
+            { 0x039B, new[] { 0x03BB } }, // Case map
+            { 0x039C, new[] { 0x03BC } }, // Case map
+            { 0x039D, new[] { 0x03BD } }, // Case map
+            { 0x039E, new[] { 0x03BE } }, // Case map
+            { 0x039F, new[] { 0x03BF } }, // Case map
+            { 0x03A0, new[] { 0x03C0 } }, // Case map
+            { 0x03A1, new[] { 0x03C1 } }, // Case map
+            { 0x03A3, new[] { 0x03C3 } }, // Case map
+            { 0x03A4, new[] { 0x03C4 } }, // Case map
+            { 0x03A5, new[] { 0x03C5 } }, // Case map
+            { 0x03A6, new[] { 0x03C6 } }, // Case map
+            { 0x03A7, new[] { 0x03C7 } }, // Case map
+            { 0x03A8, new[] { 0x03C8 } }, // Case map
+            { 0x03A9, new[] { 0x03C9 } }, // Case map
+            { 0x03AA, new[] { 0x03CA } }, // Case map
+            { 0x03AB, new[] { 0x03CB } }, // Case map
+            { 0x03B0, new[] { 0x03C5, 0x0308, 0x0301 } }, // Case map
+            { 0x03C2, new[] { 0x03C3 } }, // Case map
+            { 0x03D0, new[] { 0x03B2 } }, // Case map
+            { 0x03D1, new[] { 0x03B8 } }, // Case map
+            { 0x03D5, new[] { 0x03C6 } }, // Case map
+            { 0x03D6, new[] { 0x03C0 } }, // Case map
+            { 0x03D8, new[] { 0x03D9 } }, // Case map
+            { 0x03DA, new[] { 0x03DB } }, // Case map
+            { 0x03DC, new[] { 0x03DD } }, // Case map
+            { 0x03DE, new[] { 0x03DF } }, // Case map
+            { 0x03E0, new[] { 0x03E1 } }, // Case map
+            { 0x03E2, new[] { 0x03E3 } }, // Case map
+            { 0x03E4, new[] { 0x03E5 } }, // Case map
+            { 0x03E6, new[] { 0x03E7 } }, // Case map
+            { 0x03E8, new[] { 0x03E9 } }, // Case map
+            { 0x03EA, new[] { 0x03EB } }, // Case map
+            { 0x03EC, new[] { 0x03ED } }, // Case map
+            { 0x03EE, new[] { 0x03EF } }, // Case map
+            { 0x03F0, new[] { 0x03BA } }, // Case map
+            { 0x03F1, new[] { 0x03C1 } }, // Case map
+            { 0x03F2, new[] { 0x03C3 } }, // Case map
+            { 0x03F4, new[] { 0x03B8 } }, // Case map
+            { 0x03F5, new[] { 0x03B5 } }, // Case map
+            { 0x0400, new[] { 0x0450 } }, // Case map
+            { 0x0401, new[] { 0x0451 } }, // Case map
+            { 0x0402, new[] { 0x0452 } }, // Case map
+            { 0x0403, new[] { 0x0453 } }, // Case map
+            { 0x0404, new[] { 0x0454 } }, // Case map
+            { 0x0405, new[] { 0x0455 } }, // Case map
+            { 0x0406, new[] { 0x0456 } }, // Case map
+            { 0x0407, new[] { 0x0457 } }, // Case map
+            { 0x0408, new[] { 0x0458 } }, // Case map
+            { 0x0409, new[] { 0x0459 } }, // Case map
+            { 0x040A, new[] { 0x045A } }, // Case map
+            { 0x040B, new[] { 0x045B } }, // Case map
+            { 0x040C, new[] { 0x045C } }, // Case map
+            { 0x040D, new[] { 0x045D } }, // Case map
+            { 0x040E, new[] { 0x045E } }, // Case map
+            { 0x040F, new[] { 0x045F } }, // Case map
+            { 0x0410, new[] { 0x0430 } }, // Case map
+            { 0x0411, new[] { 0x0431 } }, // Case map
+            { 0x0412, new[] { 0x0432 } }, // Case map
+            { 0x0413, new[] { 0x0433 } }, // Case map
+            { 0x0414, new[] { 0x0434 } }, // Case map
+            { 0x0415, new[] { 0x0435 } }, // Case map
+            { 0x0416, new[] { 0x0436 } }, // Case map
+            { 0x0417, new[] { 0x0437 } }, // Case map
+            { 0x0418, new[] { 0x0438 } }, // Case map
+            { 0x0419, new[] { 0x0439 } }, // Case map
+            { 0x041A, new[] { 0x043A } }, // Case map
+            { 0x041B, new[] { 0x043B } }, // Case map
+            { 0x041C, new[] { 0x043C } }, // Case map
+            { 0x041D, new[] { 0x043D } }, // Case map
+            { 0x041E, new[] { 0x043E } }, // Case map
+            { 0x041F, new[] { 0x043F } }, // Case map
+            { 0x0420, new[] { 0x0440 } }, // Case map
+            { 0x0421, new[] { 0x0441 } }, // Case map
+            { 0x0422, new[] { 0x0442 } }, // Case map
+            { 0x0423, new[] { 0x0443 } }, // Case map
+            { 0x0424, new[] { 0x0444 } }, // Case map
+            { 0x0425, new[] { 0x0445 } }, // Case map
+            { 0x0426, new[] { 0x0446 } }, // Case map
+            { 0x0427, new[] { 0x0447 } }, // Case map
+            { 0x0428, new[] { 0x0448 } }, // Case map
+            { 0x0429, new[] { 0x0449 } }, // Case map
+            { 0x042A, new[] { 0x044A } }, // Case map
+            { 0x042B, new[] { 0x044B } }, // Case map
+            { 0x042C, new[] { 0x044C } }, // Case map
+            { 0x042D, new[] { 0x044D } }, // Case map
+            { 0x042E, new[] { 0x044E } }, // Case map
+            { 0x042F, new[] { 0x044F } }, // Case map
+            { 0x0460, new[] { 0x0461 } }, // Case map
+            { 0x0462, new[] { 0x0463 } }, // Case map
+            { 0x0464, new[] { 0x0465 } }, // Case map
+            { 0x0466, new[] { 0x0467 } }, // Case map
+            { 0x0468, new[] { 0x0469 } }, // Case map
+            { 0x046A, new[] { 0x046B } }, // Case map
+            { 0x046C, new[] { 0x046D } }, // Case map
+            { 0x046E, new[] { 0x046F } }, // Case map
+            { 0x0470, new[] { 0x0471 } }, // Case map
+            { 0x0472, new[] { 0x0473 } }, // Case map
+            { 0x0474, new[] { 0x0475 } }, // Case map
+            { 0x0476, new[] { 0x0477 } }, // Case map
+            { 0x0478, new[] { 0x0479 } }, // Case map
+            { 0x047A, new[] { 0x047B } }, // Case map
+            { 0x047C, new[] { 0x047D } }, // Case map
+            { 0x047E, new[] { 0x047F } }, // Case map
+            { 0x0480, new[] { 0x0481 } }, // Case map
+            { 0x048A, new[] { 0x048B } }, // Case map
+            { 0x048C, new[] { 0x048D } }, // Case map
+            { 0x048E, new[] { 0x048F } }, // Case map
+            { 0x0490, new[] { 0x0491 } }, // Case map
+            { 0x0492, new[] { 0x0493 } }, // Case map
+            { 0x0494, new[] { 0x0495 } }, // Case map
+            { 0x0496, new[] { 0x0497 } }, // Case map
+            { 0x0498, new[] { 0x0499 } }, // Case map
+            { 0x049A, new[] { 0x049B } }, // Case map
+            { 0x049C, new[] { 0x049D } }, // Case map
+            { 0x049E, new[] { 0x049F } }, // Case map
+            { 0x04A0, new[] { 0x04A1 } }, // Case map
+            { 0x04A2, new[] { 0x04A3 } }, // Case map
+            { 0x04A4, new[] { 0x04A5 } }, // Case map
+            { 0x04A6, new[] { 0x04A7 } }, // Case map
+            { 0x04A8, new[] { 0x04A9 } }, // Case map
+            { 0x04AA, new[] { 0x04AB } }, // Case map
+            { 0x04AC, new[] { 0x04AD } }, // Case map
+            { 0x04AE, new[] { 0x04AF } }, // Case map
+            { 0x04B0, new[] { 0x04B1 } }, // Case map
+            { 0x04B2, new[] { 0x04B3 } }, // Case map
+            { 0x04B4, new[] { 0x04B5 } }, // Case map
+            { 0x04B6, new[] { 0x04B7 } }, // Case map
+            { 0x04B8, new[] { 0x04B9 } }, // Case map
+            { 0x04BA, new[] { 0x04BB } }, // Case map
+            { 0x04BC, new[] { 0x04BD } }, // Case map
+            { 0x04BE, new[] { 0x04BF } }, // Case map
+            { 0x04C1, new[] { 0x04C2 } }, // Case map
+            { 0x04C3, new[] { 0x04C4 } }, // Case map
+            { 0x04C5, new[] { 0x04C6 } }, // Case map
+            { 0x04C7, new[] { 0x04C8 } }, // Case map
+            { 0x04C9, new[] { 0x04CA } }, // Case map
+            { 0x04CB, new[] { 0x04CC } }, // Case map
+            { 0x04CD, new[] { 0x04CE } }, // Case map
+            { 0x04D0, new[] { 0x04D1 } }, // Case map
+            { 0x04D2, new[] { 0x04D3 } }, // Case map
+            { 0x04D4, new[] { 0x04D5 } }, // Case map
+            { 0x04D6, new[] { 0x04D7 } }, // Case map
+            { 0x04D8, new[] { 0x04D9 } }, // Case map
+            { 0x04DA, new[] { 0x04DB } }, // Case map
+            { 0x04DC, new[] { 0x04DD } }, // Case map
+            { 0x04DE, new[] { 0x04DF } }, // Case map
+            { 0x04E0, new[] { 0x04E1 } }, // Case map
+            { 0x04E2, new[] { 0x04E3 } }, // Case map
+            { 0x04E4, new[] { 0x04E5 } }, // Case map
+            { 0x04E6, new[] { 0x04E7 } }, // Case map
+            { 0x04E8, new[] { 0x04E9 } }, // Case map
+            { 0x04EA, new[] { 0x04EB } }, // Case map
+            { 0x04EC, new[] { 0x04ED } }, // Case map
+            { 0x04EE, new[] { 0x04EF } }, // Case map
+            { 0x04F0, new[] { 0x04F1 } }, // Case map
+            { 0x04F2, new[] { 0x04F3 } }, // Case map
+            { 0x04F4, new[] { 0x04F5 } }, // Case map
+            { 0x04F8, new[] { 0x04F9 } }, // Case map
+            { 0x0500, new[] { 0x0501 } }, // Case map
+            { 0x0502, new[] { 0x0503 } }, // Case map
+            { 0x0504, new[] { 0x0505 } }, // Case map
+            { 0x0506, new[] { 0x0507 } }, // Case map
+            { 0x0508, new[] { 0x0509 } }, // Case map
+            { 0x050A, new[] { 0x050B } }, // Case map
+            { 0x050C, new[] { 0x050D } }, // Case map
+            { 0x050E, new[] { 0x050F } }, // Case map
+            { 0x0531, new[] { 0x0561 } }, // Case map
+            { 0x0532, new[] { 0x0562 } }, // Case map
+            { 0x0533, new[] { 0x0563 } }, // Case map
+            { 0x0534, new[] { 0x0564 } }, // Case map
+            { 0x0535, new[] { 0x0565 } }, // Case map
+            { 0x0536, new[] { 0x0566 } }, // Case map
+            { 0x0537, new[] { 0x0567 } }, // Case map
+            { 0x0538, new[] { 0x0568 } }, // Case map
+            { 0x0539, new[] { 0x0569 } }, // Case map
+            { 0x053A, new[] { 0x056A } }, // Case map
+            { 0x053B, new[] { 0x056B } }, // Case map
+            { 0x053C, new[] { 0x056C } }, // Case map
+            { 0x053D, new[] { 0x056D } }, // Case map
+            { 0x053E, new[] { 0x056E } }, // Case map
+            { 0x053F, new[] { 0x056F } }, // Case map
+            { 0x0540, new[] { 0x0570 } }, // Case map
+            { 0x0541, new[] { 0x0571 } }, // Case map
+            { 0x0542, new[] { 0x0572 } }, // Case map
+            { 0x0543, new[] { 0x0573 } }, // Case map
+            { 0x0544, new[] { 0x0574 } }, // Case map
+            { 0x0545, new[] { 0x0575 } }, // Case map
+            { 0x0546, new[] { 0x0576 } }, // Case map
+            { 0x0547, new[] { 0x0577 } }, // Case map
+            { 0x0548, new[] { 0x0578 } }, // Case map
+            { 0x0549, new[] { 0x0579 } }, // Case map
+            { 0x054A, new[] { 0x057A } }, // Case map
+            { 0x054B, new[] { 0x057B } }, // Case map
+            { 0x054C, new[] { 0x057C } }, // Case map
+            { 0x054D, new[] { 0x057D } }, // Case map
+            { 0x054E, new[] { 0x057E } }, // Case map
+            { 0x054F, new[] { 0x057F } }, // Case map
+            { 0x0550, new[] { 0x0580 } }, // Case map
+            { 0x0551, new[] { 0x0581 } }, // Case map
+            { 0x0552, new[] { 0x0582 } }, // Case map
+            { 0x0553, new[] { 0x0583 } }, // Case map
+            { 0x0554, new[] { 0x0584 } }, // Case map
+            { 0x0555, new[] { 0x0585 } }, // Case map
+            { 0x0556, new[] { 0x0586 } }, // Case map
+            { 0x0587, new[] { 0x0565, 0x0582 } }, // Case map
+            { 0x1E00, new[] { 0x1E01 } }, // Case map
+            { 0x1E02, new[] { 0x1E03 } }, // Case map
+            { 0x1E04, new[] { 0x1E05 } }, // Case map
+            { 0x1E06, new[] { 0x1E07 } }, // Case map
+            { 0x1E08, new[] { 0x1E09 } }, // Case map
+            { 0x1E0A, new[] { 0x1E0B } }, // Case map
+            { 0x1E0C, new[] { 0x1E0D } }, // Case map
+            { 0x1E0E, new[] { 0x1E0F } }, // Case map
+            { 0x1E10, new[] { 0x1E11 } }, // Case map
+            { 0x1E12, new[] { 0x1E13 } }, // Case map
+            { 0x1E14, new[] { 0x1E15 } }, // Case map
+            { 0x1E16, new[] { 0x1E17 } }, // Case map
+            { 0x1E18, new[] { 0x1E19 } }, // Case map
+            { 0x1E1A, new[] { 0x1E1B } }, // Case map
+            { 0x1E1C, new[] { 0x1E1D } }, // Case map
+            { 0x1E1E, new[] { 0x1E1F } }, // Case map
+            { 0x1E20, new[] { 0x1E21 } }, // Case map
+            { 0x1E22, new[] { 0x1E23 } }, // Case map
+            { 0x1E24, new[] { 0x1E25 } }, // Case map
+            { 0x1E26, new[] { 0x1E27 } }, // Case map
+            { 0x1E28, new[] { 0x1E29 } }, // Case map
+            { 0x1E2A, new[] { 0x1E2B } }, // Case map
+            { 0x1E2C, new[] { 0x1E2D } }, // Case map
+            { 0x1E2E, new[] { 0x1E2F } }, // Case map
+            { 0x1E30, new[] { 0x1E31 } }, // Case map
+            { 0x1E32, new[] { 0x1E33 } }, // Case map
+            { 0x1E34, new[] { 0x1E35 } }, // Case map
+            { 0x1E36, new[] { 0x1E37 } }, // Case map
+            { 0x1E38, new[] { 0x1E39 } }, // Case map
+            { 0x1E3A, new[] { 0x1E3B } }, // Case map
+            { 0x1E3C, new[] { 0x1E3D } }, // Case map
+            { 0x1E3E, new[] { 0x1E3F } }, // Case map
+            { 0x1E40, new[] { 0x1E41 } }, // Case map
+            { 0x1E42, new[] { 0x1E43 } }, // Case map
+            { 0x1E44, new[] { 0x1E45 } }, // Case map
+            { 0x1E46, new[] { 0x1E47 } }, // Case map
+            { 0x1E48, new[] { 0x1E49 } }, // Case map
+            { 0x1E4A, new[] { 0x1E4B } }, // Case map
+            { 0x1E4C, new[] { 0x1E4D } }, // Case map
+            { 0x1E4E, new[] { 0x1E4F } }, // Case map
+            { 0x1E50, new[] { 0x1E51 } }, // Case map
+            { 0x1E52, new[] { 0x1E53 } }, // Case map
+            { 0x1E54, new[] { 0x1E55 } }, // Case map
+            { 0x1E56, new[] { 0x1E57 } }, // Case map
+            { 0x1E58, new[] { 0x1E59 } }, // Case map
+            { 0x1E5A, new[] { 0x1E5B } }, // Case map
+            { 0x1E5C, new[] { 0x1E5D } }, // Case map
+            { 0x1E5E, new[] { 0x1E5F } }, // Case map
+            { 0x1E60, new[] { 0x1E61 } }, // Case map
+            { 0x1E62, new[] { 0x1E63 } }, // Case map
+            { 0x1E64, new[] { 0x1E65 } }, // Case map
+            { 0x1E66, new[] { 0x1E67 } }, // Case map
+            { 0x1E68, new[] { 0x1E69 } }, // Case map
+            { 0x1E6A, new[] { 0x1E6B } }, // Case map
+            { 0x1E6C, new[] { 0x1E6D } }, // Case map
+            { 0x1E6E, new[] { 0x1E6F } }, // Case map
+            { 0x1E70, new[] { 0x1E71 } }, // Case map
+            { 0x1E72, new[] { 0x1E73 } }, // Case map
+            { 0x1E74, new[] { 0x1E75 } }, // Case map
+            { 0x1E76, new[] { 0x1E77 } }, // Case map
+            { 0x1E78, new[] { 0x1E79 } }, // Case map
+            { 0x1E7A, new[] { 0x1E7B } }, // Case map
+            { 0x1E7C, new[] { 0x1E7D } }, // Case map
+            { 0x1E7E, new[] { 0x1E7F } }, // Case map
+            { 0x1E80, new[] { 0x1E81 } }, // Case map
+            { 0x1E82, new[] { 0x1E83 } }, // Case map
+            { 0x1E84, new[] { 0x1E85 } }, // Case map
+            { 0x1E86, new[] { 0x1E87 } }, // Case map
+            { 0x1E88, new[] { 0x1E89 } }, // Case map
+            { 0x1E8A, new[] { 0x1E8B } }, // Case map
+            { 0x1E8C, new[] { 0x1E8D } }, // Case map
+            { 0x1E8E, new[] { 0x1E8F } }, // Case map
+            { 0x1E90, new[] { 0x1E91 } }, // Case map
+            { 0x1E92, new[] { 0x1E93 } }, // Case map
+            { 0x1E94, new[] { 0x1E95 } }, // Case map
+            { 0x1E96, new[] { 0x0068, 0x0331 } }, // Case map
+            { 0x1E97, new[] { 0x0074, 0x0308 } }, // Case map
+            { 0x1E98, new[] { 0x0077, 0x030A } }, // Case map
+            { 0x1E99, new[] { 0x0079, 0x030A } }, // Case map
+            { 0x1E9A, new[] { 0x0061, 0x02BE } }, // Case map
+            { 0x1E9B, new[] { 0x1E61 } }, // Case map
+            { 0x1EA0, new[] { 0x1EA1 } }, // Case map
+            { 0x1EA2, new[] { 0x1EA3 } }, // Case map
+            { 0x1EA4, new[] { 0x1EA5 } }, // Case map
+            { 0x1EA6, new[] { 0x1EA7 } }, // Case map
+            { 0x1EA8, new[] { 0x1EA9 } }, // Case map
+            { 0x1EAA, new[] { 0x1EAB } }, // Case map
+            { 0x1EAC, new[] { 0x1EAD } }, // Case map
+            { 0x1EAE, new[] { 0x1EAF } }, // Case map
+            { 0x1EB0, new[] { 0x1EB1 } }, // Case map
+            { 0x1EB2, new[] { 0x1EB3 } }, // Case map
+            { 0x1EB4, new[] { 0x1EB5 } }, // Case map
+            { 0x1EB6, new[] { 0x1EB7 } }, // Case map
+            { 0x1EB8, new[] { 0x1EB9 } }, // Case map
+            { 0x1EBA, new[] { 0x1EBB } }, // Case map
+            { 0x1EBC, new[] { 0x1EBD } }, // Case map
+            { 0x1EBE, new[] { 0x1EBF } }, // Case map
+            { 0x1EC0, new[] { 0x1EC1 } }, // Case map
+            { 0x1EC2, new[] { 0x1EC3 } }, // Case map
+            { 0x1EC4, new[] { 0x1EC5 } }, // Case map
+            { 0x1EC6, new[] { 0x1EC7 } }, // Case map
+            { 0x1EC8, new[] { 0x1EC9 } }, // Case map
+            { 0x1ECA, new[] { 0x1ECB } }, // Case map
+            { 0x1ECC, new[] { 0x1ECD } }, // Case map
+            { 0x1ECE, new[] { 0x1ECF } }, // Case map
+            { 0x1ED0, new[] { 0x1ED1 } }, // Case map
+            { 0x1ED2, new[] { 0x1ED3 } }, // Case map
+            { 0x1ED4, new[] { 0x1ED5 } }, // Case map
+            { 0x1ED6, new[] { 0x1ED7 } }, // Case map
+            { 0x1ED8, new[] { 0x1ED9 } }, // Case map
+            { 0x1EDA, new[] { 0x1EDB } }, // Case map
+            { 0x1EDC, new[] { 0x1EDD } }, // Case map
+            { 0x1EDE, new[] { 0x1EDF } }, // Case map
+            { 0x1EE0, new[] { 0x1EE1 } }, // Case map
+            { 0x1EE2, new[] { 0x1EE3 } }, // Case map
+            { 0x1EE4, new[] { 0x1EE5 } }, // Case map
+            { 0x1EE6, new[] { 0x1EE7 } }, // Case map
+            { 0x1EE8, new[] { 0x1EE9 } }, // Case map
+            { 0x1EEA, new[] { 0x1EEB } }, // Case map
+            { 0x1EEC, new[] { 0x1EED } }, // Case map
+            { 0x1EEE, new[] { 0x1EEF } }, // Case map
+            { 0x1EF0, new[] { 0x1EF1 } }, // Case map
+            { 0x1EF2, new[] { 0x1EF3 } }, // Case map
+            { 0x1EF4, new[] { 0x1EF5 } }, // Case map
+            { 0x1EF6, new[] { 0x1EF7 } }, // Case map
+            { 0x1EF8, new[] { 0x1EF9 } }, // Case map
+            { 0x1F08, new[] { 0x1F00 } }, // Case map
+            { 0x1F09, new[] { 0x1F01 } }, // Case map
+            { 0x1F0A, new[] { 0x1F02 } }, // Case map
+            { 0x1F0B, new[] { 0x1F03 } }, // Case map
+            { 0x1F0C, new[] { 0x1F04 } }, // Case map
+            { 0x1F0D, new[] { 0x1F05 } }, // Case map
+            { 0x1F0E, new[] { 0x1F06 } }, // Case map
+            { 0x1F0F, new[] { 0x1F07 } }, // Case map
+            { 0x1F18, new[] { 0x1F10 } }, // Case map
+            { 0x1F19, new[] { 0x1F11 } }, // Case map
+            { 0x1F1A, new[] { 0x1F12 } }, // Case map
+            { 0x1F1B, new[] { 0x1F13 } }, // Case map
+            { 0x1F1C, new[] { 0x1F14 } }, // Case map
+            { 0x1F1D, new[] { 0x1F15 } }, // Case map
+            { 0x1F28, new[] { 0x1F20 } }, // Case map
+            { 0x1F29, new[] { 0x1F21 } }, // Case map
+            { 0x1F2A, new[] { 0x1F22 } }, // Case map
+            { 0x1F2B, new[] { 0x1F23 } }, // Case map
+            { 0x1F2C, new[] { 0x1F24 } }, // Case map
+            { 0x1F2D, new[] { 0x1F25 } }, // Case map
+            { 0x1F2E, new[] { 0x1F26 } }, // Case map
+            { 0x1F2F, new[] { 0x1F27 } }, // Case map
+            { 0x1F38, new[] { 0x1F30 } }, // Case map
+            { 0x1F39, new[] { 0x1F31 } }, // Case map
+            { 0x1F3A, new[] { 0x1F32 } }, // Case map
+            { 0x1F3B, new[] { 0x1F33 } }, // Case map
+            { 0x1F3C, new[] { 0x1F34 } }, // Case map
+            { 0x1F3D, new[] { 0x1F35 } }, // Case map
+            { 0x1F3E, new[] { 0x1F36 } }, // Case map
+            { 0x1F3F, new[] { 0x1F37 } }, // Case map
+            { 0x1F48, new[] { 0x1F40 } }, // Case map
+            { 0x1F49, new[] { 0x1F41 } }, // Case map
+            { 0x1F4A, new[] { 0x1F42 } }, // Case map
+            { 0x1F4B, new[] { 0x1F43 } }, // Case map
+            { 0x1F4C, new[] { 0x1F44 } }, // Case map
+            { 0x1F4D, new[] { 0x1F45 } }, // Case map
+            { 0x1F50, new[] { 0x03C5, 0x0313 } }, // Case map
+            { 0x1F52, new[] { 0x03C5, 0x0313, 0x0300 } }, // Case map
+            { 0x1F54, new[] { 0x03C5, 0x0313, 0x0301 } }, // Case map
+            { 0x1F56, new[] { 0x03C5, 0x0313, 0x0342 } }, // Case map
+            { 0x1F59, new[] { 0x1F51 } }, // Case map
+            { 0x1F5B, new[] { 0x1F53 } }, // Case map
+            { 0x1F5D, new[] { 0x1F55 } }, // Case map
+            { 0x1F5F, new[] { 0x1F57 } }, // Case map
+            { 0x1F68, new[] { 0x1F60 } }, // Case map
+            { 0x1F69, new[] { 0x1F61 } }, // Case map
+            { 0x1F6A, new[] { 0x1F62 } }, // Case map
+            { 0x1F6B, new[] { 0x1F63 } }, // Case map
+            { 0x1F6C, new[] { 0x1F64 } }, // Case map
+            { 0x1F6D, new[] { 0x1F65 } }, // Case map
+            { 0x1F6E, new[] { 0x1F66 } }, // Case map
+            { 0x1F6F, new[] { 0x1F67 } }, // Case map
+            { 0x1F80, new[] { 0x1F00, 0x03B9 } }, // Case map
+            { 0x1F81, new[] { 0x1F01, 0x03B9 } }, // Case map
+            { 0x1F82, new[] { 0x1F02, 0x03B9 } }, // Case map
+            { 0x1F83, new[] { 0x1F03, 0x03B9 } }, // Case map
+            { 0x1F84, new[] { 0x1F04, 0x03B9 } }, // Case map
+            { 0x1F85, new[] { 0x1F05, 0x03B9 } }, // Case map
+            { 0x1F86, new[] { 0x1F06, 0x03B9 } }, // Case map
+            { 0x1F87, new[] { 0x1F07, 0x03B9 } }, // Case map
+            { 0x1F88, new[] { 0x1F00, 0x03B9 } }, // Case map
+            { 0x1F89, new[] { 0x1F01, 0x03B9 } }, // Case map
+            { 0x1F8A, new[] { 0x1F02, 0x03B9 } }, // Case map
+            { 0x1F8B, new[] { 0x1F03, 0x03B9 } }, // Case map
+            { 0x1F8C, new[] { 0x1F04, 0x03B9 } }, // Case map
+            { 0x1F8D, new[] { 0x1F05, 0x03B9 } }, // Case map
+            { 0x1F8E, new[] { 0x1F06, 0x03B9 } }, // Case map
+            { 0x1F8F, new[] { 0x1F07, 0x03B9 } }, // Case map
+            { 0x1F90, new[] { 0x1F20, 0x03B9 } }, // Case map
+            { 0x1F91, new[] { 0x1F21, 0x03B9 } }, // Case map
+            { 0x1F92, new[] { 0x1F22, 0x03B9 } }, // Case map
+            { 0x1F93, new[] { 0x1F23, 0x03B9 } }, // Case map
+            { 0x1F94, new[] { 0x1F24, 0x03B9 } }, // Case map
+            { 0x1F95, new[] { 0x1F25, 0x03B9 } }, // Case map
+            { 0x1F96, new[] { 0x1F26, 0x03B9 } }, // Case map
+            { 0x1F97, new[] { 0x1F27, 0x03B9 } }, // Case map
+            { 0x1F98, new[] { 0x1F20, 0x03B9 } }, // Case map
+            { 0x1F99, new[] { 0x1F21, 0x03B9 } }, // Case map
+            { 0x1F9A, new[] { 0x1F22, 0x03B9 } }, // Case map
+            { 0x1F9B, new[] { 0x1F23, 0x03B9 } }, // Case map
+            { 0x1F9C, new[] { 0x1F24, 0x03B9 } }, // Case map
+            { 0x1F9D, new[] { 0x1F25, 0x03B9 } }, // Case map
+            { 0x1F9E, new[] { 0x1F26, 0x03B9 } }, // Case map
+            { 0x1F9F, new[] { 0x1F27, 0x03B9 } }, // Case map
+            { 0x1FA0, new[] { 0x1F60, 0x03B9 } }, // Case map
+            { 0x1FA1, new[] { 0x1F61, 0x03B9 } }, // Case map
+            { 0x1FA2, new[] { 0x1F62, 0x03B9 } }, // Case map
+            { 0x1FA3, new[] { 0x1F63, 0x03B9 } }, // Case map
+            { 0x1FA4, new[] { 0x1F64, 0x03B9 } }, // Case map
+            { 0x1FA5, new[] { 0x1F65, 0x03B9 } }, // Case map
+            { 0x1FA6, new[] { 0x1F66, 0x03B9 } }, // Case map
+            { 0x1FA7, new[] { 0x1F67, 0x03B9 } }, // Case map
+            { 0x1FA8, new[] { 0x1F60, 0x03B9 } }, // Case map
+            { 0x1FA9, new[] { 0x1F61, 0x03B9 } }, // Case map
+            { 0x1FAA, new[] { 0x1F62, 0x03B9 } }, // Case map
+            { 0x1FAB, new[] { 0x1F63, 0x03B9 } }, // Case map
+            { 0x1FAC, new[] { 0x1F64, 0x03B9 } }, // Case map
+            { 0x1FAD, new[] { 0x1F65, 0x03B9 } }, // Case map
+            { 0x1FAE, new[] { 0x1F66, 0x03B9 } }, // Case map
+            { 0x1FAF, new[] { 0x1F67, 0x03B9 } }, // Case map
+            { 0x1FB2, new[] { 0x1F70, 0x03B9 } }, // Case map
+            { 0x1FB3, new[] { 0x03B1, 0x03B9 } }, // Case map
+            { 0x1FB4, new[] { 0x03AC, 0x03B9 } }, // Case map
+            { 0x1FB6, new[] { 0x03B1, 0x0342 } }, // Case map
+            { 0x1FB7, new[] { 0x03B1, 0x0342, 0x03B9 } }, // Case map
+            { 0x1FB8, new[] { 0x1FB0 } }, // Case map
+            { 0x1FB9, new[] { 0x1FB1 } }, // Case map
+            { 0x1FBA, new[] { 0x1F70 } }, // Case map
+            { 0x1FBB, new[] { 0x1F71 } }, // Case map
+            { 0x1FBC, new[] { 0x03B1, 0x03B9 } }, // Case map
+            { 0x1FBE, new[] { 0x03B9 } }, // Case map
+            { 0x1FC2, new[] { 0x1F74, 0x03B9 } }, // Case map
+            { 0x1FC3, new[] { 0x03B7, 0x03B9 } }, // Case map
+            { 0x1FC4, new[] { 0x03AE, 0x03B9 } }, // Case map
+            { 0x1FC6, new[] { 0x03B7, 0x0342 } }, // Case map
+            { 0x1FC7, new[] { 0x03B7, 0x0342, 0x03B9 } }, // Case map
+            { 0x1FC8, new[] { 0x1F72 } }, // Case map
+            { 0x1FC9, new[] { 0x1F73 } }, // Case map
+            { 0x1FCA, new[] { 0x1F74 } }, // Case map
+            { 0x1FCB, new[] { 0x1F75 } }, // Case map
+            { 0x1FCC, new[] { 0x03B7, 0x03B9 } }, // Case map
+            { 0x1FD2, new[] { 0x03B9, 0x0308, 0x0300 } }, // Case map
+            { 0x1FD3, new[] { 0x03B9, 0x0308, 0x0301 } }, // Case map
+            { 0x1FD6, new[] { 0x03B9, 0x0342 } }, // Case map
+            { 0x1FD7, new[] { 0x03B9, 0x0308, 0x0342 } }, // Case map
+            { 0x1FD8, new[] { 0x1FD0 } }, // Case map
+            { 0x1FD9, new[] { 0x1FD1 } }, // Case map
+            { 0x1FDA, new[] { 0x1F76 } }, // Case map
+            { 0x1FDB, new[] { 0x1F77 } }, // Case map
+            { 0x1FE2, new[] { 0x03C5, 0x0308, 0x0300 } }, // Case map
+            { 0x1FE3, new[] { 0x03C5, 0x0308, 0x0301 } }, // Case map
+            { 0x1FE4, new[] { 0x03C1, 0x0313 } }, // Case map
+            { 0x1FE6, new[] { 0x03C5, 0x0342 } }, // Case map
+            { 0x1FE7, new[] { 0x03C5, 0x0308, 0x0342 } }, // Case map
+            { 0x1FE8, new[] { 0x1FE0 } }, // Case map
+            { 0x1FE9, new[] { 0x1FE1 } }, // Case map
+            { 0x1FEA, new[] { 0x1F7A } }, // Case map
+            { 0x1FEB, new[] { 0x1F7B } }, // Case map
+            { 0x1FEC, new[] { 0x1FE5 } }, // Case map
+            { 0x1FF2, new[] { 0x1F7C, 0x03B9 } }, // Case map
+            { 0x1FF3, new[] { 0x03C9, 0x03B9 } }, // Case map
+            { 0x1FF4, new[] { 0x03CE, 0x03B9 } }, // Case map
+            { 0x1FF6, new[] { 0x03C9, 0x0342 } }, // Case map
+            { 0x1FF7, new[] { 0x03C9, 0x0342, 0x03B9 } }, // Case map
+            { 0x1FF8, new[] { 0x1F78 } }, // Case map
+            { 0x1FF9, new[] { 0x1F79 } }, // Case map
+            { 0x1FFA, new[] { 0x1F7C } }, // Case map
+            { 0x1FFB, new[] { 0x1F7D } }, // Case map
+            { 0x1FFC, new[] { 0x03C9, 0x03B9 } }, // Case map
+            { 0x2126, new[] { 0x03C9 } }, // Case map
+            { 0x212A, new[] { 0x006B } }, // Case map
+            { 0x212B, new[] { 0x00E5 } }, // Case map
+            { 0x2160, new[] { 0x2170 } }, // Case map
+            { 0x2161, new[] { 0x2171 } }, // Case map
+            { 0x2162, new[] { 0x2172 } }, // Case map
+            { 0x2163, new[] { 0x2173 } }, // Case map
+            { 0x2164, new[] { 0x2174 } }, // Case map
+            { 0x2165, new[] { 0x2175 } }, // Case map
+            { 0x2166, new[] { 0x2176 } }, // Case map
+            { 0x2167, new[] { 0x2177 } }, // Case map
+            { 0x2168, new[] { 0x2178 } }, // Case map
+            { 0x2169, new[] { 0x2179 } }, // Case map
+            { 0x216A, new[] { 0x217A } }, // Case map
+            { 0x216B, new[] { 0x217B } }, // Case map
+            { 0x216C, new[] { 0x217C } }, // Case map
+            { 0x216D, new[] { 0x217D } }, // Case map
+            { 0x216E, new[] { 0x217E } }, // Case map
+            { 0x216F, new[] { 0x217F } }, // Case map
+            { 0x24B6, new[] { 0x24D0 } }, // Case map
+            { 0x24B7, new[] { 0x24D1 } }, // Case map
+            { 0x24B8, new[] { 0x24D2 } }, // Case map
+            { 0x24B9, new[] { 0x24D3 } }, // Case map
+            { 0x24BA, new[] { 0x24D4 } }, // Case map
+            { 0x24BB, new[] { 0x24D5 } }, // Case map
+            { 0x24BC, new[] { 0x24D6 } }, // Case map
+            { 0x24BD, new[] { 0x24D7 } }, // Case map
+            { 0x24BE, new[] { 0x24D8 } }, // Case map
+            { 0x24BF, new[] { 0x24D9 } }, // Case map
+            { 0x24C0, new[] { 0x24DA } }, // Case map
+            { 0x24C1, new[] { 0x24DB } }, // Case map
+            { 0x24C2, new[] { 0x24DC } }, // Case map
+            { 0x24C3, new[] { 0x24DD } }, // Case map
+            { 0x24C4, new[] { 0x24DE } }, // Case map
+            { 0x24C5, new[] { 0x24DF } }, // Case map
+            { 0x24C6, new[] { 0x24E0 } }, // Case map
+            { 0x24C7, new[] { 0x24E1 } }, // Case map
+            { 0x24C8, new[] { 0x24E2 } }, // Case map
+            { 0x24C9, new[] { 0x24E3 } }, // Case map
+            { 0x24CA, new[] { 0x24E4 } }, // Case map
+            { 0x24CB, new[] { 0x24E5 } }, // Case map
+            { 0x24CC, new[] { 0x24E6 } }, // Case map
+            { 0x24CD, new[] { 0x24E7 } }, // Case map
+            { 0x24CE, new[] { 0x24E8 } }, // Case map
+            { 0x24CF, new[] { 0x24E9 } }, // Case map
+            { 0xFB00, new[] { 0x0066, 0x0066 } }, // Case map
+            { 0xFB01, new[] { 0x0066, 0x0069 } }, // Case map
+            { 0xFB02, new[] { 0x0066, 0x006C } }, // Case map
+            { 0xFB03, new[] { 0x0066, 0x0066, 0x0069 } }, // Case map
+            { 0xFB04, new[] { 0x0066, 0x0066, 0x006C } }, // Case map
+            { 0xFB05, new[] { 0x0073, 0x0074 } }, // Case map
+            { 0xFB06, new[] { 0x0073, 0x0074 } }, // Case map
+            { 0xFB13, new[] { 0x0574, 0x0576 } }, // Case map
+            { 0xFB14, new[] { 0x0574, 0x0565 } }, // Case map
+            { 0xFB15, new[] { 0x0574, 0x056B } }, // Case map
+            { 0xFB16, new[] { 0x057E, 0x0576 } }, // Case map
+            { 0xFB17, new[] { 0x0574, 0x056D } }, // Case map
+            { 0xFF21, new[] { 0xFF41 } }, // Case map
+            { 0xFF22, new[] { 0xFF42 } }, // Case map
+            { 0xFF23, new[] { 0xFF43 } }, // Case map
+            { 0xFF24, new[] { 0xFF44 } }, // Case map
+            { 0xFF25, new[] { 0xFF45 } }, // Case map
+            { 0xFF26, new[] { 0xFF46 } }, // Case map
+            { 0xFF27, new[] { 0xFF47 } }, // Case map
+            { 0xFF28, new[] { 0xFF48 } }, // Case map
+            { 0xFF29, new[] { 0xFF49 } }, // Case map
+            { 0xFF2A, new[] { 0xFF4A } }, // Case map
+            { 0xFF2B, new[] { 0xFF4B } }, // Case map
+            { 0xFF2C, new[] { 0xFF4C } }, // Case map
+            { 0xFF2D, new[] { 0xFF4D } }, // Case map
+            { 0xFF2E, new[] { 0xFF4E } }, // Case map
+            { 0xFF2F, new[] { 0xFF4F } }, // Case map
+            { 0xFF30, new[] { 0xFF50 } }, // Case map
+            { 0xFF31, new[] { 0xFF51 } }, // Case map
+            { 0xFF32, new[] { 0xFF52 } }, // Case map
+            { 0xFF33, new[] { 0xFF53 } }, // Case map
+            { 0xFF34, new[] { 0xFF54 } }, // Case map
+            { 0xFF35, new[] { 0xFF55 } }, // Case map
+            { 0xFF36, new[] { 0xFF56 } }, // Case map
+            { 0xFF37, new[] { 0xFF57 } }, // Case map
+            { 0xFF38, new[] { 0xFF58 } }, // Case map
+            { 0xFF39, new[] { 0xFF59 } }, // Case map
+            { 0xFF3A, new[] { 0xFF5A } }, // Case map
+            { 0x10400, new[] { 0x10428 } }, // Case map
+            { 0x10401, new[] { 0x10429 } }, // Case map
+            { 0x10402, new[] { 0x1042A } }, // Case map
+            { 0x10403, new[] { 0x1042B } }, // Case map
+            { 0x10404, new[] { 0x1042C } }, // Case map
+            { 0x10405, new[] { 0x1042D } }, // Case map
+            { 0x10406, new[] { 0x1042E } }, // Case map
+            { 0x10407, new[] { 0x1042F } }, // Case map
+            { 0x10408, new[] { 0x10430 } }, // Case map
+            { 0x10409, new[] { 0x10431 } }, // Case map
+            { 0x1040A, new[] { 0x10432 } }, // Case map
+            { 0x1040B, new[] { 0x10433 } }, // Case map
+            { 0x1040C, new[] { 0x10434 } }, // Case map
+            { 0x1040D, new[] { 0x10435 } }, // Case map
+            { 0x1040E, new[] { 0x10436 } }, // Case map
+            { 0x1040F, new[] { 0x10437 } }, // Case map
+            { 0x10410, new[] { 0x10438 } }, // Case map
+            { 0x10411, new[] { 0x10439 } }, // Case map
+            { 0x10412, new[] { 0x1043A } }, // Case map
+            { 0x10413, new[] { 0x1043B } }, // Case map
+            { 0x10414, new[] { 0x1043C } }, // Case map
+            { 0x10415, new[] { 0x1043D } }, // Case map
+            { 0x10416, new[] { 0x1043E } }, // Case map
+            { 0x10417, new[] { 0x1043F } }, // Case map
+            { 0x10418, new[] { 0x10440 } }, // Case map
+            { 0x10419, new[] { 0x10441 } }, // Case map
+            { 0x1041A, new[] { 0x10442 } }, // Case map
+            { 0x1041B, new[] { 0x10443 } }, // Case map
+            { 0x1041C, new[] { 0x10444 } }, // Case map
+            { 0x1041D, new[] { 0x10445 } }, // Case map
+            { 0x1041E, new[] { 0x10446 } }, // Case map
+            { 0x1041F, new[] { 0x10447 } }, // Case map
+            { 0x10420, new[] { 0x10448 } }, // Case map
+            { 0x10421, new[] { 0x10449 } }, // Case map
+            { 0x10422, new[] { 0x1044A } }, // Case map
+            { 0x10423, new[] { 0x1044B } }, // Case map
+            { 0x10424, new[] { 0x1044C } }, // Case map
+            { 0x10425, new[] { 0x1044D } } // Case map
         };
 
-        /// C.1 Space characters
-        /// C.1.1 ASCII space characters
-        public static readonly int[] C_1_1 =
+        // C.1 Space characters
+
+        /// <summary>
+        ///     C.1.1 ASCII space characters
+        /// </summary>
+        public static readonly int[] C11 =
         {
             0x0020, 0x0020 // SPACE
         };
 
-        /// C.1.2 Non-ASCII space characters
-        public static readonly int[] C_1_2 =
+        /// <summary>
+        ///     C.1.2 Non-ASCII space characters
+        /// </summary>
+        public static readonly int[] C12 =
         {
             0x00A0, 0x00A0, // NO-BREAK SPACE
             0x1680, 0x1680, // OGHAM SPACE MARK
@@ -2685,16 +2726,21 @@ namespace StringPrep
             0x3000, 0x3000 // IDEOGRAPHIC SPACE
         };
 
-        /// C.2 Control characters
-        /// C.2.1 ASCII control characters
-        public static readonly int[] C_2_1 =
+        // C.2 Control characters
+
+        /// <summary>
+        ///     C.2.1 ASCII control characters
+        /// </summary>
+        public static readonly int[] C21 =
         {
             0x0000, 0x001F, // [CONTROL CHARACTERS]
             0x007F, 0x007F // DELETE
         };
 
-        /// C.2.2 Non-ASCII control characters
-        public static readonly int[] C_2_2 =
+        /// <summary>
+        ///     C.2.2 Non-ASCII control characters
+        /// </summary>
+        public static readonly int[] C22 =
         {
             0x0080, 0x009F, // [CONTROL CHARACTERS]
             0x06DD, 0x06DD, // ARABIC END OF AYAH
@@ -2714,16 +2760,20 @@ namespace StringPrep
             0x1D173, 0x1D17A // [MUSICAL CONTROL CHARACTERS]
         };
 
-        /// C.3 Private use
-        public static readonly int[] C_3 =
+        /// <summary>
+        ///     C.3 Private use
+        /// </summary>
+        public static readonly int[] C3 =
         {
             0xE000, 0xF8FF, // [PRIVATE USE, PLANE 0]
             0xF0000, 0xFFFFD, // [PRIVATE USE, PLANE 15]
             0x100000, 0x10FFFD // [PRIVATE USE, PLANE 16]
         };
 
-        /// C.4 Non-character code points
-        public static readonly int[] C_4 =
+        /// <summary>
+        ///     C.4 Non-character code points
+        /// </summary>
+        public static readonly int[] C4 =
         {
             0xFDD0, 0xFDEF, // [NONCHARACTER CODE POINTS]
             0xFFFE, 0xFFFF, // [NONCHARACTER CODE POINTS]
@@ -2745,14 +2795,18 @@ namespace StringPrep
             0x10FFFE, 0x10FFFF // [NONCHARACTER CODE POINTS]
         };
 
-        /// C.5 Surrogate codes
-        public static readonly int[] C_5 =
+        /// <summary>
+        ///     C.5 Surrogate codes
+        /// </summary>
+        public static readonly int[] C5 =
         {
             0xD800, 0xDFFF // [SURROGATE CODES]
         };
 
-        /// C.6 Inappropriate for plain text
-        public static readonly int[] C_6 =
+        /// <summary>
+        ///     C.6 Inappropriate for plain text
+        /// </summary>
+        public static readonly int[] C6 =
         {
             0xFFF9, 0xFFF9, // INTERLINEAR ANNOTATION ANCHOR
             0xFFFA, 0xFFFA, // INTERLINEAR ANNOTATION SEPARATOR
@@ -2761,14 +2815,18 @@ namespace StringPrep
             0xFFFD, 0xFFFD // REPLACEMENT CHARACTER
         };
 
-        /// C.7 Inappropriate for canonical representation
-        public static readonly int[] C_7 =
+        /// <summary>
+        ///     C.7 Inappropriate for canonical representation
+        /// </summary>
+        public static readonly int[] C7 =
         {
             0x2FF0, 0x2FFB // [IDEOGRAPHIC DESCRIPTION CHARACTERS]
         };
 
-        /// C.8 Change display properties or are deprecated
-        public static readonly int[] C_8 =
+        /// <summary>
+        ///     C.8 Change display properties or are deprecated
+        /// </summary>
+        public static readonly int[] C8 =
         {
             0x0340, 0x0340, // COMBINING GRAVE TONE MARK
             0x0341, 0x0341, // COMBINING ACUTE TONE MARK
@@ -2787,15 +2845,19 @@ namespace StringPrep
             0x206F, 0x206F // NOMINAL DIGIT SHAPES
         };
 
-        /// C.9 Tagging characters
-        public static readonly int[] C_9 =
+        /// <summary>
+        ///     C.9 Tagging characters
+        /// </summary>
+        public static readonly int[] C9 =
         {
             0xE0001, 0xE0001, // LANGUAGE TAG
             0xE0020, 0xE007F // [TAGGING CHARACTERS]
         };
 
-        /// D.1 Characters with bidirectional property "R" or "AL"
-        public static readonly int[] D_1 =
+        /// <summary>
+        ///     D.1 Characters with bidirectional property "R" or "AL"
+        /// </summary>
+        public static readonly int[] D1 =
         {
             0x05BE, 0x05BE,
             0x05C0, 0x05C0,
@@ -2833,8 +2895,10 @@ namespace StringPrep
             0xFE76, 0xFEFC
         };
 
-        /// D.2 Characters with bidirectional property "L"
-        public static readonly int[] D_2 =
+        /// <summary>
+        ///     D.2 Characters with bidirectional property "L"
+        /// </summary>
+        public static readonly int[] D2 =
         {
             0x0041, 0x005A,
             0x0061, 0x007A,

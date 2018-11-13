@@ -1,4 +1,4 @@
-﻿namespace StringPrep
+﻿namespace Ubiety.Stringprep.Core
 {
     public interface IValueRangeTable
     {

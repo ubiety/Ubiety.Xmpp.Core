@@ -29,13 +29,8 @@ namespace Ubiety.Xmpp.Core.Registries
     /// </summary>
     public class TagRegistry
     {
-        private static readonly ILog Logger;
+        private static readonly ILog Logger = Log.Get<TagRegistry>();
         private readonly Dictionary<XName, Type> _types = new Dictionary<XName, Type>();
-
-        static TagRegistry()
-        {
-            Logger = Log.Get<TagRegistry>();
-        }
 
         /// <summary>
         ///     Add tags from the assembly to the registry
@@ -83,10 +78,10 @@ namespace Ubiety.Xmpp.Core.Registries
                 var constructor = type.GetConstructor(new Type[] { });
                 if (constructor is null)
                 {
-                    constructor = type.GetConstructor(new[] {typeof(XName)});
+                    constructor = type.GetConstructor(new[] { typeof(XName) });
                     if (constructor != null)
                     {
-                        tag = (T)constructor.Invoke(new object[] {name});
+                        tag = (T)constructor.Invoke(new object[] { name });
                     }
                 }
                 else
@@ -132,19 +127,19 @@ namespace Ubiety.Xmpp.Core.Registries
 
                 if (gotType)
                 {
-                    var constructor = type.GetConstructor(new[] {element.GetType()});
-                    if (!(constructor is null))
+                    var constructor = type.GetConstructor(new[] { element.GetType() });
+                    if (constructor is null)
                     {
-                        return (T)constructor.Invoke(new object[] {element});
+                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
+                        if (defaultConstructorInfo is null)
+                        {
+                            return default(T);
+                        }
+
+                        return (T)defaultConstructorInfo.Invoke(new object[] { element });
                     }
 
-                    var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] {typeof(Tag)});
-                    if (defaultConstructorInfo is null)
-                    {
-                        return default(T);
-                    }
-
-                    return (T)defaultConstructorInfo.Invoke(new object[] {element});
+                    return (T)constructor.Invoke(new object[] { element });
                 }
             }
             catch (Exception e)

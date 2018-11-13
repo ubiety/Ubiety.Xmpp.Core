@@ -17,6 +17,7 @@ using Ubiety.Xmpp.Core.Tags;
 
 namespace Ubiety.Xmpp.Core.States
 {
+    /// <inheritdoc />
     /// <summary>
     ///     Disconnected state
     /// </summary>
