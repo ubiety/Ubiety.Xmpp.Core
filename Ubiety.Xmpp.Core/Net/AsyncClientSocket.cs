@@ -143,7 +143,11 @@ namespace Ubiety.Xmpp.Core.Net
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
             _logger.Log(LogLevel.Debug, "Authenticating as client...");
-            secureStream.AuthenticateAsClient(_address.Hostname, null, SslProtocols.Tls12 | SslProtocols.Tls11, false);
+            secureStream.AuthenticateAsClient(
+                _address.Hostname,
+                null,
+                SslProtocols.Tls12 | SslProtocols.Tls11,
+                false);
             _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol.ToString()}");
 
             if (secureStream.IsAuthenticated)

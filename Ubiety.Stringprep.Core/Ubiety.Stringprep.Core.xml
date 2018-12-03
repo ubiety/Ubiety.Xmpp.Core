@@ -129,94 +129,95 @@
             <param name="value">Value to replace</param>
             <returns>Replacement value</returns>
         </member>
-        <member name="T:Ubiety.Stringprep.Core.Generated.Tables">
-            <summary>
-                Character tables
-            </summary>
-        </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.A1">
             <summary>
-                A.1 Unassigned code points in Unicode 3.2
+            A.1 Unassigned code points in Unicode 3.2
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.B1">
             <summary>
-                B.1 Commonly mapped to nothing
+            B.1 Commonly mapped to nothing
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.B2">
             <summary>
-                B.2 Mapping for case-folding used with NFKC
+            B.2 Mapping for case-folding used with NFKC
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.B3">
             <summary>
-                B.3 Mapping for case-folding used with no normalization
+            B.3 Mapping for case-folding used with no normalization
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C11">
             <summary>
-                C.1.1 ASCII space characters
+            C.1 Space characters
+            </summary>
+            <summary>
+            C.1.1 ASCII space characters
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C12">
             <summary>
-                C.1.2 Non-ASCII space characters
+            C.1.2 Non-ASCII space characters
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C21">
             <summary>
-                C.2.1 ASCII control characters
+            C.2 Control characters
+            </summary>
+            <summary>
+            C.2.1 ASCII control characters
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C22">
             <summary>
-                C.2.2 Non-ASCII control characters
+            C.2.2 Non-ASCII control characters
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C3">
             <summary>
-                C.3 Private use
+            C.3 Private use
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C4">
             <summary>
-                C.4 Non-character code points
+            C.4 Non-character code points
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C5">
             <summary>
-                C.5 Surrogate codes
+            C.5 Surrogate codes
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C6">
             <summary>
-                C.6 Inappropriate for plain text
+            C.6 Inappropriate for plain text
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C7">
             <summary>
-                C.7 Inappropriate for canonical representation
+            C.7 Inappropriate for canonical representation
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C8">
             <summary>
-                C.8 Change display properties or are deprecated
+            C.8 Change display properties or are deprecated
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.C9">
             <summary>
-                C.9 Tagging characters
+            C.9 Tagging characters
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.D1">
             <summary>
-                D.1 Characters with bidirectional property "R" or "AL"
+            D.1 Characters with bidirectional property "R" or "AL"
             </summary>
         </member>
         <member name="F:Ubiety.Stringprep.Core.Generated.Tables.D2">
             <summary>
-                D.2 Characters with bidirectional property "L"
+            D.2 Characters with bidirectional property "L"
             </summary>
         </member>
         <member name="T:Ubiety.Stringprep.Core.IMappingTable">
