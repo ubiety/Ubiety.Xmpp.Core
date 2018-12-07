@@ -23,21 +23,25 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace Ubiety.Scram.Core
+using System;
+
+namespace Ubiety.Scram.Core.Attributes
 {
-    public class ScramAttribute<TValue> : ScramAttribute
+    public class ClientProofAttribute : ScramAttribute<byte[]>
     {
-        public ScramAttribute(char name, TValue value)
-            : base(name)
+        public ClientProofAttribute(string value)
+            : base(ClientProofName, Convert.FromBase64String(value))
         {
-            Value = value;
         }
 
-        public TValue Value { get; }
+        public ClientProofAttribute(byte[] value)
+            : base(ClientProofName, value)
+        {
+        }
 
         public override string ToString()
         {
-            return $"{Name}={Value}";
+            return $"{Name}={Convert.ToBase64String(Value)}";
         }
     }
 }

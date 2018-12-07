@@ -23,6 +23,11 @@ namespace Ubiety.Stringprep.Core
         /// <returns>Mapping builder</returns>
         IMappingTableBuilder WithValueRangeTable(int[] values, int[] replacement);
 
+        /// <summary>
+        ///     Builds a mapping with a mapping table
+        /// </summary>
+        /// <param name="table">Mapping table</param>
+        /// <returns>Mapping builder</returns>
         IMappingTableBuilder WithMappingTable(IDictionary<int, int[]> table);
 
         IMappingTableBuilder Include(IDictionary<int, int[]> include);

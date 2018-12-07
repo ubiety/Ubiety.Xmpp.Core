@@ -23,15 +23,12 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-using System;
-using System.Text;
-
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    public class ChannelAttribute : ScramAttribute<string>
+    internal class ErrorAttribute : ScramAttribute<string>
     {
-        public ChannelAttribute(string value)
-            : base(ChannelName, Convert.ToBase64String(Encoding.UTF8.GetBytes(value)))
+        public ErrorAttribute(string value)
+            : base(ErrorName, value)
         {
         }
     }

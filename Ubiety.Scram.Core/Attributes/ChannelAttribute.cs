@@ -24,30 +24,15 @@
 // For more information, please refer to <http://unlicense.org/>
 
 using System;
-using System.Linq;
+using System.Text;
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    internal class ServerSignatureAttribute : ScramAttribute<byte[]>, IEquatable<ServerSignatureAttribute>
+    public class ChannelAttribute : ScramAttribute<string>
     {
-        public ServerSignatureAttribute(byte[] value)
-            : base(ServerSignatureName, value)
+        public ChannelAttribute(string value)
+            : base(ChannelName, Convert.ToBase64String(Encoding.UTF8.GetBytes(value)))
         {
-        }
-
-        public ServerSignatureAttribute(string value)
-            : base(ServerSignatureName, Convert.FromBase64String(value))
-        {
-        }
-
-        public bool Equals(byte[] other)
-        {
-            return Value.SequenceEqual(other);
-        }
-
-        public bool Equals(ServerSignatureAttribute other)
-        {
-            return false;
         }
     }
 }

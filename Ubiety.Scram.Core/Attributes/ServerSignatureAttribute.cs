@@ -23,18 +23,31 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace Ubiety.Scram.Core
+using System;
+using System.Linq;
+
+namespace Ubiety.Scram.Core.Attributes
 {
-    public class NonceAttribute : ScramAttribute<string>
+    internal class ServerSignatureAttribute : ScramAttribute<byte[]>, IEquatable<ServerSignatureAttribute>
     {
-        public NonceAttribute(string value)
-            : base(NonceName, value)
+        public ServerSignatureAttribute(byte[] value)
+            : base(ServerSignatureName, value)
         {
         }
 
-        public NonceAttribute(string clientNonce, string serverNonce)
-            : base(NonceName, $"{clientNonce}{serverNonce}")
+        public ServerSignatureAttribute(string value)
+            : base(ServerSignatureName, Convert.FromBase64String(value))
         {
+        }
+
+        public bool Equals(byte[] other)
+        {
+            return Value.SequenceEqual(other);
+        }
+
+        public bool Equals(ServerSignatureAttribute other)
+        {
+            return false;
         }
     }
 }

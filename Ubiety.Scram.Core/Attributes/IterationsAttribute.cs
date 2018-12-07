@@ -23,12 +23,17 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    internal class AuthorizationIdentityAttribute : ScramAttribute<string>
+    internal class IterationsAttribute : ScramAttribute<int>
     {
-        public AuthorizationIdentityAttribute(string value)
-            : base(AuthorizationIdentityName, value)
+        public IterationsAttribute(int value)
+            : base(IterationsName, value)
+        {
+        }
+
+        public IterationsAttribute(string value)
+            : base(IterationsName, int.Parse(value))
         {
         }
     }

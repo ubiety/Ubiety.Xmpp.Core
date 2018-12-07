@@ -25,7 +25,7 @@
 
 using System;
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
     public class UserAttribute : ScramAttribute<string>
     {

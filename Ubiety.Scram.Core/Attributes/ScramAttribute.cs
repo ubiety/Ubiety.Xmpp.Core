@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
     public class ScramAttribute
     {

@@ -23,12 +23,17 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    internal class UnknownAttribute : ScramAttribute<string>
+    public class NonceAttribute : ScramAttribute<string>
     {
-        public UnknownAttribute(char name, string value)
-            : base(name, value)
+        public NonceAttribute(string value)
+            : base(NonceName, value)
+        {
+        }
+
+        public NonceAttribute(string clientNonce, string serverNonce)
+            : base(NonceName, $"{clientNonce}{serverNonce}")
         {
         }
     }

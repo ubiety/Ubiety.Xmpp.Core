@@ -23,6 +23,8 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
+using Ubiety.Scram.Core.Attributes;
+
 namespace Ubiety.Scram.Core.Model
 {
     public class ClientFirstMessage

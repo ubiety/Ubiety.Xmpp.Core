@@ -3,12 +3,12 @@
 namespace Ubiety.Stringprep.Core.Generated
 {
     /// <summary>
-    ///	Stringprep character tables
+    ///     Stringprep character tables
     /// </summary>
     internal static class Tables
     {
         /// <summary>
-        ///	A.1 Unassigned code points in Unicode 3.2
+        ///     A.1 Unassigned code points in Unicode 3.2
         /// </summary>
         public static readonly int[] A1 = new int[]
         {
@@ -411,7 +411,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	B.1 Commonly mapped to nothing
+        ///     B.1 Commonly mapped to nothing
         /// </summary>
         public static readonly Dictionary<int, int[]> B1 = new Dictionary<int, int[]>
         {
@@ -445,7 +445,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	B.2 Mapping for case-folding used with NFKC
+        ///     B.2 Mapping for case-folding used with NFKC
         /// </summary>
         public static readonly Dictionary<int, int[]> B2 = new Dictionary<int, int[]>
         {
@@ -1823,7 +1823,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	B.3 Mapping for case-folding used with no normalization
+        ///     B.3 Mapping for case-folding used with no normalization
         /// </summary>
         public static readonly Dictionary<int, int[]> B3 = new Dictionary<int, int[]>
         {
@@ -2668,10 +2668,10 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.1 Space characters
+        ///     C.1 Space characters
         /// </summary>
         /// <summary>
-        ///	C.1.1 ASCII space characters
+        ///     C.1.1 ASCII space characters
         /// </summary>
         public static readonly int[] C11 = new int[]
         {
@@ -2679,7 +2679,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.1.2 Non-ASCII space characters
+        ///     C.1.2 Non-ASCII space characters
         /// </summary>
         public static readonly int[] C12 = new int[]
         {
@@ -2703,10 +2703,10 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.2 Control characters
+        ///     C.2 Control characters
         /// </summary>
         /// <summary>
-        ///	C.2.1 ASCII control characters
+        ///     C.2.1 ASCII control characters
         /// </summary>
         public static readonly int[] C21 = new int[]
         {
@@ -2715,7 +2715,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.2.2 Non-ASCII control characters
+        ///     C.2.2 Non-ASCII control characters
         /// </summary>
         public static readonly int[] C22 = new int[]
         {
@@ -2738,7 +2738,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.3 Private use
+        ///     C.3 Private use
         /// </summary>
         public static readonly int[] C3 = new int[]
         {
@@ -2748,7 +2748,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.4 Non-character code points
+        ///     C.4 Non-character code points
         /// </summary>
         public static readonly int[] C4 = new int[]
         {
@@ -2773,7 +2773,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.5 Surrogate codes
+        ///     C.5 Surrogate codes
         /// </summary>
         public static readonly int[] C5 = new int[]
         {
@@ -2781,7 +2781,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.6 Inappropriate for plain text
+        ///     C.6 Inappropriate for plain text
         /// </summary>
         public static readonly int[] C6 = new int[]
         {
@@ -2793,7 +2793,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.7 Inappropriate for canonical representation
+        ///     C.7 Inappropriate for canonical representation
         /// </summary>
         public static readonly int[] C7 = new int[]
         {
@@ -2801,7 +2801,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.8 Change display properties or are deprecated
+        ///     C.8 Change display properties or are deprecated
         /// </summary>
         public static readonly int[] C8 = new int[]
         {
@@ -2823,7 +2823,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	C.9 Tagging characters
+        ///     C.9 Tagging characters
         /// </summary>
         public static readonly int[] C9 = new int[]
         {
@@ -2832,7 +2832,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	D.1 Characters with bidirectional property "R" or "AL"
+        ///     D.1 Characters with bidirectional property "R" or "AL"
         /// </summary>
         public static readonly int[] D1 = new int[]
         {
@@ -2873,7 +2873,7 @@ namespace Ubiety.Stringprep.Core.Generated
         };
 
         /// <summary>
-        ///	D.2 Characters with bidirectional property "L"
+        ///     D.2 Characters with bidirectional property "L"
         /// </summary>
         public static readonly int[] D2 = new int[]
         {
@@ -3238,6 +3238,5 @@ namespace Ubiety.Stringprep.Core.Generated
             0xF0000, 0xFFFFD,
             0x100000, 0x10FFFD,
         };
-
     }
 }

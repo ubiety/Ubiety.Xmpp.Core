@@ -23,25 +23,13 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-using System;
-
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    internal class SaltAttribute : ScramAttribute<byte[]>
+    internal class AuthorizationIdentityAttribute : ScramAttribute<string>
     {
-        public SaltAttribute(byte[] value)
-            : base(SaltName, value)
+        public AuthorizationIdentityAttribute(string value)
+            : base(AuthorizationIdentityName, value)
         {
-        }
-
-        public SaltAttribute(string value)
-            : base(SaltName, Convert.FromBase64String(value))
-        {
-        }
-
-        public override string ToString()
-        {
-            return $"{Name} = {Convert.ToBase64String(Value)}";
         }
     }
 }

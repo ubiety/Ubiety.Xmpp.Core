@@ -63,7 +63,13 @@ namespace Ubiety.Scram.Core
 
         public byte[] ComputeHash(byte[] value, byte[] salt, int iterations)
         {
-            var completeSalt = salt.Concat(BitConverter.GetBytes(1)).ToArray();
+            var one = BitConverter.GetBytes(1);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(one);
+            }
+
+            var completeSalt = salt.Concat(one).ToArray();
             var iteration = ComputeHash(value, completeSalt);
             var final = iteration;
 

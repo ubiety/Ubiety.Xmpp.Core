@@ -23,18 +23,21 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    internal class IterationsAttribute : ScramAttribute<int>
+    public class ScramAttribute<TValue> : ScramAttribute
     {
-        public IterationsAttribute(int value)
-            : base(IterationsName, value)
+        public ScramAttribute(char name, TValue value)
+            : base(name)
         {
+            Value = value;
         }
 
-        public IterationsAttribute(string value)
-            : base(IterationsName, int.Parse(value))
+        public TValue Value { get; }
+
+        public override string ToString()
         {
+            return $"{Name}={Value}";
         }
     }
 }

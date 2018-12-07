@@ -25,23 +25,23 @@
 
 using System;
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    public class ClientProofAttribute : ScramAttribute<byte[]>
+    internal class SaltAttribute : ScramAttribute<byte[]>
     {
-        public ClientProofAttribute(string value)
-            : base(ClientProofName, Convert.FromBase64String(value))
+        public SaltAttribute(byte[] value)
+            : base(SaltName, value)
         {
         }
 
-        public ClientProofAttribute(byte[] value)
-            : base(ClientProofName, value)
+        public SaltAttribute(string value)
+            : base(SaltName, Convert.FromBase64String(value))
         {
         }
 
         public override string ToString()
         {
-            return $"{Name}={Convert.ToBase64String(Value)}";
+            return $"{Name} = {Convert.ToBase64String(Value)}";
         }
     }
 }

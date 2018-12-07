@@ -23,12 +23,12 @@
 //
 // For more information, please refer to <http://unlicense.org/>
 
-namespace Ubiety.Scram.Core
+namespace Ubiety.Scram.Core.Attributes
 {
-    internal class ErrorAttribute : ScramAttribute<string>
+    internal class UnknownAttribute : ScramAttribute<string>
     {
-        public ErrorAttribute(string value)
-            : base(ErrorName, value)
+        public UnknownAttribute(char name, string value)
+            : base(name, value)
         {
         }
     }

@@ -25,6 +25,7 @@
 
 using System;
 using System.Linq;
+using Ubiety.Scram.Core.Attributes;
 
 namespace Ubiety.Scram.Core.Model
 {
