@@ -56,7 +56,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         /// <summary>
         ///     Initializes the SASL processor
         /// </summary>
-        /// <param name="id"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> of the user for the session</param>
+        /// <param name="id"><see cref="Jid" /> of the user for the session</param>
         /// <param name="password">Password of the user</param>
         /// <returns>Next tag to send to the server</returns>
         public override Tag Initialize(Jid id, string password)

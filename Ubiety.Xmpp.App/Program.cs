@@ -8,8 +8,7 @@ namespace Ubiety.Xmpp.App
     {
         private static void Main(string[] args)
         {
-            var client = new XmppBuilder()
-                .BuildClient()
+            var client = XmppBuilder.BuildClient()
                 .EnableLogging(new SerilogManager())
                 .Build();
 
