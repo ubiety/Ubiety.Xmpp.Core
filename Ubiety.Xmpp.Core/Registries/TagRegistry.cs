@@ -75,10 +75,10 @@ namespace Ubiety.Xmpp.Core.Registries
 
             if (_types.TryGetValue(name, out var type))
             {
-                var constructor = type.GetConstructor(new Type[] { });
+                var constructor = Tag.GetConstructor(type, new Type[] { });
                 if (constructor is null)
                 {
-                    constructor = type.GetConstructor(new[] { typeof(XName) });
+                    constructor = Tag.GetConstructor(type, new[] { typeof(XName) });
                     if (constructor != null)
                     {
                         tag = (T)constructor.Invoke(new object[] { name });
