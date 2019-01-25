@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="7.8.0.7320">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="7.10.0.7896">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
@@ -34,11 +34,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Ubiety.Dns.Core" Version="2.2.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Ubiety.Scram.Core\Ubiety.Scram.Core.csproj" />
-    <ProjectReference Include="..\Ubiety.Stringprep.Core\Ubiety.Stringprep.Core.csproj" />
+    <PackageReference Include="Ubiety.Scram.Core" Version="0.0.1" />
+    <PackageReference Include="Ubiety.Stringprep.Core" Version="0.2.2" />
   </ItemGroup>
 
   <ItemGroup>

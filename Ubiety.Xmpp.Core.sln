@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Core", "Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj", "{26BA0D5F-07E9-41DD-99F6-ED2751BC6955}"
 EndProject
@@ -10,11 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.App", "Ubiety.X
 		{26BA0D5F-07E9-41DD-99F6-ED2751BC6955} = {26BA0D5F-07E9-41DD-99F6-ED2751BC6955}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Stringprep.Core", "Ubiety.Stringprep.Core\Ubiety.Stringprep.Core.csproj", "{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Scram.Core", "Ubiety.Scram.Core\Ubiety.Scram.Core.csproj", "{533B7C0E-4929-4275-AE8F-FCC8B58AD506}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ubiety.Xmpp.Test", "Ubiety.Xmpp.Test\Ubiety.Xmpp.Test.csproj", "{27298DB8-918D-463A-8824-B22576EC94BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Test", "Ubiety.Xmpp.Test\Ubiety.Xmpp.Test.csproj", "{27298DB8-918D-463A-8824-B22576EC94BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,14 +26,6 @@ Global
 		{1564B610-E117-4E11-ABE7-9821808BAD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1564B610-E117-4E11-ABE7-9821808BAD51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1564B610-E117-4E11-ABE7-9821808BAD51}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9BB1E2E-8113-4991-88C8-F974AE6F9CAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{533B7C0E-4929-4275-AE8F-FCC8B58AD506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{533B7C0E-4929-4275-AE8F-FCC8B58AD506}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{533B7C0E-4929-4275-AE8F-FCC8B58AD506}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{533B7C0E-4929-4275-AE8F-FCC8B58AD506}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27298DB8-918D-463A-8824-B22576EC94BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27298DB8-918D-463A-8824-B22576EC94BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27298DB8-918D-463A-8824-B22576EC94BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
