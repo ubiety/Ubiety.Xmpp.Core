@@ -5,6 +5,8 @@ mono: none
 dotnet: 2.2.103
 install:
   - dotnet tool install coveralls.net --tool-path tools
+  - dotnet tool install coverlet.console --tool-path tools
 script:
   - dotnet restore
-  - dotnet test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+  - coverlet Ubiety.Xmpp.Test/bin/Debug/netcoreapp2.1/Ubiety.Xmpp.Test.dll --target "dotnet" --targetargs "test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj --no-build" --format opencover
+  - csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
