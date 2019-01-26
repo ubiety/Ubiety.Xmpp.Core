@@ -1,7 +1,10 @@
 ![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
 
 # Ubiety XMPP Core
+
 > Your XMPP choice for .NET Core
+
+[![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core)[![Build Status](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core.svg?branch=master)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core)[![Coverage Status](https://coveralls.io/repos/github/ubiety/Ubiety.Xmpp.Core/badge.svg?branch=master)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=master)
 
 XMPP is not dying and this library will help keep it alive. You can use this to
 develop a client for this popular messaging protocol and soon it will support
@@ -42,11 +45,12 @@ dotnet build
 
 ### Deploying / Publishing
 
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
 ```shell
-packagemanager deploy awesome-project -s server.com -u username -p password
+git pull
+versionize
+dotnet pack
+dotnet nuget push
+git push
 ```
 
 And again you'd need to tell what the previous code actually does.
@@ -54,9 +58,10 @@ And again you'd need to tell what the previous code actually does.
 ## Features
 
 What's all the bells and whistles this project can perform?
-* What's the main functionality
-* You can also do another thing
-* If you get really randy, you can even do this
+
+- What's the main functionality
+- You can also do another thing
+- If you get really randy, you can even do this
 
 ## Configuration
 
@@ -64,6 +69,7 @@ Here you should write what are all of the configurations a user can enter when
 using the project.
 
 #### Argument 1
+
 Type: `String`  
 Default: `'default value'`
 
@@ -71,11 +77,13 @@ State what an argument does and how you can use it. If needed, you can provide
 an example below.
 
 Example:
+
 ```bash
 awesome-project "Some other value"  # Prints "You're nailing this readme!"
 ```
 
 #### Argument 2
+
 Type: `Number|Boolean`  
 Default: 100
 
@@ -112,7 +120,6 @@ links to humans using your project. You can include links like:
 - Related projects:
   - Your other project: https://github.com/your/other-project/
   - Someone else's project: https://github.com/someones/awesome-project/
-
 
 ## Licensing
 

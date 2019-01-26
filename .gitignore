@@ -261,3 +261,9 @@ __pycache__/
 *.pyc
 
 **/log*.txt
+
+# SonarLint
+.sonarlint/
+
+# Coverage
+coverage*
