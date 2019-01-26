@@ -1427,17 +1427,11 @@
                 Builds an XMPP connection
             </summary>
         </member>
-        <member name="M:Ubiety.Xmpp.Core.XmppBuilder.BuildClient">
+        <member name="M:Ubiety.Xmpp.Core.XmppBuilder.BeginClientBuild">
             <summary>
                 Build a client connection
             </summary>
             <returns>Returns a new <see cref="T:Ubiety.Xmpp.Core.XmppClientBuilder" /> instance</returns>
-        </member>
-        <member name="M:Ubiety.Xmpp.Core.XmppBuilder.Begin">
-            <summary>
-                Begins the build process
-            </summary>
-            <returns>Returns the current instance</returns>
         </member>
         <member name="M:Ubiety.Xmpp.Core.XmppBuilder.BuildServer">
             <summary>
