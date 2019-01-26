@@ -4,7 +4,7 @@
 
 > Your XMPP choice for .NET Core
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core)
+[![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core)[![Build Status](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core.svg?branch=master)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core)[![Coverage Status](https://coveralls.io/repos/github/ubiety/Ubiety.Xmpp.Core/badge.svg?branch=master)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=master)
 
 XMPP is not dying and this library will help keep it alive. You can use this to
 develop a client for this popular messaging protocol and soon it will support
