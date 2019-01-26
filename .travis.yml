@@ -1,0 +1,10 @@
+language: csharp
+solution: Ubiety.Xmpp.Core.sln
+mono: none
+dotnet: 2.2.103
+install:
+  - dotnet tool install coveralls.net --tool-path tools
+script:
+  - dotnet restore
+  - pwd
+  - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
