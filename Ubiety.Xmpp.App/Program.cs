@@ -8,13 +8,13 @@ namespace Ubiety.Xmpp.App
     {
         private static void Main(string[] args)
         {
-            var client = XmppBuilder.BuildClient()
+            var client = XmppBuilder.BeginClientBuild()
                 .EnableLogging(new SerilogManager())
                 .Build();
 
             client.Error += Client_Error;
 
-            client.Connect("dieter@dieterlunn.ca", "8o0tcAmp");
+            client.Connect("test@dieterlunn.ca", "testing");
             Console.ReadLine();
         }
 

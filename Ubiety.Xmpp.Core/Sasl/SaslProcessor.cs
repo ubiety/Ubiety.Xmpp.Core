@@ -69,13 +69,6 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             Client = xmpp;
 
-            /* Disable SCRAM PLUS
-            if ((serverTypes & clientTypes & MechanismTypes.ScramPlus) == MechanismTypes.ScramPlus)
-            {
-                return new ScramProcessor(true);
-            }
-            */
-
             if ((serverTypes & clientTypes & MechanismTypes.Scram) == MechanismTypes.Scram)
             {
                 return new ScramProcessor(false);
