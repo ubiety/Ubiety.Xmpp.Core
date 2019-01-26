@@ -7,5 +7,4 @@ install:
   - dotnet tool install coveralls.net --tool-path tools
 script:
   - dotnet restore
-  - pwd
-  - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+  - dotnet test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
