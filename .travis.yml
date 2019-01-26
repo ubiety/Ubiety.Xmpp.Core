@@ -1,3 +1,4 @@
+dist: xenial
 language: csharp
 solution: Ubiety.Xmpp.Core.sln
 mono: none
