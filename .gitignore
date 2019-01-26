@@ -264,3 +264,6 @@ __pycache__/
 
 # SonarLint
 .sonarlint/
+
+# Coverage
+coverage*
