@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.Tags;
@@ -46,30 +47,19 @@ namespace Ubiety.Xmpp.Core.States
                     return;
             }
 
-            if (features.StartTls != null && (xmpp.UseSsl || features.FeatureCount == 1 || features.StartTls.Required))
+            if (!xmpp.ClientSocket.Secure)
             {
-                Logger.Log(LogLevel.Debug, "SSL/TLS is required or it is supported and we want to use it");
-                xmpp.State = new StartTlsState();
-                xmpp.State.Execute(xmpp);
-                return;
+                Logger.Log(LogLevel.Debug, "Checking if we should use SSL");
+                if (features.CheckSsl(xmpp))
+                {
+                    return;
+                }
             }
 
             if (xmpp is XmppClient client && !client.Authenticated)
             {
-                Logger.Log(LogLevel.Debug, "Starting authentication");
-                client.SaslProcessor = SaslProcessor.CreateProcessor(
-                    features.Mechanisms.SupportedTypes,
-                    MechanismTypes.Default,
-                    client);
-                if (client.SaslProcessor is null)
-                {
-                    client.State = new DisconnectState();
-                    client.State.Execute(client);
-                    return;
-                }
-
-                client.ClientSocket.Send(client.SaslProcessor.Initialize(client.Id, client.Password));
-                client.State = new SaslState();
+                Logger.Log(LogLevel.Debug, "Authenticating the user");
+                features.AuthenticateUser(client);
             }
         }
     }

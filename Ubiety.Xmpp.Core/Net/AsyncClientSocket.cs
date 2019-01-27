@@ -62,6 +62,11 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public bool Connected { get; private set; }
 
+        /// <summary>
+        ///     Gets a value indicating whether the socket is secure
+        /// </summary>
+        public bool Secure { get; private set; }
+
         /// <inheritdoc />
         public void Dispose()
         {
