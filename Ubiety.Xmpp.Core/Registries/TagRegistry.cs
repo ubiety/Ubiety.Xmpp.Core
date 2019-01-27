@@ -107,6 +107,8 @@ namespace Ubiety.Xmpp.Core.Registries
         /// <returns>Tag from the registry</returns>
         public T GetTag<T>(XElement element)
         {
+            Logger.Log(LogLevel.Debug, $"Finding tag for element: {element.Name.LocalName}");
+
             try
             {
                 var gotType = _types.TryGetValue(element.Name, out var type);
@@ -127,6 +129,7 @@ namespace Ubiety.Xmpp.Core.Registries
 
                 if (gotType)
                 {
+                    Logger.Log(LogLevel.Debug, $"Constructing type: {type}");
                     var constructor = type.GetConstructor(new[] { element.GetType() });
                     if (constructor is null)
                     {
