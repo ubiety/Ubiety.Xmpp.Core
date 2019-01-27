@@ -34,7 +34,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Ubiety.Dns.Core" Version="2.2.1" />
-    <PackageReference Include="Ubiety.Scram.Core" Version="0.0.2" />
+    <PackageReference Include="Ubiety.Scram.Core" Version="1.1.0" />
     <PackageReference Include="Ubiety.Stringprep.Core" Version="0.2.2" />
   </ItemGroup>
 

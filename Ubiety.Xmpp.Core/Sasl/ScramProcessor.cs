@@ -16,7 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Ubiety.Scram.Core;
-using Ubiety.Scram.Core.Model;
+using Ubiety.Scram.Core.Messages;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
