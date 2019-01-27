@@ -101,7 +101,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             }
         }
 
-        private Tag ProcessChallenge(Tag tag)
+        private Response ProcessChallenge(Challenge tag)
         {
             _serverResponse = _encoding.GetString(tag.Bytes);
 
