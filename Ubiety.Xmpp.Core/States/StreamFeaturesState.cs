@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+﻿// Copyright 2018, 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,9 +13,9 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Exceptions;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
-using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
@@ -44,7 +44,7 @@ namespace Ubiety.Xmpp.Core.States
                     break;
                 default:
                     Logger.Log(LogLevel.Error, "Unexpected tag. Wrong state executed");
-                    return;
+                    throw new InvalidStateException("Received tag that is not valid for the current state");
             }
 
             if (!xmpp.ClientSocket.Secure)

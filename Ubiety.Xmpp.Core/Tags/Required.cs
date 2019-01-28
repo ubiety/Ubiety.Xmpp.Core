@@ -16,10 +16,11 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
 
-namespace Ubiety.Xmpp.Core.Tags.Tls
+namespace Ubiety.Xmpp.Core.Tags
 {
     /// <inheritdoc />
     [XmppTag("required", Namespaces.Tls, typeof(Required))]
+    [XmppTag("required", Namespaces.Bind, typeof(Required))]
     public class Required : Tag
     {
         /// <summary>
