@@ -14,8 +14,7 @@ namespace Ubiety.Xmpp.App
 
             client.Error += Client_Error;
 
-            client.Connect("dieter@dieterlunn.ca", "8o0tcAmp");
-            Console.ReadLine();
+            client.Connect("test@dieterlunn.ca", "testing");
         }
 
         private static void Client_Error(object sender, ErrorEventArgs e)

@@ -204,6 +204,11 @@
                 XMPP SASL namespace
             </summary>
         </member>
+        <member name="F:Ubiety.Xmpp.Core.Common.Namespaces.Bind">
+            <summary>
+                XMPP Resource Binding namespace
+            </summary>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Common.TagEventArgs">
             <summary>
                 Tag event arguments
@@ -324,6 +329,39 @@
             <param name="jid"><see cref="T:Ubiety.Xmpp.Core.Common.Jid" /> to use for connecting</param>
             <param name="password">Password to connect with</param>
         </member>
+        <member name="T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException">
+            <summary>
+                Invalid State Exception
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException"/> class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException"/> class
+            </summary>
+            <param name="message">Message to use for the exception</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException.#ctor(System.String,System.Exception)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException"/> class
+            </summary>
+            <param name="message">Message to use for the exception</param>
+            <param name="innerException">Inner exception</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException"/> class
+            </summary>
+            <param name="info">Serialization info</param>
+            <param name="context">Streaming context</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions">
             <summary>
                 Assembly class extensions
@@ -362,6 +400,26 @@
             <typeparam name="T">Type of the item</typeparam>
             <param name="enumerable">Enumerable to iterate</param>
             <param name="action">Action to perform</param>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions">
+            <summary>
+                Extension methods for the features tag
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions.CheckSsl(Ubiety.Xmpp.Core.Tags.Stream.Features,Ubiety.Xmpp.Core.Common.XmppBase)">
+            <summary>
+                Check if SSL is required or requested
+            </summary>
+            <param name="features">Features tag to use when checking</param>
+            <param name="xmpp">Xmpp class to execute state</param>
+            <returns>Indicates whether we secured the socket or not</returns>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions.AuthenticateUser(Ubiety.Xmpp.Core.Tags.Stream.Features,Ubiety.Xmpp.Core.XmppClient)">
+            <summary>
+                Authenticate a user with the server
+            </summary>
+            <param name="features">Features to use for authentication</param>
+            <param name="client">Client to use</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions">
             <summary>
@@ -566,6 +624,11 @@
         </member>
         <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected">
             <inheritdoc />
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure">
+            <summary>
+                Gets a value indicating whether the socket is secure
+            </summary>
         </member>
         <member name="M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose">
             <inheritdoc />
@@ -951,6 +1014,53 @@
                 Create the profile
             </summary>
             <returns>Profile process</returns>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Binding.Bind">
+            <summary>
+                Bind tag
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Binding.Bind.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Binding.Bind"/> class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Binding.Bind.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Binding.Bind"/> class
+            </summary>
+            <param name="other"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Binding.Bind.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Binding.Bind.Required">
+            <summary>
+                Gets a value indicating whether binding is required
+            </summary>
+        </member>
+        <member name="T:Ubiety.Xmpp.Core.Tags.Binding.Required">
+            <summary>
+                Binding required tag
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Binding.Required.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Binding.Required"/> class
+            </summary>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Tags.Binding.Required.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ubiety.Xmpp.Core.Tags.Binding.Required"/> class
+            </summary>
+            <param name="element"><see cref="T:System.Xml.Linq.XElement"/> to derive tag from</param>
+        </member>
+        <member name="P:Ubiety.Xmpp.Core.Tags.Binding.Required.XmlName">
+            <summary>
+                Gets the XML name of the tag
+            </summary>
         </member>
         <member name="T:Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition">
             <summary>
