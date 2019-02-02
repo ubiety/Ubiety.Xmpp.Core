@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using System.Xml.Linq;
+using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
 
 namespace Ubiety.Xmpp.Core.Tags
@@ -20,6 +21,7 @@ namespace Ubiety.Xmpp.Core.Tags
     /// <summary>
     ///     Bind tag
     /// </summary>
+    [XmppTag("bind", Namespaces.Bind, typeof(Bind))]
     public class Bind : Tag
     {
         /// <summary>
