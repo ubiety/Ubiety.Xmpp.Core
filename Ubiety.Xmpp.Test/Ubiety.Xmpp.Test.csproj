@@ -5,6 +5,7 @@
     <IsPackable>false</IsPackable>
     <SonarQubeTestProject>True</SonarQubeTestProject>
     <IsTestProject>True</IsTestProject>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

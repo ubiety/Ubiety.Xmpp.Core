@@ -93,7 +93,9 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, "Starting async connection");
 
-                if (!_socket.ConnectAsync(args))
+                var completed = _socket.ConnectAsync(args);
+
+                if (!completed)
                 {
                     ConnectCompleted(this, args);
                 }
