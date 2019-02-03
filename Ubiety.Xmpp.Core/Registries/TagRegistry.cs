@@ -38,6 +38,7 @@ namespace Ubiety.Xmpp.Core.Registries
         /// <param name="assembly">Assembly to add tags from</param>
         public void AddAssembly(Assembly assembly)
         {
+            Logger.Log(LogLevel.Debug, "AddAssembly(Assembly) called");
             Logger.Log(LogLevel.Debug, $"Loading tags from assembly: {assembly.FullName}");
 
             var attributes = assembly.GetAttributes<XmppTagAttribute>();
@@ -58,6 +59,7 @@ namespace Ubiety.Xmpp.Core.Registries
         public T GetTag<T>(string name, string ns)
             where T : Tag
         {
+            Logger.Log(LogLevel.Debug, "GetTag<T>(string, string) called");
             return GetTag<T>(XName.Get(name, ns));
         }
 
@@ -69,6 +71,7 @@ namespace Ubiety.Xmpp.Core.Registries
         /// <returns>Tag requested from the registry</returns>
         public T GetTag<T>(XName name)
         {
+            Logger.Log(LogLevel.Debug, "GetTag<T>(XName) called");
             var tag = default(T);
 
             Logger.Log(LogLevel.Debug, $"Finding tag {name.LocalName}...");
@@ -107,6 +110,7 @@ namespace Ubiety.Xmpp.Core.Registries
         /// <returns>Tag from the registry</returns>
         public T GetTag<T>(XElement element)
         {
+            Logger.Log(LogLevel.Debug, "GetTag<T>(XElement) called");
             Logger.Log(LogLevel.Debug, $"Finding tag for element: {element.Name.LocalName}");
 
             try

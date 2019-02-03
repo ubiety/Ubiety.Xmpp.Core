@@ -34,8 +34,8 @@ namespace Ubiety.Xmpp.Core
         internal XmppClient()
         {
             _logger = Log.Get<XmppClient>();
+            _logger.Log(LogLevel.Debug, $"{typeof(XmppClient)} created");
             ClientSocket = new AsyncClientSocket(this);
-            _logger.Log(LogLevel.Debug, "XmppClient created");
             Parser = new Parser(this);
             Parser.Tag += Parser_Tag;
         }
@@ -56,6 +56,7 @@ namespace Ubiety.Xmpp.Core
         /// <inheritdoc />
         public void Connect(Jid jid, string password)
         {
+            _logger.Log(LogLevel.Debug, "Connect(Jid, string) called");
             if (jid is null)
             {
                 throw new ArgumentNullException(nameof(jid));

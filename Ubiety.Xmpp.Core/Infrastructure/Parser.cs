@@ -44,7 +44,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
             _xmpp = xmpp;
             _dataQueue = new Queue<string>();
             _xmpp.ClientSocket.Data += ClientSocket_Data;
-            _logger.Log(LogLevel.Debug, "Parser created");
+            _logger.Log(LogLevel.Debug, $"{typeof(Parser)} created");
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         /// </summary>
         public void Start()
         {
-            _logger.Log(LogLevel.Debug, "Starting parsing process");
+            _logger.Log(LogLevel.Debug, "Start() called");
             _running = true;
             Task.Run(() => ProcessQueue());
         }
@@ -82,11 +82,13 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         /// </summary>
         public void Stop()
         {
+            _logger.Log(LogLevel.Debug, "Stop() called");
             _running = false;
         }
 
         private void OnTag(Tag tag)
         {
+            _logger.Log(LogLevel.Debug, "OnTag(Tag) called");
             Tag?.Invoke(this, new TagEventArgs { Tag = tag });
         }
 

@@ -42,10 +42,9 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="client"><see cref="IClient" /> for configuration</param>
         public Address(IClient client)
         {
+            _logger.Log(LogLevel.Debug, $"{typeof(Address)} created");
             _resolver = new Resolver("8.8.8.8") { UseCache = true, Timeout = 5, TransportType = TransportType.Tcp };
             _client = client;
-
-            _logger.Log(LogLevel.Debug, "Address created");
         }
 
         /// <summary>
@@ -64,6 +63,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <returns><see cref="IPAddress" /> of the XMPP server</returns>
         public IPAddress NextIpAddress()
         {
+            _logger.Log(LogLevel.Debug, "NextIpAddress() called");
             Hostname = !string.IsNullOrEmpty(_client.Id.Server) ? _client.Id.Server : string.Empty;
 
             _logger.Log(LogLevel.Debug, $"Resolving address for domain: {Hostname}");
@@ -108,6 +108,7 @@ namespace Ubiety.Xmpp.Core.Net
 
         private IPAddress Resolve(string hostname = "")
         {
+            _logger.Log(LogLevel.Debug, "Resolve(string) called");
             Response response = null;
             var host = string.IsNullOrEmpty(hostname) ? Hostname : hostname;
 
@@ -133,6 +134,7 @@ namespace Ubiety.Xmpp.Core.Net
 
         private List<RecordSrv> ResolveSrv()
         {
+            _logger.Log(LogLevel.Debug, "ResolveSrv() called");
             _logger.Log(LogLevel.Debug, $"Attempting to retrieve any XMPP SRV records for {Hostname}");
             var response = _resolver.Query($"_xmpp-client._tcp.{Hostname}", QuestionType.SRV, QuestionClass.IN);
 

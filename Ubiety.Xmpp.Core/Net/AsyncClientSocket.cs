@@ -49,7 +49,7 @@ namespace Ubiety.Xmpp.Core.Net
         public AsyncClientSocket(IClient client)
         {
             _client = client;
-            _logger.Log(LogLevel.Debug, "AsyncClientSocket created");
+            _logger.Log(LogLevel.Debug, $"{typeof(AsyncClientSocket)} created");
             _resetEvent = new AutoResetEvent(false);
         }
 
@@ -71,13 +71,12 @@ namespace Ubiety.Xmpp.Core.Net
         public void Dispose()
         {
             Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         /// <inheritdoc />
         public void Connect(Jid jid)
         {
-            _logger.Log(LogLevel.Debug, "Connecting to server");
+            _logger.Log(LogLevel.Debug, "Connect(Jid) called");
             _client.Id = jid;
             _address = new Address(_client);
             _logger.Log(LogLevel.Debug, "Creating socket");
@@ -91,18 +90,19 @@ namespace Ubiety.Xmpp.Core.Net
 
             try
             {
-                _logger.Log(LogLevel.Debug, "Starting async connection");
+                _logger.Log(LogLevel.Debug, "Starting asynchronous connection");
 
                 var completed = _socket.ConnectAsync(args);
 
                 if (!completed)
                 {
+                    _logger.Log(LogLevel.Debug, "Connect completed synchronously");
                     ConnectCompleted(this, args);
                 }
             }
             catch (SocketException e)
             {
-                _logger.Log(LogLevel.Error, e, "Error connecting to the server");
+                _logger.Log(LogLevel.Error, e, $"Error connecting to the server with error code {e.ErrorCode}");
                 Console.WriteLine(e);
                 throw;
             }
@@ -111,7 +111,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Disconnect()
         {
-            _logger.Log(LogLevel.Debug, "Disconnecting from the server");
+            _logger.Log(LogLevel.Debug, "Disconnect() called");
             Connected = false;
             _stream.Close();
             _socket.Shutdown(SocketShutdown.Both);
@@ -146,7 +146,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// </summary>
         public void StartSsl()
         {
-            _logger.Log(LogLevel.Debug, "Starting SSL encryption");
+            _logger.Log(LogLevel.Debug, "StartSsl() called");
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
             _logger.Log(LogLevel.Debug, "Authenticating as client...");
@@ -170,7 +170,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// </summary>
         public void SetReadClear()
         {
-            _logger.Log(LogLevel.Debug, "Setting read clear to true");
+            _logger.Log(LogLevel.Debug, "SetReadClear() called");
             _resetEvent.Set();
         }
 
@@ -180,7 +180,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="e">Data event arguments</param>
         protected virtual void OnData(DataEventArgs e)
         {
-            _logger.Log(LogLevel.Debug, "Firing data event");
+            _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
             Data?.Invoke(this, e);
         }
 
@@ -189,7 +189,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// </summary>
         protected virtual void OnConnection()
         {
-            _logger.Log(LogLevel.Debug, "Firing connection event");
+            _logger.Log(LogLevel.Debug, "OnConnection() called");
             Connection?.Invoke(this, new EventArgs());
         }
 
@@ -232,7 +232,7 @@ namespace Ubiety.Xmpp.Core.Net
 
         private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
         {
-            _logger.Log(LogLevel.Debug, "Connection complete");
+            _logger.Log(LogLevel.Debug, "ConnectCompleted(object, SocketEventArgs) called");
 
             if (e.SocketError != SocketError.Success)
             {
@@ -246,17 +246,17 @@ namespace Ubiety.Xmpp.Core.Net
             Connected = true;
             OnConnection();
 
-            _logger.Log(LogLevel.Debug, "Starting to read data");
-            BeginRead();
+            BeginReadAsync();
         }
 
-        private void BeginRead()
+        private async void BeginReadAsync()
         {
+            _logger.Log(LogLevel.Debug, "BeginReadAsync() called");
             while (Connected)
             {
-                var message = ReadData();
-                _logger.Log(LogLevel.Debug, $"Received message: {message.Result}");
-                OnData(new DataEventArgs { Message = message.Result });
+                var message = await ReadData();
+                _logger.Log(LogLevel.Debug, $"Received message: {message}");
+                OnData(new DataEventArgs { Message = message });
             }
         }
 

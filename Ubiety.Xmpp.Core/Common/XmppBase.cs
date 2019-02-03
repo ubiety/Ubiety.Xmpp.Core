@@ -27,10 +27,11 @@ namespace Ubiety.Xmpp.Core.Common
     /// <summary>
     ///     Base XMPP implementation
     /// </summary>
-    public abstract class XmppBase
+    public abstract class XmppBase : IDisposable
     {
         private readonly ILog _logger;
         private AsyncClientSocket _clientSocket;
+        private bool _disposedValue = false; // To detect redundant calls
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppBase" /> class
@@ -38,7 +39,7 @@ namespace Ubiety.Xmpp.Core.Common
         protected XmppBase()
         {
             _logger = Log.Get<XmppBase>();
-            _logger.Log(LogLevel.Debug, "XmppBase created");
+            _logger.Log(LogLevel.Debug, $"{this.GetType()} created");
         }
 
         /// <summary>
@@ -95,6 +96,16 @@ namespace Ubiety.Xmpp.Core.Common
         protected Parser Parser { get; set; }
 
         /// <summary>
+        ///     Dispose resourses
+        /// </summary>
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+        }
+
+        /// <summary>
         ///     Received a tag from the parser
         /// </summary>
         /// <param name="sender">Object sending the event</param>
@@ -112,6 +123,23 @@ namespace Ubiety.Xmpp.Core.Common
 
             _logger.Log(LogLevel.Debug, "Received a tag. Executing current state");
             State.Execute(this, e.Tag);
+        }
+
+        /// <summary>
+        ///     Dispose resources
+        /// </summary>
+        /// <param name="disposing">Dispose managed resources</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    _clientSocket.Dispose();
+                }
+
+                _disposedValue = true;
+            }
         }
 
         private void OnError(object sender, ErrorEventArgs e)
