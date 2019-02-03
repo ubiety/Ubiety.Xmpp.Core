@@ -19,6 +19,10 @@ namespace Ubiety.Xmpp.App
                     client.Error += Client_Error;
 
                     client.Connect(o.Jid, o.Password);
+
+                    // Needed to keep app from exiting too early
+                    // Console apps don't have an inherent run loop
+                    Console.ReadLine();
                 }
             });
         }

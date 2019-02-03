@@ -101,6 +101,8 @@ namespace Ubiety.Xmpp.Core.Common
         // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
+            _logger.Log(LogLevel.Debug, "Dispose() called");
+
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
         }
@@ -131,10 +133,12 @@ namespace Ubiety.Xmpp.Core.Common
         /// <param name="disposing">Dispose managed resources</param>
         protected virtual void Dispose(bool disposing)
         {
+            _logger.Log(LogLevel.Debug, "Dispose(bool) called");
             if (!_disposedValue)
             {
                 if (disposing)
                 {
+                    _logger.Log(LogLevel.Debug, $"Disposing {_clientSocket.GetType()}");
                     _clientSocket.Dispose();
                 }
 

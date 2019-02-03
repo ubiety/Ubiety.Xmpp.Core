@@ -2,7 +2,7 @@
   "profiles": {
     "Ubiety.Xmpp.App": {
       "commandName": "Project",
-      "commandLineArgs": "-j testing@dieterlunn.ca -p testing"
+      "commandLineArgs": "-j test@dieterlunn.ca -p testing"
     }
   }
 }

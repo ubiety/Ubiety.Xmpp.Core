@@ -70,6 +70,7 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Dispose()
         {
+            _logger.Log(LogLevel.Debug, "Dispose() called");
             Dispose(true);
         }
 
@@ -199,8 +200,10 @@ namespace Ubiety.Xmpp.Core.Net
         /// <param name="disposing">Are we disposing from a direct call</param>
         protected virtual void Dispose(bool disposing)
         {
+            _logger.Log(LogLevel.Debug, "Dispose(bool) called");
             if (disposing)
             {
+                _logger.Log(LogLevel.Debug, $"Disposing {_socket.GetType()}");
                 _socket?.Dispose();
             }
         }

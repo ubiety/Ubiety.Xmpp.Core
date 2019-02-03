@@ -275,12 +275,23 @@
                 Gets or sets the XMPP protocol parser
             </summary>
         </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.XmppBase.Dispose">
+            <summary>
+                Dispose resourses
+            </summary>
+        </member>
         <member name="M:Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag(System.Object,Ubiety.Xmpp.Core.Common.TagEventArgs)">
             <summary>
                 Received a tag from the parser
             </summary>
             <param name="sender">Object sending the event</param>
             <param name="e">Event arguments containing the tag</param>
+        </member>
+        <member name="M:Ubiety.Xmpp.Core.Common.XmppBase.Dispose(System.Boolean)">
+            <summary>
+                Dispose resources
+            </summary>
+            <param name="disposing">Dispose managed resources</param>
         </member>
         <member name="T:Ubiety.Xmpp.Core.IClient">
             <summary>
