@@ -63,5 +63,18 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
             client.ClientSocket.Send(client.SaslProcessor.Initialize(client.Id, client.Password));
             client.State = new SaslState();
         }
+
+        /// <summary>
+        ///     Start user resource binding
+        /// </summary>
+        /// <param name="features">Server features</param>
+        /// <param name="client">Current Xmpp client instance</param>
+        public static void StartBinding(this Features features, XmppClient client)
+        {
+            if (features.Bind.Required)
+            {
+
+            }
+        }
     }
 }

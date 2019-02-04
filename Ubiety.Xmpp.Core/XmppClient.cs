@@ -53,6 +53,11 @@ namespace Ubiety.Xmpp.Core
         /// </summary>
         public bool Authenticated { get; internal set; }
 
+        /// <summary>
+        ///     Gets or sets a value for the JID resource
+        /// </summary>
+        public string Resource { get; set; }
+
         /// <inheritdoc />
         public void Connect(Jid jid, string password)
         {

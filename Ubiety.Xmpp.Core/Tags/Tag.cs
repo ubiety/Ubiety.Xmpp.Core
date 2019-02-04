@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Xml.Linq;
 
 namespace Ubiety.Xmpp.Core.Tags
@@ -26,6 +27,8 @@ namespace Ubiety.Xmpp.Core.Tags
     /// <inheritdoc />
     public abstract class Tag : XElement
     {
+        private static int _packetCounter;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="Tag" /> class
         /// </summary>
@@ -51,6 +54,15 @@ namespace Ubiety.Xmpp.Core.Tags
         {
             get => System.Convert.FromBase64String(Value);
             set => Value = System.Convert.ToBase64String(value);
+        }
+
+        /// <summary>
+        ///     Gets or sets the tag id
+        /// </summary>
+        public string Id
+        {
+            get => GetAttributeValue("id");
+            set => SetAttributeValue("id", value);
         }
 
         /// <summary>
@@ -104,6 +116,16 @@ namespace Ubiety.Xmpp.Core.Tags
         {
             var attribute = Attribute(name);
             return attribute?.Value;
+        }
+
+        /// <summary>
+        ///     Get the next packet id
+        /// </summary>
+        /// <returns>Packet id as a string</returns>
+        protected string GetNextPacketId()
+        {
+            Interlocked.Increment(ref _packetCounter);
+            return $"U{_packetCounter:D5}";
         }
 
         private static T Convert<T>(XElement element)

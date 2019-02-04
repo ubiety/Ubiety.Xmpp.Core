@@ -20,6 +20,7 @@ namespace Ubiety.Xmpp.App
 
                     client.Connect(o.Jid, o.Password);
 
+                    Console.Write(">");
                     // Needed to keep app from exiting too early
                     // Console apps don't have an inherent run loop
                     Console.ReadLine();
