@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+﻿// Copyright 2018, 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -57,15 +57,6 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Gets or sets the tag id
-        /// </summary>
-        public string Id
-        {
-            get => GetAttributeValue("id");
-            set => SetAttributeValue("id", value);
-        }
-
-        /// <summary>
         ///     Gets the constructor for a tag
         /// </summary>
         /// <param name="type">Type of the tag</param>
@@ -119,6 +110,36 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
+        ///     Gets the enum value of a tag attribute
+        /// </summary>
+        /// <typeparam name="T">Enum type to return</typeparam>
+        /// <param name="name">Attribute name</param>
+        /// <returns>Enum value</returns>
+        protected T GetAttributeEnumValue<T>(XName name)
+            where T : Enum
+        {
+            string attribute = GetAttributeValue(name);
+            if (!string.IsNullOrEmpty(attribute))
+            {
+                return (T)Enum.Parse(typeof(T), attribute, true);
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        ///     Sets the enum value of a tag attribute
+        /// </summary>
+        /// <typeparam name="T">Enum type</typeparam>
+        /// <param name="name">Attribute name</param>
+        /// <param name="value">Enum value to set</param>
+        protected void SetAttributeEnumValue<T>(XName name, T value)
+            where T : Enum
+        {
+            SetAttributeValue(name, value.ToString().ToLowerInvariant());
+        }
+
+        /// <summary>
         ///     Get the next packet id
         /// </summary>
         /// <returns>Packet id as a string</returns>
@@ -133,7 +154,7 @@ namespace Ubiety.Xmpp.Core.Tags
         {
             if (element is null)
             {
-                return default(T);
+                return default;
             }
 
             var constructor = GetConstructor(typeof(T), new[] { typeof(XElement) });

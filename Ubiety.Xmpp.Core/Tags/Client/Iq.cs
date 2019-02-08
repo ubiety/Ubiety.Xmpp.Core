@@ -19,10 +19,36 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Client
 {
     /// <summary>
+    ///     IQ tag type
+    /// </summary>
+    public enum IqType
+    {
+        /// <summary>
+        ///     IQ Get
+        /// </summary>
+        Get,
+
+        /// <summary>
+        ///     IQ Set
+        /// </summary>
+        Set,
+
+        /// <summary>
+        ///     IQ Error
+        /// </summary>
+        Error,
+
+        /// <summary>
+        ///     IQ Result
+        /// </summary>
+        Result
+    }
+
+    /// <summary>
     ///     XMPP Iq tag
     /// </summary>
     [XmppTag("iq", Namespaces.Client, typeof(Iq))]
-    public class Iq : Tag
+    public class Iq : Stanza
     {
         /// <summary>
         ///     Initializes a new instance of the <see cref="Iq"/> class
@@ -47,5 +73,14 @@ namespace Ubiety.Xmpp.Core.Tags.Client
         ///     Gets the XML name of the tag
         /// </summary>
         public static XName XmlName { get; } = XName.Get("iq", Namespaces.Client);
+
+        /// <summary>
+        ///     Gets or sets the IQ tag type
+        /// </summary>
+        public IqType IqType
+        {
+            get => GetAttributeEnumValue<IqType>("type");
+            set => SetAttributeEnumValue("type", value);
+        }
     }
 }

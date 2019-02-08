@@ -52,6 +52,8 @@ namespace Ubiety.Xmpp.Core.States
                 Logger.Log(LogLevel.Debug, "Checking if we should use SSL");
                 if (features.CheckSsl(xmpp))
                 {
+                    xmpp.State = new StartTlsState();
+                    xmpp.State.Execute(xmpp);
                     return;
                 }
             }
