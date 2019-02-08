@@ -75,8 +75,10 @@ namespace Ubiety.Xmpp.Core.Sasl
                 case Response s:
                     PopulateDirectives(s);
                     return s;
+
                 case Failure f:
                     return f;
+
                 default:
                     PopulateDirectives(tag);
                     var response = Client.Registry.GetTag<Auth>(Auth.XmlName);

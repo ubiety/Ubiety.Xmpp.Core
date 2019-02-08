@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+﻿// Copyright 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,18 +12,9 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Logging
+namespace Ubiety.Xmpp.Core.Tags.Binding
 {
-    /// <summary>
-    ///     Defines the interface for the log manager
-    /// </summary>
-    public interface ILogManager
+    public class Resource : Tag
     {
-        /// <summary>
-        ///     Get a log instance for the requested name
-        /// </summary>
-        /// <param name="name">Name of the instance</param>
-        /// <returns>Instance of a log</returns>
-        ILog GetLogger(string name);
     }
 }

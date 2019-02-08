@@ -90,13 +90,16 @@ namespace Ubiety.Xmpp.Core.Sasl
                 case Challenge c:
                     Logger.Log(LogLevel.Debug, "Received challenge");
                     return ProcessChallenge(c);
+
                 case Response s:
                     Logger.Log(LogLevel.Debug, "Received response");
                     var response = _encoding.GetString(s.Bytes);
                     var signature = Convert.FromBase64String(response.Substring(2));
                     return _encoding.GetString(signature) == _encoding.GetString(_serverSignature.ToArray()) ? s : null;
+
                 case Failure f:
                     return f;
+
                 default:
                     return default(Tag);
             }

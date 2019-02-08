@@ -42,10 +42,12 @@ namespace Ubiety.Xmpp.Core.States
                         client.State = new ConnectedState();
                         client.State.Execute(client);
                         break;
+
                     case Failure _:
                         client.State = new DisconnectState();
                         client.State.Execute(client);
                         break;
+
                     default:
                         client.ClientSocket.SetReadClear();
                         client.ClientSocket.Send(client.SaslProcessor.Step(tag));

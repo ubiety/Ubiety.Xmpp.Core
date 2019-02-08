@@ -150,6 +150,7 @@ namespace Ubiety.Xmpp.Core.Common
             {
                 case null:
                     return false;
+
                 case string _:
                     return Id.Equals(obj);
             }
@@ -195,33 +196,43 @@ namespace Ubiety.Xmpp.Core.Common
 
                         u.Append(@"\20");
                         break;
+
                     case '"':
                         u.Append(@"\22");
                         break;
+
                     case '&':
                         u.Append(@"\26");
                         break;
+
                     case '\'':
                         u.Append(@"\27");
                         break;
+
                     case '/':
                         u.Append(@"\2f");
                         break;
+
                     case ':':
                         u.Append(@"\3a");
                         break;
+
                     case '<':
                         u.Append(@"\3c");
                         break;
+
                     case '>':
                         u.Append(@"\3e");
                         break;
+
                     case '@':
                         u.Append(@"\40");
                         break;
+
                     case '\\':
                         u.Append(@"\5c");
                         break;
+
                     default:
                         u.Append(c);
                         break;
@@ -243,24 +254,34 @@ namespace Ubiety.Xmpp.Core.Common
                 {
                     case "20":
                         return " ";
+
                     case "22":
                         return "\"";
+
                     case "26":
                         return "&";
+
                     case "27":
                         return "'";
+
                     case "2f":
                         return "/";
+
                     case "3a":
                         return ":";
+
                     case "3c":
                         return "<";
+
                     case "3e":
                         return ">";
+
                     case "40":
                         return "@";
+
                     case "5c":
                         return @"\";
+
                     default:
                         return m.Groups[0].Value;
                 }

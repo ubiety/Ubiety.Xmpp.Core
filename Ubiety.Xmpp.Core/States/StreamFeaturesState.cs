@@ -39,9 +39,11 @@ namespace Ubiety.Xmpp.Core.States
                 case Stream s when s.Version.StartsWith("1."):
                     features = s.Features;
                     break;
+
                 case Features f:
                     features = f;
                     break;
+
                 default:
                     Logger.Log(LogLevel.Error, "Unexpected tag. Wrong state executed");
                     throw new InvalidStateException("Received tag that is not valid for the current state");
@@ -49,9 +51,10 @@ namespace Ubiety.Xmpp.Core.States
 
             if (!xmpp.ClientSocket.Secure)
             {
-                Logger.Log(LogLevel.Debug, "Checking if we should use SSL");
+                Logger.Log(LogLevel.Debug, "Socket is not secure. Checking if we should use SSL");
                 if (features.CheckSsl(xmpp))
                 {
+                    Logger.Log(LogLevel.Debug, "Initializing security...");
                     xmpp.State = new StartTlsState();
                     xmpp.State.Execute(xmpp);
                     return;
@@ -63,6 +66,10 @@ namespace Ubiety.Xmpp.Core.States
                 Logger.Log(LogLevel.Debug, "Authenticating the user");
                 features.AuthenticateUser(client);
             }
+
+            Logger.Log(LogLevel.Debug, "Starting resource binding");
+            xmpp.State = new BindingState();
+            xmpp.State.Execute(xmpp);
         }
     }
 }

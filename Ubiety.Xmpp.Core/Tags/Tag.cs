@@ -65,11 +65,11 @@ namespace Ubiety.Xmpp.Core.Tags
         public static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
         {
             var results = from constructor in type.GetTypeInfo().DeclaredConstructors
-                let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
-                where constructorParameters.Length == parameters.Count &&
-                      !constructorParameters.Except(parameters).Any() &&
-                      !parameters.Except(constructorParameters).Any()
-                select constructor;
+                          let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
+                          where constructorParameters.Length == parameters.Count &&
+                                !constructorParameters.Except(parameters).Any() &&
+                                !parameters.Except(constructorParameters).Any()
+                          select constructor;
 
             return results.FirstOrDefault();
         }

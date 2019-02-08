@@ -15,7 +15,6 @@ namespace Ubiety.Xmpp.App
                     .EnableLogging(new SerilogManager())
                     .Build())
                 {
-
                     client.Error += Client_Error;
 
                     client.Connect(o.Jid, o.Password);
