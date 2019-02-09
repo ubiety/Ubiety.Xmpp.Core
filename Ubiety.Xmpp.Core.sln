@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.App", "Ubiety.X
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Test", "Ubiety.Xmpp.Test\Ubiety.Xmpp.Test.csproj", "{27298DB8-918D-463A-8824-B22576EC94BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ubiety.Xmpp.Docs", "Ubiety.Xmpp.Docs\Ubiety.Xmpp.Docs.csproj", "{1E416AA3-D557-4162-9B80-4225FB598F50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{27298DB8-918D-463A-8824-B22576EC94BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27298DB8-918D-463A-8824-B22576EC94BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27298DB8-918D-463A-8824-B22576EC94BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E416AA3-D557-4162-9B80-4225FB598F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E416AA3-D557-4162-9B80-4225FB598F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E416AA3-D557-4162-9B80-4225FB598F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E416AA3-D557-4162-9B80-4225FB598F50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
