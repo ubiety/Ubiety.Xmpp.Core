@@ -9,7 +9,7 @@ image:
   - Ubuntu1804
 
 dotnet_csproj:
-  file: 'Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj'
+  file: '**\*.csproj'
 
 environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
@@ -19,10 +19,10 @@ environment:
 install:
   - sh: sudo apt update
   - sh: sudo apt install dotnet-sdk-2.2 -y
-  - sh: sudo apt install wkhtmltopdf
+  - sh: sudo apt install wkhtmltopdf -y
   - dotnet tool install coveralls.net --tool-path tools
   - dotnet tool install coverlet.console --tool-path tools
-  - ps: choco install wkhtmltopdf
+  - ps: choco install wkhtmltopdf --no-progress -y
 
 build_script:
   - dotnet build -c Release
