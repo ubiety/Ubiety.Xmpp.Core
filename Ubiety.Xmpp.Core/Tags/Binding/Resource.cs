@@ -12,9 +12,18 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System.Xml.Linq;
+using Ubiety.Xmpp.Core.Common;
+
 namespace Ubiety.Xmpp.Core.Tags.Binding
 {
     public class Resource : Tag
     {
+        public Resource()
+            : base(XmlName)
+        {
+        }
+
+        public static XName XmlName { get; } = XName.Get("resource", Namespaces.Bind);
     }
 }
