@@ -1,0 +1,30 @@
+branches:
+  only:
+   - master
+
+skip_tags: true
+
+image:
+  - Visual Studio 2017
+  - Ubuntu1804
+
+dotnet_csproj:
+  file: '**\*.csproj'
+
+environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+  COVERALLS_REPO_TOKEN:
+    secure: 62g0Qrfgs2hIwE+WSKhRY6GFcYDIbTG8nruqctU1oPDLsllpm5BSkedb09pbcyMh
+
+install:
+  - sh: sudo apt update
+  - sh: sudo apt install dotnet-sdk -y
+  - dotnet tool install coveralls.net -tool-path tools
+  - dotnet tool install coverlet.console -tool-path tools
+
+build_script:
+  - dotnet build -c Release
+
+test_script:
+  - tools/coverlet Ubiety.Xmpp.Test/bin/Debug/netcoreapp2.1/Ubiety.Xmpp.Test.dll --target "dotnet" --targetargs "test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj --no-build" --format opencover --exclude "[xunit.*]*"
+  - tools/csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
