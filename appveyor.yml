@@ -16,13 +16,13 @@ environment:
 
 install:
   - ps: choco install wkhtmltopdf --no-progress -y
-  - dotnet tool install coveralls.net --tool-path tools
-  - dotnet tool install coverlet.console --tool-path tools
+  - dotnet tool install coveralls.net
+  - dotnet tool install coverlet.console
 
 build_script:
   - dotnet restore
   - dotnet build -c Release
 
 test_script:
-  - tools/coverlet.exe Ubiety.Xmpp.Test/bin/Debug/netcoreapp2.1/Ubiety.Xmpp.Test.dll --target "dotnet" --targetargs "test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj --no-build" --format opencover --exclude "[xunit.*]*"
-  - tools/csmacnz.Coveralls.exe --opencover -i coverage.opencover.xml --useRelativePaths
+  - coverlet Ubiety.Xmpp.Test/bin/Debug/netcoreapp2.1/Ubiety.Xmpp.Test.dll --target "dotnet" --targetargs "test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj --no-build" --format opencover --exclude "[xunit.*]*"
+  - csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
