@@ -4,7 +4,9 @@ branches:
 
 skip_tags: true
 
-image: Visual Studio 2017
+image:
+  - Visual Studio 2017
+  - Ubuntu1804
 
 dotnet_csproj:
   file: '**\*.csproj'
@@ -15,14 +17,13 @@ environment:
     secure: gw1sOtXvk1aiZZMJJQqBX5FXnjFt9F4IgtLLinQPqqAHpPg2NerYwX1XD9h5Kq3D
 
 install:
-  - ps: choco install wkhtmltopdf --no-progress -y
-  - dotnet tool install --global coveralls.net
-  - dotnet tool install --global coverlet.console
+  - dotnet tool install coveralls.net --tool-path tools
 
 build_script:
   - dotnet restore
   - dotnet build
 
 test_script:
-  - coverlet Ubiety.Xmpp.Test/bin/Debug/netcoreapp2.1/Ubiety.Xmpp.Test.dll --target "dotnet" --targetargs "test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj --no-build" --format opencover --exclude "[xunit.*]*"
-  - csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
+  - dotnet test Ubiety.Xmpp.Test\Ubiety.Xmpp.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../
+  - cmd: ./tools/csmacnz.Coveralls.exe --opencover -i coverage.opencover.xml --useRelativePaths
+  - sh: .\tools\csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
