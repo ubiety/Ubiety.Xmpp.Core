@@ -11,4 +11,7 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj" />
+  </ItemGroup>
 </Project>
