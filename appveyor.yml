@@ -4,9 +4,7 @@ branches:
 
 skip_tags: true
 
-image:
-  - Visual Studio 2017
-  - Ubuntu1804
+image: Ubuntu1804
 
 dotnet_csproj:
   file: '**\*.csproj'
@@ -22,7 +20,6 @@ install:
   - sh: sudo apt install wkhtmltopdf -y
   - dotnet tool install coveralls.net --tool-path tools
   - dotnet tool install coverlet.console --tool-path tools
-  - ps: choco install wkhtmltopdf --no-progress -y
 
 build_script:
   - dotnet build -c Release
