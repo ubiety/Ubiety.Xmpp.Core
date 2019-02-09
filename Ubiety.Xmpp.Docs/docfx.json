@@ -4,7 +4,7 @@
       "src": [
         {
           "files": ["**.csproj"],
-          "src": "..\\Ubiety.Xmpp.Core\\Ubiety.Xmpp.Core"
+          "src": "..\\Ubiety.Xmpp.Core"
         }
       ],
       "dest": "api",
