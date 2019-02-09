@@ -2,7 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/saintedlama/versionize) for commit guidelines.
 
-<a name="0.5.0"></a>
+<a name="0.6.0"></a>
+## 0.6.0 (2019-2-9)
+
+### Bug Fixes
+
+* change language version back to 7
+
+### Features
+
+* add resource tag
+* add resource to client and start adding iq tags
+* added command line options to the test app and refactored logs
+
 ## 0.5.0 (2019-2-2)
 
 ### Bug Fixes
