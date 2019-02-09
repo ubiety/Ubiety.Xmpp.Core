@@ -15,8 +15,6 @@ environment:
     secure: 62g0Qrfgs2hIwE+WSKhRY6GFcYDIbTG8nruqctU1oPDLsllpm5BSkedb09pbcyMh
 
 install:
-  - sh: sudo apt update
-  - sh: sudo apt upgrade -y -qq
   - sh: sudo apt install wkhtmltopdf -y
   - dotnet tool install coveralls.net --tool-path tools
   - dotnet tool install coverlet.console --tool-path tools
