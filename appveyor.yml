@@ -19,8 +19,8 @@ environment:
 install:
   - sh: sudo apt update
   - sh: sudo apt install dotnet-sdk -y
-  - dotnet tool install coveralls.net -tool-path tools
-  - dotnet tool install coverlet.console -tool-path tools
+  - dotnet tool install coveralls.net --tool-path tools
+  - dotnet tool install coverlet.console --tool-path tools
 
 build_script:
   - dotnet build -c Release
