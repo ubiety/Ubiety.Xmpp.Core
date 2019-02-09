@@ -1,6 +1,6 @@
 branches:
   only:
-   - master
+    - master
 
 skip_tags: true
 
@@ -12,7 +12,7 @@ dotnet_csproj:
   file: '**\*.csproj'
 
 environment:
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   COVERALLS_REPO_TOKEN:
     secure: 62g0Qrfgs2hIwE+WSKhRY6GFcYDIbTG8nruqctU1oPDLsllpm5BSkedb09pbcyMh
 
