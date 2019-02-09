@@ -21,8 +21,8 @@ install:
 
 build_script:
   - dotnet restore
-  - dotnet build -c Release
+  - dotnet build
 
 test_script:
-  - coverlet Ubiety.Xmpp.Test/bin/Release/netcoreapp2.1/Ubiety.Xmpp.Test.dll --target "dotnet" --targetargs "test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj --no-build" --format opencover --exclude "[xunit.*]*"
+  - coverlet Ubiety.Xmpp.Test/bin/Debug/netcoreapp2.1/Ubiety.Xmpp.Test.dll --target "dotnet" --targetargs "test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj --no-build" --format opencover --exclude "[xunit.*]*"
   - csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
