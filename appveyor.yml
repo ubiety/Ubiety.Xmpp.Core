@@ -6,7 +6,6 @@ skip_tags: true
 
 image:
   - Visual Studio 2017
-  - Ubuntu1804
 
 dotnet_csproj:
   file: '**\*.csproj'
