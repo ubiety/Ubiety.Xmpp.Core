@@ -21,7 +21,7 @@ namespace Ubiety.Xmpp.Core.Attributes
     ///     XMPP tag attribute
     /// </summary>
     /// <inheritdoc />
-    [AttributeUsage(AttributeTargets.Class)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public sealed class XmppTagAttribute : Attribute
     {
         /// <summary>

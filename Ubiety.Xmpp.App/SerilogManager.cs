@@ -1,5 +1,5 @@
-﻿using System;
-using Serilog;
+﻿using Serilog;
+using System;
 using Ubiety.Xmpp.Core.Logging;
 
 namespace Ubiety.Xmpp.App
@@ -43,15 +43,19 @@ namespace Ubiety.Xmpp.App
                     case LogLevel.Critical:
                         Serilog.Log.Fatal(_messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Error:
                         Serilog.Log.Error(_messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Warning:
                         Serilog.Log.Warning(_messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Information:
                         Serilog.Log.Information(_messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Debug:
                         Serilog.Log.Debug(_messageTemplate, _name, message);
                         break;
@@ -65,15 +69,19 @@ namespace Ubiety.Xmpp.App
                     case LogLevel.Critical:
                         Serilog.Log.Fatal(exception, _messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Error:
                         Serilog.Log.Error(exception, _messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Warning:
                         Serilog.Log.Warning(exception, _messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Information:
                         Serilog.Log.Information(exception, _messageTemplate, _name, message);
                         break;
+
                     case LogLevel.Debug:
                         Serilog.Log.Debug(exception, _messageTemplate, _name, message);
                         break;

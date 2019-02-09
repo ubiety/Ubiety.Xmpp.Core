@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+﻿// Copyright 2018, 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,8 +13,9 @@
 //   limitations under the License.
 
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Exceptions;
+using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
-using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
@@ -38,39 +39,37 @@ namespace Ubiety.Xmpp.Core.States
                 case Stream s when s.Version.StartsWith("1."):
                     features = s.Features;
                     break;
+
                 case Features f:
                     features = f;
                     break;
+
                 default:
                     Logger.Log(LogLevel.Error, "Unexpected tag. Wrong state executed");
-                    return;
+                    throw new InvalidStateException("Received tag that is not valid for the current state");
             }
 
-            if (features.StartTls != null && (xmpp.UseSsl || features.FeatureCount == 1 || features.StartTls.Required))
+            if (!xmpp.ClientSocket.Secure)
             {
-                Logger.Log(LogLevel.Debug, "SSL/TLS is required or it is supported and we want to use it");
-                xmpp.State = new StartTlsState();
-                xmpp.State.Execute(xmpp);
-                return;
+                Logger.Log(LogLevel.Debug, "Socket is not secure. Checking if we should use SSL");
+                if (features.CheckSsl(xmpp))
+                {
+                    Logger.Log(LogLevel.Debug, "Initializing security...");
+                    xmpp.State = new StartTlsState();
+                    xmpp.State.Execute(xmpp);
+                    return;
+                }
             }
 
             if (xmpp is XmppClient client && !client.Authenticated)
             {
-                Logger.Log(LogLevel.Debug, "Starting authentication");
-                client.SaslProcessor = SaslProcessor.CreateProcessor(
-                    features.Mechanisms.SupportedTypes,
-                    MechanismTypes.Default,
-                    client);
-                if (client.SaslProcessor is null)
-                {
-                    client.State = new DisconnectState();
-                    client.State.Execute(client);
-                    return;
-                }
-
-                client.ClientSocket.Send(client.SaslProcessor.Initialize(client.Id, client.Password));
-                client.State = new SaslState();
+                Logger.Log(LogLevel.Debug, "Authenticating the user");
+                features.AuthenticateUser(client);
             }
+
+            Logger.Log(LogLevel.Debug, "Starting resource binding");
+            xmpp.State = new BindingState();
+            xmpp.State.Execute(xmpp);
         }
     }
 }

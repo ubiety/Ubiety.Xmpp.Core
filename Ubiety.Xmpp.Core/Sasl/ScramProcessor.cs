@@ -16,7 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Ubiety.Scram.Core;
-using Ubiety.Scram.Core.Model;
+using Ubiety.Scram.Core.Messages;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
@@ -90,29 +90,30 @@ namespace Ubiety.Xmpp.Core.Sasl
                 case Challenge c:
                     Logger.Log(LogLevel.Debug, "Received challenge");
                     return ProcessChallenge(c);
+
                 case Response s:
+                    Logger.Log(LogLevel.Debug, "Received response");
                     var response = _encoding.GetString(s.Bytes);
                     var signature = Convert.FromBase64String(response.Substring(2));
                     return _encoding.GetString(signature) == _encoding.GetString(_serverSignature.ToArray()) ? s : null;
+
                 case Failure f:
                     return f;
+
                 default:
                     return default(Tag);
             }
         }
 
-        private Tag ProcessChallenge(Tag tag)
+        private Response ProcessChallenge(Challenge tag)
         {
             _serverResponse = _encoding.GetString(tag.Bytes);
 
             _serverFirstMessage = ServerFirstMessage.ParseResponse(_serverResponse);
-            Logger.Log(LogLevel.Debug, $"Server NONCE: {_serverFirstMessage.Nonce}");
 
             _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage);
 
             CalculateProofs();
-
-            Logger.Log(LogLevel.Debug, $"Client final after proof: {_clientFinalMessage.Message}");
 
             var message = Client.Registry.GetTag<Response>(Response.XmlName);
             message.Bytes = _encoding.GetBytes(_clientFinalMessage.Message);
@@ -137,7 +138,6 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var authMessage =
                 $"{_clientFirstMessage.BareMessage},{_serverResponse},{_clientFinalMessage.MessageWithoutProof}";
-            Logger.Log(LogLevel.Debug, $"Auth message: {authMessage}");
             var auth = _encoding.GetBytes(authMessage);
 
             var signature = hash.ComputeHash(auth, storedKey);

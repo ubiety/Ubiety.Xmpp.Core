@@ -67,14 +67,19 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
             {
                 case "PLAIN":
                     return MechanismTypes.Plain;
+
                 case "DIGEST-MD5":
                     return MechanismTypes.DigestMd5;
+
                 case "EXTERNAL":
                     return MechanismTypes.External;
+
                 case "SCRAM-SHA-1":
                     return MechanismTypes.Scram;
+
                 case "SCRAM-SHA-1-PLUS":
                     return MechanismTypes.ScramPlus;
+
                 default:
                     return MechanismTypes.None;
             }
@@ -91,16 +96,22 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
             {
                 case MechanismTypes.None:
                     return string.Empty;
+
                 case MechanismTypes.Plain:
                     return "PLAIN";
+
                 case MechanismTypes.DigestMd5:
                     return "DIGEST-MD5";
+
                 case MechanismTypes.External:
                     return "EXTERNAL";
+
                 case MechanismTypes.Scram:
                     return "SCRAM-SHA-1";
+
                 case MechanismTypes.ScramPlus:
                     return "SCRAM-SHA-1-PLUS";
+
                 case MechanismTypes.Default:
                     return string.Empty;
             }

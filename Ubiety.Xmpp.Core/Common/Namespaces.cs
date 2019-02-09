@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+﻿// Copyright 2018, 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -20,10 +20,12 @@ namespace Ubiety.Xmpp.Core.Common
     public static class Namespaces
     {
 #pragma warning disable S1075 // URIs should not be hardcoded
+
         /// <summary>
         ///     Stream namespace
         /// </summary>
         public const string Stream = "http://etherx.jabber.org/streams";
+
 #pragma warning restore S1075 // URIs should not be hardcoded
 
         /// <summary>
@@ -45,5 +47,10 @@ namespace Ubiety.Xmpp.Core.Common
         ///     XMPP SASL namespace
         /// </summary>
         public const string Sasl = "urn:ietf:params:xml:ns:xmpp-sasl";
+
+        /// <summary>
+        ///     XMPP Resource Binding namespace
+        /// </summary>
+        public const string Bind = "urn:ietf:params:xml:ns:xmpp-bind";
     }
 }

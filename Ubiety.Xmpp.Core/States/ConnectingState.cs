@@ -29,6 +29,7 @@ namespace Ubiety.Xmpp.Core.States
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
+            Logger.Log(LogLevel.Debug, "Executing ConnectingState");
             if (xmpp is XmppClient client)
             {
                 Logger.Log(LogLevel.Debug, "Connecting to server");

@@ -2,21 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.4.0</Version>
+    <Version>0.5.0</Version>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>Ubiety.Xmpp.Core.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>Ubiety.Xmpp.Core.ruleset</CodeAnalysisRuleSet>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <CodeAnalysisRuleSet>Ubiety.Xmpp.Core.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="stylecop.json" />
+    <None Remove="Ubiety.Xmpp.Core.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,21 +23,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="7.10.0.7896">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Ubiety.Dns.Core" Version="2.2.1" />
-    <PackageReference Include="Ubiety.Scram.Core" Version="0.0.1" />
+    <PackageReference Include="Ubiety.Scram.Core" Version="1.1.0" />
     <PackageReference Include="Ubiety.Stringprep.Core" Version="0.2.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

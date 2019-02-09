@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+﻿// Copyright 2018, 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Xml.Linq;
 
 namespace Ubiety.Xmpp.Core.Tags
@@ -26,6 +27,8 @@ namespace Ubiety.Xmpp.Core.Tags
     /// <inheritdoc />
     public abstract class Tag : XElement
     {
+        private static int _packetCounter;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="Tag" /> class
         /// </summary>
@@ -62,11 +65,11 @@ namespace Ubiety.Xmpp.Core.Tags
         public static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
         {
             var results = from constructor in type.GetTypeInfo().DeclaredConstructors
-                let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
-                where constructorParameters.Length == parameters.Count &&
-                      !constructorParameters.Except(parameters).Any() &&
-                      !parameters.Except(constructorParameters).Any()
-                select constructor;
+                          let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
+                          where constructorParameters.Length == parameters.Count &&
+                                !constructorParameters.Except(parameters).Any() &&
+                                !parameters.Except(constructorParameters).Any()
+                          select constructor;
 
             return results.FirstOrDefault();
         }
@@ -106,12 +109,52 @@ namespace Ubiety.Xmpp.Core.Tags
             return attribute?.Value;
         }
 
+        /// <summary>
+        ///     Gets the enum value of a tag attribute
+        /// </summary>
+        /// <typeparam name="T">Enum type to return</typeparam>
+        /// <param name="name">Attribute name</param>
+        /// <returns>Enum value</returns>
+        protected T GetAttributeEnumValue<T>(XName name)
+            where T : Enum
+        {
+            string attribute = GetAttributeValue(name);
+            if (!string.IsNullOrEmpty(attribute))
+            {
+                return (T)Enum.Parse(typeof(T), attribute, true);
+            }
+
+            return default;
+        }
+
+        /// <summary>
+        ///     Sets the enum value of a tag attribute
+        /// </summary>
+        /// <typeparam name="T">Enum type</typeparam>
+        /// <param name="name">Attribute name</param>
+        /// <param name="value">Enum value to set</param>
+        protected void SetAttributeEnumValue<T>(XName name, T value)
+            where T : Enum
+        {
+            SetAttributeValue(name, value.ToString().ToLowerInvariant());
+        }
+
+        /// <summary>
+        ///     Get the next packet id
+        /// </summary>
+        /// <returns>Packet id as a string</returns>
+        protected string GetNextPacketId()
+        {
+            Interlocked.Increment(ref _packetCounter);
+            return $"U{_packetCounter:D5}";
+        }
+
         private static T Convert<T>(XElement element)
             where T : XElement
         {
             if (element is null)
             {
-                return default(T);
+                return default;
             }
 
             var constructor = GetConstructor(typeof(T), new[] { typeof(XElement) });

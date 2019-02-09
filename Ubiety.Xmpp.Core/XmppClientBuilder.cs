@@ -25,6 +25,7 @@ namespace Ubiety.Xmpp.Core
         private ILogManager _logManager;
         private bool _useIpv6;
         private bool _useSsl;
+        private string _resource;
 
         /// <summary>
         ///     Enable logging with the log manager
@@ -58,6 +59,17 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
+        ///     Set a client resource
+        /// </summary>
+        /// <param name="resource">Resource to set</param>
+        /// <returns>Builder instance</returns>
+        public XmppClientBuilder SetResource(string resource)
+        {
+            _resource = resource;
+            return this;
+        }
+
+        /// <summary>
         ///     Builds the client
         /// </summary>
         /// <returns>Client with the options provided</returns>
@@ -72,7 +84,7 @@ namespace Ubiety.Xmpp.Core
             var registry = new TagRegistry();
             registry.AddAssembly(type.Assembly);
 
-            return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry };
+            return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry, Resource = _resource };
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
     /// <summary>
     ///     SASL authentication success tag
     /// </summary>
-    [XmppTag("success", Namespaces.Sasl, typeof(Response))]
+    [XmppTag("success", Namespaces.Sasl, typeof(Success))]
     public class Success : Tag
     {
         /// <summary>

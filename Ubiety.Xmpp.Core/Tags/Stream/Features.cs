@@ -16,6 +16,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Tags.Binding;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 using Ubiety.Xmpp.Core.Tags.Tls;
 
@@ -56,6 +57,11 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         ///     Gets the supported SASL mechanisms
         /// </summary>
         public Mechanisms Mechanisms => Element<Mechanisms>(XName.Get("mechanisms", Namespaces.Sasl));
+
+        /// <summary>
+        ///     Gets the bind tag
+        /// </summary>
+        public Bind Bind => Element<Bind>(XName.Get("bind", Namespaces.Bind));
 
         /// <summary>
         ///     Gets a count of the features
