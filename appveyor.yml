@@ -16,7 +16,7 @@ environment:
 
 install:
   - sh: sudo apt update
-  - sh: sudo apt install dotnet-sdk-2.2 -y
+  - sh: sudo apt upgrade -y -qq
   - sh: sudo apt install wkhtmltopdf -y
   - dotnet tool install coveralls.net --tool-path tools
   - dotnet tool install coverlet.console --tool-path tools
