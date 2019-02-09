@@ -12,7 +12,7 @@ dotnet_csproj:
 environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   COVERALLS_REPO_TOKEN:
-    secure: 62g0Qrfgs2hIwE+WSKhRY6GFcYDIbTG8nruqctU1oPDLsllpm5BSkedb09pbcyMh
+    secure: gw1sOtXvk1aiZZMJJQqBX5FXnjFt9F4IgtLLinQPqqAHpPg2NerYwX1XD9h5Kq3D
 
 install:
   - ps: choco install wkhtmltopdf --no-progress -y
