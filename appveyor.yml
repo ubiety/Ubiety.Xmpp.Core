@@ -16,8 +16,8 @@ environment:
 
 install:
   - ps: choco install wkhtmltopdf --no-progress -y
-  - dotnet tool install coveralls.net
-  - dotnet tool install coverlet.console
+  - dotnet tool install --global coveralls.net
+  - dotnet tool install --global coverlet.console
 
 build_script:
   - dotnet restore
