@@ -26,5 +26,5 @@ build_script:
 test_script:
   - dotnet test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../ /p:Exclude="[xunit.*]*"
   - cmd: cd tools
-  - cmd: csmacnz.Coveralls.exe --opencover -i ../coverage.opencover.xml --useRelativePaths
+  - cmd: csmacnz.Coveralls.exe --opencover -i ../Ubiety.Xmpp.Test/coverage.opencover.xml --useRelativePaths
   - sh: ./tools/csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
