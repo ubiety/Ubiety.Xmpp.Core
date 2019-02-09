@@ -18,9 +18,11 @@ environment:
 
 install:
   - sh: sudo apt update
-  - sh: sudo apt install dotnet-sdk -y
+  - sh: sudo apt install dotnet-sdk-2.2.103 -y
+  - sh: sudo apt install wkhtmltopdf
   - dotnet tool install coveralls.net --tool-path tools
   - dotnet tool install coverlet.console --tool-path tools
+  - ps: choco install wkhtmltopdf
 
 build_script:
   - dotnet build -c Release
