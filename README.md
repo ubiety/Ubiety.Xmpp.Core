@@ -1,14 +1,13 @@
-![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
+![Logo of the project](https://raw.githubusercontent.com/ubiety/Ubiety.Xmpp.Core/develop/ubiety-logo.png)
 
 # Ubiety XMPP Core
 
 > Your XMPP choice for .NET Core
 
-| Branch                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Master                                                                                                                                                                     | [![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core) [![Build Status](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core.svg?branch=master)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core) [![Build status](https://ci.appveyor.com/api/projects/status/xtxujov8b3cl616q/branch/master?svg=true)](https://ci.appveyor.com/project/coder2000/ubiety-xmpp-core/branch/master) |
-| [![Coverage Status](https://coveralls.io/repos/github/ubiety/Ubiety.Xmpp.Core/badge.svg?branch=master)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=master) |
-| Develop                                                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Branch  | Quality                                                                                                                                                                                  | Travis CI                                                                                                                          | Appveyor                                                                                                                                                                           | Coverage                                                                                                                                                                     |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Master  | [![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core)                          | [![Build Status](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core.svg?branch=master)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core)  | [![Build status](https://ci.appveyor.com/api/projects/status/xtxujov8b3cl616q/branch/master?svg=true)](https://ci.appveyor.com/project/coder2000/ubiety-xmpp-core/branch/master)   | [![Coverage Status](https://coveralls.io/repos/github/ubiety/Ubiety.Xmpp.Core/badge.svg?branch=master)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=master)   |
+| Develop | [![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge/develop)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/overview/develop) | [![Build Status](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core.svg?branch=develop)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core) | [![Build status](https://ci.appveyor.com/api/projects/status/xtxujov8b3cl616q/branch/develop?svg=true)](https://ci.appveyor.com/project/coder2000/ubiety-xmpp-core/branch/develop) | [![Coverage Status](https://coveralls.io/repos/github/ubiety/Ubiety.Xmpp.Core/badge.svg?branch=develop)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=develop) |
 
 XMPP is not dying and this library will help keep it alive. You can use this to
 develop a client for this popular messaging protocol and soon it will support
@@ -74,7 +73,7 @@ using the project.
 
 #### Argument 1
 
-Type: `String`  
+Type: `String`
 Default: `'default value'`
 
 State what an argument does and how you can use it. If needed, you can provide
@@ -88,7 +87,7 @@ awesome-project "Some other value"  # Prints "You're nailing this readme!"
 
 #### Argument 2
 
-Type: `Number|Boolean`  
+Type: `Number|Boolean`
 Default: 100
 
 Copy-paste as many of these as you need.
@@ -127,8 +126,4 @@ links to humans using your project. You can include links like:
 
 ## Licensing
 
-One really important part: Give your project a proper license. Here you should
-state what the license is and how to find the text version of the license.
-Something like:
-
-"The code in this project is licensed under MIT license."
+The code in this project is licensed under the Apache License version 2.
