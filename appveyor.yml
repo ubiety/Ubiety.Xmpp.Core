@@ -17,10 +17,13 @@ environment:
 
 install:
   - dotnet tool install coveralls.net --tool-path tools
+  - dotnet tool install dotnet-sonarscanner --global
 
 build_script:
   - dotnet restore
+  - dotnet sonarscanner begin /k:"29ba6d2bcdb3c1ad1c78785797374e166749941c"
   - dotnet build
+  - dotnet sonarscanner end
 
 test_script:
   - dotnet test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../ /p:Exclude="[xunit.*]*"
