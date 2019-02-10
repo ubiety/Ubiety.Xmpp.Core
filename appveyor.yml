@@ -22,7 +22,7 @@ install:
 
 build_script:
   - dotnet restore
-  - dotnet sonarscanner begin /k:"29ba6d2bcdb3c1ad1c78785797374e166749941c"
+  - dotnet sonarscanner begin /d:sonar.login="29ba6d2bcdb3c1ad1c78785797374e166749941c" /d:sonar.host.url="https://sonarcloud.io" /k:"ubiety_Ubiety.Xmpp.Core" /d:sonar.organization="ubiety"
   - dotnet build
   - dotnet sonarscanner end
 
