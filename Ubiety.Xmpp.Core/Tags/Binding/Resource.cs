@@ -17,13 +17,22 @@ using Ubiety.Xmpp.Core.Common;
 
 namespace Ubiety.Xmpp.Core.Tags.Binding
 {
+    /// <summary>
+    ///     Binding resource tag
+    /// </summary>
     public class Resource : Tag
     {
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Resource"/> class
+        /// </summary>
         public Resource()
             : base(XmlName)
         {
         }
 
+        /// <summary>
+        ///     Gets the XML name of the tag
+        /// </summary>
         public static XName XmlName { get; } = XName.Get("resource", Namespaces.Bind);
     }
 }
