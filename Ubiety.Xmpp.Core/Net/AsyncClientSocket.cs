@@ -70,7 +70,6 @@ namespace Ubiety.Xmpp.Core.Net
         /// <inheritdoc />
         public void Dispose()
         {
-            _logger.Log(LogLevel.Debug, "Dispose() called");
             Dispose(true);
         }
 
