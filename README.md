@@ -74,10 +74,6 @@ consideration, it is common to separate this section to its own file called
 
 ## Links
 
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
-
 - Project homepage: <https://xmpp.dieterlunn.ca>
 - Repository: <https://github.com/ubiety/Ubiety.Xmpp.Core/>
 - Issue tracker: <https://github.com/ubiety/Ubiety.Xmpp.Core/issues>
