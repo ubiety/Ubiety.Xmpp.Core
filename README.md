@@ -1,6 +1,6 @@
-![Logo of the project](https://raw.githubusercontent.com/ubiety/Ubiety.Xmpp.Core/develop/ubiety-logo.png)
-
 # Ubiety XMPP Core
+
+![Logo of the project](https://raw.githubusercontent.com/ubiety/Ubiety.Xmpp.Core/develop/ubiety-logo.png)
 
 > Your XMPP choice for .NET Core
 
@@ -56,42 +56,6 @@ dotnet nuget push
 git push
 ```
 
-And again you'd need to tell what the previous code actually does.
-
-## Features
-
-What's all the bells and whistles this project can perform?
-
-- What's the main functionality
-- You can also do another thing
-- If you get really randy, you can even do this
-
-## Configuration
-
-Here you should write what are all of the configurations a user can enter when
-using the project.
-
-#### Argument 1
-
-Type: `String`
-Default: `'default value'`
-
-State what an argument does and how you can use it. If needed, you can provide
-an example below.
-
-Example:
-
-```bash
-awesome-project "Some other value"  # Prints "You're nailing this readme!"
-```
-
-#### Argument 2
-
-Type: `Number|Boolean`
-Default: 100
-
-Copy-paste as many of these as you need.
-
 ## Contributing
 
 When you publish something open source, one of the greatest motivations is that
@@ -114,15 +78,29 @@ Even though this information can be found inside the project on machine-readable
 format like in a .json file, it's good to include a summary of most useful
 links to humans using your project. You can include links like:
 
-- Project homepage: https://your.github.com/awesome-project/
-- Repository: https://github.com/your/awesome-project/
-- Issue tracker: https://github.com/your/awesome-project/issues
+- Project homepage: <https://xmpp.dieterlunn.ca>
+- Repository: <https://github.com/ubiety/Ubiety.Xmpp.Core/>
+- Issue tracker: <https://github.com/ubiety/Ubiety.Xmpp.Core/issues>
   - In case of sensitive bugs like security vulnerabilities, please contact
-    my@email.com directly instead of using issue tracker. We value your effort
+    issues@dieterlunn.ca directly instead of using issue tracker. We value your effort
     to improve the security and privacy of this project!
 - Related projects:
-  - Your other project: https://github.com/your/other-project/
-  - Someone else's project: https://github.com/someones/awesome-project/
+  - Ubiety VersionIt: <https://github.com/ubiety/Ubiety.VersionIt/>
+  - Ubiety Toolset: <https://github.com/ubiety/Ubiety.Toolset/>
+
+## Sponsors
+
+### Gold Sponsors
+
+[![Gold Sponsors](https://opencollective.com/ubiety/tiers/gold-sponsor.svg?avatarHeight=36)](https://opencollective.com/ubiety/)
+
+### Silver Sponsors
+
+[![Silver Sponsors](https://opencollective.com/ubiety/tiers/silver-sponsor.svg?avatarHeight=36)](https://opencollective.com/ubiety/)
+
+### Bronze Sponsors
+
+[![Bronze Sponsors](https://opencollective.com/ubiety/tiers/bronze-sponsor.svg?avatarHeight=36)](https://opencollective.com/ubiety/)
 
 ## Licensing
 
