@@ -119,6 +119,7 @@ Task("SonarBegin")
             .Append($"/o:\"{sonarOrganization}\"")
             .Append("/d:sonar.host.url=\"https://sonarcloud.io\"")
             .Append($"/d:sonar.login=\"{sonarLogin}\"")
+            .Append($"/d:sonar.cs.opencover.reportsPaths={artifactDir.CombineWithFilePath(coverageFile)}")
    });
 });
 
