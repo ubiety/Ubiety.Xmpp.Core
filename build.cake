@@ -4,6 +4,7 @@
 // Tools
 #tool "nuget:?package=coveralls.io&version=1.4.2"
 #tool "dotnet:?package=dotnet-sonarscanner&version=4.6.0"
+#tool "dotnet:?package=Ubiety.VersionIt&version=1.1.0"
 
 // Addins
 #addin "nuget:?package=Cake.Git&version=0.19.0"
@@ -170,6 +171,16 @@ Task("Publish")
     }
 });
 
+Task("Version")
+.Does(() => {
+    DotNetCoreTool("versionit");
+});
+
+Task("PushChanges")
+.Does(() => {
+    GitPush("./");
+});
+
 Task("Sonar")
 .IsDependentOn("SonarBegin")
 .IsDependentOn("BuildAndTest")
@@ -186,9 +197,11 @@ Task("CompleteWithoutPublish")
 if (isReleaseBuild)
 {
     Task("Complete")
+    .IsDependentOn("Version")
     .IsDependentOn("Sonar")
     .IsDependentOn("UploadCoverage")
-    .IsDependentOn("Publish");
+    .IsDependentOn("Publish")
+    .IsDependentOn("PushChanges");
 }
 else
 {
