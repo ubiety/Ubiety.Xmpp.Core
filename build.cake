@@ -3,7 +3,7 @@
 
 // Tools
 #tool "dotnet:?package=dotnet-sonarscanner&version=4.6.0"
-#tool "dotnet:?package=Ubiety.VersionIt&version=1.1.0"
+#tool "dotnet:https://api.nuget.org/v3/index.json?package=Ubiety.VersionIt&version=1.1.0"
 #tool "nuget:?package=coveralls.io&version=1.4.2"
 
 // Addins
