@@ -2,9 +2,9 @@
 #module "nuget:?package=Cake.DotNetTool.Module&version=0.1.0"
 
 // Tools
-#tool "nuget:?package=coveralls.io&version=1.4.2"
 #tool "dotnet:?package=dotnet-sonarscanner&version=4.6.0"
 #tool "dotnet:?package=Ubiety.VersionIt&version=1.1.0"
+#tool "nuget:?package=coveralls.io&version=1.4.2"
 
 // Addins
 #addin "nuget:?package=Cake.Git&version=0.19.0"
