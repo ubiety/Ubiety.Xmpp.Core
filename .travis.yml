@@ -18,4 +18,4 @@ mono: latest
 dotnet: 2.2.104
 script:
   - ./build.sh --bootstrap
-  - ./build.sh --target "BuildAndTest" --currentBranch $TRAVIS_BRANCH
+  - ./build.sh --target="BuildAndTest" --currentBranch=$TRAVIS_BRANCH
