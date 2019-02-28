@@ -387,3 +387,22 @@ healthchecksdb
 # Ignore logs
 log.txt
 # End of https://www.gitignore.io/api/git,cake,wyam,visualstudio,visualstudiocode
+
+# Created by https://www.gitignore.io/api/sonarqube
+# Edit at https://www.gitignore.io/?templates=sonarqube
+
+### SonarQube ###
+# SonarQube ignore files.
+#
+# https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+# Sonar Scanner working directories
+.sonar/
+.scannerwork/
+
+# http://www.sonarlint.org/commandline/
+# SonarLint working directories, configuration files (including credentials)
+.sonarlint/
+
+.sonarqube/
+
+# End of https://www.gitignore.io/api/sonarqube

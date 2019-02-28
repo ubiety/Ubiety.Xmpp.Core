@@ -5,6 +5,7 @@
     <Version>0.6.0</Version>
     <LangVersion>latest</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ProjectGuid>{f81c9802-eb61-48f8-b5af-0ce7d3ecfcfc}</ProjectGuid>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
