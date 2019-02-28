@@ -71,6 +71,7 @@ namespace Ubiety.Xmpp.Core.Net
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <inheritdoc />
