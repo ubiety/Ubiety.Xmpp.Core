@@ -16,6 +16,9 @@ environment:
   COVERALLS_REPO_TOKEN:
     secure: gw1sOtXvk1aiZZMJJQqBX5FXnjFt9F4IgtLLinQPqqAHpPg2NerYwX1XD9h5Kq3D
 
+install:
+  - dotnet tool install --global Ubiety.VersionIt
+
 build_script:
   - ps: .\build.ps1 --bootstrap --verbosity=diagnostic
   - ps: .\build.ps1 --currentBranch=$env:APPVEYOR_REPO_BRANCH --nugetKey=$env:NUGET_API_KEY --coverallsToken=$env:COVERALLS_REPO_TOKEN --verbosity=diagnostic
