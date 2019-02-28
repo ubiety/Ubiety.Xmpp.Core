@@ -8,26 +8,16 @@ skip_tags: true
 image:
   - Visual Studio 2017
 
-dotnet_csproj:
-  file: '**\*.csproj'
-
 environment:
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  NUGET_API_KEY:
+    secure: /Q19KwotffxsQLBeuWnovsx+inKCcn42o2BFrVC+X3VgofkJp5RdFVk+Ti1y0pF7
   COVERALLS_REPO_TOKEN:
     secure: gw1sOtXvk1aiZZMJJQqBX5FXnjFt9F4IgtLLinQPqqAHpPg2NerYwX1XD9h5Kq3D
 
-install:
-  - dotnet tool install coveralls.net --tool-path tools
-  - dotnet tool install dotnet-sonarscanner --global
-
 build_script:
-  - dotnet restore
-  - dotnet sonarscanner begin /d:sonar.login="29ba6d2bcdb3c1ad1c78785797374e166749941c" /d:sonar.host.url="https://sonarcloud.io" /k:"ubiety_Ubiety.Xmpp.Core" /d:sonar.organization="ubiety"
-  - dotnet build
-  - dotnet sonarscanner end /d:sonar.login="29ba6d2bcdb3c1ad1c78785797374e166749941c"
+  - ps: build.ps1 --currentBranch=$env:APPVEYOR_REPO_BRANCH --nugetKey=$env:NUGET_API_KEY --coverallsToken=$env:COVERALLS_REPO_TOKEN
 
-test_script:
-  - dotnet test Ubiety.Xmpp.Test/Ubiety.Xmpp.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=../../ /p:Exclude="[xunit.*]*"
-  - cmd: cd tools
-  - cmd: csmacnz.Coveralls.exe --opencover -i ../Ubiety.Xmpp.Test/coverage.opencover.xml --useRelativePaths
-  - sh: ./tools/csmacnz.Coveralls --opencover -i coverage.opencover.xml --useRelativePaths
+test: off
+deploy: off
