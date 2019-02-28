@@ -28,7 +28,6 @@ Setup(ctx =>
 {
    // Executed BEFORE the first task.
    Information("Running tasks...");
-   Information(testProjectPath.FullPath);
 });
 
 Teardown(ctx =>
@@ -52,10 +51,10 @@ Task("Clean")
                 Recursive = true,
                 Force = true
             });
-
-        CreateDirectory(artifactDir);
-        DotNetCoreClean(solution);
     }
+
+    CreateDirectory(artifactDir);
+    DotNetCoreClean(solution);
 });
 
 Task("Restore")
@@ -80,7 +79,11 @@ Task("Test")
 .Does(() => {
     var settings = new DotNetCoreTestSettings
     {
-        ArgumentCustomization = args => args.Append("/p:CollectCoverage=true").Append("/p:CoverletOutputFormat=opencover").Append("/p:CoverletOutput=./" + coverageResults)
+        ArgumentCustomization = args => args
+            .Append("/p:CollectCoverage=true")
+            .Append("/p:CoverletOutputFormat=opencover")
+            .Append("/p:CoverletOutput=./" + coverageResults)
+            .Append("/p:Exclude=\"[xunit.*]*\"")
     };
 
     DotNetCoreTest(testProjectPath.FullPath, settings);
