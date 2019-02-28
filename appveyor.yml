@@ -17,7 +17,8 @@ environment:
     secure: gw1sOtXvk1aiZZMJJQqBX5FXnjFt9F4IgtLLinQPqqAHpPg2NerYwX1XD9h5Kq3D
 
 build_script:
-  - ps: build.ps1 --currentBranch=$env:APPVEYOR_REPO_BRANCH --nugetKey=$env:NUGET_API_KEY --coverallsToken=$env:COVERALLS_REPO_TOKEN
+  - ps: .\build.ps1 --bootstrap
+  - ps: .\build.ps1 --currentBranch=$env:APPVEYOR_REPO_BRANCH --nugetKey=$env:NUGET_API_KEY --coverallsToken=$env:COVERALLS_REPO_TOKEN
 
 test: off
 deploy: off
