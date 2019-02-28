@@ -1,6 +1,11 @@
+// Modules
 #module "nuget:?package=Cake.DotNetTool.Module&version=0.1.0"
+
+// Tools
 #tool "nuget:?package=coveralls.io&version=1.4.2"
 #tool "dotnet:?package=dotnet-sonarscanner&version=4.6.0"
+
+// Addins
 #addin "nuget:?package=Cake.Git&version=0.19.0"
 #addin "nuget:?package=Nuget.Core&version=2.14.0"
 #addin "nuget:?package=Cake.Coveralls&version=0.9.0"
@@ -11,18 +16,28 @@
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
-var artifactDir = new DirectoryPath("./artifacts/");
-var testDir = new DirectoryPath("./test");
-var testProjectDir = new DirectoryPath("Ubiety.Xmpp.Test");
-var testProject = new FilePath("Ubiety.Xmpp.Test.csproj");
-var solution = "./Ubiety.Xmpp.Core.sln";
-var coverageResults = new FilePath("coverage.xml");
 var currentBranch = Argument<string>("currentBranch", GitBranchCurrent("./").FriendlyName);
-var isReleaseBuild = string.Equals(currentBranch, "master", StringComparison.OrdinalIgnoreCase);
-var fullTestDir = testDir.Combine(testProjectDir);
-var testProjectPath = fullTestDir.CombineWithFilePath(testProject);
 var coverallsToken = Argument<string>("coverallsToken", null);
 var nugetKey = Argument<string>("nugetKey", null);
+
+///////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+///////////////////////////////////////////////////////////////////////////////
+
+var artifactDir = new DirectoryPath("./artifacts/");
+var testDir = new DirectoryPath("./test");
+var testProjectDir = testDir.Combine("Ubiety.Xmpp.Test");
+var testProject = testProjectDir.CombineWithFilePath("Ubiety.Xmpp.Test.csproj");
+var srcDir = new DirectoryPath("./src");
+var srcProjectDir = srcDir.Combine("Ubiety.Xmpp.Core");
+var project = srcProjectDir.CombineWithFilePath("Ubiety.Xmpp.Core.csproj");
+var solution = "./Ubiety.Xmpp.Core.sln";
+var coverageFile = new FilePath("coverage.xml");
+var isReleaseBuild = string.Equals(currentBranch, "master", StringComparison.OrdinalIgnoreCase);
+var sonarProjectKey = "ubiety_Ubiety.Xmpp.Core";
+var sonarOrganization = "ubiety";
+var sonarLogin = "29ba6d2bcdb3c1ad1c78785797374e166749941c";
+var nugetSource = "https://api.nuget.org/v3/index.json";
 
 ///////////////////////////////////////////////////////////////////////////////
 // SETUP / TEARDOWN
@@ -86,12 +101,12 @@ Task("Test")
         ArgumentCustomization = args => args
             .Append("/p:CollectCoverage=true")
             .Append("/p:CoverletOutputFormat=opencover")
-            .Append($"/p:CoverletOutput=./{coverageResults}")
+            .Append($"/p:CoverletOutput=./{coverageFile}")
             .Append("/p:Exclude=\"[xunit.*]*\"")
     };
 
-    DotNetCoreTest(testProjectPath.FullPath, settings);
-    MoveFile(fullTestDir.CombineWithFilePath(coverageResults), artifactDir.CombineWithFilePath(coverageResults));
+    DotNetCoreTest(testProject.FullPath, settings);
+    MoveFile(testProjectDir.CombineWithFilePath(coverageFile), artifactDir.CombineWithFilePath(coverageFile));
 });
 
 Task("SonarBegin")
@@ -99,10 +114,10 @@ Task("SonarBegin")
    DotNetCoreTool("sonarscanner", new DotNetCoreToolSettings {
        ArgumentCustomization = args => args
             .Append("begin")
-            .Append("/k:\"ubiety_Ubiety.Xmpp.Core\"")
-            .Append("/o:\"ubiety\"")
+            .Append($"/k:\"{sonarProjectKey}\"")
+            .Append($"/o:\"{sonarOrganization}\"")
             .Append("/d:sonar.host.url=\"https://sonarcloud.io\"")
-            .Append("/d:sonar.login=\"29ba6d2bcdb3c1ad1c78785797374e166749941c\"")
+            .Append($"/d:sonar.login=\"{sonarLogin}\"")
    });
 });
 
@@ -111,16 +126,48 @@ Task("SonarEnd")
     DotNetCoreTool("sonarscanner", new DotNetCoreToolSettings {
         ArgumentCustomization = args => args
             .Append("end")
-            .Append("/d:sonar.login=\"29ba6d2bcdb3c1ad1c78785797374e166749941c\"")
+            .Append($"/d:sonar.login=\"{sonarLogin}\"")
     });
 });
 
 Task("UploadCoverage")
 .IsDependentOn("Test")
 .Does(() => {
-    CoverallsIo(artifactDir.CombineWithFilePath(coverageResults), new CoverallsIoSettings {
+    CoverallsIo(artifactDir.CombineWithFilePath(coverageFile), new CoverallsIoSettings {
         RepoToken = coverallsToken
     });
+});
+
+Task("Package")
+.Does(() => {
+    DotNetCorePack(project.FullPath, new DotNetCorePackSettings {
+        NoBuild = true,
+        OutputDirectory = artifactDir
+    });
+});
+
+Task("Publish")
+.IsDependentOn("Package")
+.Does(() => {
+    var settings = new DotNetCoreNuGetPushSettings {
+        Source = nugetSource,
+        ApiKey = nugetKey
+    };
+
+    var packages = GetFiles(artifactDir.CombineWithFilePath("*.nupkg").FullPath);
+
+    foreach (var package in packages)
+    {
+        if (!IsPublished(package))
+        {
+            Information($"Publishing \"{package}\"");
+            DotNetCoreNuGetPush(package.FullPath, settings);
+        }
+        else
+        {
+            Information($"Package \"{package}\" already published. Skipping.");
+        }
+    }
 });
 
 Task("Sonar")
@@ -132,9 +179,35 @@ Task("BuildAndTest")
 .IsDependentOn("Build")
 .IsDependentOn("Test");
 
+Task("CompleteWithoutPublish")
+.IsDependentOn("BuildAndTest")
+.IsDependentOn("UploadCoverage");
+
+if (isReleaseBuild)
+{
+    Task("Complete")
+    .IsDependentOn("Sonar")
+    .IsDependentOn("UploadCoverage")
+    .IsDependentOn("Publish");
+}
+else
+{
+    Task("Complete")
+    .IsDependentOn("CompleteWithoutPublish");
+}
+
 Task("Default")
-.Does(() => {
-   Information("Hello Cake!");
-});
+.IsDependentOn("Complete");
 
 RunTarget(target);
+
+private bool IsPublished(FilePath packagePath)
+{
+    var package = new NuGet.ZipPackage(packagePath.FullPath);
+
+    var latestPublishedVersions = NuGetList(package.Id, new NuGetListSettings {
+        Prerelease = true
+    });
+
+    return latestPublishedVersions.Any(p => package.Version.Equals(new NuGet.SemanticVersion(p.Version)));
+}
