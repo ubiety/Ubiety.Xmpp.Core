@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <IsPackable>false</IsPackable>
     <IsTestProject>True</IsTestProject>
-  </PropertyGroup>
+    <SonarQubeExclude>true</SonarQubeExclude>
+    <ProjectGuid>{c1f1f37b-6abe-4f0f-ba35-526d72b8a5c6}</ProjectGuid>
+ </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <CodeAnalysisRuleSet />
@@ -29,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj" />
+    <ProjectReference Include="..\..\src\Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj" />
   </ItemGroup>
 
 </Project>

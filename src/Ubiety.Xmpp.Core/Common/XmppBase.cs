@@ -101,10 +101,9 @@ namespace Ubiety.Xmpp.Core.Common
         // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
-            _logger.Log(LogLevel.Debug, "Dispose() called");
-
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
