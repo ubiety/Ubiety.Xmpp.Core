@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.App", "src\Ubiety.Xmpp.App\Ubiety.Xmpp.App.csproj", "{163657FF-71CA-4CEA-AB31-28AF790BF769}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.App", "src\Ubiety.Xmpp.App\Ubiety.Xmpp.App.csproj", "{6B67E15D-39D5-45BD-BDAA-B59A6502952C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Core", "src\Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj", "{26043BE6-5CCF-4C7F-8A8D-58F04B84AC75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Core", "src\Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj", "{F81C9802-EB61-48F8-B5AF-0CE7D3ECFCFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Test", "test\Ubiety.Xmpp.Test\Ubiety.Xmpp.Test.csproj", "{2AB906BE-812E-4FF5-A0A6-5E40FE6269FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.Test", "test\Ubiety.Xmpp.Test\Ubiety.Xmpp.Test.csproj", "{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B6635DB7-CEAE-4971-B6D2-853EF38275A8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +23,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{163657FF-71CA-4CEA-AB31-28AF790BF769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{163657FF-71CA-4CEA-AB31-28AF790BF769}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{163657FF-71CA-4CEA-AB31-28AF790BF769}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{163657FF-71CA-4CEA-AB31-28AF790BF769}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26043BE6-5CCF-4C7F-8A8D-58F04B84AC75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26043BE6-5CCF-4C7F-8A8D-58F04B84AC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26043BE6-5CCF-4C7F-8A8D-58F04B84AC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26043BE6-5CCF-4C7F-8A8D-58F04B84AC75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2AB906BE-812E-4FF5-A0A6-5E40FE6269FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2AB906BE-812E-4FF5-A0A6-5E40FE6269FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2AB906BE-812E-4FF5-A0A6-5E40FE6269FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2AB906BE-812E-4FF5-A0A6-5E40FE6269FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B67E15D-39D5-45BD-BDAA-B59A6502952C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B67E15D-39D5-45BD-BDAA-B59A6502952C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B67E15D-39D5-45BD-BDAA-B59A6502952C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B67E15D-39D5-45BD-BDAA-B59A6502952C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81C9802-EB61-48F8-B5AF-0CE7D3ECFCFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81C9802-EB61-48F8-B5AF-0CE7D3ECFCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81C9802-EB61-48F8-B5AF-0CE7D3ECFCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81C9802-EB61-48F8-B5AF-0CE7D3ECFCFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
