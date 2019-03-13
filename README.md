@@ -1,13 +1,12 @@
-# Ubiety XMPP Core
+# ![Logo](https://raw.githubusercontent.com/ubiety/Ubiety.Xmpp.Core/develop/images/messages64.png) Ubiety XMPP Core ![Nuget](https://img.shields.io/nuget/v/Ubiety.Xmpp.Core.svg?style=flat-square)
 
-![Logo of the project](https://raw.githubusercontent.com/ubiety/Ubiety.Xmpp.Core/develop/ubiety-logo.png)
 
 > Your XMPP choice for .NET Core
 
-| Branch  | Quality                                                                                                                                                                                  | Travis CI                                                                                                                          | Appveyor                                                                                                                                                                           | Coverage                                                                                                                                                                     |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Master  | [![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core)                          | [![Build Status](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core.svg?branch=master)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core)  | [![Build status](https://ci.appveyor.com/api/projects/status/xtxujov8b3cl616q/branch/master?svg=true)](https://ci.appveyor.com/project/coder2000/ubiety-xmpp-core/branch/master)   | [![Coverage Status](https://coveralls.io/repos/github/ubiety/Ubiety.Xmpp.Core/badge.svg?branch=master)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=master)   |
-| Develop | [![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge/develop)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/overview/develop) | [![Build Status](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core.svg?branch=develop)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core) | [![Build status](https://ci.appveyor.com/api/projects/status/xtxujov8b3cl616q/branch/develop?svg=true)](https://ci.appveyor.com/project/coder2000/ubiety-xmpp-core/branch/develop) | [![Coverage Status](https://coveralls.io/repos/github/ubiety/Ubiety.Xmpp.Core/badge.svg?branch=develop)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=develop) |
+| Branch  | Quality                                                                                                                                                                                                    | Travis CI                                                                                                                                                     | Appveyor                                                                                                                                                                                     | Coverage                                                                                                                                                                                        |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Master  | [![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge?style=flat-square)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core)                          | [![Travis (.org) branch](https://img.shields.io/travis/ubiety/Ubiety.Xmpp.Core/master.svg?style=flat-square)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core)  | [![AppVeyor branch](https://img.shields.io/appveyor/ci/coder2000/ubiety-xmpp-core/master.svg?style=flat-square)](https://ci.appveyor.com/project/coder2000/ubiety-xmpp-core/branch/master)   | [![Coveralls github branch](https://img.shields.io/coveralls/github/ubiety/Ubiety.Xmpp.Core/master.svg?style=flat-square)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=master)   |
+| Develop | [![CodeFactor](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/badge/develop?style=flat-square)](https://www.codefactor.io/repository/github/ubiety/ubiety.xmpp.core/overview/develop) | [![Travis (.org) branch](https://img.shields.io/travis/ubiety/Ubiety.Xmpp.Core/develop.svg?style=flat-square)](https://travis-ci.org/ubiety/Ubiety.Xmpp.Core) | [![AppVeyor branch](https://img.shields.io/appveyor/ci/coder2000/ubiety-xmpp-core/develop.svg?style=flat-square)](https://ci.appveyor.com/project/coder2000/ubiety-xmpp-core/branch/develop) | [![Coveralls github branch](https://img.shields.io/coveralls/github/ubiety/Ubiety.Xmpp.Core/develop.svg?style=flat-square)](https://coveralls.io/github/ubiety/Ubiety.Xmpp.Core?branch=develop) |
 
 XMPP is not dying and this library will help keep it alive. You can use this to
 develop a client for this popular messaging protocol and soon it will support
@@ -74,15 +73,18 @@ consideration, it is common to separate this section to its own file called
 
 ## Links
 
-- Project homepage: <https://xmpp.dieterlunn.ca>
+- Project homepage: <https://xmpp.ubiety.ca>
 - Repository: <https://github.com/ubiety/Ubiety.Xmpp.Core/>
 - Issue tracker: <https://github.com/ubiety/Ubiety.Xmpp.Core/issues>
-  - In case of sensitive bugs like security vulnerabilities, please contact
-    issues@dieterlunn.ca directly instead of using issue tracker. We value your effort
-    to improve the security and privacy of this project!
+  - In case of sensitive bugs like security vulnerabilities, please use the 
+    [Tidelift security contact](https://tidelift.com/security) instead of using issue tracker. 
+    We value your effort to improve the security and privacy of this project! Tidelift will coordinate the fix and disclosure.
 - Related projects:
   - Ubiety VersionIt: <https://github.com/ubiety/Ubiety.VersionIt/>
   - Ubiety Toolset: <https://github.com/ubiety/Ubiety.Toolset/>
+  - Ubiety Dns: <https://github.com/ubiety/Ubiety.Dns.Core/>
+  - Ubiety Stringprep: <https://github.com/ubiety/Ubiety.Stringprep.Core/>
+  - Ubiety SCRAM: <https://github.com/ubiety/Ubiety.Scram.Core/>
 
 ## Sponsors
 
