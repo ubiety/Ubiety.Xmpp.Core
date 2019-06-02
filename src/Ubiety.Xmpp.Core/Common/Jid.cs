@@ -22,10 +22,13 @@ namespace Ubiety.Xmpp.Core.Common
 {
     /// <inheritdoc />
     /// <summary>
-    ///     JID class
+    ///     Jabber ID
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
+        //language=regex
+        private const string JidRegex = @"^(?:(?<username>.*)@)?(?<server>.*?)(?:\/(?<resource>.*))?$";
+
         private readonly IPreparationProcess _nameprep = NameprepProfile.Create();
         private readonly IPreparationProcess _nodeprep = NodeprepProfile.Create();
         private readonly IPreparationProcess _resourceprep = ResourceprepProfile.Create();
@@ -57,6 +60,8 @@ namespace Ubiety.Xmpp.Core.Common
             Resource = resource;
         }
 
+        private Jid() { }
+
         /// <summary>
         ///     Gets the JID resource
         /// </summary>
@@ -80,7 +85,7 @@ namespace Ubiety.Xmpp.Core.Common
         /// </summary>
         public string User
         {
-            get => Unescape();
+            get => Unescape(_user);
             private set
             {
                 var temp = Escape(value);
@@ -94,16 +99,16 @@ namespace Ubiety.Xmpp.Core.Common
         public string Id
         {
             get => _id ?? BuildJid();
-            set => Parse(value);
+            set => _id = value;
         }
 
         /// <summary>
         ///     Implicitly converts a string into a <see cref="Jid" />
         /// </summary>
-        /// <param name="id">String version of the ID</param>
+        /// <param name="id">String version of the <see cref="Jid" /></param>
         public static implicit operator Jid(string id)
         {
-            return new Jid(id);
+            return Parse(id);
         }
 
         /// <summary>
@@ -179,6 +184,47 @@ namespace Ubiety.Xmpp.Core.Common
             return Id;
         }
 
+
+        /// <summary>
+        ///     Parse a string into a <see cref="Jid" />
+        /// </summary>
+        /// <param name="value">String jid to parse</param>
+        /// <returns><see cref="Jid" /> of the string</returns>
+        public static Jid Parse(string value)
+        {
+            if (!TryParse(value, out var jid))
+            {
+                throw new Exception();
+            }
+
+            return jid;
+        }
+
+        /// <summary>
+        ///     Try to parse the string into a <see cref="Jid" />
+        /// </summary>
+        /// <param name="value">String jid to parse</param>
+        /// <param name="jid">Parsed <see cref="Jid" /></param>
+        public static bool TryParse(string value, out Jid jid)
+        {
+            var match = Regex.Match(value, JidRegex);
+
+            if (!match.Success)
+            {
+                jid = default;
+                return false;
+            }
+
+            jid = new Jid
+            {
+                User = match.Groups["username"].Value,
+                Server = match.Groups["server"].Value,
+                Resource = match.Groups["resource"].Value
+            };
+
+            return true;
+        }
+
         private static string Escape(string user)
         {
             var u = new StringBuilder();
@@ -244,7 +290,7 @@ namespace Ubiety.Xmpp.Core.Common
             return u.ToString();
         }
 
-        private string Unescape()
+        private string Unescape(string username)
         {
             var re = new Regex(@"\\([2-5][0267face])");
 
@@ -287,50 +333,9 @@ namespace Ubiety.Xmpp.Core.Common
                 }
             }
 
-            var u = re.Replace(_user, Evaluator);
+            var u = re.Replace(username, Evaluator);
 
             return u;
-        }
-
-        private void Parse(string value)
-        {
-            var at = value.IndexOf("@", StringComparison.Ordinal);
-            var slash = value.IndexOf("/", StringComparison.Ordinal);
-
-            if (at == -1)
-            {
-                if (slash == -1)
-                {
-                    Server = value;
-                }
-                else
-                {
-                    Server = value.Substring(0, slash);
-                    Resource = value.Substring(slash + 1);
-                }
-            }
-            else
-            {
-                if (slash == -1)
-                {
-                    User = value.Substring(0, at);
-                    Server = value.Substring(at + 1);
-                }
-                else
-                {
-                    if (at < slash)
-                    {
-                        User = value.Substring(0, at);
-                        Server = value.Substring(at + 1, slash - at - 1);
-                        Resource = value.Substring(slash + 1);
-                    }
-                    else
-                    {
-                        Server = value.Substring(0, slash);
-                        Resource = value.Substring(slash + 1);
-                    }
-                }
-            }
         }
 
         private string BuildJid()
