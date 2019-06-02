@@ -1,6 +1,5 @@
 # ![Logo](https://raw.githubusercontent.com/ubiety/Ubiety.Xmpp.Core/develop/images/messages64.png) Ubiety XMPP Core ![Nuget](https://img.shields.io/nuget/v/Ubiety.Xmpp.Core.svg?style=flat-square)
 
-
 > Your XMPP choice for .NET Core
 
 | Branch  | Quality                                                                                                                                                                                                    | Travis CI                                                                                                                                                     | Appveyor                                                                                                                                                                                     | Coverage                                                                                                                                                                                        |
@@ -57,34 +56,23 @@ git push
 
 ## Contributing
 
-When you publish something open source, one of the greatest motivations is that
-anyone can just jump in and start contributing to your project.
-
-These paragraphs are meant to welcome those kind souls to feel that they are
-needed. You should state something like:
-
-"If you'd like to contribute, please fork the repository and use a feature
-branch. Pull requests are warmly welcome."
-
-If there's anything else the developer needs to know (e.g. the code style
-guide), you should link it here. If there's a lot of things to take into
-consideration, it is common to separate this section to its own file called
-`CONTRIBUTING.md` (or similar). If so, you should say that it exists here.
+If you'd like to contribute, please fork the repository and use a feature
+branch. Pull requests are warmly welcome.
 
 ## Links
 
-- Project homepage: <https://xmpp.ubiety.ca>
-- Repository: <https://github.com/ubiety/Ubiety.Xmpp.Core/>
-- Issue tracker: <https://github.com/ubiety/Ubiety.Xmpp.Core/issues>
-  - In case of sensitive bugs like security vulnerabilities, please use the 
-    [Tidelift security contact](https://tidelift.com/security) instead of using issue tracker. 
-    We value your effort to improve the security and privacy of this project! Tidelift will coordinate the fix and disclosure.
-- Related projects:
-  - Ubiety VersionIt: <https://github.com/ubiety/Ubiety.VersionIt/>
-  - Ubiety Toolset: <https://github.com/ubiety/Ubiety.Toolset/>
-  - Ubiety Dns: <https://github.com/ubiety/Ubiety.Dns.Core/>
-  - Ubiety Stringprep: <https://github.com/ubiety/Ubiety.Stringprep.Core/>
-  - Ubiety SCRAM: <https://github.com/ubiety/Ubiety.Scram.Core/>
+-   Project homepage: <https://xmpp.ubiety.ca>
+-   Repository: <https://github.com/ubiety/Ubiety.Xmpp.Core/>
+-   Issue tracker: <https://github.com/ubiety/Ubiety.Xmpp.Core/issues>
+    -   In case of sensitive bugs like security vulnerabilities, please use the
+        [Tidelift security contact](https://tidelift.com/security) instead of using issue tracker.
+        We value your effort to improve the security and privacy of this project! Tidelift will coordinate the fix and disclosure.
+-   Related projects:
+    -   Ubiety VersionIt: <https://github.com/ubiety/Ubiety.VersionIt/>
+    -   Ubiety Toolset: <https://github.com/ubiety/Ubiety.Toolset/>
+    -   Ubiety Dns: <https://github.com/ubiety/Ubiety.Dns.Core/>
+    -   Ubiety Stringprep: <https://github.com/ubiety/Ubiety.Stringprep.Core/>
+    -   Ubiety SCRAM: <https://github.com/ubiety/Ubiety.Scram.Core/>
 
 ## Sponsors
 

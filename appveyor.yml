@@ -1,27 +1,22 @@
+image: Visual Studio 2017
+
 branches:
-  only:
-    - master
-    - develop
-
-skip_tags: true
-
-image:
-  - Visual Studio 2017
+  except:
+    - gh-pages
 
 environment:
-  DOTNET_CLI_TELEMETRY_OPTOUT: true
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-  NUGET_API_KEY:
-    secure: /Q19KwotffxsQLBeuWnovsx+inKCcn42o2BFrVC+X3VgofkJp5RdFVk+Ti1y0pF7
+  SonarKey:
+    secure: kexx96aV1FXqk1Xzbi8RrOQpFI037s1Himw4Y0z/LQONHuY6jpei1bYgZvZeI39I
+  NuGetKey:
+    secure: RcovDx+t7sxpT0DFBRNrYJ5Habd0vLWK5b3YE/oud4KwzREZxgyTYOvoHZR1sm2T
   COVERALLS_REPO_TOKEN:
-    secure: gw1sOtXvk1aiZZMJJQqBX5FXnjFt9F4IgtLLinQPqqAHpPg2NerYwX1XD9h5Kq3D
+    secure: W8cqcSrGWp4Uym/aNC6JTVnfuoBQ266qXhkYcAJdc0J5+jbs+trIH5LWvniArf5/
 
-install:
-  - dotnet tool install --global Ubiety.VersionIt
+init:
+  - ps: dotnet tool install --global dotnet-sonarscanner
 
 build_script:
-  - ps: .\build.ps1 --bootstrap
-  - ps: .\build.ps1 --currentBranch=$env:APPVEYOR_REPO_BRANCH --nugetKey=$env:NUGET_API_KEY --coverallsToken=$env:COVERALLS_REPO_TOKEN
+  - ps: .\build.ps1 appveyor
 
 test: off
 deploy: off
