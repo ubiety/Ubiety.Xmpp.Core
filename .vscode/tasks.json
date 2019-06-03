@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Ubiety.Xmpp.App/Ubiety.Xmpp.App.csproj"
+                "${workspaceFolder}/src/Ubiety.Xmpp.App/Ubiety.Xmpp.App.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
