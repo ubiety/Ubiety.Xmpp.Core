@@ -17,14 +17,14 @@ using Ubiety.Stringprep.Core;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    ///     XMPP Nameprep Stringprep profile
+    ///     XMPP Nameprep Stringprep profile.
     /// </summary>
     public static class NameprepProfile
     {
         /// <summary>
-        ///     Create Nameprep profile
+        ///     Create Nameprep profile.
         /// </summary>
-        /// <returns>Nameprep process</returns>
+        /// <returns>Nameprep process.</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()

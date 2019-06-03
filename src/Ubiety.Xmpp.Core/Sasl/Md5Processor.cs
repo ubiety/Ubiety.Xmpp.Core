@@ -24,7 +24,7 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 namespace Ubiety.Xmpp.Core.Sasl
 {
     /// <summary>
-    ///     MD5 SASL processor
+    ///     MD5 SASL processor.
     /// </summary>
     public class Md5Processor : SaslProcessor
     {
@@ -41,7 +41,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         private string _responseHash;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Md5Processor" /> class
+        ///     Initializes a new instance of the <see cref="Md5Processor" /> class.
         /// </summary>
         public Md5Processor()
         {
@@ -49,11 +49,11 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Initializes the SASL processor
+        ///     Initializes the SASL processor.
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the user to authenticate</param>
-        /// <param name="password">Password to use for authentication</param>
-        /// <returns>Next tag to send to the server</returns>
+        /// <param name="id"><see cref="Jid" /> of the user to authenticate.</param>
+        /// <param name="password">Password to use for authentication.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
@@ -64,10 +64,10 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Process the next SASL step
+        ///     Process the next SASL step.
         /// </summary>
-        /// <param name="tag">Tag from the server</param>
-        /// <returns>Next tag to send to the server</returns>
+        /// <param name="tag">Tag from the server.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Step(Tag tag)
         {
             switch (tag)

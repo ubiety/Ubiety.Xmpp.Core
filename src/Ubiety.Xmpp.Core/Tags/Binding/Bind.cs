@@ -19,13 +19,13 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Binding
 {
     /// <summary>
-    ///     Bind tag
+    ///     Bind tag.
     /// </summary>
     [XmppTag("bind", Namespaces.Bind, typeof(Bind))]
     public class Bind : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Bind"/> class
+        ///     Initializes a new instance of the <see cref="Bind"/> class.
         /// </summary>
         public Bind()
             : base(XmlName)
@@ -33,21 +33,21 @@ namespace Ubiety.Xmpp.Core.Tags.Binding
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Bind"/> class
+        ///     Initializes a new instance of the <see cref="Bind"/> class.
         /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive tag from</param>
+        /// <param name="other"><see cref="XElement"/> to derive tag from.</param>
         public Bind(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("bind", Namespaces.Bind);
 
         /// <summary>
-        ///     Gets a value indicating whether binding is required
+        ///     Gets a value indicating whether binding is required.
         /// </summary>
         public bool Required => Element<Required>(XName.Get("required", Namespaces.Bind)) != null;
     }

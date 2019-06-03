@@ -19,7 +19,7 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Connected to the server state
+    ///     Connected to the server state.
     /// </summary>
     /// <inheritdoc />
     public class ConnectedState : IState

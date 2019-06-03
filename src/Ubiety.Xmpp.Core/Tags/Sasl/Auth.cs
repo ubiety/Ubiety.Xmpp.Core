@@ -19,13 +19,13 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    ///     SASL Auth tag
+    ///     SASL Auth tag.
     /// </summary>
     [XmppTag("auth", Namespaces.Sasl, typeof(Auth))]
     public class Auth : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Auth" /> class
+        ///     Initializes a new instance of the <see cref="Auth" /> class.
         /// </summary>
         public Auth()
             : base(XmlName)
@@ -33,21 +33,21 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Auth" /> class
+        ///     Initializes a new instance of the <see cref="Auth" /> class.
         /// </summary>
-        /// <param name="element"><see cref="XElement" /> to derive the tag from</param>
+        /// <param name="element"><see cref="XElement" /> to derive the tag from.</param>
         public Auth(XElement element)
             : base(element)
         {
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("auth", Namespaces.Sasl);
 
         /// <summary>
-        ///     Gets or sets the authentication mechanism
+        ///     Gets or sets the authentication mechanism.
         /// </summary>
         public MechanismTypes MechanismType
         {

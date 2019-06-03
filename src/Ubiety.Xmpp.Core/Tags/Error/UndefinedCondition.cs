@@ -19,14 +19,14 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Error
 {
     /// <summary>
-    ///     Undefined condition XMPP error
+    ///     Undefined condition XMPP error.
     /// </summary>
     /// <inheritdoc />
     [XmppTag("undefined-condition", Namespaces.XmppStreams, typeof(UndefinedCondition))]
     public class UndefinedCondition : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class
+        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class.
         /// </summary>
         public UndefinedCondition()
             : base(XmlName)
@@ -34,16 +34,16 @@ namespace Ubiety.Xmpp.Core.Tags.Error
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class
+        ///     Initializes a new instance of the <see cref="UndefinedCondition" /> class.
         /// </summary>
-        /// <param name="element">Element to base the tag on</param>
+        /// <param name="element">Element to base the tag on.</param>
         public UndefinedCondition(XElement element)
             : base(element)
         {
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("undefined-condition", Namespaces.XmppStreams);
     }

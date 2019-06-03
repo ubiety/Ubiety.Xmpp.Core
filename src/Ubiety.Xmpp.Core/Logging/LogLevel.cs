@@ -15,33 +15,33 @@
 namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Log severity level
+    ///     Log severity level.
     /// </summary>
     public enum LogLevel
     {
         /// <summary>
-        ///     Critical severity
+        ///     Critical severity.
         /// </summary>
         Critical,
 
         /// <summary>
-        ///     Error severity
+        ///     Error severity.
         /// </summary>
         Error,
 
         /// <summary>
-        ///     Warning severity
+        ///     Warning severity.
         /// </summary>
         Warning,
 
         /// <summary>
-        ///     Information severity
+        ///     Information severity.
         /// </summary>
         Information,
 
         /// <summary>
-        ///     Debug severity
+        ///     Debug severity.
         /// </summary>
-        Debug
+        Debug,
     }
 }

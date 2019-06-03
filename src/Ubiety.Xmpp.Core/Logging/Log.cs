@@ -18,57 +18,57 @@ using System.Linq;
 namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Central log class
+    ///     Central log class.
     /// </summary>
     public static class Log
     {
         private static ILogManager _manager = new DefaultManager();
 
         /// <summary>
-        ///     Gets a logger for the type
+        ///     Gets a logger for the type.
         /// </summary>
-        /// <typeparam name="T">Type to get a logger for</typeparam>
-        /// <returns>Logger for the type</returns>
+        /// <typeparam name="T">Type to get a logger for.</typeparam>
+        /// <returns>Logger for the type.</returns>
         public static ILog Get<T>()
         {
             return _manager.GetLogger(NameFor<T>());
         }
 
         /// <summary>
-        ///     Gets a logger for the type
+        ///     Gets a logger for the type.
         /// </summary>
-        /// <param name="type">Type to get a logger for</param>
-        /// <returns>Logger for the type</returns>
+        /// <param name="type">Type to get a logger for.</param>
+        /// <returns>Logger for the type.</returns>
         public static ILog Get(Type type)
         {
             return _manager.GetLogger(NameFor(type));
         }
 
         /// <summary>
-        ///     Gets a logger for the type name
+        ///     Gets a logger for the type name.
         /// </summary>
-        /// <param name="name">Name of the type</param>
-        /// <returns>Logger for the type name</returns>
+        /// <param name="name">Name of the type.</param>
+        /// <returns>Logger for the type name.</returns>
         public static ILog Get(string name)
         {
             return _manager.GetLogger(name);
         }
 
         /// <summary>
-        ///     Gets the name of the type
+        ///     Gets the name of the type.
         /// </summary>
-        /// <typeparam name="T">Type to get the name for</typeparam>
-        /// <returns>Name of the type</returns>
+        /// <typeparam name="T">Type to get the name for.</typeparam>
+        /// <returns>Name of the type.</returns>
         public static string NameFor<T>()
         {
             return NameFor(typeof(T));
         }
 
         /// <summary>
-        ///     Gets the name of the type
+        ///     Gets the name of the type.
         /// </summary>
-        /// <param name="type">Type to get the name for</param>
-        /// <returns>Name of the type</returns>
+        /// <param name="type">Type to get the name for.</param>
+        /// <returns>Name of the type.</returns>
         public static string NameFor(Type type)
         {
             if (!type.IsGenericType)
@@ -84,9 +84,9 @@ namespace Ubiety.Xmpp.Core.Logging
         }
 
         /// <summary>
-        ///     Initializes the logger
+        ///     Initializes the logger.
         /// </summary>
-        /// <param name="manager">Log manager</param>
+        /// <param name="manager">Log manager.</param>
         internal static void Initialize(ILogManager manager)
         {
             _manager = manager;

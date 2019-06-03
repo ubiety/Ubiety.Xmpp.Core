@@ -21,13 +21,13 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Stream
 {
     /// <summary>
-    ///     XMPP Stream tag
+    ///     XMPP Stream tag.
     /// </summary>
     [XmppTag("stream", Namespaces.Stream, typeof(Stream))]
     public class Stream : Stanza
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stream" /> class
+        ///     Initializes a new instance of the <see cref="Stream" /> class.
         /// </summary>
         public Stream()
             : base(XmlName)
@@ -35,21 +35,21 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Stream" /> class
+        ///     Initializes a new instance of the <see cref="Stream" /> class.
         /// </summary>
-        /// <param name="other">Element to base the tag on</param>
+        /// <param name="other">Element to base the tag on.</param>
         public Stream(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("stream", Namespaces.Stream);
 
         /// <summary>
-        ///     Gets or sets the stream version
+        ///     Gets or sets the stream version.
         /// </summary>
         public string Version
         {
@@ -58,7 +58,7 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        ///     Gets or sets the stream namespace
+        ///     Gets or sets the stream namespace.
         /// </summary>
         public string Namespace
         {
@@ -67,17 +67,17 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        ///     Gets the stream errors
+        ///     Gets the stream errors.
         /// </summary>
         public IEnumerable<Error> Errors => Elements<Error>(XName.Get("error", Namespaces.Stream));
 
         /// <summary>
-        ///     Gets the stream features
+        ///     Gets the stream features.
         /// </summary>
         public Features Features => Element<Features>(XName.Get("features", Namespaces.Stream));
 
         /// <summary>
-        ///     Gets the start tag of the stream
+        ///     Gets the start tag of the stream.
         /// </summary>
         public string StartTag
         {

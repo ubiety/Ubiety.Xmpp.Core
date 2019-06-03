@@ -19,7 +19,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Connecting state for the protocol
+    ///     Connecting state for the protocol.
     /// </summary>
     /// <inheritdoc />
     public class ConnectingState : IState

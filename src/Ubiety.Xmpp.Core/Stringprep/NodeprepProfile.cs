@@ -17,12 +17,12 @@ using Ubiety.Stringprep.Core;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    ///     XMPP Nodeprep Stringprep profile
+    ///     XMPP Nodeprep Stringprep profile.
     /// </summary>
     public static class NodeprepProfile
     {
         /// <summary>
-        ///     Nodeprep prohibited code points
+        ///     Nodeprep prohibited code points.
         /// </summary>
         public static readonly int[] NodeprepProhibited =
         {
@@ -33,13 +33,13 @@ namespace Ubiety.Xmpp.Core.Stringprep
             0x003A, 0x003A,
             0x003C, 0x003C,
             0x003E, 0x003E,
-            0x0040, 0x0040
+            0x0040, 0x0040,
         };
 
         /// <summary>
-        ///     Create Nodeprep profile
+        ///     Create Nodeprep profile.
         /// </summary>
-        /// <returns>Nodeprep process</returns>
+        /// <returns>Nodeprep process.</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()

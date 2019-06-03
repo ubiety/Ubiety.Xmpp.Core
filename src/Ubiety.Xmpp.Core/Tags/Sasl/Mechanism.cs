@@ -19,13 +19,13 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    ///     SASL authentication mechanism
+    ///     SASL authentication mechanism.
     /// </summary>
     [XmppTag("mechanism", Namespaces.Sasl, typeof(Mechanism))]
     public class Mechanism : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanism" /> class
+        ///     Initializes a new instance of the <see cref="Mechanism" /> class.
         /// </summary>
         public Mechanism()
             : base(XmlName)
@@ -33,21 +33,21 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanism" /> class
+        ///     Initializes a new instance of the <see cref="Mechanism" /> class.
         /// </summary>
-        /// <param name="element"><see cref="XElement" /> to derive tag from</param>
+        /// <param name="element"><see cref="XElement" /> to derive tag from.</param>
         public Mechanism(XElement element)
             : base(element)
         {
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("mechanism", Namespaces.Sasl);
 
         /// <summary>
-        ///     Gets or sets the mechanism type
+        ///     Gets or sets the mechanism type.
         /// </summary>
         public MechanismTypes Type
         {
@@ -57,10 +57,10 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Convert a mechanism to its type format
+        ///     Convert a mechanism to its type format.
         /// </summary>
-        /// <param name="type">String type of the mechanism</param>
-        /// <returns>Type of the mechanism</returns>
+        /// <param name="type">String type of the mechanism.</param>
+        /// <returns>Type of the mechanism.</returns>
         public static MechanismTypes ToTypeFromString(string type)
         {
             switch (type)
@@ -86,10 +86,10 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Converts a mechanism type to a string
+        ///     Converts a mechanism type to a string.
         /// </summary>
-        /// <param name="type">Type to convert</param>
-        /// <returns>String name of the mechanism</returns>
+        /// <param name="type">Type to convert.</param>
+        /// <returns>String name of the mechanism.</returns>
         public static string ToStringFromType(MechanismTypes type)
         {
             switch (type)

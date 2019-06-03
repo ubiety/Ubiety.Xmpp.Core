@@ -21,7 +21,9 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 
 namespace Ubiety.Xmpp.Core.States
 {
-    /// <inheritdoc />
+    /// <summary>
+    ///     Stream features state.
+    /// </summary>
     public class StreamFeaturesState : IState
     {
         private static readonly ILog Logger = Log.Get<StreamFeaturesState>();

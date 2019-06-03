@@ -15,41 +15,41 @@
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     XML namespaces for tags
+    ///     XML namespaces for tags.
     /// </summary>
     public static class Namespaces
     {
 #pragma warning disable S1075 // URIs should not be hardcoded
 
         /// <summary>
-        ///     Stream namespace
+        ///     Stream namespace.
         /// </summary>
         public const string Stream = "http://etherx.jabber.org/streams";
 
 #pragma warning restore S1075 // URIs should not be hardcoded
 
         /// <summary>
-        ///     Client namespace
+        ///     Client namespace.
         /// </summary>
         public const string Client = "jabber:client";
 
         /// <summary>
-        ///     XMPP streams namespace
+        ///     XMPP streams namespace.
         /// </summary>
         public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
 
         /// <summary>
-        ///     XMPP TLS namespace
+        ///     XMPP TLS namespace.
         /// </summary>
         public const string Tls = "urn:ietf:params:xml:ns:xmpp-tls";
 
         /// <summary>
-        ///     XMPP SASL namespace
+        ///     XMPP SASL namespace.
         /// </summary>
         public const string Sasl = "urn:ietf:params:xml:ns:xmpp-sasl";
 
         /// <summary>
-        ///     XMPP Resource Binding namespace
+        ///     XMPP Resource Binding namespace.
         /// </summary>
         public const string Bind = "urn:ietf:params:xml:ns:xmpp-bind";
     }

@@ -25,7 +25,7 @@ using Ubiety.Xmpp.Core.Logging;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    ///     Address class
+    ///     Address class.
     /// </summary>
     internal class Address
     {
@@ -37,9 +37,9 @@ namespace Ubiety.Xmpp.Core.Net
         private List<RecordSrv> _srvRecords;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Address" /> class
+        ///     Initializes a new instance of the <see cref="Address" /> class.
         /// </summary>
-        /// <param name="client"><see cref="IClient" /> for configuration</param>
+        /// <param name="client"><see cref="IClient" /> for configuration.</param>
         public Address(IClient client)
         {
             _logger.Log(LogLevel.Debug, $"{typeof(Address)} created");
@@ -48,19 +48,19 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Gets a value indicating whether the address is IPv6
+        ///     Gets a value indicating whether the address is IPv6.
         /// </summary>
         public bool IsIPv6 { get; private set; }
 
         /// <summary>
-        ///     Gets the hostname of the address
+        ///     Gets the hostname of the address.
         /// </summary>
         public string Hostname { get; private set; }
 
         /// <summary>
-        ///     Gets the next IP address for the server
+        ///     Gets the next IP address for the server.
         /// </summary>
-        /// <returns><see cref="IPAddress" /> of the XMPP server</returns>
+        /// <returns><see cref="IPAddress" /> of the XMPP server.</returns>
         public IPAddress NextIpAddress()
         {
             _logger.Log(LogLevel.Debug, "NextIpAddress() called");

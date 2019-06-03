@@ -19,16 +19,11 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     SASL XMPP state
+    ///     SASL XMPP state.
     /// </summary>
     /// <inheritdoc />
     public class SaslState : IState
     {
-        /// <summary>
-        ///     Execute the the state
-        /// </summary>
-        /// <param name="xmpp">Xmpp client to use</param>
-        /// <param name="tag">Tag from the server</param>
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {

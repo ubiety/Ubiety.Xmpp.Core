@@ -21,7 +21,7 @@ using Ubiety.Xmpp.Core.Tags.Client;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Resource binding state
+    ///     Resource binding state.
     /// </summary>
     public class BindingState : IState
     {

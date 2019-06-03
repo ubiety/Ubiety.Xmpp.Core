@@ -22,21 +22,23 @@ using Ubiety.Xmpp.Core.Tags.Tls;
 
 namespace Ubiety.Xmpp.Core.Tags.Stream
 {
-    /// <inheritdoc />
+    /// <summary>
+    ///     Stream features tag.
+    /// </summary>
     [XmppTag("features", Namespaces.Stream, typeof(Features))]
     public class Features : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Features" /> class
+        ///     Initializes a new instance of the <see cref="Features" /> class.
         /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive tag from.</param>
         public Features(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Features" /> class
+        ///     Initializes a new instance of the <see cref="Features" /> class.
         /// </summary>
         public Features()
             : base(XmlName)
@@ -44,27 +46,27 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
 
         /// <summary>
-        ///     Gets the starttls child
+        ///     Gets the starttls child.
         /// </summary>
         public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
 
         /// <summary>
-        ///     Gets the supported SASL mechanisms
+        ///     Gets the supported SASL mechanisms.
         /// </summary>
         public Mechanisms Mechanisms => Element<Mechanisms>(XName.Get("mechanisms", Namespaces.Sasl));
 
         /// <summary>
-        ///     Gets the bind tag
+        ///     Gets the bind tag.
         /// </summary>
         public Bind Bind => Element<Bind>(XName.Get("bind", Namespaces.Bind));
 
         /// <summary>
-        ///     Gets a count of the features
+        ///     Gets a count of the features.
         /// </summary>
         public int FeatureCount => Elements().Count();
     }

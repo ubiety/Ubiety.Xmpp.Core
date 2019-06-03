@@ -19,7 +19,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     State to disconnect from the server
+    ///     State to disconnect from the server.
     /// </summary>
     /// <inheritdoc />
     public class DisconnectState : IState

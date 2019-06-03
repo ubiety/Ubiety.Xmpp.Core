@@ -22,26 +22,26 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 namespace Ubiety.Xmpp.Core.Sasl
 {
     /// <summary>
-    ///     PLAIN SASL authentication processor
+    ///     PLAIN SASL authentication processor.
     /// </summary>
     public class PlainProcessor : SaslProcessor
     {
         /// <summary>
-        ///     Process the next SASL step
+        ///     Process the next SASL step.
         /// </summary>
-        /// <param name="tag">Tag from the server</param>
-        /// <returns>Tag to send the server</returns>
+        /// <param name="tag">Tag from the server.</param>
+        /// <returns>Tag to send the server.</returns>
         public override Tag Step(Tag tag)
         {
             return tag;
         }
 
         /// <summary>
-        ///     Initializes the PLAIN SASL processor
+        ///     Initializes the PLAIN SASL processor.
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the user to authenticate</param>
-        /// <param name="password">Password to use for authentication</param>
-        /// <returns>Tag to send to server</returns>
+        /// <param name="id"><see cref="Jid" /> of the user to authenticate.</param>
+        /// <param name="password">Password to use for authentication.</param>
+        /// <returns>Tag to send to server.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);

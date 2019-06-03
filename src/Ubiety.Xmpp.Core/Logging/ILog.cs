@@ -17,23 +17,23 @@ using System;
 namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Defines an interface for logging
+    ///     Defines an interface for logging.
     /// </summary>
     public interface ILog
     {
         /// <summary>
-        ///     Log a generic message
+        ///     Log a generic message.
         /// </summary>
-        /// <param name="level">Severity level of the message</param>
-        /// <param name="message">Message to log</param>
+        /// <param name="level">Severity level of the message.</param>
+        /// <param name="message">Message to log.</param>
         void Log(LogLevel level, object message);
 
         /// <summary>
-        ///     Log a message with an exception
+        ///     Log a message with an exception.
         /// </summary>
-        /// <param name="level">Severity level of the message</param>
-        /// <param name="exception">Exception to log</param>
-        /// <param name="message">Message to log</param>
+        /// <param name="level">Severity level of the message.</param>
+        /// <param name="exception">Exception to log.</param>
+        /// <param name="message">Message to log.</param>
         void Log(LogLevel level, Exception exception, object message);
     }
 }

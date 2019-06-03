@@ -19,14 +19,14 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags
 {
     /// <summary>
-    ///     Generic text tag
+    ///     Generic text tag.
     /// </summary>
     /// <inheritdoc />
     [XmppTag("text", Namespaces.XmppStreams, typeof(Text))]
     public class Text : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Text" /> class
+        ///     Initializes a new instance of the <see cref="Text" /> class.
         /// </summary>
         public Text()
             : base(XmlName)
@@ -34,16 +34,16 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Text" /> class
+        ///     Initializes a new instance of the <see cref="Text" /> class.
         /// </summary>
-        /// <param name="other">Element to base the tag on</param>
+        /// <param name="other">Element to base the tag on.</param>
         public Text(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("text", Namespaces.XmppStreams);
     }

@@ -22,7 +22,7 @@ using System.Xml.Linq;
 namespace Ubiety.Xmpp.Core.Tags
 {
     /// <summary>
-    ///     An XMPP tag
+    ///     An XMPP tag.
     /// </summary>
     /// <inheritdoc />
     public abstract class Tag : XElement
@@ -30,25 +30,25 @@ namespace Ubiety.Xmpp.Core.Tags
         private static int _packetCounter;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Tag" /> class
+        ///     Initializes a new instance of the <see cref="Tag" /> class.
         /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive the tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
         protected Tag(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Tag" /> class
+        ///     Initializes a new instance of the <see cref="Tag" /> class.
         /// </summary>
-        /// <param name="name"><see cref="XName" /> of the tag</param>
+        /// <param name="name"><see cref="XName" /> of the tag.</param>
         protected Tag(XName name)
             : base(name)
         {
         }
 
         /// <summary>
-        ///     Gets or sets the tag contents as a byte array
+        ///     Gets or sets the tag contents as a byte array.
         /// </summary>
         public byte[] Bytes
         {
@@ -57,11 +57,11 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Gets the constructor for a tag
+        ///     Gets the constructor for a tag.
         /// </summary>
-        /// <param name="type">Type of the tag</param>
-        /// <param name="parameters">Constructor parameters</param>
-        /// <returns>Constructor info of the tag constructor</returns>
+        /// <param name="type">Type of the tag.</param>
+        /// <param name="parameters">Constructor parameters.</param>
+        /// <returns>Constructor info of the tag constructor.</returns>
         public static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
         {
             var results = from constructor in type.GetTypeInfo().DeclaredConstructors
@@ -75,11 +75,11 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Get child tags
+        ///     Get child tags.
         /// </summary>
-        /// <typeparam name="T">Type of tags</typeparam>
-        /// <param name="name">Name of the tags</param>
-        /// <returns>Enumerable of the tags</returns>
+        /// <typeparam name="T">Type of tags.</typeparam>
+        /// <param name="name">Name of the tags.</param>
+        /// <returns>Enumerable of the tags.</returns>
         protected IEnumerable<T> Elements<T>(XName name)
             where T : XElement
         {
@@ -87,11 +87,11 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Get a child tag
+        ///     Get a child tag.
         /// </summary>
-        /// <typeparam name="T">Type of the child to get</typeparam>
-        /// <param name="name">XML name of the tag</param>
-        /// <returns>Child tag</returns>
+        /// <typeparam name="T">Type of the child to get.</typeparam>
+        /// <param name="name">XML name of the tag.</param>
+        /// <returns>Child tag.</returns>
         protected T Element<T>(XName name)
             where T : XElement
         {
@@ -99,10 +99,10 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Gets the value of a tag attribute
+        ///     Gets the value of a tag attribute.
         /// </summary>
-        /// <param name="name">Name of the attribute</param>
-        /// <returns>String contents of the attribute</returns>
+        /// <param name="name">Name of the attribute.</param>
+        /// <returns>String contents of the attribute.</returns>
         protected string GetAttributeValue(XName name)
         {
             var attribute = Attribute(name);
@@ -110,11 +110,11 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Gets the enum value of a tag attribute
+        ///     Gets the enum value of a tag attribute.
         /// </summary>
-        /// <typeparam name="T">Enum type to return</typeparam>
-        /// <param name="name">Attribute name</param>
-        /// <returns>Enum value</returns>
+        /// <typeparam name="T">Enum type to return.</typeparam>
+        /// <param name="name">Attribute name.</param>
+        /// <returns>Enum value.</returns>
         protected T GetAttributeEnumValue<T>(XName name)
             where T : Enum
         {
@@ -128,11 +128,11 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Sets the enum value of a tag attribute
+        ///     Sets the enum value of a tag attribute.
         /// </summary>
-        /// <typeparam name="T">Enum type</typeparam>
-        /// <param name="name">Attribute name</param>
-        /// <param name="value">Enum value to set</param>
+        /// <typeparam name="T">Enum type.</typeparam>
+        /// <param name="name">Attribute name.</param>
+        /// <param name="value">Enum value to set.</param>
         protected void SetAttributeEnumValue<T>(XName name, T value)
             where T : Enum
         {
@@ -140,9 +140,9 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Get the next packet id
+        ///     Get the next packet id.
         /// </summary>
-        /// <returns>Packet id as a string</returns>
+        /// <returns>Packet id as a string.</returns>
         protected string GetNextPacketId()
         {
             Interlocked.Increment(ref _packetCounter);

@@ -20,16 +20,16 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     Extension methods for the features tag
+    ///     Extension methods for the features tag.
     /// </summary>
     public static class FeaturesExtensions
     {
         /// <summary>
-        ///     Check if SSL is required or requested
+        ///     Check if SSL is required or requested.
         /// </summary>
-        /// <param name="features">Current <see cref="Features"/> from the server</param>
-        /// <param name="xmpp">Current <see cref="XmppBase"/> instance</param>
-        /// <returns>A value indicating whether to secure the socket or not</returns>
+        /// <param name="features">Current <see cref="Features"/> from the server.</param>
+        /// <param name="xmpp">Current <see cref="XmppBase"/> instance.</param>
+        /// <returns>A value indicating whether to secure the socket or not.</returns>
         public static bool CheckSsl(this Features features, XmppBase xmpp)
         {
             if (features.StartTls != null && (xmpp.UseSsl || features.FeatureCount == 1 || features.StartTls.Required))
@@ -41,10 +41,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         }
 
         /// <summary>
-        ///     Authenticate a user with the server
+        ///     Authenticate a user with the server.
         /// </summary>
-        /// <param name="features">Current <see cref="Features"/> from the server</param>
-        /// <param name="client">Current <see cref="XmppClient"/> instance</param>
+        /// <param name="features">Current <see cref="Features"/> from the server.</param>
+        /// <param name="client">Current <see cref="XmppClient"/> instance.</param>
         public static void AuthenticateUser(this Features features, XmppClient client)
         {
             client.SaslProcessor = SaslProcessor.CreateProcessor(
@@ -63,10 +63,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         }
 
         /// <summary>
-        ///     Start user resource binding
+        ///     Start user resource binding.
         /// </summary>
-        /// <param name="features">Current <see cref="Features"/> from the server</param>
-        /// <param name="client">Current <see cref="XmppClient"/> instance</param>
+        /// <param name="features">Current <see cref="Features"/> from the server.</param>
+        /// <param name="client">Current <see cref="XmppClient"/> instance.</param>
         public static void StartBinding(this Features features, XmppClient client)
         {
             if (features.Bind.Required)

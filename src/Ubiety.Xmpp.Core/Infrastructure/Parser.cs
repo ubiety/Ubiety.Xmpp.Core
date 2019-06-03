@@ -25,7 +25,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Infrastructure
 {
     /// <summary>
-    ///     XMPP protocol parser
+    ///     XMPP protocol parser.
     /// </summary>
     public sealed class Parser
     {
@@ -36,9 +36,9 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         private bool _running;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Parser" /> class
+        ///     Initializes a new instance of the <see cref="Parser" /> class.
         /// </summary>
-        /// <param name="xmpp">XMPP instance</param>
+        /// <param name="xmpp">XMPP instance.</param>
         public Parser(XmppBase xmpp)
         {
             _xmpp = xmpp;
@@ -48,7 +48,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         }
 
         /// <summary>
-        ///     Tag event
+        ///     Tag event.
         /// </summary>
         public event EventHandler<TagEventArgs> Tag;
 
@@ -68,7 +68,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         }
 
         /// <summary>
-        ///     Starts the parsing process
+        ///     Starts the parsing process.
         /// </summary>
         public void Start()
         {
@@ -78,7 +78,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         }
 
         /// <summary>
-        ///     Stop the parsing process
+        ///     Stop the parsing process.
         /// </summary>
         public void Stop()
         {

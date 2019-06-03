@@ -22,14 +22,14 @@ using Ubiety.Xmpp.Core.States;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Main XMPP client class
+    ///     Main XMPP client class.
     /// </summary>
     public class XmppClient : XmppBase, IClient
     {
         private readonly ILog _logger;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppClient" /> class
+        ///     Initializes a new instance of the <see cref="XmppClient" /> class.
         /// </summary>
         internal XmppClient()
         {
@@ -44,17 +44,17 @@ namespace Ubiety.Xmpp.Core
         public Jid Id { get; set; }
 
         /// <summary>
-        ///     Gets or sets the user password
+        ///     Gets or sets the user password.
         /// </summary>
         public string Password { get; set; }
 
         /// <summary>
-        ///     Gets a value indicating whether the user is authenticated
+        ///     Gets a value indicating whether the user is authenticated.
         /// </summary>
         public bool Authenticated { get; internal set; }
 
         /// <summary>
-        ///     Gets or sets a value for the JID resource
+        ///     Gets or sets a value for the JID resource.
         /// </summary>
         public string Resource { get; set; }
 

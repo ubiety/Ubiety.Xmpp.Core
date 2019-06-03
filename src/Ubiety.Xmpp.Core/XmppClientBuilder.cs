@@ -18,7 +18,7 @@ using Ubiety.Xmpp.Core.Registries;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Builds a new XmppClient
+    ///     Builds a new XmppClient.
     /// </summary>
     public class XmppClientBuilder
     {
@@ -28,10 +28,10 @@ namespace Ubiety.Xmpp.Core
         private string _resource;
 
         /// <summary>
-        ///     Enable logging with the log manager
+        ///     Enable logging with the log manager.
         /// </summary>
-        /// <param name="manager">Log manager to use for logging</param>
-        /// <returns>Builder instance</returns>
+        /// <param name="manager">Log manager to use for logging.</param>
+        /// <returns>Builder instance.</returns>
         public XmppClientBuilder EnableLogging(ILogManager manager)
         {
             _logManager = manager;
@@ -39,9 +39,9 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Enables IPv6 support in the library
+        ///     Enables IPv6 support in the library.
         /// </summary>
-        /// <returns>Builder instance</returns>
+        /// <returns>Builder instance.</returns>
         public XmppClientBuilder UseIPv6()
         {
             _useIpv6 = true;
@@ -49,9 +49,9 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Enables SSL/TLS support
+        ///     Enables SSL/TLS support.
         /// </summary>
-        /// <returns>Builder instance</returns>
+        /// <returns>Builder instance.</returns>
         public XmppClientBuilder UseSsl()
         {
             _useSsl = true;
@@ -59,10 +59,10 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Set a client resource
+        ///     Set a client resource.
         /// </summary>
-        /// <param name="resource">Resource to set</param>
-        /// <returns>Builder instance</returns>
+        /// <param name="resource">Resource to set.</param>
+        /// <returns>Builder instance.</returns>
         public XmppClientBuilder SetResource(string resource)
         {
             _resource = resource;
@@ -70,9 +70,9 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Builds the client
+        ///     Builds the client.
         /// </summary>
-        /// <returns>Client with the options provided</returns>
+        /// <returns>Client with the options provided.</returns>
         public XmppClient Build()
         {
             if (_logManager != null)

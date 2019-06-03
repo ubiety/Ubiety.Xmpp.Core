@@ -19,7 +19,6 @@ using Ubiety.Scram.Core;
 using Ubiety.Scram.Core.Messages;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
-using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
@@ -29,7 +28,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 {
     /// <inheritdoc />
     /// <summary>
-    ///     SCRAM-SHA-1 SASL Processor
+    ///     SCRAM-SHA-1 SASL Processor.
     /// </summary>
     public class ScramProcessor : SaslProcessor
     {
@@ -44,9 +43,9 @@ namespace Ubiety.Xmpp.Core.Sasl
         private List<byte> _serverSignature;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ScramProcessor" /> class
+        ///     Initializes a new instance of the <see cref="ScramProcessor" /> class.
         /// </summary>
-        /// <param name="channelBinding">Do we want to use channel binding</param>
+        /// <param name="channelBinding">Do we want to use channel binding.</param>
         public ScramProcessor(bool channelBinding)
         {
             _channelBinding = channelBinding;
@@ -54,11 +53,11 @@ namespace Ubiety.Xmpp.Core.Sasl
 
         /// <inheritdoc />
         /// <summary>
-        ///     Initializes the SASL processor
+        ///     Initializes the SASL processor.
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the user for the session</param>
-        /// <param name="password">Password of the user</param>
-        /// <returns>Next tag to send to the server</returns>
+        /// <param name="id"><see cref="Jid" /> of the user for the session.</param>
+        /// <param name="password">Password of the user.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
@@ -79,10 +78,10 @@ namespace Ubiety.Xmpp.Core.Sasl
 
         /// <inheritdoc />
         /// <summary>
-        ///     Process the next SASL step
+        ///     Process the next SASL step.
         /// </summary>
-        /// <param name="tag">Tag received from the server</param>
-        /// <returns>Next tag to send to the server</returns>
+        /// <param name="tag">Tag received from the server.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Step(Tag tag)
         {
             switch (tag)

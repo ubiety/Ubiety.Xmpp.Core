@@ -19,13 +19,13 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Stream
 {
     /// <summary>
-    ///     Stream error tag
+    ///     Stream error tag.
     /// </summary>
     [XmppTag("error", Namespaces.Stream, typeof(Error))]
     public class Error : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Error" /> class
+        ///     Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
         public Error()
             : base(XmlName)
@@ -33,16 +33,16 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Error" /> class
+        ///     Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="other">Other tag</param>
+        /// <param name="other">Other tag.</param>
         public Error(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Gets the Error XML name
+        ///     Gets the Error XML name.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("error", Namespaces.Stream);
     }

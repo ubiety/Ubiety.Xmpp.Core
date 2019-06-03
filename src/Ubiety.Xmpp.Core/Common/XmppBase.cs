@@ -25,7 +25,7 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Base XMPP implementation
+    ///     Base XMPP implementation.
     /// </summary>
     public abstract class XmppBase : IDisposable
     {
@@ -34,46 +34,46 @@ namespace Ubiety.Xmpp.Core.Common
         private bool _disposedValue = false; // To detect redundant calls
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppBase" /> class
+        ///     Initializes a new instance of the <see cref="XmppBase" /> class.
         /// </summary>
         protected XmppBase()
         {
             _logger = Log.Get<XmppBase>();
-            _logger.Log(LogLevel.Debug, $"{this.GetType()} created");
+            _logger.Log(LogLevel.Debug, $"{GetType()} created");
         }
 
         /// <summary>
-        ///     Raised when a stream error occurs
+        ///     Raised when a stream error occurs.
         /// </summary>
         public event EventHandler<ErrorEventArgs> Error;
 
         /// <summary>
-        ///     Gets or sets the XMPP port
+        ///     Gets or sets the XMPP port.
         /// </summary>
         public int Port { get; set; } = 5222;
 
         /// <summary>
-        ///     Gets a value indicating whether the socket should use SSL/TLS
+        ///     Gets a value indicating whether the socket should use SSL/TLS.
         /// </summary>
         public bool UseSsl { get; internal set; }
 
         /// <summary>
-        ///     Gets a value indicating whether we should use IPv6
+        ///     Gets a value indicating whether we should use IPv6.
         /// </summary>
         public bool UseIPv6 { get; internal set; }
 
         /// <summary>
-        ///     Gets or sets the current state
+        ///     Gets or sets the current state.
         /// </summary>
         public IState State { get; set; }
 
         /// <summary>
-        ///     Gets the tag registry
+        ///     Gets the tag registry.
         /// </summary>
         public TagRegistry Registry { get; internal set; }
 
         /// <summary>
-        ///     Gets or sets the client socket
+        ///     Gets or sets the client socket.
         /// </summary>
         public AsyncClientSocket ClientSocket
         {
@@ -86,19 +86,18 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets or sets the SASL processor for the session
+        ///     Gets or sets the SASL processor for the session.
         /// </summary>
         public SaslProcessor SaslProcessor { get; set; }
 
         /// <summary>
-        ///     Gets or sets the XMPP protocol parser
+        ///     Gets or sets the XMPP protocol parser.
         /// </summary>
         protected Parser Parser { get; set; }
 
         /// <summary>
-        ///     Dispose resourses
+        ///     Dispose resourses.
         /// </summary>
-        // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
@@ -107,10 +106,10 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Received a tag from the parser
+        ///     Received a tag from the parser.
         /// </summary>
-        /// <param name="sender">Object sending the event</param>
-        /// <param name="e">Event arguments containing the tag</param>
+        /// <param name="sender">Object sending the event.</param>
+        /// <param name="e">Event arguments containing the tag.</param>
         protected void Parser_Tag(object sender, TagEventArgs e)
         {
             if (e.Tag is Stream stream && stream.Errors.Any())
@@ -127,9 +126,9 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Dispose resources
+        ///     Dispose resources.
         /// </summary>
-        /// <param name="disposing">Dispose managed resources</param>
+        /// <param name="disposing">Dispose managed resources.</param>
         protected virtual void Dispose(bool disposing)
         {
             _logger.Log(LogLevel.Debug, "Dispose(bool) called");

@@ -19,39 +19,39 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Client
 {
     /// <summary>
-    ///     IQ tag type
+    ///     IQ tag type.
     /// </summary>
     public enum IqType
     {
         /// <summary>
-        ///     IQ Get
+        ///     IQ Get.
         /// </summary>
         Get,
 
         /// <summary>
-        ///     IQ Set
+        ///     IQ Set.
         /// </summary>
         Set,
 
         /// <summary>
-        ///     IQ Error
+        ///     IQ Error.
         /// </summary>
         Error,
 
         /// <summary>
-        ///     IQ Result
+        ///     IQ Result.
         /// </summary>
-        Result
+        Result,
     }
 
     /// <summary>
-    ///     XMPP Iq tag
+    ///     XMPP Iq tag.
     /// </summary>
     [XmppTag("iq", Namespaces.Client, typeof(Iq))]
     public class Iq : Stanza
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Iq"/> class
+        ///     Initializes a new instance of the <see cref="Iq"/> class.
         /// </summary>
         public Iq()
             : base(XmlName)
@@ -60,9 +60,9 @@ namespace Ubiety.Xmpp.Core.Tags.Client
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Iq"/> class
+        ///     Initializes a new instance of the <see cref="Iq"/> class.
         /// </summary>
-        /// <param name="element"><see cref="XElement"/> to derive the tag from</param>
+        /// <param name="element"><see cref="XElement"/> to derive the tag from.</param>
         public Iq(XElement element)
             : base(element)
         {
@@ -70,12 +70,12 @@ namespace Ubiety.Xmpp.Core.Tags.Client
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("iq", Namespaces.Client);
 
         /// <summary>
-        ///     Gets or sets the IQ tag type
+        ///     Gets or sets the IQ tag type.
         /// </summary>
         public IqType IqType
         {

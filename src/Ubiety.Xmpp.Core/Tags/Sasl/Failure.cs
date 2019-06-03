@@ -19,22 +19,22 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    ///     SASL authentication success tag
+    ///     SASL authentication failure tag.
     /// </summary>
     [XmppTag("failure", Namespaces.Sasl, typeof(Failure))]
     public class Failure : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Failure" /> class
+        ///     Initializes a new instance of the <see cref="Failure" /> class.
         /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive the tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
         public Failure(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Failure" /> class
+        ///     Initializes a new instance of the <see cref="Failure" /> class.
         /// </summary>
         public Failure()
             : base(XmlName)
@@ -42,7 +42,7 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("failure", Namespaces.Sasl);
     }

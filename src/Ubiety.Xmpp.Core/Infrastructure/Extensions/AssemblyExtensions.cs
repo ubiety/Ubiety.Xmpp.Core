@@ -19,16 +19,16 @@ using System.Reflection;
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     Assembly class extensions
+    ///     Assembly class extensions.
     /// </summary>
     public static class AssemblyExtensions
     {
         /// <summary>
-        ///     Gets all attributes of a specific type from the assembly
+        ///     Gets all attributes of a specific type from the assembly.
         /// </summary>
-        /// <typeparam name="T">Type of the attribute to retrieve</typeparam>
-        /// <param name="assembly">Assembly to iterate</param>
-        /// <returns>Enumerable of attributes</returns>
+        /// <typeparam name="T">Type of the attribute to retrieve.</typeparam>
+        /// <param name="assembly">Assembly to iterate.</param>
+        /// <returns>Enumerable of attributes.</returns>
         public static IEnumerable<T> GetAttributes<T>(this Assembly assembly)
             where T : Attribute
         {

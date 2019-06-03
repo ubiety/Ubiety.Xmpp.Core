@@ -17,21 +17,21 @@ using System;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Builds an XMPP connection
+    ///     Builds an XMPP connection.
     /// </summary>
     public class XmppBuilder
     {
         /// <summary>
-        ///     Build a client connection
+        ///     Build a client connection.
         /// </summary>
-        /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance</returns>
+        /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance.</returns>
         public static XmppClientBuilder BeginClientBuild()
         {
             return new XmppClientBuilder();
         }
 
         /// <summary>
-        ///     Build a server connection
+        ///     Build a server connection.
         /// </summary>
         public void BuildServer()
         {

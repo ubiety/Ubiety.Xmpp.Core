@@ -19,7 +19,9 @@ using Ubiety.Xmpp.Core.Tags.Tls;
 
 namespace Ubiety.Xmpp.Core.States
 {
-    /// <inheritdoc />
+    /// <summary>
+    ///     Start TLS state.
+    /// </summary>
     public class StartTlsState : IState
     {
         private static readonly ILog Logger = Log.Get<StartTlsState>();

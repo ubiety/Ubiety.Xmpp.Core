@@ -18,12 +18,12 @@ namespace Ubiety.Xmpp.Core.Common
 {
     /// <inheritdoc />
     /// <summary>
-    ///     Socket data event arguments
+    ///     Socket data event arguments.
     /// </summary>
     public class DataEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the message from the server
+        ///     Gets or sets the message from the server.
         /// </summary>
         public string Message { get; set; }
     }

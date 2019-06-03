@@ -13,27 +13,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="stylecop.json" />
     <None Remove="Ubiety.Xmpp.Core.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="2.5.1">
+    <PackageReference Include="coverlet.msbuild" Version="2.6.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.AnalyzerPowerPack" Version="1.1.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ubiety.Dns.Core" Version="2.2.1" />
-    <PackageReference Include="Ubiety.Scram.Core" Version="1.1.0" />
-    <PackageReference Include="Ubiety.Stringprep.Core" Version="0.2.2" />
+    <PackageReference Include="Ubiety.Dns.Core" Version="2.3.0" />
+    <PackageReference Include="Ubiety.Scram.Core" Version="1.1.4" />
+    <PackageReference Include="Ubiety.Stringprep.Core" Version="0.3.0" />
+    <PackageReference Include="Ubiety.StyleCop" Version="0.0.5" />
   </ItemGroup>
 
 </Project>

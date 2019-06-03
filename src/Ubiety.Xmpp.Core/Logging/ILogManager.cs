@@ -15,15 +15,15 @@
 namespace Ubiety.Xmpp.Core.Logging
 {
     /// <summary>
-    ///     Defines the interface for the log manager
+    ///     Defines the interface for the log manager.
     /// </summary>
     public interface ILogManager
     {
         /// <summary>
-        ///     Get a log instance for the requested name
+        ///     Get a log instance for the requested name.
         /// </summary>
-        /// <param name="name">Name of the instance</param>
-        /// <returns>Instance of a log</returns>
+        /// <param name="name">Name of the instance.</param>
+        /// <returns>Instance of a log.</returns>
         ILog GetLogger(string name);
     }
 }

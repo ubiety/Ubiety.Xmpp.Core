@@ -17,44 +17,44 @@ using System;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Type of authentication mechanism
+    ///     Type of authentication mechanism.
     /// </summary>
     [Flags]
     public enum MechanismTypes
     {
         /// <summary>
-        ///     No authentication mechanism
+        ///     No authentication mechanism.
         /// </summary>
         None,
 
         /// <summary>
-        ///     Plain authentication
+        ///     Plain authentication.
         /// </summary>
         Plain = 1 << 0,
 
         /// <summary>
-        ///     DigestMD5 authentication
+        ///     DigestMD5 authentication.
         /// </summary>
         DigestMd5 = 1 << 1,
 
         /// <summary>
-        ///     External authentication
+        ///     External authentication.
         /// </summary>
         External = 1 << 2,
 
         /// <summary>
-        ///     SCRAM-SHA-1 authentication
+        ///     SCRAM-SHA-1 authentication.
         /// </summary>
         Scram = 1 << 3,
 
         /// <summary>
-        ///     SCRAM-SHA-1-PLUS authentication
+        ///     SCRAM-SHA-1-PLUS authentication.
         /// </summary>
         ScramPlus = 1 << 4,
 
         /// <summary>
-        ///     Default authentication methods - Currently SCRAM-SHA-1 and SCRAM-SHA-1-PLUS
+        ///     Default authentication methods - Currently SCRAM-SHA-1 and SCRAM-SHA-1-PLUS.
         /// </summary>
-        Default = Scram | ScramPlus
+        Default = Scram | ScramPlus,
     }
 }

@@ -18,17 +18,17 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Event args for an error
+    ///     Event args for an error.
     /// </summary>
     public class ErrorEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the error message
+        ///     Gets or sets the error message.
         /// </summary>
         public string Message { get; set; }
 
         /// <summary>
-        ///     Gets or sets the stream error
+        ///     Gets or sets the stream error.
         /// </summary>
         public Error StreamError { get; set; }
     }

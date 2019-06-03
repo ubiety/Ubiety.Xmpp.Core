@@ -16,17 +16,18 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ubiety.Stringprep.Core;
+using Ubiety.Xmpp.Core.Infrastructure.Exceptions;
 using Ubiety.Xmpp.Core.Stringprep;
 
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <inheritdoc />
     /// <summary>
-    ///     Jabber ID
+    ///     Jabber ID.
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
-        //language=regex
+        // language=regex
         private const string JidRegex = @"^(?:(?<username>.*)@)?(?<server>.*?)(?:\/(?<resource>.*))?$";
 
         private readonly IPreparationProcess _nameprep = NameprepProfile.Create();
@@ -39,20 +40,11 @@ namespace Ubiety.Xmpp.Core.Common
         private string _user;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Jid" /> class
+        ///     Initializes a new instance of the <see cref="Jid" /> class.
         /// </summary>
-        /// <param name="id">String version of the ID</param>
-        public Jid(string id)
-        {
-            Id = id ?? throw new ArgumentNullException(nameof(id));
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Jid" /> class
-        /// </summary>
-        /// <param name="username">Username of the user</param>
-        /// <param name="server">XMPP server of the user</param>
-        /// <param name="resource">Server resource (if empty will be set by the server)</param>
+        /// <param name="username">Username of the user.</param>
+        /// <param name="server">XMPP server of the user.</param>
+        /// <param name="resource">Server resource (if empty will be set by the server).</param>
         public Jid(string username, string server, string resource = "")
         {
             User = username ?? throw new ArgumentNullException(nameof(username));
@@ -60,10 +52,12 @@ namespace Ubiety.Xmpp.Core.Common
             Resource = resource;
         }
 
-        private Jid() { }
+        private Jid()
+        {
+        }
 
         /// <summary>
-        ///     Gets the JID resource
+        ///     Gets the JID resource.
         /// </summary>
         public string Resource
         {
@@ -72,7 +66,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets the server of the JID
+        ///     Gets the server of the JID.
         /// </summary>
         public string Server
         {
@@ -81,7 +75,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets the user name of the JID
+        ///     Gets the user name of the JID.
         /// </summary>
         public string User
         {
@@ -94,7 +88,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets or sets the id as a string
+        ///     Gets or sets the id as a string.
         /// </summary>
         public string Id
         {
@@ -103,43 +97,84 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Implicitly converts a string into a <see cref="Jid" />
+        ///     Implicitly converts a string into a <see cref="Jid" />.
         /// </summary>
-        /// <param name="id">String version of the <see cref="Jid" /></param>
+        /// <param name="id">String version of the <see cref="Jid" />.</param>
         public static implicit operator Jid(string id)
         {
             return Parse(id);
         }
 
         /// <summary>
-        ///     Implicitly converts a <see cref="Jid" /> to a string
+        ///     Implicitly converts a <see cref="Jid" /> to a string.
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the ID</param>
+        /// <param name="id"><see cref="Jid" /> of the ID.</param>
         public static implicit operator string(Jid id)
         {
             return id.Id;
         }
 
         /// <summary>
-        ///     Compares equality of one <see cref="Jid" /> to another
+        ///     Compares equality of one <see cref="Jid" /> to another.
         /// </summary>
-        /// <param name="one">First <see cref="Jid" /></param>
-        /// <param name="two">Second <see cref="Jid" /></param>
-        /// <returns>True if the Jids are equal</returns>
+        /// <param name="one">First <see cref="Jid" />.</param>
+        /// <param name="two">Second <see cref="Jid" />.</param>
+        /// <returns>True if the Jids are equal.</returns>
         public static bool operator ==(Jid one, Jid two)
         {
             return one != null && one.Equals(two);
         }
 
         /// <summary>
-        ///     Compares the inequality of one <see cref="Jid" /> to another
+        ///     Compares the inequality of one <see cref="Jid" /> to another.
         /// </summary>
-        /// <param name="one">First <see cref="Jid" /></param>
-        /// <param name="two">Second <see cref="Jid" /></param>
-        /// <returns>True if the Jids are not equal</returns>
+        /// <param name="one">First <see cref="Jid" />.</param>
+        /// <param name="two">Second <see cref="Jid" />.</param>
+        /// <returns>True if the Jids are not equal.</returns>
         public static bool operator !=(Jid one, Jid two)
         {
             return one != null && !one.Equals(two);
+        }
+
+        /// <summary>
+        ///     Parse a string into a <see cref="Jid" />.
+        /// </summary>
+        /// <param name="value">String jid to parse.</param>
+        /// <returns><see cref="Jid" /> of the string.</returns>
+        public static Jid Parse(string value)
+        {
+            if (!TryParse(value, out var jid))
+            {
+                throw new ParseException();
+            }
+
+            return jid;
+        }
+
+        /// <summary>
+        ///     Try to parse the string into a <see cref="Jid" />.
+        /// </summary>
+        /// <param name="value">String jid to parse.</param>
+        /// <param name="jid">Parsed <see cref="Jid" />.</param>
+        /// <returns>True if parse is successful; otherwise false.</returns>
+        public static bool TryParse(string value, out Jid jid)
+        {
+            var match = Regex.Match(value, JidRegex);
+
+            if (!match.Success)
+            {
+                jid = default;
+                return false;
+            }
+
+            jid = new Jid
+            {
+                User = match.Groups["username"].Value,
+                Server = match.Groups["server"].Value,
+                Resource = match.Groups["resource"].Value,
+            };
+
+            return true;
         }
 
         /// <inheritdoc />
@@ -182,47 +217,6 @@ namespace Ubiety.Xmpp.Core.Common
         public override string ToString()
         {
             return Id;
-        }
-
-
-        /// <summary>
-        ///     Parse a string into a <see cref="Jid" />
-        /// </summary>
-        /// <param name="value">String jid to parse</param>
-        /// <returns><see cref="Jid" /> of the string</returns>
-        public static Jid Parse(string value)
-        {
-            if (!TryParse(value, out var jid))
-            {
-                throw new Exception();
-            }
-
-            return jid;
-        }
-
-        /// <summary>
-        ///     Try to parse the string into a <see cref="Jid" />
-        /// </summary>
-        /// <param name="value">String jid to parse</param>
-        /// <param name="jid">Parsed <see cref="Jid" /></param>
-        public static bool TryParse(string value, out Jid jid)
-        {
-            var match = Regex.Match(value, JidRegex);
-
-            if (!match.Success)
-            {
-                jid = default;
-                return false;
-            }
-
-            jid = new Jid
-            {
-                User = match.Groups["username"].Value,
-                Server = match.Groups["server"].Value,
-                Resource = match.Groups["resource"].Value
-            };
-
-            return true;
         }
 
         private static string Escape(string user)

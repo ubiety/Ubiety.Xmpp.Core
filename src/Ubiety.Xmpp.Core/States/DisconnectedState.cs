@@ -19,7 +19,7 @@ namespace Ubiety.Xmpp.Core.States
 {
     /// <inheritdoc />
     /// <summary>
-    ///     Disconnected state
+    ///     Disconnected state.
     /// </summary>
     public class DisconnectedState : IState
     {

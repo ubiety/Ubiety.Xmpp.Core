@@ -25,7 +25,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Registries
 {
     /// <summary>
-    ///     Tag registry
+    ///     Tag registry.
     /// </summary>
     public class TagRegistry
     {
@@ -33,9 +33,9 @@ namespace Ubiety.Xmpp.Core.Registries
         private readonly Dictionary<XName, Type> _types = new Dictionary<XName, Type>();
 
         /// <summary>
-        ///     Add tags from the assembly to the registry
+        ///     Add tags from the assembly to the registry.
         /// </summary>
-        /// <param name="assembly">Assembly to add tags from</param>
+        /// <param name="assembly">Assembly to add tags from.</param>
         public void AddAssembly(Assembly assembly)
         {
             Logger.Log(LogLevel.Debug, "AddAssembly(Assembly) called");
@@ -50,12 +50,12 @@ namespace Ubiety.Xmpp.Core.Registries
         }
 
         /// <summary>
-        ///     Retrieves a tag from the registry
+        ///     Retrieves a tag from the registry.
         /// </summary>
-        /// <typeparam name="T">Type of tag to retrieve</typeparam>
-        /// <param name="name">Name of the tag</param>
-        /// <param name="ns">Namespace of the tag</param>
-        /// <returns>Tag requested from the registry</returns>
+        /// <typeparam name="T">Type of tag to retrieve.</typeparam>
+        /// <param name="name">Name of the tag.</param>
+        /// <param name="ns">Namespace of the tag.</param>
+        /// <returns>Tag requested from the registry.</returns>
         public T GetTag<T>(string name, string ns)
             where T : Tag
         {
@@ -64,11 +64,11 @@ namespace Ubiety.Xmpp.Core.Registries
         }
 
         /// <summary>
-        ///     Retrieves a tag from the registry
+        ///     Retrieves a tag from the registry.
         /// </summary>
-        /// <typeparam name="T">Type of tag to retrieve</typeparam>
-        /// <param name="name">XML name of the tag</param>
-        /// <returns>Tag requested from the registry</returns>
+        /// <typeparam name="T">Type of tag to retrieve.</typeparam>
+        /// <param name="name">XML name of the tag.</param>
+        /// <returns>Tag requested from the registry.</returns>
         public T GetTag<T>(XName name)
         {
             Logger.Log(LogLevel.Debug, "GetTag<T>(XName) called");
@@ -103,11 +103,11 @@ namespace Ubiety.Xmpp.Core.Registries
         }
 
         /// <summary>
-        ///     Get a tag from the registry based on the provided XML element
+        ///     Get a tag from the registry based on the provided XML element.
         /// </summary>
-        /// <typeparam name="T">Type of tag to return</typeparam>
-        /// <param name="element">Element to search for</param>
-        /// <returns>Tag from the registry</returns>
+        /// <typeparam name="T">Type of tag to return.</typeparam>
+        /// <param name="element">Element to search for.</param>
+        /// <returns>Tag from the registry.</returns>
         public T GetTag<T>(XElement element)
         {
             Logger.Log(LogLevel.Debug, "GetTag<T>(XElement) called");

@@ -29,7 +29,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    ///     An asynchronous socket for connecting to an XMPP server
+    ///     An asynchronous socket for connecting to an XMPP server.
     /// </summary>
     public class AsyncClientSocket : ISocket, IDisposable
     {
@@ -43,9 +43,9 @@ namespace Ubiety.Xmpp.Core.Net
         private Stream _stream;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="AsyncClientSocket" /> class
+        ///     Initializes a new instance of the <see cref="AsyncClientSocket" /> class.
         /// </summary>
-        /// <param name="client">Client to use for the server connection</param>
+        /// <param name="client">Client to use for the server connection.</param>
         public AsyncClientSocket(IClient client)
         {
             _client = client;
@@ -63,7 +63,7 @@ namespace Ubiety.Xmpp.Core.Net
         public bool Connected { get; private set; }
 
         /// <summary>
-        ///     Gets a value indicating whether the socket is secure
+        ///     Gets a value indicating whether the socket is secure.
         /// </summary>
         public bool Secure { get; private set; }
 
@@ -134,16 +134,16 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Sends a tag to the server
+        ///     Sends a tag to the server.
         /// </summary>
-        /// <param name="tag"><see cref="Tag" /> to send</param>
+        /// <param name="tag"><see cref="Tag" /> to send.</param>
         public void Send(Tag tag)
         {
             Send(tag.ToString());
         }
 
         /// <summary>
-        ///     Starts SSL/TLS connection
+        ///     Starts SSL/TLS connection.
         /// </summary>
         public void StartSsl()
         {
@@ -167,7 +167,7 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Set that we are clear to read data
+        ///     Set that we are clear to read data.
         /// </summary>
         public void SetReadClear()
         {
@@ -176,9 +176,9 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Raise the data event with the specified arguments
+        ///     Raise the data event with the specified arguments.
         /// </summary>
-        /// <param name="e">Data event arguments</param>
+        /// <param name="e">Data event arguments.</param>
         protected virtual void OnData(DataEventArgs e)
         {
             _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
@@ -186,7 +186,7 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Raise the connection event
+        ///     Raise the connection event.
         /// </summary>
         protected virtual void OnConnection()
         {
@@ -195,9 +195,9 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Dispose of class resources
+        ///     Dispose of class resources.
         /// </summary>
-        /// <param name="disposing">Are we disposing from a direct call</param>
+        /// <param name="disposing">Are we disposing from a direct call.</param>
         protected virtual void Dispose(bool disposing)
         {
             _logger.Log(LogLevel.Debug, "Dispose(bool) called");
@@ -249,10 +249,10 @@ namespace Ubiety.Xmpp.Core.Net
             Connected = true;
             OnConnection();
 
-            BeginReadAsync();
+            BeginReadAsync().ConfigureAwait(false);
         }
 
-        private async void BeginReadAsync()
+        private async Task BeginReadAsync()
         {
             _logger.Log(LogLevel.Debug, "BeginReadAsync() called");
             while (Connected)

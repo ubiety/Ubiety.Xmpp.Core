@@ -18,21 +18,23 @@ using Ubiety.Xmpp.Core.Common;
 
 namespace Ubiety.Xmpp.Core.Tags.Tls
 {
-    /// <inheritdoc />
+    /// <summary>
+    ///     Start TLS tag.
+    /// </summary>
     [XmppTag("starttls", Namespaces.Tls, typeof(StartTls))]
     public class StartTls : Tag
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="StartTls" /> class
+        ///     Initializes a new instance of the <see cref="StartTls" /> class.
         /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive the tag from</param>
+        /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
         public StartTls(XElement other)
             : base(other)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="StartTls" /> class
+        ///     Initializes a new instance of the <see cref="StartTls" /> class.
         /// </summary>
         public StartTls()
             : base(XmlName)
@@ -40,12 +42,12 @@ namespace Ubiety.Xmpp.Core.Tags.Tls
         }
 
         /// <summary>
-        ///     Gets the XML name of the tag
+        ///     Gets the XML name of the tag.
         /// </summary>
         public static XName XmlName { get; } = XName.Get("starttls", Namespaces.Tls);
 
         /// <summary>
-        ///     Gets a value indicating whether TLS is required or not
+        ///     Gets a value indicating whether TLS is required or not.
         /// </summary>
         public bool Required => Element<Required>(XName.Get("required", Namespaces.Tls)) != null;
     }

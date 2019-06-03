@@ -18,13 +18,13 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Tag event arguments
+    ///     Tag event arguments.
     /// </summary>
     /// <inheritdoc />
     public class TagEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the tag
+        ///     Gets or sets the tag.
         /// </summary>
         public Tag Tag { get; set; }
     }

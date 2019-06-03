@@ -1,5 +1,6 @@
 ﻿using System;
 using Ubiety.Stringprep.Core;
+using Ubiety.Stringprep.Core.Exceptions;
 using Ubiety.Xmpp.Core.Stringprep;
 using Xunit;
 

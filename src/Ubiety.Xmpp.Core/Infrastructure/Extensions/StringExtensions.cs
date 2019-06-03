@@ -17,16 +17,16 @@ using System.Linq;
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     String extension methods
+    ///     String extension methods.
     /// </summary>
     public static class StringExtensions
     {
         /// <summary>
-        ///     Get the position of the first unescaped character
+        ///     Get the position of the first unescaped character.
         /// </summary>
-        /// <param name="data">Data to read</param>
-        /// <param name="token">Character to locate</param>
-        /// <returns>Position of the character</returns>
+        /// <param name="data">Data to read.</param>
+        /// <param name="token">Character to locate.</param>
+        /// <returns>Position of the character.</returns>
         public static int FirstUnescaped(this string data, char token)
         {
             var position = -1;
@@ -50,10 +50,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         }
 
         /// <summary>
-        ///     Remove whitespace in a string
+        ///     Remove whitespace in a string.
         /// </summary>
-        /// <param name="data">Data to remove whitespace from</param>
-        /// <returns>String with no whitespace</returns>
+        /// <param name="data">Data to remove whitespace from.</param>
+        /// <returns>String with no whitespace.</returns>
         public static string RemoveWhitespace(this string data)
         {
             return new string(data.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
