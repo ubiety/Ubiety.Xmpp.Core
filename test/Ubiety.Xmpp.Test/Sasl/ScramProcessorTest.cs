@@ -7,7 +7,6 @@ namespace Ubiety.Xmpp.Test.Scram
 {
     public class ScramProcessorTest
     {
-        [Fact]
         public void InitializeShouldReturnAuthTag()
         {
             var scram = new ScramProcessor(false);
