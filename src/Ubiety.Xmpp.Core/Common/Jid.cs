@@ -221,11 +221,11 @@ namespace Ubiety.Xmpp.Core.Common
 
         private static string Escape(string user)
         {
-            var re = new Regex(@"[@\\\/&:<>\s""]");
+            var re = new Regex(@"[@\\\/&:<>\s""']");
 
             string Evaluator(Match m)
             {
-                switch (m.Groups[1].Value)
+                switch (m.Groups[0].Value)
                 {
                     case " ":
                         return @"\20";
@@ -233,7 +233,7 @@ namespace Ubiety.Xmpp.Core.Common
                         return @"\22";
                     case "&":
                         return @"\26";
-                    case "\'":
+                    case "'":
                         return @"\27";
                     case "/":
                         return @"\2f";
