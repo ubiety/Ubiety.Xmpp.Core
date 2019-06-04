@@ -61,7 +61,7 @@ branch. Pull requests are warmly welcome.
 
 ## Links
 
--   Project homepage: <https://xmpp.ubiety.ca>
+-   Project homepage: https://xmpp.ubiety.ca
 -   Repository: <https://github.com/ubiety/Ubiety.Xmpp.Core/>
 -   Issue tracker: <https://github.com/ubiety/Ubiety.Xmpp.Core/issues>
     -   In case of sensitive bugs like security vulnerabilities, please use the

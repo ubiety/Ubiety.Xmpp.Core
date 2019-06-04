@@ -221,67 +221,38 @@ namespace Ubiety.Xmpp.Core.Common
 
         private static string Escape(string user)
         {
-            var u = new StringBuilder();
-            var count = 0;
+            var re = new Regex(@"[@\\\/&:<>\s""]");
 
-            foreach (var c in user)
+            string Evaluator(Match m)
             {
-                switch (c)
+                switch (m.Groups[1].Value)
                 {
-                    case ' ':
-                        if (count == 0 || count == user.Length - 1)
-                        {
-                            throw new FormatException("Username cannot start or end with a space");
-                        }
-
-                        u.Append(@"\20");
-                        break;
-
-                    case '"':
-                        u.Append(@"\22");
-                        break;
-
-                    case '&':
-                        u.Append(@"\26");
-                        break;
-
-                    case '\'':
-                        u.Append(@"\27");
-                        break;
-
-                    case '/':
-                        u.Append(@"\2f");
-                        break;
-
-                    case ':':
-                        u.Append(@"\3a");
-                        break;
-
-                    case '<':
-                        u.Append(@"\3c");
-                        break;
-
-                    case '>':
-                        u.Append(@"\3e");
-                        break;
-
-                    case '@':
-                        u.Append(@"\40");
-                        break;
-
-                    case '\\':
-                        u.Append(@"\5c");
-                        break;
-
+                    case " ":
+                        return @"\20";
+                    case @"""":
+                        return @"\22";
+                    case "&":
+                        return @"\26";
+                    case "\'":
+                        return @"\27";
+                    case "/":
+                        return @"\2f";
+                    case ":":
+                        return @"\3a";
+                    case "<":
+                        return @"\3c";
+                    case ">":
+                        return @"\3e";
+                    case "@":
+                        return @"\40";
+                    case "\\":
+                        return @"\5c";
                     default:
-                        u.Append(c);
-                        break;
+                        return m.Groups[0].Value;
                 }
-
-                count++;
             }
 
-            return u.ToString();
+            return re.Replace(user, Evaluator);
         }
 
         private string Unescape(string username)
@@ -294,48 +265,36 @@ namespace Ubiety.Xmpp.Core.Common
                 {
                     case "20":
                         return " ";
-
                     case "22":
                         return "\"";
-
                     case "26":
                         return "&";
-
                     case "27":
                         return "'";
-
                     case "2f":
                         return "/";
-
                     case "3a":
                         return ":";
-
                     case "3c":
                         return "<";
-
                     case "3e":
                         return ">";
-
                     case "40":
                         return "@";
-
                     case "5c":
                         return @"\";
-
                     default:
                         return m.Groups[0].Value;
                 }
             }
 
-            var u = re.Replace(username, Evaluator);
-
-            return u;
+            return re.Replace(username, Evaluator);
         }
 
         private string BuildJid()
         {
             var builder = new StringBuilder();
-            if (_user != null)
+            if (!string.IsNullOrEmpty(_user))
             {
                 builder.Append(_user);
                 builder.Append("@");
@@ -343,7 +302,7 @@ namespace Ubiety.Xmpp.Core.Common
 
             builder.Append(_server);
 
-            if (_resource != null)
+            if (!string.IsNullOrEmpty(_resource))
             {
                 builder.Append("/");
                 builder.Append(_resource);
