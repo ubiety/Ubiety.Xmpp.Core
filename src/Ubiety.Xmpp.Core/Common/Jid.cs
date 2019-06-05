@@ -88,12 +88,11 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets or sets the id as a string.
+        ///     Gets the <see cref="Jid" /> as a string.
         /// </summary>
         public string Id
         {
             get => _id ?? BuildJid();
-            set => _id = value;
         }
 
         /// <summary>

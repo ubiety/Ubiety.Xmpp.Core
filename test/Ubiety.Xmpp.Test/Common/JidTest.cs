@@ -7,7 +7,7 @@ namespace Ubiety.Xmpp.Test.Common
     public class JidTest
     {
         [Fact]
-        public void CreateWithConstructor()
+        public void Constructor_WithAllParams_ReturnsNewInstance()
         {
             var jid = new Jid("test", "testing.com", "tester");
             jid.Resource.Should().Be("tester");
@@ -16,12 +16,22 @@ namespace Ubiety.Xmpp.Test.Common
         }
 
         [Fact]
-        public void CreateWithParse()
+        public void Parse_WithString_ReturnsJidInstance()
         {
             var jid = Jid.Parse("test@test.com/tester");
             jid.User.Should().Be("test");
             jid.Server.Should().Be("test.com");
             jid.Resource.Should().Be("tester");
+        }
+
+        [Fact]
+        public void Parse_FromImplicitOperator_ReturnsJidInstance()
+        {
+            Jid jid = "test@test.com/testing";
+            jid.User.Should().Be("test");
+            jid.Server.Should().Be("test.com");
+            jid.Resource.Should().Be("testing");
+            jid.Should().Be("test@test.com/testing");
         }
 
         [Fact]
