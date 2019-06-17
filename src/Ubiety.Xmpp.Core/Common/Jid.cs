@@ -13,7 +13,6 @@
 //   limitations under the License.
 
 using System;
-using System.Text;
 using System.Text.RegularExpressions;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Infrastructure.Exceptions;
@@ -35,9 +34,9 @@ namespace Ubiety.Xmpp.Core.Common
         private readonly IPreparationProcess _resourceprep = ResourceprepProfile.Create();
 
         private string _id;
-        private string _resource;
+        private string _resource = string.Empty;
         private string _server;
-        private string _user;
+        private string _user = string.Empty;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="Jid" /> class.
@@ -92,7 +91,7 @@ namespace Ubiety.Xmpp.Core.Common
         /// </summary>
         public string Id
         {
-            get => _id ?? BuildJid();
+            get => $"{_user}{(string.IsNullOrEmpty(_user) ? string.Empty : "@")}{_server}{(string.IsNullOrEmpty(_resource) ? string.Empty : "/")}{_resource}";
         }
 
         /// <summary>
@@ -288,27 +287,6 @@ namespace Ubiety.Xmpp.Core.Common
             }
 
             return re.Replace(username, Evaluator);
-        }
-
-        private string BuildJid()
-        {
-            var builder = new StringBuilder();
-            if (!string.IsNullOrEmpty(_user))
-            {
-                builder.Append(_user);
-                builder.Append("@");
-            }
-
-            builder.Append(_server);
-
-            if (!string.IsNullOrEmpty(_resource))
-            {
-                builder.Append("/");
-                builder.Append(_resource);
-            }
-
-            _id = builder.ToString();
-            return _id;
         }
     }
 }

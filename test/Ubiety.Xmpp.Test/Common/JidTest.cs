@@ -34,25 +34,20 @@ namespace Ubiety.Xmpp.Test.Common
             jid.Should().Be("test@test.com/testing");
         }
 
-        [Fact]
-        public void EscapeUsernameWithApostrophe()
+        [Theory]
+        [InlineData("d'artangan@garcon.fr/testing", @"d\27artangan@garcon.fr/testing")]
+        [InlineData("me@you@testing.com", @"me\40you@testing.com")]
+        [InlineData(@"me\40you@testing.com", "me@you@testing.com")]
+        public void Parse_UsernameWithCharacter_ShouldEscape(string input, string output)
         {
-            var jid = Jid.Parse("d'artangan@garcon.fr/testing");
-            jid.Id.Should().Be(@"d\27artangan@garcon.fr/testing");
-            jid.User.Should().Be(@"d'artangan");
+            var jid = Jid.Parse(input);
+            jid.Id.Should().Be(output);
         }
 
         [Fact]
         public void EscapeUsernameWithAt()
         {
             var jid = new Jid("me@you", "testing.com");
-            jid.Id.Should().Be(@"me\40you@testing.com");
-        }
-
-        [Fact]
-        public void EscapeUsernameWithAtFromParse()
-        {
-            var jid = Jid.Parse("me@you@testing.com");
             jid.Id.Should().Be(@"me\40you@testing.com");
         }
 
