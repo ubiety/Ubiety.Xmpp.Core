@@ -22,7 +22,7 @@ namespace Ubiety.Xmpp.Core.Common
 {
     /// <inheritdoc />
     /// <summary>
-    ///     Jabber ID.
+    ///     Representation of the Jabber ID.
     /// </summary>
     public sealed class Jid : IEquatable<Jid>
     {
@@ -33,9 +33,10 @@ namespace Ubiety.Xmpp.Core.Common
         private readonly IPreparationProcess _nodeprep = NodeprepProfile.Create();
         private readonly IPreparationProcess _resourceprep = ResourceprepProfile.Create();
 
-        private string _id;
         private string _resource = string.Empty;
         private string _server;
+
+        // Stores the username in the server escaped format
         private string _user = string.Empty;
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets the JID resource.
+        ///     Gets the <see cref="Jid" /> resource.
         /// </summary>
         public string Resource
         {
@@ -65,7 +66,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets the server of the JID.
+        ///     Gets the server of the <see cref="Jid" />.
         /// </summary>
         public string Server
         {
@@ -74,7 +75,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets the user name of the JID.
+        ///     Gets the user name of the <see cref="Jid" /> in a user friendly format.
         /// </summary>
         public string User
         {
@@ -217,7 +218,7 @@ namespace Ubiety.Xmpp.Core.Common
             return Id;
         }
 
-        private static string Escape(string user)
+        private static string Escape(string username)
         {
             var re = new Regex(@"[@\\\/&:<>\s""']");
 
@@ -250,7 +251,7 @@ namespace Ubiety.Xmpp.Core.Common
                 }
             }
 
-            return re.Replace(user, Evaluator);
+            return re.Replace(username, Evaluator);
         }
 
         private string Unescape(string username)

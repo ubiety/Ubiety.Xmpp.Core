@@ -1,26 +1,27 @@
 language: csharp
+
 matrix:
-  include:
-    - os: linux
-      dist: xenial
-      sudo: required
-    - os: osx
-      osx_image: xcode9.4
+    include:
+        - os: linux
+          dist: xenial
+          sudo: required
+        - os: osx
+          osx_image: xcode9.4
 
 branches:
-  only:
-    - master
-    - develop
+    only:
+        - master
+        - develop
 
 env:
-  global: DOTNET_CLI_TELEMETRY_OPTOUT=1
-    DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+    global: DOTNET_CLI_TELEMETRY_OPTOUT=1
+        DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 
 mono: latest
-dotnet: 2.2.204
+dotnet: 2.2.300
 
 script:
-  - ./build.sh
+    - ./build.sh
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash)
