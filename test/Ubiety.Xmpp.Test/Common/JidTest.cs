@@ -18,7 +18,7 @@ namespace Ubiety.Xmpp.Test.Common
         [Fact]
         public void Parse_WithString_ReturnsJidInstance()
         {
-            var jid = Jid.Parse("test@test.com/tester");
+            var jid = Jid.Parse("test@test.com/tester", false);
             jid.User.Should().Be("test");
             jid.Server.Should().Be("test.com");
             jid.Resource.Should().Be("tester");
@@ -35,12 +35,12 @@ namespace Ubiety.Xmpp.Test.Common
         }
 
         [Theory]
-        [InlineData("d'artangan@garcon.fr/testing", @"d\27artangan@garcon.fr/testing")]
-        [InlineData("me@you@testing.com", @"me\40you@testing.com")]
-        [InlineData(@"me\40you@testing.com", "me@you@testing.com")]
-        public void Parse_UsernameWithCharacter_ShouldEscape(string input, string output)
+        [InlineData("d'artangan@garcon.fr/testing", @"d\27artangan@garcon.fr/testing", false)]
+        [InlineData("me@you@testing.com", @"me\40you@testing.com", false)]
+        [InlineData(@"me\40you@testing.com", @"me\40you@testing.com", true)]
+        public void Parse_UsernameWithCharacter_ShouldEscape(string input, string output, bool escaped)
         {
-            var jid = Jid.Parse(input);
+            var jid = Jid.Parse(input, escaped);
             jid.Id.Should().Be(output);
         }
 
@@ -54,7 +54,7 @@ namespace Ubiety.Xmpp.Test.Common
         [Fact]
         public void EqualsWithDifferentObjects()
         {
-            var left = Jid.Parse("test@test.com");
+            var left = Jid.Parse("test@test.com", false);
             var right = new Jid("test", "test.com");
 
             left.Should().Be(right);
@@ -63,7 +63,7 @@ namespace Ubiety.Xmpp.Test.Common
         [Fact]
         public void EqualsTheSameObject()
         {
-            var jid = Jid.Parse("test@test.com");
+            var jid = Jid.Parse("test@test.com", false);
             var clone = jid;
 
             jid.Should().BeSameAs(clone);

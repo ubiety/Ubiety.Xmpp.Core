@@ -28,6 +28,8 @@ namespace Ubiety.Xmpp.Core.Common
     {
         // language=regex
         private const string JidRegex = @"^(?:(?<username>.*)@)?(?<server>.*?)(?:\/(?<resource>.*))?$";
+        private const string EscapeRegex = @"[@\\\/&:<>\s""']";
+        private const string UnescapeRegex = @"\\([2-5][0267face])";
 
         private readonly IPreparationProcess _nameprep = NameprepProfile.Create();
         private readonly IPreparationProcess _nodeprep = NodeprepProfile.Create();
@@ -80,11 +82,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string User
         {
             get => Unescape(_user);
-            private set
-            {
-                var temp = Escape(value);
-                _user = _nodeprep.Run(temp);
-            }
+            private set => _user = _nodeprep.Run(value);
         }
 
         /// <summary>
@@ -101,7 +99,7 @@ namespace Ubiety.Xmpp.Core.Common
         /// <param name="id">String version of the <see cref="Jid" />.</param>
         public static implicit operator Jid(string id)
         {
-            return Parse(id);
+            return Parse(id, false);
         }
 
         /// <summary>
@@ -139,10 +137,11 @@ namespace Ubiety.Xmpp.Core.Common
         ///     Parse a string into a <see cref="Jid" />.
         /// </summary>
         /// <param name="value">String jid to parse.</param>
+        /// <param name="escaped">Indicates whether the ID is escaped.</param>
         /// <returns><see cref="Jid" /> of the string.</returns>
-        public static Jid Parse(string value)
+        public static Jid Parse(string value, bool escaped)
         {
-            if (!TryParse(value, out var jid))
+            if (!TryParse(value, escaped, out var jid))
             {
                 throw new ParseException();
             }
@@ -155,8 +154,9 @@ namespace Ubiety.Xmpp.Core.Common
         /// </summary>
         /// <param name="value">String jid to parse.</param>
         /// <param name="jid">Parsed <see cref="Jid" />.</param>
+        /// <param name="escaped">Indicates whether the ID is escaped.</param>
         /// <returns>True if parse is successful; otherwise false.</returns>
-        public static bool TryParse(string value, out Jid jid)
+        public static bool TryParse(string value, bool escaped, out Jid jid)
         {
             var match = Regex.Match(value, JidRegex);
 
@@ -168,7 +168,7 @@ namespace Ubiety.Xmpp.Core.Common
 
             jid = new Jid
             {
-                User = match.Groups["username"].Value,
+                User = escaped ? match.Groups["username"].Value : Escape(match.Groups["username"].Value),
                 Server = match.Groups["server"].Value,
                 Resource = match.Groups["resource"].Value,
             };
@@ -220,7 +220,7 @@ namespace Ubiety.Xmpp.Core.Common
 
         private static string Escape(string username)
         {
-            var re = new Regex(@"[@\\\/&:<>\s""']");
+            var re = new Regex(EscapeRegex);
 
             string Evaluator(Match m)
             {
@@ -256,7 +256,7 @@ namespace Ubiety.Xmpp.Core.Common
 
         private string Unescape(string username)
         {
-            var re = new Regex(@"\\([2-5][0267face])");
+            var re = new Regex(UnescapeRegex);
 
             string Evaluator(Match m)
             {

@@ -46,7 +46,7 @@ namespace Ubiety.Xmpp.Core.Tags
         /// </summary>
         public Jid To
         {
-            get => Jid.Parse(GetAttributeValue("to"));
+            get => Jid.Parse(GetAttributeValue("to"), true);
             set => SetAttributeValue("to", value);
         }
 
@@ -55,7 +55,7 @@ namespace Ubiety.Xmpp.Core.Tags
         /// </summary>
         public Jid From
         {
-            get => Jid.Parse(GetAttributeValue("from"));
+            get => Jid.Parse(GetAttributeValue("from"), true);
             set => SetAttributeValue("from", value);
         }
 
