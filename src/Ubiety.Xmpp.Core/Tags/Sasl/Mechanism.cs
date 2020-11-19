@@ -63,26 +63,15 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         /// <returns>Type of the mechanism.</returns>
         public static MechanismTypes ToTypeFromString(string type)
         {
-            switch (type)
+            return type switch
             {
-                case "PLAIN":
-                    return MechanismTypes.Plain;
-
-                case "DIGEST-MD5":
-                    return MechanismTypes.DigestMd5;
-
-                case "EXTERNAL":
-                    return MechanismTypes.External;
-
-                case "SCRAM-SHA-1":
-                    return MechanismTypes.Scram;
-
-                case "SCRAM-SHA-1-PLUS":
-                    return MechanismTypes.ScramPlus;
-
-                default:
-                    return MechanismTypes.None;
-            }
+                "PLAIN" => MechanismTypes.Plain,
+                "DIGEST-MD5" => MechanismTypes.DigestMd5,
+                "EXTERNAL" => MechanismTypes.External,
+                "SCRAM-SHA-1" => MechanismTypes.Scram,
+                "SCRAM-SHA-1-PLUS" => MechanismTypes.ScramPlus,
+                _ => MechanismTypes.None,
+            };
         }
 
         /// <summary>
@@ -92,31 +81,17 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         /// <returns>String name of the mechanism.</returns>
         public static string ToStringFromType(MechanismTypes type)
         {
-            switch (type)
+            return type switch
             {
-                case MechanismTypes.None:
-                    return string.Empty;
-
-                case MechanismTypes.Plain:
-                    return "PLAIN";
-
-                case MechanismTypes.DigestMd5:
-                    return "DIGEST-MD5";
-
-                case MechanismTypes.External:
-                    return "EXTERNAL";
-
-                case MechanismTypes.Scram:
-                    return "SCRAM-SHA-1";
-
-                case MechanismTypes.ScramPlus:
-                    return "SCRAM-SHA-1-PLUS";
-
-                case MechanismTypes.Default:
-                    return string.Empty;
-            }
-
-            return string.Empty;
+                MechanismTypes.None => string.Empty,
+                MechanismTypes.Plain => "PLAIN",
+                MechanismTypes.DigestMd5 => "DIGEST-MD5",
+                MechanismTypes.External => "EXTERNAL",
+                MechanismTypes.Scram => "SCRAM-SHA-1",
+                MechanismTypes.ScramPlus => "SCRAM-SHA-1-PLUS",
+                MechanismTypes.Default => string.Empty,
+                _ => string.Empty,
+            };
         }
     }
 }

@@ -100,7 +100,7 @@ namespace Ubiety.Xmpp.Core.Sasl
                     return f;
 
                 default:
-                    return default(Tag);
+                    return default;
             }
         }
 

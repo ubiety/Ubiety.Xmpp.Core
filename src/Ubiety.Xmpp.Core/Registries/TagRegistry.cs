@@ -94,7 +94,7 @@ namespace Ubiety.Xmpp.Core.Registries
             }
             else
             {
-                return default(T);
+                return default;
             }
 
             Logger.Log(LogLevel.Debug, "Tag found");
@@ -140,7 +140,7 @@ namespace Ubiety.Xmpp.Core.Registries
                         var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
                         if (defaultConstructorInfo is null)
                         {
-                            return default(T);
+                            return default;
                         }
 
                         return (T)defaultConstructorInfo.Invoke(new object[] { element });
@@ -155,7 +155,7 @@ namespace Ubiety.Xmpp.Core.Registries
                 throw;
             }
 
-            return default(T);
+            return default;
         }
     }
 }

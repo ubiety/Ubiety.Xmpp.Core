@@ -156,7 +156,7 @@ namespace Ubiety.Xmpp.Core.Net
                 null,
                 SslProtocols.Tls12 | SslProtocols.Tls11,
                 false);
-            _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol.ToString()}");
+            _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol}");
 
             if (secureStream.IsAuthenticated)
             {

@@ -105,7 +105,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             Id = id;
             Password = password;
 
-            return default(Tag);
+            return default;
         }
 
         /// <summary>

@@ -153,8 +153,8 @@ namespace Ubiety.Xmpp.Core.Common
         ///     Try to parse the string into a <see cref="Jid" />.
         /// </summary>
         /// <param name="value">String jid to parse.</param>
-        /// <param name="jid">Parsed <see cref="Jid" />.</param>
         /// <param name="escaped">Indicates whether the ID is escaped.</param>
+        /// <param name="jid">Parsed <see cref="Jid" />.</param>
         /// <returns>True if parse is successful; otherwise false.</returns>
         public static bool TryParse(string value, bool escaped, out Jid jid)
         {
@@ -185,16 +185,12 @@ namespace Ubiety.Xmpp.Core.Common
         /// <inheritdoc />
         public override bool Equals(object obj)
         {
-            switch (obj)
+            return obj switch
             {
-                case null:
-                    return false;
-
-                case string _:
-                    return Id.Equals(obj);
-            }
-
-            return obj is Jid jid && Id.Equals(jid.Id);
+                null => false,
+                string _ => Id.Equals(obj),
+                _ => obj is Jid jid && Id.Equals(jid.Id),
+            };
         }
 
         /// <inheritdoc />
@@ -222,33 +218,22 @@ namespace Ubiety.Xmpp.Core.Common
         {
             var re = new Regex(EscapeRegex);
 
-            string Evaluator(Match m)
+            static string Evaluator(Match m)
             {
-                switch (m.Groups[0].Value)
+                return m.Groups[0].Value switch
                 {
-                    case " ":
-                        return @"\20";
-                    case @"""":
-                        return @"\22";
-                    case "&":
-                        return @"\26";
-                    case "'":
-                        return @"\27";
-                    case "/":
-                        return @"\2f";
-                    case ":":
-                        return @"\3a";
-                    case "<":
-                        return @"\3c";
-                    case ">":
-                        return @"\3e";
-                    case "@":
-                        return @"\40";
-                    case "\\":
-                        return @"\5c";
-                    default:
-                        return m.Groups[0].Value;
-                }
+                    " " => @"\20",
+                    @"""" => @"\22",
+                    "&" => @"\26",
+                    "'" => @"\27",
+                    "/" => @"\2f",
+                    ":" => @"\3a",
+                    "<" => @"\3c",
+                    ">" => @"\3e",
+                    "@" => @"\40",
+                    "\\" => @"\5c",
+                    _ => m.Groups[0].Value,
+                };
             }
 
             return re.Replace(username, Evaluator);
@@ -258,33 +243,22 @@ namespace Ubiety.Xmpp.Core.Common
         {
             var re = new Regex(UnescapeRegex);
 
-            string Evaluator(Match m)
+            static string Evaluator(Match m)
             {
-                switch (m.Groups[1].Value)
+                return m.Groups[1].Value switch
                 {
-                    case "20":
-                        return " ";
-                    case "22":
-                        return "\"";
-                    case "26":
-                        return "&";
-                    case "27":
-                        return "'";
-                    case "2f":
-                        return "/";
-                    case "3a":
-                        return ":";
-                    case "3c":
-                        return "<";
-                    case "3e":
-                        return ">";
-                    case "40":
-                        return "@";
-                    case "5c":
-                        return @"\";
-                    default:
-                        return m.Groups[0].Value;
-                }
+                    "20" => " ",
+                    "22" => "\"",
+                    "26" => "&",
+                    "27" => "'",
+                    "2f" => "/",
+                    "3a" => ":",
+                    "3c" => "<",
+                    "3e" => ">",
+                    "40" => "@",
+                    "5c" => @"\",
+                    _ => m.Groups[0].Value,
+                };
             }
 
             return re.Replace(username, Evaluator);

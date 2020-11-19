@@ -43,7 +43,7 @@ namespace Ubiety.Xmpp.Core.Net
         public Address(IClient client)
         {
             _logger.Log(LogLevel.Debug, $"{typeof(Address)} created");
-            _resolver = new Resolver("8.8.8.8") { UseCache = true, Timeout = 5, TransportType = TransportType.Tcp };
+            _resolver = ResolverBuilder.Begin().AddDnsServer("8.8.8.8").EnableCache().SetTimeout(5000).Build();
             _client = client;
         }
 
