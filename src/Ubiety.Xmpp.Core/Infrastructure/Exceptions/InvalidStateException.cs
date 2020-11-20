@@ -61,7 +61,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
         }
 
         /// <inheritdoc/>
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             base.GetObjectData(info, context);

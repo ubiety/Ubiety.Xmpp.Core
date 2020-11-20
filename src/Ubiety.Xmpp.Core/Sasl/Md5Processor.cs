@@ -26,7 +26,7 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// <summary>
     ///     MD5 SASL processor.
     /// </summary>
-    public class Md5Processor : SaslProcessor
+    public class Md5Processor : SaslProcessor, IDisposable
     {
         private readonly Regex _csv = new Regex(
             @"(?<tag>[^=]+)=(?:(?<data>[^,""]+)|(?:""(?<data>[^""]*)"")),?",
@@ -34,6 +34,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 
         private readonly Encoding _encoding = Encoding.UTF8;
         private readonly MD5CryptoServiceProvider _md5 = new MD5CryptoServiceProvider();
+        private bool _disposedValue;
         private string _cnonce;
         private string _digestUri;
 
@@ -94,6 +95,31 @@ namespace Ubiety.Xmpp.Core.Sasl
             }
         }
 
+        /// <inheritdoc cref="object" />
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <inheritdoc cref="object" />
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects)
+                    _md5.Dispose();
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                _disposedValue = true;
+            }
+        }
+
         private void PopulateDirectives(Tag tag)
         {
             var col = _csv.Matches(_encoding.GetString(tag.Bytes));
@@ -143,5 +169,12 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             return _encoding.GetBytes(response);
         }
+
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~Md5Processor()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
     }
 }

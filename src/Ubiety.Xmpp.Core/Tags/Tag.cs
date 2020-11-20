@@ -75,6 +75,16 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
+        ///     Get the next packet id.
+        /// </summary>
+        /// <returns>Packet id as a string.</returns>
+        protected static string GetNextPacketId()
+        {
+            Interlocked.Increment(ref _packetCounter);
+            return $"U{_packetCounter:D5}";
+        }
+
+        /// <summary>
         ///     Get child tags.
         /// </summary>
         /// <typeparam name="T">Type of tags.</typeparam>
@@ -137,16 +147,6 @@ namespace Ubiety.Xmpp.Core.Tags
             where T : Enum
         {
             SetAttributeValue(name, value.ToString().ToLowerInvariant());
-        }
-
-        /// <summary>
-        ///     Get the next packet id.
-        /// </summary>
-        /// <returns>Packet id as a string.</returns>
-        protected string GetNextPacketId()
-        {
-            Interlocked.Increment(ref _packetCounter);
-            return $"U{_packetCounter:D5}";
         }
 
         private static T Convert<T>(XElement element)

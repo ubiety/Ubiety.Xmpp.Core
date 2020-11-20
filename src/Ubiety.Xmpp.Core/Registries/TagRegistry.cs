@@ -78,7 +78,7 @@ namespace Ubiety.Xmpp.Core.Registries
 
             if (_types.TryGetValue(name, out var type))
             {
-                var constructor = Tag.GetConstructor(type, new Type[] { });
+                var constructor = Tag.GetConstructor(type, Array.Empty<Type>());
                 if (constructor is null)
                 {
                     constructor = Tag.GetConstructor(type, new[] { typeof(XName) });
@@ -89,7 +89,7 @@ namespace Ubiety.Xmpp.Core.Registries
                 }
                 else
                 {
-                    tag = (T)constructor.Invoke(new object[] { });
+                    tag = (T)constructor.Invoke(Array.Empty<object>());
                 }
             }
             else

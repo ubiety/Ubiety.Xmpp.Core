@@ -205,6 +205,8 @@ namespace Ubiety.Xmpp.Core.Net
             {
                 _logger.Log(LogLevel.Debug, $"Disposing {_socket.GetType()}");
                 _socket?.Dispose();
+                _stream.Dispose();
+                _resetEvent.Dispose();
             }
         }
 

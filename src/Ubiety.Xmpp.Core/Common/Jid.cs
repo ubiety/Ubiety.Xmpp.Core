@@ -196,16 +196,7 @@ namespace Ubiety.Xmpp.Core.Common
         /// <inheritdoc />
         public override int GetHashCode()
         {
-            unchecked
-            {
-                var hash = 17;
-
-                hash = (hash * 23) + User.GetHashCode();
-                hash = (hash * 23) + Server.GetHashCode();
-                hash = (hash * 23) + Resource.GetHashCode();
-
-                return hash;
-            }
+            return HashCode.Combine(User, Server, Resource);
         }
 
         /// <inheritdoc />
@@ -239,7 +230,7 @@ namespace Ubiety.Xmpp.Core.Common
             return re.Replace(username, Evaluator);
         }
 
-        private string Unescape(string username)
+        private static string Unescape(string username)
         {
             var re = new Regex(UnescapeRegex);
 

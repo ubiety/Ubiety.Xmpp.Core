@@ -43,7 +43,9 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
                     position = index;
                 }
 
-                data = data.Substring(index + 1);
+#pragma warning disable SA1009
+                data = data[(index + 1)..];
+#pragma warning restore SA1009
             }
 
             return position;

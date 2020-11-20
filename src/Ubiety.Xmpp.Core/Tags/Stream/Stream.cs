@@ -90,7 +90,7 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
                     tag.Append($" {attribute.Name.LocalName}=\'{attribute.Value}\'");
                 }
 
-                tag.Append(">");
+                tag.Append('>');
 
                 return tag.ToString();
             }

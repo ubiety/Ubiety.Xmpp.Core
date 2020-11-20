@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5</TargetFramework>
     <IsPackable>false</IsPackable>
     <SonarQubeExclude>true</SonarQubeExclude>
     <ProjectGuid>{6b67e15d-39d5-45bd-bdaa-b59a6502952c}</ProjectGuid>
