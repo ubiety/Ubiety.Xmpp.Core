@@ -14,8 +14,8 @@
 
 using System.Linq;
 using System.Xml.Linq;
-using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Tags.Binding;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 using Ubiety.Xmpp.Core.Tags.Tls;

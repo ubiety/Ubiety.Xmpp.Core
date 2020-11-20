@@ -15,8 +15,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using Ubiety.Xmpp.Core.Attributes;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {

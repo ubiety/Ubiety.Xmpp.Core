@@ -15,7 +15,7 @@
 using System;
 using System.Xml.Linq;
 
-namespace Ubiety.Xmpp.Core.Attributes
+namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
 {
     /// <summary>
     ///     XMPP tag attribute.

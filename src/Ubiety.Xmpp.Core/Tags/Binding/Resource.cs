@@ -14,12 +14,14 @@
 
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
 namespace Ubiety.Xmpp.Core.Tags.Binding
 {
     /// <summary>
     ///     Binding resource tag.
     /// </summary>
+    [XmppTag("resource", Namespaces.Bind, typeof(Resource))]
     public class Resource : Tag
     {
         /// <summary>
