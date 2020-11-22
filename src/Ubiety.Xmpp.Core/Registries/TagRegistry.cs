@@ -30,7 +30,7 @@ namespace Ubiety.Xmpp.Core.Registries
     public class TagRegistry
     {
         private static readonly ILog Logger = Log.Get<TagRegistry>();
-        private readonly Dictionary<XName, Type> _types = new Dictionary<XName, Type>();
+        private readonly Dictionary<XName, Type> _types = new ();
 
         /// <summary>
         ///     Add tags from the assembly to the registry.

@@ -24,8 +24,8 @@ namespace Ubiety.Xmpp.Core.Common
     public class TagEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the tag.
+        ///     Gets the tag.
         /// </summary>
-        public Tag Tag { get; set; }
+        public Tag Tag { get; init; }
     }
 }

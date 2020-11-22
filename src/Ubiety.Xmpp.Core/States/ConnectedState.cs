@@ -27,18 +27,20 @@ namespace Ubiety.Xmpp.Core.States
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
-            if (xmpp is XmppClient client)
+            if (xmpp is not XmppClient client)
             {
-                var stream = xmpp.Registry.GetTag<Stream>(Stream.XmlName);
-                stream.Version = "1.0";
-                stream.To = client.Id.Server;
-                stream.Namespace = Namespaces.Client;
-
-                client.ClientSocket.Send(stream.StartTag);
-                client.ClientSocket.SetReadClear();
-
-                xmpp.State = new StreamFeaturesState();
+                return;
             }
+
+            var stream = xmpp.Registry.GetTag<Stream>(Stream.XmlName);
+            stream.Version = "1.0";
+            stream.To = client.Id.Server;
+            stream.Namespace = Namespaces.Client;
+
+            client.ClientSocket.Send(stream.StartTag);
+            client.ClientSocket.SetReadClear();
+
+            xmpp.State = new StreamFeaturesState();
         }
     }
 }

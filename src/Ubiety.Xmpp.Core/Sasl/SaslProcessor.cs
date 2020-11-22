@@ -27,22 +27,22 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// </summary>
     public abstract class SaslProcessor
     {
-        private readonly Hashtable _directives = new Hashtable();
+        private readonly Hashtable _directives = new ();
 
         /// <summary>
-        ///     Gets or sets the current client instance.
+        ///     Gets the current client instance.
         /// </summary>
-        protected static XmppBase Client { get; set; }
+        protected static XmppBase Client { get; private set; }
 
         /// <summary>
-        ///     Gets or sets the user <see cref="Jid" /> for the session.
+        ///     Gets the user <see cref="Jid" /> for the session.
         /// </summary>
-        protected Jid Id { get; set; }
+        protected Jid Id { get; private set; }
 
         /// <summary>
-        ///     Gets or sets the user password for the session.
+        ///     Gets the user password for the session.
         /// </summary>
-        protected string Password { get; set; }
+        protected string Password { get; private set; }
 
         /// <summary>
         ///     Gets or sets the SASL processor directives.

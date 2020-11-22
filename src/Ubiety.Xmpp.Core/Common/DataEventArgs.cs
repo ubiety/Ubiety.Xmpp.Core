@@ -23,8 +23,8 @@ namespace Ubiety.Xmpp.Core.Common
     public class DataEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the message from the server.
+        ///     Gets the message from the server.
         /// </summary>
-        public string Message { get; set; }
+        public string Message { get; init; }
     }
 }

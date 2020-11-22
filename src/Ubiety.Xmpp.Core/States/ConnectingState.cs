@@ -30,12 +30,14 @@ namespace Ubiety.Xmpp.Core.States
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             Logger.Log(LogLevel.Debug, "Executing ConnectingState");
-            if (xmpp is XmppClient client)
+            if (xmpp is not XmppClient client)
             {
-                Logger.Log(LogLevel.Debug, "Connecting to server");
-                client.ClientSocket.Connect(client.Id);
-                client.ClientSocket.SetReadClear();
+                return;
             }
+
+            Logger.Log(LogLevel.Debug, "Connecting to server");
+            client.ClientSocket.Connect(client.Id);
+            client.ClientSocket.SetReadClear();
         }
     }
 }

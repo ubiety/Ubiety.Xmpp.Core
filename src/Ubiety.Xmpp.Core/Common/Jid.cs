@@ -35,11 +35,11 @@ namespace Ubiety.Xmpp.Core.Common
         private readonly IPreparationProcess _nodeprep = NodeprepProfile.Create();
         private readonly IPreparationProcess _resourceprep = ResourceprepProfile.Create();
 
-        private string _resource = string.Empty;
-        private string _server;
+        private readonly string _resource = string.Empty;
+        private readonly string _server;
 
         // Stores the username in the server escaped format
-        private string _user = string.Empty;
+        private readonly string _user = string.Empty;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="Jid" /> class.
@@ -64,7 +64,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Resource
         {
             get => _resource;
-            private set => _resource = value is null ? null : _resourceprep.Run(value);
+            private init => _resource = value is null ? null : _resourceprep.Run(value);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Ubiety.Xmpp.Core.Common
         public string Server
         {
             get => _server;
-            private set => _server = value is null ? null : _nameprep.Run(value);
+            private init => _server = value is null ? null : _nameprep.Run(value);
         }
 
         /// <summary>
@@ -82,16 +82,13 @@ namespace Ubiety.Xmpp.Core.Common
         public string User
         {
             get => Unescape(_user);
-            private set => _user = _nodeprep.Run(value);
+            private init => _user = _nodeprep.Run(value);
         }
 
         /// <summary>
         ///     Gets the <see cref="Jid" /> as a string.
         /// </summary>
-        public string Id
-        {
-            get => $"{_user}{(string.IsNullOrEmpty(_user) ? string.Empty : "@")}{_server}{(string.IsNullOrEmpty(_resource) ? string.Empty : "/")}{_resource}";
-        }
+        public string Id => $"{_user}{(string.IsNullOrEmpty(_user) ? string.Empty : "@")}{_server}{(string.IsNullOrEmpty(_resource) ? string.Empty : "/")}{_resource}";
 
         /// <summary>
         ///     Implicitly converts a string into a <see cref="Jid" />.
@@ -179,7 +176,7 @@ namespace Ubiety.Xmpp.Core.Common
         /// <inheritdoc />
         public bool Equals(Jid other)
         {
-            return Id.Equals(other.Id);
+            return Id.Equals(other?.Id);
         }
 
         /// <inheritdoc />

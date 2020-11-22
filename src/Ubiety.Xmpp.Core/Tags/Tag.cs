@@ -128,7 +128,7 @@ namespace Ubiety.Xmpp.Core.Tags
         protected T GetAttributeEnumValue<T>(XName name)
             where T : Enum
         {
-            string attribute = GetAttributeValue(name);
+            var attribute = GetAttributeValue(name);
             if (!string.IsNullOrEmpty(attribute))
             {
                 return (T)Enum.Parse(typeof(T), attribute, true);

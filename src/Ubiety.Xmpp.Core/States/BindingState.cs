@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using System;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
@@ -28,9 +29,12 @@ namespace Ubiety.Xmpp.Core.States
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
-            var client = xmpp as XmppClient;
+            if (xmpp is null)
+            {
+                throw new ArgumentNullException(nameof(xmpp));
+            }
 
-            if (tag is null)
+            if (tag is null && xmpp is XmppClient client)
             {
                 var bind = xmpp.Registry.GetTag<Bind>(XName.Get("bind", Namespaces.Bind));
                 var iq = xmpp.Registry.GetTag<Iq>(XName.Get("iq", Namespaces.Client));

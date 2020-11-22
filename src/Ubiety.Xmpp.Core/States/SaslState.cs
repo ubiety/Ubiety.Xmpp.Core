@@ -27,27 +27,29 @@ namespace Ubiety.Xmpp.Core.States
         /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
-            if (xmpp is XmppClient client)
+            if (xmpp is not XmppClient client)
             {
-                switch (tag)
-                {
-                    case Success _:
-                        client.ClientSocket.SetReadClear();
-                        client.Authenticated = true;
-                        client.State = new ConnectedState();
-                        client.State.Execute(client);
-                        break;
+                return;
+            }
 
-                    case Failure _:
-                        client.State = new DisconnectState();
-                        client.State.Execute(client);
-                        break;
+            switch (tag)
+            {
+                case Success _:
+                    client.ClientSocket.SetReadClear();
+                    client.Authenticated = true;
+                    client.State = new ConnectedState();
+                    client.State.Execute(client);
+                    break;
 
-                    default:
-                        client.ClientSocket.SetReadClear();
-                        client.ClientSocket.Send(client.SaslProcessor.Step(tag));
-                        break;
-                }
+                case Failure _:
+                    client.State = new DisconnectState();
+                    client.State.Execute(client);
+                    break;
+
+                default:
+                    client.ClientSocket.SetReadClear();
+                    client.ClientSocket.Send(client.SaslProcessor.Step(tag));
+                    break;
             }
         }
     }

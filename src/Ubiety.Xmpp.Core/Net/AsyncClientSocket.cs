@@ -37,7 +37,7 @@ namespace Ubiety.Xmpp.Core.Net
         private readonly IClient _client;
         private readonly ILog _logger = Log.Get<AsyncClientSocket>();
         private readonly AutoResetEvent _resetEvent;
-        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
+        private readonly UTF8Encoding _utf8 = new ();
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -161,6 +161,7 @@ namespace Ubiety.Xmpp.Core.Net
             if (secureStream.IsAuthenticated)
             {
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
+                Secure = true;
                 _stream = secureStream;
                 _client.State.Execute((XmppClient)_client);
             }
@@ -173,25 +174,6 @@ namespace Ubiety.Xmpp.Core.Net
         {
             _logger.Log(LogLevel.Debug, "SetReadClear() called");
             _resetEvent.Set();
-        }
-
-        /// <summary>
-        ///     Raise the data event with the specified arguments.
-        /// </summary>
-        /// <param name="e">Data event arguments.</param>
-        protected virtual void OnData(DataEventArgs e)
-        {
-            _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
-            Data?.Invoke(this, e);
-        }
-
-        /// <summary>
-        ///     Raise the connection event.
-        /// </summary>
-        protected virtual void OnConnection()
-        {
-            _logger.Log(LogLevel.Debug, "OnConnection() called");
-            Connection?.Invoke(this, new EventArgs());
         }
 
         /// <summary>
@@ -208,6 +190,25 @@ namespace Ubiety.Xmpp.Core.Net
                 _stream.Dispose();
                 _resetEvent.Dispose();
             }
+        }
+
+        /// <summary>
+        ///     Raise the data event with the specified arguments.
+        /// </summary>
+        /// <param name="e">Data event arguments.</param>
+        private void OnData(DataEventArgs e)
+        {
+            _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
+            Data?.Invoke(this, e);
+        }
+
+        /// <summary>
+        ///     Raise the connection event.
+        /// </summary>
+        private void OnConnection()
+        {
+            _logger.Log(LogLevel.Debug, "OnConnection() called");
+            Connection?.Invoke(this, new EventArgs());
         }
 
         private bool CertificateValidation(
@@ -246,7 +247,7 @@ namespace Ubiety.Xmpp.Core.Net
             }
 
             var socket = e.ConnectSocket;
-            _stream = new NetworkStream(socket);
+            _stream = new NetworkStream(socket ?? throw new InvalidOperationException());
 
             Connected = true;
             OnConnection();
@@ -271,7 +272,7 @@ namespace Ubiety.Xmpp.Core.Net
             var buffer = new byte[BufferSize];
             var received = _stream.ReadAsync(buffer, 0, BufferSize);
 
-            var task = received.ContinueWith(getString =>
+            var task = received.ContinueWith(_ =>
             {
                 Array.Resize(ref buffer, received.Result);
                 var message = _utf8.GetString(buffer);

@@ -23,13 +23,13 @@ namespace Ubiety.Xmpp.Core.Common
     public class ErrorEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the error message.
+        ///     Gets the error message.
         /// </summary>
-        public string Message { get; set; }
+        public string Message { get; init; }
 
         /// <summary>
-        ///     Gets or sets the stream error.
+        ///     Gets the stream error.
         /// </summary>
-        public Error StreamError { get; set; }
+        public Error StreamError { get; init; }
     }
 }

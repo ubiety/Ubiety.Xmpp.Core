@@ -27,7 +27,7 @@ namespace Ubiety.Xmpp.Core.Registries
     public class SaslRegistry
     {
         private static readonly ILog Logger = Log.Get<SaslRegistry>();
-        private readonly Dictionary<string, (Type processor, int weight)> _mechanisms = new Dictionary<string, (Type, int)>();
+        private readonly Dictionary<string, (Type processor, int weight)> _mechanisms = new ();
 
         /// <summary>
         ///     Add assembly to the registry.

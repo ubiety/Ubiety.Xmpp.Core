@@ -27,7 +27,7 @@ namespace Ubiety.Xmpp.Core
         /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance.</returns>
         public static XmppClientBuilder BeginClientBuild()
         {
-            return new XmppClientBuilder();
+            return new ();
         }
 
         /// <summary>

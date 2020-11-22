@@ -32,12 +32,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         /// <returns>A value indicating whether to secure the socket or not.</returns>
         public static bool CheckSsl(this Features features, XmppBase xmpp)
         {
-            if (features.StartTls != null && (xmpp.UseSsl || features.FeatureCount == 1 || features.StartTls.Required))
-            {
-                return true;
-            }
-
-            return false;
+            return features.StartTls != null && (xmpp.UseSsl || features.FeatureCount == 1 || features.StartTls.Required);
         }
 
         /// <summary>

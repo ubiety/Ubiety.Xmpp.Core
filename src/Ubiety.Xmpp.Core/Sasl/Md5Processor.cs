@@ -33,7 +33,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
         private readonly Encoding _encoding = Encoding.UTF8;
-        private readonly MD5CryptoServiceProvider _md5 = new MD5CryptoServiceProvider();
+        private readonly MD5CryptoServiceProvider _md5 = new ();
         private bool _disposedValue;
         private string _cnonce;
         private string _digestUri;
@@ -99,7 +99,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -110,12 +110,9 @@ namespace Ubiety.Xmpp.Core.Sasl
             {
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects)
                     _md5.Dispose();
                 }
 
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
                 _disposedValue = true;
             }
         }
@@ -169,12 +166,5 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             return _encoding.GetBytes(response);
         }
-
-        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        // ~Md5Processor()
-        // {
-        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        //     Dispose(disposing: false);
-        // }
     }
 }

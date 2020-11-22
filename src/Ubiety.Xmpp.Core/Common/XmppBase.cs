@@ -30,8 +30,8 @@ namespace Ubiety.Xmpp.Core.Common
     public abstract class XmppBase : IDisposable
     {
         private readonly ILog _logger;
-        private AsyncClientSocket _clientSocket;
-        private bool _disposedValue = false; // To detect redundant calls
+        private readonly AsyncClientSocket _clientSocket;
+        private bool _disposedValue; // To detect redundant calls
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="XmppBase" /> class.
@@ -55,12 +55,12 @@ namespace Ubiety.Xmpp.Core.Common
         /// <summary>
         ///     Gets a value indicating whether the socket should use SSL/TLS.
         /// </summary>
-        public bool UseSsl { get; internal set; }
+        public bool UseSsl { get; internal init; }
 
         /// <summary>
         ///     Gets a value indicating whether we should use IPv6.
         /// </summary>
-        public bool UseIPv6 { get; internal set; }
+        public bool UseIPv6 { get; internal init; }
 
         /// <summary>
         ///     Gets or sets the current state.
@@ -70,15 +70,15 @@ namespace Ubiety.Xmpp.Core.Common
         /// <summary>
         ///     Gets the tag registry.
         /// </summary>
-        public TagRegistry Registry { get; internal set; }
+        public TagRegistry Registry { get; internal init; }
 
         /// <summary>
-        ///     Gets or sets the client socket.
+        ///     Gets the client socket.
         /// </summary>
         public AsyncClientSocket ClientSocket
         {
             get => _clientSocket;
-            protected set
+            protected init
             {
                 _clientSocket = value;
                 _clientSocket.Connection += Socket_Connection;
@@ -91,12 +91,12 @@ namespace Ubiety.Xmpp.Core.Common
         public SaslProcessor SaslProcessor { get; set; }
 
         /// <summary>
-        ///     Gets or sets the XMPP protocol parser.
+        ///     Gets the XMPP protocol parser.
         /// </summary>
-        protected Parser Parser { get; set; }
+        protected Parser Parser { get; init; }
 
         /// <summary>
-        ///     Dispose resourses.
+        ///     Dispose resources.
         /// </summary>
         public void Dispose()
         {
@@ -132,16 +132,18 @@ namespace Ubiety.Xmpp.Core.Common
         protected virtual void Dispose(bool disposing)
         {
             _logger.Log(LogLevel.Debug, "Dispose(bool) called");
-            if (!_disposedValue)
+            if (_disposedValue)
             {
-                if (disposing)
-                {
-                    _logger.Log(LogLevel.Debug, $"Disposing {_clientSocket.GetType()}");
-                    _clientSocket.Dispose();
-                }
-
-                _disposedValue = true;
+                return;
             }
+
+            if (disposing)
+            {
+                _logger.Log(LogLevel.Debug, $"Disposing {_clientSocket.GetType()}");
+                _clientSocket.Dispose();
+            }
+
+            _disposedValue = true;
         }
 
         private void OnError(object sender, ErrorEventArgs e)

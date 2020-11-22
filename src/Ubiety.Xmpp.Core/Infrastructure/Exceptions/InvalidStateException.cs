@@ -14,7 +14,6 @@
 
 using System;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
 {
@@ -58,12 +57,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
         protected InvalidStateException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-        }
-
-        /// <inheritdoc/>
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            base.GetObjectData(info, context);
         }
     }
 }

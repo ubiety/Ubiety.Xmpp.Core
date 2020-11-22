@@ -74,7 +74,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         {
             _logger.Log(LogLevel.Debug, "Start() called");
             _running = true;
-            Task.Run(() => ProcessQueue());
+            Task.Run(ProcessQueue);
         }
 
         /// <summary>
