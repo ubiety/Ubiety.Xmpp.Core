@@ -18,6 +18,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
@@ -26,6 +27,7 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// <summary>
     ///     MD5 SASL processor.
     /// </summary>
+    [Sasl("DIGEST-MD5", typeof(Md5Processor), 20)]
     public class Md5Processor : SaslProcessor, IDisposable
     {
         private readonly Regex _csv = new Regex(
@@ -59,7 +61,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             base.Initialize(id, password);
 
-            var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
+            var auth = Client.TagRegistry.GetTag<Auth>(Auth.XmlName);
             auth.MechanismType = MechanismTypes.DigestMd5;
             return auth;
         }
@@ -82,7 +84,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 
                 default:
                     PopulateDirectives(tag);
-                    var response = Client.Registry.GetTag<Auth>(Auth.XmlName);
+                    var response = Client.TagRegistry.GetTag<Auth>(Auth.XmlName);
                     if (this["rspauth"] != null)
                     {
                         return response;

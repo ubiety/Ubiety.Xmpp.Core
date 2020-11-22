@@ -70,7 +70,12 @@ namespace Ubiety.Xmpp.Core.Common
         /// <summary>
         ///     Gets the tag registry.
         /// </summary>
-        public TagRegistry Registry { get; internal init; }
+        public TagRegistry TagRegistry { get; internal init; }
+
+        /// <summary>
+        ///     Gets the SASL registry.
+        /// </summary>
+        public SaslRegistry SaslRegistry { get; internal init; }
 
         /// <summary>
         ///     Gets the client socket.

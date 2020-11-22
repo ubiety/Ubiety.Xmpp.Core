@@ -30,9 +30,14 @@ namespace Ubiety.Xmpp.Core.Sasl
         private readonly Hashtable _directives = new ();
 
         /// <summary>
-        ///     Gets the current client instance.
+        ///     Gets or sets a value indicating whether to use channel binding.
         /// </summary>
-        protected static XmppBase Client { get; private set; }
+        internal bool ChannelBinding { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the current client instance.
+        /// </summary>
+        internal XmppBase Client { get; set; }
 
         /// <summary>
         ///     Gets the user <see cref="Jid" /> for the session.
@@ -53,38 +58,6 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             get => (string)_directives[directive];
             set => _directives[directive] = value;
-        }
-
-        /// <summary>
-        ///     Creates a new SASL authentication processor.
-        /// </summary>
-        /// <param name="serverTypes">Server supported authentication mechanisms.</param>
-        /// <param name="clientTypes">Client supported authentication mechanisms.</param>
-        /// <param name="xmpp"><see cref="XmppBase" /> instance.</param>
-        /// <returns>SASL processor of the most secure supported type.</returns>
-        public static SaslProcessor CreateProcessor(
-            MechanismTypes serverTypes,
-            MechanismTypes clientTypes,
-            XmppBase xmpp)
-        {
-            Client = xmpp;
-
-            if ((serverTypes & clientTypes & MechanismTypes.Scram) == MechanismTypes.Scram)
-            {
-                return new ScramProcessor(false);
-            }
-
-            if ((serverTypes & clientTypes & MechanismTypes.DigestMd5) == MechanismTypes.DigestMd5)
-            {
-                return new Md5Processor();
-            }
-
-            if ((serverTypes & clientTypes & MechanismTypes.Plain) == MechanismTypes.Plain)
-            {
-                return new PlainProcessor();
-            }
-
-            return null;
         }
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace Ubiety.Xmpp.Core.States
                 return;
             }
 
-            var stream = xmpp.Registry.GetTag<Stream>(Stream.XmlName);
+            var stream = xmpp.TagRegistry.GetTag<Stream>(Stream.XmlName);
             stream.Version = "1.0";
             stream.To = client.Id.Server;
             stream.Namespace = Namespaces.Client;

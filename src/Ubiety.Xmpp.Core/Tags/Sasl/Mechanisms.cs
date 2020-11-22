@@ -54,7 +54,10 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         public MechanismTypes SupportedTypes =>
             SupportedMechanisms.Aggregate(MechanismTypes.None, (current, mechanism) => current | mechanism.Type);
 
-        private IEnumerable<Mechanism> SupportedMechanisms =>
+        /// <summary>
+        ///     Gets the supported mechanism types for the server.
+        /// </summary>
+        public IEnumerable<Mechanism> SupportedMechanisms =>
             Elements<Mechanism>(XName.Get("mechanism", Namespaces.Sasl));
     }
 }

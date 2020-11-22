@@ -136,7 +136,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
 
                 var root = XElement.Load(reader);
 
-                var tag = _xmpp.Registry.GetTag<Tag>(root);
+                var tag = _xmpp.TagRegistry.GetTag<Tag>(root);
                 _logger.Log(LogLevel.Debug, $"Found tag {tag}");
 
                 OnTag(tag);

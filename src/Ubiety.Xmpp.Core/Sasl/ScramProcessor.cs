@@ -19,6 +19,7 @@ using Ubiety.Scram.Core;
 using Ubiety.Scram.Core.Messages;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
@@ -30,10 +31,11 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// <summary>
     ///     SCRAM-SHA-1 SASL Processor.
     /// </summary>
+    [Sasl("SCRAM-SHA1", typeof(ScramProcessor), 30)]
+    [Sasl("SCRAM-SHA1-PLUS", typeof(ScramProcessor), 35, true)]
     public class ScramProcessor : SaslProcessor
     {
         private static readonly ILog Logger = Log.Get<ScramProcessor>();
-        private readonly bool _channelBinding;
         private readonly Encoding _encoding = Encoding.UTF8;
         private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private ClientFinalMessage _clientFinalMessage;
@@ -41,15 +43,6 @@ namespace Ubiety.Xmpp.Core.Sasl
         private ServerFirstMessage _serverFirstMessage;
         private string _serverResponse;
         private List<byte> _serverSignature;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ScramProcessor" /> class.
-        /// </summary>
-        /// <param name="channelBinding">Do we want to use channel binding.</param>
-        public ScramProcessor(bool channelBinding)
-        {
-            _channelBinding = channelBinding;
-        }
 
         /// <inheritdoc />
         /// <summary>
@@ -69,8 +62,8 @@ namespace Ubiety.Xmpp.Core.Sasl
             _clientFirstMessage = new ClientFirstMessage(_saslprep.Run(Id.User), nonce);
             Logger.Log(LogLevel.Debug, _clientFirstMessage.Message);
 
-            var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
-            auth.MechanismType = _channelBinding ? MechanismTypes.ScramPlus : MechanismTypes.Scram;
+            var auth = Client.TagRegistry.GetTag<Auth>(Auth.XmlName);
+            auth.MechanismType = ChannelBinding ? MechanismTypes.ScramPlus : MechanismTypes.Scram;
             auth.Bytes = _encoding.GetBytes(_clientFirstMessage.Message);
 
             return auth;
@@ -114,7 +107,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             CalculateProofs();
 
-            var message = Client.Registry.GetTag<Response>(Response.XmlName);
+            var message = Client.TagRegistry.GetTag<Response>(Response.XmlName);
             message.Bytes = _encoding.GetBytes(_clientFinalMessage.Message);
 
             return message;

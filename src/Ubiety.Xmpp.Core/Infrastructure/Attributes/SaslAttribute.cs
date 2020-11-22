@@ -19,7 +19,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
     /// <summary>
     ///     SASL authentication attribute.
     /// </summary>
-    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
     public sealed class SaslAttribute : Attribute
     {
         /// <summary>
@@ -28,11 +28,13 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
         /// <param name="mechanismName">Name of the SASL mechanism.</param>
         /// <param name="processorType">Type of SASL processor.</param>
         /// <param name="weight">Weight of the mechanism.</param>
-        public SaslAttribute(string mechanismName, Type processorType, int weight)
+        /// <param name="channelBinding">Whether to use channel binding.</param>
+        public SaslAttribute(string mechanismName, Type processorType, int weight, bool channelBinding = false)
         {
             MechanismName = mechanismName;
             ProcessorType = processorType;
             Weight = weight;
+            ChannelBinding = channelBinding;
         }
 
         /// <summary>
@@ -49,5 +51,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
         ///     Gets the mechanism weight.
         /// </summary>
         public int Weight { get; }
+
+        /// <summary>
+        ///     Gets a value indicating whether to use channel binding.
+        /// </summary>
+        public bool ChannelBinding { get; }
     }
 }

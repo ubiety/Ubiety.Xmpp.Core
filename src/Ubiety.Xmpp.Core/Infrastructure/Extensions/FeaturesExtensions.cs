@@ -42,10 +42,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         /// <param name="client">Current <see cref="XmppClient"/> instance.</param>
         public static void AuthenticateUser(this Features features, XmppClient client)
         {
-            client.SaslProcessor = SaslProcessor.CreateProcessor(
-                features.Mechanisms.SupportedTypes,
-                MechanismTypes.Default,
-                client);
+            client.SaslProcessor = client.SaslRegistry.GetProcessor(features.Mechanisms.SupportedMechanisms, client);
             if (client.SaslProcessor is null)
             {
                 client.State = new DisconnectState();

@@ -38,7 +38,7 @@ namespace Ubiety.Xmpp.Core.States
             }
 
             Logger.Log(LogLevel.Debug, "Sending starttls");
-            var starttls = xmpp.Registry.GetTag<StartTls>(StartTls.XmlName);
+            var starttls = xmpp.TagRegistry.GetTag<StartTls>(StartTls.XmlName);
             xmpp.ClientSocket.Send(starttls);
         }
     }

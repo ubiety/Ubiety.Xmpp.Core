@@ -81,10 +81,13 @@ namespace Ubiety.Xmpp.Core
             }
 
             var type = typeof(XmppClientBuilder);
-            var registry = new TagRegistry();
-            registry.AddAssembly(type.Assembly);
+            var tagRegistry = new TagRegistry();
+            tagRegistry.AddAssembly(type.Assembly);
 
-            return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry, Resource = _resource };
+            var saslRegistry = new SaslRegistry();
+            saslRegistry.AddAssembly(type.Assembly);
+
+            return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, TagRegistry = tagRegistry, SaslRegistry = saslRegistry, Resource = _resource };
         }
     }
 }

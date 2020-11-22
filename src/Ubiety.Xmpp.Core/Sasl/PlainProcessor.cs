@@ -16,6 +16,7 @@ using System;
 using System.Text;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
@@ -24,6 +25,7 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// <summary>
     ///     PLAIN SASL authentication processor.
     /// </summary>
+    [Sasl("PLAIN", typeof(PlainProcessor), 10)]
     public class PlainProcessor : SaslProcessor
     {
         /// <summary>
@@ -48,7 +50,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var auth = $"{(char)0}{id.User}{(char)0}{password}";
 
-            var authTag = Client.Registry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
+            var authTag = Client.TagRegistry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
             authTag.MechanismType = MechanismTypes.Plain;
             authTag.Value = Convert.ToBase64String(Encoding.UTF8.GetBytes(auth));
 

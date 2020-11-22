@@ -36,8 +36,8 @@ namespace Ubiety.Xmpp.Core.States
 
             if (tag is null && xmpp is XmppClient client)
             {
-                var bind = xmpp.Registry.GetTag<Bind>(XName.Get("bind", Namespaces.Bind));
-                var iq = xmpp.Registry.GetTag<Iq>(XName.Get("iq", Namespaces.Client));
+                var bind = xmpp.TagRegistry.GetTag<Bind>(XName.Get("bind", Namespaces.Bind));
+                var iq = xmpp.TagRegistry.GetTag<Iq>(XName.Get("iq", Namespaces.Client));
 
                 if (!string.IsNullOrEmpty(client.Resource))
                 {
