@@ -104,7 +104,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         protected static long NextInt64()
         {
             var bytes = new byte[sizeof(long)];
-            var random = new RNGCryptoServiceProvider();
+            using var random = new RNGCryptoServiceProvider();
             random.GetBytes(bytes);
             return BitConverter.ToInt64(bytes, 0);
         }
