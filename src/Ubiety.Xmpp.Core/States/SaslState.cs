@@ -31,14 +31,14 @@ namespace Ubiety.Xmpp.Core.States
             {
                 switch (tag)
                 {
-                    case Success _:
+                    case Success:
                         client.ClientSocket.SetReadClear();
                         client.Authenticated = true;
                         client.State = new ConnectedState();
                         client.State.Execute(client);
                         break;
 
-                    case Failure _:
+                    case Failure:
                         client.State = new DisconnectState();
                         client.State.Execute(client);
                         break;

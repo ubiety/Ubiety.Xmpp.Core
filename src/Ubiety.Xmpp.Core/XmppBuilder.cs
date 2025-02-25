@@ -19,7 +19,7 @@ namespace Ubiety.Xmpp.Core
     /// <summary>
     ///     Builds an XMPP connection.
     /// </summary>
-    public class XmppBuilder
+    public static class XmppBuilder
     {
         /// <summary>
         ///     Build a client connection.
@@ -33,7 +33,7 @@ namespace Ubiety.Xmpp.Core
         /// <summary>
         ///     Build a server connection.
         /// </summary>
-        public void BuildServer()
+        public static void BuildServer()
         {
             throw new NotImplementedException();
         }

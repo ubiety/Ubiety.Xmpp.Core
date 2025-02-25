@@ -19,7 +19,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
     /// <summary>
     ///     SASL authentication attribute.
     /// </summary>
-    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.All, Inherited = false)]
     public sealed class SaslAttribute : Attribute
     {
         /// <summary>

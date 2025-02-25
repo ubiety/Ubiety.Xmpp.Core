@@ -30,7 +30,7 @@ namespace Ubiety.Xmpp.Core.Registries
     public class TagRegistry
     {
         private static readonly ILog Logger = Log.Get<TagRegistry>();
-        private readonly Dictionary<XName, Type> _types = new Dictionary<XName, Type>();
+        private readonly Dictionary<XName, Type> _types = new ();
 
         /// <summary>
         ///     Add tags from the assembly to the registry.
@@ -81,15 +81,15 @@ namespace Ubiety.Xmpp.Core.Registries
                 var constructor = Tag.GetConstructor(type, Array.Empty<Type>());
                 if (constructor is null)
                 {
-                    constructor = Tag.GetConstructor(type, new[] { typeof(XName) });
+                    constructor = Tag.GetConstructor(type, [typeof(XName)]);
                     if (constructor != null)
                     {
-                        tag = (T)constructor.Invoke(new object[] { name });
+                        tag = (T)constructor.Invoke([name]);
                     }
                 }
                 else
                 {
-                    tag = (T)constructor.Invoke(Array.Empty<object>());
+                    tag = (T)constructor.Invoke([]);
                 }
             }
             else
@@ -134,19 +134,19 @@ namespace Ubiety.Xmpp.Core.Registries
                 if (gotType)
                 {
                     Logger.Log(LogLevel.Debug, $"Constructing type: {type}");
-                    var constructor = type.GetConstructor(new[] { element.GetType() });
+                    var constructor = type.GetConstructor([element.GetType()]);
                     if (constructor is null)
                     {
-                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
+                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), [typeof(Tag)]);
                         if (defaultConstructorInfo is null)
                         {
                             return default;
                         }
 
-                        return (T)defaultConstructorInfo.Invoke(new object[] { element });
+                        return (T)defaultConstructorInfo.Invoke([element]);
                     }
 
-                    return (T)constructor.Invoke(new object[] { element });
+                    return (T)constructor.Invoke([element]);
                 }
             }
             catch (Exception e)

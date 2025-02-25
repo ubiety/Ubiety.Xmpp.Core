@@ -63,7 +63,7 @@ namespace Ubiety.Xmpp.Core.States
                 }
             }
 
-            if (xmpp is XmppClient client && !client.Authenticated)
+            if (xmpp is XmppClient { Authenticated: false } client)
             {
                 Logger.Log(LogLevel.Debug, "Authenticating the user");
                 features.AuthenticateUser(client);

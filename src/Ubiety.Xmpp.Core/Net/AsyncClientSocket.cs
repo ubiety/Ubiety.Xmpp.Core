@@ -31,13 +31,13 @@ namespace Ubiety.Xmpp.Core.Net
     /// <summary>
     ///     An asynchronous socket for connecting to an XMPP server.
     /// </summary>
-    public class AsyncClientSocket : ISocket, IDisposable
+    public sealed class AsyncClientSocket : ISocket, IDisposable
     {
         private const int BufferSize = 4 * 1024;
         private readonly IClient _client;
         private readonly ILog _logger = Log.Get<AsyncClientSocket>();
         private readonly AutoResetEvent _resetEvent;
-        private readonly UTF8Encoding _utf8 = new UTF8Encoding();
+        private readonly UTF8Encoding _utf8 = new ();
         private Address _address;
         private Socket _socket;
         private Stream _stream;
@@ -179,7 +179,7 @@ namespace Ubiety.Xmpp.Core.Net
         ///     Raise the data event with the specified arguments.
         /// </summary>
         /// <param name="e">Data event arguments.</param>
-        protected virtual void OnData(DataEventArgs e)
+        private void OnData(DataEventArgs e)
         {
             _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
             Data?.Invoke(this, e);
@@ -188,17 +188,17 @@ namespace Ubiety.Xmpp.Core.Net
         /// <summary>
         ///     Raise the connection event.
         /// </summary>
-        protected virtual void OnConnection()
+        private void OnConnection()
         {
             _logger.Log(LogLevel.Debug, "OnConnection() called");
-            Connection?.Invoke(this, new EventArgs());
+            Connection?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
         ///     Dispose of class resources.
         /// </summary>
         /// <param name="disposing">Are we disposing from a direct call.</param>
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             _logger.Log(LogLevel.Debug, "Dispose(bool) called");
             if (disposing)

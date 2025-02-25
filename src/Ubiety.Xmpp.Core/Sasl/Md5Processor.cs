@@ -26,14 +26,14 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// <summary>
     ///     MD5 SASL processor.
     /// </summary>
-    public class Md5Processor : SaslProcessor, IDisposable
+    public sealed class Md5Processor : SaslProcessor, IDisposable
     {
-        private readonly Regex _csv = new Regex(
-            @"(?<tag>[^=]+)=(?:(?<data>[^,""]+)|(?:""(?<data>[^""]*)"")),?",
+        private readonly Regex _csv = new (
+            """(?<tag>[^=]+)=(?:(?<data>[^,"]+)|(?:"(?<data>[^"]*)")),?""",
             RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
         private readonly Encoding _encoding = Encoding.UTF8;
-        private readonly MD5CryptoServiceProvider _md5 = new MD5CryptoServiceProvider();
+        private readonly MD5CryptoServiceProvider _md5 = new ();
         private bool _disposedValue;
         private string _cnonce;
         private string _digestUri;
@@ -104,7 +104,7 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <inheritdoc cref="object" />
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (!_disposedValue)
             {

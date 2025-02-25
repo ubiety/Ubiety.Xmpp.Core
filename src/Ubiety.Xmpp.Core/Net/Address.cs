@@ -115,7 +115,7 @@ namespace Ubiety.Xmpp.Core.Net
             if (Socket.OSSupportsIPv6 && _client.UseIPv6)
             {
                 _logger.Log(LogLevel.Debug, "Resolving an AAAA address as IPv6 is supported and enabled");
-                response = _resolver.Query(host, QuestionType.AAAA, QuestionClass.IN);
+                response = _resolver.Query(host, QuestionType.AAAA);
             }
 
             if (response?.Answers.Count > 0)
@@ -126,7 +126,7 @@ namespace Ubiety.Xmpp.Core.Net
             }
 
             _logger.Log(LogLevel.Debug, "Resolving a standard IPv4 A record");
-            response = _resolver.Query(host, QuestionType.A, QuestionClass.IN);
+            response = _resolver.Query(host, QuestionType.A);
             _logger.Log(LogLevel.Debug, "IP found");
             return response.Answers.Select(answer => answer.Record).OfType<RecordA>().Select(a => a.Address)
                 .FirstOrDefault();
@@ -136,7 +136,7 @@ namespace Ubiety.Xmpp.Core.Net
         {
             _logger.Log(LogLevel.Debug, "ResolveSrv() called");
             _logger.Log(LogLevel.Debug, $"Attempting to retrieve any XMPP SRV records for {Hostname}");
-            var response = _resolver.Query($"_xmpp-client._tcp.{Hostname}", QuestionType.SRV, QuestionClass.IN);
+            var response = _resolver.Query($"_xmpp-client._tcp.{Hostname}", QuestionType.SRV);
 
             if (response.Header.AnswerCount > 0)
             {
@@ -147,7 +147,7 @@ namespace Ubiety.Xmpp.Core.Net
 
             _logger.Log(LogLevel.Debug, $"No SRV records found for {Hostname}");
             _srvFailed = true;
-            return new List<RecordSrv>();
+            return [];
         }
     }
 }
