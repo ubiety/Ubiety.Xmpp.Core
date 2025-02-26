@@ -29,7 +29,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    ///     An asynchronous socket for connecting to an XMPP server.
+    /// Represents an asynchronous client socket for handling XMPP server connections.
     /// </summary>
     public sealed class AsyncClientSocket : ISocket, IDisposable
     {
@@ -53,28 +53,39 @@ namespace Ubiety.Xmpp.Core.Net
             _resetEvent = new AutoResetEvent(false);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Event triggered upon establishing a connection with the server.
+        /// </summary>
         public event EventHandler Connection;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Event triggered when data is received from the server.
+        /// </summary>
         public event EventHandler<DataEventArgs> Data;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets a value indicating whether the socket connection to the XMPP server is currently active.
+        /// </summary>
         public bool Connected { get; private set; }
 
         /// <summary>
-        ///     Gets a value indicating whether the socket is secure.
+        /// Gets a value indicating whether the socket connection is secure.
         /// </summary>
         public bool Secure { get; private set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases the resources used by the <see cref="AsyncClientSocket" /> instance.
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Establishes a connection to the server using the provided JID.
+        /// </summary>
+        /// <param name="jid">The Jabber Identifier (JID) to use for connection.</param>
         public void Connect(Jid jid)
         {
             _logger.Log(LogLevel.Debug, "Connect(Jid) called");
@@ -109,7 +120,9 @@ namespace Ubiety.Xmpp.Core.Net
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Disconnects the client socket from the server and releases the associated resources.
+        /// </summary>
         public void Disconnect()
         {
             _logger.Log(LogLevel.Debug, "Disconnect() called");
@@ -119,7 +132,10 @@ namespace Ubiety.Xmpp.Core.Net
             _socket.Disconnect(true);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Sends a message to the connected XMPP server.
+        /// </summary>
+        /// <param name="message">The message to send to the server.</param>
         public void Send(string message)
         {
             if (!Connected)
@@ -134,17 +150,22 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Sends a tag to the server.
+        /// Sends a specific <see cref="Tag" /> to the server.
         /// </summary>
-        /// <param name="tag"><see cref="Tag" /> to send.</param>
+        /// <param name="tag">The <see cref="Tag" /> to be sent.</param>
         public void Send(Tag tag)
         {
             Send(tag.ToString());
         }
 
         /// <summary>
-        ///     Starts SSL/TLS connection.
+        /// Initiates an SSL/TLS connection by wrapping the existing stream with an <see cref="SslStream" />
+        /// and authenticating as the client.
         /// </summary>
+        /// <remarks>
+        /// This method transitions the connection to a secure, encrypted state using the SSL/TLS protocols.
+        /// It validates the server's certificate and updates the internal stream to use the secure stream.
+        /// </remarks>
         public void StartSsl()
         {
             _logger.Log(LogLevel.Debug, "StartSsl() called");
@@ -167,7 +188,7 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Set that we are clear to read data.
+        /// Clears the read state by setting the reset event for the socket.
         /// </summary>
         public void SetReadClear()
         {
@@ -176,9 +197,9 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Raise the data event with the specified arguments.
+        /// Invokes the data event handler when new data is received.
         /// </summary>
-        /// <param name="e">Data event arguments.</param>
+        /// <param name="e">Data event arguments containing the received message.</param>
         private void OnData(DataEventArgs e)
         {
             _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
@@ -186,7 +207,7 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Raise the connection event.
+        /// Invokes the Connection event to signal that a connection has been established.
         /// </summary>
         private void OnConnection()
         {
@@ -195,9 +216,9 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        ///     Dispose of class resources.
+        /// Disposes of the resources used by the <see cref="AsyncClientSocket"/> instance.
         /// </summary>
-        /// <param name="disposing">Are we disposing from a direct call.</param>
+        /// <param name="disposing">Indicates whether the method was invoked directly or by the garbage collector.</param>
         private void Dispose(bool disposing)
         {
             _logger.Log(LogLevel.Debug, "Dispose(bool) called");
@@ -246,7 +267,7 @@ namespace Ubiety.Xmpp.Core.Net
             }
 
             var socket = e.ConnectSocket;
-            _stream = new NetworkStream(socket);
+            _stream = new NetworkStream(socket ?? throw new InvalidOperationException());
 
             Connected = true;
             OnConnection();

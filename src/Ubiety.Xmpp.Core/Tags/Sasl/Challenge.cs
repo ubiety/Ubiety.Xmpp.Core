@@ -19,8 +19,12 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    ///     SASL authentication challenge tag.
+    /// Represents the Challenge tag used in XMPP SASL authentication.
     /// </summary>
+    /// <remarks>
+    /// This class is part of the XMPP SASL (Simple Authentication and Security Layer) implementation.
+    /// It is used to handle the 'challenge' element as specified in the XMPP SASL namespace.
+    /// </remarks>
     [XmppTag("challenge", Namespaces.Sasl, typeof(Challenge))]
     public class Challenge : Tag
     {

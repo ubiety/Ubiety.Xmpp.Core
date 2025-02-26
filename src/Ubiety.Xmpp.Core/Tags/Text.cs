@@ -19,9 +19,12 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags
 {
     /// <summary>
-    ///     Generic text tag.
+    /// Represents an XML 'text' tag within the XMPP streams namespace.
     /// </summary>
-    /// <inheritdoc />
+    /// <remarks>
+    /// This class provides functionality for handling and creating 'text' elements
+    /// specific to the XMPP stream namespace. It extends the base <see cref="Tag"/> class.
+    /// </remarks>
     [XmppTag("text", Namespaces.XmppStreams, typeof(Text))]
     public class Text : Tag
     {

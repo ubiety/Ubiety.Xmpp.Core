@@ -25,7 +25,7 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Base XMPP implementation.
+    /// Represents the base class for XMPP clients, providing core functionalities and common elements for maintaining XMPP communication.
     /// </summary>
     public abstract class XmppBase : IDisposable
     {
@@ -43,37 +43,39 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Raised when a stream error occurs.
+        /// Occurs when an error is encountered in the XMPP client.
         /// </summary>
         public event EventHandler<ErrorEventArgs> Error;
 
         /// <summary>
-        ///     Gets or sets the XMPP port.
+        /// Gets or sets the port number used for XMPP communication.
+        /// Default value is 5222.
         /// </summary>
         public int Port { get; set; } = 5222;
 
         /// <summary>
-        ///     Gets a value indicating whether the socket should use SSL/TLS.
+        /// Gets a value indicating whether SSL/TLS should be used for securing the XMPP connection.
         /// </summary>
         public bool UseSsl { get; internal init; }
 
         /// <summary>
-        ///     Gets a value indicating whether we should use IPv6.
+        /// Gets a value indicating whether IPv6 is used for communication in the XMPP client.
         /// </summary>
         public bool UseIPv6 { get; internal init; }
 
         /// <summary>
-        ///     Gets or sets the current state.
+        /// Gets or sets the current state of the XMPP client, managing the execution of state-specific logic.
         /// </summary>
         public IState State { get; set; }
 
         /// <summary>
-        ///     Gets the tag registry.
+        /// Gets the registry for managing and retrieving XMPP protocol tags.
         /// </summary>
         public TagRegistry Registry { get; internal init; }
 
         /// <summary>
-        ///     Gets the client socket.
+        /// Gets the asynchronous client socket used for communication in the XMPP client.
+        /// Provides mechanisms for sending and receiving data over a network connection.
         /// </summary>
         public AsyncClientSocket ClientSocket
         {
@@ -86,18 +88,23 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Gets or sets the SASL processor for the session.
+        /// Gets or sets the SASL processor used for managing and handling the
+        /// authentication mechanisms in the XMPP communication.
         /// </summary>
         public SaslProcessor SaslProcessor { get; set; }
 
         /// <summary>
-        ///     Gets the XMPP protocol parser.
+        /// Gets the XMPP protocol parser used for processing incoming XML tags and managing protocol state transitions.
         /// </summary>
         protected Parser Parser { get; init; }
 
         /// <summary>
-        ///     Dispose resources.
+        /// Releases all resources used by the current instance of the <see cref="XmppBase"/> class.
         /// </summary>
+        /// <remarks>
+        /// This method ensures the proper cleanup of managed and unmanaged resources.
+        /// It suppresses finalization for the object to optimize garbage collection performance.
+        /// </remarks>
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
@@ -106,10 +113,10 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Received a tag from the parser.
+        /// Handles the tag parsed event and executes the current state or logs an error if one is present.
         /// </summary>
-        /// <param name="sender">Object sending the event.</param>
-        /// <param name="e">Event arguments containing the tag.</param>
+        /// <param name="sender">The object sending the event.</param>
+        /// <param name="e">The arguments containing the tag from the event.</param>
         protected void Parser_Tag(object sender, TagEventArgs e)
         {
             if (e.Tag is Stream stream && stream.Errors.Any())
@@ -126,7 +133,7 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        ///     Dispose resources.
+        /// Releases all resources used by the current instance of the <see cref="XmppBase" /> class.
         /// </summary>
         /// <param name="disposing">Dispose managed resources.</param>
         protected virtual void Dispose(bool disposing)

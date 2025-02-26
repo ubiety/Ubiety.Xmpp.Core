@@ -19,7 +19,7 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Stream
 {
     /// <summary>
-    ///     Stream error tag.
+    /// Represents an XMPP stream error tag.
     /// </summary>
     [XmppTag("error", Namespaces.Stream, typeof(Error))]
     public class Error : Tag

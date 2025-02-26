@@ -17,14 +17,14 @@ using System;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Builds an XMPP connection.
+    /// Provides methods to build XMPP clients or servers for establishing connections.
     /// </summary>
     public static class XmppBuilder
     {
         /// <summary>
-        ///     Build a client connection.
+        /// Begins the client build process for creating a new XMPP client.
         /// </summary>
-        /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance.</returns>
+        /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance for further configuration.</returns>
         public static XmppClientBuilder BeginClientBuild()
         {
             return new XmppClientBuilder();

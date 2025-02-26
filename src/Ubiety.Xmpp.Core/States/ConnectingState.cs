@@ -19,14 +19,21 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Connecting state for the protocol.
+    /// Represents the connecting state of an XMPP client within the connection state machine.
     /// </summary>
-    /// <inheritdoc />
+    /// <remarks>
+    /// The <c>ConnectingState</c> is responsible for handling the action of establishing a connection
+    /// to the server during the XMPP communication lifecycle.
+    /// </remarks>
     public class ConnectingState : IState
     {
         private static readonly ILog Logger = Log.Get<ConnectingState>();
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Executes the connecting state logic for the XMPP client, initializing the connection to the server.
+        /// </summary>
+        /// <param name="xmpp">The XMPP base instance to execute the logic on.</param>
+        /// <param name="tag">An optional tag that may contain additional information for execution.</param>
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             Logger.Log(LogLevel.Debug, "Executing ConnectingState");

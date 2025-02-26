@@ -18,9 +18,14 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Tags
 {
     /// <summary>
-    ///     Defines an XMPP stanza.
+    /// Represents the base class for all XMPP stanzas. A stanza serves as a fundamental building block
+    /// in XMPP communication, typically representing messages, presence, or IQ requests.
     /// </summary>
-    /// <inheritdoc />
+    /// <remarks>
+    /// The Stanza class provides common properties such as To, From, and ID that are shared
+    /// across all types of stanzas. This class inherits from the Tag class and allows
+    /// manipulation of XML-stanza attributes.
+    /// </remarks>
     public class Stanza : Tag
     {
         /// <summary>
@@ -42,7 +47,7 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Gets or sets the JID of the user receiving the message.
+        /// Gets or sets the JID of the intended recipient of the stanza.
         /// </summary>
         public Jid To
         {
@@ -51,7 +56,7 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Gets or sets the JID of the user sending the message.
+        /// Gets or sets the JID of the sender of the stanza.
         /// </summary>
         public Jid From
         {
@@ -60,7 +65,7 @@ namespace Ubiety.Xmpp.Core.Tags
         }
 
         /// <summary>
-        ///     Gets or sets the stanza id.
+        /// Gets or sets the unique identifier of the stanza.
         /// </summary>
         public string Id
         {

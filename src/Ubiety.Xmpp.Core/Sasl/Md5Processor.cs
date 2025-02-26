@@ -24,8 +24,13 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 namespace Ubiety.Xmpp.Core.Sasl
 {
     /// <summary>
-    ///     MD5 SASL processor.
+    /// Represents a SASL processor for handling the Digest-MD5 authentication mechanism.
     /// </summary>
+    /// <remarks>
+    /// This class is responsible for managing the SASL Digest-MD5 authentication process,
+    /// including initializing the authentication session and processing authentication steps
+    /// with the server.
+    /// </remarks>
     public sealed class Md5Processor : SaslProcessor, IDisposable
     {
         private readonly Regex _csv = new (
@@ -33,7 +38,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
         private readonly Encoding _encoding = Encoding.UTF8;
-        private readonly MD5CryptoServiceProvider _md5 = new ();
+        private readonly MD5 _md5 = MD5.Create();
         private bool _disposedValue;
         private string _cnonce;
         private string _digestUri;
@@ -50,11 +55,11 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Initializes the SASL processor.
+        /// Initializes the MD5 SASL processor for authenticating a user.
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the user to authenticate.</param>
-        /// <param name="password">Password to use for authentication.</param>
-        /// <returns>Next tag to send to the server.</returns>
+        /// <param name="id">The <see cref="Jid" /> of the user to authenticate.</param>
+        /// <param name="password">The password used for authentication.</param>
+        /// <returns>A tag representing the next message to send to the server.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
@@ -65,10 +70,10 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Process the next SASL step.
+        /// Processes a received tag and generates the next tag to be sent to the server based on the current SASL mechanism.
         /// </summary>
-        /// <param name="tag">Tag from the server.</param>
-        /// <returns>Next tag to send to the server.</returns>
+        /// <param name="tag">The tag received from the server, which determines the next processing step.</param>
+        /// <returns>The next tag to send to the server as a response during the SASL authentication process.</returns>
         public override Tag Step(Tag tag)
         {
             switch (tag)
@@ -95,7 +100,9 @@ namespace Ubiety.Xmpp.Core.Sasl
             }
         }
 
-        /// <inheritdoc cref="object" />
+        /// <summary>
+        /// Releases the unmanaged resources used by the <see cref="Md5Processor"/> class and optionally releases the managed resources.
+        /// </summary>
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
@@ -103,7 +110,9 @@ namespace Ubiety.Xmpp.Core.Sasl
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc cref="object" />
+        /// <summary>
+        /// Releases all resources used by the <see cref="Md5Processor"/>.
+        /// </summary>
         private void Dispose(bool disposing)
         {
             if (!_disposedValue)

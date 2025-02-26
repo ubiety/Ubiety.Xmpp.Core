@@ -15,16 +15,16 @@
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     Byte extension methods.
+    /// Provides extension methods for byte array operations.
     /// </summary>
     public static class ByteExtensions
     {
         /// <summary>
-        ///     Combine two byte arrays using exclusive or.
+        /// Performs a byte-wise exclusive OR operation between two byte arrays.
         /// </summary>
-        /// <param name="original">Original array.</param>
-        /// <param name="comparison">Comparison array.</param>
-        /// <returns>Result of exclusive or operation.</returns>
+        /// <param name="original">The original byte array.</param>
+        /// <param name="comparison">The comparison byte array to perform the XOR operation with.</param>
+        /// <returns>A new byte array resulting from the exclusive OR operation between the original and comparison arrays.</returns>
         public static byte[] ExclusiveOr(this byte[] original, byte[] comparison)
         {
             var result = new byte[original.Length];

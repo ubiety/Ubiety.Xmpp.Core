@@ -18,50 +18,50 @@ using Ubiety.Xmpp.Core.States;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Defines a client interface.
+    /// Represents the client interface for establishing and managing XMPP connections.
     /// </summary>
     public interface IClient
     {
         /// <summary>
-        ///     Gets or sets the user JID.
+        /// Gets or sets the JID (Jabber ID) associated with the client.
         /// </summary>
         Jid Id { get; set; }
 
         /// <summary>
-        ///     Gets or sets the user password.
+        /// Gets or sets the password used to authenticate the client with the XMPP server.
         /// </summary>
         string Password { get; set; }
 
         /// <summary>
-        ///     Gets or sets the port of the server.
+        /// Gets or sets the port number used for the XMPP connection.
         /// </summary>
         int Port { get; set; }
 
         /// <summary>
-        ///     Gets a value indicating whether the socket should use SSL/TLS.
+        /// Gets a value indicating whether SSL is used for the XMPP connection.
         /// </summary>
         bool UseSsl { get; }
 
         /// <summary>
-        ///     Gets a value indicating whether the socket should use IPv6.
+        /// Gets a value indicating whether IPv6 should be used for network communication.
         /// </summary>
         bool UseIPv6 { get; }
 
         /// <summary>
-        ///     Gets a value indicating whether the user is authenticated.
+        /// Gets a value indicating whether the client is authenticated with the XMPP server.
         /// </summary>
         bool Authenticated { get; }
 
         /// <summary>
-        ///     Gets the current state.
+        /// Gets the current state of the XMPP client within the workflow execution.
         /// </summary>
         IState State { get; }
 
         /// <summary>
-        ///     Connect to an XMPP server using a JID.
+        /// Establishes a connection to an XMPP server using the specified Jabber Identifier (JID) and password.
         /// </summary>
-        /// <param name="jid"><see cref="Jid" /> to use for connecting.</param>
-        /// <param name="password">Password to connect with.</param>
+        /// <param name="jid">The <see cref="Jid"/> to use for connecting, which identifies the user and server.</param>
+        /// <param name="password">The password associated with the JID to authenticate the connection.</param>
         void Connect(Jid jid, string password);
     }
 }

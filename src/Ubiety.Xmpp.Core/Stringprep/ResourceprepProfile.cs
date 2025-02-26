@@ -17,14 +17,19 @@ using Ubiety.Stringprep.Core;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    ///     XMPP Resourceprep Stringprep profile.
+    /// Provides the Resourceprep profile for XMPP string preparation processing.
+    /// This profile is used to prepare and validate XMPP resource identifiers
+    /// according to the XMPP string preparation guidelines.
     /// </summary>
     public static class ResourceprepProfile
     {
         /// <summary>
-        ///     Create the profile.
+        /// Creates a preparation process for the Resourceprep profile,
+        /// which prepares and validates XMPP resource identifiers
+        /// in accordance with the defined rules for mapping, normalization,
+        /// prohibited values, and bidirectional processing.
         /// </summary>
-        /// <returns>Process.</returns>
+        /// <returns>The configured resource preparation process.</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Version>0.6.0</Version>
     <LangVersion>latest</LangVersion>
     <AnalysisLevel>latest</AnalysisLevel>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="2.9.0">
+    <PackageReference Include="coverlet.msbuild" Version="6.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -27,8 +27,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ubiety.Dns.Core" Version="4.2.0" />
-    <PackageReference Include="Ubiety.Scram.Core" Version="1.1.4" />
+    <PackageReference Include="Ubiety.Dns.Core" Version="4.2.2" />
+    <PackageReference Include="Ubiety.Scram.Core" Version="1.2.2" />
     <PackageReference Include="Ubiety.Stringprep.Core" Version="1.0.0" />
     <PackageReference Include="Ubiety.StyleCop" Version="0.0.5" />
   </ItemGroup>

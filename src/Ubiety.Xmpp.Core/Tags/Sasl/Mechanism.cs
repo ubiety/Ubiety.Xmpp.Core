@@ -19,7 +19,8 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    ///     SASL authentication mechanism.
+    /// Represents an XMPP SASL mechanism tag used in the authentication process.
+    /// Inherits from the <see cref="Tag"/> class.
     /// </summary>
     [XmppTag("mechanism", Namespaces.Sasl, typeof(Mechanism))]
     public class Mechanism : Tag
@@ -47,7 +48,7 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         public static XName XmlName { get; } = XName.Get("mechanism", Namespaces.Sasl);
 
         /// <summary>
-        ///     Gets or sets the mechanism type.
+        /// Gets or sets the type of the SASL mechanism.
         /// </summary>
         public MechanismTypes Type
         {
@@ -57,10 +58,10 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Convert a mechanism to its type format.
+        /// Converts a string representation of a mechanism type to its corresponding <see cref="MechanismTypes"/> enum value.
         /// </summary>
-        /// <param name="type">String type of the mechanism.</param>
-        /// <returns>Type of the mechanism.</returns>
+        /// <param name="type">The string representation of the mechanism type.</param>
+        /// <returns>The corresponding <see cref="MechanismTypes"/> enum value. Returns <see cref="MechanismTypes.None"/> if the string does not match any known type.</returns>
         public static MechanismTypes ToTypeFromString(string type)
         {
             return type switch
@@ -75,10 +76,10 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         }
 
         /// <summary>
-        ///     Converts a mechanism type to a string.
+        /// Converts a given <see cref="MechanismTypes" /> enumeration value to its string representation.
         /// </summary>
-        /// <param name="type">Type to convert.</param>
-        /// <returns>String name of the mechanism.</returns>
+        /// <param name="type">The <see cref="MechanismTypes" /> value to convert.</param>
+        /// <returns>A string representation of the given mechanism type.</returns>
         public static string ToStringFromType(MechanismTypes type)
         {
             return type switch

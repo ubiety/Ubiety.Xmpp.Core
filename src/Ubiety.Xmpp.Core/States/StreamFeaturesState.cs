@@ -22,13 +22,23 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Stream features state.
+    /// Represents the state responsible for handling stream features in the XMPP protocol.
     /// </summary>
+    /// <remarks>
+    /// This state processes the server's stream features and determines the next steps in the XMPP state flow.
+    /// It involves checking for and handling SSL/TLS, user authentication, and resource binding.
+    /// </remarks>
     public class StreamFeaturesState : IState
     {
         private static readonly ILog Logger = Log.Get<StreamFeaturesState>();
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Executes the current state logic using the given XMPP base instance and optional tag.
+        /// Processes the features tag and handles SSL security, user authentication, and transition to the next state.
+        /// </summary>
+        /// <param name="xmpp">The XMPP base instance managing the connection and state transitions.</param>
+        /// <param name="tag">Optional tag to be processed; used for determining further state-specific actions.</param>
+        /// <exception cref="InvalidStateException">Thrown if the tag provided is not valid for the current state.</exception>
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             Features features;

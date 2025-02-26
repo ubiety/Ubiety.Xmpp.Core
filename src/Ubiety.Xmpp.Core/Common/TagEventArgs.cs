@@ -18,9 +18,12 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Tag event arguments.
+    /// Provides data for events that involve an XMPP tag.
     /// </summary>
-    /// <inheritdoc />
+    /// <remarks>
+    /// The <see cref="TagEventArgs"/> class contains the <see cref="Tag"/> property,
+    /// which represents the XMPP tag processed during the event triggering.
+    /// </remarks>
     public class TagEventArgs : EventArgs
     {
         /// <summary>

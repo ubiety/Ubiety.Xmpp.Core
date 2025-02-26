@@ -17,8 +17,14 @@ using System;
 namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
 {
     /// <summary>
-    ///     SASL authentication attribute.
+    /// Represents a custom attribute used to define SASL mechanism metadata.
     /// </summary>
+    /// <remarks>
+    /// This attribute is used to mark and describe SASL mechanism implementations. It provides
+    /// metadata for the mechanism name, the type of the mechanism processor, and the weight
+    /// (or priority) of the mechanism. This information is utilized for SASL mechanism discovery
+    /// and registration purposes.
+    /// </remarks>
     [AttributeUsage(AttributeTargets.All, Inherited = false)]
     public sealed class SaslAttribute : Attribute
     {

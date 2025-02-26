@@ -22,7 +22,8 @@ using Ubiety.Xmpp.Core.States;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Main XMPP client class.
+    /// The XmppClient class is responsible for establishing and managing client connections to an XMPP server.
+    /// Implements core functionality for XMPP communication, including authentication and state transitions, extending XmppBase and adhering to the IClient interface.
     /// </summary>
     public class XmppClient : XmppBase, IClient
     {
@@ -40,32 +41,39 @@ namespace Ubiety.Xmpp.Core
             Parser.Tag += Parser_Tag;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the Jabber Identifier (JID) of the client.
+        /// </summary>
         public Jid Id { get; set; }
 
         /// <summary>
-        ///     Gets or sets the user password.
+        /// Gets or sets the password used for authenticating the client with the XMPP server.
         /// </summary>
         public string Password { get; set; }
 
         /// <summary>
-        ///     Gets a value indicating whether the user is authenticated.
+        /// Gets a value indicating whether the client is authenticated with the server.
+        /// This property is set internally during the authentication process.
         /// </summary>
         public bool Authenticated { get; internal set; }
 
         /// <summary>
-        ///     Gets or sets a value for the JID resource.
+        /// Gets or sets the resource identifier associated with the XMPP client connection.
+        /// This value is used to uniquely identify a connection to the XMPP server, particularly when multiple
+        /// connections are established using the same JID.
         /// </summary>
         public string Resource { get; set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Establishes a connection to the XMPP server using the provided JID and password.
+        /// </summary>
+        /// <param name="jid">The JID (Jabber Identifier) to use for the connection.</param>
+        /// <param name="password">The password associated with the JID.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the provided JID is null.</exception>
         public void Connect(Jid jid, string password)
         {
             _logger.Log(LogLevel.Debug, "Connect(Jid, string) called");
-            if (jid is null)
-            {
-                throw new ArgumentNullException(nameof(jid));
-            }
+            ArgumentNullException.ThrowIfNull(jid);
 
             _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
             Id = jid;

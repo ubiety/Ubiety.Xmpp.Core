@@ -23,14 +23,15 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Sasl
 {
     /// <summary>
-    ///     SASL authentication processor.
+    /// Represents a base class for handling SASL (Simple Authentication and Security Layer)
+    /// authentication mechanisms in the XMPP protocol.
     /// </summary>
     public abstract class SaslProcessor
     {
-        private readonly Hashtable _directives = new Hashtable();
+        private readonly Hashtable _directives = new ();
 
         /// <summary>
-        ///     Gets or sets the current client instance.
+        /// Gets or sets the XMPP client instance used by the SASL processors.
         /// </summary>
         protected static XmppBase Client { get; set; }
 
@@ -45,10 +46,12 @@ namespace Ubiety.Xmpp.Core.Sasl
         protected string Password { get; set; }
 
         /// <summary>
-        ///     Gets or sets the SASL processor directives.
+        /// Gets or sets the value associated with the specified directive key in the SASL processor.
         /// </summary>
-        /// <param name="directive">Directive to use.</param>
-        /// <returns>Value of the directive.</returns>
+        /// <param name="directive">The key representing a specific directive.</param>
+        /// <returns>
+        /// The value associated with the specified directive key.
+        /// </returns>
         protected string this[string directive]
         {
             get => (string)_directives[directive];
@@ -56,12 +59,13 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Creates a new SASL authentication processor.
+        /// Creates a SASL processor based on the most secure authentication mechanism
+        /// supported by both the server and the client.
         /// </summary>
-        /// <param name="serverTypes">Server supported authentication mechanisms.</param>
-        /// <param name="clientTypes">Client supported authentication mechanisms.</param>
-        /// <param name="xmpp"><see cref="XmppBase" /> instance.</param>
-        /// <returns>SASL processor of the most secure supported type.</returns>
+        /// <param name="serverTypes">Authentication mechanisms supported by the server.</param>
+        /// <param name="clientTypes">Authentication mechanisms supported by the client.</param>
+        /// <param name="xmpp">Instance of the XmppBase object.</param>
+        /// <returns>A SASL processor for the most secure supported authentication mechanism, or null if no mechanism is supported.</returns>
         public static SaslProcessor CreateProcessor(
             MechanismTypes serverTypes,
             MechanismTypes clientTypes,
@@ -88,31 +92,31 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Process the next step in SASL authentication.
+        /// Executes a single step in the SASL authentication process using the provided server tag.
         /// </summary>
-        /// <param name="tag">Tag received from the server.</param>
-        /// <returns>Next tag to send.</returns>
+        /// <param name="tag">Tag received from the server to process.</param>
+        /// <returns>The next tag to send to the server as part of the authentication process.</returns>
         public abstract Tag Step(Tag tag);
 
         /// <summary>
-        ///     Initializes the SASL instance.
+        /// Initializes the SASL processor with the user's credentials.
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the user for authentication.</param>
-        /// <param name="password">Password for authentication.</param>
-        /// <returns>Tag to send to server.</returns>
+        /// <param name="id">The <see cref="Jid"/> of the user for authentication.</param>
+        /// <param name="password">The password of the user for authentication.</param>
+        /// <returns>A <see cref="Tag"/> representing the SASL authentication data to send to the server.</returns>
         public virtual Tag Initialize(Jid id, string password)
         {
             Id = id;
             Password = password;
 
-            return default;
+            return null;
         }
 
         /// <summary>
-        ///     Converts a byte array to a hexadecimal string.
+        /// Converts a sequence of bytes into a hexadecimal string representation.
         /// </summary>
-        /// <param name="buffer">Byte array buffer.</param>
-        /// <returns>Hexadecimal encoded string.</returns>
+        /// <param name="buffer">The byte sequence to be converted.</param>
+        /// <returns>A string containing the hexadecimal representation of the specified byte sequence.</returns>
         protected static string HexString(IEnumerable<byte> buffer)
         {
             var s = new StringBuilder();
@@ -125,21 +129,21 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        ///     Gets a random Int64.
+        /// Generates a random Int64 value using a cryptographically secure random number generator.
         /// </summary>
-        /// <returns>Random Int64.</returns>
+        /// <returns>A randomly generated Int64 value.</returns>
         protected static long NextInt64()
         {
             var bytes = new byte[sizeof(long)];
-            var random = new RNGCryptoServiceProvider();
-            random.GetBytes(bytes);
+
+            RandomNumberGenerator.Fill(bytes);
             return BitConverter.ToInt64(bytes, 0);
         }
 
         /// <summary>
-        ///     Create a new NONCE.
+        /// Generates a unique string GUID to be used as a NONCE.
         /// </summary>
-        /// <returns>String GUID for NONCE.</returns>
+        /// <returns>A string representing the GUID for the NONCE.</returns>
         protected static string CreateNonce()
         {
             return Guid.NewGuid().ToString();

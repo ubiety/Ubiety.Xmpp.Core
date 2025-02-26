@@ -19,12 +19,17 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     SASL XMPP state.
+    /// Represents the SASL (Simple Authentication and Security Layer) state in the XMPP workflow.
+    /// Handles SASL authentication mechanisms and transitions the XMPP client to the appropriate state
+    /// based on the outcome of the authentication process.
     /// </summary>
-    /// <inheritdoc />
     public class SaslState : IState
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Executes the SASL authentication process based on the provided XMPP client state and tag.
+        /// </summary>
+        /// <param name="xmpp">The XMPP client performing the authentication.</param>
+        /// <param name="tag">An optional tag representing the current stage of the SASL authentication process.</param>
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             if (xmpp is XmppClient client)

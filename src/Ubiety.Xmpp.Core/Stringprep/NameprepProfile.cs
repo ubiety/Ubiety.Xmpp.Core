@@ -17,14 +17,18 @@ using Ubiety.Stringprep.Core;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    ///     XMPP Nameprep Stringprep profile.
+    /// Provides a static method to create a Nameprep profile for processing strings.
     /// </summary>
+    /// <remarks>
+    /// Nameprep is a string preparation process defined for internationalized names as part of the string preparation framework.
+    /// It ensures strings are prepared correctly for transmitting and comparing, adhering to defined mappings and rules.
+    /// </remarks>
     public static class NameprepProfile
     {
         /// <summary>
-        ///     Create Nameprep profile.
+        /// Creates a Nameprep profile for string preparation processing.
         /// </summary>
-        /// <returns>Nameprep process.</returns>
+        /// <returns>An instance of a Nameprep preparation process.</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()

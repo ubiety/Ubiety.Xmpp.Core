@@ -20,13 +20,18 @@ using Ubiety.Xmpp.Core.Tags.Tls;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Start TLS state.
+    /// Represents a state responsible for initiating and handling the STARTTLS process
+    /// for secure communication in the XMPP workflow.
     /// </summary>
     public class StartTlsState : IState
     {
         private static readonly ILog Logger = Log.Get<StartTlsState>();
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Executes actions based on the current TLS state and provided tag.
+        /// </summary>
+        /// <param name="xmpp">The XMPP instance managing the connection state.</param>
+        /// <param name="tag">An optional tag used to determine the required action, such as initiating or proceeding with TLS.</param>
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             if (tag is Proceed)

@@ -16,9 +16,8 @@ using System;
 
 namespace Ubiety.Xmpp.Core.Common
 {
-    /// <inheritdoc />
     /// <summary>
-    ///     Socket data event arguments.
+    /// Represents the data event arguments that contain a message associated with an event.
     /// </summary>
     public class DataEventArgs : EventArgs
     {

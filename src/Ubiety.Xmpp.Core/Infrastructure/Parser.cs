@@ -25,7 +25,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Infrastructure
 {
     /// <summary>
-    ///     XMPP protocol parser.
+    /// Represents a parser that handles the receiving and processing of XMPP stanza data.
     /// </summary>
     public sealed class Parser
     {
@@ -48,7 +48,8 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         }
 
         /// <summary>
-        ///     Tag event.
+        /// Event triggered when a new XMPP tag is parsed.
+        /// This event provides information about the parsed tag through the <see cref="TagEventArgs"/> parameter.
         /// </summary>
         public event EventHandler<TagEventArgs> Tag;
 
@@ -68,7 +69,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         }
 
         /// <summary>
-        ///     Starts the parsing process.
+        /// Starts the parser and initiates the processing of the data queue.
         /// </summary>
         public void Start()
         {
@@ -78,7 +79,7 @@ namespace Ubiety.Xmpp.Core.Infrastructure
         }
 
         /// <summary>
-        ///     Stop the parsing process.
+        /// Stops the execution of the parser and logs the stop action.
         /// </summary>
         public void Stop()
         {

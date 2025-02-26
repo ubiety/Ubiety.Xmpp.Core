@@ -65,7 +65,7 @@ namespace Ubiety.Xmpp.Core.Tags
         public static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
         {
             var results = from constructor in type.GetTypeInfo().DeclaredConstructors
-                          let constructorParameters = constructor.GetParameters().Select(_ => _.ParameterType).ToArray()
+                          let constructorParameters = constructor.GetParameters().Select(i => i.ParameterType).ToArray()
                           where constructorParameters.Length == parameters.Count &&
                                 !constructorParameters.Except(parameters).Any() &&
                                 !parameters.Except(constructorParameters).Any()
@@ -154,11 +154,13 @@ namespace Ubiety.Xmpp.Core.Tags
         {
             if (element is null)
             {
-                return default;
+                return null;
             }
 
-            var constructor = GetConstructor(typeof(T), new[] { typeof(XElement) });
-            return (T)constructor?.Invoke(new object[] { element });
+#pragma warning disable SA1010
+            var constructor = GetConstructor(typeof(T), [typeof(XElement)]);
+#pragma warning restore SA1010
+            return (T)constructor?.Invoke([element]);
         }
     }
 }
