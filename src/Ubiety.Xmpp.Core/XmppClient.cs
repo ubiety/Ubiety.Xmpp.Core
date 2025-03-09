@@ -18,6 +18,7 @@ using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.States;
+using Ubiety.Xmpp.Core.Tags;
 
 namespace Ubiety.Xmpp.Core
 {
@@ -40,6 +41,11 @@ namespace Ubiety.Xmpp.Core
             Parser = new Parser(this);
             Parser.Tag += Parser_Tag;
         }
+
+        /// <summary>
+        /// Event triggered when a new stanza is received from the server.
+        /// </summary>
+        public event EventHandler<TagEventArgs> Stanza;
 
         /// <summary>
         /// Gets or sets the Jabber Identifier (JID) of the client.
@@ -80,6 +86,15 @@ namespace Ubiety.Xmpp.Core
             Password = password;
             State = new ConnectingState();
             State.Execute(this);
+        }
+
+        /// <summary>
+        /// Triggers the stanza event with the supplied tag.
+        /// </summary>
+        /// <param name="tag">Tag to send as part of the event.</param>
+        internal void OnStanza(Tag tag)
+        {
+            Stanza?.Invoke(this, new TagEventArgs { Tag = tag });
         }
     }
 }

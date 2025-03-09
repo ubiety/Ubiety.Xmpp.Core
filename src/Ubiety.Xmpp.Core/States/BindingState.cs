@@ -64,6 +64,8 @@ namespace Ubiety.Xmpp.Core.States
                         if (client != null)
                         {
                             client.Id = iq.Bind.Jid.Id;
+                            client.State = new ReadyState();
+                            client.State.Execute(xmpp);
                         }
 
                         break;
