@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2025 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,18 +12,24 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
+using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core.States;
+
+/// <summary>
+/// Represents the state responsible for all messages after connection established.
+/// </summary>
+public class ReadyState : IState
 {
     /// <summary>
-    /// Represents the data event arguments that contain a message associated with an event.
+    /// Executes the ready operations.
     /// </summary>
-    public class DataEventArgs : EventArgs
+    /// <param name="xmpp">The XMPP base instance used for communication.</param>
+    /// <param name="tag">The received tag to process, or null if initiating the bind operation.</param>
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        /// <summary>
-        ///     Gets or sets the message from the server.
-        /// </summary>
-        public string Message { get; set; }
+        var client = xmpp as XmppClient;
+        client?.OnStanza(tag);
     }
 }

@@ -22,17 +22,17 @@ using Ubiety.Xmpp.Core.Logging;
 namespace Ubiety.Xmpp.Core.Registries
 {
     /// <summary>
-    ///     SASL authentication mechanism registry.
+    /// Represents a registry for SASL mechanisms and their associated processors.
     /// </summary>
     public class SaslRegistry
     {
         private static readonly ILog Logger = Log.Get<SaslRegistry>();
-        private readonly Dictionary<string, (Type processor, int weight)> _mechanisms = new Dictionary<string, (Type, int)>();
+        private readonly Dictionary<string, (Type processor, int weight)> _mechanisms = new ();
 
         /// <summary>
-        ///     Add assembly to the registry.
+        /// Adds all SASL mechanisms defined in the specified assembly to the SASL registry.
         /// </summary>
-        /// <param name="assembly">Assembly to add.</param>
+        /// <param name="assembly">The assembly containing SASL mechanisms to register.</param>
         public void AddAssembly(Assembly assembly)
         {
             Logger.Log(LogLevel.Information, $"Adding assembly {assembly.FullName} to SASL registry.");

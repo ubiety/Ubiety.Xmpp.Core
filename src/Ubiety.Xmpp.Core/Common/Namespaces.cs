@@ -15,41 +15,41 @@
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     XML namespaces for tags.
+    /// Represents a collection of namespace constants used in the XMPP (Extensible Messaging and Presence Protocol) communication.
     /// </summary>
     public static class Namespaces
     {
 #pragma warning disable S1075 // URIs should not be hardcoded
 
         /// <summary>
-        ///     Stream namespace.
+        /// Represents the namespace URI for stream-level communication in the XMPP protocol.
         /// </summary>
         public const string Stream = "http://etherx.jabber.org/streams";
 
 #pragma warning restore S1075 // URIs should not be hardcoded
 
         /// <summary>
-        ///     Client namespace.
+        /// Represents the namespace URI for client-level communication in the XMPP protocol.
         /// </summary>
         public const string Client = "jabber:client";
 
         /// <summary>
-        ///     XMPP streams namespace.
+        /// Represents the namespace URI specific to error conditions in the XMPP protocol.
         /// </summary>
         public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
 
         /// <summary>
-        ///     XMPP TLS namespace.
+        /// Represents the namespace URI for implementing TLS (Transport Layer Security) in the XMPP protocol.
         /// </summary>
         public const string Tls = "urn:ietf:params:xml:ns:xmpp-tls";
 
         /// <summary>
-        ///     XMPP SASL namespace.
+        /// Represents the namespace URI used for SASL (Simple Authentication and Security Layer) in the XMPP protocol.
         /// </summary>
         public const string Sasl = "urn:ietf:params:xml:ns:xmpp-sasl";
 
         /// <summary>
-        ///     XMPP Resource Binding namespace.
+        /// Represents the namespace URI for resource binding in the XMPP protocol, as defined by RFC 6120.
         /// </summary>
         public const string Bind = "urn:ietf:params:xml:ns:xmpp-bind";
     }

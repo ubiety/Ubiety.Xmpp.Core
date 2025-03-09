@@ -19,7 +19,7 @@ using System.Security.Permissions;
 namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
 {
     /// <summary>
-    ///     Invalid State Exception.
+    /// Represents an exception that is thrown when an invalid state is encountered.
     /// </summary>
     [Serializable]
     public class InvalidStateException : Exception

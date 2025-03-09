@@ -18,7 +18,7 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Event args for an error.
+    /// Represents the arguments passed with an error event in the XMPP core.
     /// </summary>
     public class ErrorEventArgs : EventArgs
     {

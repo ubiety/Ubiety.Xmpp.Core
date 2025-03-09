@@ -19,7 +19,7 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    ///     SASL Auth tag.
+    /// Represents the SASL authentication <c>auth</c> tag in XMPP protocol.
     /// </summary>
     [XmppTag("auth", Namespaces.Sasl, typeof(Auth))]
     public class Auth : Tag

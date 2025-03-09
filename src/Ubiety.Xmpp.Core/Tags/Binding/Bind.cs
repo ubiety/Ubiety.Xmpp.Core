@@ -19,8 +19,13 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Binding
 {
     /// <summary>
-    ///     Bind tag.
+    /// Represents the XMPP bind tag used for resource binding during XMPP session establishment.
     /// </summary>
+    /// <remarks>
+    /// The Bind class is a specialized implementation of the <see cref="Tag"/> class, representing
+    /// the "bind" element as defined in the XMPP specification. It is typically utilized in the
+    /// context of XMPP communication to perform resource binding.
+    /// </remarks>
     [XmppTag("bind", Namespaces.Bind, typeof(Bind))]
     public class Bind : Tag
     {
@@ -50,5 +55,10 @@ namespace Ubiety.Xmpp.Core.Tags.Binding
         ///     Gets a value indicating whether binding is required.
         /// </summary>
         public bool Required => Element<Required>(XName.Get("required", Namespaces.Bind)) != null;
+
+        /// <summary>
+        /// Gets the Jid tag for the binding resource.
+        /// </summary>
+        public Jid Jid => Element<Jid>(XName.Get("jid", Namespaces.Bind));
     }
 }

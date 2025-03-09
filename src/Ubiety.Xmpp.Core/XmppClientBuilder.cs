@@ -18,7 +18,7 @@ using Ubiety.Xmpp.Core.Registries;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    ///     Builds a new XmppClient.
+    /// Provides a builder to configure and create an instance of <see cref="XmppClient"/>.
     /// </summary>
     public class XmppClientBuilder
     {
@@ -28,7 +28,7 @@ namespace Ubiety.Xmpp.Core
         private string _resource;
 
         /// <summary>
-        ///     Enable logging with the log manager.
+        /// Enables logging for the XMPP client using the specified log manager.
         /// </summary>
         /// <param name="manager">Log manager to use for logging.</param>
         /// <returns>Builder instance.</returns>
@@ -39,7 +39,7 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Enables IPv6 support in the library.
+        /// Enables IPv6 support for the XMPP client.
         /// </summary>
         /// <returns>Builder instance.</returns>
         public XmppClientBuilder UseIPv6()
@@ -49,7 +49,7 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Enables SSL/TLS support.
+        /// Enables SSL for the XMPP client.
         /// </summary>
         /// <returns>Builder instance.</returns>
         public XmppClientBuilder UseSsl()
@@ -59,10 +59,10 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Set a client resource.
+        /// Sets the resource for the XMPP client.
         /// </summary>
-        /// <param name="resource">Resource to set.</param>
-        /// <returns>Builder instance.</returns>
+        /// <param name="resource">The resource to be assigned to the XMPP client.</param>
+        /// <returns>An instance of the builder for method chaining.</returns>
         public XmppClientBuilder SetResource(string resource)
         {
             _resource = resource;
@@ -70,9 +70,9 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        ///     Builds the client.
+        /// Builds and configures an instance of the <see cref="XmppClient"/> with the specified options.
         /// </summary>
-        /// <returns>Client with the options provided.</returns>
+        /// <returns>A configured instance of <see cref="XmppClient"/>.</returns>
         public XmppClient Build()
         {
             if (_logManager != null)

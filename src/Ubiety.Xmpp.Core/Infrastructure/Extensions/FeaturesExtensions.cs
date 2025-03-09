@@ -20,26 +20,27 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     Extension methods for the features tag.
+    /// Provides extension methods for the <see cref="Features"/> class to handle SSL, authentication, and resource binding functionalities during the XMPP connection process.
     /// </summary>
     public static class FeaturesExtensions
     {
         /// <summary>
-        ///     Check if SSL is required or requested.
+        /// Checks whether SSL should be secured for the current XMPP connection.
         /// </summary>
         /// <param name="features">Current <see cref="Features"/> from the server.</param>
         /// <param name="xmpp">Current <see cref="XmppBase"/> instance.</param>
         /// <returns>A value indicating whether to secure the socket or not.</returns>
         public static bool CheckSsl(this Features features, XmppBase xmpp)
         {
-            return features.StartTls != null && (xmpp.UseSsl || features.FeatureCount == 1 || features.StartTls.Required);
+            return features.StartTls != null &&
+                   (xmpp.UseSsl || features.FeatureCount == 1 || features.StartTls.Required);
         }
 
         /// <summary>
-        ///     Authenticate a user with the server.
+        /// Authenticates the user using the supported SASL mechanisms provided in the server's features.
         /// </summary>
-        /// <param name="features">Current <see cref="Features"/> from the server.</param>
-        /// <param name="client">Current <see cref="XmppClient"/> instance.</param>
+        /// <param name="features">The server's <see cref="Features"/> containing the supported SASL mechanisms.</param>
+        /// <param name="client">The current <see cref="XmppClient"/> instance used for authentication.</param>
         public static void AuthenticateUser(this Features features, XmppClient client)
         {
             client.SaslProcessor = SaslProcessor.CreateProcessor(
@@ -58,10 +59,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         }
 
         /// <summary>
-        ///     Start user resource binding.
+        /// Initiates the resource binding process for the current XMPP connection.
         /// </summary>
-        /// <param name="features">Current <see cref="Features"/> from the server.</param>
-        /// <param name="client">Current <see cref="XmppClient"/> instance.</param>
+        /// <param name="features">The current <see cref="Features"/> from the server, containing stream-related capabilities.</param>
+        /// <param name="client">The current <see cref="XmppClient"/> instance used for the XMPP connection.</param>
         public static void StartBinding(this Features features, XmppClient client)
         {
             if (features.Bind.Required)

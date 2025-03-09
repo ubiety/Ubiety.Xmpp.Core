@@ -18,40 +18,40 @@ using Ubiety.Xmpp.Core.Common;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    ///     Defines a socket interface.
+    /// Represents a socket interface used for communication with an XMPP server.
     /// </summary>
     public interface ISocket
     {
         /// <summary>
-        ///     Raised when data is received from the server.
+        /// Raised when data is received on the socket connection.
         /// </summary>
         event EventHandler<DataEventArgs> Data;
 
         /// <summary>
-        ///     Raised when the socket is connected to the server.
+        /// Event triggered when a connection is established or changes state in the socket interface.
         /// </summary>
         event EventHandler Connection;
 
         /// <summary>
-        ///     Gets a value indicating whether the socket is connected.
+        /// Gets a value indicating whether the socket connection to the XMPP server is currently active.
         /// </summary>
         bool Connected { get; }
 
         /// <summary>
-        ///     Connect to an XMPP server.
+        /// Connects to the server using the specified JID.
         /// </summary>
-        /// <param name="jid"><see cref="Jid" /> of the user.</param>
+        /// <param name="jid">The Jabber Identifier (JID) of the user.</param>
         void Connect(Jid jid);
 
         /// <summary>
-        ///     Disconnects from the server.
+        /// Disconnects from the server and cleans up related resources.
         /// </summary>
         void Disconnect();
 
         /// <summary>
-        ///     Send a message to the server.
+        /// Sends a message to the connected XMPP server.
         /// </summary>
-        /// <param name="message">Message to send.</param>
+        /// <param name="message">The message to send to the server.</param>
         void Send(string message);
     }
 }

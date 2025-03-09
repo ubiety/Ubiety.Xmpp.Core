@@ -17,43 +17,47 @@ using System;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    ///     Type of authentication mechanism.
+    /// Represents the available authentication mechanisms in the XMPP protocol.
     /// </summary>
     [Flags]
     public enum MechanismTypes
     {
         /// <summary>
-        ///     No authentication mechanism.
+        /// No authentication mechanism selected.
         /// </summary>
         None,
 
         /// <summary>
-        ///     Plain authentication.
+        /// Represents the PLAIN authentication mechanism, which transmits the password in plain text.
         /// </summary>
         Plain = 1 << 0,
 
         /// <summary>
-        ///     DigestMD5 authentication.
+        /// Digest-MD5 authentication mechanism.
         /// </summary>
         DigestMd5 = 1 << 1,
 
         /// <summary>
-        ///     External authentication.
+        /// External authentication mechanism for delegating authentication
+        /// to an external provider or system.
         /// </summary>
         External = 1 << 2,
 
         /// <summary>
-        ///     SCRAM-SHA-1 authentication.
+        /// Represents the SCRAM (Salted Challenge Response Authentication Mechanism) authentication mechanism.
+        /// SCRAM provides a secure authentication protocol using salted hashing and iterative processes,
+        /// ensuring resistance to passive and active attacks.
         /// </summary>
         Scram = 1 << 3,
 
         /// <summary>
-        ///     SCRAM-SHA-1-PLUS authentication.
+        /// Enhanced SCRAM (Salted Challenge Response Authentication Mechanism) authentication mechanism
+        /// with channel binding support for increased security.
         /// </summary>
         ScramPlus = 1 << 4,
 
         /// <summary>
-        ///     Default authentication methods - Currently SCRAM-SHA-1 and SCRAM-SHA-1-PLUS.
+        /// Represents the default combination of authentication mechanisms: Scram and ScramPlus.
         /// </summary>
         Default = Scram | ScramPlus,
     }

@@ -25,7 +25,8 @@ using Ubiety.Xmpp.Core.Logging;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    ///     Address class.
+    /// Represents an XMPP address handler responsible for resolving server addresses
+    /// and determining network configurations.
     /// </summary>
     internal class Address
     {

@@ -19,8 +19,12 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Tls
 {
     /// <summary>
-    ///     TLS proceed tag.
+    /// Represents the "proceed" tag from the TLS namespace in the XMPP protocol.
     /// </summary>
+    /// <remarks>
+    /// This tag is used during the StartTLS negotiation process. It indicates that
+    /// the server is prepared to proceed with a secured communication channel.
+    /// </remarks>
     [XmppTag("proceed", Namespaces.Tls, typeof(Proceed))]
     public class Proceed : Tag
     {

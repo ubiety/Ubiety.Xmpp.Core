@@ -18,16 +18,16 @@ using System.Collections.Generic;
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    ///     Enumerable extensions.
+    /// Provides extension methods for enumerables to enhance functionality.
     /// </summary>
     public static class EnumerableExtensions
     {
         /// <summary>
-        ///     Applies an action on each item in the enumerable.
+        /// Performs the specified action on each element of the enumerable.
         /// </summary>
-        /// <typeparam name="T">Type of the item.</typeparam>
-        /// <param name="enumerable">Enumerable to iterate.</param>
-        /// <param name="action">Action to perform.</param>
+        /// <typeparam name="T">The type of elements in the enumerable.</typeparam>
+        /// <param name="enumerable">The enumerable to iterate over.</param>
+        /// <param name="action">The action to perform on each element.</param>
         public static void Apply<T>(this IEnumerable<T> enumerable, Action<T> action)
         {
             foreach (var item in enumerable)

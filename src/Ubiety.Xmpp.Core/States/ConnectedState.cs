@@ -19,12 +19,23 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    ///     Connected to the server state.
+    /// Represents the connected state of the XMPP client.
     /// </summary>
-    /// <inheritdoc />
+    /// <remarks>
+    /// This state is responsible for initiating the XMPP client's XML stream by starting the XMPP communication
+    /// process and transitioning to the next state.
+    /// </remarks>
     public class ConnectedState : IState
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Executes the operations corresponding to the connected state of the XMPP client.
+        /// </summary>
+        /// <param name="xmpp">
+        /// The XMPP client instance currently in use. This parameter must derive from the <see cref="XmppBase"/> class.
+        /// </param>
+        /// <param name="tag">
+        /// An optional XMPP tag representing part of the communication stream. Defaults to null if not provided.
+        /// </param>
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
             if (xmpp is XmppClient client)
