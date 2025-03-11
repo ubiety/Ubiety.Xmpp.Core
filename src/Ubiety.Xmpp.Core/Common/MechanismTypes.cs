@@ -44,17 +44,47 @@ namespace Ubiety.Xmpp.Core.Common
         External = 1 << 2,
 
         /// <summary>
-        /// Represents the SCRAM (Salted Challenge Response Authentication Mechanism) authentication mechanism.
+        /// Represents the SCRAM-SHA-1 (Salted Challenge Response Authentication Mechanism) authentication mechanism.
         /// SCRAM provides a secure authentication protocol using salted hashing and iterative processes,
         /// ensuring resistance to passive and active attacks.
         /// </summary>
-        Scram = 1 << 3,
+        Scram1 = 1 << 3,
 
         /// <summary>
-        /// Enhanced SCRAM (Salted Challenge Response Authentication Mechanism) authentication mechanism
+        /// Enhanced SCRAM-SHA-1-PLUS (Salted Challenge Response Authentication Mechanism) authentication mechanism
         /// with channel binding support for increased security.
         /// </summary>
-        ScramPlus = 1 << 4,
+        Scram1Plus = 1 << 4,
+
+        /// <summary>
+        /// Represents the SCRAM-SHA-256 authentication mechanism.
+        /// </summary>
+        Scram256 = 1 << 5,
+
+        /// <summary>
+        /// Represents the SCRAM-SHA-256-PLUS authentication mechanism.
+        /// </summary>
+        Scram256Plus = 1 << 6,
+
+        /// <summary>
+        /// Represents the SCRAM-SHA-512 authentication mechanism.
+        /// </summary>
+        Scram512 = 1 << 7,
+
+        /// <summary>
+        /// Represents the SCRAM-SHA-512-PLUS authentication mechanism.
+        /// </summary>
+        Scram512Plus = 1 << 8,
+
+        /// <summary>
+        /// Represents the SCRAM authentication mechanisms.
+        /// </summary>
+        Scram = Scram1 | Scram256 | Scram512,
+
+        /// <summary>
+        /// Represents the SCRAM PLUS authentication mechanisms.
+        /// </summary>
+        ScramPlus = Scram1Plus | Scram256Plus | Scram512Plus,
 
         /// <summary>
         /// Represents the default combination of authentication mechanisms: Scram and ScramPlus.
