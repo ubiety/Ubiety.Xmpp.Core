@@ -22,130 +22,129 @@ using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.States;
 using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.Infrastructure
+namespace Ubiety.Xmpp.Core.Infrastructure;
+
+/// <summary>
+///     XMPP protocol parser.
+/// </summary>
+public sealed class Parser
 {
+    private readonly Queue<string> _dataQueue;
+    private readonly ILog _logger = Log.Get<Parser>();
+    private readonly XmppBase _xmpp;
+    private XmlNamespaceManager _namespaceManager;
+    private bool _running;
+
     /// <summary>
-    ///     XMPP protocol parser.
+    ///     Initializes a new instance of the <see cref="Parser" /> class.
     /// </summary>
-    public sealed class Parser
+    /// <param name="xmpp">XMPP instance.</param>
+    public Parser(XmppBase xmpp)
     {
-        private readonly Queue<string> _dataQueue;
-        private readonly ILog _logger = Log.Get<Parser>();
-        private readonly XmppBase _xmpp;
-        private XmlNamespaceManager _namespaceManager;
-        private bool _running;
+        _xmpp = xmpp;
+        _dataQueue = new Queue<string>();
+        _xmpp.ClientSocket.Data += ClientSocket_Data;
+        _logger.Log(LogLevel.Debug, $"{typeof(Parser)} created");
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Parser" /> class.
-        /// </summary>
-        /// <param name="xmpp">XMPP instance.</param>
-        public Parser(XmppBase xmpp)
+    /// <summary>
+    ///     Tag event.
+    /// </summary>
+    public event EventHandler<TagEventArgs> Tag;
+
+    private XmlNamespaceManager NamespaceManager
+    {
+        get
         {
-            _xmpp = xmpp;
-            _dataQueue = new Queue<string>();
-            _xmpp.ClientSocket.Data += ClientSocket_Data;
-            _logger.Log(LogLevel.Debug, $"{typeof(Parser)} created");
-        }
-
-        /// <summary>
-        ///     Tag event.
-        /// </summary>
-        public event EventHandler<TagEventArgs> Tag;
-
-        private XmlNamespaceManager NamespaceManager
-        {
-            get
+            if (_namespaceManager is null)
             {
-                if (_namespaceManager is null)
-                {
-                    _namespaceManager = new XmlNamespaceManager(new NameTable());
-                    _namespaceManager.AddNamespace(string.Empty, Namespaces.Client);
-                    _namespaceManager.AddNamespace("stream", Namespaces.Stream);
-                }
-
-                return _namespaceManager;
+                _namespaceManager = new XmlNamespaceManager(new NameTable());
+                _namespaceManager.AddNamespace(string.Empty, Namespaces.Client);
+                _namespaceManager.AddNamespace("stream", Namespaces.Stream);
             }
+
+            return _namespaceManager;
         }
+    }
 
-        /// <summary>
-        ///     Starts the parsing process.
-        /// </summary>
-        public void Start()
+    /// <summary>
+    ///     Starts the parsing process.
+    /// </summary>
+    public void Start()
+    {
+        _logger.Log(LogLevel.Debug, "Start() called");
+        _running = true;
+        Task.Run(ProcessQueue);
+    }
+
+    /// <summary>
+    ///     Stop the parsing process.
+    /// </summary>
+    public void Stop()
+    {
+        _logger.Log(LogLevel.Debug, "Stop() called");
+        _running = false;
+    }
+
+    private void OnTag(Tag tag)
+    {
+        _logger.Log(LogLevel.Debug, "OnTag(Tag) called");
+        Tag?.Invoke(this, new TagEventArgs { Tag = tag });
+    }
+
+    private void ProcessQueue()
+    {
+        const string endStream = "</stream:stream>";
+
+        while (true)
         {
-            _logger.Log(LogLevel.Debug, "Start() called");
-            _running = true;
-            Task.Run(ProcessQueue);
-        }
-
-        /// <summary>
-        ///     Stop the parsing process.
-        /// </summary>
-        public void Stop()
-        {
-            _logger.Log(LogLevel.Debug, "Stop() called");
-            _running = false;
-        }
-
-        private void OnTag(Tag tag)
-        {
-            _logger.Log(LogLevel.Debug, "OnTag(Tag) called");
-            Tag?.Invoke(this, new TagEventArgs { Tag = tag });
-        }
-
-        private void ProcessQueue()
-        {
-            const string endStream = "</stream:stream>";
-
-            while (true)
+            if (_xmpp.State is DisconnectedState || !_running)
             {
-                if (_xmpp.State is DisconnectedState || !_running)
-                {
-                    _logger.Log(LogLevel.Debug, "Disconnected or stopped");
-                    break;
-                }
-
-                if (_dataQueue.Count <= 0)
-                {
-                    continue;
-                }
-
-                var message = _dataQueue.Dequeue();
-
-                if (message.Contains(endStream))
-                {
-                    _logger.Log(LogLevel.Debug, "Ending stream and disconnecting");
-                    _xmpp.State = new DisconnectState();
-                    _xmpp.State.Execute(_xmpp);
-
-                    if (message.Equals(endStream))
-                    {
-                        return;
-                    }
-
-                    message = message.Replace(endStream, string.Empty);
-                }
-
-                if (message.Contains("<stream:stream") && !message.Contains(endStream))
-                {
-                    _logger.Log(LogLevel.Debug, "Adding end tag");
-                    message += endStream;
-                }
-
-                var context = new XmlParserContext(null, NamespaceManager, null, XmlSpace.None);
-                var reader = new XmlTextReader(message, XmlNodeType.Element, context);
-
-                var root = XElement.Load(reader);
-
-                var tag = _xmpp.TagRegistry.GetTag<Tag>(root);
-                _logger.Log(LogLevel.Debug, $"Found tag {tag}");
-
-                OnTag(tag);
+                _logger.Log(LogLevel.Debug, "Disconnected or stopped");
+                break;
             }
-        }
 
-        private void ClientSocket_Data(object sender, DataEventArgs e)
-        {
-            _dataQueue.Enqueue(e.Message);
+            if (_dataQueue.Count <= 0)
+            {
+                continue;
+            }
+
+            var message = _dataQueue.Dequeue();
+
+            if (message.Contains(endStream))
+            {
+                _logger.Log(LogLevel.Debug, "Ending stream and disconnecting");
+                _xmpp.State = new DisconnectState();
+                _xmpp.State.Execute(_xmpp);
+
+                if (message.Equals(endStream))
+                {
+                    return;
+                }
+
+                message = message.Replace(endStream, string.Empty);
+            }
+
+            if (message.Contains("<stream:stream") && !message.Contains(endStream))
+            {
+                _logger.Log(LogLevel.Debug, "Adding end tag");
+                message += endStream;
+            }
+
+            var context = new XmlParserContext(null, NamespaceManager, null, XmlSpace.None);
+            var reader = new XmlTextReader(message, XmlNodeType.Element, context);
+
+            var root = XElement.Load(reader);
+
+            var tag = _xmpp.TagRegistry.GetTag<Tag>(root);
+            _logger.Log(LogLevel.Debug, $"Found tag {tag}");
+
+            OnTag(tag);
         }
+    }
+
+    private void ClientSocket_Data(object sender, DataEventArgs e)
+    {
+        _dataQueue.Enqueue(e.Message);
     }
 }

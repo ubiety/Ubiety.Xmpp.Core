@@ -16,31 +16,30 @@ using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.States;
+
+/// <summary>
+///     Connected to the server state.
+/// </summary>
+/// <inheritdoc />
+public class ConnectedState : IState
 {
-    /// <summary>
-    ///     Connected to the server state.
-    /// </summary>
     /// <inheritdoc />
-    public class ConnectedState : IState
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
+        if (xmpp is not XmppClient client)
         {
-            if (xmpp is not XmppClient client)
-            {
-                return;
-            }
-
-            var stream = xmpp.TagRegistry.GetTag<Stream>(Stream.XmlName);
-            stream.Version = "1.0";
-            stream.To = client.Id.Server;
-            stream.Namespace = Namespaces.Client;
-
-            client.ClientSocket.Send(stream.StartTag);
-            client.ClientSocket.SetReadClear();
-
-            xmpp.State = new StreamFeaturesState();
+            return;
         }
+
+        var stream = xmpp.TagRegistry.GetTag<Stream>(Stream.XmlName);
+        stream.Version = "1.0";
+        stream.To = client.Id.Server;
+        stream.Namespace = Namespaces.Client;
+
+        client.ClientSocket.Send(stream.StartTag);
+        client.ClientSocket.SetReadClear();
+
+        xmpp.State = new StreamFeaturesState();
     }
 }

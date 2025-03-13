@@ -13,39 +13,37 @@
 //   limitations under the License.
 
 using System;
-using System.Runtime.Serialization;
 
-namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
+namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions;
+
+/// <summary>
+///     Parse Exception.
+/// </summary>
+public class ParseException : Exception
 {
     /// <summary>
-    ///     Parse Exception.
+    ///     Initializes a new instance of the <see cref="ParseException"/> class.
     /// </summary>
-    public class ParseException : Exception
+    public ParseException()
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ParseException"/> class.
-        /// </summary>
-        public ParseException()
-        {
-        }
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ParseException"/> class.
-        /// </summary>
-        /// <param name="message">Message to use for the exception.</param>
-        public ParseException(string message)
-            : base(message)
-        {
-        }
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="ParseException"/> class.
+    /// </summary>
+    /// <param name="message">Message to use for the exception.</param>
+    public ParseException(string message)
+        : base(message)
+    {
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ParseException"/> class.
-        /// </summary>
-        /// <param name="message">Message to use for the exception.</param>
-        /// <param name="innerException">Inner exception.</param>
-        public ParseException(string message, Exception innerException)
-            : base(message, innerException)
-        {
-        }
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="ParseException"/> class.
+    /// </summary>
+    /// <param name="message">Message to use for the exception.</param>
+    /// <param name="innerException">Inner exception.</param>
+    public ParseException(string message, Exception innerException)
+        : base(message, innerException)
+    {
     }
 }

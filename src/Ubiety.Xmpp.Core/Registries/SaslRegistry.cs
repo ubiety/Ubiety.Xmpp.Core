@@ -23,59 +23,58 @@ using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
-namespace Ubiety.Xmpp.Core.Registries
+namespace Ubiety.Xmpp.Core.Registries;
+
+/// <summary>
+///     SASL authentication mechanism registry.
+/// </summary>
+public class SaslRegistry
 {
+    private static readonly ILog Logger = Log.Get<SaslRegistry>();
+    private readonly Dictionary<string, (Type processor, int weight, bool binding, MechanismTypes type)> _mechanisms = new ();
+
     /// <summary>
-    ///     SASL authentication mechanism registry.
+    ///     Add assembly to the registry.
     /// </summary>
-    public class SaslRegistry
+    /// <param name="assembly">Assembly to add.</param>
+    public void AddAssembly(Assembly assembly)
     {
-        private static readonly ILog Logger = Log.Get<SaslRegistry>();
-        private readonly Dictionary<string, (Type processor, int weight, bool binding, MechanismTypes type)> _mechanisms = new ();
+        Logger.Log(LogLevel.Information, $"Adding assembly {assembly.FullName} to SASL registry.");
 
-        /// <summary>
-        ///     Add assembly to the registry.
-        /// </summary>
-        /// <param name="assembly">Assembly to add.</param>
-        public void AddAssembly(Assembly assembly)
+        var attributes = assembly.GetAttributes<SaslAttribute>();
+        foreach (var attribute in attributes)
         {
-            Logger.Log(LogLevel.Information, $"Adding assembly {assembly.FullName} to SASL registry.");
-
-            var attributes = assembly.GetAttributes<SaslAttribute>();
-            foreach (var attribute in attributes)
-            {
-                _mechanisms.Add(attribute.MechanismName, (attribute.ProcessorType, attribute.Weight, attribute.ChannelBinding, attribute.Type));
-            }
+            _mechanisms.Add(attribute.MechanismName, (attribute.ProcessorType, attribute.Weight, attribute.ChannelBinding, attribute.Type));
         }
+    }
 
-        /// <summary>
-        ///     Gets the SASL processor with the highest weight supported by the server.
-        /// </summary>
-        /// <param name="serverMechanisms">SASL mechanisms supported by the server.</param>
-        /// <param name="client">XMPP client instance.</param>
-        /// <returns><see cref="SaslProcessor" /> that is to be used for authentication.</returns>
-        public SaslProcessor GetProcessor(IEnumerable<Mechanism> serverMechanisms, XmppBase client)
+    /// <summary>
+    ///     Gets the SASL processor with the highest weight supported by the server.
+    /// </summary>
+    /// <param name="serverMechanisms">SASL mechanisms supported by the server.</param>
+    /// <param name="client">XMPP client instance.</param>
+    /// <returns><see cref="SaslProcessor" /> that is to be used for authentication.</returns>
+    public SaslProcessor GetProcessor(IEnumerable<Mechanism> serverMechanisms, XmppBase client)
+    {
+        var (processorType, _, binding, type) = (from attr in _mechanisms
+            join server in serverMechanisms on attr.Key equals server.Value
+            orderby attr.Value.weight descending
+            select attr.Value).First();
+
+        var processor = (SaslProcessor)Activator.CreateInstance(processorType);
+
+        switch (processor)
         {
-            var (processorType, _, binding, type) = (from attr in _mechanisms
-                join server in serverMechanisms on attr.Key equals server.Value
-                orderby attr.Value.weight descending
-                select attr.Value).First();
+            case PlainProcessor when !client.ClientSocket.Secure:
+                throw new InvalidOperationException("Do not use PLAIN SASL processor on an unsecured connection.");
+            case null:
+                return null;
+            default:
+                processor.ChannelBinding = binding;
+                processor.Client = client;
+                processor.MechanismType = type;
 
-            var processor = (SaslProcessor)Activator.CreateInstance(processorType);
-
-            switch (processor)
-            {
-                case PlainProcessor when !client.ClientSocket.Secure:
-                    throw new InvalidOperationException("Do not use PLAIN SASL processor on an unsecured connection.");
-                case null:
-                    return null;
-                default:
-                    processor.ChannelBinding = binding;
-                    processor.Client = client;
-                    processor.MechanismType = type;
-
-                    return processor;
-            }
+                return processor;
         }
     }
 }

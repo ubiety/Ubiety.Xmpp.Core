@@ -16,34 +16,33 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Sasl
+namespace Ubiety.Xmpp.Core.Tags.Sasl;
+
+/// <summary>
+///     SASL authentication challenge tag.
+/// </summary>
+[XmppTag("challenge", Namespaces.Sasl, typeof(Challenge))]
+public class Challenge : Tag
 {
     /// <summary>
-    ///     SASL authentication challenge tag.
+    ///     Initializes a new instance of the <see cref="Challenge" /> class.
     /// </summary>
-    [XmppTag("challenge", Namespaces.Sasl, typeof(Challenge))]
-    public class Challenge : Tag
+    /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
+    public Challenge(XElement other)
+        : base(other)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Challenge" /> class.
-        /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
-        public Challenge(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Challenge" /> class.
-        /// </summary>
-        public Challenge()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("challenge", Namespaces.Sasl);
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Challenge" /> class.
+    /// </summary>
+    public Challenge()
+        : base(XmlName)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("challenge", Namespaces.Sasl);
 }

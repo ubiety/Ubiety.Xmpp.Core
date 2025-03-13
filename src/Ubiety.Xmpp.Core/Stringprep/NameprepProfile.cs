@@ -14,39 +14,38 @@
 
 using Ubiety.Stringprep.Core;
 
-namespace Ubiety.Xmpp.Core.Stringprep
+namespace Ubiety.Xmpp.Core.Stringprep;
+
+/// <summary>
+///     XMPP Nameprep Stringprep profile.
+/// </summary>
+public static class NameprepProfile
 {
     /// <summary>
-    ///     XMPP Nameprep Stringprep profile.
+    ///     Create Nameprep profile.
     /// </summary>
-    public static class NameprepProfile
+    /// <returns>Nameprep process.</returns>
+    public static IPreparationProcess Create()
     {
-        /// <summary>
-        ///     Create Nameprep profile.
-        /// </summary>
-        /// <returns>Nameprep process.</returns>
-        public static IPreparationProcess Create()
-        {
-            return PreparationProcess.Build()
-                .WithMappingStep(MappingTable.Build()
-                    .WithMappingTable(Mapping.B_1)
-                    .WithMappingTable(Mapping.B_2)
-                    .Compile())
-                .WithNormalizationStep()
-                .WithProhibitedValueStep(ValueRangeTable.Create(
-                    Prohibited.C_1_1,
-                    Prohibited.C_2_2,
-                    Prohibited.C_3,
-                    Prohibited.C_4,
-                    Prohibited.C_5,
-                    Prohibited.C_6,
-                    Prohibited.C_7,
-                    Prohibited.C_8,
-                    Prohibited.C_9))
-                .WithBidirectionalStep()
-                .WithProhibitedValueStep(ValueRangeTable.Create(
-                    Unassigned.A_1))
-                .Compile();
-        }
+        return PreparationProcess.Build()
+            .WithMappingStep(MappingTable.Build()
+                .WithMappingTable(Mapping.B_1)
+                .WithMappingTable(Mapping.B_2)
+                .Compile())
+            .WithNormalizationStep()
+            .WithProhibitedValueStep(ValueRangeTable.Create(
+                Prohibited.C_1_1,
+                Prohibited.C_2_2,
+                Prohibited.C_3,
+                Prohibited.C_4,
+                Prohibited.C_5,
+                Prohibited.C_6,
+                Prohibited.C_7,
+                Prohibited.C_8,
+                Prohibited.C_9))
+            .WithBidirectionalStep()
+            .WithProhibitedValueStep(ValueRangeTable.Create(
+                Unassigned.A_1))
+            .Compile();
     }
 }

@@ -14,51 +14,50 @@
 
 using System.Linq;
 
-namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
+namespace Ubiety.Xmpp.Core.Infrastructure.Extensions;
+
+/// <summary>
+///     String extension methods.
+/// </summary>
+public static class StringExtensions
 {
     /// <summary>
-    ///     String extension methods.
+    ///     Get the position of the first unescaped character.
     /// </summary>
-    public static class StringExtensions
+    /// <param name="data">Data to read.</param>
+    /// <param name="token">Character to locate.</param>
+    /// <returns>Position of the character.</returns>
+    public static int FirstUnescaped(this string data, char token)
     {
-        /// <summary>
-        ///     Get the position of the first unescaped character.
-        /// </summary>
-        /// <param name="data">Data to read.</param>
-        /// <param name="token">Character to locate.</param>
-        /// <returns>Position of the character.</returns>
-        public static int FirstUnescaped(this string data, char token)
+        var position = -1;
+        while (position == -1 && !string.IsNullOrEmpty(data))
         {
-            var position = -1;
-            while (position == -1 && !string.IsNullOrEmpty(data))
+            var index = data.IndexOf(token);
+            if (index == -1)
             {
-                var index = data.IndexOf(token);
-                if (index == -1)
-                {
-                    return -1;
-                }
-
-                if (index == 0 || data[index - 1] != '\\')
-                {
-                    position = index;
-                }
-
-#pragma warning disable SA1009
-                data = data[(index + 1)..];
-#pragma warning restore SA1009
+                return -1;
             }
 
-            return position;
+            if (index == 0 || data[index - 1] != '\\')
+            {
+                position = index;
+            }
+
+#pragma warning disable SA1009
+            data = data[(index + 1)..];
+#pragma warning restore SA1009
         }
 
-        /// <summary>
-        ///     Remove whitespace in a string.
-        /// </summary>
-        /// <param name="data">Data to remove whitespace from.</param>
-        /// <returns>String with no whitespace.</returns>
-        public static string RemoveWhitespace(this string data)
-        {
-            return new string(data.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
-        }
+        return position;
+    }
+
+    /// <summary>
+    ///     Remove whitespace in a string.
+    /// </summary>
+    /// <param name="data">Data to remove whitespace from.</param>
+    /// <returns>String with no whitespace.</returns>
+    public static string RemoveWhitespace(this string data)
+    {
+        return new string(data.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
     }
 }

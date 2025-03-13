@@ -16,28 +16,27 @@ using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.States;
+
+/// <summary>
+///     Connecting state for the protocol.
+/// </summary>
+/// <inheritdoc />
+public class ConnectingState : IState
 {
-    /// <summary>
-    ///     Connecting state for the protocol.
-    /// </summary>
+    private static readonly ILog Logger = Log.Get<ConnectingState>();
+
     /// <inheritdoc />
-    public class ConnectingState : IState
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        private static readonly ILog Logger = Log.Get<ConnectingState>();
-
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
+        Logger.Log(LogLevel.Debug, "Executing ConnectingState");
+        if (xmpp is not XmppClient client)
         {
-            Logger.Log(LogLevel.Debug, "Executing ConnectingState");
-            if (xmpp is not XmppClient client)
-            {
-                return;
-            }
-
-            Logger.Log(LogLevel.Debug, "Connecting to server");
-            client.ClientSocket.Connect(client.Id);
-            client.ClientSocket.SetReadClear();
+            return;
         }
+
+        Logger.Log(LogLevel.Debug, "Connecting to server");
+        client.ClientSocket.Connect(client.Id);
+        client.ClientSocket.SetReadClear();
     }
 }

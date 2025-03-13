@@ -16,22 +16,21 @@ using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.States
-{
-    /// <summary>
-    ///     State to disconnect from the server.
-    /// </summary>
-    /// <inheritdoc />
-    public class DisconnectState : IState
-    {
-        private static readonly ILog Logger = Log.Get<DisconnectState>();
+namespace Ubiety.Xmpp.Core.States;
 
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
-        {
-            Logger.Log(LogLevel.Debug, "Disconnecting from the server");
-            xmpp.ClientSocket.Disconnect();
-            xmpp.State = new DisconnectedState();
-        }
+/// <summary>
+///     State to disconnect from the server.
+/// </summary>
+/// <inheritdoc />
+public class DisconnectState : IState
+{
+    private static readonly ILog Logger = Log.Get<DisconnectState>();
+
+    /// <inheritdoc />
+    public void Execute(XmppBase xmpp, Tag tag = null)
+    {
+        Logger.Log(LogLevel.Debug, "Disconnecting from the server");
+        xmpp.ClientSocket.Disconnect();
+        xmpp.State = new DisconnectedState();
     }
 }

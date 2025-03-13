@@ -16,25 +16,24 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Binding
+namespace Ubiety.Xmpp.Core.Tags.Binding;
+
+/// <summary>
+///     Binding resource tag.
+/// </summary>
+[XmppTag("resource", Namespaces.Bind, typeof(Resource))]
+public class Resource : Tag
 {
     /// <summary>
-    ///     Binding resource tag.
+    ///     Initializes a new instance of the <see cref="Resource"/> class.
     /// </summary>
-    [XmppTag("resource", Namespaces.Bind, typeof(Resource))]
-    public class Resource : Tag
+    public Resource()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Resource"/> class.
-        /// </summary>
-        public Resource()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("resource", Namespaces.Bind);
     }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("resource", Namespaces.Bind);
 }

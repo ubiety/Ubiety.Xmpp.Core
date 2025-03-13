@@ -15,18 +15,17 @@
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.States;
+
+/// <inheritdoc />
+/// <summary>
+///     Disconnected state.
+/// </summary>
+public class DisconnectedState : IState
 {
     /// <inheritdoc />
-    /// <summary>
-    ///     Disconnected state.
-    /// </summary>
-    public class DisconnectedState : IState
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
-        {
-            // Disconnected from a server - nothing to do
-        }
+        // Disconnected from a server - nothing to do
     }
 }

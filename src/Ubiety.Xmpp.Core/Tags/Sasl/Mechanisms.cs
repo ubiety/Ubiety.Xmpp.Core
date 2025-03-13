@@ -18,46 +18,45 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Sasl
+namespace Ubiety.Xmpp.Core.Tags.Sasl;
+
+/// <summary>
+///     SASL authentication mechanisms.
+/// </summary>
+[XmppTag("mechanisms", Namespaces.Sasl, typeof(Mechanisms))]
+public class Mechanisms : Tag
 {
     /// <summary>
-    ///     SASL authentication mechanisms.
+    ///     Initializes a new instance of the <see cref="Mechanisms" /> class.
     /// </summary>
-    [XmppTag("mechanisms", Namespaces.Sasl, typeof(Mechanisms))]
-    public class Mechanisms : Tag
+    public Mechanisms()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanisms" /> class.
-        /// </summary>
-        public Mechanisms()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanisms" /> class.
-        /// </summary>
-        /// <param name="element"><see cref="XElement" /> to derive tag from.</param>
-        public Mechanisms(XElement element)
-            : base(element)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("mechanisms", Namespaces.Sasl);
-
-        /// <summary>
-        ///     Gets the supported mechanism types for the server.
-        /// </summary>
-        public MechanismTypes SupportedTypes =>
-            SupportedMechanisms.Aggregate(MechanismTypes.None, (current, mechanism) => current | mechanism.Type);
-
-        /// <summary>
-        ///     Gets the supported mechanism types for the server.
-        /// </summary>
-        public IEnumerable<Mechanism> SupportedMechanisms =>
-            Elements<Mechanism>(XName.Get("mechanism", Namespaces.Sasl));
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Mechanisms" /> class.
+    /// </summary>
+    /// <param name="element"><see cref="XElement" /> to derive tag from.</param>
+    public Mechanisms(XElement element)
+        : base(element)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("mechanisms", Namespaces.Sasl);
+
+    /// <summary>
+    ///     Gets the supported mechanism types for the server.
+    /// </summary>
+    public MechanismTypes SupportedTypes =>
+        SupportedMechanisms.Aggregate(MechanismTypes.None, (current, mechanism) => current | mechanism.Type);
+
+    /// <summary>
+    ///     Gets the supported mechanism types for the server.
+    /// </summary>
+    public IEnumerable<Mechanism> SupportedMechanisms =>
+        Elements<Mechanism>(XName.Get("mechanism", Namespaces.Sasl));
 }

@@ -19,39 +19,38 @@ using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Binding;
 using Ubiety.Xmpp.Core.Tags.Client;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.States;
+
+/// <summary>
+///     Resource binding state.
+/// </summary>
+public class BindingState : IState
 {
-    /// <summary>
-    ///     Resource binding state.
-    /// </summary>
-    public class BindingState : IState
+    /// <inheritdoc />
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
+        if (xmpp is null)
         {
-            if (xmpp is null)
-            {
-                throw new ArgumentNullException(nameof(xmpp));
-            }
+            throw new ArgumentNullException(nameof(xmpp));
+        }
 
-            if (tag is null && xmpp is XmppClient client)
-            {
-                var bind = xmpp.TagRegistry.GetTag<Bind>(XName.Get("bind", Namespaces.Bind));
-                var iq = xmpp.TagRegistry.GetTag<Iq>(XName.Get("iq", Namespaces.Client));
+        if (tag is null && xmpp is XmppClient client)
+        {
+            var bind = xmpp.TagRegistry.GetTag<Bind>(XName.Get("bind", Namespaces.Bind));
+            var iq = xmpp.TagRegistry.GetTag<Iq>(XName.Get("iq", Namespaces.Client));
 
-                if (!string.IsNullOrEmpty(client.Resource))
-                {
-                }
-
-                iq.IqType = IqType.Set;
-                iq.Add(bind);
-
-                xmpp.ClientSocket.SetReadClear();
-                xmpp.ClientSocket.Send(iq);
-            }
-            else
+            if (!string.IsNullOrEmpty(client.Resource))
             {
             }
+
+            iq.IqType = IqType.Set;
+            iq.Add(bind);
+
+            xmpp.ClientSocket.SetReadClear();
+            xmpp.ClientSocket.Send(iq);
+        }
+        else
+        {
         }
     }
 }

@@ -16,39 +16,38 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Binding
+namespace Ubiety.Xmpp.Core.Tags.Binding;
+
+/// <summary>
+///     Bind tag.
+/// </summary>
+[XmppTag("bind", Namespaces.Bind, typeof(Bind))]
+public class Bind : Tag
 {
     /// <summary>
-    ///     Bind tag.
+    ///     Initializes a new instance of the <see cref="Bind"/> class.
     /// </summary>
-    [XmppTag("bind", Namespaces.Bind, typeof(Bind))]
-    public class Bind : Tag
+    public Bind()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Bind"/> class.
-        /// </summary>
-        public Bind()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Bind"/> class.
-        /// </summary>
-        /// <param name="other"><see cref="XElement"/> to derive tag from.</param>
-        public Bind(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("bind", Namespaces.Bind);
-
-        /// <summary>
-        ///     Gets a value indicating whether binding is required.
-        /// </summary>
-        public bool Required => Element<Required>(XName.Get("required", Namespaces.Bind)) != null;
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Bind"/> class.
+    /// </summary>
+    /// <param name="other"><see cref="XElement"/> to derive tag from.</param>
+    public Bind(XElement other)
+        : base(other)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("bind", Namespaces.Bind);
+
+    /// <summary>
+    ///     Gets a value indicating whether binding is required.
+    /// </summary>
+    public bool Required => Element<Required>(XName.Get("required", Namespaces.Bind)) != null;
 }

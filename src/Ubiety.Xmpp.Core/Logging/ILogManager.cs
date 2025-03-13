@@ -12,18 +12,17 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Logging
+namespace Ubiety.Xmpp.Core.Logging;
+
+/// <summary>
+///     Defines the interface for the log manager.
+/// </summary>
+public interface ILogManager
 {
     /// <summary>
-    ///     Defines the interface for the log manager.
+    ///     Get a log instance for the requested name.
     /// </summary>
-    public interface ILogManager
-    {
-        /// <summary>
-        ///     Get a log instance for the requested name.
-        /// </summary>
-        /// <param name="name">Name of the instance.</param>
-        /// <returns>Instance of a log.</returns>
-        ILog GetLogger(string name);
-    }
+    /// <param name="name">Name of the instance.</param>
+    /// <returns>Instance of a log.</returns>
+    ILog GetLogger(string name);
 }

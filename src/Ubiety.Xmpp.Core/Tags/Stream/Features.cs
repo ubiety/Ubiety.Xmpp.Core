@@ -20,54 +20,53 @@ using Ubiety.Xmpp.Core.Tags.Binding;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 using Ubiety.Xmpp.Core.Tags.Tls;
 
-namespace Ubiety.Xmpp.Core.Tags.Stream
+namespace Ubiety.Xmpp.Core.Tags.Stream;
+
+/// <summary>
+///     Stream features tag.
+/// </summary>
+[XmppTag("features", Namespaces.Stream, typeof(Features))]
+public class Features : Tag
 {
     /// <summary>
-    ///     Stream features tag.
+    ///     Initializes a new instance of the <see cref="Features" /> class.
     /// </summary>
-    [XmppTag("features", Namespaces.Stream, typeof(Features))]
-    public class Features : Tag
+    /// <param name="other"><see cref="XElement" /> to derive tag from.</param>
+    public Features(XElement other)
+        : base(other)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Features" /> class.
-        /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive tag from.</param>
-        public Features(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Features" /> class.
-        /// </summary>
-        public Features()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
-
-        /// <summary>
-        ///     Gets the starttls child.
-        /// </summary>
-        public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
-
-        /// <summary>
-        ///     Gets the supported SASL mechanisms.
-        /// </summary>
-        public Mechanisms Mechanisms => Element<Mechanisms>(XName.Get("mechanisms", Namespaces.Sasl));
-
-        /// <summary>
-        ///     Gets the bind tag.
-        /// </summary>
-        public Bind Bind => Element<Bind>(XName.Get("bind", Namespaces.Bind));
-
-        /// <summary>
-        ///     Gets a count of the features.
-        /// </summary>
-        public int FeatureCount => Elements().Count();
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Features" /> class.
+    /// </summary>
+    public Features()
+        : base(XmlName)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
+
+    /// <summary>
+    ///     Gets the starttls child.
+    /// </summary>
+    public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
+
+    /// <summary>
+    ///     Gets the supported SASL mechanisms.
+    /// </summary>
+    public Mechanisms Mechanisms => Element<Mechanisms>(XName.Get("mechanisms", Namespaces.Sasl));
+
+    /// <summary>
+    ///     Gets the bind tag.
+    /// </summary>
+    public Bind Bind => Element<Bind>(XName.Get("bind", Namespaces.Bind));
+
+    /// <summary>
+    ///     Gets a count of the features.
+    /// </summary>
+    public int FeatureCount => Elements().Count();
 }

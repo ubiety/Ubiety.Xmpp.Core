@@ -16,34 +16,33 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Sasl
+namespace Ubiety.Xmpp.Core.Tags.Sasl;
+
+/// <summary>
+///     SASL authentication failure tag.
+/// </summary>
+[XmppTag("failure", Namespaces.Sasl, typeof(Failure))]
+public class Failure : Tag
 {
     /// <summary>
-    ///     SASL authentication failure tag.
+    ///     Initializes a new instance of the <see cref="Failure" /> class.
     /// </summary>
-    [XmppTag("failure", Namespaces.Sasl, typeof(Failure))]
-    public class Failure : Tag
+    /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
+    public Failure(XElement other)
+        : base(other)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Failure" /> class.
-        /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
-        public Failure(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Failure" /> class.
-        /// </summary>
-        public Failure()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("failure", Namespaces.Sasl);
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Failure" /> class.
+    /// </summary>
+    public Failure()
+        : base(XmlName)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("failure", Namespaces.Sasl);
 }

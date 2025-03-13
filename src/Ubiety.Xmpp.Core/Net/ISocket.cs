@@ -15,43 +15,42 @@
 using System;
 using Ubiety.Xmpp.Core.Common;
 
-namespace Ubiety.Xmpp.Core.Net
+namespace Ubiety.Xmpp.Core.Net;
+
+/// <summary>
+///     Defines a socket interface.
+/// </summary>
+public interface ISocket
 {
     /// <summary>
-    ///     Defines a socket interface.
+    ///     Raised when data is received from the server.
     /// </summary>
-    public interface ISocket
-    {
-        /// <summary>
-        ///     Raised when data is received from the server.
-        /// </summary>
-        event EventHandler<DataEventArgs> Data;
+    event EventHandler<DataEventArgs> Data;
 
-        /// <summary>
-        ///     Raised when the socket is connected to the server.
-        /// </summary>
-        event EventHandler Connection;
+    /// <summary>
+    ///     Raised when the socket is connected to the server.
+    /// </summary>
+    event EventHandler Connection;
 
-        /// <summary>
-        ///     Gets a value indicating whether the socket is connected.
-        /// </summary>
-        bool Connected { get; }
+    /// <summary>
+    ///     Gets a value indicating whether the socket is connected.
+    /// </summary>
+    bool Connected { get; }
 
-        /// <summary>
-        ///     Connect to an XMPP server.
-        /// </summary>
-        /// <param name="jid"><see cref="Jid" /> of the user.</param>
-        void Connect(Jid jid);
+    /// <summary>
+    ///     Connect to an XMPP server.
+    /// </summary>
+    /// <param name="jid"><see cref="Jid" /> of the user.</param>
+    void Connect(Jid jid);
 
-        /// <summary>
-        ///     Disconnects from the server.
-        /// </summary>
-        void Disconnect();
+    /// <summary>
+    ///     Disconnects from the server.
+    /// </summary>
+    void Disconnect();
 
-        /// <summary>
-        ///     Send a message to the server.
-        /// </summary>
-        /// <param name="message">Message to send.</param>
-        void Send(string message);
-    }
+    /// <summary>
+    ///     Send a message to the server.
+    /// </summary>
+    /// <param name="message">Message to send.</param>
+    void Send(string message);
 }

@@ -16,34 +16,33 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Stream
+namespace Ubiety.Xmpp.Core.Tags.Stream;
+
+/// <summary>
+///     Stream error tag.
+/// </summary>
+[XmppTag("error", Namespaces.Stream, typeof(Error))]
+public class Error : Tag
 {
     /// <summary>
-    ///     Stream error tag.
+    ///     Initializes a new instance of the <see cref="Error" /> class.
     /// </summary>
-    [XmppTag("error", Namespaces.Stream, typeof(Error))]
-    public class Error : Tag
+    public Error()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Error" /> class.
-        /// </summary>
-        public Error()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Error" /> class.
-        /// </summary>
-        /// <param name="other">Other tag.</param>
-        public Error(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the Error XML name.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("error", Namespaces.Stream);
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Error" /> class.
+    /// </summary>
+    /// <param name="other">Other tag.</param>
+    public Error(XElement other)
+        : base(other)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the Error XML name.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("error", Namespaces.Stream);
 }

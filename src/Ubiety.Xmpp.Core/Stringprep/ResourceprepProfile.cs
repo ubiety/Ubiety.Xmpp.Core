@@ -14,37 +14,36 @@
 
 using Ubiety.Stringprep.Core;
 
-namespace Ubiety.Xmpp.Core.Stringprep
+namespace Ubiety.Xmpp.Core.Stringprep;
+
+/// <summary>
+///     XMPP Resourceprep Stringprep profile.
+/// </summary>
+public static class ResourceprepProfile
 {
     /// <summary>
-    ///     XMPP Resourceprep Stringprep profile.
+    ///     Create the profile.
     /// </summary>
-    public static class ResourceprepProfile
+    /// <returns>Process.</returns>
+    public static IPreparationProcess Create()
     {
-        /// <summary>
-        ///     Create the profile.
-        /// </summary>
-        /// <returns>Process.</returns>
-        public static IPreparationProcess Create()
-        {
-            return PreparationProcess.Build()
-                .WithMappingStep(MappingTable.Build()
-                    .WithMappingTable(Mapping.B_1)
-                    .Compile())
-                .WithNormalizationStep()
-                .WithProhibitedValueStep(ValueRangeTable.Create(
-                    Prohibited.C_1_2,
-                    Prohibited.C_2_1,
-                    Prohibited.C_2_2,
-                    Prohibited.C_3,
-                    Prohibited.C_4,
-                    Prohibited.C_5,
-                    Prohibited.C_6,
-                    Prohibited.C_7,
-                    Prohibited.C_8,
-                    Prohibited.C_9))
-                .WithBidirectionalStep()
-                .Compile();
-        }
+        return PreparationProcess.Build()
+            .WithMappingStep(MappingTable.Build()
+                .WithMappingTable(Mapping.B_1)
+                .Compile())
+            .WithNormalizationStep()
+            .WithProhibitedValueStep(ValueRangeTable.Create(
+                Prohibited.C_1_2,
+                Prohibited.C_2_1,
+                Prohibited.C_2_2,
+                Prohibited.C_3,
+                Prohibited.C_4,
+                Prohibited.C_5,
+                Prohibited.C_6,
+                Prohibited.C_7,
+                Prohibited.C_8,
+                Prohibited.C_9))
+            .WithBidirectionalStep()
+            .Compile();
     }
 }

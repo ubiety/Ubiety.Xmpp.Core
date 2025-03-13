@@ -14,39 +14,38 @@
 
 using Ubiety.Stringprep.Core;
 
-namespace Ubiety.Xmpp.Core.Stringprep
+namespace Ubiety.Xmpp.Core.Stringprep;
+
+/// <summary>
+///     SASLPrep Stringprep profile.
+/// </summary>
+public static class SaslprepProfile
 {
     /// <summary>
-    ///     SASLPrep Stringprep profile.
+    ///     Create the profile.
     /// </summary>
-    public static class SaslprepProfile
+    /// <returns>Profile process.</returns>
+    public static IPreparationProcess Create()
     {
-        /// <summary>
-        ///     Create the profile.
-        /// </summary>
-        /// <returns>Profile process.</returns>
-        public static IPreparationProcess Create()
-        {
-            return PreparationProcess.Build()
-                .WithMappingStep(MappingTable.Build()
-                    .WithValueRangeTable(Prohibited.ASCIISpaceCharacters, ' ')
-                    .WithMappingTable(Mapping.MappedToNothing)
-                    .Compile())
-                .WithNormalizationStep()
-                .WithProhibitedValueStep(ValueRangeTable.Create(
-                    Prohibited.NonASCIISpaceCharacters,
-                    Prohibited.ASCIIControlCharacters,
-                    Prohibited.NonASCIIControlCharacters,
-                    Prohibited.PrivateUseCharacters,
-                    Prohibited.NonCharacterCodePoints,
-                    Prohibited.SurrogateCodePoints,
-                    Prohibited.InappropriateForPlainText,
-                    Prohibited.InappropriateForCanonicalRepresentation,
-                    Prohibited.TaggingCharacters))
-                .WithBidirectionalStep()
-                .WithProhibitedValueStep(ValueRangeTable.Create(
-                    Unassigned.UnassignedCodePoints))
-                .Compile();
-        }
+        return PreparationProcess.Build()
+            .WithMappingStep(MappingTable.Build()
+                .WithValueRangeTable(Prohibited.ASCIISpaceCharacters, ' ')
+                .WithMappingTable(Mapping.MappedToNothing)
+                .Compile())
+            .WithNormalizationStep()
+            .WithProhibitedValueStep(ValueRangeTable.Create(
+                Prohibited.NonASCIISpaceCharacters,
+                Prohibited.ASCIIControlCharacters,
+                Prohibited.NonASCIIControlCharacters,
+                Prohibited.PrivateUseCharacters,
+                Prohibited.NonCharacterCodePoints,
+                Prohibited.SurrogateCodePoints,
+                Prohibited.InappropriateForPlainText,
+                Prohibited.InappropriateForCanonicalRepresentation,
+                Prohibited.TaggingCharacters))
+            .WithBidirectionalStep()
+            .WithProhibitedValueStep(ValueRangeTable.Create(
+                Unassigned.UnassignedCodePoints))
+            .Compile();
     }
 }

@@ -12,36 +12,35 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Logging
+namespace Ubiety.Xmpp.Core.Logging;
+
+/// <summary>
+///     Log severity level.
+/// </summary>
+public enum LogLevel
 {
     /// <summary>
-    ///     Log severity level.
+    ///     Critical severity.
     /// </summary>
-    public enum LogLevel
-    {
-        /// <summary>
-        ///     Critical severity.
-        /// </summary>
-        Critical,
+    Critical,
 
-        /// <summary>
-        ///     Error severity.
-        /// </summary>
-        Error,
+    /// <summary>
+    ///     Error severity.
+    /// </summary>
+    Error,
 
-        /// <summary>
-        ///     Warning severity.
-        /// </summary>
-        Warning,
+    /// <summary>
+    ///     Warning severity.
+    /// </summary>
+    Warning,
 
-        /// <summary>
-        ///     Information severity.
-        /// </summary>
-        Information,
+    /// <summary>
+    ///     Information severity.
+    /// </summary>
+    Information,
 
-        /// <summary>
-        ///     Debug severity.
-        /// </summary>
-        Debug,
-    }
+    /// <summary>
+    ///     Debug severity.
+    /// </summary>
+    Debug,
 }

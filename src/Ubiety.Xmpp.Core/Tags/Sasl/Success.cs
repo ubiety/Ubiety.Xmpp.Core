@@ -16,34 +16,33 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Sasl
+namespace Ubiety.Xmpp.Core.Tags.Sasl;
+
+/// <summary>
+///     SASL authentication success tag.
+/// </summary>
+[XmppTag("success", Namespaces.Sasl, typeof(Success))]
+public class Success : Tag
 {
     /// <summary>
-    ///     SASL authentication success tag.
+    ///     Initializes a new instance of the <see cref="Success" /> class.
     /// </summary>
-    [XmppTag("success", Namespaces.Sasl, typeof(Success))]
-    public class Success : Tag
+    /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
+    public Success(XElement other)
+        : base(other)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Success" /> class.
-        /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
-        public Success(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Success" /> class.
-        /// </summary>
-        public Success()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("success", Namespaces.Sasl);
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Success" /> class.
+    /// </summary>
+    public Success()
+        : base(XmlName)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("success", Namespaces.Sasl);
 }

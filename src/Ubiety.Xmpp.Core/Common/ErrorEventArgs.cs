@@ -15,21 +15,20 @@
 using System;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core.Common;
+
+/// <summary>
+///     Event args for an error.
+/// </summary>
+public class ErrorEventArgs : EventArgs
 {
     /// <summary>
-    ///     Event args for an error.
+    ///     Gets the error message.
     /// </summary>
-    public class ErrorEventArgs : EventArgs
-    {
-        /// <summary>
-        ///     Gets the error message.
-        /// </summary>
-        public string Message { get; init; }
+    public string Message { get; init; }
 
-        /// <summary>
-        ///     Gets the stream error.
-        /// </summary>
-        public Error StreamError { get; init; }
-    }
+    /// <summary>
+    ///     Gets the stream error.
+    /// </summary>
+    public Error StreamError { get; init; }
 }

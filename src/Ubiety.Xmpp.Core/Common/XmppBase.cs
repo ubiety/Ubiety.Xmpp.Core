@@ -22,146 +22,145 @@ using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.States;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core.Common;
+
+/// <summary>
+///     Base XMPP implementation.
+/// </summary>
+public abstract class XmppBase : IDisposable
 {
+    private readonly ILog _logger;
+    private readonly AsyncClientSocket _clientSocket;
+    private bool _disposedValue; // To detect redundant calls
+
     /// <summary>
-    ///     Base XMPP implementation.
+    ///     Initializes a new instance of the <see cref="XmppBase" /> class.
     /// </summary>
-    public abstract class XmppBase : IDisposable
+    protected XmppBase()
     {
-        private readonly ILog _logger;
-        private readonly AsyncClientSocket _clientSocket;
-        private bool _disposedValue; // To detect redundant calls
+        _logger = Log.Get<XmppBase>();
+        _logger.Log(LogLevel.Debug, $"{GetType()} created");
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppBase" /> class.
-        /// </summary>
-        protected XmppBase()
+    /// <summary>
+    ///     Raised when a stream error occurs.
+    /// </summary>
+    public event EventHandler<ErrorEventArgs> Error;
+
+    /// <summary>
+    ///     Gets or sets the XMPP port.
+    /// </summary>
+    public int Port { get; set; } = 5222;
+
+    /// <summary>
+    ///     Gets a value indicating whether the socket should use SSL/TLS.
+    /// </summary>
+    public bool UseSsl { get; internal init; }
+
+    /// <summary>
+    ///     Gets a value indicating whether we should use IPv6.
+    /// </summary>
+    public bool UseIPv6 { get; internal init; }
+
+    /// <summary>
+    ///     Gets or sets the current state.
+    /// </summary>
+    public IState State { get; set; }
+
+    /// <summary>
+    ///     Gets the tag registry.
+    /// </summary>
+    public TagRegistry TagRegistry { get; internal init; }
+
+    /// <summary>
+    ///     Gets the SASL registry.
+    /// </summary>
+    public SaslRegistry SaslRegistry { get; internal init; }
+
+    /// <summary>
+    ///     Gets the client socket.
+    /// </summary>
+    public AsyncClientSocket ClientSocket
+    {
+        get => _clientSocket;
+        protected init
         {
-            _logger = Log.Get<XmppBase>();
-            _logger.Log(LogLevel.Debug, $"{GetType()} created");
+            _clientSocket = value;
+            _clientSocket.Connection += Socket_Connection;
+        }
+    }
+
+    /// <summary>
+    ///     Gets or sets the SASL processor for the session.
+    /// </summary>
+    public SaslProcessor SaslProcessor { get; set; }
+
+    /// <summary>
+    ///     Gets the XMPP protocol parser.
+    /// </summary>
+    protected Parser Parser { get; init; }
+
+    /// <summary>
+    ///     Dispose resources.
+    /// </summary>
+    public void Dispose()
+    {
+        // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    ///     Received a tag from the parser.
+    /// </summary>
+    /// <param name="sender">Object sending the event.</param>
+    /// <param name="e">Event arguments containing the tag.</param>
+    protected void Parser_Tag(object sender, TagEventArgs e)
+    {
+        if (e.Tag is Stream stream && stream.Errors.Any())
+        {
+            OnError(
+                this,
+                new ErrorEventArgs { Message = "Error occured", StreamError = stream.Errors.FirstOrDefault() });
+            Parser.Stop();
+            State = new DisconnectState();
         }
 
-        /// <summary>
-        ///     Raised when a stream error occurs.
-        /// </summary>
-        public event EventHandler<ErrorEventArgs> Error;
+        _logger.Log(LogLevel.Debug, "Received a tag. Executing current state");
+        State.Execute(this, e.Tag);
+    }
 
-        /// <summary>
-        ///     Gets or sets the XMPP port.
-        /// </summary>
-        public int Port { get; set; } = 5222;
-
-        /// <summary>
-        ///     Gets a value indicating whether the socket should use SSL/TLS.
-        /// </summary>
-        public bool UseSsl { get; internal init; }
-
-        /// <summary>
-        ///     Gets a value indicating whether we should use IPv6.
-        /// </summary>
-        public bool UseIPv6 { get; internal init; }
-
-        /// <summary>
-        ///     Gets or sets the current state.
-        /// </summary>
-        public IState State { get; set; }
-
-        /// <summary>
-        ///     Gets the tag registry.
-        /// </summary>
-        public TagRegistry TagRegistry { get; internal init; }
-
-        /// <summary>
-        ///     Gets the SASL registry.
-        /// </summary>
-        public SaslRegistry SaslRegistry { get; internal init; }
-
-        /// <summary>
-        ///     Gets the client socket.
-        /// </summary>
-        public AsyncClientSocket ClientSocket
+    /// <summary>
+    ///     Dispose resources.
+    /// </summary>
+    /// <param name="disposing">Dispose managed resources.</param>
+    protected virtual void Dispose(bool disposing)
+    {
+        _logger.Log(LogLevel.Debug, "Dispose(bool) called");
+        if (_disposedValue)
         {
-            get => _clientSocket;
-            protected init
-            {
-                _clientSocket = value;
-                _clientSocket.Connection += Socket_Connection;
-            }
+            return;
         }
 
-        /// <summary>
-        ///     Gets or sets the SASL processor for the session.
-        /// </summary>
-        public SaslProcessor SaslProcessor { get; set; }
-
-        /// <summary>
-        ///     Gets the XMPP protocol parser.
-        /// </summary>
-        protected Parser Parser { get; init; }
-
-        /// <summary>
-        ///     Dispose resources.
-        /// </summary>
-        public void Dispose()
+        if (disposing)
         {
-            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            _logger.Log(LogLevel.Debug, $"Disposing {_clientSocket.GetType()}");
+            _clientSocket.Dispose();
         }
 
-        /// <summary>
-        ///     Received a tag from the parser.
-        /// </summary>
-        /// <param name="sender">Object sending the event.</param>
-        /// <param name="e">Event arguments containing the tag.</param>
-        protected void Parser_Tag(object sender, TagEventArgs e)
-        {
-            if (e.Tag is Stream stream && stream.Errors.Any())
-            {
-                OnError(
-                    this,
-                    new ErrorEventArgs { Message = "Error occured", StreamError = stream.Errors.FirstOrDefault() });
-                Parser.Stop();
-                State = new DisconnectState();
-            }
+        _disposedValue = true;
+    }
 
-            _logger.Log(LogLevel.Debug, "Received a tag. Executing current state");
-            State.Execute(this, e.Tag);
-        }
+    private void OnError(object sender, ErrorEventArgs e)
+    {
+        Error?.Invoke(sender, e);
+    }
 
-        /// <summary>
-        ///     Dispose resources.
-        /// </summary>
-        /// <param name="disposing">Dispose managed resources.</param>
-        protected virtual void Dispose(bool disposing)
-        {
-            _logger.Log(LogLevel.Debug, "Dispose(bool) called");
-            if (_disposedValue)
-            {
-                return;
-            }
-
-            if (disposing)
-            {
-                _logger.Log(LogLevel.Debug, $"Disposing {_clientSocket.GetType()}");
-                _clientSocket.Dispose();
-            }
-
-            _disposedValue = true;
-        }
-
-        private void OnError(object sender, ErrorEventArgs e)
-        {
-            Error?.Invoke(sender, e);
-        }
-
-        private void Socket_Connection(object sender, EventArgs e)
-        {
-            _logger.Log(LogLevel.Debug, "Setting connection state");
-            Parser.Start();
-            State = new ConnectedState();
-            State.Execute(this);
-        }
+    private void Socket_Connection(object sender, EventArgs e)
+    {
+        _logger.Log(LogLevel.Debug, "Setting connection state");
+        Parser.Start();
+        State = new ConnectedState();
+        State.Execute(this);
     }
 }

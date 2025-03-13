@@ -19,59 +19,55 @@ using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.States;
 
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core;
+
+/// <summary>
+///     Main XMPP client class.
+/// </summary>
+public class XmppClient : XmppBase, IClient
 {
+    private readonly ILog _logger;
+
     /// <summary>
-    ///     Main XMPP client class.
+    ///     Initializes a new instance of the <see cref="XmppClient" /> class.
     /// </summary>
-    public class XmppClient : XmppBase, IClient
+    internal XmppClient()
     {
-        private readonly ILog _logger;
+        _logger = Log.Get<XmppClient>();
+        _logger.Log(LogLevel.Debug, $"{typeof(XmppClient)} created");
+        ClientSocket = new AsyncClientSocket(this);
+        Parser = new Parser(this);
+        Parser.Tag += Parser_Tag;
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="XmppClient" /> class.
-        /// </summary>
-        internal XmppClient()
-        {
-            _logger = Log.Get<XmppClient>();
-            _logger.Log(LogLevel.Debug, $"{typeof(XmppClient)} created");
-            ClientSocket = new AsyncClientSocket(this);
-            Parser = new Parser(this);
-            Parser.Tag += Parser_Tag;
-        }
+    /// <inheritdoc />
+    public Jid Id { get; set; }
 
-        /// <inheritdoc />
-        public Jid Id { get; set; }
+    /// <summary>
+    ///     Gets or sets the user password.
+    /// </summary>
+    public string Password { get; set; }
 
-        /// <summary>
-        ///     Gets or sets the user password.
-        /// </summary>
-        public string Password { get; set; }
+    /// <summary>
+    ///     Gets a value indicating whether the user is authenticated.
+    /// </summary>
+    public bool Authenticated { get; internal set; }
 
-        /// <summary>
-        ///     Gets a value indicating whether the user is authenticated.
-        /// </summary>
-        public bool Authenticated { get; internal set; }
+    /// <summary>
+    ///     Gets or sets a value for the JID resource.
+    /// </summary>
+    public string Resource { get; set; }
 
-        /// <summary>
-        ///     Gets or sets a value for the JID resource.
-        /// </summary>
-        public string Resource { get; set; }
+    /// <inheritdoc />
+    public void Connect(Jid jid, string password)
+    {
+        _logger.Log(LogLevel.Debug, "Connect(Jid, string) called");
+        ArgumentNullException.ThrowIfNull(jid);
 
-        /// <inheritdoc />
-        public void Connect(Jid jid, string password)
-        {
-            _logger.Log(LogLevel.Debug, "Connect(Jid, string) called");
-            if (jid is null)
-            {
-                throw new ArgumentNullException(nameof(jid));
-            }
-
-            _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
-            Id = jid;
-            Password = password;
-            State = new ConnectingState();
-            State.Execute(this);
-        }
+        _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
+        Id = jid;
+        Password = password;
+        State = new ConnectingState();
+        State.Execute(this);
     }
 }

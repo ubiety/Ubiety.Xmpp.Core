@@ -16,41 +16,40 @@ using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.States;
+
+/// <summary>
+///     SASL XMPP state.
+/// </summary>
+/// <inheritdoc />
+public class SaslState : IState
 {
-    /// <summary>
-    ///     SASL XMPP state.
-    /// </summary>
     /// <inheritdoc />
-    public class SaslState : IState
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
+        if (xmpp is not XmppClient client)
         {
-            if (xmpp is not XmppClient client)
-            {
-                return;
-            }
+            return;
+        }
 
-            switch (tag)
-            {
-                case Success _:
-                    client.ClientSocket.SetReadClear();
-                    client.Authenticated = true;
-                    client.State = new ConnectedState();
-                    client.State.Execute(client);
-                    break;
+        switch (tag)
+        {
+            case Success _:
+                client.ClientSocket.SetReadClear();
+                client.Authenticated = true;
+                client.State = new ConnectedState();
+                client.State.Execute(client);
+                break;
 
-                case Failure _:
-                    client.State = new DisconnectState();
-                    client.State.Execute(client);
-                    break;
+            case Failure _:
+                client.State = new DisconnectState();
+                client.State.Execute(client);
+                break;
 
-                default:
-                    client.ClientSocket.SetReadClear();
-                    client.ClientSocket.Send(client.SaslProcessor.Step(tag));
-                    break;
-            }
+            default:
+                client.ClientSocket.SetReadClear();
+                client.ClientSocket.Send(client.SaslProcessor.Step(tag));
+                break;
         }
     }
 }

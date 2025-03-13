@@ -13,39 +13,37 @@
 //   limitations under the License.
 
 using System;
-using System.Runtime.Serialization;
 
-namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
+namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions;
+
+/// <summary>
+///     Invalid State Exception.
+/// </summary>
+public class InvalidStateException : Exception
 {
     /// <summary>
-    ///     Invalid State Exception.
+    ///     Initializes a new instance of the <see cref="InvalidStateException"/> class.
     /// </summary>
-    public class InvalidStateException : Exception
+    public InvalidStateException()
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="InvalidStateException"/> class.
-        /// </summary>
-        public InvalidStateException()
-        {
-        }
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="InvalidStateException"/> class.
-        /// </summary>
-        /// <param name="message">Message to use for the exception.</param>
-        public InvalidStateException(string message)
-            : base(message)
-        {
-        }
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="InvalidStateException"/> class.
+    /// </summary>
+    /// <param name="message">Message to use for the exception.</param>
+    public InvalidStateException(string message)
+        : base(message)
+    {
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="InvalidStateException"/> class.
-        /// </summary>
-        /// <param name="message">Message to use for the exception.</param>
-        /// <param name="innerException">Inner exception.</param>
-        public InvalidStateException(string message, Exception innerException)
-            : base(message, innerException)
-        {
-        }
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="InvalidStateException"/> class.
+    /// </summary>
+    /// <param name="message">Message to use for the exception.</param>
+    /// <param name="innerException">Inner exception.</param>
+    public InvalidStateException(string message, Exception innerException)
+        : base(message, innerException)
+    {
     }
 }

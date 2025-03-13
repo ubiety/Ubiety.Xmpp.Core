@@ -15,53 +15,52 @@
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.States;
 
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core;
+
+/// <summary>
+///     Defines a client interface.
+/// </summary>
+public interface IClient
 {
     /// <summary>
-    ///     Defines a client interface.
+    ///     Gets or sets the user JID.
     /// </summary>
-    public interface IClient
-    {
-        /// <summary>
-        ///     Gets or sets the user JID.
-        /// </summary>
-        Jid Id { get; set; }
+    Jid Id { get; set; }
 
-        /// <summary>
-        ///     Gets or sets the user password.
-        /// </summary>
-        string Password { get; set; }
+    /// <summary>
+    ///     Gets or sets the user password.
+    /// </summary>
+    string Password { get; set; }
 
-        /// <summary>
-        ///     Gets or sets the port of the server.
-        /// </summary>
-        int Port { get; set; }
+    /// <summary>
+    ///     Gets or sets the port of the server.
+    /// </summary>
+    int Port { get; set; }
 
-        /// <summary>
-        ///     Gets a value indicating whether the socket should use SSL/TLS.
-        /// </summary>
-        bool UseSsl { get; }
+    /// <summary>
+    ///     Gets a value indicating whether the socket should use SSL/TLS.
+    /// </summary>
+    bool UseSsl { get; }
 
-        /// <summary>
-        ///     Gets a value indicating whether the socket should use IPv6.
-        /// </summary>
-        bool UseIPv6 { get; }
+    /// <summary>
+    ///     Gets a value indicating whether the socket should use IPv6.
+    /// </summary>
+    bool UseIPv6 { get; }
 
-        /// <summary>
-        ///     Gets a value indicating whether the user is authenticated.
-        /// </summary>
-        bool Authenticated { get; }
+    /// <summary>
+    ///     Gets a value indicating whether the user is authenticated.
+    /// </summary>
+    bool Authenticated { get; }
 
-        /// <summary>
-        ///     Gets the current state.
-        /// </summary>
-        IState State { get; }
+    /// <summary>
+    ///     Gets the current state.
+    /// </summary>
+    IState State { get; }
 
-        /// <summary>
-        ///     Connect to an XMPP server using a JID.
-        /// </summary>
-        /// <param name="jid"><see cref="Jid" /> to use for connecting.</param>
-        /// <param name="password">Password to connect with.</param>
-        void Connect(Jid jid, string password);
-    }
+    /// <summary>
+    ///     Connect to an XMPP server using a JID.
+    /// </summary>
+    /// <param name="jid"><see cref="Jid" /> to use for connecting.</param>
+    /// <param name="password">Password to connect with.</param>
+    void Connect(Jid jid, string password);
 }

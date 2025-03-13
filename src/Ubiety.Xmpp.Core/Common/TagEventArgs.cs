@@ -15,17 +15,16 @@
 using System;
 using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core.Common;
+
+/// <summary>
+///     Tag event arguments.
+/// </summary>
+/// <inheritdoc />
+public class TagEventArgs : EventArgs
 {
     /// <summary>
-    ///     Tag event arguments.
+    ///     Gets the tag.
     /// </summary>
-    /// <inheritdoc />
-    public class TagEventArgs : EventArgs
-    {
-        /// <summary>
-        ///     Gets the tag.
-        /// </summary>
-        public Tag Tag { get; init; }
-    }
+    public Tag Tag { get; init; }
 }

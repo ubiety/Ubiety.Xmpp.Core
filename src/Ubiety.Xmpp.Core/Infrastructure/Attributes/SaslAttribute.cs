@@ -15,54 +15,53 @@
 using System;
 using Ubiety.Xmpp.Core.Common;
 
-namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
+namespace Ubiety.Xmpp.Core.Infrastructure.Attributes;
+
+/// <summary>
+///     SASL authentication attribute.
+/// </summary>
+[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+public sealed class SaslAttribute : Attribute
 {
     /// <summary>
-    ///     SASL authentication attribute.
+    ///     Initializes a new instance of the <see cref="SaslAttribute" /> class.
     /// </summary>
-    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    public sealed class SaslAttribute : Attribute
+    /// <param name="mechanismName">Name of the SASL mechanism.</param>
+    /// <param name="processorType">Type of SASL processor.</param>
+    /// <param name="weight">Weight of the mechanism.</param>
+    /// <param name="channelBinding">Whether to use channel binding.</param>
+    /// <param name="type">Type of the mechanism.</param>
+    public SaslAttribute(string mechanismName, Type processorType, int weight, bool channelBinding, MechanismTypes type)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="SaslAttribute" /> class.
-        /// </summary>
-        /// <param name="mechanismName">Name of the SASL mechanism.</param>
-        /// <param name="processorType">Type of SASL processor.</param>
-        /// <param name="weight">Weight of the mechanism.</param>
-        /// <param name="channelBinding">Whether to use channel binding.</param>
-        /// <param name="type">Type of the mechanism.</param>
-        public SaslAttribute(string mechanismName, Type processorType, int weight, bool channelBinding, MechanismTypes type)
-        {
-            MechanismName = mechanismName;
-            ProcessorType = processorType;
-            Weight = weight;
-            ChannelBinding = channelBinding;
-            Type = type;
-        }
-
-        /// <summary>
-        ///     Gets the SASL mechanism name.
-        /// </summary>
-        public string MechanismName { get; }
-
-        /// <summary>
-        ///     Gets the SASL processor.
-        /// </summary>
-        public Type ProcessorType { get; }
-
-        /// <summary>
-        ///     Gets the mechanism weight.
-        /// </summary>
-        public int Weight { get; }
-
-        /// <summary>
-        ///     Gets a value indicating whether to use channel binding.
-        /// </summary>
-        public bool ChannelBinding { get; }
-
-        /// <summary>
-        ///     Gets the mechanism type.
-        /// </summary>
-        public MechanismTypes Type { get; }
+        MechanismName = mechanismName;
+        ProcessorType = processorType;
+        Weight = weight;
+        ChannelBinding = channelBinding;
+        Type = type;
     }
+
+    /// <summary>
+    ///     Gets the SASL mechanism name.
+    /// </summary>
+    public string MechanismName { get; }
+
+    /// <summary>
+    ///     Gets the SASL processor.
+    /// </summary>
+    public Type ProcessorType { get; }
+
+    /// <summary>
+    ///     Gets the mechanism weight.
+    /// </summary>
+    public int Weight { get; }
+
+    /// <summary>
+    ///     Gets a value indicating whether to use channel binding.
+    /// </summary>
+    public bool ChannelBinding { get; }
+
+    /// <summary>
+    ///     Gets the mechanism type.
+    /// </summary>
+    public MechanismTypes Type { get; }
 }

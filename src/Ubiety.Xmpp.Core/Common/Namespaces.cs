@@ -12,45 +12,44 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core.Common
+namespace Ubiety.Xmpp.Core.Common;
+
+/// <summary>
+///     XML namespaces for tags.
+/// </summary>
+public static class Namespaces
 {
-    /// <summary>
-    ///     XML namespaces for tags.
-    /// </summary>
-    public static class Namespaces
-    {
 #pragma warning disable S1075 // URIs should not be hardcoded
 
-        /// <summary>
-        ///     Stream namespace.
-        /// </summary>
-        public const string Stream = "http://etherx.jabber.org/streams";
+    /// <summary>
+    ///     Stream namespace.
+    /// </summary>
+    public const string Stream = "http://etherx.jabber.org/streams";
 
 #pragma warning restore S1075 // URIs should not be hardcoded
 
-        /// <summary>
-        ///     Client namespace.
-        /// </summary>
-        public const string Client = "jabber:client";
+    /// <summary>
+    ///     Client namespace.
+    /// </summary>
+    public const string Client = "jabber:client";
 
-        /// <summary>
-        ///     XMPP streams namespace.
-        /// </summary>
-        public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
+    /// <summary>
+    ///     XMPP streams namespace.
+    /// </summary>
+    public const string XmppStreams = "urn:ietf:params:xml:ns:xmpp-streams";
 
-        /// <summary>
-        ///     XMPP TLS namespace.
-        /// </summary>
-        public const string Tls = "urn:ietf:params:xml:ns:xmpp-tls";
+    /// <summary>
+    ///     XMPP TLS namespace.
+    /// </summary>
+    public const string Tls = "urn:ietf:params:xml:ns:xmpp-tls";
 
-        /// <summary>
-        ///     XMPP SASL namespace.
-        /// </summary>
-        public const string Sasl = "urn:ietf:params:xml:ns:xmpp-sasl";
+    /// <summary>
+    ///     XMPP SASL namespace.
+    /// </summary>
+    public const string Sasl = "urn:ietf:params:xml:ns:xmpp-sasl";
 
-        /// <summary>
-        ///     XMPP Resource Binding namespace.
-        /// </summary>
-        public const string Bind = "urn:ietf:params:xml:ns:xmpp-bind";
-    }
+    /// <summary>
+    ///     XMPP Resource Binding namespace.
+    /// </summary>
+    public const string Bind = "urn:ietf:params:xml:ns:xmpp-bind";
 }

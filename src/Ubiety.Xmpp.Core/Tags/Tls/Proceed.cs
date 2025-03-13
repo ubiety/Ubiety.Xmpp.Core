@@ -16,34 +16,33 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Tls
+namespace Ubiety.Xmpp.Core.Tags.Tls;
+
+/// <summary>
+///     TLS proceed tag.
+/// </summary>
+[XmppTag("proceed", Namespaces.Tls, typeof(Proceed))]
+public class Proceed : Tag
 {
     /// <summary>
-    ///     TLS proceed tag.
+    ///     Initializes a new instance of the <see cref="Proceed" /> class.
     /// </summary>
-    [XmppTag("proceed", Namespaces.Tls, typeof(Proceed))]
-    public class Proceed : Tag
+    /// <param name="other"><see cref="XElement" /> to derive tag from.</param>
+    public Proceed(XElement other)
+        : base(other)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Proceed" /> class.
-        /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive tag from.</param>
-        public Proceed(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Proceed" /> class.
-        /// </summary>
-        public Proceed()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("proceed", Namespaces.Tls);
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Proceed" /> class.
+    /// </summary>
+    public Proceed()
+        : base(XmlName)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("proceed", Namespaces.Tls);
 }

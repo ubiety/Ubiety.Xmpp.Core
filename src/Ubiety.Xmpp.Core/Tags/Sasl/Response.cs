@@ -16,34 +16,33 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Sasl
+namespace Ubiety.Xmpp.Core.Tags.Sasl;
+
+/// <summary>
+///     SASL authentication response tag.
+/// </summary>
+[XmppTag("response", Namespaces.Sasl, typeof(Response))]
+public class Response : Tag
 {
     /// <summary>
-    ///     SASL authentication response tag.
+    ///     Initializes a new instance of the <see cref="Response" /> class.
     /// </summary>
-    [XmppTag("response", Namespaces.Sasl, typeof(Response))]
-    public class Response : Tag
+    /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
+    public Response(XElement other)
+        : base(other)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Response" /> class.
-        /// </summary>
-        /// <param name="other"><see cref="XElement" /> to derive the tag from.</param>
-        public Response(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Response" /> class.
-        /// </summary>
-        public Response()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("response", Namespaces.Sasl);
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Response" /> class.
+    /// </summary>
+    public Response()
+        : base(XmlName)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("response", Namespaces.Sasl);
 }

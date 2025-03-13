@@ -14,28 +14,27 @@
 
 using System;
 
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core;
+
+/// <summary>
+///     Builds an XMPP connection.
+/// </summary>
+public static class XmppBuilder
 {
     /// <summary>
-    ///     Builds an XMPP connection.
+    ///     Build a client connection.
     /// </summary>
-    public class XmppBuilder
+    /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance.</returns>
+    public static XmppClientBuilder BeginClientBuild()
     {
-        /// <summary>
-        ///     Build a client connection.
-        /// </summary>
-        /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance.</returns>
-        public static XmppClientBuilder BeginClientBuild()
-        {
-            return new ();
-        }
+        return new XmppClientBuilder();
+    }
 
-        /// <summary>
-        ///     Build a server connection.
-        /// </summary>
-        public void BuildServer()
-        {
-            throw new NotImplementedException();
-        }
+    /// <summary>
+    ///     Build a server connection.
+    /// </summary>
+    public static void BuildServer()
+    {
+        throw new NotImplementedException();
     }
 }

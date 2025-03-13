@@ -20,110 +20,109 @@ using System.Text;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.Sasl
+namespace Ubiety.Xmpp.Core.Sasl;
+
+/// <summary>
+/// Represents a base class for handling SASL (Simple Authentication and Security Layer)
+/// authentication mechanisms in the XMPP protocol.
+/// </summary>
+public abstract class SaslProcessor
 {
+    private readonly Hashtable _directives = new ();
+
     /// <summary>
-    /// Represents a base class for handling SASL (Simple Authentication and Security Layer)
-    /// authentication mechanisms in the XMPP protocol.
+    ///     Gets or sets a value indicating whether to use channel binding.
     /// </summary>
-    public abstract class SaslProcessor
+    internal bool ChannelBinding { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the current client instance.
+    /// </summary>
+    internal XmppBase Client { get; set; }
+
+    /// <summary>
+    /// Gets or sets the type of the authentication mechanism used by the SASL processor.
+    /// </summary>
+    internal MechanismTypes MechanismType { get; set; }
+
+    /// <summary>
+    ///     Gets the user <see cref="Jid" /> for the session.
+    /// </summary>
+    protected Jid Id { get; private set; }
+
+    /// <summary>
+    ///     Gets the user password for the session.
+    /// </summary>
+    protected string Password { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the value associated with the specified directive key in the SASL processor.
+    /// </summary>
+    /// <param name="directive">The key representing a specific directive.</param>
+    /// <returns>
+    /// The value associated with the specified directive key.
+    /// </returns>
+    protected string this[string directive]
     {
-        private readonly Hashtable _directives = new ();
+        get => (string)_directives[directive];
+        set => _directives[directive] = value;
+    }
 
-        /// <summary>
-        ///     Gets or sets a value indicating whether to use channel binding.
-        /// </summary>
-        internal bool ChannelBinding { get; set; }
+    /// <summary>
+    /// Executes a single step in the SASL authentication process using the provided server tag.
+    /// </summary>
+    /// <param name="tag">Tag received from the server to process.</param>
+    /// <returns>The next tag to send to the server as part of the authentication process.</returns>
+    public abstract Tag Step(Tag tag);
 
-        /// <summary>
-        ///     Gets or sets the current client instance.
-        /// </summary>
-        internal XmppBase Client { get; set; }
+    /// <summary>
+    /// Initializes the SASL processor with the user's credentials.
+    /// </summary>
+    /// <param name="id">The <see cref="Jid"/> of the user for authentication.</param>
+    /// <param name="password">The password of the user for authentication.</param>
+    /// <returns>A <see cref="Tag"/> representing the SASL authentication data to send to the server.</returns>
+    public virtual Tag Initialize(Jid id, string password)
+    {
+        Id = id;
+        Password = password;
 
-        /// <summary>
-        /// Gets or sets the type of the authentication mechanism used by the SASL processor.
-        /// </summary>
-        internal MechanismTypes MechanismType { get; set; }
+        return null;
+    }
 
-        /// <summary>
-        ///     Gets the user <see cref="Jid" /> for the session.
-        /// </summary>
-        protected Jid Id { get; private set; }
-
-        /// <summary>
-        ///     Gets the user password for the session.
-        /// </summary>
-        protected string Password { get; private set; }
-
-        /// <summary>
-        /// Gets or sets the value associated with the specified directive key in the SASL processor.
-        /// </summary>
-        /// <param name="directive">The key representing a specific directive.</param>
-        /// <returns>
-        /// The value associated with the specified directive key.
-        /// </returns>
-        protected string this[string directive]
+    /// <summary>
+    /// Converts a sequence of bytes into a hexadecimal string representation.
+    /// </summary>
+    /// <param name="buffer">The byte sequence to be converted.</param>
+    /// <returns>A string containing the hexadecimal representation of the specified byte sequence.</returns>
+    protected static string HexString(IEnumerable<byte> buffer)
+    {
+        var s = new StringBuilder();
+        foreach (var item in buffer)
         {
-            get => (string)_directives[directive];
-            set => _directives[directive] = value;
+            s.Append(item.ToString("x2"));
         }
 
-        /// <summary>
-        /// Executes a single step in the SASL authentication process using the provided server tag.
-        /// </summary>
-        /// <param name="tag">Tag received from the server to process.</param>
-        /// <returns>The next tag to send to the server as part of the authentication process.</returns>
-        public abstract Tag Step(Tag tag);
+        return s.ToString();
+    }
 
-        /// <summary>
-        /// Initializes the SASL processor with the user's credentials.
-        /// </summary>
-        /// <param name="id">The <see cref="Jid"/> of the user for authentication.</param>
-        /// <param name="password">The password of the user for authentication.</param>
-        /// <returns>A <see cref="Tag"/> representing the SASL authentication data to send to the server.</returns>
-        public virtual Tag Initialize(Jid id, string password)
-        {
-            Id = id;
-            Password = password;
+    /// <summary>
+    /// Generates a random Int64 value using a cryptographically secure random number generator.
+    /// </summary>
+    /// <returns>A randomly generated Int64 value.</returns>
+    protected static long NextInt64()
+    {
+        var bytes = new byte[sizeof(long)];
 
-            return null;
-        }
+        RandomNumberGenerator.Fill(bytes);
+        return BitConverter.ToInt64(bytes, 0);
+    }
 
-        /// <summary>
-        /// Converts a sequence of bytes into a hexadecimal string representation.
-        /// </summary>
-        /// <param name="buffer">The byte sequence to be converted.</param>
-        /// <returns>A string containing the hexadecimal representation of the specified byte sequence.</returns>
-        protected static string HexString(IEnumerable<byte> buffer)
-        {
-            var s = new StringBuilder();
-            foreach (var item in buffer)
-            {
-                s.Append(item.ToString("x2"));
-            }
-
-            return s.ToString();
-        }
-
-        /// <summary>
-        /// Generates a random Int64 value using a cryptographically secure random number generator.
-        /// </summary>
-        /// <returns>A randomly generated Int64 value.</returns>
-        protected static long NextInt64()
-        {
-            var bytes = new byte[sizeof(long)];
-
-            RandomNumberGenerator.Fill(bytes);
-            return BitConverter.ToInt64(bytes, 0);
-        }
-
-        /// <summary>
-        /// Generates a unique string GUID to be used as a NONCE.
-        /// </summary>
-        /// <returns>A string representing the GUID for the NONCE.</returns>
-        protected static string CreateNonce()
-        {
-            return Guid.NewGuid().ToString();
-        }
+    /// <summary>
+    /// Generates a unique string GUID to be used as a NONCE.
+    /// </summary>
+    /// <returns>A string representing the GUID for the NONCE.</returns>
+    protected static string CreateNonce()
+    {
+        return Guid.NewGuid().ToString();
     }
 }

@@ -18,82 +18,81 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Stream
+namespace Ubiety.Xmpp.Core.Tags.Stream;
+
+/// <summary>
+///     XMPP Stream tag.
+/// </summary>
+[XmppTag("stream", Namespaces.Stream, typeof(Stream))]
+public class Stream : Stanza
 {
     /// <summary>
-    ///     XMPP Stream tag.
+    ///     Initializes a new instance of the <see cref="Stream" /> class.
     /// </summary>
-    [XmppTag("stream", Namespaces.Stream, typeof(Stream))]
-    public class Stream : Stanza
+    public Stream()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Stream" /> class.
-        /// </summary>
-        public Stream()
-            : base(XmlName)
+    }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Stream" /> class.
+    /// </summary>
+    /// <param name="other">Element to base the tag on.</param>
+    public Stream(XElement other)
+        : base(other)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("stream", Namespaces.Stream);
+
+    /// <summary>
+    ///     Gets or sets the stream version.
+    /// </summary>
+    public string Version
+    {
+        get => GetAttributeValue("version");
+        set => SetAttributeValue("version", value);
+    }
+
+    /// <summary>
+    ///     Gets or sets the stream namespace.
+    /// </summary>
+    public string Namespace
+    {
+        get => GetAttributeValue("xmlns");
+        set => SetAttributeValue("xmlns", value);
+    }
+
+    /// <summary>
+    ///     Gets the stream errors.
+    /// </summary>
+    public IEnumerable<Error> Errors => Elements<Error>(XName.Get("error", Namespaces.Stream));
+
+    /// <summary>
+    ///     Gets the stream features.
+    /// </summary>
+    public Features Features => Element<Features>(XName.Get("features", Namespaces.Stream));
+
+    /// <summary>
+    ///     Gets the start tag of the stream.
+    /// </summary>
+    public string StartTag
+    {
+        get
         {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Stream" /> class.
-        /// </summary>
-        /// <param name="other">Element to base the tag on.</param>
-        public Stream(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("stream", Namespaces.Stream);
-
-        /// <summary>
-        ///     Gets or sets the stream version.
-        /// </summary>
-        public string Version
-        {
-            get => GetAttributeValue("version");
-            set => SetAttributeValue("version", value);
-        }
-
-        /// <summary>
-        ///     Gets or sets the stream namespace.
-        /// </summary>
-        public string Namespace
-        {
-            get => GetAttributeValue("xmlns");
-            set => SetAttributeValue("xmlns", value);
-        }
-
-        /// <summary>
-        ///     Gets the stream errors.
-        /// </summary>
-        public IEnumerable<Error> Errors => Elements<Error>(XName.Get("error", Namespaces.Stream));
-
-        /// <summary>
-        ///     Gets the stream features.
-        /// </summary>
-        public Features Features => Element<Features>(XName.Get("features", Namespaces.Stream));
-
-        /// <summary>
-        ///     Gets the start tag of the stream.
-        /// </summary>
-        public string StartTag
-        {
-            get
+            var tag = new StringBuilder(
+                $"<{XmlName.LocalName}:{XmlName.LocalName} xmlns:{XmlName.LocalName}=\'{XmlName.NamespaceName}\'");
+            foreach (var attribute in Attributes())
             {
-                var tag = new StringBuilder(
-                    $"<{XmlName.LocalName}:{XmlName.LocalName} xmlns:{XmlName.LocalName}=\'{XmlName.NamespaceName}\'");
-                foreach (var attribute in Attributes())
-                {
-                    tag.Append($" {attribute.Name.LocalName}=\'{attribute.Value}\'");
-                }
-
-                tag.Append('>');
-
-                return tag.ToString();
+                tag.Append($" {attribute.Name.LocalName}=\'{attribute.Value}\'");
             }
+
+            tag.Append('>');
+
+            return tag.ToString();
         }
     }
 }

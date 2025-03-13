@@ -17,29 +17,28 @@ using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Tls;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.States;
+
+/// <summary>
+///     Start TLS state.
+/// </summary>
+public class StartTlsState : IState
 {
-    /// <summary>
-    ///     Start TLS state.
-    /// </summary>
-    public class StartTlsState : IState
+    private static readonly ILog Logger = Log.Get<StartTlsState>();
+
+    /// <inheritdoc />
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        private static readonly ILog Logger = Log.Get<StartTlsState>();
-
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
+        if (tag is Proceed)
         {
-            if (tag is Proceed)
-            {
-                Logger.Log(LogLevel.Debug, "Clear to start SSL/TLS connection");
-                xmpp.State = new ConnectedState();
-                xmpp.ClientSocket.StartSsl();
-                return;
-            }
-
-            Logger.Log(LogLevel.Debug, "Sending starttls");
-            var starttls = xmpp.TagRegistry.GetTag<StartTls>(StartTls.XmlName);
-            xmpp.ClientSocket.Send(starttls);
+            Logger.Log(LogLevel.Debug, "Clear to start SSL/TLS connection");
+            xmpp.State = new ConnectedState();
+            xmpp.ClientSocket.StartSsl();
+            return;
         }
+
+        Logger.Log(LogLevel.Debug, "Sending starttls");
+        var starttls = xmpp.TagRegistry.GetTag<StartTls>(StartTls.XmlName);
+        xmpp.ClientSocket.Send(starttls);
     }
 }

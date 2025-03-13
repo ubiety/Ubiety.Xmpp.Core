@@ -16,90 +16,89 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Sasl
+namespace Ubiety.Xmpp.Core.Tags.Sasl;
+
+/// <summary>
+///     SASL authentication mechanism.
+/// </summary>
+[XmppTag("mechanism", Namespaces.Sasl, typeof(Mechanism))]
+public class Mechanism : Tag
 {
     /// <summary>
-    ///     SASL authentication mechanism.
+    ///     Initializes a new instance of the <see cref="Mechanism" /> class.
     /// </summary>
-    [XmppTag("mechanism", Namespaces.Sasl, typeof(Mechanism))]
-    public class Mechanism : Tag
+    public Mechanism()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanism" /> class.
-        /// </summary>
-        public Mechanism()
-            : base(XmlName)
+    }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Mechanism" /> class.
+    /// </summary>
+    /// <param name="element"><see cref="XElement" /> to derive tag from.</param>
+    public Mechanism(XElement element)
+        : base(element)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("mechanism", Namespaces.Sasl);
+
+    /// <summary>
+    ///     Gets or sets the mechanism type.
+    /// </summary>
+    public MechanismTypes Type
+    {
+        get => ToTypeFromString(Value);
+
+        set => Value = ToStringFromType(value);
+    }
+
+    /// <summary>
+    ///     Convert a mechanism to its type format.
+    /// </summary>
+    /// <param name="type">String type of the mechanism.</param>
+    /// <returns>Type of the mechanism.</returns>
+    public static MechanismTypes ToTypeFromString(string type)
+    {
+        return type switch
         {
-        }
+            "PLAIN" => MechanismTypes.Plain,
+            "DIGEST-MD5" => MechanismTypes.DigestMd5,
+            "EXTERNAL" => MechanismTypes.External,
+            "SCRAM-SHA-1" => MechanismTypes.Scram1,
+            "SCRAM-SHA-1-PLUS" => MechanismTypes.Scram1Plus,
+            "SCRAM-SHA-256" => MechanismTypes.Scram256,
+            "SCRAM-SHA-256-PLUS" => MechanismTypes.Scram256Plus,
+            "SCRAM-SHA-512" => MechanismTypes.Scram512,
+            "SCRAM-SHA-512-PLUS" => MechanismTypes.Scram512Plus,
+            _ => MechanismTypes.None,
+        };
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Mechanism" /> class.
-        /// </summary>
-        /// <param name="element"><see cref="XElement" /> to derive tag from.</param>
-        public Mechanism(XElement element)
-            : base(element)
+    /// <summary>
+    ///     Converts a mechanism type to a string.
+    /// </summary>
+    /// <param name="type">Type to convert.</param>
+    /// <returns>String name of the mechanism.</returns>
+    public static string ToStringFromType(MechanismTypes type)
+    {
+        return type switch
         {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("mechanism", Namespaces.Sasl);
-
-        /// <summary>
-        ///     Gets or sets the mechanism type.
-        /// </summary>
-        public MechanismTypes Type
-        {
-            get => ToTypeFromString(Value);
-
-            set => Value = ToStringFromType(value);
-        }
-
-        /// <summary>
-        ///     Convert a mechanism to its type format.
-        /// </summary>
-        /// <param name="type">String type of the mechanism.</param>
-        /// <returns>Type of the mechanism.</returns>
-        public static MechanismTypes ToTypeFromString(string type)
-        {
-            return type switch
-            {
-                "PLAIN" => MechanismTypes.Plain,
-                "DIGEST-MD5" => MechanismTypes.DigestMd5,
-                "EXTERNAL" => MechanismTypes.External,
-                "SCRAM-SHA-1" => MechanismTypes.Scram1,
-                "SCRAM-SHA-1-PLUS" => MechanismTypes.Scram1Plus,
-                "SCRAM-SHA-256" => MechanismTypes.Scram256,
-                "SCRAM-SHA-256-PLUS" => MechanismTypes.Scram256Plus,
-                "SCRAM-SHA-512" => MechanismTypes.Scram512,
-                "SCRAM-SHA-512-PLUS" => MechanismTypes.Scram512Plus,
-                _ => MechanismTypes.None,
-            };
-        }
-
-        /// <summary>
-        ///     Converts a mechanism type to a string.
-        /// </summary>
-        /// <param name="type">Type to convert.</param>
-        /// <returns>String name of the mechanism.</returns>
-        public static string ToStringFromType(MechanismTypes type)
-        {
-            return type switch
-            {
-                MechanismTypes.None => string.Empty,
-                MechanismTypes.Plain => "PLAIN",
-                MechanismTypes.DigestMd5 => "DIGEST-MD5",
-                MechanismTypes.External => "EXTERNAL",
-                MechanismTypes.Scram1 => "SCRAM-SHA-1",
-                MechanismTypes.Scram1Plus => "SCRAM-SHA-1-PLUS",
-                MechanismTypes.Scram256 => "SCRAM-SHA-256",
-                MechanismTypes.Scram256Plus => "SCRAM-SHA-256-PLUS",
-                MechanismTypes.Scram512 => "SCRAM-SHA-512",
-                MechanismTypes.Scram512Plus => "SCRAM-SHA-512-PLUS",
-                MechanismTypes.Default => string.Empty,
-                _ => string.Empty,
-            };
-        }
+            MechanismTypes.None => string.Empty,
+            MechanismTypes.Plain => "PLAIN",
+            MechanismTypes.DigestMd5 => "DIGEST-MD5",
+            MechanismTypes.External => "EXTERNAL",
+            MechanismTypes.Scram1 => "SCRAM-SHA-1",
+            MechanismTypes.Scram1Plus => "SCRAM-SHA-1-PLUS",
+            MechanismTypes.Scram256 => "SCRAM-SHA-256",
+            MechanismTypes.Scram256Plus => "SCRAM-SHA-256-PLUS",
+            MechanismTypes.Scram512 => "SCRAM-SHA-512",
+            MechanismTypes.Scram512Plus => "SCRAM-SHA-512-PLUS",
+            MechanismTypes.Default => string.Empty,
+            _ => string.Empty,
+        };
     }
 }

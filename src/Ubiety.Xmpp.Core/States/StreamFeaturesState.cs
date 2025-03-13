@@ -19,59 +19,58 @@ using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
-namespace Ubiety.Xmpp.Core.States
+namespace Ubiety.Xmpp.Core.States;
+
+/// <summary>
+///     Stream features state.
+/// </summary>
+public class StreamFeaturesState : IState
 {
-    /// <summary>
-    ///     Stream features state.
-    /// </summary>
-    public class StreamFeaturesState : IState
+    private static readonly ILog Logger = Log.Get<StreamFeaturesState>();
+
+    /// <inheritdoc />
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        private static readonly ILog Logger = Log.Get<StreamFeaturesState>();
+        Features features;
 
-        /// <inheritdoc />
-        public void Execute(XmppBase xmpp, Tag tag = null)
+        xmpp.ClientSocket.SetReadClear();
+
+        Logger.Log(LogLevel.Debug, "Starting to parse features");
+        switch (tag)
         {
-            Features features;
+            case Stream s when s.Version.StartsWith("1."):
+                features = s.Features;
+                break;
 
-            xmpp.ClientSocket.SetReadClear();
+            case Features f:
+                features = f;
+                break;
 
-            Logger.Log(LogLevel.Debug, "Starting to parse features");
-            switch (tag)
-            {
-                case Stream s when s.Version.StartsWith("1."):
-                    features = s.Features;
-                    break;
-
-                case Features f:
-                    features = f;
-                    break;
-
-                default:
-                    Logger.Log(LogLevel.Error, "Unexpected tag. Wrong state executed");
-                    throw new InvalidStateException("Received tag that is not valid for the current state");
-            }
-
-            if (!xmpp.ClientSocket.Secure)
-            {
-                Logger.Log(LogLevel.Debug, "Socket is not secure. Checking if we should use SSL");
-                if (features.CheckSsl(xmpp))
-                {
-                    Logger.Log(LogLevel.Debug, "Initializing security...");
-                    xmpp.State = new StartTlsState();
-                    xmpp.State.Execute(xmpp);
-                    return;
-                }
-            }
-
-            if (xmpp is XmppClient { Authenticated: false } client)
-            {
-                Logger.Log(LogLevel.Debug, "Authenticating the user");
-                features.AuthenticateUser(client);
-            }
-
-            Logger.Log(LogLevel.Debug, "Starting resource binding");
-            xmpp.State = new BindingState();
-            xmpp.State.Execute(xmpp);
+            default:
+                Logger.Log(LogLevel.Error, "Unexpected tag. Wrong state executed");
+                throw new InvalidStateException("Received tag that is not valid for the current state");
         }
+
+        if (!xmpp.ClientSocket.Secure)
+        {
+            Logger.Log(LogLevel.Debug, "Socket is not secure. Checking if we should use SSL");
+            if (features.CheckSsl(xmpp))
+            {
+                Logger.Log(LogLevel.Debug, "Initializing security...");
+                xmpp.State = new StartTlsState();
+                xmpp.State.Execute(xmpp);
+                return;
+            }
+        }
+
+        if (xmpp is XmppClient { Authenticated: false } client)
+        {
+            Logger.Log(LogLevel.Debug, "Authenticating the user");
+            features.AuthenticateUser(client);
+        }
+
+        Logger.Log(LogLevel.Debug, "Starting resource binding");
+        xmpp.State = new BindingState();
+        xmpp.State.Execute(xmpp);
     }
 }

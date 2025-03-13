@@ -16,35 +16,34 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags
+namespace Ubiety.Xmpp.Core.Tags;
+
+/// <summary>
+///     Generic text tag.
+/// </summary>
+/// <inheritdoc />
+[XmppTag("text", Namespaces.XmppStreams, typeof(Text))]
+public class Text : Tag
 {
     /// <summary>
-    ///     Generic text tag.
+    ///     Initializes a new instance of the <see cref="Text" /> class.
     /// </summary>
-    /// <inheritdoc />
-    [XmppTag("text", Namespaces.XmppStreams, typeof(Text))]
-    public class Text : Tag
+    public Text()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Text" /> class.
-        /// </summary>
-        public Text()
-            : base(XmlName)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Text" /> class.
-        /// </summary>
-        /// <param name="other">Element to base the tag on.</param>
-        public Text(XElement other)
-            : base(other)
-        {
-        }
-
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("text", Namespaces.XmppStreams);
     }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Text" /> class.
+    /// </summary>
+    /// <param name="other">Element to base the tag on.</param>
+    public Text(XElement other)
+        : base(other)
+    {
+    }
+
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("text", Namespaces.XmppStreams);
 }

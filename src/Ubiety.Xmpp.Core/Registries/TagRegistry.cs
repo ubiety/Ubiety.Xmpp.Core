@@ -22,140 +22,139 @@ using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
 
-namespace Ubiety.Xmpp.Core.Registries
+namespace Ubiety.Xmpp.Core.Registries;
+
+/// <summary>
+///     Tag registry.
+/// </summary>
+public class TagRegistry
 {
+    private static readonly ILog Logger = Log.Get<TagRegistry>();
+    private readonly Dictionary<XName, Type> _types = new ();
+
     /// <summary>
-    ///     Tag registry.
+    ///     Add tags from the assembly to the registry.
     /// </summary>
-    public class TagRegistry
+    /// <param name="assembly">Assembly to add tags from.</param>
+    public void AddAssembly(Assembly assembly)
     {
-        private static readonly ILog Logger = Log.Get<TagRegistry>();
-        private readonly Dictionary<XName, Type> _types = new ();
+        Logger.Log(LogLevel.Debug, "AddAssembly(Assembly) called");
+        Logger.Log(LogLevel.Debug, $"Loading tags from assembly: {assembly.FullName}");
 
-        /// <summary>
-        ///     Add tags from the assembly to the registry.
-        /// </summary>
-        /// <param name="assembly">Assembly to add tags from.</param>
-        public void AddAssembly(Assembly assembly)
+        var attributes = assembly.GetAttributes<XmppTagAttribute>();
+        foreach (var attribute in attributes)
         {
-            Logger.Log(LogLevel.Debug, "AddAssembly(Assembly) called");
-            Logger.Log(LogLevel.Debug, $"Loading tags from assembly: {assembly.FullName}");
-
-            var attributes = assembly.GetAttributes<XmppTagAttribute>();
-            foreach (var attribute in attributes)
-            {
-                Logger.Log(LogLevel.Debug, $"Adding tag {attribute.Name} as {attribute.TagType}");
-                _types.Add(attribute.Name, attribute.TagType);
-            }
+            Logger.Log(LogLevel.Debug, $"Adding tag {attribute.Name} as {attribute.TagType}");
+            _types.Add(attribute.Name, attribute.TagType);
         }
+    }
 
-        /// <summary>
-        ///     Retrieves a tag from the registry.
-        /// </summary>
-        /// <typeparam name="T">Type of tag to retrieve.</typeparam>
-        /// <param name="name">Name of the tag.</param>
-        /// <param name="ns">Namespace of the tag.</param>
-        /// <returns>Tag requested from the registry.</returns>
-        public T GetTag<T>(string name, string ns)
-            where T : Tag
+    /// <summary>
+    ///     Retrieves a tag from the registry.
+    /// </summary>
+    /// <typeparam name="T">Type of tag to retrieve.</typeparam>
+    /// <param name="name">Name of the tag.</param>
+    /// <param name="ns">Namespace of the tag.</param>
+    /// <returns>Tag requested from the registry.</returns>
+    public T GetTag<T>(string name, string ns)
+        where T : Tag
+    {
+        Logger.Log(LogLevel.Debug, "GetTag<T>(string, string) called");
+        return GetTag<T>(XName.Get(name, ns));
+    }
+
+    /// <summary>
+    ///     Retrieves a tag from the registry.
+    /// </summary>
+    /// <typeparam name="T">Type of tag to retrieve.</typeparam>
+    /// <param name="name">XML name of the tag.</param>
+    /// <returns>Tag requested from the registry.</returns>
+    public T GetTag<T>(XName name)
+    {
+        Logger.Log(LogLevel.Debug, "GetTag<T>(XName) called");
+        var tag = default(T);
+
+        Logger.Log(LogLevel.Debug, $"Finding tag {name.LocalName}...");
+
+        if (_types.TryGetValue(name, out var type))
         {
-            Logger.Log(LogLevel.Debug, "GetTag<T>(string, string) called");
-            return GetTag<T>(XName.Get(name, ns));
-        }
-
-        /// <summary>
-        ///     Retrieves a tag from the registry.
-        /// </summary>
-        /// <typeparam name="T">Type of tag to retrieve.</typeparam>
-        /// <param name="name">XML name of the tag.</param>
-        /// <returns>Tag requested from the registry.</returns>
-        public T GetTag<T>(XName name)
-        {
-            Logger.Log(LogLevel.Debug, "GetTag<T>(XName) called");
-            var tag = default(T);
-
-            Logger.Log(LogLevel.Debug, $"Finding tag {name.LocalName}...");
-
-            if (_types.TryGetValue(name, out var type))
+            var constructor = Tag.GetConstructor(type, Array.Empty<Type>());
+            if (constructor is null)
             {
-                var constructor = Tag.GetConstructor(type, Array.Empty<Type>());
-                if (constructor is null)
+                constructor = Tag.GetConstructor(type, [typeof(XName)]);
+                if (constructor != null)
                 {
-                    constructor = Tag.GetConstructor(type, new[] { typeof(XName) });
-                    if (constructor != null)
-                    {
-                        tag = (T)constructor.Invoke(new object[] { name });
-                    }
-                }
-                else
-                {
-                    tag = (T)constructor.Invoke(Array.Empty<object>());
+                    tag = (T)constructor.Invoke([name]);
                 }
             }
             else
             {
-                return default;
+                tag = (T)constructor.Invoke([]);
             }
-
-            Logger.Log(LogLevel.Debug, "Tag found");
-
-            return tag;
         }
-
-        /// <summary>
-        ///     Get a tag from the registry based on the provided XML element.
-        /// </summary>
-        /// <typeparam name="T">Type of tag to return.</typeparam>
-        /// <param name="element">Element to search for.</param>
-        /// <returns>Tag from the registry.</returns>
-        public T GetTag<T>(XElement element)
+        else
         {
-            Logger.Log(LogLevel.Debug, "GetTag<T>(XElement) called");
-            Logger.Log(LogLevel.Debug, $"Finding tag for element: {element.Name.LocalName}");
-
-            try
-            {
-                var gotType = _types.TryGetValue(element.Name, out var type);
-
-                if (!gotType)
-                {
-                    switch (element.Name.LocalName)
-                    {
-                        case "iq":
-                        case "presence":
-                        case "message":
-                        case "error":
-                            element.Name = XName.Get(element.Name.LocalName, Namespaces.Client);
-                            gotType = _types.TryGetValue(element.Name, out type);
-                            break;
-                    }
-                }
-
-                if (gotType)
-                {
-                    Logger.Log(LogLevel.Debug, $"Constructing type: {type}");
-                    var constructor = type.GetConstructor(new[] { element.GetType() });
-                    if (constructor is null)
-                    {
-                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
-                        if (defaultConstructorInfo is null)
-                        {
-                            return default;
-                        }
-
-                        return (T)defaultConstructorInfo.Invoke(new object[] { element });
-                    }
-
-                    return (T)constructor.Invoke(new object[] { element });
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
             return default;
         }
+
+        Logger.Log(LogLevel.Debug, "Tag found");
+
+        return tag;
+    }
+
+    /// <summary>
+    ///     Get a tag from the registry based on the provided XML element.
+    /// </summary>
+    /// <typeparam name="T">Type of tag to return.</typeparam>
+    /// <param name="element">Element to search for.</param>
+    /// <returns>Tag from the registry.</returns>
+    public T GetTag<T>(XElement element)
+    {
+        Logger.Log(LogLevel.Debug, "GetTag<T>(XElement) called");
+        Logger.Log(LogLevel.Debug, $"Finding tag for element: {element.Name.LocalName}");
+
+        try
+        {
+            var gotType = _types.TryGetValue(element.Name, out var type);
+
+            if (!gotType)
+            {
+                switch (element.Name.LocalName)
+                {
+                    case "iq":
+                    case "presence":
+                    case "message":
+                    case "error":
+                        element.Name = XName.Get(element.Name.LocalName, Namespaces.Client);
+                        gotType = _types.TryGetValue(element.Name, out type);
+                        break;
+                }
+            }
+
+            if (gotType)
+            {
+                Logger.Log(LogLevel.Debug, $"Constructing type: {type}");
+                var constructor = type.GetConstructor([element.GetType()]);
+                if (constructor is null)
+                {
+                    var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), [typeof(Tag)]);
+                    if (defaultConstructorInfo is null)
+                    {
+                        return default;
+                    }
+
+                    return (T)defaultConstructorInfo.Invoke([element]);
+                }
+
+                return (T)constructor.Invoke([element]);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+
+        return default;
     }
 }

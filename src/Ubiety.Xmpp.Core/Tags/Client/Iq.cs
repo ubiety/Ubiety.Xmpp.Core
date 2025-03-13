@@ -16,71 +16,70 @@ using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 
-namespace Ubiety.Xmpp.Core.Tags.Client
+namespace Ubiety.Xmpp.Core.Tags.Client;
+
+/// <summary>
+///     IQ tag type.
+/// </summary>
+public enum IqType
 {
     /// <summary>
-    ///     IQ tag type.
+    ///     IQ Get.
     /// </summary>
-    public enum IqType
+    Get,
+
+    /// <summary>
+    ///     IQ Set.
+    /// </summary>
+    Set,
+
+    /// <summary>
+    ///     IQ Error.
+    /// </summary>
+    Error,
+
+    /// <summary>
+    ///     IQ Result.
+    /// </summary>
+    Result,
+}
+
+/// <summary>
+///     XMPP Iq tag.
+/// </summary>
+[XmppTag("iq", Namespaces.Client, typeof(Iq))]
+public class Iq : Stanza
+{
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="Iq"/> class.
+    /// </summary>
+    public Iq()
+        : base(XmlName)
     {
-        /// <summary>
-        ///     IQ Get.
-        /// </summary>
-        Get,
-
-        /// <summary>
-        ///     IQ Set.
-        /// </summary>
-        Set,
-
-        /// <summary>
-        ///     IQ Error.
-        /// </summary>
-        Error,
-
-        /// <summary>
-        ///     IQ Result.
-        /// </summary>
-        Result,
+        Id = GetNextPacketId();
     }
 
     /// <summary>
-    ///     XMPP Iq tag.
+    ///     Initializes a new instance of the <see cref="Iq"/> class.
     /// </summary>
-    [XmppTag("iq", Namespaces.Client, typeof(Iq))]
-    public class Iq : Stanza
+    /// <param name="element"><see cref="XElement"/> to derive the tag from.</param>
+    public Iq(XElement element)
+        : base(element)
     {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Iq"/> class.
-        /// </summary>
-        public Iq()
-            : base(XmlName)
-        {
-            Id = GetNextPacketId();
-        }
+        Id = GetNextPacketId();
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Iq"/> class.
-        /// </summary>
-        /// <param name="element"><see cref="XElement"/> to derive the tag from.</param>
-        public Iq(XElement element)
-            : base(element)
-        {
-            Id = GetNextPacketId();
-        }
+    /// <summary>
+    ///     Gets the XML name of the tag.
+    /// </summary>
+    public static XName XmlName { get; } = XName.Get("iq", Namespaces.Client);
 
-        /// <summary>
-        ///     Gets the XML name of the tag.
-        /// </summary>
-        public static XName XmlName { get; } = XName.Get("iq", Namespaces.Client);
-
-        /// <summary>
-        ///     Gets or sets the IQ tag type.
-        /// </summary>
-        public IqType IqType
-        {
-            get => GetAttributeEnumValue<IqType>("type");
-            set => SetAttributeEnumValue("type", value);
-        }
+    /// <summary>
+    ///     Gets or sets the IQ tag type.
+    /// </summary>
+    public IqType IqType
+    {
+        get => GetAttributeEnumValue<IqType>("type");
+        set => SetAttributeEnumValue("type", value);
     }
 }

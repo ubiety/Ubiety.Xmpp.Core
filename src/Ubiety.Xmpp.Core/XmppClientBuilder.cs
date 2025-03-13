@@ -15,79 +15,78 @@
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Registries;
 
-namespace Ubiety.Xmpp.Core
+namespace Ubiety.Xmpp.Core;
+
+/// <summary>
+///     Builds a new XmppClient.
+/// </summary>
+public class XmppClientBuilder
 {
+    private ILogManager _logManager;
+    private bool _useIpv6;
+    private bool _useSsl;
+    private string _resource;
+
     /// <summary>
-    ///     Builds a new XmppClient.
+    ///     Enable logging with the log manager.
     /// </summary>
-    public class XmppClientBuilder
+    /// <param name="manager">Log manager to use for logging.</param>
+    /// <returns>Builder instance.</returns>
+    public XmppClientBuilder EnableLogging(ILogManager manager)
     {
-        private ILogManager _logManager;
-        private bool _useIpv6;
-        private bool _useSsl;
-        private string _resource;
+        _logManager = manager;
+        return this;
+    }
 
-        /// <summary>
-        ///     Enable logging with the log manager.
-        /// </summary>
-        /// <param name="manager">Log manager to use for logging.</param>
-        /// <returns>Builder instance.</returns>
-        public XmppClientBuilder EnableLogging(ILogManager manager)
+    /// <summary>
+    ///     Enables IPv6 support in the library.
+    /// </summary>
+    /// <returns>Builder instance.</returns>
+    public XmppClientBuilder UseIPv6()
+    {
+        _useIpv6 = true;
+        return this;
+    }
+
+    /// <summary>
+    ///     Enables SSL/TLS support.
+    /// </summary>
+    /// <returns>Builder instance.</returns>
+    public XmppClientBuilder UseSsl()
+    {
+        _useSsl = true;
+        return this;
+    }
+
+    /// <summary>
+    ///     Set a client resource.
+    /// </summary>
+    /// <param name="resource">Resource to set.</param>
+    /// <returns>Builder instance.</returns>
+    public XmppClientBuilder SetResource(string resource)
+    {
+        _resource = resource;
+        return this;
+    }
+
+    /// <summary>
+    ///     Builds the client.
+    /// </summary>
+    /// <returns>Client with the options provided.</returns>
+    public XmppClient Build()
+    {
+        if (_logManager != null)
         {
-            _logManager = manager;
-            return this;
+            Log.Initialize(_logManager);
         }
 
-        /// <summary>
-        ///     Enables IPv6 support in the library.
-        /// </summary>
-        /// <returns>Builder instance.</returns>
-        public XmppClientBuilder UseIPv6()
-        {
-            _useIpv6 = true;
-            return this;
-        }
+        var type = typeof(XmppClientBuilder);
+        var tagRegistry = new TagRegistry();
+        tagRegistry.AddAssembly(type.Assembly);
 
-        /// <summary>
-        ///     Enables SSL/TLS support.
-        /// </summary>
-        /// <returns>Builder instance.</returns>
-        public XmppClientBuilder UseSsl()
-        {
-            _useSsl = true;
-            return this;
-        }
+        var saslRegistry = new SaslRegistry();
+        saslRegistry.AddAssembly(type.Assembly);
 
-        /// <summary>
-        ///     Set a client resource.
-        /// </summary>
-        /// <param name="resource">Resource to set.</param>
-        /// <returns>Builder instance.</returns>
-        public XmppClientBuilder SetResource(string resource)
-        {
-            _resource = resource;
-            return this;
-        }
-
-        /// <summary>
-        ///     Builds the client.
-        /// </summary>
-        /// <returns>Client with the options provided.</returns>
-        public XmppClient Build()
-        {
-            if (_logManager != null)
-            {
-                Log.Initialize(_logManager);
-            }
-
-            var type = typeof(XmppClientBuilder);
-            var tagRegistry = new TagRegistry();
-            tagRegistry.AddAssembly(type.Assembly);
-
-            var saslRegistry = new SaslRegistry();
-            saslRegistry.AddAssembly(type.Assembly);
-
-            return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, TagRegistry = tagRegistry, SaslRegistry = saslRegistry, Resource = _resource };
-        }
+        return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, TagRegistry = tagRegistry, SaslRegistry = saslRegistry, Resource = _resource };
     }
 }
