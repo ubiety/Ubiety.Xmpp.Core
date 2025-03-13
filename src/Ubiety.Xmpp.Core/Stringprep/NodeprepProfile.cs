@@ -17,18 +17,15 @@ using Ubiety.Stringprep.Core;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    /// Provides the Nodeprep profile implementation for Stringprep processing, specific to node-related operations
-    /// adhering to the XMPP protocol as defined in RFC 3920.
+    ///     XMPP Nodeprep Stringprep profile.
     /// </summary>
     public static class NodeprepProfile
     {
         /// <summary>
-        /// Represents a collection of prohibited characters specifically defined for the Nodeprep profile,
-        /// adhering to Stringprep processing requirements in the XMPP protocol as specified in RFC 3920.
-        /// These characters are disallowed in XMPP node identifiers to ensure proper functionality and compatibility.
+        ///     Nodeprep prohibited code points.
         /// </summary>
-        private static readonly int[] NodeprepProhibited =
-        [
+        public static readonly int[] NodeprepProhibited =
+        {
             0x0022, 0x0022,
             0x0026, 0x0026,
             0x0027, 0x0027,
@@ -36,16 +33,13 @@ namespace Ubiety.Xmpp.Core.Stringprep
             0x003A, 0x003A,
             0x003C, 0x003C,
             0x003E, 0x003E,
-            0x0040, 0x0040
-        ];
+            0x0040, 0x0040,
+        };
 
         /// <summary>
-        /// Creates and returns an instance of a preparation process tailored
-        /// for the Nodeprep profile as defined by the XMPP protocol in RFC 3920.
-        /// The process includes mapping, normalization, prohibited value checks,
-        /// and bidirectional processing steps specific to XMPP node identifiers.
+        ///     Create Nodeprep profile.
         /// </summary>
-        /// <returns>Instance of <see cref="IPreparationProcess"/> configured for the Nodeprep profile.</returns>
+        /// <returns>Nodeprep process.</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()

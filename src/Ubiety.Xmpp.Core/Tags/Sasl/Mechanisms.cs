@@ -21,7 +21,7 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    /// Represents the SASL mechanisms used for authentication in XMPP.
+    ///     SASL authentication mechanisms.
     /// </summary>
     [XmppTag("mechanisms", Namespaces.Sasl, typeof(Mechanisms))]
     public class Mechanisms : Tag
@@ -49,12 +49,15 @@ namespace Ubiety.Xmpp.Core.Tags.Sasl
         public static XName XmlName { get; } = XName.Get("mechanisms", Namespaces.Sasl);
 
         /// <summary>
-        /// Gets the supported SASL mechanism types for authentication.
+        ///     Gets the supported mechanism types for the server.
         /// </summary>
         public MechanismTypes SupportedTypes =>
             SupportedMechanisms.Aggregate(MechanismTypes.None, (current, mechanism) => current | mechanism.Type);
 
-        private IEnumerable<Mechanism> SupportedMechanisms =>
+        /// <summary>
+        ///     Gets the supported mechanism types for the server.
+        /// </summary>
+        public IEnumerable<Mechanism> SupportedMechanisms =>
             Elements<Mechanism>(XName.Get("mechanism", Namespaces.Sasl));
     }
 }

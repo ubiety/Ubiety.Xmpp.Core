@@ -25,8 +25,7 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Registries
 {
     /// <summary>
-    /// Manages the registration and retrieval of XMPP tags, providing functionality
-    /// to add assemblies containing tag definitions and retrieve tags by type, name, or namespace.
+    ///     Tag registry.
     /// </summary>
     public class TagRegistry
     {
@@ -34,9 +33,9 @@ namespace Ubiety.Xmpp.Core.Registries
         private readonly Dictionary<XName, Type> _types = new ();
 
         /// <summary>
-        /// Adds all the tags from the specified assembly to the registry.
+        ///     Add tags from the assembly to the registry.
         /// </summary>
-        /// <param name="assembly">The assembly to load tags from.</param>
+        /// <param name="assembly">Assembly to add tags from.</param>
         public void AddAssembly(Assembly assembly)
         {
             Logger.Log(LogLevel.Debug, "AddAssembly(Assembly) called");
@@ -51,12 +50,12 @@ namespace Ubiety.Xmpp.Core.Registries
         }
 
         /// <summary>
-        /// Retrieves a tag from the registry by its type, name, and namespace.
+        ///     Retrieves a tag from the registry.
         /// </summary>
-        /// <typeparam name="T">The type of the tag to retrieve.</typeparam>
-        /// <param name="name">The name of the tag to retrieve.</param>
-        /// <param name="ns">The namespace of the tag to retrieve.</param>
-        /// <returns>Returns the instance of the requested tag from the registry.</returns>
+        /// <typeparam name="T">Type of tag to retrieve.</typeparam>
+        /// <param name="name">Name of the tag.</param>
+        /// <param name="ns">Namespace of the tag.</param>
+        /// <returns>Tag requested from the registry.</returns>
         public T GetTag<T>(string name, string ns)
             where T : Tag
         {
@@ -65,11 +64,11 @@ namespace Ubiety.Xmpp.Core.Registries
         }
 
         /// <summary>
-        /// Retrieves the requested tag from the registry based on its name.
+        ///     Retrieves a tag from the registry.
         /// </summary>
-        /// <typeparam name="T">The type of tag to retrieve.</typeparam>
-        /// <param name="name">The local name of the tag.</param>
-        /// <returns>The requested tag of type T, or the default value if not found.</returns>
+        /// <typeparam name="T">Type of tag to retrieve.</typeparam>
+        /// <param name="name">XML name of the tag.</param>
+        /// <returns>Tag requested from the registry.</returns>
         public T GetTag<T>(XName name)
         {
             Logger.Log(LogLevel.Debug, "GetTag<T>(XName) called");
@@ -82,15 +81,15 @@ namespace Ubiety.Xmpp.Core.Registries
                 var constructor = Tag.GetConstructor(type, Array.Empty<Type>());
                 if (constructor is null)
                 {
-                    constructor = Tag.GetConstructor(type, [typeof(XName)]);
+                    constructor = Tag.GetConstructor(type, new[] { typeof(XName) });
                     if (constructor != null)
                     {
-                        tag = (T)constructor.Invoke([name]);
+                        tag = (T)constructor.Invoke(new object[] { name });
                     }
                 }
                 else
                 {
-                    tag = (T)constructor.Invoke([]);
+                    tag = (T)constructor.Invoke(Array.Empty<object>());
                 }
             }
             else
@@ -104,11 +103,11 @@ namespace Ubiety.Xmpp.Core.Registries
         }
 
         /// <summary>
-        /// Retrieves a tag of the specified type from the registry based on the provided element.
+        ///     Get a tag from the registry based on the provided XML element.
         /// </summary>
-        /// <typeparam name="T">The type of tag to retrieve.</typeparam>
-        /// <param name="element">The XML element to match against the tag in the registry.</param>
-        /// <returns>The matching tag of the specified type if found; otherwise, the default value of the specified type.</returns>
+        /// <typeparam name="T">Type of tag to return.</typeparam>
+        /// <param name="element">Element to search for.</param>
+        /// <returns>Tag from the registry.</returns>
         public T GetTag<T>(XElement element)
         {
             Logger.Log(LogLevel.Debug, "GetTag<T>(XElement) called");
@@ -135,19 +134,19 @@ namespace Ubiety.Xmpp.Core.Registries
                 if (gotType)
                 {
                     Logger.Log(LogLevel.Debug, $"Constructing type: {type}");
-                    var constructor = type.GetConstructor([element.GetType()]);
+                    var constructor = type.GetConstructor(new[] { element.GetType() });
                     if (constructor is null)
                     {
-                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), [typeof(Tag)]);
+                        var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), new[] { typeof(Tag) });
                         if (defaultConstructorInfo is null)
                         {
                             return default;
                         }
 
-                        return (T)defaultConstructorInfo.Invoke([element]);
+                        return (T)defaultConstructorInfo.Invoke(new object[] { element });
                     }
 
-                    return (T)constructor.Invoke([element]);
+                    return (T)constructor.Invoke(new object[] { element });
                 }
             }
             catch (Exception e)

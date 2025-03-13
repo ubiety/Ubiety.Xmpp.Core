@@ -19,7 +19,7 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Tls
 {
     /// <summary>
-    /// Represents the StartTls tag as defined in the XMPP TLS namespace.
+    ///     Start TLS tag.
     /// </summary>
     [XmppTag("starttls", Namespaces.Tls, typeof(StartTls))]
     public class StartTls : Tag

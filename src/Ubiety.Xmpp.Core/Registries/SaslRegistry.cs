@@ -14,25 +14,29 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
 using Ubiety.Xmpp.Core.Logging;
+using Ubiety.Xmpp.Core.Sasl;
+using Ubiety.Xmpp.Core.Tags.Sasl;
 
 namespace Ubiety.Xmpp.Core.Registries
 {
     /// <summary>
-    /// Represents a registry for SASL mechanisms and their associated processors.
+    ///     SASL authentication mechanism registry.
     /// </summary>
     public class SaslRegistry
     {
         private static readonly ILog Logger = Log.Get<SaslRegistry>();
-        private readonly Dictionary<string, (Type processor, int weight)> _mechanisms = new ();
+        private readonly Dictionary<string, (Type processor, int weight, bool binding)> _mechanisms = new ();
 
         /// <summary>
-        /// Adds all SASL mechanisms defined in the specified assembly to the SASL registry.
+        ///     Add assembly to the registry.
         /// </summary>
-        /// <param name="assembly">The assembly containing SASL mechanisms to register.</param>
+        /// <param name="assembly">Assembly to add.</param>
         public void AddAssembly(Assembly assembly)
         {
             Logger.Log(LogLevel.Information, $"Adding assembly {assembly.FullName} to SASL registry.");
@@ -40,7 +44,36 @@ namespace Ubiety.Xmpp.Core.Registries
             var attributes = assembly.GetAttributes<SaslAttribute>();
             foreach (var attribute in attributes)
             {
-                _mechanisms.Add(attribute.MechanismName, (attribute.ProcessorType, attribute.Weight));
+                _mechanisms.Add(attribute.MechanismName, (attribute.ProcessorType, attribute.Weight, attribute.ChannelBinding));
+            }
+        }
+
+        /// <summary>
+        ///     Gets the SASL processor with the highest weight supported by the server.
+        /// </summary>
+        /// <param name="serverMechanisms">SASL mechanisms supported by the server.</param>
+        /// <param name="client">XMPP client instance.</param>
+        /// <returns><see cref="SaslProcessor" /> that is to be used for authentication.</returns>
+        public SaslProcessor GetProcessor(IEnumerable<Mechanism> serverMechanisms, XmppBase client)
+        {
+            var (processorType, _, binding) = (from type in _mechanisms
+                join server in serverMechanisms on type.Key equals server.Value
+                orderby type.Value.weight descending
+                select type.Value).First();
+
+            var processor = (SaslProcessor)Activator.CreateInstance(processorType);
+
+            switch (processor)
+            {
+                case PlainProcessor when !client.ClientSocket.Secure:
+                    throw new InvalidOperationException("Do not use PLAIN SASL processor on an unsecured connection.");
+                case null:
+                    return default;
+                default:
+                    processor.ChannelBinding = binding;
+                    processor.Client = client;
+
+                    return processor;
             }
         }
     }

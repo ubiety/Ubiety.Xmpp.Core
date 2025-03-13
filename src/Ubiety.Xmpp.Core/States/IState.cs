@@ -18,15 +18,15 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    /// Represents a state in the XMPP workflow that can be executed through its defined behaviors.
+    ///     Describes a state.
     /// </summary>
     public interface IState
     {
         /// <summary>
-        /// Executes the current state logic with the specified XMPP instance and tag.
+        ///     Executes the current state.
         /// </summary>
-        /// <param name="xmpp">The XMPP instance used to perform the state operation.</param>
-        /// <param name="tag">An optional tag associated with the operation.</param>
+        /// <param name="xmpp">XMPP instance.</param>
+        /// <param name="tag">Tag for the state to work with.</param>
         void Execute(XmppBase xmpp, Tag tag = null);
     }
 }

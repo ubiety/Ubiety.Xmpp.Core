@@ -18,13 +18,11 @@ using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.States;
-using Ubiety.Xmpp.Core.Tags;
 
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    /// The XmppClient class is responsible for establishing and managing client connections to an XMPP server.
-    /// Implements core functionality for XMPP communication, including authentication and state transitions, extending XmppBase and adhering to the IClient interface.
+    ///     Main XMPP client class.
     /// </summary>
     public class XmppClient : XmppBase, IClient
     {
@@ -42,59 +40,38 @@ namespace Ubiety.Xmpp.Core
             Parser.Tag += Parser_Tag;
         }
 
-        /// <summary>
-        /// Event triggered when a new stanza is received from the server.
-        /// </summary>
-        public event EventHandler<TagEventArgs> Stanza;
-
-        /// <summary>
-        /// Gets or sets the Jabber Identifier (JID) of the client.
-        /// </summary>
+        /// <inheritdoc />
         public Jid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the password used for authenticating the client with the XMPP server.
+        ///     Gets or sets the user password.
         /// </summary>
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether the client is authenticated with the server.
-        /// This property is set internally during the authentication process.
+        ///     Gets a value indicating whether the user is authenticated.
         /// </summary>
         public bool Authenticated { get; internal set; }
 
         /// <summary>
-        /// Gets or sets the resource identifier associated with the XMPP client connection.
-        /// This value is used to uniquely identify a connection to the XMPP server, particularly when multiple
-        /// connections are established using the same JID.
+        ///     Gets or sets a value for the JID resource.
         /// </summary>
         public string Resource { get; set; }
 
-        /// <summary>
-        /// Establishes a connection to the XMPP server using the provided JID and password.
-        /// </summary>
-        /// <param name="jid">The JID (Jabber Identifier) to use for the connection.</param>
-        /// <param name="password">The password associated with the JID.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the provided JID is null.</exception>
+        /// <inheritdoc />
         public void Connect(Jid jid, string password)
         {
             _logger.Log(LogLevel.Debug, "Connect(Jid, string) called");
-            ArgumentNullException.ThrowIfNull(jid);
+            if (jid is null)
+            {
+                throw new ArgumentNullException(nameof(jid));
+            }
 
             _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
             Id = jid;
             Password = password;
             State = new ConnectingState();
             State.Execute(this);
-        }
-
-        /// <summary>
-        /// Triggers the stanza event with the supplied tag.
-        /// </summary>
-        /// <param name="tag">Tag to send as part of the event.</param>
-        internal void OnStanza(Tag tag)
-        {
-            Stanza?.Invoke(this, new TagEventArgs { Tag = tag });
         }
     }
 }

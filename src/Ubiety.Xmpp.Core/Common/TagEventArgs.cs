@@ -18,17 +18,14 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Common
 {
     /// <summary>
-    /// Provides data for events that involve an XMPP tag.
+    ///     Tag event arguments.
     /// </summary>
-    /// <remarks>
-    /// The <see cref="TagEventArgs"/> class contains the <see cref="Tag"/> property,
-    /// which represents the XMPP tag processed during the event triggering.
-    /// </remarks>
+    /// <inheritdoc />
     public class TagEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the tag.
+        ///     Gets the tag.
         /// </summary>
-        public Tag Tag { get; set; }
+        public Tag Tag { get; init; }
     }
 }

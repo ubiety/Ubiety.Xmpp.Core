@@ -17,6 +17,7 @@ using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
@@ -28,9 +29,9 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    /// Represents an asynchronous client socket for handling XMPP server connections.
+    ///     An asynchronous socket for connecting to an XMPP server.
     /// </summary>
-    public sealed class AsyncClientSocket : ISocket, IDisposable
+    public class AsyncClientSocket : ISocket, IDisposable
     {
         private const int BufferSize = 4 * 1024;
         private readonly IClient _client;
@@ -52,38 +53,28 @@ namespace Ubiety.Xmpp.Core.Net
             _resetEvent = new AutoResetEvent(false);
         }
 
-        /// <summary>
-        /// Event triggered upon establishing a connection with the server.
-        /// </summary>
+        /// <inheritdoc />
         public event EventHandler Connection;
 
-        /// <summary>
-        /// Event triggered when data is received from the server.
-        /// </summary>
+        /// <inheritdoc />
         public event EventHandler<DataEventArgs> Data;
 
-        /// <summary>
-        /// Gets a value indicating whether the socket connection to the XMPP server is currently active.
-        /// </summary>
+        /// <inheritdoc />
         public bool Connected { get; private set; }
 
         /// <summary>
-        /// Gets a value indicating whether the socket connection is secure.
+        ///     Gets a value indicating whether the socket is secure.
         /// </summary>
         public bool Secure { get; private set; }
 
-        /// <summary>
-        /// Releases the resources used by the <see cref="AsyncClientSocket" /> instance.
-        /// </summary>
+        /// <inheritdoc />
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        /// <summary>
-        /// Establishes a connection to the server using the provided JID.
-        /// </summary>
-        /// <param name="jid">The Jabber Identifier (JID) to use for connection.</param>
+        /// <inheritdoc />
         public void Connect(Jid jid)
         {
             _logger.Log(LogLevel.Debug, "Connect(Jid) called");
@@ -118,9 +109,7 @@ namespace Ubiety.Xmpp.Core.Net
             }
         }
 
-        /// <summary>
-        /// Disconnects the client socket from the server and releases the associated resources.
-        /// </summary>
+        /// <inheritdoc />
         public void Disconnect()
         {
             _logger.Log(LogLevel.Debug, "Disconnect() called");
@@ -130,10 +119,7 @@ namespace Ubiety.Xmpp.Core.Net
             _socket.Disconnect(true);
         }
 
-        /// <summary>
-        /// Sends a message to the connected XMPP server.
-        /// </summary>
-        /// <param name="message">The message to send to the server.</param>
+        /// <inheritdoc />
         public void Send(string message)
         {
             if (!Connected)
@@ -148,42 +134,41 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        /// Sends a specific <see cref="Tag" /> to the server.
+        ///     Sends a tag to the server.
         /// </summary>
-        /// <param name="tag">The <see cref="Tag" /> to be sent.</param>
+        /// <param name="tag"><see cref="Tag" /> to send.</param>
         public void Send(Tag tag)
         {
             Send(tag.ToString());
         }
 
         /// <summary>
-        /// Initiates an SSL/TLS connection by wrapping the existing stream with an <see cref="SslStream" />
-        /// and authenticating as the client.
+        ///     Starts SSL/TLS connection.
         /// </summary>
-        /// <remarks>
-        /// This method transitions the connection to a secure, encrypted state using the SSL/TLS protocols.
-        /// It validates the server's certificate and updates the internal stream to use the secure stream.
-        /// </remarks>
         public void StartSsl()
         {
             _logger.Log(LogLevel.Debug, "StartSsl() called");
             var secureStream = new SslStream(_stream, true, CertificateValidation);
 
             _logger.Log(LogLevel.Debug, "Authenticating as client...");
-            secureStream.AuthenticateAsClient(_address.Hostname);
+            secureStream.AuthenticateAsClient(
+                _address.Hostname,
+                null,
+                SslProtocols.Tls12 | SslProtocols.Tls11,
+                false);
             _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol}");
 
             if (secureStream.IsAuthenticated)
             {
-                Secure = true;
                 _logger.Log(LogLevel.Debug, "Stream is encrypted");
+                Secure = true;
                 _stream = secureStream;
                 _client.State.Execute((XmppClient)_client);
             }
         }
 
         /// <summary>
-        /// Clears the read state by setting the reset event for the socket.
+        ///     Set that we are clear to read data.
         /// </summary>
         public void SetReadClear()
         {
@@ -192,29 +177,10 @@ namespace Ubiety.Xmpp.Core.Net
         }
 
         /// <summary>
-        /// Invokes the data event handler when new data is received.
+        ///     Dispose of class resources.
         /// </summary>
-        /// <param name="e">Data event arguments containing the received message.</param>
-        private void OnData(DataEventArgs e)
-        {
-            _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
-            Data?.Invoke(this, e);
-        }
-
-        /// <summary>
-        /// Invokes the Connection event to signal that a connection has been established.
-        /// </summary>
-        private void OnConnection()
-        {
-            _logger.Log(LogLevel.Debug, "OnConnection() called");
-            Connection?.Invoke(this, EventArgs.Empty);
-        }
-
-        /// <summary>
-        /// Disposes of the resources used by the <see cref="AsyncClientSocket"/> instance.
-        /// </summary>
-        /// <param name="disposing">Indicates whether the method was invoked directly or by the garbage collector.</param>
-        private void Dispose(bool disposing)
+        /// <param name="disposing">Are we disposing from a direct call.</param>
+        protected virtual void Dispose(bool disposing)
         {
             _logger.Log(LogLevel.Debug, "Dispose(bool) called");
             if (disposing)
@@ -224,6 +190,25 @@ namespace Ubiety.Xmpp.Core.Net
                 _stream.Dispose();
                 _resetEvent.Dispose();
             }
+        }
+
+        /// <summary>
+        ///     Raise the data event with the specified arguments.
+        /// </summary>
+        /// <param name="e">Data event arguments.</param>
+        private void OnData(DataEventArgs e)
+        {
+            _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
+            Data?.Invoke(this, e);
+        }
+
+        /// <summary>
+        ///     Raise the connection event.
+        /// </summary>
+        private void OnConnection()
+        {
+            _logger.Log(LogLevel.Debug, "OnConnection() called");
+            Connection?.Invoke(this, new EventArgs());
         }
 
         private bool CertificateValidation(

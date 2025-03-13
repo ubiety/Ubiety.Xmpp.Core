@@ -17,14 +17,10 @@ using Ubiety.Xmpp.Core.Tags;
 
 namespace Ubiety.Xmpp.Core.States
 {
+    /// <inheritdoc />
     /// <summary>
-    /// Represents a state where the Xmpp client is disconnected from the server.
+    ///     Disconnected state.
     /// </summary>
-    /// <remarks>
-    /// This state indicates that no active connection to the server exists and no further actions
-    /// are performed. It provides an implementation of the Execute method as required by the IState
-    /// interface, which does not perform any operations in this state.
-    /// </remarks>
     public class DisconnectedState : IState
     {
         /// <inheritdoc />

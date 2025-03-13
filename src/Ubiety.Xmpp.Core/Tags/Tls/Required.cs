@@ -19,7 +19,7 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Tls
 {
     /// <summary>
-    /// Represents the "required" XMPP TLS tag, used to indicate a mandatory requirement for TLS negotiation.
+    ///     TLS required tag.
     /// </summary>
     [XmppTag("required", Namespaces.Tls, typeof(Required))]
     public class Required : Tag

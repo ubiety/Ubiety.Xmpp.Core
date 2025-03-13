@@ -18,27 +18,24 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
 namespace Ubiety.Xmpp.Core.Sasl
 {
     /// <summary>
-    /// Represents a SASL processor for handling the Digest-MD5 authentication mechanism.
+    ///     MD5 SASL processor.
     /// </summary>
-    /// <remarks>
-    /// This class is responsible for managing the SASL Digest-MD5 authentication process,
-    /// including initializing the authentication session and processing authentication steps
-    /// with the server.
-    /// </remarks>
-    public sealed class Md5Processor : SaslProcessor, IDisposable
+    [Sasl("DIGEST-MD5", typeof(Md5Processor), 20)]
+    public class Md5Processor : SaslProcessor, IDisposable
     {
-        private readonly Regex _csv = new (
-            """(?<tag>[^=]+)=(?:(?<data>[^,"]+)|(?:"(?<data>[^"]*)")),?""",
+        private readonly Regex _csv = new Regex(
+            @"(?<tag>[^=]+)=(?:(?<data>[^,""]+)|(?:""(?<data>[^""]*)"")),?",
             RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
         private readonly Encoding _encoding = Encoding.UTF8;
-        private readonly MD5 _md5 = MD5.Create();
+        private readonly MD5CryptoServiceProvider _md5 = new ();
         private bool _disposedValue;
         private string _cnonce;
         private string _digestUri;
@@ -55,25 +52,25 @@ namespace Ubiety.Xmpp.Core.Sasl
         }
 
         /// <summary>
-        /// Initializes the MD5 SASL processor for authenticating a user.
+        ///     Initializes the SASL processor.
         /// </summary>
-        /// <param name="id">The <see cref="Jid" /> of the user to authenticate.</param>
-        /// <param name="password">The password used for authentication.</param>
-        /// <returns>A tag representing the next message to send to the server.</returns>
+        /// <param name="id"><see cref="Jid" /> of the user to authenticate.</param>
+        /// <param name="password">Password to use for authentication.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
 
-            var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
+            var auth = Client.TagRegistry.GetTag<Auth>(Auth.XmlName);
             auth.MechanismType = MechanismTypes.DigestMd5;
             return auth;
         }
 
         /// <summary>
-        /// Processes a received tag and generates the next tag to be sent to the server based on the current SASL mechanism.
+        ///     Process the next SASL step.
         /// </summary>
-        /// <param name="tag">The tag received from the server, which determines the next processing step.</param>
-        /// <returns>The next tag to send to the server as a response during the SASL authentication process.</returns>
+        /// <param name="tag">Tag from the server.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Step(Tag tag)
         {
             switch (tag)
@@ -87,7 +84,7 @@ namespace Ubiety.Xmpp.Core.Sasl
 
                 default:
                     PopulateDirectives(tag);
-                    var response = Client.Registry.GetTag<Auth>(Auth.XmlName);
+                    var response = Client.TagRegistry.GetTag<Auth>(Auth.XmlName);
                     if (this["rspauth"] != null)
                     {
                         return response;
@@ -100,31 +97,24 @@ namespace Ubiety.Xmpp.Core.Sasl
             }
         }
 
-        /// <summary>
-        /// Releases the unmanaged resources used by the <see cref="Md5Processor"/> class and optionally releases the managed resources.
-        /// </summary>
+        /// <inheritdoc cref="object" />
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>
-        /// Releases all resources used by the <see cref="Md5Processor"/>.
-        /// </summary>
-        private void Dispose(bool disposing)
+        /// <inheritdoc cref="object" />
+        protected virtual void Dispose(bool disposing)
         {
             if (!_disposedValue)
             {
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects)
                     _md5.Dispose();
                 }
 
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
                 _disposedValue = true;
             }
         }
@@ -178,12 +168,5 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             return _encoding.GetBytes(response);
         }
-
-        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        // ~Md5Processor()
-        // {
-        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        //     Dispose(disposing: false);
-        // }
     }
 }

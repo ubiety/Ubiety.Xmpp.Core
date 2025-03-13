@@ -19,12 +19,8 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    /// Represents the SASL success tag in the XMPP SASL authentication process.
+    ///     SASL authentication success tag.
     /// </summary>
-    /// <remarks>
-    /// The <see cref="Success"/> class is used to indicate the successful completion of the SASL authentication.
-    /// It corresponds to the "success" element as defined in the XMPP SASL namespace.
-    /// </remarks>
     [XmppTag("success", Namespaces.Sasl, typeof(Success))]
     public class Success : Tag
     {

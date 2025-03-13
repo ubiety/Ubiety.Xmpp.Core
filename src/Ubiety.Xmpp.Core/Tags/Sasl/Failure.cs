@@ -19,8 +19,7 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Sasl
 {
     /// <summary>
-    /// Represents the SASL failure element as defined in the XMPP protocol.
-    /// This element is part of the SASL namespace and indicates that a SASL mechanism negotiation has failed.
+    ///     SASL authentication failure tag.
     /// </summary>
     [XmppTag("failure", Namespaces.Sasl, typeof(Failure))]
     public class Failure : Tag

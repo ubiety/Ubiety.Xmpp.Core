@@ -15,44 +15,38 @@
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
-using Ubiety.Xmpp.Core.Tags.Binding;
 
 namespace Ubiety.Xmpp.Core.Tags.Client
 {
     /// <summary>
-    /// Represents the IQ (Info/Query) types used in XMPP messages.
+    ///     IQ tag type.
     /// </summary>
     public enum IqType
     {
         /// <summary>
-        /// IQ Get.
+        ///     IQ Get.
         /// </summary>
         Get,
 
         /// <summary>
-        /// IQ Set.
+        ///     IQ Set.
         /// </summary>
         Set,
 
         /// <summary>
-        /// IQ Error.
+        ///     IQ Error.
         /// </summary>
         Error,
 
         /// <summary>
-        /// IQ Result.
+        ///     IQ Result.
         /// </summary>
         Result,
     }
 
     /// <summary>
-    /// Represents an IQ (Info/Query) stanza, a fundamental XMPP protocol element used for sending structured information and requests.
+    ///     XMPP Iq tag.
     /// </summary>
-    /// <remarks>
-    /// An IQ stanza is used for structured XML exchange in the XMPP network. It supports the exchange
-    /// of queries or command requests from one entity to another and is one of the main types within
-    /// the XMPP protocol alongside 'message' and 'presence'.
-    /// </remarks>
     [XmppTag("iq", Namespaces.Client, typeof(Iq))]
     public class Iq : Stanza
     {
@@ -76,29 +70,17 @@ namespace Ubiety.Xmpp.Core.Tags.Client
         }
 
         /// <summary>
-        /// Gets the XML name for the IQ stanza.
+        ///     Gets the XML name of the tag.
         /// </summary>
-        /// <remarks>
-        /// Represents the qualified name of the "iq" tag within the XMPP client namespace.
-        /// </remarks>
         public static XName XmlName { get; } = XName.Get("iq", Namespaces.Client);
 
         /// <summary>
-        /// Gets or sets the type of the IQ (Info/Query) stanza.
+        ///     Gets or sets the IQ tag type.
         /// </summary>
-        /// <remarks>
-        /// Determines the specific purpose or operation of the IQ stanza within XMPP communication.
-        /// Supported types include requests for information, configuration changes, error notifications, and operation results.
-        /// </remarks>
         public IqType IqType
         {
             get => GetAttributeEnumValue<IqType>("type");
             set => SetAttributeEnumValue("type", value);
         }
-
-        /// <summary>
-        /// Gets the Bind tag associated with the IQ stanza for resource binding in XMPP.
-        /// </summary>
-        public Bind Bind => Element<Bind>(XName.Get("bind", Namespaces.Bind));
     }
 }

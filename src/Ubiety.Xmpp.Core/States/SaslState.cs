@@ -19,40 +19,37 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    /// Represents the SASL (Simple Authentication and Security Layer) state in the XMPP workflow.
-    /// Handles SASL authentication mechanisms and transitions the XMPP client to the appropriate state
-    /// based on the outcome of the authentication process.
+    ///     SASL XMPP state.
     /// </summary>
+    /// <inheritdoc />
     public class SaslState : IState
     {
-        /// <summary>
-        /// Executes the SASL authentication process based on the provided XMPP client state and tag.
-        /// </summary>
-        /// <param name="xmpp">The XMPP client performing the authentication.</param>
-        /// <param name="tag">An optional tag representing the current stage of the SASL authentication process.</param>
+        /// <inheritdoc />
         public void Execute(XmppBase xmpp, Tag tag = null)
         {
-            if (xmpp is XmppClient client)
+            if (xmpp is not XmppClient client)
             {
-                switch (tag)
-                {
-                    case Success:
-                        client.ClientSocket.SetReadClear();
-                        client.Authenticated = true;
-                        client.State = new ConnectedState();
-                        client.State.Execute(client);
-                        break;
+                return;
+            }
 
-                    case Failure:
-                        client.State = new DisconnectState();
-                        client.State.Execute(client);
-                        break;
+            switch (tag)
+            {
+                case Success _:
+                    client.ClientSocket.SetReadClear();
+                    client.Authenticated = true;
+                    client.State = new ConnectedState();
+                    client.State.Execute(client);
+                    break;
 
-                    default:
-                        client.ClientSocket.SetReadClear();
-                        client.ClientSocket.Send(client.SaslProcessor.Step(tag));
-                        break;
-                }
+                case Failure _:
+                    client.State = new DisconnectState();
+                    client.State.Execute(client);
+                    break;
+
+                default:
+                    client.ClientSocket.SetReadClear();
+                    client.ClientSocket.Send(client.SaslProcessor.Step(tag));
+                    break;
             }
         }
     }

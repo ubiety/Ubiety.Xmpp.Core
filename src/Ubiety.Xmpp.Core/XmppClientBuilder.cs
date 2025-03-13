@@ -18,7 +18,7 @@ using Ubiety.Xmpp.Core.Registries;
 namespace Ubiety.Xmpp.Core
 {
     /// <summary>
-    /// Provides a builder to configure and create an instance of <see cref="XmppClient"/>.
+    ///     Builds a new XmppClient.
     /// </summary>
     public class XmppClientBuilder
     {
@@ -28,7 +28,7 @@ namespace Ubiety.Xmpp.Core
         private string _resource;
 
         /// <summary>
-        /// Enables logging for the XMPP client using the specified log manager.
+        ///     Enable logging with the log manager.
         /// </summary>
         /// <param name="manager">Log manager to use for logging.</param>
         /// <returns>Builder instance.</returns>
@@ -39,7 +39,7 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        /// Enables IPv6 support for the XMPP client.
+        ///     Enables IPv6 support in the library.
         /// </summary>
         /// <returns>Builder instance.</returns>
         public XmppClientBuilder UseIPv6()
@@ -49,7 +49,7 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        /// Enables SSL for the XMPP client.
+        ///     Enables SSL/TLS support.
         /// </summary>
         /// <returns>Builder instance.</returns>
         public XmppClientBuilder UseSsl()
@@ -59,10 +59,10 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        /// Sets the resource for the XMPP client.
+        ///     Set a client resource.
         /// </summary>
-        /// <param name="resource">The resource to be assigned to the XMPP client.</param>
-        /// <returns>An instance of the builder for method chaining.</returns>
+        /// <param name="resource">Resource to set.</param>
+        /// <returns>Builder instance.</returns>
         public XmppClientBuilder SetResource(string resource)
         {
             _resource = resource;
@@ -70,9 +70,9 @@ namespace Ubiety.Xmpp.Core
         }
 
         /// <summary>
-        /// Builds and configures an instance of the <see cref="XmppClient"/> with the specified options.
+        ///     Builds the client.
         /// </summary>
-        /// <returns>A configured instance of <see cref="XmppClient"/>.</returns>
+        /// <returns>Client with the options provided.</returns>
         public XmppClient Build()
         {
             if (_logManager != null)
@@ -81,10 +81,13 @@ namespace Ubiety.Xmpp.Core
             }
 
             var type = typeof(XmppClientBuilder);
-            var registry = new TagRegistry();
-            registry.AddAssembly(type.Assembly);
+            var tagRegistry = new TagRegistry();
+            tagRegistry.AddAssembly(type.Assembly);
 
-            return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, Registry = registry, Resource = _resource };
+            var saslRegistry = new SaslRegistry();
+            saslRegistry.AddAssembly(type.Assembly);
+
+            return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, TagRegistry = tagRegistry, SaslRegistry = saslRegistry, Resource = _resource };
         }
     }
 }

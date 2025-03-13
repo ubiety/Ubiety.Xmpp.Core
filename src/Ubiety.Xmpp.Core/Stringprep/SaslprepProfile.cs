@@ -17,19 +17,14 @@ using Ubiety.Stringprep.Core;
 namespace Ubiety.Xmpp.Core.Stringprep
 {
     /// <summary>
-    /// Represents the SASLprep string preparation profile.
-    /// SASLprep is used to prepare Unicode strings for comparison during
-    /// authentication processes by applying specific normalization, mapping,
-    /// and prohibitions defined in the SASLprep specification.
+    ///     SASLPrep Stringprep profile.
     /// </summary>
     public static class SaslprepProfile
     {
         /// <summary>
-        /// Creates a new SASLprep profile for preparing Unicode strings as per SASLprep specifications.
-        /// The profile applies the necessary normalization, mapping, and prohibitions
-        /// for use in authentication processes.
+        ///     Create the profile.
         /// </summary>
-        /// <returns>An implementation of <see cref="IPreparationProcess"/> used to execute SASLprep string preparation.</returns>
+        /// <returns>Profile process.</returns>
         public static IPreparationProcess Create()
         {
             return PreparationProcess.Build()

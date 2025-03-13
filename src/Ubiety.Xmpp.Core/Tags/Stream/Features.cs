@@ -23,7 +23,7 @@ using Ubiety.Xmpp.Core.Tags.Tls;
 namespace Ubiety.Xmpp.Core.Tags.Stream
 {
     /// <summary>
-    /// Represents the features tag in the XMPP stream, allowing access to various negotiated features and mechanisms.
+    ///     Stream features tag.
     /// </summary>
     [XmppTag("features", Namespaces.Stream, typeof(Features))]
     public class Features : Tag
@@ -51,23 +51,22 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         public static XName XmlName { get; } = XName.Get("features", Namespaces.Stream);
 
         /// <summary>
-        /// Gets the StartTLS feature tag, which is used to negotiate
-        /// the start of a secure TLS session in the XMPP stream.
+        ///     Gets the starttls child.
         /// </summary>
         public StartTls StartTls => Element<StartTls>(XName.Get("starttls", Namespaces.Tls));
 
         /// <summary>
-        /// Gets the SASL mechanisms supported by the server for authentication.
+        ///     Gets the supported SASL mechanisms.
         /// </summary>
         public Mechanisms Mechanisms => Element<Mechanisms>(XName.Get("mechanisms", Namespaces.Sasl));
 
         /// <summary>
-        /// Gets the bind tag element from the XMPP feature set, representing a server binding request or requirement.
+        ///     Gets the bind tag.
         /// </summary>
         public Bind Bind => Element<Bind>(XName.Get("bind", Namespaces.Bind));
 
         /// <summary>
-        /// Gets the count of child feature elements contained within the features tag.
+        ///     Gets a count of the features.
         /// </summary>
         public int FeatureCount => Elements().Count();
     }

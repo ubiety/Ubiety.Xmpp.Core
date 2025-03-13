@@ -14,12 +14,11 @@
 
 using System;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
 {
     /// <summary>
-    /// Represents an exception that is thrown when an invalid state is encountered.
+    ///     Invalid State Exception.
     /// </summary>
     [Serializable]
     public class InvalidStateException : Exception

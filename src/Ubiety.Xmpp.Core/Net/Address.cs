@@ -25,8 +25,7 @@ using Ubiety.Xmpp.Core.Logging;
 namespace Ubiety.Xmpp.Core.Net
 {
     /// <summary>
-    /// Represents an XMPP address handler responsible for resolving server addresses
-    /// and determining network configurations.
+    ///     Address class.
     /// </summary>
     internal class Address
     {
@@ -148,7 +147,7 @@ namespace Ubiety.Xmpp.Core.Net
 
             _logger.Log(LogLevel.Debug, $"No SRV records found for {Hostname}");
             _srvFailed = true;
-            return [];
+            return new List<RecordSrv>();
         }
     }
 }

@@ -21,7 +21,7 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Stream
 {
     /// <summary>
-    /// Represents an XMPP stream tag, used to initiate and manage communication streams in the XMPP protocol.
+    ///     XMPP Stream tag.
     /// </summary>
     [XmppTag("stream", Namespaces.Stream, typeof(Stream))]
     public class Stream : Stanza
@@ -49,7 +49,7 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         public static XName XmlName { get; } = XName.Get("stream", Namespaces.Stream);
 
         /// <summary>
-        /// Gets or sets the version of the XMPP stream.
+        ///     Gets or sets the stream version.
         /// </summary>
         public string Version
         {
@@ -58,7 +58,7 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        /// Gets or sets the namespace attribute ("xmlns") of the tag, which specifies the namespace of the stream.
+        ///     Gets or sets the stream namespace.
         /// </summary>
         public string Namespace
         {
@@ -67,18 +67,17 @@ namespace Ubiety.Xmpp.Core.Tags.Stream
         }
 
         /// <summary>
-        /// Gets the collection of error elements associated with the stream.
+        ///     Gets the stream errors.
         /// </summary>
         public IEnumerable<Error> Errors => Elements<Error>(XName.Get("error", Namespaces.Stream));
 
         /// <summary>
-        /// Gets the features element of the stream, representing the capabilities
-        /// and extensions offered by the server in the XMPP protocol.
+        ///     Gets the stream features.
         /// </summary>
         public Features Features => Element<Features>(XName.Get("features", Namespaces.Stream));
 
         /// <summary>
-        /// Gets the start tag of the XMPP stream, including attributes and namespace declarations.
+        ///     Gets the start tag of the stream.
         /// </summary>
         public string StartTag
         {

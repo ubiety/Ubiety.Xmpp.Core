@@ -19,6 +19,7 @@ using Ubiety.Scram.Core;
 using Ubiety.Scram.Core.Messages;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
@@ -26,18 +27,15 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 
 namespace Ubiety.Xmpp.Core.Sasl
 {
+    /// <inheritdoc />
     /// <summary>
-    /// Represents a SCRAM SASL (Simple Authentication and Security Layer) processor.
+    ///     SCRAM-SHA-1 SASL Processor.
     /// </summary>
-    /// <remarks>
-    /// SCRAM (Salted Challenge Response Authentication Mechanism) is an authentication protocol
-    /// used to securely authenticate a client to a server using a challenge-response mechanism.
-    /// This processor handles the initialization and step processing for the SCRAM mechanism.
-    /// </remarks>
+    [Sasl("SCRAM-SHA1", typeof(ScramProcessor), 30)]
+    [Sasl("SCRAM-SHA1-PLUS", typeof(ScramProcessor), 35, true)]
     public class ScramProcessor : SaslProcessor
     {
         private static readonly ILog Logger = Log.Get<ScramProcessor>();
-        private readonly bool _channelBinding;
         private readonly Encoding _encoding = Encoding.UTF8;
         private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private ClientFinalMessage _clientFinalMessage;
@@ -46,21 +44,13 @@ namespace Ubiety.Xmpp.Core.Sasl
         private string _serverResponse;
         private List<byte> _serverSignature;
 
+        /// <inheritdoc />
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ScramProcessor" /> class.
+        ///     Initializes the SASL processor.
         /// </summary>
-        /// <param name="channelBinding">Do we want to use channel binding?.</param>
-        public ScramProcessor(bool channelBinding)
-        {
-            _channelBinding = channelBinding;
-        }
-
-        /// <summary>
-        /// Initializes the SCRAM SASL processor with the specified user information.
-        /// </summary>
-        /// <param name="id">The <see cref="Jid" /> representing the user's identifier for the session.</param>
-        /// <param name="password">The password of the user.</param>
-        /// <returns>A <see cref="Tag" /> containing the next message to send to the server during SASL authentication.</returns>
+        /// <param name="id"><see cref="Jid" /> of the user for the session.</param>
+        /// <param name="password">Password of the user.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
@@ -72,18 +62,19 @@ namespace Ubiety.Xmpp.Core.Sasl
             _clientFirstMessage = new ClientFirstMessage(_saslprep.Run(Id.User), nonce);
             Logger.Log(LogLevel.Debug, _clientFirstMessage.Message);
 
-            var auth = Client.Registry.GetTag<Auth>(Auth.XmlName);
-            auth.MechanismType = _channelBinding ? MechanismTypes.ScramPlus : MechanismTypes.Scram;
+            var auth = Client.TagRegistry.GetTag<Auth>(Auth.XmlName);
+            auth.MechanismType = ChannelBinding ? MechanismTypes.ScramPlus : MechanismTypes.Scram;
             auth.Bytes = _encoding.GetBytes(_clientFirstMessage.Message);
 
             return auth;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Processes the given server tag and returns the appropriate next tag to send.
+        ///     Process the next SASL step.
         /// </summary>
-        /// <param name="tag">The tag received from the server to be processed.</param>
-        /// <returns>The next tag to send to the server based on the received tag.</returns>
+        /// <param name="tag">Tag received from the server.</param>
+        /// <returns>Next tag to send to the server.</returns>
         public override Tag Step(Tag tag)
         {
             switch (tag)
@@ -102,7 +93,7 @@ namespace Ubiety.Xmpp.Core.Sasl
                     return f;
 
                 default:
-                    return null;
+                    return default;
             }
         }
 
@@ -110,13 +101,13 @@ namespace Ubiety.Xmpp.Core.Sasl
         {
             _serverResponse = _encoding.GetString(tag.Bytes);
 
-            _serverFirstMessage = ServerFirstMessage.Parse(_serverResponse);
+            _serverFirstMessage = ServerFirstMessage.ParseResponse(_serverResponse);
 
             _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage);
 
             CalculateProofs();
 
-            var message = Client.Registry.GetTag<Response>(Response.XmlName);
+            var message = Client.TagRegistry.GetTag<Response>(Response.XmlName);
             message.Bytes = _encoding.GetBytes(_clientFinalMessage.Message);
 
             return message;
@@ -130,8 +121,8 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var saltedPassword = hash.ComputeHash(
                 _encoding.GetBytes(password),
-                _serverFirstMessage.Salt?.Value ?? throw new InvalidOperationException(),
-                _serverFirstMessage.Iterations?.Value ?? throw new InvalidOperationException());
+                _serverFirstMessage.Salt.Value,
+                _serverFirstMessage.Iterations.Value);
 
             var clientKey = hash.ComputeHash(_encoding.GetBytes("Client Key"), saltedPassword);
             var serverKey = hash.ComputeHash(_encoding.GetBytes("Server Key"), saltedPassword);

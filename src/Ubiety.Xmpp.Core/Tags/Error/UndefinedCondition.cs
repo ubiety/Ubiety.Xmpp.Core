@@ -19,14 +19,9 @@ using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 namespace Ubiety.Xmpp.Core.Tags.Error
 {
     /// <summary>
-    /// Represents an XMPP error condition named "undefined-condition".
+    ///     Undefined condition XMPP error.
     /// </summary>
-    /// <remarks>
-    /// This class encapsulates the behavior and properties associated with the
-    /// "undefined-condition" error as per the XMPP streams error specifications.
-    /// It inherits from the <see cref="Tag" /> class, which provides the underlying
-    /// XML handling functionality.
-    /// </remarks>
+    /// <inheritdoc />
     [XmppTag("undefined-condition", Namespaces.XmppStreams, typeof(UndefinedCondition))]
     public class UndefinedCondition : Tag
     {

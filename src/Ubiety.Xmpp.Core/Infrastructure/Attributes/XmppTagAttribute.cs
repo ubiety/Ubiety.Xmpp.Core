@@ -18,12 +18,9 @@ using System.Xml.Linq;
 namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
 {
     /// <summary>
-    /// Represents an attribute to define metadata for XMPP tags.
+    ///     XMPP tag attribute.
     /// </summary>
-    /// <remarks>
-    /// This attribute is used to annotate classes that correspond to specific XMPP tags.
-    /// It includes information about the tag's local name, namespace, and associated class type.
-    /// </remarks>
+    /// <inheritdoc />
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public sealed class XmppTagAttribute : Attribute
     {

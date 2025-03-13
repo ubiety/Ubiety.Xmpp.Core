@@ -20,13 +20,10 @@ using Ubiety.Xmpp.Core.Stringprep;
 
 namespace Ubiety.Xmpp.Core.Common
 {
+    /// <inheritdoc />
     /// <summary>
-    /// Represents a Jabber Identifier (JID) used in XMPP for identifying users, servers, and resources.
+    ///     Representation of the Jabber ID.
     /// </summary>
-    /// <remarks>
-    /// A JID consists of three main parts: username (optional), server, and resource (optional).
-    /// The string representation of a JID follows the format: user@server/resource.
-    /// </remarks>
     public sealed class Jid : IEquatable<Jid>
     {
         // language=regex
@@ -62,12 +59,8 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets the resource of the <see cref="Jid" />.
+        ///     Gets the <see cref="Jid" /> resource.
         /// </summary>
-        /// <remarks>
-        /// The resource is an optional part of the JID used to specify a particular session,
-        /// device, or resource for the user. It is separated from the server part of the JID by a '/'.
-        /// </remarks>
         public string Resource
         {
             get => _resource;
@@ -75,13 +68,8 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets the server domain of the <see cref="Jid" />.
+        ///     Gets the server of the <see cref="Jid" />.
         /// </summary>
-        /// <remarks>
-        /// The server represents the domain or host responsible for handling the XMPP communication
-        /// for the user. It is an essential component of the JID and is subject to normalization
-        /// processes during initialization.
-        /// </remarks>
         public string Server
         {
             get => _server;
@@ -89,13 +77,8 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets the username portion of the <see cref="Jid" />.
+        ///     Gets the user name of the <see cref="Jid" /> in a user friendly format.
         /// </summary>
-        /// <remarks>
-        /// The username, or user ID, is the part of the JID that identifies the specific user
-        /// within their domain. It precedes the '@' symbol in the JID and is unescaped
-        /// when accessed.
-        /// </remarks>
         public string User
         {
             get => Unescape(_user);
@@ -103,62 +86,56 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Gets the full Jabber Identifier (JID) as a string representation.
+        ///     Gets the <see cref="Jid" /> as a string.
         /// </summary>
-        /// <remarks>
-        /// The JID consists of the username, server, and optionally a resource in the format: user@server/resource.
-        /// This property combines the different components of the JID into a single string.
-        /// </remarks>
         public string Id => $"{_user}{(string.IsNullOrEmpty(_user) ? string.Empty : "@")}{_server}{(string.IsNullOrEmpty(_resource) ? string.Empty : "/")}{_resource}";
 
         /// <summary>
-        /// Defines an implicit operator to convert a string to a <see cref="Jid" />.
+        ///     Implicitly converts a string into a <see cref="Jid" />.
         /// </summary>
-        /// <param name="id">The string representation of a <see cref="Jid" /> to convert.</param>
-        /// <returns>A new <see cref="Jid" /> instance created from the specified string.</returns>
+        /// <param name="id">String version of the <see cref="Jid" />.</param>
         public static implicit operator Jid(string id)
         {
             return Parse(id, false);
         }
 
         /// <summary>
-        /// Converts the specified <see cref="Jid" /> to its string representation.
+        ///     Implicitly converts a <see cref="Jid" /> to a string.
         /// </summary>
-        /// <param name="id">The <see cref="Jid" /> instance to convert.</param>
-        /// <returns>The string representation of the specified <see cref="Jid" />.</returns>
+        /// <param name="id"><see cref="Jid" /> of the ID.</param>
         public static implicit operator string(Jid id)
         {
             return id.Id;
         }
 
         /// <summary>
-        /// Determines whether two <see cref="Jid" /> instances are equal.
+        ///     Compares equality of one <see cref="Jid" /> to another.
         /// </summary>
-        /// <param name="one">First <see cref="Jid" /> to compare.</param>
-        /// <param name="two">Second <see cref="Jid" /> to compare.</param>
-        /// <returns>True if the <see cref="Jid" /> instances are equal; otherwise, false.</returns>
+        /// <param name="one">First <see cref="Jid" />.</param>
+        /// <param name="two">Second <see cref="Jid" />.</param>
+        /// <returns>True if the Jids are equal.</returns>
         public static bool operator ==(Jid one, Jid two)
         {
             return one != null && one.Equals(two);
         }
 
         /// <summary>
-        /// Compares two <see cref="Jid"/> objects for inequality.
+        ///     Compares the inequality of one <see cref="Jid" /> to another.
         /// </summary>
-        /// <param name="one">First <see cref="Jid"/> to compare.</param>
-        /// <param name="two">Second <see cref="Jid"/> to compare.</param>
-        /// <returns>True if the JID objects are not equal; otherwise, false.</returns>
+        /// <param name="one">First <see cref="Jid" />.</param>
+        /// <param name="two">Second <see cref="Jid" />.</param>
+        /// <returns>True if the Jids are not equal.</returns>
         public static bool operator !=(Jid one, Jid two)
         {
             return one != null && !one.Equals(two);
         }
 
         /// <summary>
-        /// Parses a string JID into a <see cref="Jid" /> instance.
+        ///     Parse a string into a <see cref="Jid" />.
         /// </summary>
-        /// <param name="value">The string representation of the JID to parse.</param>
-        /// <param name="escaped">Indicates whether the provided JID is in an escaped format.</param>
-        /// <returns>The parsed <see cref="Jid" /> instance.</returns>
+        /// <param name="value">String jid to parse.</param>
+        /// <param name="escaped">Indicates whether the ID is escaped.</param>
+        /// <returns><see cref="Jid" /> of the string.</returns>
         public static Jid Parse(string value, bool escaped)
         {
             if (!TryParse(value, escaped, out var jid))
@@ -170,19 +147,19 @@ namespace Ubiety.Xmpp.Core.Common
         }
 
         /// <summary>
-        /// Attempts to parse a string representation of a JID into a <see cref="Jid"/> object.
+        ///     Try to parse the string into a <see cref="Jid" />.
         /// </summary>
-        /// <param name="value">The string representation of the JID to parse.</param>
-        /// <param name="escaped">Indicates whether the JID string is escaped.</param>
-        /// <param name="jid">The resulting <see cref="Jid"/> instance if parsing is successful; otherwise null.</param>
-        /// <returns>True if the string representation is successfully parsed into a <see cref="Jid"/>; otherwise, false.</returns>
+        /// <param name="value">String jid to parse.</param>
+        /// <param name="escaped">Indicates whether the ID is escaped.</param>
+        /// <param name="jid">Parsed <see cref="Jid" />.</param>
+        /// <returns>True if parse is successful; otherwise false.</returns>
         public static bool TryParse(string value, bool escaped, out Jid jid)
         {
             var match = Regex.Match(value, JidRegex);
 
             if (!match.Success)
             {
-                jid = null;
+                jid = default;
                 return false;
             }
 
@@ -196,23 +173,13 @@ namespace Ubiety.Xmpp.Core.Common
             return true;
         }
 
-        /// <summary>
-        /// Determines whether the current JID is equal to another JID.
-        /// </summary>
-        /// <param name="other">The JID to compare with the current JID.</param>
-        /// <returns>true if the provided JID is equal to the current JID; otherwise, false.</returns>
+        /// <inheritdoc />
         public bool Equals(Jid other)
         {
             return Id.Equals(other?.Id);
         }
 
-        /// <summary>
-        /// Determines whether the specified object is equal to the current <see cref="Jid" /> instance.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current instance.</param>
-        /// <returns>
-        /// <c>true</c> if the specified object is equal to the current instance; otherwise, <c>false</c>.
-        /// </returns>
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             return obj switch
@@ -223,21 +190,13 @@ namespace Ubiety.Xmpp.Core.Common
             };
         }
 
-        /// <summary>
-        /// Generates a hash code for the current instance of <see cref="Jid" />.
-        /// </summary>
-        /// <returns>
-        /// An integer that represents the hash code of the current instance, based on the username, server, and resource.
-        /// </returns>
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             return HashCode.Combine(User, Server, Resource);
         }
 
-        /// <summary>
-        /// Converts the current <see cref="Jid"/> instance to its string representation in the format user@server/resource.
-        /// </summary>
-        /// <returns>The string representation of the JID.</returns>
+        /// <inheritdoc />
         public override string ToString()
         {
             return Id;
@@ -246,8 +205,6 @@ namespace Ubiety.Xmpp.Core.Common
         private static string Escape(string username)
         {
             var re = new Regex(EscapeRegex);
-
-            return re.Replace(username, Evaluator);
 
             static string Evaluator(Match m)
             {
@@ -266,13 +223,13 @@ namespace Ubiety.Xmpp.Core.Common
                     _ => m.Groups[0].Value,
                 };
             }
+
+            return re.Replace(username, Evaluator);
         }
 
         private static string Unescape(string username)
         {
             var re = new Regex(UnescapeRegex);
-
-            return re.Replace(username, Evaluator);
 
             static string Evaluator(Match m)
             {
@@ -291,6 +248,8 @@ namespace Ubiety.Xmpp.Core.Common
                     _ => m.Groups[0].Value,
                 };
             }
+
+            return re.Replace(username, Evaluator);
         }
     }
 }

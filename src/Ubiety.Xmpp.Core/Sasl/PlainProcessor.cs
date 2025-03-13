@@ -16,39 +16,41 @@ using System;
 using System.Text;
 using System.Xml.Linq;
 using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.Infrastructure.Attributes;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Sasl;
 
 namespace Ubiety.Xmpp.Core.Sasl
 {
     /// <summary>
-    /// Represents a SASL PLAIN authentication processor.
+    ///     PLAIN SASL authentication processor.
     /// </summary>
+    [Sasl("PLAIN", typeof(PlainProcessor), 10)]
     public class PlainProcessor : SaslProcessor
     {
         /// <summary>
-        /// Executes the next step of the SASL PLAIN authentication process.
+        ///     Process the next SASL step.
         /// </summary>
-        /// <param name="tag">The tag received from the server.</param>
-        /// <returns>The next tag to send to the server as part of the authentication process.</returns>
+        /// <param name="tag">Tag from the server.</param>
+        /// <returns>Tag to send the server.</returns>
         public override Tag Step(Tag tag)
         {
             return tag;
         }
 
         /// <summary>
-        /// Initializes the SASL PLAIN authentication process.
+        ///     Initializes the PLAIN SASL processor.
         /// </summary>
-        /// <param name="id">The Jid of the user to authenticate.</param>
-        /// <param name="password">The password to use for authentication.</param>
-        /// <returns>A tag containing the necessary authentication data to send to the server.</returns>
+        /// <param name="id"><see cref="Jid" /> of the user to authenticate.</param>
+        /// <param name="password">Password to use for authentication.</param>
+        /// <returns>Tag to send to server.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
 
             var auth = $"{(char)0}{id.User}{(char)0}{password}";
 
-            var authTag = Client.Registry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
+            var authTag = Client.TagRegistry.GetTag<Auth>(XName.Get("auth", Namespaces.Sasl));
             authTag.MechanismType = MechanismTypes.Plain;
             authTag.Value = Convert.ToBase64String(Encoding.UTF8.GetBytes(auth));
 

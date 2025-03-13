@@ -16,14 +16,15 @@ using System;
 
 namespace Ubiety.Xmpp.Core.Common
 {
+    /// <inheritdoc />
     /// <summary>
-    /// Represents the data event arguments that contain a message associated with an event.
+    ///     Socket data event arguments.
     /// </summary>
     public class DataEventArgs : EventArgs
     {
         /// <summary>
-        ///     Gets or sets the message from the server.
+        ///     Gets the message from the server.
         /// </summary>
-        public string Message { get; set; }
+        public string Message { get; init; }
     }
 }

@@ -19,12 +19,9 @@ using Ubiety.Xmpp.Core.Tags;
 namespace Ubiety.Xmpp.Core.States
 {
     /// <summary>
-    /// Represents the state where the XMPP client initiates the disconnection process from the server.
+    ///     State to disconnect from the server.
     /// </summary>
-    /// <remarks>
-    /// This state is responsible for safely terminating the connection to the server and transitioning
-    /// to the <see cref="DisconnectedState"/>. It logs the disconnection event for debugging purposes.
-    /// </remarks>
+    /// <inheritdoc />
     public class DisconnectState : IState
     {
         private static readonly ILog Logger = Log.Get<DisconnectState>();

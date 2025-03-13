@@ -17,16 +17,16 @@ using System.Linq;
 namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
 {
     /// <summary>
-    /// Provides extension methods for string manipulation.
+    ///     String extension methods.
     /// </summary>
     public static class StringExtensions
     {
         /// <summary>
-        /// Finds the first occurrence of a given character in a string that is not escaped by a backslash.
+        ///     Get the position of the first unescaped character.
         /// </summary>
-        /// <param name="data">The input string to search.</param>
-        /// <param name="token">The character to locate within the string.</param>
-        /// <returns>The position of the first unescaped character or -1 if not found.</returns>
+        /// <param name="data">Data to read.</param>
+        /// <param name="token">Character to locate.</param>
+        /// <returns>Position of the character.</returns>
         public static int FirstUnescaped(this string data, char token)
         {
             var position = -1;
@@ -52,10 +52,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Extensions
         }
 
         /// <summary>
-        /// Removes all whitespace characters from the given string.
+        ///     Remove whitespace in a string.
         /// </summary>
-        /// <param name="data">The input string to process.</param>
-        /// <returns>A new string with all whitespace characters removed.</returns>
+        /// <param name="data">Data to remove whitespace from.</param>
+        /// <returns>String with no whitespace.</returns>
         public static string RemoveWhitespace(this string data)
         {
             return new string(data.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
