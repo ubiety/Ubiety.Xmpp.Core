@@ -13,6 +13,7 @@
 //   limitations under the License.
 
 using System;
+using Ubiety.Xmpp.Core.Common;
 
 namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
 {
@@ -29,12 +30,14 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
         /// <param name="processorType">Type of SASL processor.</param>
         /// <param name="weight">Weight of the mechanism.</param>
         /// <param name="channelBinding">Whether to use channel binding.</param>
-        public SaslAttribute(string mechanismName, Type processorType, int weight, bool channelBinding = false)
+        /// <param name="type">Type of the mechanism.</param>
+        public SaslAttribute(string mechanismName, Type processorType, int weight, bool channelBinding, MechanismTypes type)
         {
             MechanismName = mechanismName;
             ProcessorType = processorType;
             Weight = weight;
             ChannelBinding = channelBinding;
+            Type = type;
         }
 
         /// <summary>
@@ -56,5 +59,10 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Attributes
         ///     Gets a value indicating whether to use channel binding.
         /// </summary>
         public bool ChannelBinding { get; }
+
+        /// <summary>
+        ///     Gets the mechanism type.
+        /// </summary>
+        public MechanismTypes Type { get; }
     }
 }
