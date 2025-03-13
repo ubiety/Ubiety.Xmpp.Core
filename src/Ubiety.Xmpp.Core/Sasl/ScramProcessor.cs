@@ -13,8 +13,6 @@
 //   limitations under the License.
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Ubiety.Scram.Core;
 using Ubiety.Scram.Core.Messages;
 using Ubiety.Stringprep.Core;
@@ -27,30 +25,41 @@ using Ubiety.Xmpp.Core.Tags.Sasl;
 
 namespace Ubiety.Xmpp.Core.Sasl
 {
-    /// <inheritdoc />
     /// <summary>
-    ///     SCRAM-SHA-1 SASL Processor.
+    /// Represents a SCRAM SASL (Simple Authentication and Security Layer) processor.
     /// </summary>
-    [Sasl("SCRAM-SHA1", typeof(ScramProcessor), 30)]
-    [Sasl("SCRAM-SHA1-PLUS", typeof(ScramProcessor), 35, true)]
+    /// <remarks>
+    /// SCRAM (Salted Challenge Response Authentication Mechanism) is an authentication protocol
+    /// used to securely authenticate a client to a server using a challenge-response mechanism.
+    /// This processor handles the initialization and step processing for the SCRAM mechanism.
+    /// </remarks>
+    [Sasl("SCRAM-SHA1", typeof(ScramProcessor), 30, false, MechanismTypes.Scram1)]
+    [Sasl("SCRAM-SHA1-PLUS", typeof(ScramProcessor), 35, true, MechanismTypes.Scram1Plus)]
+    [Sasl("SCRAM-SHA256", typeof(ScramProcessor), 40, false, MechanismTypes.Scram256)]
+    [Sasl("SCRAM-SHA256-PLUS", typeof(ScramProcessor), 45, true, MechanismTypes.Scram256Plus)]
+    [Sasl("SCRAM-SHA512", typeof(ScramProcessor), 50, false, MechanismTypes.Scram512)]
+    [Sasl("SCRAM-SHA512-PLUS", typeof(ScramProcessor), 55, true, MechanismTypes.Scram512Plus)]
     public class ScramProcessor : SaslProcessor
     {
         private static readonly ILog Logger = Log.Get<ScramProcessor>();
-        private readonly Encoding _encoding = Encoding.UTF8;
         private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
         private ClientFinalMessage _clientFinalMessage;
         private ClientFirstMessage _clientFirstMessage;
         private ServerFirstMessage _serverFirstMessage;
-        private string _serverResponse;
-        private List<byte> _serverSignature;
 
-        /// <inheritdoc />
         /// <summary>
-        ///     Initializes the SASL processor.
+        ///     Initializes a new instance of the <see cref="ScramProcessor" /> class.
         /// </summary>
-        /// <param name="id"><see cref="Jid" /> of the user for the session.</param>
-        /// <param name="password">Password of the user.</param>
-        /// <returns>Next tag to send to the server.</returns>
+        public ScramProcessor()
+        {
+        }
+
+        /// <summary>
+        /// Initializes the SCRAM SASL processor with the specified user information.
+        /// </summary>
+        /// <param name="id">The <see cref="Jid" /> representing the user's identifier for the session.</param>
+        /// <param name="password">The password of the user.</param>
+        /// <returns>A <see cref="Tag" /> containing the next message to send to the server during SASL authentication.</returns>
         public override Tag Initialize(Jid id, string password)
         {
             base.Initialize(id, password);
@@ -59,22 +68,21 @@ namespace Ubiety.Xmpp.Core.Sasl
 
             var nonce = CreateNonce();
 
-            _clientFirstMessage = new ClientFirstMessage(_saslprep.Run(Id.User), nonce);
+            _clientFirstMessage = new ClientFirstMessage(_saslprep.Run(Id.User), nonce, ChannelBinding ? ChannelBindingStatus.Required : ChannelBindingStatus.NotSupported);
             Logger.Log(LogLevel.Debug, _clientFirstMessage.Message);
 
             var auth = Client.TagRegistry.GetTag<Auth>(Auth.XmlName);
-            auth.MechanismType = ChannelBinding ? MechanismTypes.ScramPlus : MechanismTypes.Scram;
-            auth.Bytes = _encoding.GetBytes(_clientFirstMessage.Message);
+            auth.MechanismType = MechanismType;
+            auth.Bytes = _clientFirstMessage;
 
             return auth;
         }
 
-        /// <inheritdoc />
         /// <summary>
-        ///     Process the next SASL step.
+        /// Processes the given server tag and returns the appropriate next tag to send.
         /// </summary>
-        /// <param name="tag">Tag received from the server.</param>
-        /// <returns>Next tag to send to the server.</returns>
+        /// <param name="tag">The tag received from the server to be processed.</param>
+        /// <returns>The next tag to send to the server based on the received tag.</returns>
         public override Tag Step(Tag tag)
         {
             switch (tag)
@@ -85,59 +93,38 @@ namespace Ubiety.Xmpp.Core.Sasl
 
                 case Response s:
                     Logger.Log(LogLevel.Debug, "Received response");
-                    var response = _encoding.GetString(s.Bytes);
-                    var signature = Convert.FromBase64String(response[2..]);
-                    return _encoding.GetString(signature) == _encoding.GetString(_serverSignature.ToArray()) ? s : null;
+                    ServerFinalMessage serverFinalMessage = s.Bytes;
+                    return serverFinalMessage.ServerSignature == _clientFinalMessage.ServerSignature ? s : null;
 
                 case Failure f:
                     return f;
 
                 default:
-                    return default;
+                    return null;
             }
         }
 
         private Response ProcessChallenge(Challenge tag)
         {
-            _serverResponse = _encoding.GetString(tag.Bytes);
+            _serverFirstMessage = tag.Bytes;
 
-            _serverFirstMessage = ServerFirstMessage.ParseResponse(_serverResponse);
+            var hash = MechanismType switch
+            {
+                MechanismTypes.Scram1 => Hash.Sha1(),
+                MechanismTypes.Scram1Plus => Hash.Sha1(),
+                MechanismTypes.Scram256 => Hash.Sha256(),
+                MechanismTypes.Scram256Plus => Hash.Sha256(),
+                MechanismTypes.Scram512 => Hash.Sha512(),
+                MechanismTypes.Scram512Plus => Hash.Sha512(),
+                _ => throw new NotImplementedException()
+            };
 
-            _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage);
-
-            CalculateProofs();
+            _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage, Password, hash);
 
             var message = Client.TagRegistry.GetTag<Response>(Response.XmlName);
-            message.Bytes = _encoding.GetBytes(_clientFinalMessage.Message);
+            message.Bytes = _clientFinalMessage;
 
             return message;
-        }
-
-        private void CalculateProofs()
-        {
-            var hash = Hash.Sha1();
-
-            var password = _saslprep.Run(Password);
-
-            var saltedPassword = hash.ComputeHash(
-                _encoding.GetBytes(password),
-                _serverFirstMessage.Salt.Value,
-                _serverFirstMessage.Iterations.Value);
-
-            var clientKey = hash.ComputeHash(_encoding.GetBytes("Client Key"), saltedPassword);
-            var serverKey = hash.ComputeHash(_encoding.GetBytes("Server Key"), saltedPassword);
-            var storedKey = hash.ComputeHash(clientKey);
-
-            var authMessage =
-                $"{_clientFirstMessage.BareMessage},{_serverResponse},{_clientFinalMessage.MessageWithoutProof}";
-            var auth = _encoding.GetBytes(authMessage);
-
-            var signature = hash.ComputeHash(auth, storedKey);
-            _serverSignature = new List<byte>(hash.ComputeHash(auth, serverKey));
-
-            var proof = clientKey.ExclusiveOr(signature);
-
-            _clientFinalMessage.SetProof(proof);
         }
     }
 }
