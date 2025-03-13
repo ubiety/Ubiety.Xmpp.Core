@@ -27,7 +27,7 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// <summary>
     ///     MD5 SASL processor.
     /// </summary>
-    [Sasl("DIGEST-MD5", typeof(Md5Processor), 20)]
+    [Sasl("DIGEST-MD5", typeof(Md5Processor), 20, false, MechanismTypes.DigestMd5)]
     public class Md5Processor : SaslProcessor, IDisposable
     {
         private readonly Regex _csv = new Regex(
@@ -35,7 +35,7 @@ namespace Ubiety.Xmpp.Core.Sasl
             RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
         private readonly Encoding _encoding = Encoding.UTF8;
-        private readonly MD5CryptoServiceProvider _md5 = new ();
+        private readonly MD5 _md5 = MD5.Create();
         private bool _disposedValue;
         private string _cnonce;
         private string _digestUri;
