@@ -20,7 +20,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
     /// <summary>
     ///     Parse Exception.
     /// </summary>
-    [Serializable]
     public class ParseException : Exception
     {
         /// <summary>
@@ -46,16 +45,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
         /// <param name="innerException">Inner exception.</param>
         public ParseException(string message, Exception innerException)
             : base(message, innerException)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ParseException"/> class.
-        /// </summary>
-        /// <param name="info">Serialization info.</param>
-        /// <param name="context">Streaming context.</param>
-        protected ParseException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
         {
         }
     }

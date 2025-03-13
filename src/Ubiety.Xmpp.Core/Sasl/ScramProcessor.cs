@@ -12,12 +12,12 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
 using Ubiety.Scram.Core;
 using Ubiety.Scram.Core.Messages;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Attributes;
+using Ubiety.Xmpp.Core.Infrastructure.Exceptions;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Stringprep;
 using Ubiety.Xmpp.Core.Tags;
@@ -116,7 +116,7 @@ namespace Ubiety.Xmpp.Core.Sasl
                 MechanismTypes.Scram256Plus => Hash.Sha256(),
                 MechanismTypes.Scram512 => Hash.Sha512(),
                 MechanismTypes.Scram512Plus => Hash.Sha512(),
-                _ => throw new NotImplementedException()
+                _ => throw new InvalidTypeException()
             };
 
             _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage, Password, hash);

@@ -20,7 +20,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
     /// <summary>
     ///     Invalid State Exception.
     /// </summary>
-    [Serializable]
     public class InvalidStateException : Exception
     {
         /// <summary>
@@ -46,16 +45,6 @@ namespace Ubiety.Xmpp.Core.Infrastructure.Exceptions
         /// <param name="innerException">Inner exception.</param>
         public InvalidStateException(string message, Exception innerException)
             : base(message, innerException)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="InvalidStateException"/> class.
-        /// </summary>
-        /// <param name="info">Serialization info.</param>
-        /// <param name="context">Streaming context.</param>
-        protected InvalidStateException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
         {
         }
     }
