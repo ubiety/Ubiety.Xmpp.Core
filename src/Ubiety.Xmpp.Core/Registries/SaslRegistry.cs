@@ -31,7 +31,7 @@ namespace Ubiety.Xmpp.Core.Registries
     public class SaslRegistry
     {
         private static readonly ILog Logger = Log.Get<SaslRegistry>();
-        private readonly Dictionary<string, (Type processor, int weight, bool binding)> _mechanisms = new ();
+        private readonly Dictionary<string, (Type processor, int weight, bool binding, MechanismTypes type)> _mechanisms = new ();
 
         /// <summary>
         ///     Add assembly to the registry.
@@ -44,7 +44,7 @@ namespace Ubiety.Xmpp.Core.Registries
             var attributes = assembly.GetAttributes<SaslAttribute>();
             foreach (var attribute in attributes)
             {
-                _mechanisms.Add(attribute.MechanismName, (attribute.ProcessorType, attribute.Weight, attribute.ChannelBinding));
+                _mechanisms.Add(attribute.MechanismName, (attribute.ProcessorType, attribute.Weight, attribute.ChannelBinding, attribute.Type));
             }
         }
 
@@ -56,10 +56,10 @@ namespace Ubiety.Xmpp.Core.Registries
         /// <returns><see cref="SaslProcessor" /> that is to be used for authentication.</returns>
         public SaslProcessor GetProcessor(IEnumerable<Mechanism> serverMechanisms, XmppBase client)
         {
-            var (processorType, _, binding) = (from type in _mechanisms
-                join server in serverMechanisms on type.Key equals server.Value
-                orderby type.Value.weight descending
-                select type.Value).First();
+            var (processorType, _, binding, type) = (from attr in _mechanisms
+                join server in serverMechanisms on attr.Key equals server.Value
+                orderby attr.Value.weight descending
+                select attr.Value).First();
 
             var processor = (SaslProcessor)Activator.CreateInstance(processorType);
 
@@ -68,10 +68,11 @@ namespace Ubiety.Xmpp.Core.Registries
                 case PlainProcessor when !client.ClientSocket.Secure:
                     throw new InvalidOperationException("Do not use PLAIN SASL processor on an unsecured connection.");
                 case null:
-                    return default;
+                    return null;
                 default:
                     processor.ChannelBinding = binding;
                     processor.Client = client;
+                    processor.MechanismType = type;
 
                     return processor;
             }
