@@ -25,7 +25,7 @@ namespace Ubiety.Xmpp.Core.Sasl
     /// <summary>
     ///     PLAIN SASL authentication processor.
     /// </summary>
-    [Sasl("PLAIN", typeof(PlainProcessor), 10)]
+    [Sasl("PLAIN", typeof(PlainProcessor), 10, false, MechanismTypes.Plain)]
     public class PlainProcessor : SaslProcessor
     {
         /// <summary>
