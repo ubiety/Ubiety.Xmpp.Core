@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -62,7 +62,8 @@ public class XmppClient : XmppBase, IClient
     public void Connect(Jid jid, string password)
     {
         _logger.Log(LogLevel.Debug, "Connect(Jid, string) called");
-        ArgumentNullException.ThrowIfNull(jid);
+        ArgumentException.ThrowIfNullOrEmpty(jid);
+        ArgumentException.ThrowIfNullOrEmpty(password);
 
         _logger.Log(LogLevel.Debug, $"Connecting to server for {jid}");
         Id = jid;

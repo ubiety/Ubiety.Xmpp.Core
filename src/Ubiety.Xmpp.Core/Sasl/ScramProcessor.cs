@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -116,7 +116,7 @@ public class ScramProcessor : SaslProcessor
             MechanismTypes.Scram256Plus => Hash.Sha256(),
             MechanismTypes.Scram512 => Hash.Sha512(),
             MechanismTypes.Scram512Plus => Hash.Sha512(),
-            _ => throw new InvalidTypeException()
+            _ => throw new InvalidTypeException(),
         };
 
         _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage, Password, hash);
