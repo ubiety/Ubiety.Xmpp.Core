@@ -25,8 +25,14 @@ using Ubiety.Xmpp.Core.Tags.Stream;
 namespace Ubiety.Xmpp.Core.Common;
 
 /// <summary>
-///     Base XMPP implementation.
+/// Base abstract class for XMPP implementation that provides core functionality for XMPP communication.
+/// Handles connection management, state transitions, and SASL authentication.
 /// </summary>
+/// <remarks>
+/// This class implements IDisposable and manages the lifecycle of network connections and resources.
+/// It coordinates between different components like the parser, socket, and various registries needed
+/// for XMPP communication.
+/// </remarks>
 public abstract class XmppBase : IDisposable
 {
     private readonly ILog _logger;
@@ -34,7 +40,8 @@ public abstract class XmppBase : IDisposable
     private bool _disposedValue; // To detect redundant calls
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="XmppBase" /> class.
+    /// Initializes a new instance of the <see cref="XmppBase"/> class.
+    /// Sets up logging and initializes basic components needed for XMPP communication.
     /// </summary>
     protected XmppBase()
     {
@@ -43,42 +50,52 @@ public abstract class XmppBase : IDisposable
     }
 
     /// <summary>
-    ///     Raised when a stream error occurs.
+    /// Event that is raised when a stream error occurs during XMPP communication.
     /// </summary>
+    /// <remarks>
+    /// Subscribers receive an <see cref="ErrorEventArgs"/> containing error details.
+    /// </remarks>
     public event EventHandler<ErrorEventArgs> Error;
 
     /// <summary>
-    ///     Gets or sets the XMPP port.
+    /// Gets or sets the port number used for XMPP communication.
+    /// Defaults to the standard XMPP port 5222.
     /// </summary>
     public int Port { get; set; } = 5222;
 
     /// <summary>
-    ///     Gets a value indicating whether the socket should use SSL/TLS.
+    /// Gets a value indicating whether SSL/TLS encryption should be used for the connection.
+    /// This value can only be set during initialization.
     /// </summary>
     public bool UseSsl { get; internal init; }
 
     /// <summary>
-    ///     Gets a value indicating whether we should use IPv6.
+    /// Gets a value indicating whether IPv6 should be used for network communication.
+    /// This value can only be set during initialization.
     /// </summary>
     public bool UseIPv6 { get; internal init; }
 
     /// <summary>
-    ///     Gets or sets the current state.
+    /// Gets or sets the current state of the XMPP connection.
+    /// States control the behavior and progression of the XMPP session.
     /// </summary>
     public IState State { get; set; }
 
     /// <summary>
-    ///     Gets the tag registry.
+    /// Gets the registry for XMPP tags, which manages the creation and lookup of XML elements.
+    /// This value can only be set during initialization.
     /// </summary>
     public TagRegistry TagRegistry { get; internal init; }
 
     /// <summary>
-    ///     Gets the SASL registry.
+    /// Gets the registry for SASL authentication mechanisms.
+    /// This value can only be set during initialization.
     /// </summary>
     public SaslRegistry SaslRegistry { get; internal init; }
 
     /// <summary>
-    ///     Gets the client socket.
+    /// Gets the client socket used for network communication.
+    /// Handles the low-level network operations for XMPP communication.
     /// </summary>
     public AsyncClientSocket ClientSocket
     {
@@ -91,17 +108,18 @@ public abstract class XmppBase : IDisposable
     }
 
     /// <summary>
-    ///     Gets or sets the SASL processor for the session.
+    /// Gets or sets the SASL processor used for authentication during the current session.
     /// </summary>
     public SaslProcessor SaslProcessor { get; set; }
 
     /// <summary>
-    ///     Gets the XMPP protocol parser.
+    /// Gets the XMPP protocol parser that handles incoming XML streams.
+    /// This value can only be set during initialization.
     /// </summary>
     protected Parser Parser { get; init; }
 
     /// <summary>
-    ///     Dispose resources.
+    /// Releases all resources used by the <see cref="XmppBase"/> instance.
     /// </summary>
     public void Dispose()
     {
@@ -111,10 +129,14 @@ public abstract class XmppBase : IDisposable
     }
 
     /// <summary>
-    ///     Received a tag from the parser.
+    /// Handles incoming XMPP tags from the parser and manages state transitions.
     /// </summary>
-    /// <param name="sender">Object sending the event.</param>
-    /// <param name="e">Event arguments containing the tag.</param>
+    /// <param name="sender">The source of the tag event.</param>
+    /// <param name="e">Event arguments containing the parsed XMPP tag.</param>
+    /// <remarks>
+    /// This method checks for stream errors and executes the appropriate state actions
+    /// based on the received tag.
+    /// </remarks>
     protected void Parser_Tag(object sender, TagEventArgs e)
     {
         if (e.Tag is Stream stream && stream.Errors.Any())
@@ -131,9 +153,11 @@ public abstract class XmppBase : IDisposable
     }
 
     /// <summary>
-    ///     Dispose resources.
+    /// Releases the unmanaged resources used by the <see cref="XmppBase"/> and optionally
+    /// releases the managed resources.
     /// </summary>
-    /// <param name="disposing">Dispose managed resources.</param>
+    /// <param name="disposing">true to release both managed and unmanaged resources;
+    /// false to release only unmanaged resources.</param>
     protected virtual void Dispose(bool disposing)
     {
         _logger.Log(LogLevel.Debug, "Dispose(bool) called");
@@ -151,11 +175,22 @@ public abstract class XmppBase : IDisposable
         _disposedValue = true;
     }
 
+    /// <summary>
+    /// Raises the Error event with the specified sender and error arguments.
+    /// </summary>
+    /// <param name="sender">The source of the error.</param>
+    /// <param name="e">Error event arguments containing error details.</param>
     private void OnError(object sender, ErrorEventArgs e)
     {
         Error?.Invoke(sender, e);
     }
 
+    /// <summary>
+    /// Handles the connection event from the client socket.
+    /// Initializes the parser and transitions to the connected state.
+    /// </summary>
+    /// <param name="sender">The source of the connection event.</param>
+    /// <param name="e">Event arguments.</param>
     private void Socket_Connection(object sender, EventArgs e)
     {
         _logger.Log(LogLevel.Debug, "Setting connection state");
