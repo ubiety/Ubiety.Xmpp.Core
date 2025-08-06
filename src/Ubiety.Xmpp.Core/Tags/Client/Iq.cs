@@ -66,6 +66,7 @@ public class Iq : Stanza
     public Iq(XElement element)
         : base(element)
     {
+        System.ArgumentNullException.ThrowIfNull(element, nameof(element));
         Id = GetNextPacketId();
     }
 

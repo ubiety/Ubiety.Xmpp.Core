@@ -31,6 +31,7 @@ public class Response : Tag
     public Response(XElement other)
         : base(other)
     {
+        System.ArgumentNullException.ThrowIfNull(other, nameof(other));
     }
 
     /// <summary>

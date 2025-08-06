@@ -35,6 +35,7 @@ public class Features : Tag
     public Features(XElement other)
         : base(other)
     {
+        System.ArgumentNullException.ThrowIfNull(other, nameof(other));
     }
 
     /// <summary>
