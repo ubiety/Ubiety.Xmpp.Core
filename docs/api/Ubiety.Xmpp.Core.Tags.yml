@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags
+  commentId: N:Ubiety.Xmpp.Core.Tags
+  id: Ubiety.Xmpp.Core.Tags
+  children:
+  - Ubiety.Xmpp.Core.Tags.Stanza
+  - Ubiety.Xmpp.Core.Tags.Tag
+  - Ubiety.Xmpp.Core.Tags.Text
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Tags
+  nameWithType: Ubiety.Xmpp.Core.Tags
+  fullName: Ubiety.Xmpp.Core.Tags
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Stanza
+  commentId: T:Ubiety.Xmpp.Core.Tags.Stanza
+  parent: Ubiety.Xmpp.Core.Tags
+  href: Ubiety.Xmpp.Core.Tags.Stanza.html
+  name: Stanza
+  nameWithType: Stanza
+  fullName: Ubiety.Xmpp.Core.Tags.Stanza
+- uid: Ubiety.Xmpp.Core.Tags.Tag
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tag
+  parent: Ubiety.Xmpp.Core.Tags
+  href: Ubiety.Xmpp.Core.Tags.Tag.html
+  name: Tag
+  nameWithType: Tag
+  fullName: Ubiety.Xmpp.Core.Tags.Tag
+- uid: Ubiety.Xmpp.Core.Tags.Text
+  commentId: T:Ubiety.Xmpp.Core.Tags.Text
+  parent: Ubiety.Xmpp.Core.Tags
+  href: Ubiety.Xmpp.Core.Tags.Text.html
+  name: Text
+  nameWithType: Text
+  fullName: Ubiety.Xmpp.Core.Tags.Text
+- uid: Ubiety.Xmpp.Core.Tags
+  commentId: N:Ubiety.Xmpp.Core.Tags
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags
+  nameWithType: Ubiety.Xmpp.Core.Tags
+  fullName: Ubiety.Xmpp.Core.Tags
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html

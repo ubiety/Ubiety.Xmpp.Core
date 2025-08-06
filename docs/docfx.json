@@ -3,12 +3,13 @@
     {
       "src": [
         {
-          "files": [ "src/Ubiety.Xmpp.Core/**/*.csproj" ]
+          "src": "../src/Ubiety.Xmpp.Core/",
+          "files": [ "Ubiety.Xmpp.Core.csproj" ]
         }
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "net6.0"
+        "TargetFramework": "net9.0"
       }
     }
   ],

@@ -1,0 +1,86 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags.Tls
+  commentId: N:Ubiety.Xmpp.Core.Tags.Tls
+  id: Ubiety.Xmpp.Core.Tags.Tls
+  children:
+  - Ubiety.Xmpp.Core.Tags.Tls.Proceed
+  - Ubiety.Xmpp.Core.Tags.Tls.Required
+  - Ubiety.Xmpp.Core.Tags.Tls.StartTls
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Tags.Tls
+  nameWithType: Ubiety.Xmpp.Core.Tags.Tls
+  fullName: Ubiety.Xmpp.Core.Tags.Tls
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Tls.Proceed
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tls.Proceed
+  parent: Ubiety.Xmpp.Core.Tags.Tls
+  href: Ubiety.Xmpp.Core.Tags.Tls.Proceed.html
+  name: Proceed
+  nameWithType: Proceed
+  fullName: Ubiety.Xmpp.Core.Tags.Tls.Proceed
+- uid: Ubiety.Xmpp.Core.Tags.Tls.Required
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tls.Required
+  parent: Ubiety.Xmpp.Core.Tags.Tls
+  href: Ubiety.Xmpp.Core.Tags.Tls.Required.html
+  name: Required
+  nameWithType: Required
+  fullName: Ubiety.Xmpp.Core.Tags.Tls.Required
+- uid: Ubiety.Xmpp.Core.Tags.Tls.StartTls
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tls.StartTls
+  parent: Ubiety.Xmpp.Core.Tags.Tls
+  href: Ubiety.Xmpp.Core.Tags.Tls.StartTls.html
+  name: StartTls
+  nameWithType: StartTls
+  fullName: Ubiety.Xmpp.Core.Tags.Tls.StartTls
+- uid: Ubiety.Xmpp.Core.Tags.Tls
+  commentId: N:Ubiety.Xmpp.Core.Tags.Tls
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags.Tls
+  nameWithType: Ubiety.Xmpp.Core.Tags.Tls
+  fullName: Ubiety.Xmpp.Core.Tags.Tls
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Tls
+    name: Tls
+    href: Ubiety.Xmpp.Core.Tags.Tls.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Tls
+    name: Tls
+    href: Ubiety.Xmpp.Core.Tags.Tls.html

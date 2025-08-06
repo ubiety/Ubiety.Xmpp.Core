@@ -1,0 +1,189 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Logging.ILog
+  commentId: T:Ubiety.Xmpp.Core.Logging.ILog
+  id: ILog
+  parent: Ubiety.Xmpp.Core.Logging
+  children:
+  - Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.Object)
+  - Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ILog
+  nameWithType: ILog
+  fullName: Ubiety.Xmpp.Core.Logging.ILog
+  type: Interface
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/ILog.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: ILog
+    path: ../src/Ubiety.Xmpp.Core/Logging/ILog.cs
+    startLine: 21
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Defines an interface for logging.
+  example: []
+  syntax:
+    content: public interface ILog
+    content.vb: Public Interface ILog
+- uid: Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Object)
+  commentId: M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Object)
+  id: Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Object)
+  parent: Ubiety.Xmpp.Core.Logging.ILog
+  langs:
+  - csharp
+  - vb
+  name: Log(LogLevel, object)
+  nameWithType: ILog.Log(LogLevel, object)
+  fullName: Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel, object)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/ILog.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Log
+    path: ../src/Ubiety.Xmpp.Core/Logging/ILog.cs
+    startLine: 28
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Log a generic message.
+  example: []
+  syntax:
+    content: void Log(LogLevel level, object message)
+    parameters:
+    - id: level
+      type: Ubiety.Xmpp.Core.Logging.LogLevel
+      description: Severity level of the message.
+    - id: message
+      type: System.Object
+      description: Message to log.
+    content.vb: Sub Log(level As LogLevel, message As Object)
+  overload: Ubiety.Xmpp.Core.Logging.ILog.Log*
+  nameWithType.vb: ILog.Log(LogLevel, Object)
+  fullName.vb: Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel, Object)
+  name.vb: Log(LogLevel, Object)
+- uid: Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.Object)
+  commentId: M:Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.Object)
+  id: Log(Ubiety.Xmpp.Core.Logging.LogLevel,System.Exception,System.Object)
+  parent: Ubiety.Xmpp.Core.Logging.ILog
+  langs:
+  - csharp
+  - vb
+  name: Log(LogLevel, Exception, object)
+  nameWithType: ILog.Log(LogLevel, Exception, object)
+  fullName: Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel, System.Exception, object)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/ILog.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Log
+    path: ../src/Ubiety.Xmpp.Core/Logging/ILog.cs
+    startLine: 36
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Log a message with an exception.
+  example: []
+  syntax:
+    content: void Log(LogLevel level, Exception exception, object message)
+    parameters:
+    - id: level
+      type: Ubiety.Xmpp.Core.Logging.LogLevel
+      description: Severity level of the message.
+    - id: exception
+      type: System.Exception
+      description: Exception to log.
+    - id: message
+      type: System.Object
+      description: Message to log.
+    content.vb: Sub Log(level As LogLevel, exception As Exception, message As Object)
+  overload: Ubiety.Xmpp.Core.Logging.ILog.Log*
+  nameWithType.vb: ILog.Log(LogLevel, Exception, Object)
+  fullName.vb: Ubiety.Xmpp.Core.Logging.ILog.Log(Ubiety.Xmpp.Core.Logging.LogLevel, System.Exception, Object)
+  name.vb: Log(LogLevel, Exception, Object)
+references:
+- uid: Ubiety.Xmpp.Core.Logging
+  commentId: N:Ubiety.Xmpp.Core.Logging
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Logging
+  nameWithType: Ubiety.Xmpp.Core.Logging
+  fullName: Ubiety.Xmpp.Core.Logging
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+- uid: Ubiety.Xmpp.Core.Logging.ILog.Log*
+  commentId: Overload:Ubiety.Xmpp.Core.Logging.ILog.Log
+  href: Ubiety.Xmpp.Core.Logging.ILog.html#Ubiety_Xmpp_Core_Logging_ILog_Log_Ubiety_Xmpp_Core_Logging_LogLevel_System_Object_
+  name: Log
+  nameWithType: ILog.Log
+  fullName: Ubiety.Xmpp.Core.Logging.ILog.Log
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel
+  commentId: T:Ubiety.Xmpp.Core.Logging.LogLevel
+  parent: Ubiety.Xmpp.Core.Logging
+  href: Ubiety.Xmpp.Core.Logging.LogLevel.html
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception

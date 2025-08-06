@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Registries
+  commentId: N:Ubiety.Xmpp.Core.Registries
+  id: Ubiety.Xmpp.Core.Registries
+  children:
+  - Ubiety.Xmpp.Core.Registries.SaslRegistry
+  - Ubiety.Xmpp.Core.Registries.TagRegistry
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Registries
+  nameWithType: Ubiety.Xmpp.Core.Registries
+  fullName: Ubiety.Xmpp.Core.Registries
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Registries.SaslRegistry
+  commentId: T:Ubiety.Xmpp.Core.Registries.SaslRegistry
+  parent: Ubiety.Xmpp.Core.Registries
+  href: Ubiety.Xmpp.Core.Registries.SaslRegistry.html
+  name: SaslRegistry
+  nameWithType: SaslRegistry
+  fullName: Ubiety.Xmpp.Core.Registries.SaslRegistry
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry
+  commentId: T:Ubiety.Xmpp.Core.Registries.TagRegistry
+  parent: Ubiety.Xmpp.Core.Registries
+  href: Ubiety.Xmpp.Core.Registries.TagRegistry.html
+  name: TagRegistry
+  nameWithType: TagRegistry
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry
+- uid: Ubiety.Xmpp.Core.Registries
+  commentId: N:Ubiety.Xmpp.Core.Registries
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Registries
+  nameWithType: Ubiety.Xmpp.Core.Registries
+  fullName: Ubiety.Xmpp.Core.Registries
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Registries
+    name: Registries
+    href: Ubiety.Xmpp.Core.Registries.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Registries
+    name: Registries
+    href: Ubiety.Xmpp.Core.Registries.html

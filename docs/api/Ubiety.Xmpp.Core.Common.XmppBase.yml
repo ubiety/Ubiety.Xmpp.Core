@@ -1,0 +1,1262 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Common.XmppBase
+  commentId: T:Ubiety.Xmpp.Core.Common.XmppBase
+  id: XmppBase
+  parent: Ubiety.Xmpp.Core.Common
+  children:
+  - Ubiety.Xmpp.Core.Common.XmppBase.#ctor
+  - Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket
+  - Ubiety.Xmpp.Core.Common.XmppBase.Dispose
+  - Ubiety.Xmpp.Core.Common.XmppBase.Dispose(System.Boolean)
+  - Ubiety.Xmpp.Core.Common.XmppBase.Error
+  - Ubiety.Xmpp.Core.Common.XmppBase.Parser
+  - Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag(System.Object,Ubiety.Xmpp.Core.Common.TagEventArgs)
+  - Ubiety.Xmpp.Core.Common.XmppBase.Port
+  - Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor
+  - Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry
+  - Ubiety.Xmpp.Core.Common.XmppBase.State
+  - Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry
+  - Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6
+  - Ubiety.Xmpp.Core.Common.XmppBase.UseSsl
+  langs:
+  - csharp
+  - vb
+  name: XmppBase
+  nameWithType: XmppBase
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase
+  type: Class
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: XmppBase
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 35
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Base abstract class for XMPP implementation that provides core functionality for XMPP communication.
+
+    Handles connection management, state transitions, and SASL authentication.
+  remarks: >-
+    This class implements IDisposable and manages the lifecycle of network connections and resources.
+
+    It coordinates between different components like the parser, socket, and various registries needed
+
+    for XMPP communication.
+  example: []
+  syntax:
+    content: 'public abstract class XmppBase : IDisposable'
+    content.vb: Public MustInherit Class XmppBase Implements IDisposable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Ubiety.Xmpp.Core.XmppClient
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.#ctor
+  commentId: M:Ubiety.Xmpp.Core.Common.XmppBase.#ctor
+  id: '#ctor'
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: XmppBase()
+  nameWithType: XmppBase.XmppBase()
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.XmppBase()
+  type: Constructor
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: .ctor
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 45
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Initializes a new instance of the <xref href="Ubiety.Xmpp.Core.Common.XmppBase" data-throw-if-not-resolved="false"></xref> class.
+
+    Sets up logging and initializes basic components needed for XMPP communication.
+  example: []
+  syntax:
+    content: protected XmppBase()
+    content.vb: Protected Sub New()
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.#ctor*
+  nameWithType.vb: XmppBase.New()
+  fullName.vb: Ubiety.Xmpp.Core.Common.XmppBase.New()
+  name.vb: New()
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Error
+  commentId: E:Ubiety.Xmpp.Core.Common.XmppBase.Error
+  id: Error
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: XmppBase.Error
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Error
+  type: Event
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Error
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 57
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Event that is raised when a stream error occurs during XMPP communication.
+  remarks: Subscribers receive an <xref href="Ubiety.Xmpp.Core.Common.ErrorEventArgs" data-throw-if-not-resolved="false"></xref> containing error details.
+  example: []
+  syntax:
+    content: public event EventHandler<ErrorEventArgs> Error
+    return:
+      type: System.EventHandler{Ubiety.Xmpp.Core.Common.ErrorEventArgs}
+    content.vb: Public Event [Error] As EventHandler(Of ErrorEventArgs)
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Port
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.Port
+  id: Port
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: XmppBase.Port
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Port
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Port
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 63
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets or sets the port number used for XMPP communication.
+
+    Defaults to the standard XMPP port 5222.
+  example: []
+  syntax:
+    content: public int Port { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Port As Integer
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.Port*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.UseSsl
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.UseSsl
+  id: UseSsl
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: UseSsl
+  nameWithType: XmppBase.UseSsl
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.UseSsl
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: UseSsl
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 69
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets a value indicating whether SSL/TLS encryption should be used for the connection.
+
+    This value can only be set during initialization.
+  example: []
+  syntax:
+    content: public bool UseSsl { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UseSsl As Boolean
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.UseSsl*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6
+  id: UseIPv6
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: UseIPv6
+  nameWithType: XmppBase.UseIPv6
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: UseIPv6
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 75
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets a value indicating whether IPv6 should be used for network communication.
+
+    This value can only be set during initialization.
+  example: []
+  syntax:
+    content: public bool UseIPv6 { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UseIPv6 As Boolean
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.State
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.State
+  id: State
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: XmppBase.State
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.State
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: State
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 81
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets or sets the current state of the XMPP connection.
+
+    States control the behavior and progression of the XMPP session.
+  example: []
+  syntax:
+    content: public IState State { get; set; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.States.IState
+    content.vb: Public Property State As IState
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.State*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry
+  id: TagRegistry
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: TagRegistry
+  nameWithType: XmppBase.TagRegistry
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: TagRegistry
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 87
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets the registry for XMPP tags, which manages the creation and lookup of XML elements.
+
+    This value can only be set during initialization.
+  example: []
+  syntax:
+    content: public TagRegistry TagRegistry { get; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.Registries.TagRegistry
+    content.vb: Public Property TagRegistry As TagRegistry
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry
+  id: SaslRegistry
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: SaslRegistry
+  nameWithType: XmppBase.SaslRegistry
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: SaslRegistry
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 93
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets the registry for SASL authentication mechanisms.
+
+    This value can only be set during initialization.
+  example: []
+  syntax:
+    content: public SaslRegistry SaslRegistry { get; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.Registries.SaslRegistry
+    content.vb: Public Property SaslRegistry As SaslRegistry
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket
+  id: ClientSocket
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: ClientSocket
+  nameWithType: XmppBase.ClientSocket
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: ClientSocket
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 99
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets the client socket used for network communication.
+
+    Handles the low-level network operations for XMPP communication.
+  example: []
+  syntax:
+    content: public AsyncClientSocket ClientSocket { get; protected init; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+    content.vb: Public Property ClientSocket As AsyncClientSocket
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor
+  id: SaslProcessor
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: SaslProcessor
+  nameWithType: XmppBase.SaslProcessor
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: SaslProcessor
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 112
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Gets or sets the SASL processor used for authentication during the current session.
+  example: []
+  syntax:
+    content: public SaslProcessor SaslProcessor { get; set; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+    content.vb: Public Property SaslProcessor As SaslProcessor
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Parser
+  commentId: P:Ubiety.Xmpp.Core.Common.XmppBase.Parser
+  id: Parser
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: XmppBase.Parser
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Parser
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Parser
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 118
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Gets the XMPP protocol parser that handles incoming XML streams.
+
+    This value can only be set during initialization.
+  example: []
+  syntax:
+    content: protected Parser Parser { get; init; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.Infrastructure.Parser
+    content.vb: Protected Property Parser As Parser
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.Parser*
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Dispose
+  commentId: M:Ubiety.Xmpp.Core.Common.XmppBase.Dispose
+  id: Dispose
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: XmppBase.Dispose()
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Dispose
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 123
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Releases all resources used by the <xref href="Ubiety.Xmpp.Core.Common.XmppBase" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag(System.Object,Ubiety.Xmpp.Core.Common.TagEventArgs)
+  commentId: M:Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag(System.Object,Ubiety.Xmpp.Core.Common.TagEventArgs)
+  id: Parser_Tag(System.Object,Ubiety.Xmpp.Core.Common.TagEventArgs)
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: Parser_Tag(object, TagEventArgs)
+  nameWithType: XmppBase.Parser_Tag(object, TagEventArgs)
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag(object, Ubiety.Xmpp.Core.Common.TagEventArgs)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Parser_Tag
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 139
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Handles incoming XMPP tags from the parser and manages state transitions.
+  remarks: >-
+    This method checks for stream errors and executes the appropriate state actions
+
+    based on the received tag.
+  example: []
+  syntax:
+    content: protected void Parser_Tag(object sender, TagEventArgs e)
+    parameters:
+    - id: sender
+      type: System.Object
+      description: The source of the tag event.
+    - id: e
+      type: Ubiety.Xmpp.Core.Common.TagEventArgs
+      description: Event arguments containing the parsed XMPP tag.
+    content.vb: Protected Sub Parser_Tag(sender As Object, e As TagEventArgs)
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag*
+  nameWithType.vb: XmppBase.Parser_Tag(Object, TagEventArgs)
+  fullName.vb: Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag(Object, Ubiety.Xmpp.Core.Common.TagEventArgs)
+  name.vb: Parser_Tag(Object, TagEventArgs)
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Dispose(System.Boolean)
+  commentId: M:Ubiety.Xmpp.Core.Common.XmppBase.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: XmppBase.Dispose(bool)
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Dispose(bool)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Dispose
+    path: ../src/Ubiety.Xmpp.Core/Common/XmppBase.cs
+    startLine: 162
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Releases the unmanaged resources used by the <xref href="Ubiety.Xmpp.Core.Common.XmppBase" data-throw-if-not-resolved="false"></xref> and optionally
+
+    releases the managed resources.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: >-
+        true to release both managed and unmanaged resources;
+            false to release only unmanaged resources.
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: Ubiety.Xmpp.Core.Common.XmppBase.Dispose*
+  nameWithType.vb: XmppBase.Dispose(Boolean)
+  fullName.vb: Ubiety.Xmpp.Core.Common.XmppBase.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+references:
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ubiety.Xmpp.Core.Common.XmppBase
+  commentId: T:Ubiety.Xmpp.Core.Common.XmppBase
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html
+  name: XmppBase
+  nameWithType: XmppBase
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.#ctor*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.#ctor
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase__ctor
+  name: XmppBase
+  nameWithType: XmppBase.XmppBase
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.XmppBase
+  nameWithType.vb: XmppBase.New
+  fullName.vb: Ubiety.Xmpp.Core.Common.XmppBase.New
+  name.vb: New
+- uid: Ubiety.Xmpp.Core.Common.ErrorEventArgs
+  commentId: T:Ubiety.Xmpp.Core.Common.ErrorEventArgs
+  href: Ubiety.Xmpp.Core.Common.ErrorEventArgs.html
+  name: ErrorEventArgs
+  nameWithType: ErrorEventArgs
+  fullName: Ubiety.Xmpp.Core.Common.ErrorEventArgs
+- uid: System.EventHandler{Ubiety.Xmpp.Core.Common.ErrorEventArgs}
+  commentId: T:System.EventHandler{Ubiety.Xmpp.Core.Common.ErrorEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ErrorEventArgs>
+  nameWithType: EventHandler<ErrorEventArgs>
+  fullName: System.EventHandler<Ubiety.Xmpp.Core.Common.ErrorEventArgs>
+  nameWithType.vb: EventHandler(Of ErrorEventArgs)
+  fullName.vb: System.EventHandler(Of Ubiety.Xmpp.Core.Common.ErrorEventArgs)
+  name.vb: EventHandler(Of ErrorEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: Ubiety.Xmpp.Core.Common.ErrorEventArgs
+    name: ErrorEventArgs
+    href: Ubiety.Xmpp.Core.Common.ErrorEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Ubiety.Xmpp.Core.Common.ErrorEventArgs
+    name: ErrorEventArgs
+    href: Ubiety.Xmpp.Core.Common.ErrorEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Port*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.Port
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_Port
+  name: Port
+  nameWithType: XmppBase.Port
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Port
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.UseSsl*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.UseSsl
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_UseSsl
+  name: UseSsl
+  nameWithType: XmppBase.UseSsl
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.UseSsl
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_UseIPv6
+  name: UseIPv6
+  nameWithType: XmppBase.UseIPv6
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.UseIPv6
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.State*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.State
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_State
+  name: State
+  nameWithType: XmppBase.State
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.State
+- uid: Ubiety.Xmpp.Core.States.IState
+  commentId: T:Ubiety.Xmpp.Core.States.IState
+  parent: Ubiety.Xmpp.Core.States
+  href: Ubiety.Xmpp.Core.States.IState.html
+  name: IState
+  nameWithType: IState
+  fullName: Ubiety.Xmpp.Core.States.IState
+- uid: Ubiety.Xmpp.Core.States
+  commentId: N:Ubiety.Xmpp.Core.States
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.States
+  nameWithType: Ubiety.Xmpp.Core.States
+  fullName: Ubiety.Xmpp.Core.States
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_TagRegistry
+  name: TagRegistry
+  nameWithType: XmppBase.TagRegistry
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.TagRegistry
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry
+  commentId: T:Ubiety.Xmpp.Core.Registries.TagRegistry
+  parent: Ubiety.Xmpp.Core.Registries
+  href: Ubiety.Xmpp.Core.Registries.TagRegistry.html
+  name: TagRegistry
+  nameWithType: TagRegistry
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry
+- uid: Ubiety.Xmpp.Core.Registries
+  commentId: N:Ubiety.Xmpp.Core.Registries
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Registries
+  nameWithType: Ubiety.Xmpp.Core.Registries
+  fullName: Ubiety.Xmpp.Core.Registries
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Registries
+    name: Registries
+    href: Ubiety.Xmpp.Core.Registries.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Registries
+    name: Registries
+    href: Ubiety.Xmpp.Core.Registries.html
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_SaslRegistry
+  name: SaslRegistry
+  nameWithType: XmppBase.SaslRegistry
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.SaslRegistry
+- uid: Ubiety.Xmpp.Core.Registries.SaslRegistry
+  commentId: T:Ubiety.Xmpp.Core.Registries.SaslRegistry
+  parent: Ubiety.Xmpp.Core.Registries
+  href: Ubiety.Xmpp.Core.Registries.SaslRegistry.html
+  name: SaslRegistry
+  nameWithType: SaslRegistry
+  fullName: Ubiety.Xmpp.Core.Registries.SaslRegistry
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_ClientSocket
+  name: ClientSocket
+  nameWithType: XmppBase.ClientSocket
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.ClientSocket
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  commentId: T:Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  parent: Ubiety.Xmpp.Core.Net
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html
+  name: AsyncClientSocket
+  nameWithType: AsyncClientSocket
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+- uid: Ubiety.Xmpp.Core.Net
+  commentId: N:Ubiety.Xmpp.Core.Net
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Net
+  nameWithType: Ubiety.Xmpp.Core.Net
+  fullName: Ubiety.Xmpp.Core.Net
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Net
+    name: Net
+    href: Ubiety.Xmpp.Core.Net.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Net
+    name: Net
+    href: Ubiety.Xmpp.Core.Net.html
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_SaslProcessor
+  name: SaslProcessor
+  nameWithType: XmppBase.SaslProcessor
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.SaslProcessor
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  parent: Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html
+  name: SaslProcessor
+  nameWithType: SaslProcessor
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+- uid: Ubiety.Xmpp.Core.Sasl
+  commentId: N:Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Sasl
+  nameWithType: Ubiety.Xmpp.Core.Sasl
+  fullName: Ubiety.Xmpp.Core.Sasl
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Sasl.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Sasl.html
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Parser*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.Parser
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_Parser
+  name: Parser
+  nameWithType: XmppBase.Parser
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Parser
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Parser
+  parent: Ubiety.Xmpp.Core.Infrastructure
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html
+  name: Parser
+  nameWithType: Parser
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser
+- uid: Ubiety.Xmpp.Core.Infrastructure
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Infrastructure
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure
+  fullName: Ubiety.Xmpp.Core.Infrastructure
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Dispose*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.Dispose
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_Dispose
+  name: Dispose
+  nameWithType: XmppBase.Dispose
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html#Ubiety_Xmpp_Core_Common_XmppBase_Parser_Tag_System_Object_Ubiety_Xmpp_Core_Common_TagEventArgs_
+  name: Parser_Tag
+  nameWithType: XmppBase.Parser_Tag
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase.Parser_Tag
+- uid: Ubiety.Xmpp.Core.Common.TagEventArgs
+  commentId: T:Ubiety.Xmpp.Core.Common.TagEventArgs
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.TagEventArgs.html
+  name: TagEventArgs
+  nameWithType: TagEventArgs
+  fullName: Ubiety.Xmpp.Core.Common.TagEventArgs

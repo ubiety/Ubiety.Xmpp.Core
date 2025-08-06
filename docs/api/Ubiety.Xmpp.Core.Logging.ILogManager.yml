@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Logging.ILogManager
+  commentId: T:Ubiety.Xmpp.Core.Logging.ILogManager
+  id: ILogManager
+  parent: Ubiety.Xmpp.Core.Logging
+  children:
+  - Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ILogManager
+  nameWithType: ILogManager
+  fullName: Ubiety.Xmpp.Core.Logging.ILogManager
+  type: Interface
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/ILogManager.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: ILogManager
+    path: ../src/Ubiety.Xmpp.Core/Logging/ILogManager.cs
+    startLine: 19
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Defines the interface for the log manager.
+  example: []
+  syntax:
+    content: public interface ILogManager
+    content.vb: Public Interface ILogManager
+- uid: Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger(System.String)
+  commentId: M:Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger(System.String)
+  id: GetLogger(System.String)
+  parent: Ubiety.Xmpp.Core.Logging.ILogManager
+  langs:
+  - csharp
+  - vb
+  name: GetLogger(string)
+  nameWithType: ILogManager.GetLogger(string)
+  fullName: Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger(string)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/ILogManager.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: GetLogger
+    path: ../src/Ubiety.Xmpp.Core/Logging/ILogManager.cs
+    startLine: 26
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Get a log instance for the requested name.
+  example: []
+  syntax:
+    content: ILog GetLogger(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: Name of the instance.
+    return:
+      type: Ubiety.Xmpp.Core.Logging.ILog
+      description: Instance of a log.
+    content.vb: Function GetLogger(name As String) As ILog
+  overload: Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger*
+  nameWithType.vb: ILogManager.GetLogger(String)
+  fullName.vb: Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger(String)
+  name.vb: GetLogger(String)
+references:
+- uid: Ubiety.Xmpp.Core.Logging
+  commentId: N:Ubiety.Xmpp.Core.Logging
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Logging
+  nameWithType: Ubiety.Xmpp.Core.Logging
+  fullName: Ubiety.Xmpp.Core.Logging
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+- uid: Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger*
+  commentId: Overload:Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger
+  href: Ubiety.Xmpp.Core.Logging.ILogManager.html#Ubiety_Xmpp_Core_Logging_ILogManager_GetLogger_System_String_
+  name: GetLogger
+  nameWithType: ILogManager.GetLogger
+  fullName: Ubiety.Xmpp.Core.Logging.ILogManager.GetLogger
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ubiety.Xmpp.Core.Logging.ILog
+  commentId: T:Ubiety.Xmpp.Core.Logging.ILog
+  parent: Ubiety.Xmpp.Core.Logging
+  href: Ubiety.Xmpp.Core.Logging.ILog.html
+  name: ILog
+  nameWithType: ILog
+  fullName: Ubiety.Xmpp.Core.Logging.ILog
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

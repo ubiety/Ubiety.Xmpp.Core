@@ -3,6 +3,6 @@
 - name: Usage
   href: articles/usage.md
 - name: API Reference
-  href: api/index.md
+  href: api/toc.yml
 - name: Contributing
   href: articles/contributing.md

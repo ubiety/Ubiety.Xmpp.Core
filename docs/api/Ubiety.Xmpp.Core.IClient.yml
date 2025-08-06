@@ -1,0 +1,502 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.IClient
+  commentId: T:Ubiety.Xmpp.Core.IClient
+  id: IClient
+  parent: Ubiety.Xmpp.Core
+  children:
+  - Ubiety.Xmpp.Core.IClient.Authenticated
+  - Ubiety.Xmpp.Core.IClient.Connect(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  - Ubiety.Xmpp.Core.IClient.Id
+  - Ubiety.Xmpp.Core.IClient.Password
+  - Ubiety.Xmpp.Core.IClient.Port
+  - Ubiety.Xmpp.Core.IClient.State
+  - Ubiety.Xmpp.Core.IClient.UseIPv6
+  - Ubiety.Xmpp.Core.IClient.UseSsl
+  langs:
+  - csharp
+  - vb
+  name: IClient
+  nameWithType: IClient
+  fullName: Ubiety.Xmpp.Core.IClient
+  type: Interface
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: IClient
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 22
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Defines a client interface.
+  example: []
+  syntax:
+    content: public interface IClient
+    content.vb: Public Interface IClient
+- uid: Ubiety.Xmpp.Core.IClient.Id
+  commentId: P:Ubiety.Xmpp.Core.IClient.Id
+  id: Id
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IClient.Id
+  fullName: Ubiety.Xmpp.Core.IClient.Id
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Id
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 27
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Gets or sets the user JID.
+  example: []
+  syntax:
+    content: Jid Id { get; set; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.Common.Jid
+    content.vb: Property Id As Jid
+  overload: Ubiety.Xmpp.Core.IClient.Id*
+- uid: Ubiety.Xmpp.Core.IClient.Password
+  commentId: P:Ubiety.Xmpp.Core.IClient.Password
+  id: Password
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: IClient.Password
+  fullName: Ubiety.Xmpp.Core.IClient.Password
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Password
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 32
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Gets or sets the user password.
+  example: []
+  syntax:
+    content: string Password { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Password As String
+  overload: Ubiety.Xmpp.Core.IClient.Password*
+- uid: Ubiety.Xmpp.Core.IClient.Port
+  commentId: P:Ubiety.Xmpp.Core.IClient.Port
+  id: Port
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: IClient.Port
+  fullName: Ubiety.Xmpp.Core.IClient.Port
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Port
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 37
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Gets or sets the port of the server.
+  example: []
+  syntax:
+    content: int Port { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property Port As Integer
+  overload: Ubiety.Xmpp.Core.IClient.Port*
+- uid: Ubiety.Xmpp.Core.IClient.UseSsl
+  commentId: P:Ubiety.Xmpp.Core.IClient.UseSsl
+  id: UseSsl
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: UseSsl
+  nameWithType: IClient.UseSsl
+  fullName: Ubiety.Xmpp.Core.IClient.UseSsl
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: UseSsl
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 42
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Gets a value indicating whether the socket should use SSL/TLS.
+  example: []
+  syntax:
+    content: bool UseSsl { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property UseSsl As Boolean
+  overload: Ubiety.Xmpp.Core.IClient.UseSsl*
+- uid: Ubiety.Xmpp.Core.IClient.UseIPv6
+  commentId: P:Ubiety.Xmpp.Core.IClient.UseIPv6
+  id: UseIPv6
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: UseIPv6
+  nameWithType: IClient.UseIPv6
+  fullName: Ubiety.Xmpp.Core.IClient.UseIPv6
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: UseIPv6
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 47
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Gets a value indicating whether the socket should use IPv6.
+  example: []
+  syntax:
+    content: bool UseIPv6 { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property UseIPv6 As Boolean
+  overload: Ubiety.Xmpp.Core.IClient.UseIPv6*
+- uid: Ubiety.Xmpp.Core.IClient.Authenticated
+  commentId: P:Ubiety.Xmpp.Core.IClient.Authenticated
+  id: Authenticated
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: Authenticated
+  nameWithType: IClient.Authenticated
+  fullName: Ubiety.Xmpp.Core.IClient.Authenticated
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Authenticated
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 52
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Gets a value indicating whether the user is authenticated.
+  example: []
+  syntax:
+    content: bool Authenticated { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property Authenticated As Boolean
+  overload: Ubiety.Xmpp.Core.IClient.Authenticated*
+- uid: Ubiety.Xmpp.Core.IClient.State
+  commentId: P:Ubiety.Xmpp.Core.IClient.State
+  id: State
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: IClient.State
+  fullName: Ubiety.Xmpp.Core.IClient.State
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: State
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 57
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Gets the current state.
+  example: []
+  syntax:
+    content: IState State { get; }
+    parameters: []
+    return:
+      type: Ubiety.Xmpp.Core.States.IState
+    content.vb: ReadOnly Property State As IState
+  overload: Ubiety.Xmpp.Core.IClient.State*
+- uid: Ubiety.Xmpp.Core.IClient.Connect(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  commentId: M:Ubiety.Xmpp.Core.IClient.Connect(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  id: Connect(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  parent: Ubiety.Xmpp.Core.IClient
+  langs:
+  - csharp
+  - vb
+  name: Connect(Jid, string)
+  nameWithType: IClient.Connect(Jid, string)
+  fullName: Ubiety.Xmpp.Core.IClient.Connect(Ubiety.Xmpp.Core.Common.Jid, string)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/IClient.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Connect
+    path: ../src/Ubiety.Xmpp.Core/IClient.cs
+    startLine: 64
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core
+  summary: Connect to an XMPP server using a JID.
+  example: []
+  syntax:
+    content: void Connect(Jid jid, string password)
+    parameters:
+    - id: jid
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> to use for connecting.
+    - id: password
+      type: System.String
+      description: Password to connect with.
+    content.vb: Sub Connect(jid As Jid, password As String)
+  overload: Ubiety.Xmpp.Core.IClient.Connect*
+  nameWithType.vb: IClient.Connect(Jid, String)
+  fullName.vb: Ubiety.Xmpp.Core.IClient.Connect(Ubiety.Xmpp.Core.Common.Jid, String)
+  name.vb: Connect(Jid, String)
+references:
+- uid: Ubiety.Xmpp.Core
+  commentId: N:Ubiety.Xmpp.Core
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core
+  nameWithType: Ubiety.Xmpp.Core
+  fullName: Ubiety.Xmpp.Core
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+- uid: Ubiety.Xmpp.Core.IClient.Id*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.Id
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_Id
+  name: Id
+  nameWithType: IClient.Id
+  fullName: Ubiety.Xmpp.Core.IClient.Id
+- uid: Ubiety.Xmpp.Core.Common.Jid
+  commentId: T:Ubiety.Xmpp.Core.Common.Jid
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.Jid.html
+  name: Jid
+  nameWithType: Jid
+  fullName: Ubiety.Xmpp.Core.Common.Jid
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: Ubiety.Xmpp.Core.IClient.Password*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.Password
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_Password
+  name: Password
+  nameWithType: IClient.Password
+  fullName: Ubiety.Xmpp.Core.IClient.Password
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ubiety.Xmpp.Core.IClient.Port*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.Port
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_Port
+  name: Port
+  nameWithType: IClient.Port
+  fullName: Ubiety.Xmpp.Core.IClient.Port
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Ubiety.Xmpp.Core.IClient.UseSsl*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.UseSsl
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_UseSsl
+  name: UseSsl
+  nameWithType: IClient.UseSsl
+  fullName: Ubiety.Xmpp.Core.IClient.UseSsl
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Ubiety.Xmpp.Core.IClient.UseIPv6*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.UseIPv6
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_UseIPv6
+  name: UseIPv6
+  nameWithType: IClient.UseIPv6
+  fullName: Ubiety.Xmpp.Core.IClient.UseIPv6
+- uid: Ubiety.Xmpp.Core.IClient.Authenticated*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.Authenticated
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_Authenticated
+  name: Authenticated
+  nameWithType: IClient.Authenticated
+  fullName: Ubiety.Xmpp.Core.IClient.Authenticated
+- uid: Ubiety.Xmpp.Core.IClient.State*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.State
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_State
+  name: State
+  nameWithType: IClient.State
+  fullName: Ubiety.Xmpp.Core.IClient.State
+- uid: Ubiety.Xmpp.Core.States.IState
+  commentId: T:Ubiety.Xmpp.Core.States.IState
+  parent: Ubiety.Xmpp.Core.States
+  href: Ubiety.Xmpp.Core.States.IState.html
+  name: IState
+  nameWithType: IState
+  fullName: Ubiety.Xmpp.Core.States.IState
+- uid: Ubiety.Xmpp.Core.States
+  commentId: N:Ubiety.Xmpp.Core.States
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.States
+  nameWithType: Ubiety.Xmpp.Core.States
+  fullName: Ubiety.Xmpp.Core.States
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html
+- uid: Ubiety.Xmpp.Core.IClient.Connect*
+  commentId: Overload:Ubiety.Xmpp.Core.IClient.Connect
+  href: Ubiety.Xmpp.Core.IClient.html#Ubiety_Xmpp_Core_IClient_Connect_Ubiety_Xmpp_Core_Common_Jid_System_String_
+  name: Connect
+  nameWithType: IClient.Connect
+  fullName: Ubiety.Xmpp.Core.IClient.Connect

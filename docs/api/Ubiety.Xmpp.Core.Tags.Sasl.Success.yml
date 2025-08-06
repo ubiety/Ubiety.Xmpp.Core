@@ -1,0 +1,4290 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Success
+  id: Success
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  children:
+  - Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor
+  - Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor(System.Xml.Linq.XElement)
+  - Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: Success
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success
+  type: Class
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Success
+    path: ../src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+    startLine: 23
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Sasl
+  summary: SASL authentication success tag.
+  example: []
+  syntax:
+    content: >-
+      [XmppTag("success", "urn:ietf:params:xml:ns:xmpp-sasl", typeof(Success))]
+
+      public class Success : Tag, IXmlLineInfo, IXmlSerializable
+    content.vb: >-
+      <XmppTag("success", "urn:ietf:params:xml:ns:xmpp-sasl", GetType(Success))>
+
+      Public Class Success Inherits Tag Implements IXmlLineInfo, IXmlSerializable
+  inheritance:
+  - System.Object
+  - System.Xml.Linq.XObject
+  - System.Xml.Linq.XNode
+  - System.Xml.Linq.XContainer
+  - System.Xml.Linq.XElement
+  - Ubiety.Xmpp.Core.Tags.Tag
+  implements:
+  - System.Xml.IXmlLineInfo
+  - System.Xml.Serialization.IXmlSerializable
+  inheritedMembers:
+  - Ubiety.Xmpp.Core.Tags.Tag.Bytes
+  - Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})
+  - Ubiety.Xmpp.Core.Tags.Tag.GetNextPacketId
+  - Ubiety.Xmpp.Core.Tags.Tag.Elements``1(System.Xml.Linq.XName)
+  - Ubiety.Xmpp.Core.Tags.Tag.Element``1(System.Xml.Linq.XName)
+  - Ubiety.Xmpp.Core.Tags.Tag.GetAttributeValue(System.Xml.Linq.XName)
+  - Ubiety.Xmpp.Core.Tags.Tag.GetAttributeEnumValue``1(System.Xml.Linq.XName)
+  - Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,{T})
+  - System.Xml.Linq.XElement.AncestorsAndSelf
+  - System.Xml.Linq.XElement.AncestorsAndSelf(System.Xml.Linq.XName)
+  - System.Xml.Linq.XElement.Attribute(System.Xml.Linq.XName)
+  - System.Xml.Linq.XElement.Attributes
+  - System.Xml.Linq.XElement.Attributes(System.Xml.Linq.XName)
+  - System.Xml.Linq.XElement.DescendantNodesAndSelf
+  - System.Xml.Linq.XElement.DescendantsAndSelf
+  - System.Xml.Linq.XElement.DescendantsAndSelf(System.Xml.Linq.XName)
+  - System.Xml.Linq.XElement.GetDefaultNamespace
+  - System.Xml.Linq.XElement.GetNamespaceOfPrefix(System.String)
+  - System.Xml.Linq.XElement.GetPrefixOfNamespace(System.Xml.Linq.XNamespace)
+  - System.Xml.Linq.XElement.Load(System.IO.Stream)
+  - System.Xml.Linq.XElement.Load(System.IO.Stream,System.Xml.Linq.LoadOptions)
+  - System.Xml.Linq.XElement.Load(System.IO.TextReader)
+  - System.Xml.Linq.XElement.Load(System.IO.TextReader,System.Xml.Linq.LoadOptions)
+  - System.Xml.Linq.XElement.Load(System.String)
+  - System.Xml.Linq.XElement.Load(System.String,System.Xml.Linq.LoadOptions)
+  - System.Xml.Linq.XElement.Load(System.Xml.XmlReader)
+  - System.Xml.Linq.XElement.Load(System.Xml.XmlReader,System.Xml.Linq.LoadOptions)
+  - System.Xml.Linq.XElement.LoadAsync(System.IO.Stream,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  - System.Xml.Linq.XElement.LoadAsync(System.IO.TextReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  - System.Xml.Linq.XElement.LoadAsync(System.Xml.XmlReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  - System.Xml.Linq.XElement.Parse(System.String)
+  - System.Xml.Linq.XElement.Parse(System.String,System.Xml.Linq.LoadOptions)
+  - System.Xml.Linq.XElement.RemoveAll
+  - System.Xml.Linq.XElement.RemoveAttributes
+  - System.Xml.Linq.XElement.ReplaceAll(System.Object)
+  - System.Xml.Linq.XElement.ReplaceAll(System.Object[])
+  - System.Xml.Linq.XElement.ReplaceAttributes(System.Object)
+  - System.Xml.Linq.XElement.ReplaceAttributes(System.Object[])
+  - System.Xml.Linq.XElement.Save(System.IO.Stream)
+  - System.Xml.Linq.XElement.Save(System.IO.Stream,System.Xml.Linq.SaveOptions)
+  - System.Xml.Linq.XElement.Save(System.IO.TextWriter)
+  - System.Xml.Linq.XElement.Save(System.IO.TextWriter,System.Xml.Linq.SaveOptions)
+  - System.Xml.Linq.XElement.Save(System.String)
+  - System.Xml.Linq.XElement.Save(System.String,System.Xml.Linq.SaveOptions)
+  - System.Xml.Linq.XElement.Save(System.Xml.XmlWriter)
+  - System.Xml.Linq.XElement.SaveAsync(System.IO.Stream,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+  - System.Xml.Linq.XElement.SaveAsync(System.IO.TextWriter,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+  - System.Xml.Linq.XElement.SaveAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+  - System.Xml.Linq.XElement.SetAttributeValue(System.Xml.Linq.XName,System.Object)
+  - System.Xml.Linq.XElement.SetElementValue(System.Xml.Linq.XName,System.Object)
+  - System.Xml.Linq.XElement.SetValue(System.Object)
+  - System.Xml.Linq.XElement.WriteTo(System.Xml.XmlWriter)
+  - System.Xml.Linq.XElement.WriteToAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+  - System.Xml.Linq.XElement.EmptySequence
+  - System.Xml.Linq.XElement.FirstAttribute
+  - System.Xml.Linq.XElement.HasAttributes
+  - System.Xml.Linq.XElement.HasElements
+  - System.Xml.Linq.XElement.IsEmpty
+  - System.Xml.Linq.XElement.LastAttribute
+  - System.Xml.Linq.XElement.Name
+  - System.Xml.Linq.XElement.NodeType
+  - System.Xml.Linq.XElement.Value
+  - System.Xml.Linq.XContainer.Add(System.Object)
+  - System.Xml.Linq.XContainer.Add(System.Object[])
+  - System.Xml.Linq.XContainer.AddFirst(System.Object)
+  - System.Xml.Linq.XContainer.AddFirst(System.Object[])
+  - System.Xml.Linq.XContainer.CreateWriter
+  - System.Xml.Linq.XContainer.DescendantNodes
+  - System.Xml.Linq.XContainer.Descendants
+  - System.Xml.Linq.XContainer.Descendants(System.Xml.Linq.XName)
+  - System.Xml.Linq.XContainer.Element(System.Xml.Linq.XName)
+  - System.Xml.Linq.XContainer.Elements
+  - System.Xml.Linq.XContainer.Elements(System.Xml.Linq.XName)
+  - System.Xml.Linq.XContainer.Nodes
+  - System.Xml.Linq.XContainer.RemoveNodes
+  - System.Xml.Linq.XContainer.ReplaceNodes(System.Object)
+  - System.Xml.Linq.XContainer.ReplaceNodes(System.Object[])
+  - System.Xml.Linq.XContainer.FirstNode
+  - System.Xml.Linq.XContainer.LastNode
+  - System.Xml.Linq.XNode.AddAfterSelf(System.Object)
+  - System.Xml.Linq.XNode.AddAfterSelf(System.Object[])
+  - System.Xml.Linq.XNode.AddBeforeSelf(System.Object)
+  - System.Xml.Linq.XNode.AddBeforeSelf(System.Object[])
+  - System.Xml.Linq.XNode.Ancestors
+  - System.Xml.Linq.XNode.Ancestors(System.Xml.Linq.XName)
+  - System.Xml.Linq.XNode.CompareDocumentOrder(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+  - System.Xml.Linq.XNode.CreateReader
+  - System.Xml.Linq.XNode.CreateReader(System.Xml.Linq.ReaderOptions)
+  - System.Xml.Linq.XNode.DeepEquals(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+  - System.Xml.Linq.XNode.ElementsAfterSelf
+  - System.Xml.Linq.XNode.ElementsAfterSelf(System.Xml.Linq.XName)
+  - System.Xml.Linq.XNode.ElementsBeforeSelf
+  - System.Xml.Linq.XNode.ElementsBeforeSelf(System.Xml.Linq.XName)
+  - System.Xml.Linq.XNode.IsAfter(System.Xml.Linq.XNode)
+  - System.Xml.Linq.XNode.IsBefore(System.Xml.Linq.XNode)
+  - System.Xml.Linq.XNode.NodesAfterSelf
+  - System.Xml.Linq.XNode.NodesBeforeSelf
+  - System.Xml.Linq.XNode.ReadFrom(System.Xml.XmlReader)
+  - System.Xml.Linq.XNode.ReadFromAsync(System.Xml.XmlReader,System.Threading.CancellationToken)
+  - System.Xml.Linq.XNode.Remove
+  - System.Xml.Linq.XNode.ReplaceWith(System.Object)
+  - System.Xml.Linq.XNode.ReplaceWith(System.Object[])
+  - System.Xml.Linq.XNode.ToString
+  - System.Xml.Linq.XNode.ToString(System.Xml.Linq.SaveOptions)
+  - System.Xml.Linq.XNode.DocumentOrderComparer
+  - System.Xml.Linq.XNode.EqualityComparer
+  - System.Xml.Linq.XNode.NextNode
+  - System.Xml.Linq.XNode.PreviousNode
+  - System.Xml.Linq.XObject.AddAnnotation(System.Object)
+  - System.Xml.Linq.XObject.Annotation(System.Type)
+  - System.Xml.Linq.XObject.Annotations(System.Type)
+  - System.Xml.Linq.XObject.Annotations``1
+  - System.Xml.Linq.XObject.Annotation``1
+  - System.Xml.Linq.XObject.RemoveAnnotations(System.Type)
+  - System.Xml.Linq.XObject.RemoveAnnotations``1
+  - System.Xml.Linq.XObject.BaseUri
+  - System.Xml.Linq.XObject.Document
+  - System.Xml.Linq.XObject.Parent
+  - System.Xml.Linq.XObject.Changed
+  - System.Xml.Linq.XObject.Changing
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute
+    ctor: Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute.#ctor(System.String,System.String,System.Type)
+    arguments:
+    - type: System.String
+      value: success
+    - type: System.String
+      value: urn:ietf:params:xml:ns:xmpp-sasl
+    - type: System.Type
+      value: Ubiety.Xmpp.Core.Tags.Sasl.Success
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor(System.Xml.Linq.XElement)
+  commentId: M:Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor(System.Xml.Linq.XElement)
+  id: '#ctor(System.Xml.Linq.XElement)'
+  parent: Ubiety.Xmpp.Core.Tags.Sasl.Success
+  langs:
+  - csharp
+  - vb
+  name: Success(XElement)
+  nameWithType: Success.Success(XElement)
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success.Success(System.Xml.Linq.XElement)
+  type: Constructor
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: .ctor
+    path: ../src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+    startLine: 30
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Sasl
+  summary: Initializes a new instance of the <xref href="Ubiety.Xmpp.Core.Tags.Sasl.Success" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public Success(XElement other)
+    parameters:
+    - id: other
+      type: System.Xml.Linq.XElement
+      description: <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref> to derive the tag from.
+    content.vb: Public Sub New(other As XElement)
+  overload: Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor*
+  nameWithType.vb: Success.New(XElement)
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Sasl.Success.New(System.Xml.Linq.XElement)
+  name.vb: New(XElement)
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor
+  commentId: M:Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor
+  id: '#ctor'
+  parent: Ubiety.Xmpp.Core.Tags.Sasl.Success
+  langs:
+  - csharp
+  - vb
+  name: Success()
+  nameWithType: Success.Success()
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success.Success()
+  type: Constructor
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: .ctor
+    path: ../src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+    startLine: 38
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Sasl
+  summary: Initializes a new instance of the <xref href="Ubiety.Xmpp.Core.Tags.Sasl.Success" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public Success()
+    content.vb: Public Sub New()
+  overload: Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor*
+  nameWithType.vb: Success.New()
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Sasl.Success.New()
+  name.vb: New()
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName
+  commentId: P:Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName
+  id: XmlName
+  parent: Ubiety.Xmpp.Core.Tags.Sasl.Success
+  langs:
+  - csharp
+  - vb
+  name: XmlName
+  nameWithType: Success.XmlName
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: XmlName
+    path: ../src/Ubiety.Xmpp.Core/Tags/Sasl/Success.cs
+    startLine: 46
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Sasl
+  summary: Gets the XML name of the tag.
+  example: []
+  syntax:
+    content: public static XName XmlName { get; }
+    parameters: []
+    return:
+      type: System.Xml.Linq.XName
+    content.vb: Public Shared ReadOnly Property XmlName As XName
+  overload: Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName*
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Sasl
+  commentId: N:Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags.Sasl
+  nameWithType: Ubiety.Xmpp.Core.Tags.Sasl
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Tags.Sasl.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Tags.Sasl.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Xml.Linq.XObject
+  commentId: T:System.Xml.Linq.XObject
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject
+  name: XObject
+  nameWithType: XObject
+  fullName: System.Xml.Linq.XObject
+- uid: System.Xml.Linq.XNode
+  commentId: T:System.Xml.Linq.XNode
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  name: XNode
+  nameWithType: XNode
+  fullName: System.Xml.Linq.XNode
+- uid: System.Xml.Linq.XContainer
+  commentId: T:System.Xml.Linq.XContainer
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer
+  name: XContainer
+  nameWithType: XContainer
+  fullName: System.Xml.Linq.XContainer
+- uid: System.Xml.Linq.XElement
+  commentId: T:System.Xml.Linq.XElement
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  name: XElement
+  nameWithType: XElement
+  fullName: System.Xml.Linq.XElement
+- uid: Ubiety.Xmpp.Core.Tags.Tag
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tag
+  parent: Ubiety.Xmpp.Core.Tags
+  href: Ubiety.Xmpp.Core.Tags.Tag.html
+  name: Tag
+  nameWithType: Tag
+  fullName: Ubiety.Xmpp.Core.Tags.Tag
+- uid: System.Xml.IXmlLineInfo
+  commentId: T:System.Xml.IXmlLineInfo
+  parent: System.Xml
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.ixmllineinfo
+  name: IXmlLineInfo
+  nameWithType: IXmlLineInfo
+  fullName: System.Xml.IXmlLineInfo
+- uid: System.Xml.Serialization.IXmlSerializable
+  commentId: T:System.Xml.Serialization.IXmlSerializable
+  parent: System.Xml.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.serialization.ixmlserializable
+  name: IXmlSerializable
+  nameWithType: IXmlSerializable
+  fullName: System.Xml.Serialization.IXmlSerializable
+- uid: Ubiety.Xmpp.Core.Tags.Tag.Bytes
+  commentId: P:Ubiety.Xmpp.Core.Tags.Tag.Bytes
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_Bytes
+  name: Bytes
+  nameWithType: Tag.Bytes
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.Bytes
+- uid: Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetConstructor_System_Type_System_Collections_Generic_IReadOnlyCollection_System_Type__
+  name: GetConstructor(Type, IReadOnlyCollection<Type>)
+  nameWithType: Tag.GetConstructor(Type, IReadOnlyCollection<Type>)
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type, System.Collections.Generic.IReadOnlyCollection<System.Type>)
+  nameWithType.vb: Tag.GetConstructor(Type, IReadOnlyCollection(Of Type))
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type, System.Collections.Generic.IReadOnlyCollection(Of System.Type))
+  name.vb: GetConstructor(Type, IReadOnlyCollection(Of Type))
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})
+    name: GetConstructor
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetConstructor_System_Type_System_Collections_Generic_IReadOnlyCollection_System_Type__
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetConstructor(System.Type,System.Collections.Generic.IReadOnlyCollection{System.Type})
+    name: GetConstructor
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetConstructor_System_Type_System_Collections_Generic_IReadOnlyCollection_System_Type__
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  - name: )
+- uid: Ubiety.Xmpp.Core.Tags.Tag.GetNextPacketId
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.GetNextPacketId
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetNextPacketId
+  name: GetNextPacketId()
+  nameWithType: Tag.GetNextPacketId()
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.GetNextPacketId()
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetNextPacketId
+    name: GetNextPacketId
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetNextPacketId
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetNextPacketId
+    name: GetNextPacketId
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetNextPacketId
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Tags.Tag.Elements``1(System.Xml.Linq.XName)
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.Elements``1(System.Xml.Linq.XName)
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_Elements__1_System_Xml_Linq_XName_
+  name: Elements<T>(XName)
+  nameWithType: Tag.Elements<T>(XName)
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.Elements<T>(System.Xml.Linq.XName)
+  nameWithType.vb: Tag.Elements(Of T)(XName)
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Tag.Elements(Of T)(System.Xml.Linq.XName)
+  name.vb: Elements(Of T)(XName)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.Elements``1(System.Xml.Linq.XName)
+    name: Elements
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_Elements__1_System_Xml_Linq_XName_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.Elements``1(System.Xml.Linq.XName)
+    name: Elements
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_Elements__1_System_Xml_Linq_XName_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: Ubiety.Xmpp.Core.Tags.Tag.Element``1(System.Xml.Linq.XName)
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.Element``1(System.Xml.Linq.XName)
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_Element__1_System_Xml_Linq_XName_
+  name: Element<T>(XName)
+  nameWithType: Tag.Element<T>(XName)
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.Element<T>(System.Xml.Linq.XName)
+  nameWithType.vb: Tag.Element(Of T)(XName)
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Tag.Element(Of T)(System.Xml.Linq.XName)
+  name.vb: Element(Of T)(XName)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.Element``1(System.Xml.Linq.XName)
+    name: Element
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_Element__1_System_Xml_Linq_XName_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.Element``1(System.Xml.Linq.XName)
+    name: Element
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_Element__1_System_Xml_Linq_XName_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeValue(System.Xml.Linq.XName)
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.GetAttributeValue(System.Xml.Linq.XName)
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetAttributeValue_System_Xml_Linq_XName_
+  name: GetAttributeValue(XName)
+  nameWithType: Tag.GetAttributeValue(XName)
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeValue(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeValue(System.Xml.Linq.XName)
+    name: GetAttributeValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetAttributeValue_System_Xml_Linq_XName_
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeValue(System.Xml.Linq.XName)
+    name: GetAttributeValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetAttributeValue_System_Xml_Linq_XName_
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeEnumValue``1(System.Xml.Linq.XName)
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.GetAttributeEnumValue``1(System.Xml.Linq.XName)
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetAttributeEnumValue__1_System_Xml_Linq_XName_
+  name: GetAttributeEnumValue<T>(XName)
+  nameWithType: Tag.GetAttributeEnumValue<T>(XName)
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeEnumValue<T>(System.Xml.Linq.XName)
+  nameWithType.vb: Tag.GetAttributeEnumValue(Of T)(XName)
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeEnumValue(Of T)(System.Xml.Linq.XName)
+  name.vb: GetAttributeEnumValue(Of T)(XName)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeEnumValue``1(System.Xml.Linq.XName)
+    name: GetAttributeEnumValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetAttributeEnumValue__1_System_Xml_Linq_XName_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.GetAttributeEnumValue``1(System.Xml.Linq.XName)
+    name: GetAttributeEnumValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_GetAttributeEnumValue__1_System_Xml_Linq_XName_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,{T})
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+  parent: Ubiety.Xmpp.Core.Tags.Tag
+  definition: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_SetAttributeEnumValue__1_System_Xml_Linq_XName___0_
+  name: SetAttributeEnumValue<T>(XName, T)
+  nameWithType: Tag.SetAttributeEnumValue<T>(XName, T)
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue<T>(System.Xml.Linq.XName, T)
+  nameWithType.vb: Tag.SetAttributeEnumValue(Of T)(XName, T)
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue(Of T)(System.Xml.Linq.XName, T)
+  name.vb: SetAttributeEnumValue(Of T)(XName, T)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+    name: SetAttributeEnumValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_SetAttributeEnumValue__1_System_Xml_Linq_XName___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+    name: SetAttributeEnumValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_SetAttributeEnumValue__1_System_Xml_Linq_XName___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Xml.Linq.XElement.AncestorsAndSelf
+  commentId: M:System.Xml.Linq.XElement.AncestorsAndSelf
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.ancestorsandself#system-xml-linq-xelement-ancestorsandself
+  name: AncestorsAndSelf()
+  nameWithType: XElement.AncestorsAndSelf()
+  fullName: System.Xml.Linq.XElement.AncestorsAndSelf()
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.AncestorsAndSelf
+    name: AncestorsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.ancestorsandself#system-xml-linq-xelement-ancestorsandself
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.AncestorsAndSelf
+    name: AncestorsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.ancestorsandself#system-xml-linq-xelement-ancestorsandself
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XElement.AncestorsAndSelf(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XElement.AncestorsAndSelf(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.ancestorsandself#system-xml-linq-xelement-ancestorsandself(system-xml-linq-xname)
+  name: AncestorsAndSelf(XName)
+  nameWithType: XElement.AncestorsAndSelf(XName)
+  fullName: System.Xml.Linq.XElement.AncestorsAndSelf(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.AncestorsAndSelf(System.Xml.Linq.XName)
+    name: AncestorsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.ancestorsandself#system-xml-linq-xelement-ancestorsandself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.AncestorsAndSelf(System.Xml.Linq.XName)
+    name: AncestorsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.ancestorsandself#system-xml-linq-xelement-ancestorsandself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XElement.Attribute(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XElement.Attribute(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attribute
+  name: Attribute(XName)
+  nameWithType: XElement.Attribute(XName)
+  fullName: System.Xml.Linq.XElement.Attribute(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Attribute(System.Xml.Linq.XName)
+    name: Attribute
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attribute
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Attribute(System.Xml.Linq.XName)
+    name: Attribute
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attribute
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XElement.Attributes
+  commentId: M:System.Xml.Linq.XElement.Attributes
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attributes#system-xml-linq-xelement-attributes
+  name: Attributes()
+  nameWithType: XElement.Attributes()
+  fullName: System.Xml.Linq.XElement.Attributes()
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Attributes
+    name: Attributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attributes#system-xml-linq-xelement-attributes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Attributes
+    name: Attributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attributes#system-xml-linq-xelement-attributes
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XElement.Attributes(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XElement.Attributes(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attributes#system-xml-linq-xelement-attributes(system-xml-linq-xname)
+  name: Attributes(XName)
+  nameWithType: XElement.Attributes(XName)
+  fullName: System.Xml.Linq.XElement.Attributes(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Attributes(System.Xml.Linq.XName)
+    name: Attributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attributes#system-xml-linq-xelement-attributes(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Attributes(System.Xml.Linq.XName)
+    name: Attributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.attributes#system-xml-linq-xelement-attributes(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XElement.DescendantNodesAndSelf
+  commentId: M:System.Xml.Linq.XElement.DescendantNodesAndSelf
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantnodesandself
+  name: DescendantNodesAndSelf()
+  nameWithType: XElement.DescendantNodesAndSelf()
+  fullName: System.Xml.Linq.XElement.DescendantNodesAndSelf()
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.DescendantNodesAndSelf
+    name: DescendantNodesAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantnodesandself
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.DescendantNodesAndSelf
+    name: DescendantNodesAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantnodesandself
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XElement.DescendantsAndSelf
+  commentId: M:System.Xml.Linq.XElement.DescendantsAndSelf
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantsandself#system-xml-linq-xelement-descendantsandself
+  name: DescendantsAndSelf()
+  nameWithType: XElement.DescendantsAndSelf()
+  fullName: System.Xml.Linq.XElement.DescendantsAndSelf()
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.DescendantsAndSelf
+    name: DescendantsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantsandself#system-xml-linq-xelement-descendantsandself
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.DescendantsAndSelf
+    name: DescendantsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantsandself#system-xml-linq-xelement-descendantsandself
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XElement.DescendantsAndSelf(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XElement.DescendantsAndSelf(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantsandself#system-xml-linq-xelement-descendantsandself(system-xml-linq-xname)
+  name: DescendantsAndSelf(XName)
+  nameWithType: XElement.DescendantsAndSelf(XName)
+  fullName: System.Xml.Linq.XElement.DescendantsAndSelf(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.DescendantsAndSelf(System.Xml.Linq.XName)
+    name: DescendantsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantsandself#system-xml-linq-xelement-descendantsandself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.DescendantsAndSelf(System.Xml.Linq.XName)
+    name: DescendantsAndSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.descendantsandself#system-xml-linq-xelement-descendantsandself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XElement.GetDefaultNamespace
+  commentId: M:System.Xml.Linq.XElement.GetDefaultNamespace
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getdefaultnamespace
+  name: GetDefaultNamespace()
+  nameWithType: XElement.GetDefaultNamespace()
+  fullName: System.Xml.Linq.XElement.GetDefaultNamespace()
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.GetDefaultNamespace
+    name: GetDefaultNamespace
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getdefaultnamespace
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.GetDefaultNamespace
+    name: GetDefaultNamespace
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getdefaultnamespace
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XElement.GetNamespaceOfPrefix(System.String)
+  commentId: M:System.Xml.Linq.XElement.GetNamespaceOfPrefix(System.String)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getnamespaceofprefix
+  name: GetNamespaceOfPrefix(string)
+  nameWithType: XElement.GetNamespaceOfPrefix(string)
+  fullName: System.Xml.Linq.XElement.GetNamespaceOfPrefix(string)
+  nameWithType.vb: XElement.GetNamespaceOfPrefix(String)
+  fullName.vb: System.Xml.Linq.XElement.GetNamespaceOfPrefix(String)
+  name.vb: GetNamespaceOfPrefix(String)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.GetNamespaceOfPrefix(System.String)
+    name: GetNamespaceOfPrefix
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getnamespaceofprefix
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.GetNamespaceOfPrefix(System.String)
+    name: GetNamespaceOfPrefix
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getnamespaceofprefix
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Xml.Linq.XElement.GetPrefixOfNamespace(System.Xml.Linq.XNamespace)
+  commentId: M:System.Xml.Linq.XElement.GetPrefixOfNamespace(System.Xml.Linq.XNamespace)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getprefixofnamespace
+  name: GetPrefixOfNamespace(XNamespace)
+  nameWithType: XElement.GetPrefixOfNamespace(XNamespace)
+  fullName: System.Xml.Linq.XElement.GetPrefixOfNamespace(System.Xml.Linq.XNamespace)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.GetPrefixOfNamespace(System.Xml.Linq.XNamespace)
+    name: GetPrefixOfNamespace
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getprefixofnamespace
+  - name: (
+  - uid: System.Xml.Linq.XNamespace
+    name: XNamespace
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnamespace
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.GetPrefixOfNamespace(System.Xml.Linq.XNamespace)
+    name: GetPrefixOfNamespace
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.getprefixofnamespace
+  - name: (
+  - uid: System.Xml.Linq.XNamespace
+    name: XNamespace
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnamespace
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.IO.Stream)
+  commentId: M:System.Xml.Linq.XElement.Load(System.IO.Stream)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-stream)
+  name: Load(Stream)
+  nameWithType: XElement.Load(Stream)
+  fullName: System.Xml.Linq.XElement.Load(System.IO.Stream)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.Stream)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-stream)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.Stream)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-stream)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.IO.Stream,System.Xml.Linq.LoadOptions)
+  commentId: M:System.Xml.Linq.XElement.Load(System.IO.Stream,System.Xml.Linq.LoadOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-stream-system-xml-linq-loadoptions)
+  name: Load(Stream, LoadOptions)
+  nameWithType: XElement.Load(Stream, LoadOptions)
+  fullName: System.Xml.Linq.XElement.Load(System.IO.Stream, System.Xml.Linq.LoadOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.Stream,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-stream-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.Stream,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-stream-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.IO.TextReader)
+  commentId: M:System.Xml.Linq.XElement.Load(System.IO.TextReader)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-textreader)
+  name: Load(TextReader)
+  nameWithType: XElement.Load(TextReader)
+  fullName: System.Xml.Linq.XElement.Load(System.IO.TextReader)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.TextReader)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-textreader)
+  - name: (
+  - uid: System.IO.TextReader
+    name: TextReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textreader
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.TextReader)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-textreader)
+  - name: (
+  - uid: System.IO.TextReader
+    name: TextReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textreader
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.IO.TextReader,System.Xml.Linq.LoadOptions)
+  commentId: M:System.Xml.Linq.XElement.Load(System.IO.TextReader,System.Xml.Linq.LoadOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-textreader-system-xml-linq-loadoptions)
+  name: Load(TextReader, LoadOptions)
+  nameWithType: XElement.Load(TextReader, LoadOptions)
+  fullName: System.Xml.Linq.XElement.Load(System.IO.TextReader, System.Xml.Linq.LoadOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.TextReader,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-textreader-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.IO.TextReader
+    name: TextReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.IO.TextReader,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-io-textreader-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.IO.TextReader
+    name: TextReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.String)
+  commentId: M:System.Xml.Linq.XElement.Load(System.String)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-string)
+  name: Load(string)
+  nameWithType: XElement.Load(string)
+  fullName: System.Xml.Linq.XElement.Load(string)
+  nameWithType.vb: XElement.Load(String)
+  fullName.vb: System.Xml.Linq.XElement.Load(String)
+  name.vb: Load(String)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.String)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.String)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.String,System.Xml.Linq.LoadOptions)
+  commentId: M:System.Xml.Linq.XElement.Load(System.String,System.Xml.Linq.LoadOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-string-system-xml-linq-loadoptions)
+  name: Load(string, LoadOptions)
+  nameWithType: XElement.Load(string, LoadOptions)
+  fullName: System.Xml.Linq.XElement.Load(string, System.Xml.Linq.LoadOptions)
+  nameWithType.vb: XElement.Load(String, LoadOptions)
+  fullName.vb: System.Xml.Linq.XElement.Load(String, System.Xml.Linq.LoadOptions)
+  name.vb: Load(String, LoadOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.String,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-string-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.String,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-string-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.Xml.XmlReader)
+  commentId: M:System.Xml.Linq.XElement.Load(System.Xml.XmlReader)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-xml-xmlreader)
+  name: Load(XmlReader)
+  nameWithType: XElement.Load(XmlReader)
+  fullName: System.Xml.Linq.XElement.Load(System.Xml.XmlReader)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.Xml.XmlReader)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-xml-xmlreader)
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.Xml.XmlReader)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-xml-xmlreader)
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: )
+- uid: System.Xml.Linq.XElement.Load(System.Xml.XmlReader,System.Xml.Linq.LoadOptions)
+  commentId: M:System.Xml.Linq.XElement.Load(System.Xml.XmlReader,System.Xml.Linq.LoadOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-xml-xmlreader-system-xml-linq-loadoptions)
+  name: Load(XmlReader, LoadOptions)
+  nameWithType: XElement.Load(XmlReader, LoadOptions)
+  fullName: System.Xml.Linq.XElement.Load(System.Xml.XmlReader, System.Xml.Linq.LoadOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Load(System.Xml.XmlReader,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-xml-xmlreader-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Load(System.Xml.XmlReader,System.Xml.Linq.LoadOptions)
+    name: Load
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.load#system-xml-linq-xelement-load(system-xml-xmlreader-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.LoadAsync(System.IO.Stream,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XElement.LoadAsync(System.IO.Stream,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-io-stream-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  name: LoadAsync(Stream, LoadOptions, CancellationToken)
+  nameWithType: XElement.LoadAsync(Stream, LoadOptions, CancellationToken)
+  fullName: System.Xml.Linq.XElement.LoadAsync(System.IO.Stream, System.Xml.Linq.LoadOptions, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.LoadAsync(System.IO.Stream,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+    name: LoadAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-io-stream-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.LoadAsync(System.IO.Stream,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+    name: LoadAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-io-stream-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XElement.LoadAsync(System.IO.TextReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XElement.LoadAsync(System.IO.TextReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-io-textreader-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  name: LoadAsync(TextReader, LoadOptions, CancellationToken)
+  nameWithType: XElement.LoadAsync(TextReader, LoadOptions, CancellationToken)
+  fullName: System.Xml.Linq.XElement.LoadAsync(System.IO.TextReader, System.Xml.Linq.LoadOptions, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.LoadAsync(System.IO.TextReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+    name: LoadAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-io-textreader-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.TextReader
+    name: TextReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.LoadAsync(System.IO.TextReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+    name: LoadAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-io-textreader-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.TextReader
+    name: TextReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XElement.LoadAsync(System.Xml.XmlReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XElement.LoadAsync(System.Xml.XmlReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-xml-xmlreader-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  name: LoadAsync(XmlReader, LoadOptions, CancellationToken)
+  nameWithType: XElement.LoadAsync(XmlReader, LoadOptions, CancellationToken)
+  fullName: System.Xml.Linq.XElement.LoadAsync(System.Xml.XmlReader, System.Xml.Linq.LoadOptions, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.LoadAsync(System.Xml.XmlReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+    name: LoadAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-xml-xmlreader-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.LoadAsync(System.Xml.XmlReader,System.Xml.Linq.LoadOptions,System.Threading.CancellationToken)
+    name: LoadAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.loadasync#system-xml-linq-xelement-loadasync(system-xml-xmlreader-system-xml-linq-loadoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XElement.Parse(System.String)
+  commentId: M:System.Xml.Linq.XElement.Parse(System.String)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.parse#system-xml-linq-xelement-parse(system-string)
+  name: Parse(string)
+  nameWithType: XElement.Parse(string)
+  fullName: System.Xml.Linq.XElement.Parse(string)
+  nameWithType.vb: XElement.Parse(String)
+  fullName.vb: System.Xml.Linq.XElement.Parse(String)
+  name.vb: Parse(String)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Parse(System.String)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.parse#system-xml-linq-xelement-parse(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Parse(System.String)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.parse#system-xml-linq-xelement-parse(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Xml.Linq.XElement.Parse(System.String,System.Xml.Linq.LoadOptions)
+  commentId: M:System.Xml.Linq.XElement.Parse(System.String,System.Xml.Linq.LoadOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.parse#system-xml-linq-xelement-parse(system-string-system-xml-linq-loadoptions)
+  name: Parse(string, LoadOptions)
+  nameWithType: XElement.Parse(string, LoadOptions)
+  fullName: System.Xml.Linq.XElement.Parse(string, System.Xml.Linq.LoadOptions)
+  nameWithType.vb: XElement.Parse(String, LoadOptions)
+  fullName.vb: System.Xml.Linq.XElement.Parse(String, System.Xml.Linq.LoadOptions)
+  name.vb: Parse(String, LoadOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Parse(System.String,System.Xml.Linq.LoadOptions)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.parse#system-xml-linq-xelement-parse(system-string-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Parse(System.String,System.Xml.Linq.LoadOptions)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.parse#system-xml-linq-xelement-parse(system-string-system-xml-linq-loadoptions)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.LoadOptions
+    name: LoadOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.loadoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.RemoveAll
+  commentId: M:System.Xml.Linq.XElement.RemoveAll
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.removeall
+  name: RemoveAll()
+  nameWithType: XElement.RemoveAll()
+  fullName: System.Xml.Linq.XElement.RemoveAll()
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.RemoveAll
+    name: RemoveAll
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.removeall
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.RemoveAll
+    name: RemoveAll
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.removeall
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XElement.RemoveAttributes
+  commentId: M:System.Xml.Linq.XElement.RemoveAttributes
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.removeattributes
+  name: RemoveAttributes()
+  nameWithType: XElement.RemoveAttributes()
+  fullName: System.Xml.Linq.XElement.RemoveAttributes()
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.RemoveAttributes
+    name: RemoveAttributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.removeattributes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.RemoveAttributes
+    name: RemoveAttributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.removeattributes
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XElement.ReplaceAll(System.Object)
+  commentId: M:System.Xml.Linq.XElement.ReplaceAll(System.Object)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceall#system-xml-linq-xelement-replaceall(system-object)
+  name: ReplaceAll(object)
+  nameWithType: XElement.ReplaceAll(object)
+  fullName: System.Xml.Linq.XElement.ReplaceAll(object)
+  nameWithType.vb: XElement.ReplaceAll(Object)
+  fullName.vb: System.Xml.Linq.XElement.ReplaceAll(Object)
+  name.vb: ReplaceAll(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.ReplaceAll(System.Object)
+    name: ReplaceAll
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceall#system-xml-linq-xelement-replaceall(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.ReplaceAll(System.Object)
+    name: ReplaceAll
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceall#system-xml-linq-xelement-replaceall(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XElement.ReplaceAll(System.Object[])
+  commentId: M:System.Xml.Linq.XElement.ReplaceAll(System.Object[])
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceall#system-xml-linq-xelement-replaceall(system-object())
+  name: ReplaceAll(params object[])
+  nameWithType: XElement.ReplaceAll(params object[])
+  fullName: System.Xml.Linq.XElement.ReplaceAll(params object[])
+  nameWithType.vb: XElement.ReplaceAll(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XElement.ReplaceAll(ParamArray Object())
+  name.vb: ReplaceAll(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.ReplaceAll(System.Object[])
+    name: ReplaceAll
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceall#system-xml-linq-xelement-replaceall(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.ReplaceAll(System.Object[])
+    name: ReplaceAll
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceall#system-xml-linq-xelement-replaceall(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XElement.ReplaceAttributes(System.Object)
+  commentId: M:System.Xml.Linq.XElement.ReplaceAttributes(System.Object)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceattributes#system-xml-linq-xelement-replaceattributes(system-object)
+  name: ReplaceAttributes(object)
+  nameWithType: XElement.ReplaceAttributes(object)
+  fullName: System.Xml.Linq.XElement.ReplaceAttributes(object)
+  nameWithType.vb: XElement.ReplaceAttributes(Object)
+  fullName.vb: System.Xml.Linq.XElement.ReplaceAttributes(Object)
+  name.vb: ReplaceAttributes(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.ReplaceAttributes(System.Object)
+    name: ReplaceAttributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceattributes#system-xml-linq-xelement-replaceattributes(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.ReplaceAttributes(System.Object)
+    name: ReplaceAttributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceattributes#system-xml-linq-xelement-replaceattributes(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XElement.ReplaceAttributes(System.Object[])
+  commentId: M:System.Xml.Linq.XElement.ReplaceAttributes(System.Object[])
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceattributes#system-xml-linq-xelement-replaceattributes(system-object())
+  name: ReplaceAttributes(params object[])
+  nameWithType: XElement.ReplaceAttributes(params object[])
+  fullName: System.Xml.Linq.XElement.ReplaceAttributes(params object[])
+  nameWithType.vb: XElement.ReplaceAttributes(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XElement.ReplaceAttributes(ParamArray Object())
+  name.vb: ReplaceAttributes(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.ReplaceAttributes(System.Object[])
+    name: ReplaceAttributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceattributes#system-xml-linq-xelement-replaceattributes(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.ReplaceAttributes(System.Object[])
+    name: ReplaceAttributes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.replaceattributes#system-xml-linq-xelement-replaceattributes(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XElement.Save(System.IO.Stream)
+  commentId: M:System.Xml.Linq.XElement.Save(System.IO.Stream)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-stream)
+  name: Save(Stream)
+  nameWithType: XElement.Save(Stream)
+  fullName: System.Xml.Linq.XElement.Save(System.IO.Stream)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.Stream)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-stream)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.Stream)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-stream)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: System.Xml.Linq.XElement.Save(System.IO.Stream,System.Xml.Linq.SaveOptions)
+  commentId: M:System.Xml.Linq.XElement.Save(System.IO.Stream,System.Xml.Linq.SaveOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-stream-system-xml-linq-saveoptions)
+  name: Save(Stream, SaveOptions)
+  nameWithType: XElement.Save(Stream, SaveOptions)
+  fullName: System.Xml.Linq.XElement.Save(System.IO.Stream, System.Xml.Linq.SaveOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.Stream,System.Xml.Linq.SaveOptions)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-stream-system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.Stream,System.Xml.Linq.SaveOptions)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-stream-system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.Save(System.IO.TextWriter)
+  commentId: M:System.Xml.Linq.XElement.Save(System.IO.TextWriter)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-textwriter)
+  name: Save(TextWriter)
+  nameWithType: XElement.Save(TextWriter)
+  fullName: System.Xml.Linq.XElement.Save(System.IO.TextWriter)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.TextWriter)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-textwriter)
+  - name: (
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.TextWriter)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-textwriter)
+  - name: (
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: )
+- uid: System.Xml.Linq.XElement.Save(System.IO.TextWriter,System.Xml.Linq.SaveOptions)
+  commentId: M:System.Xml.Linq.XElement.Save(System.IO.TextWriter,System.Xml.Linq.SaveOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-textwriter-system-xml-linq-saveoptions)
+  name: Save(TextWriter, SaveOptions)
+  nameWithType: XElement.Save(TextWriter, SaveOptions)
+  fullName: System.Xml.Linq.XElement.Save(System.IO.TextWriter, System.Xml.Linq.SaveOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.TextWriter,System.Xml.Linq.SaveOptions)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-textwriter-system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Save(System.IO.TextWriter,System.Xml.Linq.SaveOptions)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-io-textwriter-system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.Save(System.String)
+  commentId: M:System.Xml.Linq.XElement.Save(System.String)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-string)
+  name: Save(string)
+  nameWithType: XElement.Save(string)
+  fullName: System.Xml.Linq.XElement.Save(string)
+  nameWithType.vb: XElement.Save(String)
+  fullName.vb: System.Xml.Linq.XElement.Save(String)
+  name.vb: Save(String)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Save(System.String)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Save(System.String)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Xml.Linq.XElement.Save(System.String,System.Xml.Linq.SaveOptions)
+  commentId: M:System.Xml.Linq.XElement.Save(System.String,System.Xml.Linq.SaveOptions)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-string-system-xml-linq-saveoptions)
+  name: Save(string, SaveOptions)
+  nameWithType: XElement.Save(string, SaveOptions)
+  fullName: System.Xml.Linq.XElement.Save(string, System.Xml.Linq.SaveOptions)
+  nameWithType.vb: XElement.Save(String, SaveOptions)
+  fullName.vb: System.Xml.Linq.XElement.Save(String, System.Xml.Linq.SaveOptions)
+  name.vb: Save(String, SaveOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Save(System.String,System.Xml.Linq.SaveOptions)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-string-system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Save(System.String,System.Xml.Linq.SaveOptions)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-string-system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+- uid: System.Xml.Linq.XElement.Save(System.Xml.XmlWriter)
+  commentId: M:System.Xml.Linq.XElement.Save(System.Xml.XmlWriter)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-xml-xmlwriter)
+  name: Save(XmlWriter)
+  nameWithType: XElement.Save(XmlWriter)
+  fullName: System.Xml.Linq.XElement.Save(System.Xml.XmlWriter)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.Save(System.Xml.XmlWriter)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-xml-xmlwriter)
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.Save(System.Xml.XmlWriter)
+    name: Save
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.save#system-xml-linq-xelement-save(system-xml-xmlwriter)
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: )
+- uid: System.Xml.Linq.XElement.SaveAsync(System.IO.Stream,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XElement.SaveAsync(System.IO.Stream,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-io-stream-system-xml-linq-saveoptions-system-threading-cancellationtoken)
+  name: SaveAsync(Stream, SaveOptions, CancellationToken)
+  nameWithType: XElement.SaveAsync(Stream, SaveOptions, CancellationToken)
+  fullName: System.Xml.Linq.XElement.SaveAsync(System.IO.Stream, System.Xml.Linq.SaveOptions, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.SaveAsync(System.IO.Stream,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+    name: SaveAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-io-stream-system-xml-linq-saveoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.SaveAsync(System.IO.Stream,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+    name: SaveAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-io-stream-system-xml-linq-saveoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XElement.SaveAsync(System.IO.TextWriter,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XElement.SaveAsync(System.IO.TextWriter,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-io-textwriter-system-xml-linq-saveoptions-system-threading-cancellationtoken)
+  name: SaveAsync(TextWriter, SaveOptions, CancellationToken)
+  nameWithType: XElement.SaveAsync(TextWriter, SaveOptions, CancellationToken)
+  fullName: System.Xml.Linq.XElement.SaveAsync(System.IO.TextWriter, System.Xml.Linq.SaveOptions, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.SaveAsync(System.IO.TextWriter,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+    name: SaveAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-io-textwriter-system-xml-linq-saveoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.SaveAsync(System.IO.TextWriter,System.Xml.Linq.SaveOptions,System.Threading.CancellationToken)
+    name: SaveAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-io-textwriter-system-xml-linq-saveoptions-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.IO.TextWriter
+    name: TextWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.textwriter
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XElement.SaveAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XElement.SaveAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-xml-xmlwriter-system-threading-cancellationtoken)
+  name: SaveAsync(XmlWriter, CancellationToken)
+  nameWithType: XElement.SaveAsync(XmlWriter, CancellationToken)
+  fullName: System.Xml.Linq.XElement.SaveAsync(System.Xml.XmlWriter, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.SaveAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+    name: SaveAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-xml-xmlwriter-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.SaveAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+    name: SaveAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.saveasync#system-xml-linq-xelement-saveasync(system-xml-xmlwriter-system-threading-cancellationtoken)
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XElement.SetAttributeValue(System.Xml.Linq.XName,System.Object)
+  commentId: M:System.Xml.Linq.XElement.SetAttributeValue(System.Xml.Linq.XName,System.Object)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setattributevalue
+  name: SetAttributeValue(XName, object)
+  nameWithType: XElement.SetAttributeValue(XName, object)
+  fullName: System.Xml.Linq.XElement.SetAttributeValue(System.Xml.Linq.XName, object)
+  nameWithType.vb: XElement.SetAttributeValue(XName, Object)
+  fullName.vb: System.Xml.Linq.XElement.SetAttributeValue(System.Xml.Linq.XName, Object)
+  name.vb: SetAttributeValue(XName, Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.SetAttributeValue(System.Xml.Linq.XName,System.Object)
+    name: SetAttributeValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setattributevalue
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.SetAttributeValue(System.Xml.Linq.XName,System.Object)
+    name: SetAttributeValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setattributevalue
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XElement.SetElementValue(System.Xml.Linq.XName,System.Object)
+  commentId: M:System.Xml.Linq.XElement.SetElementValue(System.Xml.Linq.XName,System.Object)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setelementvalue
+  name: SetElementValue(XName, object)
+  nameWithType: XElement.SetElementValue(XName, object)
+  fullName: System.Xml.Linq.XElement.SetElementValue(System.Xml.Linq.XName, object)
+  nameWithType.vb: XElement.SetElementValue(XName, Object)
+  fullName.vb: System.Xml.Linq.XElement.SetElementValue(System.Xml.Linq.XName, Object)
+  name.vb: SetElementValue(XName, Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.SetElementValue(System.Xml.Linq.XName,System.Object)
+    name: SetElementValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setelementvalue
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.SetElementValue(System.Xml.Linq.XName,System.Object)
+    name: SetElementValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setelementvalue
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XElement.SetValue(System.Object)
+  commentId: M:System.Xml.Linq.XElement.SetValue(System.Object)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setvalue
+  name: SetValue(object)
+  nameWithType: XElement.SetValue(object)
+  fullName: System.Xml.Linq.XElement.SetValue(object)
+  nameWithType.vb: XElement.SetValue(Object)
+  fullName.vb: System.Xml.Linq.XElement.SetValue(Object)
+  name.vb: SetValue(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.SetValue(System.Object)
+    name: SetValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setvalue
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.SetValue(System.Object)
+    name: SetValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.setvalue
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XElement.WriteTo(System.Xml.XmlWriter)
+  commentId: M:System.Xml.Linq.XElement.WriteTo(System.Xml.XmlWriter)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.writeto
+  name: WriteTo(XmlWriter)
+  nameWithType: XElement.WriteTo(XmlWriter)
+  fullName: System.Xml.Linq.XElement.WriteTo(System.Xml.XmlWriter)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.WriteTo(System.Xml.XmlWriter)
+    name: WriteTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.writeto
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.WriteTo(System.Xml.XmlWriter)
+    name: WriteTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.writeto
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: )
+- uid: System.Xml.Linq.XElement.WriteToAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XElement.WriteToAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.writetoasync
+  name: WriteToAsync(XmlWriter, CancellationToken)
+  nameWithType: XElement.WriteToAsync(XmlWriter, CancellationToken)
+  fullName: System.Xml.Linq.XElement.WriteToAsync(System.Xml.XmlWriter, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XElement.WriteToAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+    name: WriteToAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.writetoasync
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XElement.WriteToAsync(System.Xml.XmlWriter,System.Threading.CancellationToken)
+    name: WriteToAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.writetoasync
+  - name: (
+  - uid: System.Xml.XmlWriter
+    name: XmlWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XElement.EmptySequence
+  commentId: P:System.Xml.Linq.XElement.EmptySequence
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.emptysequence
+  name: EmptySequence
+  nameWithType: XElement.EmptySequence
+  fullName: System.Xml.Linq.XElement.EmptySequence
+- uid: System.Xml.Linq.XElement.FirstAttribute
+  commentId: P:System.Xml.Linq.XElement.FirstAttribute
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.firstattribute
+  name: FirstAttribute
+  nameWithType: XElement.FirstAttribute
+  fullName: System.Xml.Linq.XElement.FirstAttribute
+- uid: System.Xml.Linq.XElement.HasAttributes
+  commentId: P:System.Xml.Linq.XElement.HasAttributes
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.hasattributes
+  name: HasAttributes
+  nameWithType: XElement.HasAttributes
+  fullName: System.Xml.Linq.XElement.HasAttributes
+- uid: System.Xml.Linq.XElement.HasElements
+  commentId: P:System.Xml.Linq.XElement.HasElements
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.haselements
+  name: HasElements
+  nameWithType: XElement.HasElements
+  fullName: System.Xml.Linq.XElement.HasElements
+- uid: System.Xml.Linq.XElement.IsEmpty
+  commentId: P:System.Xml.Linq.XElement.IsEmpty
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.isempty
+  name: IsEmpty
+  nameWithType: XElement.IsEmpty
+  fullName: System.Xml.Linq.XElement.IsEmpty
+- uid: System.Xml.Linq.XElement.LastAttribute
+  commentId: P:System.Xml.Linq.XElement.LastAttribute
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.lastattribute
+  name: LastAttribute
+  nameWithType: XElement.LastAttribute
+  fullName: System.Xml.Linq.XElement.LastAttribute
+- uid: System.Xml.Linq.XElement.Name
+  commentId: P:System.Xml.Linq.XElement.Name
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.name
+  name: Name
+  nameWithType: XElement.Name
+  fullName: System.Xml.Linq.XElement.Name
+- uid: System.Xml.Linq.XElement.NodeType
+  commentId: P:System.Xml.Linq.XElement.NodeType
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.nodetype
+  name: NodeType
+  nameWithType: XElement.NodeType
+  fullName: System.Xml.Linq.XElement.NodeType
+- uid: System.Xml.Linq.XElement.Value
+  commentId: P:System.Xml.Linq.XElement.Value
+  parent: System.Xml.Linq.XElement
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement.value
+  name: Value
+  nameWithType: XElement.Value
+  fullName: System.Xml.Linq.XElement.Value
+- uid: System.Xml.Linq.XContainer.Add(System.Object)
+  commentId: M:System.Xml.Linq.XContainer.Add(System.Object)
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.add#system-xml-linq-xcontainer-add(system-object)
+  name: Add(object)
+  nameWithType: XContainer.Add(object)
+  fullName: System.Xml.Linq.XContainer.Add(object)
+  nameWithType.vb: XContainer.Add(Object)
+  fullName.vb: System.Xml.Linq.XContainer.Add(Object)
+  name.vb: Add(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Add(System.Object)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.add#system-xml-linq-xcontainer-add(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Add(System.Object)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.add#system-xml-linq-xcontainer-add(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XContainer.Add(System.Object[])
+  commentId: M:System.Xml.Linq.XContainer.Add(System.Object[])
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.add#system-xml-linq-xcontainer-add(system-object())
+  name: Add(params object[])
+  nameWithType: XContainer.Add(params object[])
+  fullName: System.Xml.Linq.XContainer.Add(params object[])
+  nameWithType.vb: XContainer.Add(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XContainer.Add(ParamArray Object())
+  name.vb: Add(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Add(System.Object[])
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.add#system-xml-linq-xcontainer-add(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Add(System.Object[])
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.add#system-xml-linq-xcontainer-add(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XContainer.AddFirst(System.Object)
+  commentId: M:System.Xml.Linq.XContainer.AddFirst(System.Object)
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.addfirst#system-xml-linq-xcontainer-addfirst(system-object)
+  name: AddFirst(object)
+  nameWithType: XContainer.AddFirst(object)
+  fullName: System.Xml.Linq.XContainer.AddFirst(object)
+  nameWithType.vb: XContainer.AddFirst(Object)
+  fullName.vb: System.Xml.Linq.XContainer.AddFirst(Object)
+  name.vb: AddFirst(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.AddFirst(System.Object)
+    name: AddFirst
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.addfirst#system-xml-linq-xcontainer-addfirst(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.AddFirst(System.Object)
+    name: AddFirst
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.addfirst#system-xml-linq-xcontainer-addfirst(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XContainer.AddFirst(System.Object[])
+  commentId: M:System.Xml.Linq.XContainer.AddFirst(System.Object[])
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.addfirst#system-xml-linq-xcontainer-addfirst(system-object())
+  name: AddFirst(params object[])
+  nameWithType: XContainer.AddFirst(params object[])
+  fullName: System.Xml.Linq.XContainer.AddFirst(params object[])
+  nameWithType.vb: XContainer.AddFirst(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XContainer.AddFirst(ParamArray Object())
+  name.vb: AddFirst(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.AddFirst(System.Object[])
+    name: AddFirst
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.addfirst#system-xml-linq-xcontainer-addfirst(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.AddFirst(System.Object[])
+    name: AddFirst
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.addfirst#system-xml-linq-xcontainer-addfirst(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XContainer.CreateWriter
+  commentId: M:System.Xml.Linq.XContainer.CreateWriter
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.createwriter
+  name: CreateWriter()
+  nameWithType: XContainer.CreateWriter()
+  fullName: System.Xml.Linq.XContainer.CreateWriter()
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.CreateWriter
+    name: CreateWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.createwriter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.CreateWriter
+    name: CreateWriter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.createwriter
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XContainer.DescendantNodes
+  commentId: M:System.Xml.Linq.XContainer.DescendantNodes
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendantnodes
+  name: DescendantNodes()
+  nameWithType: XContainer.DescendantNodes()
+  fullName: System.Xml.Linq.XContainer.DescendantNodes()
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.DescendantNodes
+    name: DescendantNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendantnodes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.DescendantNodes
+    name: DescendantNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendantnodes
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XContainer.Descendants
+  commentId: M:System.Xml.Linq.XContainer.Descendants
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendants#system-xml-linq-xcontainer-descendants
+  name: Descendants()
+  nameWithType: XContainer.Descendants()
+  fullName: System.Xml.Linq.XContainer.Descendants()
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Descendants
+    name: Descendants
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendants#system-xml-linq-xcontainer-descendants
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Descendants
+    name: Descendants
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendants#system-xml-linq-xcontainer-descendants
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XContainer.Descendants(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XContainer.Descendants(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendants#system-xml-linq-xcontainer-descendants(system-xml-linq-xname)
+  name: Descendants(XName)
+  nameWithType: XContainer.Descendants(XName)
+  fullName: System.Xml.Linq.XContainer.Descendants(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Descendants(System.Xml.Linq.XName)
+    name: Descendants
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendants#system-xml-linq-xcontainer-descendants(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Descendants(System.Xml.Linq.XName)
+    name: Descendants
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.descendants#system-xml-linq-xcontainer-descendants(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XContainer.Element(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XContainer.Element(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.element
+  name: Element(XName)
+  nameWithType: XContainer.Element(XName)
+  fullName: System.Xml.Linq.XContainer.Element(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Element(System.Xml.Linq.XName)
+    name: Element
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.element
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Element(System.Xml.Linq.XName)
+    name: Element
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.element
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XContainer.Elements
+  commentId: M:System.Xml.Linq.XContainer.Elements
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.elements#system-xml-linq-xcontainer-elements
+  name: Elements()
+  nameWithType: XContainer.Elements()
+  fullName: System.Xml.Linq.XContainer.Elements()
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Elements
+    name: Elements
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.elements#system-xml-linq-xcontainer-elements
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Elements
+    name: Elements
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.elements#system-xml-linq-xcontainer-elements
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XContainer.Elements(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XContainer.Elements(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.elements#system-xml-linq-xcontainer-elements(system-xml-linq-xname)
+  name: Elements(XName)
+  nameWithType: XContainer.Elements(XName)
+  fullName: System.Xml.Linq.XContainer.Elements(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Elements(System.Xml.Linq.XName)
+    name: Elements
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.elements#system-xml-linq-xcontainer-elements(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Elements(System.Xml.Linq.XName)
+    name: Elements
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.elements#system-xml-linq-xcontainer-elements(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XContainer.Nodes
+  commentId: M:System.Xml.Linq.XContainer.Nodes
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.nodes
+  name: Nodes()
+  nameWithType: XContainer.Nodes()
+  fullName: System.Xml.Linq.XContainer.Nodes()
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.Nodes
+    name: Nodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.nodes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.Nodes
+    name: Nodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.nodes
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XContainer.RemoveNodes
+  commentId: M:System.Xml.Linq.XContainer.RemoveNodes
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.removenodes
+  name: RemoveNodes()
+  nameWithType: XContainer.RemoveNodes()
+  fullName: System.Xml.Linq.XContainer.RemoveNodes()
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.RemoveNodes
+    name: RemoveNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.removenodes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.RemoveNodes
+    name: RemoveNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.removenodes
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XContainer.ReplaceNodes(System.Object)
+  commentId: M:System.Xml.Linq.XContainer.ReplaceNodes(System.Object)
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.replacenodes#system-xml-linq-xcontainer-replacenodes(system-object)
+  name: ReplaceNodes(object)
+  nameWithType: XContainer.ReplaceNodes(object)
+  fullName: System.Xml.Linq.XContainer.ReplaceNodes(object)
+  nameWithType.vb: XContainer.ReplaceNodes(Object)
+  fullName.vb: System.Xml.Linq.XContainer.ReplaceNodes(Object)
+  name.vb: ReplaceNodes(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.ReplaceNodes(System.Object)
+    name: ReplaceNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.replacenodes#system-xml-linq-xcontainer-replacenodes(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.ReplaceNodes(System.Object)
+    name: ReplaceNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.replacenodes#system-xml-linq-xcontainer-replacenodes(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XContainer.ReplaceNodes(System.Object[])
+  commentId: M:System.Xml.Linq.XContainer.ReplaceNodes(System.Object[])
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.replacenodes#system-xml-linq-xcontainer-replacenodes(system-object())
+  name: ReplaceNodes(params object[])
+  nameWithType: XContainer.ReplaceNodes(params object[])
+  fullName: System.Xml.Linq.XContainer.ReplaceNodes(params object[])
+  nameWithType.vb: XContainer.ReplaceNodes(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XContainer.ReplaceNodes(ParamArray Object())
+  name.vb: ReplaceNodes(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XContainer.ReplaceNodes(System.Object[])
+    name: ReplaceNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.replacenodes#system-xml-linq-xcontainer-replacenodes(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XContainer.ReplaceNodes(System.Object[])
+    name: ReplaceNodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.replacenodes#system-xml-linq-xcontainer-replacenodes(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XContainer.FirstNode
+  commentId: P:System.Xml.Linq.XContainer.FirstNode
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.firstnode
+  name: FirstNode
+  nameWithType: XContainer.FirstNode
+  fullName: System.Xml.Linq.XContainer.FirstNode
+- uid: System.Xml.Linq.XContainer.LastNode
+  commentId: P:System.Xml.Linq.XContainer.LastNode
+  parent: System.Xml.Linq.XContainer
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xcontainer.lastnode
+  name: LastNode
+  nameWithType: XContainer.LastNode
+  fullName: System.Xml.Linq.XContainer.LastNode
+- uid: System.Xml.Linq.XNode.AddAfterSelf(System.Object)
+  commentId: M:System.Xml.Linq.XNode.AddAfterSelf(System.Object)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addafterself#system-xml-linq-xnode-addafterself(system-object)
+  name: AddAfterSelf(object)
+  nameWithType: XNode.AddAfterSelf(object)
+  fullName: System.Xml.Linq.XNode.AddAfterSelf(object)
+  nameWithType.vb: XNode.AddAfterSelf(Object)
+  fullName.vb: System.Xml.Linq.XNode.AddAfterSelf(Object)
+  name.vb: AddAfterSelf(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.AddAfterSelf(System.Object)
+    name: AddAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addafterself#system-xml-linq-xnode-addafterself(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.AddAfterSelf(System.Object)
+    name: AddAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addafterself#system-xml-linq-xnode-addafterself(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XNode.AddAfterSelf(System.Object[])
+  commentId: M:System.Xml.Linq.XNode.AddAfterSelf(System.Object[])
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addafterself#system-xml-linq-xnode-addafterself(system-object())
+  name: AddAfterSelf(params object[])
+  nameWithType: XNode.AddAfterSelf(params object[])
+  fullName: System.Xml.Linq.XNode.AddAfterSelf(params object[])
+  nameWithType.vb: XNode.AddAfterSelf(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XNode.AddAfterSelf(ParamArray Object())
+  name.vb: AddAfterSelf(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.AddAfterSelf(System.Object[])
+    name: AddAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addafterself#system-xml-linq-xnode-addafterself(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.AddAfterSelf(System.Object[])
+    name: AddAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addafterself#system-xml-linq-xnode-addafterself(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XNode.AddBeforeSelf(System.Object)
+  commentId: M:System.Xml.Linq.XNode.AddBeforeSelf(System.Object)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addbeforeself#system-xml-linq-xnode-addbeforeself(system-object)
+  name: AddBeforeSelf(object)
+  nameWithType: XNode.AddBeforeSelf(object)
+  fullName: System.Xml.Linq.XNode.AddBeforeSelf(object)
+  nameWithType.vb: XNode.AddBeforeSelf(Object)
+  fullName.vb: System.Xml.Linq.XNode.AddBeforeSelf(Object)
+  name.vb: AddBeforeSelf(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.AddBeforeSelf(System.Object)
+    name: AddBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addbeforeself#system-xml-linq-xnode-addbeforeself(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.AddBeforeSelf(System.Object)
+    name: AddBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addbeforeself#system-xml-linq-xnode-addbeforeself(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XNode.AddBeforeSelf(System.Object[])
+  commentId: M:System.Xml.Linq.XNode.AddBeforeSelf(System.Object[])
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addbeforeself#system-xml-linq-xnode-addbeforeself(system-object())
+  name: AddBeforeSelf(params object[])
+  nameWithType: XNode.AddBeforeSelf(params object[])
+  fullName: System.Xml.Linq.XNode.AddBeforeSelf(params object[])
+  nameWithType.vb: XNode.AddBeforeSelf(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XNode.AddBeforeSelf(ParamArray Object())
+  name.vb: AddBeforeSelf(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.AddBeforeSelf(System.Object[])
+    name: AddBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addbeforeself#system-xml-linq-xnode-addbeforeself(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.AddBeforeSelf(System.Object[])
+    name: AddBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.addbeforeself#system-xml-linq-xnode-addbeforeself(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XNode.Ancestors
+  commentId: M:System.Xml.Linq.XNode.Ancestors
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.ancestors#system-xml-linq-xnode-ancestors
+  name: Ancestors()
+  nameWithType: XNode.Ancestors()
+  fullName: System.Xml.Linq.XNode.Ancestors()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.Ancestors
+    name: Ancestors
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.ancestors#system-xml-linq-xnode-ancestors
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.Ancestors
+    name: Ancestors
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.ancestors#system-xml-linq-xnode-ancestors
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.Ancestors(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XNode.Ancestors(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.ancestors#system-xml-linq-xnode-ancestors(system-xml-linq-xname)
+  name: Ancestors(XName)
+  nameWithType: XNode.Ancestors(XName)
+  fullName: System.Xml.Linq.XNode.Ancestors(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.Ancestors(System.Xml.Linq.XName)
+    name: Ancestors
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.ancestors#system-xml-linq-xnode-ancestors(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.Ancestors(System.Xml.Linq.XName)
+    name: Ancestors
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.ancestors#system-xml-linq-xnode-ancestors(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XNode.CompareDocumentOrder(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+  commentId: M:System.Xml.Linq.XNode.CompareDocumentOrder(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.comparedocumentorder
+  name: CompareDocumentOrder(XNode, XNode)
+  nameWithType: XNode.CompareDocumentOrder(XNode, XNode)
+  fullName: System.Xml.Linq.XNode.CompareDocumentOrder(System.Xml.Linq.XNode, System.Xml.Linq.XNode)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.CompareDocumentOrder(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+    name: CompareDocumentOrder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.comparedocumentorder
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.CompareDocumentOrder(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+    name: CompareDocumentOrder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.comparedocumentorder
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+- uid: System.Xml.Linq.XNode.CreateReader
+  commentId: M:System.Xml.Linq.XNode.CreateReader
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.createreader#system-xml-linq-xnode-createreader
+  name: CreateReader()
+  nameWithType: XNode.CreateReader()
+  fullName: System.Xml.Linq.XNode.CreateReader()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.CreateReader
+    name: CreateReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.createreader#system-xml-linq-xnode-createreader
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.CreateReader
+    name: CreateReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.createreader#system-xml-linq-xnode-createreader
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.CreateReader(System.Xml.Linq.ReaderOptions)
+  commentId: M:System.Xml.Linq.XNode.CreateReader(System.Xml.Linq.ReaderOptions)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.createreader#system-xml-linq-xnode-createreader(system-xml-linq-readeroptions)
+  name: CreateReader(ReaderOptions)
+  nameWithType: XNode.CreateReader(ReaderOptions)
+  fullName: System.Xml.Linq.XNode.CreateReader(System.Xml.Linq.ReaderOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.CreateReader(System.Xml.Linq.ReaderOptions)
+    name: CreateReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.createreader#system-xml-linq-xnode-createreader(system-xml-linq-readeroptions)
+  - name: (
+  - uid: System.Xml.Linq.ReaderOptions
+    name: ReaderOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.readeroptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.CreateReader(System.Xml.Linq.ReaderOptions)
+    name: CreateReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.createreader#system-xml-linq-xnode-createreader(system-xml-linq-readeroptions)
+  - name: (
+  - uid: System.Xml.Linq.ReaderOptions
+    name: ReaderOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.readeroptions
+  - name: )
+- uid: System.Xml.Linq.XNode.DeepEquals(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+  commentId: M:System.Xml.Linq.XNode.DeepEquals(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.deepequals
+  name: DeepEquals(XNode, XNode)
+  nameWithType: XNode.DeepEquals(XNode, XNode)
+  fullName: System.Xml.Linq.XNode.DeepEquals(System.Xml.Linq.XNode, System.Xml.Linq.XNode)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.DeepEquals(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+    name: DeepEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.deepequals
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.DeepEquals(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
+    name: DeepEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.deepequals
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: ','
+  - name: " "
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+- uid: System.Xml.Linq.XNode.ElementsAfterSelf
+  commentId: M:System.Xml.Linq.XNode.ElementsAfterSelf
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsafterself#system-xml-linq-xnode-elementsafterself
+  name: ElementsAfterSelf()
+  nameWithType: XNode.ElementsAfterSelf()
+  fullName: System.Xml.Linq.XNode.ElementsAfterSelf()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ElementsAfterSelf
+    name: ElementsAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsafterself#system-xml-linq-xnode-elementsafterself
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ElementsAfterSelf
+    name: ElementsAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsafterself#system-xml-linq-xnode-elementsafterself
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.ElementsAfterSelf(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XNode.ElementsAfterSelf(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsafterself#system-xml-linq-xnode-elementsafterself(system-xml-linq-xname)
+  name: ElementsAfterSelf(XName)
+  nameWithType: XNode.ElementsAfterSelf(XName)
+  fullName: System.Xml.Linq.XNode.ElementsAfterSelf(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ElementsAfterSelf(System.Xml.Linq.XName)
+    name: ElementsAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsafterself#system-xml-linq-xnode-elementsafterself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ElementsAfterSelf(System.Xml.Linq.XName)
+    name: ElementsAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsafterself#system-xml-linq-xnode-elementsafterself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XNode.ElementsBeforeSelf
+  commentId: M:System.Xml.Linq.XNode.ElementsBeforeSelf
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsbeforeself#system-xml-linq-xnode-elementsbeforeself
+  name: ElementsBeforeSelf()
+  nameWithType: XNode.ElementsBeforeSelf()
+  fullName: System.Xml.Linq.XNode.ElementsBeforeSelf()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ElementsBeforeSelf
+    name: ElementsBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsbeforeself#system-xml-linq-xnode-elementsbeforeself
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ElementsBeforeSelf
+    name: ElementsBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsbeforeself#system-xml-linq-xnode-elementsbeforeself
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.ElementsBeforeSelf(System.Xml.Linq.XName)
+  commentId: M:System.Xml.Linq.XNode.ElementsBeforeSelf(System.Xml.Linq.XName)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsbeforeself#system-xml-linq-xnode-elementsbeforeself(system-xml-linq-xname)
+  name: ElementsBeforeSelf(XName)
+  nameWithType: XNode.ElementsBeforeSelf(XName)
+  fullName: System.Xml.Linq.XNode.ElementsBeforeSelf(System.Xml.Linq.XName)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ElementsBeforeSelf(System.Xml.Linq.XName)
+    name: ElementsBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsbeforeself#system-xml-linq-xnode-elementsbeforeself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ElementsBeforeSelf(System.Xml.Linq.XName)
+    name: ElementsBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.elementsbeforeself#system-xml-linq-xnode-elementsbeforeself(system-xml-linq-xname)
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: )
+- uid: System.Xml.Linq.XNode.IsAfter(System.Xml.Linq.XNode)
+  commentId: M:System.Xml.Linq.XNode.IsAfter(System.Xml.Linq.XNode)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.isafter
+  name: IsAfter(XNode)
+  nameWithType: XNode.IsAfter(XNode)
+  fullName: System.Xml.Linq.XNode.IsAfter(System.Xml.Linq.XNode)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.IsAfter(System.Xml.Linq.XNode)
+    name: IsAfter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.isafter
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.IsAfter(System.Xml.Linq.XNode)
+    name: IsAfter
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.isafter
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+- uid: System.Xml.Linq.XNode.IsBefore(System.Xml.Linq.XNode)
+  commentId: M:System.Xml.Linq.XNode.IsBefore(System.Xml.Linq.XNode)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.isbefore
+  name: IsBefore(XNode)
+  nameWithType: XNode.IsBefore(XNode)
+  fullName: System.Xml.Linq.XNode.IsBefore(System.Xml.Linq.XNode)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.IsBefore(System.Xml.Linq.XNode)
+    name: IsBefore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.isbefore
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.IsBefore(System.Xml.Linq.XNode)
+    name: IsBefore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.isbefore
+  - name: (
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+- uid: System.Xml.Linq.XNode.NodesAfterSelf
+  commentId: M:System.Xml.Linq.XNode.NodesAfterSelf
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.nodesafterself
+  name: NodesAfterSelf()
+  nameWithType: XNode.NodesAfterSelf()
+  fullName: System.Xml.Linq.XNode.NodesAfterSelf()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.NodesAfterSelf
+    name: NodesAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.nodesafterself
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.NodesAfterSelf
+    name: NodesAfterSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.nodesafterself
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.NodesBeforeSelf
+  commentId: M:System.Xml.Linq.XNode.NodesBeforeSelf
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.nodesbeforeself
+  name: NodesBeforeSelf()
+  nameWithType: XNode.NodesBeforeSelf()
+  fullName: System.Xml.Linq.XNode.NodesBeforeSelf()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.NodesBeforeSelf
+    name: NodesBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.nodesbeforeself
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.NodesBeforeSelf
+    name: NodesBeforeSelf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.nodesbeforeself
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.ReadFrom(System.Xml.XmlReader)
+  commentId: M:System.Xml.Linq.XNode.ReadFrom(System.Xml.XmlReader)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.readfrom
+  name: ReadFrom(XmlReader)
+  nameWithType: XNode.ReadFrom(XmlReader)
+  fullName: System.Xml.Linq.XNode.ReadFrom(System.Xml.XmlReader)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ReadFrom(System.Xml.XmlReader)
+    name: ReadFrom
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.readfrom
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ReadFrom(System.Xml.XmlReader)
+    name: ReadFrom
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.readfrom
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: )
+- uid: System.Xml.Linq.XNode.ReadFromAsync(System.Xml.XmlReader,System.Threading.CancellationToken)
+  commentId: M:System.Xml.Linq.XNode.ReadFromAsync(System.Xml.XmlReader,System.Threading.CancellationToken)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.readfromasync
+  name: ReadFromAsync(XmlReader, CancellationToken)
+  nameWithType: XNode.ReadFromAsync(XmlReader, CancellationToken)
+  fullName: System.Xml.Linq.XNode.ReadFromAsync(System.Xml.XmlReader, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ReadFromAsync(System.Xml.XmlReader,System.Threading.CancellationToken)
+    name: ReadFromAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.readfromasync
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ReadFromAsync(System.Xml.XmlReader,System.Threading.CancellationToken)
+    name: ReadFromAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.readfromasync
+  - name: (
+  - uid: System.Xml.XmlReader
+    name: XmlReader
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xmlreader
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Xml.Linq.XNode.Remove
+  commentId: M:System.Xml.Linq.XNode.Remove
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.remove
+  name: Remove()
+  nameWithType: XNode.Remove()
+  fullName: System.Xml.Linq.XNode.Remove()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.Remove
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.Remove
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.remove
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.ReplaceWith(System.Object)
+  commentId: M:System.Xml.Linq.XNode.ReplaceWith(System.Object)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.replacewith#system-xml-linq-xnode-replacewith(system-object)
+  name: ReplaceWith(object)
+  nameWithType: XNode.ReplaceWith(object)
+  fullName: System.Xml.Linq.XNode.ReplaceWith(object)
+  nameWithType.vb: XNode.ReplaceWith(Object)
+  fullName.vb: System.Xml.Linq.XNode.ReplaceWith(Object)
+  name.vb: ReplaceWith(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ReplaceWith(System.Object)
+    name: ReplaceWith
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.replacewith#system-xml-linq-xnode-replacewith(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ReplaceWith(System.Object)
+    name: ReplaceWith
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.replacewith#system-xml-linq-xnode-replacewith(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XNode.ReplaceWith(System.Object[])
+  commentId: M:System.Xml.Linq.XNode.ReplaceWith(System.Object[])
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.replacewith#system-xml-linq-xnode-replacewith(system-object())
+  name: ReplaceWith(params object[])
+  nameWithType: XNode.ReplaceWith(params object[])
+  fullName: System.Xml.Linq.XNode.ReplaceWith(params object[])
+  nameWithType.vb: XNode.ReplaceWith(ParamArray Object())
+  fullName.vb: System.Xml.Linq.XNode.ReplaceWith(ParamArray Object())
+  name.vb: ReplaceWith(ParamArray Object())
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ReplaceWith(System.Object[])
+    name: ReplaceWith
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.replacewith#system-xml-linq-xnode-replacewith(system-object())
+  - name: (
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ReplaceWith(System.Object[])
+    name: ReplaceWith
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.replacewith#system-xml-linq-xnode-replacewith(system-object())
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Xml.Linq.XNode.ToString
+  commentId: M:System.Xml.Linq.XNode.ToString
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.tostring#system-xml-linq-xnode-tostring
+  name: ToString()
+  nameWithType: XNode.ToString()
+  fullName: System.Xml.Linq.XNode.ToString()
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.tostring#system-xml-linq-xnode-tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.tostring#system-xml-linq-xnode-tostring
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XNode.ToString(System.Xml.Linq.SaveOptions)
+  commentId: M:System.Xml.Linq.XNode.ToString(System.Xml.Linq.SaveOptions)
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.tostring#system-xml-linq-xnode-tostring(system-xml-linq-saveoptions)
+  name: ToString(SaveOptions)
+  nameWithType: XNode.ToString(SaveOptions)
+  fullName: System.Xml.Linq.XNode.ToString(System.Xml.Linq.SaveOptions)
+  spec.csharp:
+  - uid: System.Xml.Linq.XNode.ToString(System.Xml.Linq.SaveOptions)
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.tostring#system-xml-linq-xnode-tostring(system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XNode.ToString(System.Xml.Linq.SaveOptions)
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.tostring#system-xml-linq-xnode-tostring(system-xml-linq-saveoptions)
+  - name: (
+  - uid: System.Xml.Linq.SaveOptions
+    name: SaveOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.saveoptions
+  - name: )
+- uid: System.Xml.Linq.XNode.DocumentOrderComparer
+  commentId: P:System.Xml.Linq.XNode.DocumentOrderComparer
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.documentordercomparer
+  name: DocumentOrderComparer
+  nameWithType: XNode.DocumentOrderComparer
+  fullName: System.Xml.Linq.XNode.DocumentOrderComparer
+- uid: System.Xml.Linq.XNode.EqualityComparer
+  commentId: P:System.Xml.Linq.XNode.EqualityComparer
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.equalitycomparer
+  name: EqualityComparer
+  nameWithType: XNode.EqualityComparer
+  fullName: System.Xml.Linq.XNode.EqualityComparer
+- uid: System.Xml.Linq.XNode.NextNode
+  commentId: P:System.Xml.Linq.XNode.NextNode
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.nextnode
+  name: NextNode
+  nameWithType: XNode.NextNode
+  fullName: System.Xml.Linq.XNode.NextNode
+- uid: System.Xml.Linq.XNode.PreviousNode
+  commentId: P:System.Xml.Linq.XNode.PreviousNode
+  parent: System.Xml.Linq.XNode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode.previousnode
+  name: PreviousNode
+  nameWithType: XNode.PreviousNode
+  fullName: System.Xml.Linq.XNode.PreviousNode
+- uid: System.Xml.Linq.XObject.AddAnnotation(System.Object)
+  commentId: M:System.Xml.Linq.XObject.AddAnnotation(System.Object)
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.addannotation
+  name: AddAnnotation(object)
+  nameWithType: XObject.AddAnnotation(object)
+  fullName: System.Xml.Linq.XObject.AddAnnotation(object)
+  nameWithType.vb: XObject.AddAnnotation(Object)
+  fullName.vb: System.Xml.Linq.XObject.AddAnnotation(Object)
+  name.vb: AddAnnotation(Object)
+  spec.csharp:
+  - uid: System.Xml.Linq.XObject.AddAnnotation(System.Object)
+    name: AddAnnotation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.addannotation
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XObject.AddAnnotation(System.Object)
+    name: AddAnnotation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.addannotation
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Xml.Linq.XObject.Annotation(System.Type)
+  commentId: M:System.Xml.Linq.XObject.Annotation(System.Type)
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotation#system-xml-linq-xobject-annotation(system-type)
+  name: Annotation(Type)
+  nameWithType: XObject.Annotation(Type)
+  fullName: System.Xml.Linq.XObject.Annotation(System.Type)
+  spec.csharp:
+  - uid: System.Xml.Linq.XObject.Annotation(System.Type)
+    name: Annotation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotation#system-xml-linq-xobject-annotation(system-type)
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XObject.Annotation(System.Type)
+    name: Annotation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotation#system-xml-linq-xobject-annotation(system-type)
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Xml.Linq.XObject.Annotations(System.Type)
+  commentId: M:System.Xml.Linq.XObject.Annotations(System.Type)
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotations#system-xml-linq-xobject-annotations(system-type)
+  name: Annotations(Type)
+  nameWithType: XObject.Annotations(Type)
+  fullName: System.Xml.Linq.XObject.Annotations(System.Type)
+  spec.csharp:
+  - uid: System.Xml.Linq.XObject.Annotations(System.Type)
+    name: Annotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotations#system-xml-linq-xobject-annotations(system-type)
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XObject.Annotations(System.Type)
+    name: Annotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotations#system-xml-linq-xobject-annotations(system-type)
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Xml.Linq.XObject.Annotations``1
+  commentId: M:System.Xml.Linq.XObject.Annotations``1
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotations#system-xml-linq-xobject-annotations-1
+  name: Annotations<T>()
+  nameWithType: XObject.Annotations<T>()
+  fullName: System.Xml.Linq.XObject.Annotations<T>()
+  nameWithType.vb: XObject.Annotations(Of T)()
+  fullName.vb: System.Xml.Linq.XObject.Annotations(Of T)()
+  name.vb: Annotations(Of T)()
+  spec.csharp:
+  - uid: System.Xml.Linq.XObject.Annotations``1
+    name: Annotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotations#system-xml-linq-xobject-annotations-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XObject.Annotations``1
+    name: Annotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotations#system-xml-linq-xobject-annotations-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XObject.Annotation``1
+  commentId: M:System.Xml.Linq.XObject.Annotation``1
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotation#system-xml-linq-xobject-annotation-1
+  name: Annotation<T>()
+  nameWithType: XObject.Annotation<T>()
+  fullName: System.Xml.Linq.XObject.Annotation<T>()
+  nameWithType.vb: XObject.Annotation(Of T)()
+  fullName.vb: System.Xml.Linq.XObject.Annotation(Of T)()
+  name.vb: Annotation(Of T)()
+  spec.csharp:
+  - uid: System.Xml.Linq.XObject.Annotation``1
+    name: Annotation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotation#system-xml-linq-xobject-annotation-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XObject.Annotation``1
+    name: Annotation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.annotation#system-xml-linq-xobject-annotation-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XObject.RemoveAnnotations(System.Type)
+  commentId: M:System.Xml.Linq.XObject.RemoveAnnotations(System.Type)
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.removeannotations#system-xml-linq-xobject-removeannotations(system-type)
+  name: RemoveAnnotations(Type)
+  nameWithType: XObject.RemoveAnnotations(Type)
+  fullName: System.Xml.Linq.XObject.RemoveAnnotations(System.Type)
+  spec.csharp:
+  - uid: System.Xml.Linq.XObject.RemoveAnnotations(System.Type)
+    name: RemoveAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.removeannotations#system-xml-linq-xobject-removeannotations(system-type)
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XObject.RemoveAnnotations(System.Type)
+    name: RemoveAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.removeannotations#system-xml-linq-xobject-removeannotations(system-type)
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Xml.Linq.XObject.RemoveAnnotations``1
+  commentId: M:System.Xml.Linq.XObject.RemoveAnnotations``1
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.removeannotations#system-xml-linq-xobject-removeannotations-1
+  name: RemoveAnnotations<T>()
+  nameWithType: XObject.RemoveAnnotations<T>()
+  fullName: System.Xml.Linq.XObject.RemoveAnnotations<T>()
+  nameWithType.vb: XObject.RemoveAnnotations(Of T)()
+  fullName.vb: System.Xml.Linq.XObject.RemoveAnnotations(Of T)()
+  name.vb: RemoveAnnotations(Of T)()
+  spec.csharp:
+  - uid: System.Xml.Linq.XObject.RemoveAnnotations``1
+    name: RemoveAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.removeannotations#system-xml-linq-xobject-removeannotations-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Xml.Linq.XObject.RemoveAnnotations``1
+    name: RemoveAnnotations
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.removeannotations#system-xml-linq-xobject-removeannotations-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Xml.Linq.XObject.BaseUri
+  commentId: P:System.Xml.Linq.XObject.BaseUri
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.baseuri
+  name: BaseUri
+  nameWithType: XObject.BaseUri
+  fullName: System.Xml.Linq.XObject.BaseUri
+- uid: System.Xml.Linq.XObject.Document
+  commentId: P:System.Xml.Linq.XObject.Document
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.document
+  name: Document
+  nameWithType: XObject.Document
+  fullName: System.Xml.Linq.XObject.Document
+- uid: System.Xml.Linq.XObject.Parent
+  commentId: P:System.Xml.Linq.XObject.Parent
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.parent
+  name: Parent
+  nameWithType: XObject.Parent
+  fullName: System.Xml.Linq.XObject.Parent
+- uid: System.Xml.Linq.XObject.Changed
+  commentId: E:System.Xml.Linq.XObject.Changed
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.changed
+  name: Changed
+  nameWithType: XObject.Changed
+  fullName: System.Xml.Linq.XObject.Changed
+- uid: System.Xml.Linq.XObject.Changing
+  commentId: E:System.Xml.Linq.XObject.Changing
+  parent: System.Xml.Linq.XObject
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject.changing
+  name: Changing
+  nameWithType: XObject.Changing
+  fullName: System.Xml.Linq.XObject.Changing
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Xml.Linq
+  commentId: N:System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml.Linq
+  nameWithType: System.Xml.Linq
+  fullName: System.Xml.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+- uid: Ubiety.Xmpp.Core.Tags
+  commentId: N:Ubiety.Xmpp.Core.Tags
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags
+  nameWithType: Ubiety.Xmpp.Core.Tags
+  fullName: Ubiety.Xmpp.Core.Tags
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+- uid: System.Xml
+  commentId: N:System.Xml
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml
+  nameWithType: System.Xml
+  fullName: System.Xml
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+- uid: System.Xml.Serialization
+  commentId: N:System.Xml.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml.Serialization
+  nameWithType: System.Xml.Serialization
+  fullName: System.Xml.Serialization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.serialization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.serialization
+- uid: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+  commentId: M:Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_SetAttributeEnumValue__1_System_Xml_Linq_XName___0_
+  name: SetAttributeEnumValue<T>(XName, T)
+  nameWithType: Tag.SetAttributeEnumValue<T>(XName, T)
+  fullName: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue<T>(System.Xml.Linq.XName, T)
+  nameWithType.vb: Tag.SetAttributeEnumValue(Of T)(XName, T)
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue(Of T)(System.Xml.Linq.XName, T)
+  name.vb: SetAttributeEnumValue(Of T)(XName, T)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+    name: SetAttributeEnumValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_SetAttributeEnumValue__1_System_Xml_Linq_XName___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Tags.Tag.SetAttributeEnumValue``1(System.Xml.Linq.XName,``0)
+    name: SetAttributeEnumValue
+    href: Ubiety.Xmpp.Core.Tags.Tag.html#Ubiety_Xmpp_Core_Tags_Tag_SetAttributeEnumValue__1_System_Xml_Linq_XName___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Xml.Linq.XName
+    name: XName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Success
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Success.html
+  name: Success
+  nameWithType: Success
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor*
+  commentId: Overload:Ubiety.Xmpp.Core.Tags.Sasl.Success.#ctor
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Success.html#Ubiety_Xmpp_Core_Tags_Sasl_Success__ctor_System_Xml_Linq_XElement_
+  name: Success
+  nameWithType: Success.Success
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success.Success
+  nameWithType.vb: Success.New
+  fullName.vb: Ubiety.Xmpp.Core.Tags.Sasl.Success.New
+  name.vb: New
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName*
+  commentId: Overload:Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Success.html#Ubiety_Xmpp_Core_Tags_Sasl_Success_XmlName
+  name: XmlName
+  nameWithType: Success.XmlName
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success.XmlName
+- uid: System.Xml.Linq.XName
+  commentId: T:System.Xml.Linq.XName
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  name: XName
+  nameWithType: XName
+  fullName: System.Xml.Linq.XName

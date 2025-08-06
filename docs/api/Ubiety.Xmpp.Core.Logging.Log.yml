@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Logging.Log
+  commentId: T:Ubiety.Xmpp.Core.Logging.Log
+  id: Log
+  parent: Ubiety.Xmpp.Core.Logging
+  children:
+  - Ubiety.Xmpp.Core.Logging.Log.Get(System.String)
+  - Ubiety.Xmpp.Core.Logging.Log.Get(System.Type)
+  - Ubiety.Xmpp.Core.Logging.Log.Get``1
+  - Ubiety.Xmpp.Core.Logging.Log.NameFor(System.Type)
+  - Ubiety.Xmpp.Core.Logging.Log.NameFor``1
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: Log
+  fullName: Ubiety.Xmpp.Core.Logging.Log
+  type: Class
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/Log.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Log
+    path: ../src/Ubiety.Xmpp.Core/Logging/Log.cs
+    startLine: 22
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Central log class.
+  example: []
+  syntax:
+    content: public static class Log
+    content.vb: Public Module Log
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ubiety.Xmpp.Core.Logging.Log.Get``1
+  commentId: M:Ubiety.Xmpp.Core.Logging.Log.Get``1
+  id: Get``1
+  parent: Ubiety.Xmpp.Core.Logging.Log
+  langs:
+  - csharp
+  - vb
+  name: Get<T>()
+  nameWithType: Log.Get<T>()
+  fullName: Ubiety.Xmpp.Core.Logging.Log.Get<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/Log.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Get
+    path: ../src/Ubiety.Xmpp.Core/Logging/Log.cs
+    startLine: 31
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Gets a logger for the type.
+  example: []
+  syntax:
+    content: public static ILog Get<T>()
+    typeParameters:
+    - id: T
+      description: Type to get a logger for.
+    return:
+      type: Ubiety.Xmpp.Core.Logging.ILog
+      description: Logger for the type.
+    content.vb: Public Shared Function [Get](Of T)() As ILog
+  overload: Ubiety.Xmpp.Core.Logging.Log.Get*
+  nameWithType.vb: Log.Get(Of T)()
+  fullName.vb: Ubiety.Xmpp.Core.Logging.Log.Get(Of T)()
+  name.vb: Get(Of T)()
+- uid: Ubiety.Xmpp.Core.Logging.Log.Get(System.Type)
+  commentId: M:Ubiety.Xmpp.Core.Logging.Log.Get(System.Type)
+  id: Get(System.Type)
+  parent: Ubiety.Xmpp.Core.Logging.Log
+  langs:
+  - csharp
+  - vb
+  name: Get(Type)
+  nameWithType: Log.Get(Type)
+  fullName: Ubiety.Xmpp.Core.Logging.Log.Get(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/Log.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Get
+    path: ../src/Ubiety.Xmpp.Core/Logging/Log.cs
+    startLine: 41
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Gets a logger for the type.
+  example: []
+  syntax:
+    content: public static ILog Get(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to get a logger for.
+    return:
+      type: Ubiety.Xmpp.Core.Logging.ILog
+      description: Logger for the type.
+    content.vb: Public Shared Function [Get](type As Type) As ILog
+  overload: Ubiety.Xmpp.Core.Logging.Log.Get*
+- uid: Ubiety.Xmpp.Core.Logging.Log.Get(System.String)
+  commentId: M:Ubiety.Xmpp.Core.Logging.Log.Get(System.String)
+  id: Get(System.String)
+  parent: Ubiety.Xmpp.Core.Logging.Log
+  langs:
+  - csharp
+  - vb
+  name: Get(string)
+  nameWithType: Log.Get(string)
+  fullName: Ubiety.Xmpp.Core.Logging.Log.Get(string)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/Log.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Get
+    path: ../src/Ubiety.Xmpp.Core/Logging/Log.cs
+    startLine: 51
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Gets a logger for the type name.
+  example: []
+  syntax:
+    content: public static ILog Get(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: Name of the type.
+    return:
+      type: Ubiety.Xmpp.Core.Logging.ILog
+      description: Logger for the type name.
+    content.vb: Public Shared Function [Get](name As String) As ILog
+  overload: Ubiety.Xmpp.Core.Logging.Log.Get*
+  nameWithType.vb: Log.Get(String)
+  fullName.vb: Ubiety.Xmpp.Core.Logging.Log.Get(String)
+  name.vb: Get(String)
+- uid: Ubiety.Xmpp.Core.Logging.Log.NameFor``1
+  commentId: M:Ubiety.Xmpp.Core.Logging.Log.NameFor``1
+  id: NameFor``1
+  parent: Ubiety.Xmpp.Core.Logging.Log
+  langs:
+  - csharp
+  - vb
+  name: NameFor<T>()
+  nameWithType: Log.NameFor<T>()
+  fullName: Ubiety.Xmpp.Core.Logging.Log.NameFor<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/Log.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: NameFor
+    path: ../src/Ubiety.Xmpp.Core/Logging/Log.cs
+    startLine: 61
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Gets the name of the type.
+  example: []
+  syntax:
+    content: public static string NameFor<T>()
+    typeParameters:
+    - id: T
+      description: Type to get the name for.
+    return:
+      type: System.String
+      description: Name of the type.
+    content.vb: Public Shared Function NameFor(Of T)() As String
+  overload: Ubiety.Xmpp.Core.Logging.Log.NameFor*
+  nameWithType.vb: Log.NameFor(Of T)()
+  fullName.vb: Ubiety.Xmpp.Core.Logging.Log.NameFor(Of T)()
+  name.vb: NameFor(Of T)()
+- uid: Ubiety.Xmpp.Core.Logging.Log.NameFor(System.Type)
+  commentId: M:Ubiety.Xmpp.Core.Logging.Log.NameFor(System.Type)
+  id: NameFor(System.Type)
+  parent: Ubiety.Xmpp.Core.Logging.Log
+  langs:
+  - csharp
+  - vb
+  name: NameFor(Type)
+  nameWithType: Log.NameFor(Type)
+  fullName: Ubiety.Xmpp.Core.Logging.Log.NameFor(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/Log.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: NameFor
+    path: ../src/Ubiety.Xmpp.Core/Logging/Log.cs
+    startLine: 71
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Gets the name of the type.
+  example: []
+  syntax:
+    content: public static string NameFor(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to get the name for.
+    return:
+      type: System.String
+      description: Name of the type.
+    content.vb: Public Shared Function NameFor(type As Type) As String
+  overload: Ubiety.Xmpp.Core.Logging.Log.NameFor*
+references:
+- uid: Ubiety.Xmpp.Core.Logging
+  commentId: N:Ubiety.Xmpp.Core.Logging
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Logging
+  nameWithType: Ubiety.Xmpp.Core.Logging
+  fullName: Ubiety.Xmpp.Core.Logging
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ubiety.Xmpp.Core.Logging.Log.Get*
+  commentId: Overload:Ubiety.Xmpp.Core.Logging.Log.Get
+  href: Ubiety.Xmpp.Core.Logging.Log.html#Ubiety_Xmpp_Core_Logging_Log_Get__1
+  name: Get
+  nameWithType: Log.Get
+  fullName: Ubiety.Xmpp.Core.Logging.Log.Get
+- uid: Ubiety.Xmpp.Core.Logging.ILog
+  commentId: T:Ubiety.Xmpp.Core.Logging.ILog
+  parent: Ubiety.Xmpp.Core.Logging
+  href: Ubiety.Xmpp.Core.Logging.ILog.html
+  name: ILog
+  nameWithType: ILog
+  fullName: Ubiety.Xmpp.Core.Logging.ILog
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ubiety.Xmpp.Core.Logging.Log.NameFor*
+  commentId: Overload:Ubiety.Xmpp.Core.Logging.Log.NameFor
+  href: Ubiety.Xmpp.Core.Logging.Log.html#Ubiety_Xmpp_Core_Logging_Log_NameFor__1
+  name: NameFor
+  nameWithType: Log.NameFor
+  fullName: Ubiety.Xmpp.Core.Logging.Log.NameFor

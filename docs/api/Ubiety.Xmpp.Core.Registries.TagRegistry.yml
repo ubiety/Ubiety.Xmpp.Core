@@ -1,0 +1,599 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry
+  commentId: T:Ubiety.Xmpp.Core.Registries.TagRegistry
+  id: TagRegistry
+  parent: Ubiety.Xmpp.Core.Registries
+  children:
+  - Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly(System.Reflection.Assembly)
+  - Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.String,System.String)
+  - Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.Xml.Linq.XElement)
+  - Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.Xml.Linq.XName)
+  langs:
+  - csharp
+  - vb
+  name: TagRegistry
+  nameWithType: TagRegistry
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry
+  type: Class
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: TagRegistry
+    path: ../src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+    startLine: 29
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Registries
+  summary: Tag registry.
+  example: []
+  syntax:
+    content: public class TagRegistry
+    content.vb: Public Class TagRegistry
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly(System.Reflection.Assembly)
+  commentId: M:Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly(System.Reflection.Assembly)
+  id: AddAssembly(System.Reflection.Assembly)
+  parent: Ubiety.Xmpp.Core.Registries.TagRegistry
+  langs:
+  - csharp
+  - vb
+  name: AddAssembly(Assembly)
+  nameWithType: TagRegistry.AddAssembly(Assembly)
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly(System.Reflection.Assembly)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: AddAssembly
+    path: ../src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+    startLine: 38
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Registries
+  summary: Add tags from the assembly to the registry.
+  example: []
+  syntax:
+    content: public void AddAssembly(Assembly assembly)
+    parameters:
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: Assembly to add tags from.
+    content.vb: Public Sub AddAssembly(assembly As Assembly)
+  overload: Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly*
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.String,System.String)
+  commentId: M:Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.String,System.String)
+  id: GetTag``1(System.String,System.String)
+  parent: Ubiety.Xmpp.Core.Registries.TagRegistry
+  langs:
+  - csharp
+  - vb
+  name: GetTag<T>(string, string)
+  nameWithType: TagRegistry.GetTag<T>(string, string)
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag<T>(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: GetTag
+    path: ../src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+    startLine: 57
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Registries
+  summary: Retrieves a tag from the registry.
+  example: []
+  syntax:
+    content: 'public T GetTag<T>(string name, string ns) where T : Tag'
+    parameters:
+    - id: name
+      type: System.String
+      description: Name of the tag.
+    - id: ns
+      type: System.String
+      description: Namespace of the tag.
+    typeParameters:
+    - id: T
+      description: Type of tag to retrieve.
+    return:
+      type: '{T}'
+      description: Tag requested from the registry.
+    content.vb: Public Function GetTag(Of T As Tag)(name As String, ns As String) As T
+  overload: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag*
+  nameWithType.vb: TagRegistry.GetTag(Of T)(String, String)
+  fullName.vb: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag(Of T)(String, String)
+  name.vb: GetTag(Of T)(String, String)
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.Xml.Linq.XName)
+  commentId: M:Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.Xml.Linq.XName)
+  id: GetTag``1(System.Xml.Linq.XName)
+  parent: Ubiety.Xmpp.Core.Registries.TagRegistry
+  langs:
+  - csharp
+  - vb
+  name: GetTag<T>(XName)
+  nameWithType: TagRegistry.GetTag<T>(XName)
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag<T>(System.Xml.Linq.XName)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: GetTag
+    path: ../src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+    startLine: 70
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Registries
+  summary: Retrieves a tag from the registry.
+  example: []
+  syntax:
+    content: public T GetTag<T>(XName name)
+    parameters:
+    - id: name
+      type: System.Xml.Linq.XName
+      description: XML name of the tag.
+    typeParameters:
+    - id: T
+      description: Type of tag to retrieve.
+    return:
+      type: '{T}'
+      description: Tag requested from the registry.
+    content.vb: Public Function GetTag(Of T)(name As XName) As T
+  overload: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag*
+  nameWithType.vb: TagRegistry.GetTag(Of T)(XName)
+  fullName.vb: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag(Of T)(System.Xml.Linq.XName)
+  name.vb: GetTag(Of T)(XName)
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.Xml.Linq.XElement)
+  commentId: M:Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag``1(System.Xml.Linq.XElement)
+  id: GetTag``1(System.Xml.Linq.XElement)
+  parent: Ubiety.Xmpp.Core.Registries.TagRegistry
+  langs:
+  - csharp
+  - vb
+  name: GetTag<T>(XElement)
+  nameWithType: TagRegistry.GetTag<T>(XElement)
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag<T>(System.Xml.Linq.XElement)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: GetTag
+    path: ../src/Ubiety.Xmpp.Core/Registries/TagRegistry.cs
+    startLine: 103
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Registries
+  summary: Get a tag from the registry based on the provided XML element.
+  example: []
+  syntax:
+    content: public T GetTag<T>(XElement element)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: Element to search for.
+    typeParameters:
+    - id: T
+      description: Type of tag to return.
+    return:
+      type: '{T}'
+      description: Tag from the registry.
+    content.vb: Public Function GetTag(Of T)(element As XElement) As T
+  overload: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag*
+  nameWithType.vb: TagRegistry.GetTag(Of T)(XElement)
+  fullName.vb: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag(Of T)(System.Xml.Linq.XElement)
+  name.vb: GetTag(Of T)(XElement)
+references:
+- uid: Ubiety.Xmpp.Core.Registries
+  commentId: N:Ubiety.Xmpp.Core.Registries
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Registries
+  nameWithType: Ubiety.Xmpp.Core.Registries
+  fullName: Ubiety.Xmpp.Core.Registries
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Registries
+    name: Registries
+    href: Ubiety.Xmpp.Core.Registries.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Registries
+    name: Registries
+    href: Ubiety.Xmpp.Core.Registries.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly*
+  commentId: Overload:Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly
+  href: Ubiety.Xmpp.Core.Registries.TagRegistry.html#Ubiety_Xmpp_Core_Registries_TagRegistry_AddAssembly_System_Reflection_Assembly_
+  name: AddAssembly
+  nameWithType: TagRegistry.AddAssembly
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry.AddAssembly
+- uid: System.Reflection.Assembly
+  commentId: T:System.Reflection.Assembly
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  name: Assembly
+  nameWithType: Assembly
+  fullName: System.Reflection.Assembly
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag*
+  commentId: Overload:Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag
+  href: Ubiety.Xmpp.Core.Registries.TagRegistry.html#Ubiety_Xmpp_Core_Registries_TagRegistry_GetTag__1_System_String_System_String_
+  name: GetTag
+  nameWithType: TagRegistry.GetTag
+  fullName: Ubiety.Xmpp.Core.Registries.TagRegistry.GetTag
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Xml.Linq.XName
+  commentId: T:System.Xml.Linq.XName
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  name: XName
+  nameWithType: XName
+  fullName: System.Xml.Linq.XName
+- uid: System.Xml.Linq
+  commentId: N:System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml.Linq
+  nameWithType: System.Xml.Linq
+  fullName: System.Xml.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+- uid: System.Xml.Linq.XElement
+  commentId: T:System.Xml.Linq.XElement
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  name: XElement
+  nameWithType: XElement
+  fullName: System.Xml.Linq.XElement

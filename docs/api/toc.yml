@@ -1,0 +1,283 @@
+### YamlMime:TableOfContent
+items:
+- uid: Ubiety.Xmpp.Core
+  name: Ubiety.Xmpp.Core
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.IClient
+    name: IClient
+    type: Interface
+  - uid: Ubiety.Xmpp.Core.XmppBuilder
+    name: XmppBuilder
+    type: Class
+  - uid: Ubiety.Xmpp.Core.XmppClient
+    name: XmppClient
+    type: Class
+  - uid: Ubiety.Xmpp.Core.XmppClientBuilder
+    name: XmppClientBuilder
+    type: Class
+- uid: Ubiety.Xmpp.Core.Common
+  name: Ubiety.Xmpp.Core.Common
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Common.DataEventArgs
+    name: DataEventArgs
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Common.ErrorEventArgs
+    name: ErrorEventArgs
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Common.MechanismTypes
+    name: MechanismTypes
+    type: Enum
+  - uid: Ubiety.Xmpp.Core.Common.Namespaces
+    name: Namespaces
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Common.TagEventArgs
+    name: TagEventArgs
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Common.XmppBase
+    name: XmppBase
+    type: Class
+- uid: Ubiety.Xmpp.Core.Infrastructure
+  name: Ubiety.Xmpp.Core.Infrastructure
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Parser
+    name: Parser
+    type: Class
+- uid: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  name: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute
+    name: SaslAttribute
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute
+    name: XmppTagAttribute
+    type: Class
+- uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  name: Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException
+    name: InvalidStateException
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidTypeException
+    name: InvalidTypeException
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions.ParseException
+    name: ParseException
+    type: Class
+- uid: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  name: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions
+    name: AssemblyExtensions
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions
+    name: EnumerableExtensions
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions
+    name: FeaturesExtensions
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions
+    name: StringExtensions
+    type: Class
+- uid: Ubiety.Xmpp.Core.Logging
+  name: Ubiety.Xmpp.Core.Logging
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Logging.ILog
+    name: ILog
+    type: Interface
+  - uid: Ubiety.Xmpp.Core.Logging.ILogManager
+    name: ILogManager
+    type: Interface
+  - uid: Ubiety.Xmpp.Core.Logging.Log
+    name: Log
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Logging.LogLevel
+    name: LogLevel
+    type: Enum
+- uid: Ubiety.Xmpp.Core.Net
+  name: Ubiety.Xmpp.Core.Net
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+    name: AsyncClientSocket
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Net.ISocket
+    name: ISocket
+    type: Interface
+- uid: Ubiety.Xmpp.Core.Registries
+  name: Ubiety.Xmpp.Core.Registries
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Registries.SaslRegistry
+    name: SaslRegistry
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Registries.TagRegistry
+    name: TagRegistry
+    type: Class
+- uid: Ubiety.Xmpp.Core.Sasl
+  name: Ubiety.Xmpp.Core.Sasl
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Sasl.Md5Processor
+    name: Md5Processor
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Sasl.PlainProcessor
+    name: PlainProcessor
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+    name: SaslProcessor
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Sasl.ScramProcessor
+    name: ScramProcessor
+    type: Class
+- uid: Ubiety.Xmpp.Core.States
+  name: Ubiety.Xmpp.Core.States
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.States.BindingState
+    name: BindingState
+    type: Class
+  - uid: Ubiety.Xmpp.Core.States.ConnectedState
+    name: ConnectedState
+    type: Class
+  - uid: Ubiety.Xmpp.Core.States.ConnectingState
+    name: ConnectingState
+    type: Class
+  - uid: Ubiety.Xmpp.Core.States.DisconnectState
+    name: DisconnectState
+    type: Class
+  - uid: Ubiety.Xmpp.Core.States.DisconnectedState
+    name: DisconnectedState
+    type: Class
+  - uid: Ubiety.Xmpp.Core.States.IState
+    name: IState
+    type: Interface
+  - uid: Ubiety.Xmpp.Core.States.SaslState
+    name: SaslState
+    type: Class
+  - uid: Ubiety.Xmpp.Core.States.StartTlsState
+    name: StartTlsState
+    type: Class
+  - uid: Ubiety.Xmpp.Core.States.StreamFeaturesState
+    name: StreamFeaturesState
+    type: Class
+- uid: Ubiety.Xmpp.Core.Stringprep
+  name: Ubiety.Xmpp.Core.Stringprep
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Stringprep.NameprepProfile
+    name: NameprepProfile
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Stringprep.NodeprepProfile
+    name: NodeprepProfile
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Stringprep.ResourceprepProfile
+    name: ResourceprepProfile
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Stringprep.SaslprepProfile
+    name: SaslprepProfile
+    type: Class
+- uid: Ubiety.Xmpp.Core.Tags
+  name: Ubiety.Xmpp.Core.Tags
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Tags.Stanza
+    name: Stanza
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Tag
+    name: Tag
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Text
+    name: Text
+    type: Class
+- uid: Ubiety.Xmpp.Core.Tags.Binding
+  name: Ubiety.Xmpp.Core.Tags.Binding
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Tags.Binding.Bind
+    name: Bind
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Binding.Required
+    name: Required
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Binding.Resource
+    name: Resource
+    type: Class
+- uid: Ubiety.Xmpp.Core.Tags.Client
+  name: Ubiety.Xmpp.Core.Tags.Client
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Tags.Client.Iq
+    name: Iq
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Client.IqType
+    name: IqType
+    type: Enum
+- uid: Ubiety.Xmpp.Core.Tags.Error
+  name: Ubiety.Xmpp.Core.Tags.Error
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Tags.Error.UndefinedCondition
+    name: UndefinedCondition
+    type: Class
+- uid: Ubiety.Xmpp.Core.Tags.Sasl
+  name: Ubiety.Xmpp.Core.Tags.Sasl
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl.Auth
+    name: Auth
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl.Challenge
+    name: Challenge
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl.Failure
+    name: Failure
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl.Mechanism
+    name: Mechanism
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms
+    name: Mechanisms
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl.Response
+    name: Response
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl.Success
+    name: Success
+    type: Class
+- uid: Ubiety.Xmpp.Core.Tags.Stream
+  name: Ubiety.Xmpp.Core.Tags.Stream
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Tags.Stream.Error
+    name: Error
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Stream.Features
+    name: Features
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Stream.Stream
+    name: Stream
+    type: Class
+- uid: Ubiety.Xmpp.Core.Tags.Tls
+  name: Ubiety.Xmpp.Core.Tags.Tls
+  type: Namespace
+  items:
+  - uid: Ubiety.Xmpp.Core.Tags.Tls.Proceed
+    name: Proceed
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Tls.Required
+    name: Required
+    type: Class
+  - uid: Ubiety.Xmpp.Core.Tags.Tls.StartTls
+    name: StartTls
+    type: Class
+memberLayout: SamePage

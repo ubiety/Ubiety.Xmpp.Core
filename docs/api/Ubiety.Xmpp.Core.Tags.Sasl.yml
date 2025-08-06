@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags.Sasl
+  commentId: N:Ubiety.Xmpp.Core.Tags.Sasl
+  id: Ubiety.Xmpp.Core.Tags.Sasl
+  children:
+  - Ubiety.Xmpp.Core.Tags.Sasl.Auth
+  - Ubiety.Xmpp.Core.Tags.Sasl.Challenge
+  - Ubiety.Xmpp.Core.Tags.Sasl.Failure
+  - Ubiety.Xmpp.Core.Tags.Sasl.Mechanism
+  - Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms
+  - Ubiety.Xmpp.Core.Tags.Sasl.Response
+  - Ubiety.Xmpp.Core.Tags.Sasl.Success
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Tags.Sasl
+  nameWithType: Ubiety.Xmpp.Core.Tags.Sasl
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Auth
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Auth
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Auth.html
+  name: Auth
+  nameWithType: Auth
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Auth
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Challenge
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Challenge
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Challenge.html
+  name: Challenge
+  nameWithType: Challenge
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Challenge
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Failure
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Failure
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Failure.html
+  name: Failure
+  nameWithType: Failure
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Failure
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Mechanism
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanism
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Mechanism.html
+  name: Mechanism
+  nameWithType: Mechanism
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Mechanism
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms.html
+  name: Mechanisms
+  nameWithType: Mechanisms
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Mechanisms
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Response
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Response
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Response.html
+  name: Response
+  nameWithType: Response
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Response
+- uid: Ubiety.Xmpp.Core.Tags.Sasl.Success
+  commentId: T:Ubiety.Xmpp.Core.Tags.Sasl.Success
+  parent: Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.Xmpp.Core.Tags.Sasl.Success.html
+  name: Success
+  nameWithType: Success
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl.Success
+- uid: Ubiety.Xmpp.Core.Tags.Sasl
+  commentId: N:Ubiety.Xmpp.Core.Tags.Sasl
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags.Sasl
+  nameWithType: Ubiety.Xmpp.Core.Tags.Sasl
+  fullName: Ubiety.Xmpp.Core.Tags.Sasl
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Tags.Sasl.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Tags.Sasl.html

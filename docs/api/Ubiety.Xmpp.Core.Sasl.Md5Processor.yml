@@ -1,0 +1,898 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.Md5Processor
+  id: Md5Processor
+  parent: Ubiety.Xmpp.Core.Sasl
+  children:
+  - Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor
+  - Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose
+  - Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose(System.Boolean)
+  - Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  - Ubiety.Xmpp.Core.Sasl.Md5Processor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  langs:
+  - csharp
+  - vb
+  name: Md5Processor
+  nameWithType: Md5Processor
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  type: Class
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Md5Processor
+    path: ../src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+    startLine: 29
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Sasl
+  summary: MD5 SASL processor.
+  example: []
+  syntax:
+    content: >-
+      [Sasl("DIGEST-MD5", typeof(Md5Processor), 20, false, MechanismTypes.DigestMd5)]
+
+      public class Md5Processor : SaslProcessor, IDisposable
+    content.vb: >-
+      <Sasl("DIGEST-MD5", GetType(Md5Processor), 20, False, MechanismTypes.DigestMd5)>
+
+      Public Class Md5Processor Inherits SaslProcessor Implements IDisposable
+  inheritance:
+  - System.Object
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor.Id
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor.Password
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor.Item(System.String)
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable{System.Byte})
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateNonce
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute
+    ctor: Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute.#ctor(System.String,System.Type,System.Int32,System.Boolean,Ubiety.Xmpp.Core.Common.MechanismTypes)
+    arguments:
+    - type: System.String
+      value: DIGEST-MD5
+    - type: System.Type
+      value: Ubiety.Xmpp.Core.Sasl.Md5Processor
+    - type: System.Int32
+      value: 20
+    - type: System.Boolean
+      value: false
+    - type: Ubiety.Xmpp.Core.Common.MechanismTypes
+      value: 2
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor
+  commentId: M:Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor
+  id: '#ctor'
+  parent: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  langs:
+  - csharp
+  - vb
+  name: Md5Processor()
+  nameWithType: Md5Processor.Md5Processor()
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Md5Processor()
+  type: Constructor
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: .ctor
+    path: ../src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+    startLine: 48
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Sasl
+  summary: Initializes a new instance of the <xref href="Ubiety.Xmpp.Core.Sasl.Md5Processor" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public Md5Processor()
+    content.vb: Public Sub New()
+  overload: Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor*
+  nameWithType.vb: Md5Processor.New()
+  fullName.vb: Ubiety.Xmpp.Core.Sasl.Md5Processor.New()
+  name.vb: New()
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  commentId: M:Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  id: Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  parent: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  langs:
+  - csharp
+  - vb
+  name: Initialize(Jid, string)
+  nameWithType: Md5Processor.Initialize(Jid, string)
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize(Ubiety.Xmpp.Core.Common.Jid, string)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Initialize
+    path: ../src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+    startLine: 59
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Sasl
+  summary: Initializes the SASL processor.
+  example: []
+  syntax:
+    content: public override Tag Initialize(Jid id, string password)
+    parameters:
+    - id: id
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> of the user to authenticate.
+    - id: password
+      type: System.String
+      description: Password to use for authentication.
+    return:
+      type: Ubiety.Xmpp.Core.Tags.Tag
+      description: Next tag to send to the server.
+    content.vb: Public Overrides Function Initialize(id As Jid, password As String) As Tag
+  overridden: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  overload: Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize*
+  nameWithType.vb: Md5Processor.Initialize(Jid, String)
+  fullName.vb: Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize(Ubiety.Xmpp.Core.Common.Jid, String)
+  name.vb: Initialize(Jid, String)
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  commentId: M:Ubiety.Xmpp.Core.Sasl.Md5Processor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  id: Step(Ubiety.Xmpp.Core.Tags.Tag)
+  parent: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  langs:
+  - csharp
+  - vb
+  name: Step(Tag)
+  nameWithType: Md5Processor.Step(Tag)
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Step
+    path: ../src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+    startLine: 73
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Sasl
+  summary: Process the next SASL step.
+  example: []
+  syntax:
+    content: public override Tag Step(Tag tag)
+    parameters:
+    - id: tag
+      type: Ubiety.Xmpp.Core.Tags.Tag
+      description: Tag from the server.
+    return:
+      type: Ubiety.Xmpp.Core.Tags.Tag
+      description: Next tag to send to the server.
+    content.vb: Public Overrides Function [Step](tag As Tag) As Tag
+  overridden: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  overload: Ubiety.Xmpp.Core.Sasl.Md5Processor.Step*
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose
+  commentId: M:Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose
+  id: Dispose
+  parent: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Md5Processor.Dispose()
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Dispose
+    path: ../src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+    startLine: 100
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Sasl
+  summary: Supports all classes in the .NET class hierarchy and provides low-level services to derived classes. This is the ultimate base class of all .NET classes; it is the root of the type hierarchy.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose(System.Boolean)
+  commentId: M:Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: Md5Processor.Dispose(bool)
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose(bool)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Dispose
+    path: ../src/Ubiety.Xmpp.Core/Sasl/Md5Processor.cs
+    startLine: 108
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Sasl
+  summary: Supports all classes in the .NET class hierarchy and provides low-level services to derived classes. This is the ultimate base class of all .NET classes; it is the root of the type hierarchy.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose*
+  nameWithType.vb: Md5Processor.Dispose(Boolean)
+  fullName.vb: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+references:
+- uid: Ubiety.Xmpp.Core.Sasl
+  commentId: N:Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Sasl
+  nameWithType: Ubiety.Xmpp.Core.Sasl
+  fullName: Ubiety.Xmpp.Core.Sasl
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Sasl.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Sasl.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  parent: Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html
+  name: SaslProcessor
+  nameWithType: SaslProcessor
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Id
+  commentId: P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Id
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Id
+  name: Id
+  nameWithType: SaslProcessor.Id
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Id
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Password
+  commentId: P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Password
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Password
+  name: Password
+  nameWithType: SaslProcessor.Password
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Password
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Item(System.String)
+  commentId: P:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Item(System.String)
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: this[string]
+  nameWithType: SaslProcessor.this[string]
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.this[string]
+  nameWithType.vb: SaslProcessor.this[](String)
+  fullName.vb: Ubiety.Xmpp.Core.Sasl.SaslProcessor.this[](String)
+  name.vb: this[](String)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ']'
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Item(System.String)
+    name: this[]
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Item_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable{System.Byte})
+  commentId: M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable{System.Byte})
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_HexString_System_Collections_Generic_IEnumerable_System_Byte__
+  name: HexString(IEnumerable<byte>)
+  nameWithType: SaslProcessor.HexString(IEnumerable<byte>)
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable<byte>)
+  nameWithType.vb: SaslProcessor.HexString(IEnumerable(Of Byte))
+  fullName.vb: Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable(Of Byte))
+  name.vb: HexString(IEnumerable(Of Byte))
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable{System.Byte})
+    name: HexString
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_HexString_System_Collections_Generic_IEnumerable_System_Byte__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.HexString(System.Collections.Generic.IEnumerable{System.Byte})
+    name: HexString
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_HexString_System_Collections_Generic_IEnumerable_System_Byte__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+  - name: )
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64
+  commentId: M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_NextInt64
+  name: NextInt64()
+  nameWithType: SaslProcessor.NextInt64()
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64()
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64
+    name: NextInt64
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_NextInt64
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.NextInt64
+    name: NextInt64
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_NextInt64
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateNonce
+  commentId: M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateNonce
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_CreateNonce
+  name: CreateNonce()
+  nameWithType: SaslProcessor.CreateNonce()
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateNonce()
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateNonce
+    name: CreateNonce
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_CreateNonce
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.CreateNonce
+    name: CreateNonce
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_CreateNonce
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.Md5Processor
+  parent: Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.Xmpp.Core.Sasl.Md5Processor.html
+  name: Md5Processor
+  nameWithType: Md5Processor
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor*
+  commentId: Overload:Ubiety.Xmpp.Core.Sasl.Md5Processor.#ctor
+  href: Ubiety.Xmpp.Core.Sasl.Md5Processor.html#Ubiety_Xmpp_Core_Sasl_Md5Processor__ctor
+  name: Md5Processor
+  nameWithType: Md5Processor.Md5Processor
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Md5Processor
+  nameWithType.vb: Md5Processor.New
+  fullName.vb: Ubiety.Xmpp.Core.Sasl.Md5Processor.New
+  name.vb: New
+- uid: Ubiety.Xmpp.Core.Common.Jid
+  commentId: T:Ubiety.Xmpp.Core.Common.Jid
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.Jid.html
+  name: Jid
+  nameWithType: Jid
+  fullName: Ubiety.Xmpp.Core.Common.Jid
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  commentId: M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Initialize_Ubiety_Xmpp_Core_Common_Jid_System_String_
+  name: Initialize(Jid, string)
+  nameWithType: SaslProcessor.Initialize(Jid, string)
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid, string)
+  nameWithType.vb: SaslProcessor.Initialize(Jid, String)
+  fullName.vb: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid, String)
+  name.vb: Initialize(Jid, String)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+    name: Initialize
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Initialize_Ubiety_Xmpp_Core_Common_Jid_System_String_
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Initialize(Ubiety.Xmpp.Core.Common.Jid,System.String)
+    name: Initialize
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Initialize_Ubiety_Xmpp_Core_Common_Jid_System_String_
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize*
+  commentId: Overload:Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize
+  href: Ubiety.Xmpp.Core.Sasl.Md5Processor.html#Ubiety_Xmpp_Core_Sasl_Md5Processor_Initialize_Ubiety_Xmpp_Core_Common_Jid_System_String_
+  name: Initialize
+  nameWithType: Md5Processor.Initialize
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Initialize
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ubiety.Xmpp.Core.Tags.Tag
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tag
+  parent: Ubiety.Xmpp.Core.Tags
+  href: Ubiety.Xmpp.Core.Tags.Tag.html
+  name: Tag
+  nameWithType: Tag
+  fullName: Ubiety.Xmpp.Core.Tags.Tag
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: Ubiety.Xmpp.Core.Tags
+  commentId: N:Ubiety.Xmpp.Core.Tags
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags
+  nameWithType: Ubiety.Xmpp.Core.Tags
+  fullName: Ubiety.Xmpp.Core.Tags
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  commentId: M:Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  parent: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Step_Ubiety_Xmpp_Core_Tags_Tag_
+  name: Step(Tag)
+  nameWithType: SaslProcessor.Step(Tag)
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+    name: Step
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Step_Ubiety_Xmpp_Core_Tags_Tag_
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Tags.Tag
+    name: Tag
+    href: Ubiety.Xmpp.Core.Tags.Tag.html
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor.Step(Ubiety.Xmpp.Core.Tags.Tag)
+    name: Step
+    href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html#Ubiety_Xmpp_Core_Sasl_SaslProcessor_Step_Ubiety_Xmpp_Core_Tags_Tag_
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Tags.Tag
+    name: Tag
+    href: Ubiety.Xmpp.Core.Tags.Tag.html
+  - name: )
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.Step*
+  commentId: Overload:Ubiety.Xmpp.Core.Sasl.Md5Processor.Step
+  href: Ubiety.Xmpp.Core.Sasl.Md5Processor.html#Ubiety_Xmpp_Core_Sasl_Md5Processor_Step_Ubiety_Xmpp_Core_Tags_Tag_
+  name: Step
+  nameWithType: Md5Processor.Step
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Step
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose*
+  commentId: Overload:Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose
+  href: Ubiety.Xmpp.Core.Sasl.Md5Processor.html#Ubiety_Xmpp_Core_Sasl_Md5Processor_Dispose
+  name: Dispose
+  nameWithType: Md5Processor.Dispose
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

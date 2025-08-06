@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Logging
+  commentId: N:Ubiety.Xmpp.Core.Logging
+  id: Ubiety.Xmpp.Core.Logging
+  children:
+  - Ubiety.Xmpp.Core.Logging.ILog
+  - Ubiety.Xmpp.Core.Logging.ILogManager
+  - Ubiety.Xmpp.Core.Logging.Log
+  - Ubiety.Xmpp.Core.Logging.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Logging
+  nameWithType: Ubiety.Xmpp.Core.Logging
+  fullName: Ubiety.Xmpp.Core.Logging
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Logging.ILog
+  commentId: T:Ubiety.Xmpp.Core.Logging.ILog
+  parent: Ubiety.Xmpp.Core.Logging
+  href: Ubiety.Xmpp.Core.Logging.ILog.html
+  name: ILog
+  nameWithType: ILog
+  fullName: Ubiety.Xmpp.Core.Logging.ILog
+- uid: Ubiety.Xmpp.Core.Logging.ILogManager
+  commentId: T:Ubiety.Xmpp.Core.Logging.ILogManager
+  parent: Ubiety.Xmpp.Core.Logging
+  href: Ubiety.Xmpp.Core.Logging.ILogManager.html
+  name: ILogManager
+  nameWithType: ILogManager
+  fullName: Ubiety.Xmpp.Core.Logging.ILogManager
+- uid: Ubiety.Xmpp.Core.Logging.Log
+  commentId: T:Ubiety.Xmpp.Core.Logging.Log
+  href: Ubiety.Xmpp.Core.Logging.Log.html
+  name: Log
+  nameWithType: Log
+  fullName: Ubiety.Xmpp.Core.Logging.Log
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel
+  commentId: T:Ubiety.Xmpp.Core.Logging.LogLevel
+  parent: Ubiety.Xmpp.Core.Logging
+  href: Ubiety.Xmpp.Core.Logging.LogLevel.html
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel
+- uid: Ubiety.Xmpp.Core.Logging
+  commentId: N:Ubiety.Xmpp.Core.Logging
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Logging
+  nameWithType: Ubiety.Xmpp.Core.Logging
+  fullName: Ubiety.Xmpp.Core.Logging
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html

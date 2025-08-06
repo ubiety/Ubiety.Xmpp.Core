@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  id: Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  children:
+  - Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException
+  - Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidTypeException
+  - Ubiety.Xmpp.Core.Infrastructure.Exceptions.ParseException
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Exceptions
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException
+  href: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException.html
+  name: InvalidStateException
+  nameWithType: InvalidStateException
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidStateException
+- uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidTypeException
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidTypeException
+  href: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidTypeException.html
+  name: InvalidTypeException
+  nameWithType: InvalidTypeException
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Exceptions.InvalidTypeException
+- uid: Ubiety.Xmpp.Core.Infrastructure.Exceptions.ParseException
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Exceptions.ParseException
+  href: Ubiety.Xmpp.Core.Infrastructure.Exceptions.ParseException.html
+  name: ParseException
+  nameWithType: ParseException
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Exceptions.ParseException

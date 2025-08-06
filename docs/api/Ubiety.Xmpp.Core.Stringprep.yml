@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Stringprep
+  commentId: N:Ubiety.Xmpp.Core.Stringprep
+  id: Ubiety.Xmpp.Core.Stringprep
+  children:
+  - Ubiety.Xmpp.Core.Stringprep.NameprepProfile
+  - Ubiety.Xmpp.Core.Stringprep.NodeprepProfile
+  - Ubiety.Xmpp.Core.Stringprep.ResourceprepProfile
+  - Ubiety.Xmpp.Core.Stringprep.SaslprepProfile
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Stringprep
+  nameWithType: Ubiety.Xmpp.Core.Stringprep
+  fullName: Ubiety.Xmpp.Core.Stringprep
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Stringprep.NameprepProfile
+  commentId: T:Ubiety.Xmpp.Core.Stringprep.NameprepProfile
+  href: Ubiety.Xmpp.Core.Stringprep.NameprepProfile.html
+  name: NameprepProfile
+  nameWithType: NameprepProfile
+  fullName: Ubiety.Xmpp.Core.Stringprep.NameprepProfile
+- uid: Ubiety.Xmpp.Core.Stringprep.NodeprepProfile
+  commentId: T:Ubiety.Xmpp.Core.Stringprep.NodeprepProfile
+  href: Ubiety.Xmpp.Core.Stringprep.NodeprepProfile.html
+  name: NodeprepProfile
+  nameWithType: NodeprepProfile
+  fullName: Ubiety.Xmpp.Core.Stringprep.NodeprepProfile
+- uid: Ubiety.Xmpp.Core.Stringprep.ResourceprepProfile
+  commentId: T:Ubiety.Xmpp.Core.Stringprep.ResourceprepProfile
+  href: Ubiety.Xmpp.Core.Stringprep.ResourceprepProfile.html
+  name: ResourceprepProfile
+  nameWithType: ResourceprepProfile
+  fullName: Ubiety.Xmpp.Core.Stringprep.ResourceprepProfile
+- uid: Ubiety.Xmpp.Core.Stringprep.SaslprepProfile
+  commentId: T:Ubiety.Xmpp.Core.Stringprep.SaslprepProfile
+  href: Ubiety.Xmpp.Core.Stringprep.SaslprepProfile.html
+  name: SaslprepProfile
+  nameWithType: SaslprepProfile
+  fullName: Ubiety.Xmpp.Core.Stringprep.SaslprepProfile

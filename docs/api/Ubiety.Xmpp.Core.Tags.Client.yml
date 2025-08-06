@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags.Client
+  commentId: N:Ubiety.Xmpp.Core.Tags.Client
+  id: Ubiety.Xmpp.Core.Tags.Client
+  children:
+  - Ubiety.Xmpp.Core.Tags.Client.Iq
+  - Ubiety.Xmpp.Core.Tags.Client.IqType
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Tags.Client
+  nameWithType: Ubiety.Xmpp.Core.Tags.Client
+  fullName: Ubiety.Xmpp.Core.Tags.Client
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Client.IqType
+  commentId: T:Ubiety.Xmpp.Core.Tags.Client.IqType
+  parent: Ubiety.Xmpp.Core.Tags.Client
+  href: Ubiety.Xmpp.Core.Tags.Client.IqType.html
+  name: IqType
+  nameWithType: IqType
+  fullName: Ubiety.Xmpp.Core.Tags.Client.IqType
+- uid: Ubiety.Xmpp.Core.Tags.Client.Iq
+  commentId: T:Ubiety.Xmpp.Core.Tags.Client.Iq
+  parent: Ubiety.Xmpp.Core.Tags.Client
+  href: Ubiety.Xmpp.Core.Tags.Client.Iq.html
+  name: Iq
+  nameWithType: Iq
+  fullName: Ubiety.Xmpp.Core.Tags.Client.Iq
+- uid: Ubiety.Xmpp.Core.Tags.Client
+  commentId: N:Ubiety.Xmpp.Core.Tags.Client
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags.Client
+  nameWithType: Ubiety.Xmpp.Core.Tags.Client
+  fullName: Ubiety.Xmpp.Core.Tags.Client
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Client
+    name: Client
+    href: Ubiety.Xmpp.Core.Tags.Client.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Client
+    name: Client
+    href: Ubiety.Xmpp.Core.Tags.Client.html

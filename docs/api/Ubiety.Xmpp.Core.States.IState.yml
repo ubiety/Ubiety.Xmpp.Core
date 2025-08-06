@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.States.IState
+  commentId: T:Ubiety.Xmpp.Core.States.IState
+  id: IState
+  parent: Ubiety.Xmpp.Core.States
+  children:
+  - Ubiety.Xmpp.Core.States.IState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)
+  langs:
+  - csharp
+  - vb
+  name: IState
+  nameWithType: IState
+  fullName: Ubiety.Xmpp.Core.States.IState
+  type: Interface
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/States/IState.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: IState
+    path: ../src/Ubiety.Xmpp.Core/States/IState.cs
+    startLine: 22
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.States
+  summary: Describes a state.
+  example: []
+  syntax:
+    content: public interface IState
+    content.vb: Public Interface IState
+- uid: Ubiety.Xmpp.Core.States.IState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)
+  commentId: M:Ubiety.Xmpp.Core.States.IState.Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)
+  id: Execute(Ubiety.Xmpp.Core.Common.XmppBase,Ubiety.Xmpp.Core.Tags.Tag)
+  parent: Ubiety.Xmpp.Core.States.IState
+  langs:
+  - csharp
+  - vb
+  name: Execute(XmppBase, Tag)
+  nameWithType: IState.Execute(XmppBase, Tag)
+  fullName: Ubiety.Xmpp.Core.States.IState.Execute(Ubiety.Xmpp.Core.Common.XmppBase, Ubiety.Xmpp.Core.Tags.Tag)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/States/IState.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Execute
+    path: ../src/Ubiety.Xmpp.Core/States/IState.cs
+    startLine: 29
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.States
+  summary: Executes the current state.
+  example: []
+  syntax:
+    content: void Execute(XmppBase xmpp, Tag tag = null)
+    parameters:
+    - id: xmpp
+      type: Ubiety.Xmpp.Core.Common.XmppBase
+      description: XMPP instance.
+    - id: tag
+      type: Ubiety.Xmpp.Core.Tags.Tag
+      description: Tag for the state to work with.
+    content.vb: Sub Execute(xmpp As XmppBase, tag As Tag = Nothing)
+  overload: Ubiety.Xmpp.Core.States.IState.Execute*
+references:
+- uid: Ubiety.Xmpp.Core.States
+  commentId: N:Ubiety.Xmpp.Core.States
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.States
+  nameWithType: Ubiety.Xmpp.Core.States
+  fullName: Ubiety.Xmpp.Core.States
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html
+- uid: Ubiety.Xmpp.Core.States.IState.Execute*
+  commentId: Overload:Ubiety.Xmpp.Core.States.IState.Execute
+  href: Ubiety.Xmpp.Core.States.IState.html#Ubiety_Xmpp_Core_States_IState_Execute_Ubiety_Xmpp_Core_Common_XmppBase_Ubiety_Xmpp_Core_Tags_Tag_
+  name: Execute
+  nameWithType: IState.Execute
+  fullName: Ubiety.Xmpp.Core.States.IState.Execute
+- uid: Ubiety.Xmpp.Core.Common.XmppBase
+  commentId: T:Ubiety.Xmpp.Core.Common.XmppBase
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html
+  name: XmppBase
+  nameWithType: XmppBase
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase
+- uid: Ubiety.Xmpp.Core.Tags.Tag
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tag
+  parent: Ubiety.Xmpp.Core.Tags
+  href: Ubiety.Xmpp.Core.Tags.Tag.html
+  name: Tag
+  nameWithType: Tag
+  fullName: Ubiety.Xmpp.Core.Tags.Tag
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: Ubiety.Xmpp.Core.Tags
+  commentId: N:Ubiety.Xmpp.Core.Tags
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags
+  nameWithType: Ubiety.Xmpp.Core.Tags
+  fullName: Ubiety.Xmpp.Core.Tags
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html

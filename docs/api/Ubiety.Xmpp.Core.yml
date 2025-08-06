@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core
+  commentId: N:Ubiety.Xmpp.Core
+  id: Ubiety.Xmpp.Core
+  children:
+  - Ubiety.Xmpp.Core.IClient
+  - Ubiety.Xmpp.Core.XmppBuilder
+  - Ubiety.Xmpp.Core.XmppClient
+  - Ubiety.Xmpp.Core.XmppClientBuilder
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core
+  nameWithType: Ubiety.Xmpp.Core
+  fullName: Ubiety.Xmpp.Core
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.IClient
+  commentId: T:Ubiety.Xmpp.Core.IClient
+  parent: Ubiety.Xmpp.Core
+  href: Ubiety.Xmpp.Core.IClient.html
+  name: IClient
+  nameWithType: IClient
+  fullName: Ubiety.Xmpp.Core.IClient
+- uid: Ubiety.Xmpp.Core.XmppBuilder
+  commentId: T:Ubiety.Xmpp.Core.XmppBuilder
+  href: Ubiety.Xmpp.Core.XmppBuilder.html
+  name: XmppBuilder
+  nameWithType: XmppBuilder
+  fullName: Ubiety.Xmpp.Core.XmppBuilder
+- uid: Ubiety.Xmpp.Core.XmppClient
+  commentId: T:Ubiety.Xmpp.Core.XmppClient
+  parent: Ubiety.Xmpp.Core
+  href: Ubiety.Xmpp.Core.XmppClient.html
+  name: XmppClient
+  nameWithType: XmppClient
+  fullName: Ubiety.Xmpp.Core.XmppClient
+- uid: Ubiety.Xmpp.Core.XmppClientBuilder
+  commentId: T:Ubiety.Xmpp.Core.XmppClientBuilder
+  parent: Ubiety.Xmpp.Core
+  href: Ubiety.Xmpp.Core.XmppClientBuilder.html
+  name: XmppClientBuilder
+  nameWithType: XmppClientBuilder
+  fullName: Ubiety.Xmpp.Core.XmppClientBuilder
+- uid: Ubiety.Xmpp.Core
+  commentId: N:Ubiety.Xmpp.Core
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core
+  nameWithType: Ubiety.Xmpp.Core
+  fullName: Ubiety.Xmpp.Core
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html

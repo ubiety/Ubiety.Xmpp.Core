@@ -1,0 +1,86 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Sasl
+  commentId: N:Ubiety.Xmpp.Core.Sasl
+  id: Ubiety.Xmpp.Core.Sasl
+  children:
+  - Ubiety.Xmpp.Core.Sasl.Md5Processor
+  - Ubiety.Xmpp.Core.Sasl.PlainProcessor
+  - Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  - Ubiety.Xmpp.Core.Sasl.ScramProcessor
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Sasl
+  nameWithType: Ubiety.Xmpp.Core.Sasl
+  fullName: Ubiety.Xmpp.Core.Sasl
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Sasl.Md5Processor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.Md5Processor
+  parent: Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.Xmpp.Core.Sasl.Md5Processor.html
+  name: Md5Processor
+  nameWithType: Md5Processor
+  fullName: Ubiety.Xmpp.Core.Sasl.Md5Processor
+- uid: Ubiety.Xmpp.Core.Sasl.PlainProcessor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.PlainProcessor
+  parent: Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.Xmpp.Core.Sasl.PlainProcessor.html
+  name: PlainProcessor
+  nameWithType: PlainProcessor
+  fullName: Ubiety.Xmpp.Core.Sasl.PlainProcessor
+- uid: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.SaslProcessor
+  parent: Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.Xmpp.Core.Sasl.SaslProcessor.html
+  name: SaslProcessor
+  nameWithType: SaslProcessor
+  fullName: Ubiety.Xmpp.Core.Sasl.SaslProcessor
+- uid: Ubiety.Xmpp.Core.Sasl.ScramProcessor
+  commentId: T:Ubiety.Xmpp.Core.Sasl.ScramProcessor
+  parent: Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.Xmpp.Core.Sasl.ScramProcessor.html
+  name: ScramProcessor
+  nameWithType: ScramProcessor
+  fullName: Ubiety.Xmpp.Core.Sasl.ScramProcessor
+- uid: Ubiety.Xmpp.Core.Sasl
+  commentId: N:Ubiety.Xmpp.Core.Sasl
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Sasl
+  nameWithType: Ubiety.Xmpp.Core.Sasl
+  fullName: Ubiety.Xmpp.Core.Sasl
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Sasl.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Sasl
+    name: Sasl
+    href: Ubiety.Xmpp.Core.Sasl.html

@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.States
+  commentId: N:Ubiety.Xmpp.Core.States
+  id: Ubiety.Xmpp.Core.States
+  children:
+  - Ubiety.Xmpp.Core.States.BindingState
+  - Ubiety.Xmpp.Core.States.ConnectedState
+  - Ubiety.Xmpp.Core.States.ConnectingState
+  - Ubiety.Xmpp.Core.States.DisconnectState
+  - Ubiety.Xmpp.Core.States.DisconnectedState
+  - Ubiety.Xmpp.Core.States.IState
+  - Ubiety.Xmpp.Core.States.SaslState
+  - Ubiety.Xmpp.Core.States.StartTlsState
+  - Ubiety.Xmpp.Core.States.StreamFeaturesState
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.States
+  nameWithType: Ubiety.Xmpp.Core.States
+  fullName: Ubiety.Xmpp.Core.States
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.States.BindingState
+  commentId: T:Ubiety.Xmpp.Core.States.BindingState
+  href: Ubiety.Xmpp.Core.States.BindingState.html
+  name: BindingState
+  nameWithType: BindingState
+  fullName: Ubiety.Xmpp.Core.States.BindingState
+- uid: Ubiety.Xmpp.Core.States.ConnectedState
+  commentId: T:Ubiety.Xmpp.Core.States.ConnectedState
+  href: Ubiety.Xmpp.Core.States.ConnectedState.html
+  name: ConnectedState
+  nameWithType: ConnectedState
+  fullName: Ubiety.Xmpp.Core.States.ConnectedState
+- uid: Ubiety.Xmpp.Core.States.ConnectingState
+  commentId: T:Ubiety.Xmpp.Core.States.ConnectingState
+  href: Ubiety.Xmpp.Core.States.ConnectingState.html
+  name: ConnectingState
+  nameWithType: ConnectingState
+  fullName: Ubiety.Xmpp.Core.States.ConnectingState
+- uid: Ubiety.Xmpp.Core.States.DisconnectedState
+  commentId: T:Ubiety.Xmpp.Core.States.DisconnectedState
+  href: Ubiety.Xmpp.Core.States.DisconnectedState.html
+  name: DisconnectedState
+  nameWithType: DisconnectedState
+  fullName: Ubiety.Xmpp.Core.States.DisconnectedState
+- uid: Ubiety.Xmpp.Core.States.DisconnectState
+  commentId: T:Ubiety.Xmpp.Core.States.DisconnectState
+  href: Ubiety.Xmpp.Core.States.DisconnectState.html
+  name: DisconnectState
+  nameWithType: DisconnectState
+  fullName: Ubiety.Xmpp.Core.States.DisconnectState
+- uid: Ubiety.Xmpp.Core.States.IState
+  commentId: T:Ubiety.Xmpp.Core.States.IState
+  parent: Ubiety.Xmpp.Core.States
+  href: Ubiety.Xmpp.Core.States.IState.html
+  name: IState
+  nameWithType: IState
+  fullName: Ubiety.Xmpp.Core.States.IState
+- uid: Ubiety.Xmpp.Core.States.SaslState
+  commentId: T:Ubiety.Xmpp.Core.States.SaslState
+  href: Ubiety.Xmpp.Core.States.SaslState.html
+  name: SaslState
+  nameWithType: SaslState
+  fullName: Ubiety.Xmpp.Core.States.SaslState
+- uid: Ubiety.Xmpp.Core.States.StartTlsState
+  commentId: T:Ubiety.Xmpp.Core.States.StartTlsState
+  href: Ubiety.Xmpp.Core.States.StartTlsState.html
+  name: StartTlsState
+  nameWithType: StartTlsState
+  fullName: Ubiety.Xmpp.Core.States.StartTlsState
+- uid: Ubiety.Xmpp.Core.States.StreamFeaturesState
+  commentId: T:Ubiety.Xmpp.Core.States.StreamFeaturesState
+  href: Ubiety.Xmpp.Core.States.StreamFeaturesState.html
+  name: StreamFeaturesState
+  nameWithType: StreamFeaturesState
+  fullName: Ubiety.Xmpp.Core.States.StreamFeaturesState
+- uid: Ubiety.Xmpp.Core.States
+  commentId: N:Ubiety.Xmpp.Core.States
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.States
+  nameWithType: Ubiety.Xmpp.Core.States
+  fullName: Ubiety.Xmpp.Core.States
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.States
+    name: States
+    href: Ubiety.Xmpp.Core.States.html

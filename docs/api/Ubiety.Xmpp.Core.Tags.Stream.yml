@@ -1,0 +1,86 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags.Stream
+  commentId: N:Ubiety.Xmpp.Core.Tags.Stream
+  id: Ubiety.Xmpp.Core.Tags.Stream
+  children:
+  - Ubiety.Xmpp.Core.Tags.Stream.Error
+  - Ubiety.Xmpp.Core.Tags.Stream.Features
+  - Ubiety.Xmpp.Core.Tags.Stream.Stream
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Tags.Stream
+  nameWithType: Ubiety.Xmpp.Core.Tags.Stream
+  fullName: Ubiety.Xmpp.Core.Tags.Stream
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Stream.Error
+  commentId: T:Ubiety.Xmpp.Core.Tags.Stream.Error
+  parent: Ubiety.Xmpp.Core.Tags.Stream
+  href: Ubiety.Xmpp.Core.Tags.Stream.Error.html
+  name: Error
+  nameWithType: Error
+  fullName: Ubiety.Xmpp.Core.Tags.Stream.Error
+- uid: Ubiety.Xmpp.Core.Tags.Stream.Features
+  commentId: T:Ubiety.Xmpp.Core.Tags.Stream.Features
+  parent: Ubiety.Xmpp.Core.Tags.Stream
+  href: Ubiety.Xmpp.Core.Tags.Stream.Features.html
+  name: Features
+  nameWithType: Features
+  fullName: Ubiety.Xmpp.Core.Tags.Stream.Features
+- uid: Ubiety.Xmpp.Core.Tags.Stream.Stream
+  commentId: T:Ubiety.Xmpp.Core.Tags.Stream.Stream
+  parent: Ubiety.Xmpp.Core.Tags.Stream
+  href: Ubiety.Xmpp.Core.Tags.Stream.Stream.html
+  name: Stream
+  nameWithType: Stream
+  fullName: Ubiety.Xmpp.Core.Tags.Stream.Stream
+- uid: Ubiety.Xmpp.Core.Tags.Stream
+  commentId: N:Ubiety.Xmpp.Core.Tags.Stream
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags.Stream
+  nameWithType: Ubiety.Xmpp.Core.Tags.Stream
+  fullName: Ubiety.Xmpp.Core.Tags.Stream
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Stream
+    name: Stream
+    href: Ubiety.Xmpp.Core.Tags.Stream.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Stream
+    name: Stream
+    href: Ubiety.Xmpp.Core.Tags.Stream.html

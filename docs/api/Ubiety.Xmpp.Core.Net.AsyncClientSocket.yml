@@ -1,0 +1,1290 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  commentId: T:Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  id: AsyncClientSocket
+  parent: Ubiety.Xmpp.Core.Net
+  children:
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.#ctor(Ubiety.Xmpp.Core.IClient)
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose(System.Boolean)
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(System.String)
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(Ubiety.Xmpp.Core.Tags.Tag)
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync(System.String,System.Threading.CancellationToken)
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl
+  langs:
+  - csharp
+  - vb
+  name: AsyncClientSocket
+  nameWithType: AsyncClientSocket
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  type: Class
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: AsyncClientSocket
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 32
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: An asynchronous socket for connecting to an XMPP server.
+  example: []
+  syntax:
+    content: 'public class AsyncClientSocket : ISocket, IDisposable'
+    content.vb: Public Class AsyncClientSocket Implements ISocket, IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - Ubiety.Xmpp.Core.Net.ISocket
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.#ctor(Ubiety.Xmpp.Core.IClient)
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.#ctor(Ubiety.Xmpp.Core.IClient)
+  id: '#ctor(Ubiety.Xmpp.Core.IClient)'
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: AsyncClientSocket(IClient)
+  nameWithType: AsyncClientSocket.AsyncClientSocket(IClient)
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.AsyncClientSocket(Ubiety.Xmpp.Core.IClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: .ctor
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 78
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Initializes a new instance of the <xref href="Ubiety.Xmpp.Core.Net.AsyncClientSocket" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AsyncClientSocket(IClient client)
+    parameters:
+    - id: client
+      type: Ubiety.Xmpp.Core.IClient
+      description: Client to use for the server connection.
+    content.vb: Public Sub New(client As IClient)
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.#ctor*
+  nameWithType.vb: AsyncClientSocket.New(IClient)
+  fullName.vb: Ubiety.Xmpp.Core.Net.AsyncClientSocket.New(Ubiety.Xmpp.Core.IClient)
+  name.vb: New(IClient)
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection
+  commentId: E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection
+  id: Connection
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Connection
+  nameWithType: AsyncClientSocket.Connection
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connection
+  type: Event
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Connection
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 88
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Occurs when the socket has successfully connected to the server.
+  example: []
+  syntax:
+    content: public event EventHandler Connection
+    return:
+      type: System.EventHandler
+    content.vb: Public Event Connection As EventHandler
+  implements:
+  - Ubiety.Xmpp.Core.Net.ISocket.Connection
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data
+  commentId: E:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data
+  id: Data
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: AsyncClientSocket.Data
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Data
+  type: Event
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Data
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 93
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Occurs when data is received from the server.
+  example: []
+  syntax:
+    content: public event EventHandler<DataEventArgs> Data
+    return:
+      type: System.EventHandler{Ubiety.Xmpp.Core.Common.DataEventArgs}
+    content.vb: Public Event Data As EventHandler(Of DataEventArgs)
+  implements:
+  - Ubiety.Xmpp.Core.Net.ISocket.Data
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected
+  commentId: P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected
+  id: Connected
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Connected
+  nameWithType: AsyncClientSocket.Connected
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Connected
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 98
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Gets a value indicating whether the socket is currently connected.
+  example: []
+  syntax:
+    content: public bool Connected { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Connected As Boolean
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected*
+  implements:
+  - Ubiety.Xmpp.Core.Net.ISocket.Connected
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure
+  commentId: P:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure
+  id: Secure
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Secure
+  nameWithType: AsyncClientSocket.Secure
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Secure
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 103
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Gets a value indicating whether the socket is secured with SSL/TLS.
+  example: []
+  syntax:
+    content: public bool Secure { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Secure As Boolean
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure*
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose
+  id: Dispose
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: AsyncClientSocket.Dispose()
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Dispose
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 108
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Releases all resources used by the <xref href="Ubiety.Xmpp.Core.Net.AsyncClientSocket" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+  id: Connect(Ubiety.Xmpp.Core.Common.Jid)
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Connect(Jid)
+  nameWithType: AsyncClientSocket.Connect(Jid)
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Connect
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 118
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Connects to the XMPP server using the specified JID.
+  example: []
+  syntax:
+    content: public void Connect(Jid jid)
+    parameters:
+    - id: jid
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: The Jabber ID to use for the connection.
+    content.vb: Public Sub Connect(jid As Jid)
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect*
+  implements:
+  - Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect
+  id: Disconnect
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Disconnect()
+  nameWithType: AsyncClientSocket.Disconnect()
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Disconnect
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 155
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Disconnects from the XMPP server and releases the socket.
+  example: []
+  syntax:
+    content: public void Disconnect()
+    content.vb: Public Sub Disconnect()
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect*
+  implements:
+  - Ubiety.Xmpp.Core.Net.ISocket.Disconnect
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(System.String)
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(System.String)
+  id: Send(System.String)
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Send(string)
+  nameWithType: AsyncClientSocket.Send(string)
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(string)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Send
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 177
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Sends a message to the server synchronously.
+  example: []
+  syntax:
+    content: public void Send(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to send.
+    content.vb: Public Sub Send(message As String)
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send*
+  implements:
+  - Ubiety.Xmpp.Core.Net.ISocket.Send(System.String)
+  nameWithType.vb: AsyncClientSocket.Send(String)
+  fullName.vb: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(String)
+  name.vb: Send(String)
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync(System.String,System.Threading.CancellationToken)
+  id: SendAsync(System.String,System.Threading.CancellationToken)
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(string, CancellationToken)
+  nameWithType: AsyncClientSocket.SendAsync(string, CancellationToken)
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: SendAsync
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 188
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Asynchronously sends a message to the server.
+  example: []
+  syntax:
+    content: public Task SendAsync(string message, CancellationToken cancellationToken = default)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to send.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A token to monitor for cancellation requests.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> representing the asynchronous send operation.
+    content.vb: Public Function SendAsync(message As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync*
+  nameWithType.vb: AsyncClientSocket.SendAsync(String, CancellationToken)
+  fullName.vb: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync(String, System.Threading.CancellationToken)
+  name.vb: SendAsync(String, CancellationToken)
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(Ubiety.Xmpp.Core.Tags.Tag)
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(Ubiety.Xmpp.Core.Tags.Tag)
+  id: Send(Ubiety.Xmpp.Core.Tags.Tag)
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Send(Tag)
+  nameWithType: AsyncClientSocket.Send(Tag)
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send(Ubiety.Xmpp.Core.Tags.Tag)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Send
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 205
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Sends a tag to the server synchronously.
+  example: []
+  syntax:
+    content: public void Send(Tag tag)
+    parameters:
+    - id: tag
+      type: Ubiety.Xmpp.Core.Tags.Tag
+      description: The <xref href="Ubiety.Xmpp.Core.Tags.Tag" data-throw-if-not-resolved="false"></xref> to send.
+    content.vb: Public Sub Send(tag As Tag)
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send*
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl
+  id: StartSsl
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: StartSsl()
+  nameWithType: AsyncClientSocket.StartSsl()
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: StartSsl
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 213
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Starts an SSL/TLS session on the current connection.
+  example: []
+  syntax:
+    content: public void StartSsl()
+    content.vb: Public Sub StartSsl()
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl*
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear
+  id: SetReadClear
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: SetReadClear()
+  nameWithType: AsyncClientSocket.SetReadClear()
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: SetReadClear
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 234
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Signals that the socket is ready to read data.
+  example: []
+  syntax:
+    content: public void SetReadClear()
+    content.vb: Public Sub SetReadClear()
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear*
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose(System.Boolean)
+  commentId: M:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: AsyncClientSocket.Dispose(bool)
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose(bool)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Dispose
+    path: ../src/Ubiety.Xmpp.Core/Net/AsyncClientSocket.cs
+    startLine: 244
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Net
+  summary: Releases the unmanaged resources used by the <xref href="Ubiety.Xmpp.Core.Net.AsyncClientSocket" data-throw-if-not-resolved="false"></xref> and optionally releases the managed resources.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: true to release both managed and unmanaged resources; false to release only unmanaged resources.
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose*
+  nameWithType.vb: AsyncClientSocket.Dispose(Boolean)
+  fullName.vb: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+references:
+- uid: Ubiety.Xmpp.Core.Net
+  commentId: N:Ubiety.Xmpp.Core.Net
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Net
+  nameWithType: Ubiety.Xmpp.Core.Net
+  fullName: Ubiety.Xmpp.Core.Net
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Net
+    name: Net
+    href: Ubiety.Xmpp.Core.Net.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Net
+    name: Net
+    href: Ubiety.Xmpp.Core.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Ubiety.Xmpp.Core.Net.ISocket
+  commentId: T:Ubiety.Xmpp.Core.Net.ISocket
+  parent: Ubiety.Xmpp.Core.Net
+  href: Ubiety.Xmpp.Core.Net.ISocket.html
+  name: ISocket
+  nameWithType: ISocket
+  fullName: Ubiety.Xmpp.Core.Net.ISocket
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  commentId: T:Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  parent: Ubiety.Xmpp.Core.Net
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html
+  name: AsyncClientSocket
+  nameWithType: AsyncClientSocket
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.#ctor*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.#ctor
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket__ctor_Ubiety_Xmpp_Core_IClient_
+  name: AsyncClientSocket
+  nameWithType: AsyncClientSocket.AsyncClientSocket
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.AsyncClientSocket
+  nameWithType.vb: AsyncClientSocket.New
+  fullName.vb: Ubiety.Xmpp.Core.Net.AsyncClientSocket.New
+  name.vb: New
+- uid: Ubiety.Xmpp.Core.IClient
+  commentId: T:Ubiety.Xmpp.Core.IClient
+  parent: Ubiety.Xmpp.Core
+  href: Ubiety.Xmpp.Core.IClient.html
+  name: IClient
+  nameWithType: IClient
+  fullName: Ubiety.Xmpp.Core.IClient
+- uid: Ubiety.Xmpp.Core
+  commentId: N:Ubiety.Xmpp.Core
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core
+  nameWithType: Ubiety.Xmpp.Core
+  fullName: Ubiety.Xmpp.Core
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+- uid: Ubiety.Xmpp.Core.Net.ISocket.Connection
+  commentId: E:Ubiety.Xmpp.Core.Net.ISocket.Connection
+  parent: Ubiety.Xmpp.Core.Net.ISocket
+  href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Connection
+  name: Connection
+  nameWithType: ISocket.Connection
+  fullName: Ubiety.Xmpp.Core.Net.ISocket.Connection
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler
+- uid: Ubiety.Xmpp.Core.Net.ISocket.Data
+  commentId: E:Ubiety.Xmpp.Core.Net.ISocket.Data
+  parent: Ubiety.Xmpp.Core.Net.ISocket
+  href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Data
+  name: Data
+  nameWithType: ISocket.Data
+  fullName: Ubiety.Xmpp.Core.Net.ISocket.Data
+- uid: System.EventHandler{Ubiety.Xmpp.Core.Common.DataEventArgs}
+  commentId: T:System.EventHandler{Ubiety.Xmpp.Core.Common.DataEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<DataEventArgs>
+  nameWithType: EventHandler<DataEventArgs>
+  fullName: System.EventHandler<Ubiety.Xmpp.Core.Common.DataEventArgs>
+  nameWithType.vb: EventHandler(Of DataEventArgs)
+  fullName.vb: System.EventHandler(Of Ubiety.Xmpp.Core.Common.DataEventArgs)
+  name.vb: EventHandler(Of DataEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: Ubiety.Xmpp.Core.Common.DataEventArgs
+    name: DataEventArgs
+    href: Ubiety.Xmpp.Core.Common.DataEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Ubiety.Xmpp.Core.Common.DataEventArgs
+    name: DataEventArgs
+    href: Ubiety.Xmpp.Core.Common.DataEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_Connected
+  name: Connected
+  nameWithType: AsyncClientSocket.Connected
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connected
+- uid: Ubiety.Xmpp.Core.Net.ISocket.Connected
+  commentId: P:Ubiety.Xmpp.Core.Net.ISocket.Connected
+  parent: Ubiety.Xmpp.Core.Net.ISocket
+  href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Connected
+  name: Connected
+  nameWithType: ISocket.Connected
+  fullName: Ubiety.Xmpp.Core.Net.ISocket.Connected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_Secure
+  name: Secure
+  nameWithType: AsyncClientSocket.Secure
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Secure
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_Dispose
+  name: Dispose
+  nameWithType: AsyncClientSocket.Dispose
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_Connect_Ubiety_Xmpp_Core_Common_Jid_
+  name: Connect
+  nameWithType: AsyncClientSocket.Connect
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Connect
+- uid: Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+  commentId: M:Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+  parent: Ubiety.Xmpp.Core.Net.ISocket
+  href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Connect_Ubiety_Xmpp_Core_Common_Jid_
+  name: Connect(Jid)
+  nameWithType: ISocket.Connect(Jid)
+  fullName: Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+    name: Connect
+    href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Connect_Ubiety_Xmpp_Core_Common_Jid_
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Net.ISocket.Connect(Ubiety.Xmpp.Core.Common.Jid)
+    name: Connect
+    href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Connect_Ubiety_Xmpp_Core_Common_Jid_
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: )
+- uid: Ubiety.Xmpp.Core.Common.Jid
+  commentId: T:Ubiety.Xmpp.Core.Common.Jid
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.Jid.html
+  name: Jid
+  nameWithType: Jid
+  fullName: Ubiety.Xmpp.Core.Common.Jid
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_Disconnect
+  name: Disconnect
+  nameWithType: AsyncClientSocket.Disconnect
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Disconnect
+- uid: Ubiety.Xmpp.Core.Net.ISocket.Disconnect
+  commentId: M:Ubiety.Xmpp.Core.Net.ISocket.Disconnect
+  parent: Ubiety.Xmpp.Core.Net.ISocket
+  href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Disconnect
+  name: Disconnect()
+  nameWithType: ISocket.Disconnect()
+  fullName: Ubiety.Xmpp.Core.Net.ISocket.Disconnect()
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Net.ISocket.Disconnect
+    name: Disconnect
+    href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Disconnect
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Net.ISocket.Disconnect
+    name: Disconnect
+    href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Disconnect
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_Send_System_String_
+  name: Send
+  nameWithType: AsyncClientSocket.Send
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.Send
+- uid: Ubiety.Xmpp.Core.Net.ISocket.Send(System.String)
+  commentId: M:Ubiety.Xmpp.Core.Net.ISocket.Send(System.String)
+  parent: Ubiety.Xmpp.Core.Net.ISocket
+  isExternal: true
+  href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Send_System_String_
+  name: Send(string)
+  nameWithType: ISocket.Send(string)
+  fullName: Ubiety.Xmpp.Core.Net.ISocket.Send(string)
+  nameWithType.vb: ISocket.Send(String)
+  fullName.vb: Ubiety.Xmpp.Core.Net.ISocket.Send(String)
+  name.vb: Send(String)
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Net.ISocket.Send(System.String)
+    name: Send
+    href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Send_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Net.ISocket.Send(System.String)
+    name: Send
+    href: Ubiety.Xmpp.Core.Net.ISocket.html#Ubiety_Xmpp_Core_Net_ISocket_Send_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_SendAsync_System_String_System_Threading_CancellationToken_
+  name: SendAsync
+  nameWithType: AsyncClientSocket.SendAsync
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SendAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Ubiety.Xmpp.Core.Tags.Tag
+  commentId: T:Ubiety.Xmpp.Core.Tags.Tag
+  parent: Ubiety.Xmpp.Core.Tags
+  href: Ubiety.Xmpp.Core.Tags.Tag.html
+  name: Tag
+  nameWithType: Tag
+  fullName: Ubiety.Xmpp.Core.Tags.Tag
+- uid: Ubiety.Xmpp.Core.Tags
+  commentId: N:Ubiety.Xmpp.Core.Tags
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags
+  nameWithType: Ubiety.Xmpp.Core.Tags
+  fullName: Ubiety.Xmpp.Core.Tags
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_StartSsl
+  name: StartSsl
+  nameWithType: AsyncClientSocket.StartSsl
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.StartSsl
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear*
+  commentId: Overload:Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html#Ubiety_Xmpp_Core_Net_AsyncClientSocket_SetReadClear
+  name: SetReadClear
+  nameWithType: AsyncClientSocket.SetReadClear
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket.SetReadClear

@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Net
+  commentId: N:Ubiety.Xmpp.Core.Net
+  id: Ubiety.Xmpp.Core.Net
+  children:
+  - Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  - Ubiety.Xmpp.Core.Net.ISocket
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Net
+  nameWithType: Ubiety.Xmpp.Core.Net
+  fullName: Ubiety.Xmpp.Core.Net
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  commentId: T:Ubiety.Xmpp.Core.Net.AsyncClientSocket
+  parent: Ubiety.Xmpp.Core.Net
+  href: Ubiety.Xmpp.Core.Net.AsyncClientSocket.html
+  name: AsyncClientSocket
+  nameWithType: AsyncClientSocket
+  fullName: Ubiety.Xmpp.Core.Net.AsyncClientSocket
+- uid: Ubiety.Xmpp.Core.Net.ISocket
+  commentId: T:Ubiety.Xmpp.Core.Net.ISocket
+  parent: Ubiety.Xmpp.Core.Net
+  href: Ubiety.Xmpp.Core.Net.ISocket.html
+  name: ISocket
+  nameWithType: ISocket
+  fullName: Ubiety.Xmpp.Core.Net.ISocket
+- uid: Ubiety.Xmpp.Core.Net
+  commentId: N:Ubiety.Xmpp.Core.Net
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Net
+  nameWithType: Ubiety.Xmpp.Core.Net
+  fullName: Ubiety.Xmpp.Core.Net
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Net
+    name: Net
+    href: Ubiety.Xmpp.Core.Net.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Net
+    name: Net
+    href: Ubiety.Xmpp.Core.Net.html

@@ -1,0 +1,477 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes
+  commentId: T:Ubiety.Xmpp.Core.Common.MechanismTypes
+  id: MechanismTypes
+  parent: Ubiety.Xmpp.Core.Common
+  children:
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Default
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.DigestMd5
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.External
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.None
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Plain
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Scram
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1Plus
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256Plus
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512Plus
+  - Ubiety.Xmpp.Core.Common.MechanismTypes.ScramPlus
+  langs:
+  - csharp
+  - vb
+  name: MechanismTypes
+  nameWithType: MechanismTypes
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes
+  type: Enum
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: MechanismTypes
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 21
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the available authentication mechanisms in the XMPP protocol.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum MechanismTypes
+    content.vb: >-
+      <Flags>
+
+      Public Enum MechanismTypes
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.None
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.None
+  id: None
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: MechanismTypes.None
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.None
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: None
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 27
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: No authentication mechanism selected.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Plain
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Plain
+  id: Plain
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Plain
+  nameWithType: MechanismTypes.Plain
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Plain
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Plain
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 32
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the PLAIN authentication mechanism, which transmits the password in plain text.
+  example: []
+  syntax:
+    content: Plain = 1
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.DigestMd5
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.DigestMd5
+  id: DigestMd5
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: DigestMd5
+  nameWithType: MechanismTypes.DigestMd5
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.DigestMd5
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: DigestMd5
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 37
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Digest-MD5 authentication mechanism.
+  example: []
+  syntax:
+    content: DigestMd5 = 2
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.External
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.External
+  id: External
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: External
+  nameWithType: MechanismTypes.External
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.External
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: External
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 43
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    External authentication mechanism for delegating authentication
+
+    to an external provider or system.
+  example: []
+  syntax:
+    content: External = 4
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1
+  id: Scram1
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Scram1
+  nameWithType: MechanismTypes.Scram1
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Scram1
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 50
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Represents the SCRAM-SHA-1 (Salted Challenge Response Authentication Mechanism) authentication mechanism.
+
+    SCRAM provides a secure authentication protocol using salted hashing and iterative processes,
+
+    ensuring resistance to passive and active attacks.
+  example: []
+  syntax:
+    content: Scram1 = 8
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1Plus
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1Plus
+  id: Scram1Plus
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Scram1Plus
+  nameWithType: MechanismTypes.Scram1Plus
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram1Plus
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Scram1Plus
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 56
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: >-
+    Enhanced SCRAM-SHA-1-PLUS (Salted Challenge Response Authentication Mechanism) authentication mechanism
+
+    with channel binding support for increased security.
+  example: []
+  syntax:
+    content: Scram1Plus = 16
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256
+  id: Scram256
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Scram256
+  nameWithType: MechanismTypes.Scram256
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Scram256
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 61
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the SCRAM-SHA-256 authentication mechanism.
+  example: []
+  syntax:
+    content: Scram256 = 32
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256Plus
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256Plus
+  id: Scram256Plus
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Scram256Plus
+  nameWithType: MechanismTypes.Scram256Plus
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram256Plus
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Scram256Plus
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 66
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the SCRAM-SHA-256-PLUS authentication mechanism.
+  example: []
+  syntax:
+    content: Scram256Plus = 64
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512
+  id: Scram512
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Scram512
+  nameWithType: MechanismTypes.Scram512
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Scram512
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 71
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the SCRAM-SHA-512 authentication mechanism.
+  example: []
+  syntax:
+    content: Scram512 = 128
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512Plus
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512Plus
+  id: Scram512Plus
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Scram512Plus
+  nameWithType: MechanismTypes.Scram512Plus
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram512Plus
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Scram512Plus
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 76
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the SCRAM-SHA-512-PLUS authentication mechanism.
+  example: []
+  syntax:
+    content: Scram512Plus = 256
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Scram
+  id: Scram
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Scram
+  nameWithType: MechanismTypes.Scram
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Scram
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Scram
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 81
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the SCRAM authentication mechanisms.
+  example: []
+  syntax:
+    content: Scram = Scram1 | Scram256 | Scram512
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+    content.vb: Scram = Scram1 Or Scram256 Or Scram512
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.ScramPlus
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.ScramPlus
+  id: ScramPlus
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: ScramPlus
+  nameWithType: MechanismTypes.ScramPlus
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.ScramPlus
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: ScramPlus
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 86
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Represents the SCRAM PLUS authentication mechanisms.
+  example: []
+  syntax:
+    content: ScramPlus = Scram1Plus | Scram256Plus | Scram512Plus
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+    content.vb: ScramPlus = Scram1Plus Or Scram256Plus Or Scram512Plus
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes.Default
+  commentId: F:Ubiety.Xmpp.Core.Common.MechanismTypes.Default
+  id: Default
+  parent: Ubiety.Xmpp.Core.Common.MechanismTypes
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: MechanismTypes.Default
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes.Default
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Default
+    path: ../src/Ubiety.Xmpp.Core/Common/MechanismTypes.cs
+    startLine: 91
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: 'Represents the default combination of authentication mechanisms: Scram and ScramPlus.'
+  example: []
+  syntax:
+    content: Default = Scram | ScramPlus
+    return:
+      type: Ubiety.Xmpp.Core.Common.MechanismTypes
+    content.vb: Default = Scram Or ScramPlus
+references:
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes
+  commentId: T:Ubiety.Xmpp.Core.Common.MechanismTypes
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.MechanismTypes.html
+  name: MechanismTypes
+  nameWithType: MechanismTypes
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes

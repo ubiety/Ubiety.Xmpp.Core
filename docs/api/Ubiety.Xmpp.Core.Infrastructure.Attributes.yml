@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure.Attributes
+  id: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  children:
+  - Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute
+  - Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute
+  parent: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  href: Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute.html
+  name: SaslAttribute
+  nameWithType: SaslAttribute
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Attributes.SaslAttribute
+- uid: Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute
+  parent: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  href: Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute.html
+  name: XmppTagAttribute
+  nameWithType: XmppTagAttribute
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Attributes.XmppTagAttribute
+- uid: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure.Attributes
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Attributes
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Attributes
+    name: Attributes
+    href: Ubiety.Xmpp.Core.Infrastructure.Attributes.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Attributes
+    name: Attributes
+    href: Ubiety.Xmpp.Core.Infrastructure.Attributes.html

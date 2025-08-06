@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Infrastructure
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure
+  id: Ubiety.Xmpp.Core.Infrastructure
+  children:
+  - Ubiety.Xmpp.Core.Infrastructure.Parser
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Infrastructure
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure
+  fullName: Ubiety.Xmpp.Core.Infrastructure
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Parser
+  parent: Ubiety.Xmpp.Core.Infrastructure
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html
+  name: Parser
+  nameWithType: Parser
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser
+- uid: Ubiety.Xmpp.Core.Infrastructure
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Infrastructure
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure
+  fullName: Ubiety.Xmpp.Core.Infrastructure
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html

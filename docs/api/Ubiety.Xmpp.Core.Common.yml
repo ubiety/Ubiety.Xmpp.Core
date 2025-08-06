@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  id: Ubiety.Xmpp.Core.Common
+  children:
+  - Ubiety.Xmpp.Core.Common.DataEventArgs
+  - Ubiety.Xmpp.Core.Common.ErrorEventArgs
+  - Ubiety.Xmpp.Core.Common.Jid
+  - Ubiety.Xmpp.Core.Common.MechanismTypes
+  - Ubiety.Xmpp.Core.Common.Namespaces
+  - Ubiety.Xmpp.Core.Common.TagEventArgs
+  - Ubiety.Xmpp.Core.Common.XmppBase
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Common.DataEventArgs
+  commentId: T:Ubiety.Xmpp.Core.Common.DataEventArgs
+  href: Ubiety.Xmpp.Core.Common.DataEventArgs.html
+  name: DataEventArgs
+  nameWithType: DataEventArgs
+  fullName: Ubiety.Xmpp.Core.Common.DataEventArgs
+- uid: Ubiety.Xmpp.Core.Common.ErrorEventArgs
+  commentId: T:Ubiety.Xmpp.Core.Common.ErrorEventArgs
+  href: Ubiety.Xmpp.Core.Common.ErrorEventArgs.html
+  name: ErrorEventArgs
+  nameWithType: ErrorEventArgs
+  fullName: Ubiety.Xmpp.Core.Common.ErrorEventArgs
+- uid: Ubiety.Xmpp.Core.Common.Jid
+  commentId: T:Ubiety.Xmpp.Core.Common.Jid
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.Jid.html
+  name: Jid
+  nameWithType: Jid
+  fullName: Ubiety.Xmpp.Core.Common.Jid
+- uid: Ubiety.Xmpp.Core.Common.MechanismTypes
+  commentId: T:Ubiety.Xmpp.Core.Common.MechanismTypes
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.MechanismTypes.html
+  name: MechanismTypes
+  nameWithType: MechanismTypes
+  fullName: Ubiety.Xmpp.Core.Common.MechanismTypes
+- uid: Ubiety.Xmpp.Core.Common.Namespaces
+  commentId: T:Ubiety.Xmpp.Core.Common.Namespaces
+  href: Ubiety.Xmpp.Core.Common.Namespaces.html
+  name: Namespaces
+  nameWithType: Namespaces
+  fullName: Ubiety.Xmpp.Core.Common.Namespaces
+- uid: Ubiety.Xmpp.Core.Common.TagEventArgs
+  commentId: T:Ubiety.Xmpp.Core.Common.TagEventArgs
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.TagEventArgs.html
+  name: TagEventArgs
+  nameWithType: TagEventArgs
+  fullName: Ubiety.Xmpp.Core.Common.TagEventArgs
+- uid: Ubiety.Xmpp.Core.Common.XmppBase
+  commentId: T:Ubiety.Xmpp.Core.Common.XmppBase
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html
+  name: XmppBase
+  nameWithType: XmppBase
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html

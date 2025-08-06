@@ -1,0 +1,1108 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Common.Jid
+  commentId: T:Ubiety.Xmpp.Core.Common.Jid
+  id: Jid
+  parent: Ubiety.Xmpp.Core.Common
+  children:
+  - Ubiety.Xmpp.Core.Common.Jid.#ctor(System.String,System.String,System.String)
+  - Ubiety.Xmpp.Core.Common.Jid.Equals(System.Object)
+  - Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)
+  - Ubiety.Xmpp.Core.Common.Jid.GetHashCode
+  - Ubiety.Xmpp.Core.Common.Jid.Id
+  - Ubiety.Xmpp.Core.Common.Jid.Parse(System.String,System.Boolean)
+  - Ubiety.Xmpp.Core.Common.Jid.Resource
+  - Ubiety.Xmpp.Core.Common.Jid.Server
+  - Ubiety.Xmpp.Core.Common.Jid.ToString
+  - Ubiety.Xmpp.Core.Common.Jid.TryParse(System.String,System.Boolean,Ubiety.Xmpp.Core.Common.Jid@)
+  - Ubiety.Xmpp.Core.Common.Jid.User
+  - Ubiety.Xmpp.Core.Common.Jid.op_Equality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  - Ubiety.Xmpp.Core.Common.Jid.op_Implicit(System.String)~Ubiety.Xmpp.Core.Common.Jid
+  - Ubiety.Xmpp.Core.Common.Jid.op_Implicit(Ubiety.Xmpp.Core.Common.Jid)~System.String
+  - Ubiety.Xmpp.Core.Common.Jid.op_Inequality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  langs:
+  - csharp
+  - vb
+  name: Jid
+  nameWithType: Jid
+  fullName: Ubiety.Xmpp.Core.Common.Jid
+  type: Class
+  source:
+    id: Jid
+    path: System.Text.RegularExpressions.Generator/System.Text.RegularExpressions.Generator.RegexGenerator/RegexGenerator.g.cs
+    startLine: 53
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Representation of the Jabber ID.
+  example: []
+  syntax:
+    content: 'public sealed class Jid : IEquatable<Jid>'
+    content.vb: Public NotInheritable Class Jid Implements IEquatable(Of Jid)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Ubiety.Xmpp.Core.Common.Jid.#ctor(System.String,System.String,System.String)
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.#ctor(System.String,System.String,System.String)
+  id: '#ctor(System.String,System.String,System.String)'
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: Jid(string, string, string)
+  nameWithType: Jid.Jid(string, string, string)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Jid(string, string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: .ctor
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 43
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Initializes a new instance of the <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public Jid(string username, string server, string resource = "")
+    parameters:
+    - id: username
+      type: System.String
+      description: Username of the user.
+    - id: server
+      type: System.String
+      description: XMPP server of the user.
+    - id: resource
+      type: System.String
+      description: Server resource (if empty will be set by the server).
+    content.vb: Public Sub New(username As String, server As String, resource As String = "")
+  overload: Ubiety.Xmpp.Core.Common.Jid.#ctor*
+  nameWithType.vb: Jid.New(String, String, String)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.New(String, String, String)
+  name.vb: New(String, String, String)
+- uid: Ubiety.Xmpp.Core.Common.Jid.Resource
+  commentId: P:Ubiety.Xmpp.Core.Common.Jid.Resource
+  id: Resource
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: Resource
+  nameWithType: Jid.Resource
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Resource
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Resource
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 57
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Gets the <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> resource.
+  example: []
+  syntax:
+    content: public string Resource { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Resource As String
+  overload: Ubiety.Xmpp.Core.Common.Jid.Resource*
+- uid: Ubiety.Xmpp.Core.Common.Jid.Server
+  commentId: P:Ubiety.Xmpp.Core.Common.Jid.Server
+  id: Server
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: Server
+  nameWithType: Jid.Server
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Server
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Server
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 66
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Gets the server of the <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string Server { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Server As String
+  overload: Ubiety.Xmpp.Core.Common.Jid.Server*
+- uid: Ubiety.Xmpp.Core.Common.Jid.User
+  commentId: P:Ubiety.Xmpp.Core.Common.Jid.User
+  id: User
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: Jid.User
+  fullName: Ubiety.Xmpp.Core.Common.Jid.User
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: User
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 75
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Gets the username of the <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> in a user-friendly format.
+  example: []
+  syntax:
+    content: public string User { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property User As String
+  overload: Ubiety.Xmpp.Core.Common.Jid.User*
+- uid: Ubiety.Xmpp.Core.Common.Jid.Id
+  commentId: P:Ubiety.Xmpp.Core.Common.Jid.Id
+  id: Id
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Jid.Id
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Id
+  type: Property
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Id
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 84
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Gets the <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> as a string.
+  example: []
+  syntax:
+    content: public string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Id As String
+  overload: Ubiety.Xmpp.Core.Common.Jid.Id*
+- uid: Ubiety.Xmpp.Core.Common.Jid.op_Implicit(System.String)~Ubiety.Xmpp.Core.Common.Jid
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.op_Implicit(System.String)~Ubiety.Xmpp.Core.Common.Jid
+  id: op_Implicit(System.String)~Ubiety.Xmpp.Core.Common.Jid
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Jid(string)
+  nameWithType: Jid.implicit operator Jid(string)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.implicit operator Ubiety.Xmpp.Core.Common.Jid(string)
+  type: Operator
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: op_Implicit
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 90
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Implicitly converts a string into a <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static implicit operator Jid(string id)
+    parameters:
+    - id: id
+      type: System.String
+      description: String version of the <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: Ubiety.Xmpp.Core.Common.Jid
+    content.vb: Public Shared Widening Operator CType(id As String) As Jid
+  overload: Ubiety.Xmpp.Core.Common.Jid.op_Implicit*
+  nameWithType.vb: Jid.CType(String)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.CType(String)
+  name.vb: CType(String)
+- uid: Ubiety.Xmpp.Core.Common.Jid.op_Implicit(Ubiety.Xmpp.Core.Common.Jid)~System.String
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.op_Implicit(Ubiety.Xmpp.Core.Common.Jid)~System.String
+  id: op_Implicit(Ubiety.Xmpp.Core.Common.Jid)~System.String
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: implicit operator string(Jid)
+  nameWithType: Jid.implicit operator string(Jid)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.implicit operator string(Ubiety.Xmpp.Core.Common.Jid)
+  type: Operator
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: op_Implicit
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 99
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Implicitly converts a <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> to a string.
+  example: []
+  syntax:
+    content: public static implicit operator string(Jid id)
+    parameters:
+    - id: id
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> of the ID.
+    return:
+      type: System.String
+    content.vb: Public Shared Widening Operator CType(id As Jid) As String
+  overload: Ubiety.Xmpp.Core.Common.Jid.op_Implicit*
+  nameWithType.vb: Jid.CType(Jid)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.CType(Ubiety.Xmpp.Core.Common.Jid)
+  name.vb: CType(Jid)
+- uid: Ubiety.Xmpp.Core.Common.Jid.op_Equality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.op_Equality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  id: op_Equality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Jid, Jid)
+  nameWithType: Jid.operator ==(Jid, Jid)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.operator ==(Ubiety.Xmpp.Core.Common.Jid, Ubiety.Xmpp.Core.Common.Jid)
+  type: Operator
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: op_Equality
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 110
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Compares equality of one <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> to another.
+  example: []
+  syntax:
+    content: public static bool operator ==(Jid one, Jid two)
+    parameters:
+    - id: one
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: First <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+    - id: two
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: Second <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: True if the Jids are equal.
+    content.vb: Public Shared Operator =(one As Jid, two As Jid) As Boolean
+  overload: Ubiety.Xmpp.Core.Common.Jid.op_Equality*
+  nameWithType.vb: Jid.=(Jid, Jid)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.=(Ubiety.Xmpp.Core.Common.Jid, Ubiety.Xmpp.Core.Common.Jid)
+  name.vb: =(Jid, Jid)
+- uid: Ubiety.Xmpp.Core.Common.Jid.op_Inequality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.op_Inequality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  id: op_Inequality(Ubiety.Xmpp.Core.Common.Jid,Ubiety.Xmpp.Core.Common.Jid)
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Jid, Jid)
+  nameWithType: Jid.operator !=(Jid, Jid)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.operator !=(Ubiety.Xmpp.Core.Common.Jid, Ubiety.Xmpp.Core.Common.Jid)
+  type: Operator
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: op_Inequality
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 121
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Compares the inequality of one <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> to another.
+  example: []
+  syntax:
+    content: public static bool operator !=(Jid one, Jid two)
+    parameters:
+    - id: one
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: First <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+    - id: two
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: Second <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: True if the Jids are not equal.
+    content.vb: Public Shared Operator <>(one As Jid, two As Jid) As Boolean
+  overload: Ubiety.Xmpp.Core.Common.Jid.op_Inequality*
+  nameWithType.vb: Jid.<>(Jid, Jid)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.<>(Ubiety.Xmpp.Core.Common.Jid, Ubiety.Xmpp.Core.Common.Jid)
+  name.vb: <>(Jid, Jid)
+- uid: Ubiety.Xmpp.Core.Common.Jid.Parse(System.String,System.Boolean)
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.Parse(System.String,System.Boolean)
+  id: Parse(System.String,System.Boolean)
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: Parse(string, bool)
+  nameWithType: Jid.Parse(string, bool)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Parse(string, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Parse
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 132
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Parse a string into a <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Jid Parse(string value, bool escaped)
+    parameters:
+    - id: value
+      type: System.String
+      description: String jid to parse.
+    - id: escaped
+      type: System.Boolean
+      description: Indicates whether the ID is escaped.
+    return:
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref> of the string.
+    content.vb: Public Shared Function Parse(value As String, escaped As Boolean) As Jid
+  overload: Ubiety.Xmpp.Core.Common.Jid.Parse*
+  nameWithType.vb: Jid.Parse(String, Boolean)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.Parse(String, Boolean)
+  name.vb: Parse(String, Boolean)
+- uid: Ubiety.Xmpp.Core.Common.Jid.TryParse(System.String,System.Boolean,Ubiety.Xmpp.Core.Common.Jid@)
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.TryParse(System.String,System.Boolean,Ubiety.Xmpp.Core.Common.Jid@)
+  id: TryParse(System.String,System.Boolean,Ubiety.Xmpp.Core.Common.Jid@)
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: TryParse(string, bool, out Jid)
+  nameWithType: Jid.TryParse(string, bool, out Jid)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.TryParse(string, bool, out Ubiety.Xmpp.Core.Common.Jid)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: TryParse
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 149
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Try to parse the string into a <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool TryParse(string value, bool escaped, out Jid jid)
+    parameters:
+    - id: value
+      type: System.String
+      description: String jid to parse.
+    - id: escaped
+      type: System.Boolean
+      description: Indicates whether the ID is escaped.
+    - id: jid
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: Parsed <xref href="Ubiety.Xmpp.Core.Common.Jid" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: True if parse is successful; otherwise false.
+    content.vb: Public Shared Function TryParse(value As String, escaped As Boolean, jid As Jid) As Boolean
+  overload: Ubiety.Xmpp.Core.Common.Jid.TryParse*
+  nameWithType.vb: Jid.TryParse(String, Boolean, Jid)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.TryParse(String, Boolean, Ubiety.Xmpp.Core.Common.Jid)
+  name.vb: TryParse(String, Boolean, Jid)
+- uid: Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)
+  id: Equals(Ubiety.Xmpp.Core.Common.Jid)
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: Equals(Jid)
+  nameWithType: Jid.Equals(Jid)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Equals(Ubiety.Xmpp.Core.Common.Jid)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Equals
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 170
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(Jid other)
+    parameters:
+    - id: other
+      type: Ubiety.Xmpp.Core.Common.Jid
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As Jid) As Boolean
+  overload: Ubiety.Xmpp.Core.Common.Jid.Equals*
+  implements:
+  - System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}.Equals(Ubiety.Xmpp.Core.Common.Jid)
+- uid: Ubiety.Xmpp.Core.Common.Jid.Equals(System.Object)
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: Jid.Equals(object)
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Equals
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 176
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: Ubiety.Xmpp.Core.Common.Jid.Equals*
+  nameWithType.vb: Jid.Equals(Object)
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Ubiety.Xmpp.Core.Common.Jid.GetHashCode
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.GetHashCode
+  id: GetHashCode
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Jid.GetHashCode()
+  fullName: Ubiety.Xmpp.Core.Common.Jid.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: GetHashCode
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 187
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: Ubiety.Xmpp.Core.Common.Jid.GetHashCode*
+- uid: Ubiety.Xmpp.Core.Common.Jid.ToString
+  commentId: M:Ubiety.Xmpp.Core.Common.Jid.ToString
+  id: ToString
+  parent: Ubiety.Xmpp.Core.Common.Jid
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Jid.ToString()
+  fullName: Ubiety.Xmpp.Core.Common.Jid.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Common/Jid.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: ToString
+    path: ../src/Ubiety.Xmpp.Core/Common/Jid.cs
+    startLine: 193
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Common
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Ubiety.Xmpp.Core.Common.Jid.ToString*
+references:
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}
+  commentId: T:System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Jid>
+  nameWithType: IEquatable<Jid>
+  fullName: System.IEquatable<Ubiety.Xmpp.Core.Common.Jid>
+  nameWithType.vb: IEquatable(Of Jid)
+  fullName.vb: System.IEquatable(Of Ubiety.Xmpp.Core.Common.Jid)
+  name.vb: IEquatable(Of Jid)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ubiety.Xmpp.Core.Common.Jid
+  commentId: T:Ubiety.Xmpp.Core.Common.Jid
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.Jid.html
+  name: Jid
+  nameWithType: Jid
+  fullName: Ubiety.Xmpp.Core.Common.Jid
+- uid: Ubiety.Xmpp.Core.Common.Jid.#ctor*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.#ctor
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid__ctor_System_String_System_String_System_String_
+  name: Jid
+  nameWithType: Jid.Jid
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Jid
+  nameWithType.vb: Jid.New
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ubiety.Xmpp.Core.Common.Jid.Resource*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.Resource
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_Resource
+  name: Resource
+  nameWithType: Jid.Resource
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Resource
+- uid: Ubiety.Xmpp.Core.Common.Jid.Server*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.Server
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_Server
+  name: Server
+  nameWithType: Jid.Server
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Server
+- uid: Ubiety.Xmpp.Core.Common.Jid.User*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.User
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_User
+  name: User
+  nameWithType: Jid.User
+  fullName: Ubiety.Xmpp.Core.Common.Jid.User
+- uid: Ubiety.Xmpp.Core.Common.Jid.Id*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.Id
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_Id
+  name: Id
+  nameWithType: Jid.Id
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Id
+- uid: Ubiety.Xmpp.Core.Common.Jid.op_Implicit*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.op_Implicit
+  name: implicit operator
+  nameWithType: Jid.implicit operator
+  fullName: Ubiety.Xmpp.Core.Common.Jid.implicit operator
+  nameWithType.vb: Jid.CType
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: Ubiety.Xmpp.Core.Common.Jid.op_Equality*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.op_Equality
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_op_Equality_Ubiety_Xmpp_Core_Common_Jid_Ubiety_Xmpp_Core_Common_Jid_
+  name: operator ==
+  nameWithType: Jid.operator ==
+  fullName: Ubiety.Xmpp.Core.Common.Jid.operator ==
+  nameWithType.vb: Jid.=
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Ubiety.Xmpp.Core.Common.Jid.op_Equality*
+    name: ==
+    href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_op_Equality_Ubiety_Xmpp_Core_Common_Jid_Ubiety_Xmpp_Core_Common_Jid_
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Ubiety.Xmpp.Core.Common.Jid.op_Inequality*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.op_Inequality
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_op_Inequality_Ubiety_Xmpp_Core_Common_Jid_Ubiety_Xmpp_Core_Common_Jid_
+  name: operator !=
+  nameWithType: Jid.operator !=
+  fullName: Ubiety.Xmpp.Core.Common.Jid.operator !=
+  nameWithType.vb: Jid.<>
+  fullName.vb: Ubiety.Xmpp.Core.Common.Jid.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Ubiety.Xmpp.Core.Common.Jid.op_Inequality*
+    name: '!='
+    href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_op_Inequality_Ubiety_Xmpp_Core_Common_Jid_Ubiety_Xmpp_Core_Common_Jid_
+- uid: Ubiety.Xmpp.Core.Common.Jid.Parse*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.Parse
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_Parse_System_String_System_Boolean_
+  name: Parse
+  nameWithType: Jid.Parse
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Parse
+- uid: Ubiety.Xmpp.Core.Common.Jid.TryParse*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.TryParse
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_TryParse_System_String_System_Boolean_Ubiety_Xmpp_Core_Common_Jid__
+  name: TryParse
+  nameWithType: Jid.TryParse
+  fullName: Ubiety.Xmpp.Core.Common.Jid.TryParse
+- uid: Ubiety.Xmpp.Core.Common.Jid.Equals*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.Equals
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_Equals_Ubiety_Xmpp_Core_Common_Jid_
+  name: Equals
+  nameWithType: Jid.Equals
+  fullName: Ubiety.Xmpp.Core.Common.Jid.Equals
+- uid: System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}.Equals(Ubiety.Xmpp.Core.Common.Jid)
+  commentId: M:System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}.Equals(Ubiety.Xmpp.Core.Common.Jid)
+  parent: System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Jid)
+  nameWithType: IEquatable<Jid>.Equals(Jid)
+  fullName: System.IEquatable<Ubiety.Xmpp.Core.Common.Jid>.Equals(Ubiety.Xmpp.Core.Common.Jid)
+  nameWithType.vb: IEquatable(Of Jid).Equals(Jid)
+  fullName.vb: System.IEquatable(Of Ubiety.Xmpp.Core.Common.Jid).Equals(Ubiety.Xmpp.Core.Common.Jid)
+  spec.csharp:
+  - uid: System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}.Equals(Ubiety.Xmpp.Core.Common.Jid)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Ubiety.Xmpp.Core.Common.Jid}.Equals(Ubiety.Xmpp.Core.Common.Jid)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Ubiety.Xmpp.Core.Common.Jid
+    name: Jid
+    href: Ubiety.Xmpp.Core.Common.Jid.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Common.Jid.GetHashCode*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.GetHashCode
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_GetHashCode
+  name: GetHashCode
+  nameWithType: Jid.GetHashCode
+  fullName: Ubiety.Xmpp.Core.Common.Jid.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Common.Jid.ToString*
+  commentId: Overload:Ubiety.Xmpp.Core.Common.Jid.ToString
+  href: Ubiety.Xmpp.Core.Common.Jid.html#Ubiety_Xmpp_Core_Common_Jid_ToString
+  name: ToString
+  nameWithType: Jid.ToString
+  fullName: Ubiety.Xmpp.Core.Common.Jid.ToString

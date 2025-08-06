@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure.Extensions
+  id: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  children:
+  - Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions
+  - Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions
+  - Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions
+  - Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions
+  href: Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions.html
+  name: AssemblyExtensions
+  nameWithType: AssemblyExtensions
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Extensions.AssemblyExtensions
+- uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions
+  href: Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions.html
+  name: EnumerableExtensions
+  nameWithType: EnumerableExtensions
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Extensions.EnumerableExtensions
+- uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions
+  parent: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  href: Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions.html
+  name: FeaturesExtensions
+  nameWithType: FeaturesExtensions
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Extensions.FeaturesExtensions
+- uid: Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions
+  href: Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions.html
+  name: StringExtensions
+  nameWithType: StringExtensions
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Extensions.StringExtensions
+- uid: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure.Extensions
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Extensions
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Extensions
+    name: Extensions
+    href: Ubiety.Xmpp.Core.Infrastructure.Extensions.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Extensions
+    name: Extensions
+    href: Ubiety.Xmpp.Core.Infrastructure.Extensions.html

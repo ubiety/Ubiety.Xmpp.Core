@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel
+  commentId: T:Ubiety.Xmpp.Core.Logging.LogLevel
+  id: LogLevel
+  parent: Ubiety.Xmpp.Core.Logging
+  children:
+  - Ubiety.Xmpp.Core.Logging.LogLevel.Critical
+  - Ubiety.Xmpp.Core.Logging.LogLevel.Debug
+  - Ubiety.Xmpp.Core.Logging.LogLevel.Error
+  - Ubiety.Xmpp.Core.Logging.LogLevel.Information
+  - Ubiety.Xmpp.Core.Logging.LogLevel.Warning
+  langs:
+  - csharp
+  - vb
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel
+  type: Enum
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: LogLevel
+    path: ../src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+    startLine: 19
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Log severity level.
+  example: []
+  syntax:
+    content: public enum LogLevel
+    content.vb: Public Enum LogLevel
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel.Critical
+  commentId: F:Ubiety.Xmpp.Core.Logging.LogLevel.Critical
+  id: Critical
+  parent: Ubiety.Xmpp.Core.Logging.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Critical
+  nameWithType: LogLevel.Critical
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel.Critical
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Critical
+    path: ../src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+    startLine: 24
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Critical severity.
+  example: []
+  syntax:
+    content: Critical = 0
+    return:
+      type: Ubiety.Xmpp.Core.Logging.LogLevel
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel.Error
+  commentId: F:Ubiety.Xmpp.Core.Logging.LogLevel.Error
+  id: Error
+  parent: Ubiety.Xmpp.Core.Logging.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: LogLevel.Error
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel.Error
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Error
+    path: ../src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+    startLine: 29
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Error severity.
+  example: []
+  syntax:
+    content: Error = 1
+    return:
+      type: Ubiety.Xmpp.Core.Logging.LogLevel
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel.Warning
+  commentId: F:Ubiety.Xmpp.Core.Logging.LogLevel.Warning
+  id: Warning
+  parent: Ubiety.Xmpp.Core.Logging.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: LogLevel.Warning
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel.Warning
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Warning
+    path: ../src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+    startLine: 34
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Warning severity.
+  example: []
+  syntax:
+    content: Warning = 2
+    return:
+      type: Ubiety.Xmpp.Core.Logging.LogLevel
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel.Information
+  commentId: F:Ubiety.Xmpp.Core.Logging.LogLevel.Information
+  id: Information
+  parent: Ubiety.Xmpp.Core.Logging.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Information
+  nameWithType: LogLevel.Information
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel.Information
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Information
+    path: ../src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+    startLine: 39
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Information severity.
+  example: []
+  syntax:
+    content: Information = 3
+    return:
+      type: Ubiety.Xmpp.Core.Logging.LogLevel
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel.Debug
+  commentId: F:Ubiety.Xmpp.Core.Logging.LogLevel.Debug
+  id: Debug
+  parent: Ubiety.Xmpp.Core.Logging.LogLevel
+  langs:
+  - csharp
+  - vb
+  name: Debug
+  nameWithType: LogLevel.Debug
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel.Debug
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Debug
+    path: ../src/Ubiety.Xmpp.Core/Logging/LogLevel.cs
+    startLine: 44
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Logging
+  summary: Debug severity.
+  example: []
+  syntax:
+    content: Debug = 4
+    return:
+      type: Ubiety.Xmpp.Core.Logging.LogLevel
+references:
+- uid: Ubiety.Xmpp.Core.Logging
+  commentId: N:Ubiety.Xmpp.Core.Logging
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Logging
+  nameWithType: Ubiety.Xmpp.Core.Logging
+  fullName: Ubiety.Xmpp.Core.Logging
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Logging
+    name: Logging
+    href: Ubiety.Xmpp.Core.Logging.html
+- uid: Ubiety.Xmpp.Core.Logging.LogLevel
+  commentId: T:Ubiety.Xmpp.Core.Logging.LogLevel
+  parent: Ubiety.Xmpp.Core.Logging
+  href: Ubiety.Xmpp.Core.Logging.LogLevel.html
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: Ubiety.Xmpp.Core.Logging.LogLevel

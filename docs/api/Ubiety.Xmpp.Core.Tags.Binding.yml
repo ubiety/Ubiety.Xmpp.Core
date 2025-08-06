@@ -1,0 +1,86 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags.Binding
+  commentId: N:Ubiety.Xmpp.Core.Tags.Binding
+  id: Ubiety.Xmpp.Core.Tags.Binding
+  children:
+  - Ubiety.Xmpp.Core.Tags.Binding.Bind
+  - Ubiety.Xmpp.Core.Tags.Binding.Required
+  - Ubiety.Xmpp.Core.Tags.Binding.Resource
+  langs:
+  - csharp
+  - vb
+  name: Ubiety.Xmpp.Core.Tags.Binding
+  nameWithType: Ubiety.Xmpp.Core.Tags.Binding
+  fullName: Ubiety.Xmpp.Core.Tags.Binding
+  type: Namespace
+  assemblies:
+  - Ubiety.Xmpp.Core
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Binding.Bind
+  commentId: T:Ubiety.Xmpp.Core.Tags.Binding.Bind
+  parent: Ubiety.Xmpp.Core.Tags.Binding
+  href: Ubiety.Xmpp.Core.Tags.Binding.Bind.html
+  name: Bind
+  nameWithType: Bind
+  fullName: Ubiety.Xmpp.Core.Tags.Binding.Bind
+- uid: Ubiety.Xmpp.Core.Tags.Binding.Required
+  commentId: T:Ubiety.Xmpp.Core.Tags.Binding.Required
+  parent: Ubiety.Xmpp.Core.Tags.Binding
+  href: Ubiety.Xmpp.Core.Tags.Binding.Required.html
+  name: Required
+  nameWithType: Required
+  fullName: Ubiety.Xmpp.Core.Tags.Binding.Required
+- uid: Ubiety.Xmpp.Core.Tags.Binding.Resource
+  commentId: T:Ubiety.Xmpp.Core.Tags.Binding.Resource
+  parent: Ubiety.Xmpp.Core.Tags.Binding
+  href: Ubiety.Xmpp.Core.Tags.Binding.Resource.html
+  name: Resource
+  nameWithType: Resource
+  fullName: Ubiety.Xmpp.Core.Tags.Binding.Resource
+- uid: Ubiety.Xmpp.Core.Tags.Binding
+  commentId: N:Ubiety.Xmpp.Core.Tags.Binding
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags.Binding
+  nameWithType: Ubiety.Xmpp.Core.Tags.Binding
+  fullName: Ubiety.Xmpp.Core.Tags.Binding
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Binding
+    name: Binding
+    href: Ubiety.Xmpp.Core.Tags.Binding.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Binding
+    name: Binding
+    href: Ubiety.Xmpp.Core.Tags.Binding.html

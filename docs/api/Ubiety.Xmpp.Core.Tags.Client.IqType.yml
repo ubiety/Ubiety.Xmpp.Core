@@ -1,0 +1,200 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Tags.Client.IqType
+  commentId: T:Ubiety.Xmpp.Core.Tags.Client.IqType
+  id: IqType
+  parent: Ubiety.Xmpp.Core.Tags.Client
+  children:
+  - Ubiety.Xmpp.Core.Tags.Client.IqType.Error
+  - Ubiety.Xmpp.Core.Tags.Client.IqType.Get
+  - Ubiety.Xmpp.Core.Tags.Client.IqType.Result
+  - Ubiety.Xmpp.Core.Tags.Client.IqType.Set
+  langs:
+  - csharp
+  - vb
+  name: IqType
+  nameWithType: IqType
+  fullName: Ubiety.Xmpp.Core.Tags.Client.IqType
+  type: Enum
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: IqType
+    path: ../src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+    startLine: 23
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Client
+  summary: IQ tag type.
+  example: []
+  syntax:
+    content: public enum IqType
+    content.vb: Public Enum IqType
+- uid: Ubiety.Xmpp.Core.Tags.Client.IqType.Get
+  commentId: F:Ubiety.Xmpp.Core.Tags.Client.IqType.Get
+  id: Get
+  parent: Ubiety.Xmpp.Core.Tags.Client.IqType
+  langs:
+  - csharp
+  - vb
+  name: Get
+  nameWithType: IqType.Get
+  fullName: Ubiety.Xmpp.Core.Tags.Client.IqType.Get
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Get
+    path: ../src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+    startLine: 28
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Client
+  summary: IQ Get.
+  example: []
+  syntax:
+    content: Get = 0
+    return:
+      type: Ubiety.Xmpp.Core.Tags.Client.IqType
+- uid: Ubiety.Xmpp.Core.Tags.Client.IqType.Set
+  commentId: F:Ubiety.Xmpp.Core.Tags.Client.IqType.Set
+  id: Set
+  parent: Ubiety.Xmpp.Core.Tags.Client.IqType
+  langs:
+  - csharp
+  - vb
+  name: Set
+  nameWithType: IqType.Set
+  fullName: Ubiety.Xmpp.Core.Tags.Client.IqType.Set
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Set
+    path: ../src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+    startLine: 33
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Client
+  summary: IQ Set.
+  example: []
+  syntax:
+    content: Set = 1
+    return:
+      type: Ubiety.Xmpp.Core.Tags.Client.IqType
+- uid: Ubiety.Xmpp.Core.Tags.Client.IqType.Error
+  commentId: F:Ubiety.Xmpp.Core.Tags.Client.IqType.Error
+  id: Error
+  parent: Ubiety.Xmpp.Core.Tags.Client.IqType
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: IqType.Error
+  fullName: Ubiety.Xmpp.Core.Tags.Client.IqType.Error
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Error
+    path: ../src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+    startLine: 38
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Client
+  summary: IQ Error.
+  example: []
+  syntax:
+    content: Error = 2
+    return:
+      type: Ubiety.Xmpp.Core.Tags.Client.IqType
+- uid: Ubiety.Xmpp.Core.Tags.Client.IqType.Result
+  commentId: F:Ubiety.Xmpp.Core.Tags.Client.IqType.Result
+  id: Result
+  parent: Ubiety.Xmpp.Core.Tags.Client.IqType
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: IqType.Result
+  fullName: Ubiety.Xmpp.Core.Tags.Client.IqType.Result
+  type: Field
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Result
+    path: ../src/Ubiety.Xmpp.Core/Tags/Client/Iq.cs
+    startLine: 43
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Tags.Client
+  summary: IQ Result.
+  example: []
+  syntax:
+    content: Result = 3
+    return:
+      type: Ubiety.Xmpp.Core.Tags.Client.IqType
+references:
+- uid: Ubiety.Xmpp.Core.Tags.Client
+  commentId: N:Ubiety.Xmpp.Core.Tags.Client
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Tags.Client
+  nameWithType: Ubiety.Xmpp.Core.Tags.Client
+  fullName: Ubiety.Xmpp.Core.Tags.Client
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Client
+    name: Client
+    href: Ubiety.Xmpp.Core.Tags.Client.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags
+    name: Tags
+    href: Ubiety.Xmpp.Core.Tags.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Tags.Client
+    name: Client
+    href: Ubiety.Xmpp.Core.Tags.Client.html
+- uid: Ubiety.Xmpp.Core.Tags.Client.IqType
+  commentId: T:Ubiety.Xmpp.Core.Tags.Client.IqType
+  parent: Ubiety.Xmpp.Core.Tags.Client
+  href: Ubiety.Xmpp.Core.Tags.Client.IqType.html
+  name: IqType
+  nameWithType: IqType
+  fullName: Ubiety.Xmpp.Core.Tags.Client.IqType

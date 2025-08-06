@@ -1,0 +1,709 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Parser
+  id: Parser
+  parent: Ubiety.Xmpp.Core.Infrastructure
+  children:
+  - Ubiety.Xmpp.Core.Infrastructure.Parser.#ctor(Ubiety.Xmpp.Core.Common.XmppBase)
+  - Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+  - Ubiety.Xmpp.Core.Infrastructure.Parser.Finalize
+  - Ubiety.Xmpp.Core.Infrastructure.Parser.Start
+  - Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+  - Ubiety.Xmpp.Core.Infrastructure.Parser.Tag
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: Parser
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser
+  type: Class
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Parser
+    path: ../src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+    startLine: 30
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Infrastructure
+  summary: >-
+    Parses XMPP protocol messages and raises tag events for further processing.
+
+    Handles incoming data, manages parsing lifecycle, and ensures proper resource cleanup.
+  example: []
+  syntax:
+    content: 'public sealed class Parser : IDisposable'
+    content.vb: Public NotInheritable Class Parser Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.#ctor(Ubiety.Xmpp.Core.Common.XmppBase)
+  commentId: M:Ubiety.Xmpp.Core.Infrastructure.Parser.#ctor(Ubiety.Xmpp.Core.Common.XmppBase)
+  id: '#ctor(Ubiety.Xmpp.Core.Common.XmppBase)'
+  parent: Ubiety.Xmpp.Core.Infrastructure.Parser
+  langs:
+  - csharp
+  - vb
+  name: Parser(XmppBase)
+  nameWithType: Parser.Parser(XmppBase)
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Parser(Ubiety.Xmpp.Core.Common.XmppBase)
+  type: Constructor
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: .ctor
+    path: ../src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+    startLine: 43
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Infrastructure
+  summary: Initializes a new instance of the <xref href="Ubiety.Xmpp.Core.Infrastructure.Parser" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public Parser(XmppBase xmpp)
+    parameters:
+    - id: xmpp
+      type: Ubiety.Xmpp.Core.Common.XmppBase
+      description: The <xref href="Ubiety.Xmpp.Core.Common.XmppBase" data-throw-if-not-resolved="false"></xref> instance to associate with this parser.
+    content.vb: Public Sub New(xmpp As XmppBase)
+  overload: Ubiety.Xmpp.Core.Infrastructure.Parser.#ctor*
+  nameWithType.vb: Parser.New(XmppBase)
+  fullName.vb: Ubiety.Xmpp.Core.Infrastructure.Parser.New(Ubiety.Xmpp.Core.Common.XmppBase)
+  name.vb: New(XmppBase)
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Finalize
+  commentId: M:Ubiety.Xmpp.Core.Infrastructure.Parser.Finalize
+  id: Finalize
+  parent: Ubiety.Xmpp.Core.Infrastructure.Parser
+  langs:
+  - csharp
+  - vb
+  name: ~Parser()
+  nameWithType: Parser.~Parser()
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.~Parser()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Finalize
+    path: ../src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+    startLine: 54
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Infrastructure
+  summary: Finalizes an instance of the <xref href="Ubiety.Xmpp.Core.Infrastructure.Parser" data-throw-if-not-resolved="false"></xref> class. Ensures unmanaged resources are released.
+  example: []
+  syntax:
+    content: protected ~Parser()
+    content.vb: 'Protected '
+  overload: Ubiety.Xmpp.Core.Infrastructure.Parser.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Tag
+  commentId: E:Ubiety.Xmpp.Core.Infrastructure.Parser.Tag
+  id: Tag
+  parent: Ubiety.Xmpp.Core.Infrastructure.Parser
+  langs:
+  - csharp
+  - vb
+  name: Tag
+  nameWithType: Parser.Tag
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Tag
+  type: Event
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Tag
+    path: ../src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+    startLine: 62
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Infrastructure
+  summary: Occurs when a tag is parsed from the incoming XMPP data.
+  example: []
+  syntax:
+    content: public event EventHandler<TagEventArgs> Tag
+    return:
+      type: System.EventHandler{Ubiety.Xmpp.Core.Common.TagEventArgs}
+    content.vb: Public Event Tag As EventHandler(Of TagEventArgs)
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Start
+  commentId: M:Ubiety.Xmpp.Core.Infrastructure.Parser.Start
+  id: Start
+  parent: Ubiety.Xmpp.Core.Infrastructure.Parser
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: Parser.Start()
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Start()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Start
+    path: ../src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+    startLine: 79
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Infrastructure
+  summary: >-
+    Starts the parsing process in a background task.
+
+    Incoming data will be processed and tag events raised until <xref href="Ubiety.Xmpp.Core.Infrastructure.Parser.Stop" data-throw-if-not-resolved="false"></xref> or <xref href="Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose" data-throw-if-not-resolved="false"></xref> is called.
+  example: []
+  syntax:
+    content: public void Start()
+    content.vb: Public Sub Start()
+  overload: Ubiety.Xmpp.Core.Infrastructure.Parser.Start*
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+  commentId: M:Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+  id: Stop
+  parent: Ubiety.Xmpp.Core.Infrastructure.Parser
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: Parser.Stop()
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Stop
+    path: ../src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+    startLine: 90
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Infrastructure
+  summary: >-
+    Stops the parsing process and cancels the background task.
+
+    No further tag events will be raised after this is called.
+  example: []
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop*
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+  commentId: M:Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+  id: Dispose
+  parent: Ubiety.Xmpp.Core.Infrastructure.Parser
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Parser.Dispose()
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+      branch: develop
+      repo: https://github.com/ubiety/Ubiety.Xmpp.Core.git
+    id: Dispose
+    path: ../src/Ubiety.Xmpp.Core/Infrastructure/Parser.cs
+    startLine: 100
+  assemblies:
+  - Ubiety.Xmpp.Core
+  namespace: Ubiety.Xmpp.Core.Infrastructure
+  summary: >-
+    Releases all resources used by the <xref href="Ubiety.Xmpp.Core.Infrastructure.Parser" data-throw-if-not-resolved="false"></xref> class.
+
+    Cancels any running background tasks and detaches event handlers.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Ubiety.Xmpp.Core.Infrastructure
+  commentId: N:Ubiety.Xmpp.Core.Infrastructure
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Infrastructure
+  nameWithType: Ubiety.Xmpp.Core.Infrastructure
+  fullName: Ubiety.Xmpp.Core.Infrastructure
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Infrastructure
+    name: Infrastructure
+    href: Ubiety.Xmpp.Core.Infrastructure.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser
+  commentId: T:Ubiety.Xmpp.Core.Infrastructure.Parser
+  parent: Ubiety.Xmpp.Core.Infrastructure
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html
+  name: Parser
+  nameWithType: Parser
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser
+- uid: Ubiety.Xmpp.Core.Common.XmppBase
+  commentId: T:Ubiety.Xmpp.Core.Common.XmppBase
+  parent: Ubiety.Xmpp.Core.Common
+  href: Ubiety.Xmpp.Core.Common.XmppBase.html
+  name: XmppBase
+  nameWithType: XmppBase
+  fullName: Ubiety.Xmpp.Core.Common.XmppBase
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.#ctor*
+  commentId: Overload:Ubiety.Xmpp.Core.Infrastructure.Parser.#ctor
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser__ctor_Ubiety_Xmpp_Core_Common_XmppBase_
+  name: Parser
+  nameWithType: Parser.Parser
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Parser
+  nameWithType.vb: Parser.New
+  fullName.vb: Ubiety.Xmpp.Core.Infrastructure.Parser.New
+  name.vb: New
+- uid: Ubiety.Xmpp.Core.Common
+  commentId: N:Ubiety.Xmpp.Core.Common
+  href: Ubiety.html
+  name: Ubiety.Xmpp.Core.Common
+  nameWithType: Ubiety.Xmpp.Core.Common
+  fullName: Ubiety.Xmpp.Core.Common
+  spec.csharp:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+  spec.vb:
+  - uid: Ubiety
+    name: Ubiety
+    href: Ubiety.html
+  - name: .
+  - uid: Ubiety.Xmpp
+    name: Xmpp
+    href: Ubiety.Xmpp.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core
+    name: Core
+    href: Ubiety.Xmpp.Core.html
+  - name: .
+  - uid: Ubiety.Xmpp.Core.Common
+    name: Common
+    href: Ubiety.Xmpp.Core.Common.html
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Finalize*
+  commentId: Overload:Ubiety.Xmpp.Core.Infrastructure.Parser.Finalize
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Finalize
+  name: ~Parser
+  nameWithType: Parser.~Parser
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.~Parser
+  spec.csharp:
+  - name: "~"
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Finalize*
+    name: Parser
+    href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Finalize
+- uid: System.EventHandler{Ubiety.Xmpp.Core.Common.TagEventArgs}
+  commentId: T:System.EventHandler{Ubiety.Xmpp.Core.Common.TagEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TagEventArgs>
+  nameWithType: EventHandler<TagEventArgs>
+  fullName: System.EventHandler<Ubiety.Xmpp.Core.Common.TagEventArgs>
+  nameWithType.vb: EventHandler(Of TagEventArgs)
+  fullName.vb: System.EventHandler(Of Ubiety.Xmpp.Core.Common.TagEventArgs)
+  name.vb: EventHandler(Of TagEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: Ubiety.Xmpp.Core.Common.TagEventArgs
+    name: TagEventArgs
+    href: Ubiety.Xmpp.Core.Common.TagEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Ubiety.Xmpp.Core.Common.TagEventArgs
+    name: TagEventArgs
+    href: Ubiety.Xmpp.Core.Common.TagEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+  commentId: M:Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Stop
+  name: Stop()
+  nameWithType: Parser.Stop()
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop()
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+    name: Stop
+    href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Stop
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+    name: Stop
+    href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Stop
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+  commentId: M:Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Dispose
+  name: Dispose()
+  nameWithType: Parser.Dispose()
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose()
+  spec.csharp:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+    name: Dispose
+    href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+    name: Dispose
+    href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Dispose
+  - name: (
+  - name: )
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Start*
+  commentId: Overload:Ubiety.Xmpp.Core.Infrastructure.Parser.Start
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Start
+  name: Start
+  nameWithType: Parser.Start
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Start
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop*
+  commentId: Overload:Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Stop
+  name: Stop
+  nameWithType: Parser.Stop
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Stop
+- uid: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose*
+  commentId: Overload:Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+  href: Ubiety.Xmpp.Core.Infrastructure.Parser.html#Ubiety_Xmpp_Core_Infrastructure_Parser_Dispose
+  name: Dispose
+  nameWithType: Parser.Dispose
+  fullName: Ubiety.Xmpp.Core.Infrastructure.Parser.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
