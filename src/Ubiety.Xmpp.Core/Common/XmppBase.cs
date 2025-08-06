@@ -119,9 +119,11 @@ public abstract class XmppBase : IDisposable
     {
         if (e.Tag is Stream stream && stream.Errors.Any())
         {
+            var error = stream.Errors.FirstOrDefault();
+            _logger.Log(LogLevel.Error, $"Stream error detected: {error}");
             OnError(
                 this,
-                new ErrorEventArgs { Message = "Error occured", StreamError = stream.Errors.FirstOrDefault() });
+                new ErrorEventArgs { Message = "Error occured", StreamError = error });
             Parser.Stop();
             State = new DisconnectState();
         }
@@ -153,6 +155,7 @@ public abstract class XmppBase : IDisposable
 
     private void OnError(object sender, ErrorEventArgs e)
     {
+        _logger.Log(LogLevel.Error, $"Error event: {e.Message}, StreamError: {e.StreamError}");
         Error?.Invoke(sender, e);
     }
 
