@@ -28,7 +28,7 @@ namespace Ubiety.Xmpp.Core.Sasl;
 /// </summary>
 public abstract class SaslProcessor
 {
-    private readonly Hashtable _directives = new ();
+    private readonly Hashtable _directives = [];
 
     /// <summary>
     ///     Gets or sets a value indicating whether to use channel binding.
