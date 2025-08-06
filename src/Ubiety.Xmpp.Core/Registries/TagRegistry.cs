@@ -30,7 +30,7 @@ namespace Ubiety.Xmpp.Core.Registries;
 public class TagRegistry
 {
     private static readonly ILog Logger = Log.Get<TagRegistry>();
-    private readonly Dictionary<XName, Type> _types = new ();
+    private readonly Dictionary<XName, Type> _types = [];
 
     /// <summary>
     ///     Add tags from the assembly to the registry.
@@ -41,11 +41,10 @@ public class TagRegistry
         Logger.Log(LogLevel.Debug, "AddAssembly(Assembly) called");
         Logger.Log(LogLevel.Debug, $"Loading tags from assembly: {assembly.FullName}");
 
-        var attributes = assembly.GetAttributes<XmppTagAttribute>();
-        foreach (var attribute in attributes)
+        foreach (var attribute in assembly.GetAttributes<XmppTagAttribute>())
         {
             Logger.Log(LogLevel.Debug, $"Adding tag {attribute.Name} as {attribute.TagType}");
-            _types.Add(attribute.Name, attribute.TagType);
+            _types[attribute.Name] = attribute.TagType;
         }
     }
 
@@ -72,34 +71,28 @@ public class TagRegistry
     public T GetTag<T>(XName name)
     {
         Logger.Log(LogLevel.Debug, "GetTag<T>(XName) called");
-        var tag = default(T);
-
         Logger.Log(LogLevel.Debug, $"Finding tag {name.LocalName}...");
 
-        if (_types.TryGetValue(name, out var type))
+        if (!_types.TryGetValue(name, out var type))
         {
-            var constructor = Tag.GetConstructor(type, Array.Empty<Type>());
-            if (constructor is null)
-            {
-                constructor = Tag.GetConstructor(type, [typeof(XName)]);
-                if (constructor != null)
-                {
-                    tag = (T)constructor.Invoke([name]);
-                }
-            }
-            else
-            {
-                tag = (T)constructor.Invoke([]);
-            }
+            return default!;
         }
-        else
+
+        var constructor = Tag.GetConstructor(type, []);
+        if (constructor is null)
         {
-            return default;
+            constructor = Tag.GetConstructor(type, [typeof(XName)]);
+            if (constructor is not null)
+            {
+                Logger.Log(LogLevel.Debug, "Tag found");
+                return (T)constructor.Invoke([name]);
+            }
+
+            return default!;
         }
 
         Logger.Log(LogLevel.Debug, "Tag found");
-
-        return tag;
+        return (T)constructor.Invoke([]);
     }
 
     /// <summary>
@@ -117,18 +110,10 @@ public class TagRegistry
         {
             var gotType = _types.TryGetValue(element.Name, out var type);
 
-            if (!gotType)
+            if (!gotType && element.Name.LocalName is "iq" or "presence" or "message" or "error")
             {
-                switch (element.Name.LocalName)
-                {
-                    case "iq":
-                    case "presence":
-                    case "message":
-                    case "error":
-                        element.Name = XName.Get(element.Name.LocalName, Namespaces.Client);
-                        gotType = _types.TryGetValue(element.Name, out type);
-                        break;
-                }
+                element.Name = XName.Get(element.Name.LocalName, Namespaces.Client);
+                gotType = _types.TryGetValue(element.Name, out type);
             }
 
             if (gotType)
@@ -140,7 +125,7 @@ public class TagRegistry
                     var defaultConstructorInfo = Tag.GetConstructor(element.GetType(), [typeof(Tag)]);
                     if (defaultConstructorInfo is null)
                     {
-                        return default;
+                        return default!;
                     }
 
                     return (T)defaultConstructorInfo.Invoke([element]);
@@ -155,6 +140,6 @@ public class TagRegistry
             throw;
         }
 
-        return default;
+        return default!;
     }
 }
