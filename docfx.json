@@ -9,8 +9,7 @@
             "**/*.csproj"
           ]
         }
-      ],
-      "dest": "api"
+      ]
     }
   ],
   "build": {
