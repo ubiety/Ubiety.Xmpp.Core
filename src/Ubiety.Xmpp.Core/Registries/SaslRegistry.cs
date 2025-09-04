@@ -31,7 +31,7 @@ namespace Ubiety.Xmpp.Core.Registries;
 public class SaslRegistry
 {
     private static readonly ILog Logger = Log.Get<SaslRegistry>();
-    private readonly Dictionary<string, (Type processor, int weight, bool binding, MechanismTypes type)> _mechanisms = new ();
+    private readonly Dictionary<string, (Type Processor, int Weight, bool Binding, MechanismTypes Type)> _mechanisms = new();
 
     /// <summary>
     ///     Add assembly to the registry.
@@ -58,7 +58,7 @@ public class SaslRegistry
     {
         var (processorType, _, binding, type) = (from attr in _mechanisms
             join server in serverMechanisms on attr.Key equals server.Value
-            orderby attr.Value.weight descending
+            orderby attr.Value.Weight descending
             select attr.Value).First();
 
         var processor = (SaslProcessor)Activator.CreateInstance(processorType);

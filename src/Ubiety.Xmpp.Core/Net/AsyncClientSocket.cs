@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ public class AsyncClientSocket : ISocket, IDisposable
     private readonly IClient _client;
     private readonly ILog _logger = Log.Get<AsyncClientSocket>();
     private readonly AutoResetEvent _resetEvent;
-    private readonly UTF8Encoding _utf8 = new ();
+    private readonly UTF8Encoding _utf8 = new();
     private Address _address;
     private Socket _socket;
     private Stream _stream;

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28315.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ubiety.Xmpp.App", "src\Ubiety.Xmpp.App\Ubiety.Xmpp.App.csproj", "{6B67E15D-39D5-45BD-BDAA-B59A6502952C}"
 EndProject
@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_build", "build\_build.csproj", "{4056BD12-5FA8-4D2E-274A-7E85E858A5FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1F1F37B-6ABE-4F0F-BA35-526D72B8A5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4056BD12-5FA8-4D2E-274A-7E85E858A5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4056BD12-5FA8-4D2E-274A-7E85E858A5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4056BD12-5FA8-4D2E-274A-7E85E858A5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4056BD12-5FA8-4D2E-274A-7E85E858A5FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
