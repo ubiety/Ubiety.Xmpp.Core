@@ -22,4 +22,10 @@
     <ProjectReference Include="..\..\src\Ubiety.Xmpp.Core\Ubiety.Xmpp.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="FluentAssertions" Version="8.6.0" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Update="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+
 </Project>
