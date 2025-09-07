@@ -58,7 +58,7 @@ public record StateProcessingResult
     /// <param name="nextState">The next state to transition to.</param>
     /// <param name="context">Optional context for the transition.</param>
     /// <returns>A successful state processing result with transition.</returns>
-    public static StateProcessingResult SuccessWithTransition(IState nextState, string context = null) => 
+    public static StateProcessingResult SuccessWithTransition(IState nextState, string? context = null) =>
         new() { Success = true, ShouldTransition = true, NextState = nextState, Context = context };
 
     /// <summary>

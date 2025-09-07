@@ -29,7 +29,7 @@ public class StreamFeaturesState : IState
     private static readonly ILog Logger = Log.Get<StreamFeaturesState>();
 
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         Features features;
 
@@ -38,7 +38,7 @@ public class StreamFeaturesState : IState
         Logger.Log(LogLevel.Debug, "Starting to parse features");
         switch (tag)
         {
-            case Stream s when s.Version.StartsWith("1."):
+            case Tags.Stream.Stream s when s.Version.StartsWith("1."):
                 features = s.Features;
                 break;
 

@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,7 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
 using System.Text.RegularExpressions;
 using Ubiety.Stringprep.Core;
 using Ubiety.Xmpp.Core.Infrastructure.Exceptions;
@@ -30,7 +29,7 @@ public sealed partial class Jid : IEquatable<Jid>
     private readonly IPreparationProcess _resourceprep = ResourceprepProfile.Create();
 
     private readonly string _resource = string.Empty;
-    private readonly string _server;
+    private readonly string _server = string.Empty;
 
     // Stores the username in the server escaped format
     private readonly string _user = string.Empty;
@@ -58,7 +57,7 @@ public sealed partial class Jid : IEquatable<Jid>
     public string Resource
     {
         get => _resource;
-        private init => _resource = value is null ? null : _resourceprep.Run(value);
+        private init => _resource = value is null ? string.Empty : _resourceprep.Run(value);
     }
 
     /// <summary>
@@ -67,7 +66,7 @@ public sealed partial class Jid : IEquatable<Jid>
     public string Server
     {
         get => _server;
-        private init => _server = value is null ? null : _nameprep.Run(value);
+        private init => _server = value is null ? string.Empty : _nameprep.Run(value);
     }
 
     /// <summary>
@@ -168,13 +167,13 @@ public sealed partial class Jid : IEquatable<Jid>
     }
 
     /// <inheritdoc />
-    public bool Equals(Jid? other)
+    public bool Equals(Jid other)
     {
         return Id.Equals(other?.Id);
     }
 
     /// <inheritdoc />
-    public override bool Equals(object? obj)
+    public override bool Equals(object obj)
     {
         return obj switch
         {

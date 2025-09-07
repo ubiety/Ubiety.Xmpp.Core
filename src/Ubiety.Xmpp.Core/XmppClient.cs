@@ -12,7 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
@@ -41,12 +40,12 @@ public class XmppClient : XmppBase, IClient
     }
 
     /// <inheritdoc />
-    public Jid Id { get; set; }
+    public required Jid Id { get; set; }
 
     /// <summary>
     ///     Gets or sets the user password.
     /// </summary>
-    public string Password { get; set; }
+    public required string Password { get; set; }
 
     /// <summary>
     ///     Gets a value indicating whether the user is authenticated.
@@ -56,7 +55,7 @@ public class XmppClient : XmppBase, IClient
     /// <summary>
     ///     Gets or sets a value for the JID resource.
     /// </summary>
-    public string Resource { get; set; }
+    public required string Resource { get; set; }
 
     /// <inheritdoc />
     public void Connect(Jid jid, string password)

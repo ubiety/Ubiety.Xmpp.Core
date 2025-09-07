@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Registries;
 
@@ -25,7 +26,7 @@ public class XmppClientBuilder
     private ILogManager _logManager;
     private bool _useIpv6;
     private bool _useSsl;
-    private string _resource;
+    private string _resource = string.Empty;
 
     /// <summary>
     ///     Enable logging with the log manager.
@@ -87,6 +88,6 @@ public class XmppClientBuilder
         var saslRegistry = new SaslRegistry();
         saslRegistry.AddAssembly(type.Assembly);
 
-        return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, TagRegistry = tagRegistry, SaslRegistry = saslRegistry, Resource = _resource };
+        return new XmppClient { UseIPv6 = _useIpv6, UseSsl = _useSsl, TagRegistry = tagRegistry, SaslRegistry = saslRegistry, Resource = _resource, Id = new Jid(string.Empty, string.Empty, string.Empty), Password = string.Empty };
     }
 }

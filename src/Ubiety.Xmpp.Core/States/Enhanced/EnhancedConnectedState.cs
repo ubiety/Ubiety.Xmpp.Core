@@ -42,7 +42,7 @@ public class EnhancedConnectedState : EnhancedStateBase
     };
 
     /// <inheritdoc />
-    public override StateProcessingResult ProcessTag(XmppBase xmpp, Tag tag = null)
+    public override StateProcessingResult ProcessTag(XmppBase xmpp, Tag? tag = null)
     {
         Logger.Log(LogLevel.Debug, "Processing in EnhancedConnectedState");
 
@@ -54,7 +54,7 @@ public class EnhancedConnectedState : EnhancedStateBase
         try
         {
             // Create and configure the stream
-            var stream = xmpp.TagRegistry.GetTag<Stream>(Stream.XmlName);
+            var stream = xmpp.TagRegistry.GetTag<Tags.Stream.Stream>(Tags.Stream.Stream.XmlName);
             stream.Version = "1.0";
             stream.To = client.Id.Server;
             stream.Namespace = Namespaces.Client;
@@ -76,7 +76,7 @@ public class EnhancedConnectedState : EnhancedStateBase
     }
 
     /// <inheritdoc />
-    public override void OnEnter(XmppBase xmpp, string context = null)
+    public override void OnEnter(XmppBase xmpp, string? context = null)
     {
         Logger.Log(LogLevel.Debug, $"Entered Connected state. Context: {context ?? "none"}");
         
@@ -85,7 +85,7 @@ public class EnhancedConnectedState : EnhancedStateBase
     }
 
     /// <inheritdoc />
-    public override void OnExit(XmppBase xmpp, IState nextState = null)
+    public override void OnExit(XmppBase xmpp, IState? nextState = null)
     {
         Logger.Log(LogLevel.Debug, $"Exiting Connected state to {nextState?.GetType().Name ?? "unknown"}");
         

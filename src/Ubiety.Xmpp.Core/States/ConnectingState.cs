@@ -27,7 +27,7 @@ public class ConnectingState : IState
     private static readonly ILog Logger = Log.Get<ConnectingState>();
 
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         Logger.Log(LogLevel.Debug, "Executing ConnectingState");
         if (xmpp is not XmppClient client)

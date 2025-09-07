@@ -36,21 +36,21 @@ public interface IEnhancedState : States.IState
     /// <param name="xmpp">The XMPP base instance.</param>
     /// <param name="tag">The tag to process (can be null for initialization).</param>
     /// <returns>The processing result indicating success/failure and next actions.</returns>
-    StateProcessingResult ProcessTag(XmppBase xmpp, Tag tag = null);
+    StateProcessingResult ProcessTag(XmppBase xmpp, Tag? tag = null);
 
     /// <summary>
     /// Called when entering this state. Allows for initialization.
     /// </summary>
     /// <param name="xmpp">The XMPP base instance.</param>
     /// <param name="context">Context about why we entered this state.</param>
-    void OnEnter(XmppBase xmpp, string context = null);
+    void OnEnter(XmppBase xmpp, string? context = null);
 
     /// <summary>
     /// Called when exiting this state. Allows for cleanup.
     /// </summary>
     /// <param name="xmpp">The XMPP base instance.</param>
     /// <param name="nextState">The state we're transitioning to.</param>
-    void OnExit(XmppBase xmpp, States.IState nextState = null);
+    void OnExit(XmppBase xmpp, States.IState? nextState = null);
 
     /// <summary>
     /// Determines if this state can transition to the specified state type.
@@ -74,16 +74,16 @@ public abstract class EnhancedStateBase : IEnhancedState
     public abstract string StateName { get; }
 
     /// <inheritdoc />
-    public abstract StateProcessingResult ProcessTag(XmppBase xmpp, Tag tag = null);
+    public abstract StateProcessingResult ProcessTag(XmppBase xmpp, Tag? tag = null);
 
     /// <inheritdoc />
-    public virtual void OnEnter(XmppBase xmpp, string context = null)
+    public virtual void OnEnter(XmppBase xmpp, string? context = null)
     {
         // Default implementation - can be overridden by specific states
     }
 
     /// <inheritdoc />
-    public virtual void OnExit(XmppBase xmpp, States.IState nextState = null)
+    public virtual void OnExit(XmppBase xmpp, States.IState? nextState = null)
     {
         // Default implementation - can be overridden by specific states
     }
@@ -99,7 +99,7 @@ public abstract class EnhancedStateBase : IEnhancedState
     /// This is the legacy method from IState. Enhanced states should use ProcessTag instead.
     /// This implementation delegates to ProcessTag but doesn't handle transitions automatically.
     /// </remarks>
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         var result = ProcessTag(xmpp, tag);
         if (!result.Success)
@@ -121,7 +121,7 @@ public abstract class EnhancedStateBase : IEnhancedState
     /// </summary>
     /// <param name="nextState">The next state to transition to.</param>
     /// <param name="context">Optional context for the transition.</param>
-    protected StateProcessingResult SuccessWithTransition(States.IState nextState, string context = null)
+    protected StateProcessingResult SuccessWithTransition(States.IState nextState, string? context = null)
         => StateProcessingResult.SuccessWithTransition(nextState, context);
 
     /// <summary>

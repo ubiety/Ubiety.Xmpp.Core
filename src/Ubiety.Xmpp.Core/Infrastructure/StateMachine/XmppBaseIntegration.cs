@@ -45,17 +45,17 @@ public abstract class EnhancedXmppBase : XmppBase
     /// <summary>
     /// Event that is raised when a stream error occurs during XMPP communication.
     /// </summary>
-    public new event EventHandler<Ubiety.Xmpp.Core.Common.ErrorEventArgs> Error;
+    public new event EventHandler<Ubiety.Xmpp.Core.Common.ErrorEventArgs>? Error;
 
     /// <summary>
     /// Event raised when the connection state changes.
     /// </summary>
-    public event EventHandler<StateTransitionEventArgs> StateChanged;
+    public event EventHandler<StateTransitionEventArgs>? StateChanged;
 
     /// <summary>
     /// Event raised when a state transition fails.
     /// </summary>
-    public event EventHandler<StateTransitionFailedEventArgs> StateTransitionError;
+    public event EventHandler<StateTransitionFailedEventArgs>? StateTransitionError;
 
     /// <summary>
     /// Gets the current state through the coordinator.
@@ -103,7 +103,7 @@ public abstract class EnhancedXmppBase : XmppBase
     /// <param name="newState">The state to transition to.</param>
     /// <param name="context">Optional context for the transition.</param>
     /// <returns>True if transition was successful.</returns>
-    public bool TransitionToState(IState newState, string context = null)
+    public bool TransitionToState(IState newState, string? context = null)
     {
         return _stateCoordinator.TransitionTo(newState, context);
     }
@@ -154,7 +154,7 @@ public abstract class EnhancedXmppBase : XmppBase
         base.Dispose(disposing);
     }
 
-    private void OnStateTransitioned(object sender, StateTransitionEventArgs e)
+    private void OnStateTransitioned(object? sender, StateTransitionEventArgs e)
     {
         _logger.Log(LogLevel.Debug,
             $"State transitioned from {e.FromState.GetType().Name} to {e.ToState.GetType().Name}. Context: {e.Context ?? "none"}");
@@ -163,7 +163,7 @@ public abstract class EnhancedXmppBase : XmppBase
         StateChanged?.Invoke(this, e);
     }
 
-    private void OnStateTransitionFailed(object sender, StateTransitionFailedEventArgs e)
+    private void OnStateTransitionFailed(object? sender, StateTransitionFailedEventArgs e)
     {
         _logger.Log(LogLevel.Warning,
             $"State transition failed from {e.CurrentState.GetType().Name} to {e.AttemptedStateType?.Name ?? "unknown"}. Reason: {e.Reason}");

@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,15 +12,12 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
-using System.Linq;
 using Ubiety.Xmpp.Core.Infrastructure;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.Registries;
 using Ubiety.Xmpp.Core.Sasl;
 using Ubiety.Xmpp.Core.States;
-using Ubiety.Xmpp.Core.Tags.Stream;
 
 namespace Ubiety.Xmpp.Core.Common;
 
@@ -102,7 +99,7 @@ public abstract class XmppBase : IDisposable
         get => _clientSocket;
         protected init
         {
-            _clientSocket = value;
+            _clientSocket = value ?? throw new ArgumentNullException(nameof(value), "ClientSocket cannot be null");
             _clientSocket.Connection += Socket_Connection;
         }
     }
@@ -139,17 +136,17 @@ public abstract class XmppBase : IDisposable
     /// </remarks>
     protected void Parser_Tag(object sender, TagEventArgs e)
     {
-        if (e.Tag is Stream stream && stream.Errors.Any())
+        if (e.Tag is Tags.Stream.Stream stream && stream.Errors.Any())
         {
             OnError(
                 this,
                 new ErrorEventArgs { Message = "Error occured", StreamError = stream.Errors.FirstOrDefault() });
-            Parser.Stop();
+            Parser?.Stop();
             State = new DisconnectState();
         }
 
         _logger.Log(LogLevel.Debug, "Received a tag. Executing current state");
-        State.Execute(this, e.Tag);
+        State?.Execute(this, e.Tag);
     }
 
     /// <summary>
@@ -168,8 +165,11 @@ public abstract class XmppBase : IDisposable
 
         if (disposing)
         {
-            _logger.Log(LogLevel.Debug, $"Disposing {_clientSocket.GetType()}");
-            _clientSocket.Dispose();
+            if (_clientSocket != null)
+            {
+                _logger.Log(LogLevel.Debug, $"Disposing {_clientSocket.GetType()}");
+                _clientSocket.Dispose();
+            }
         }
 
         _disposedValue = true;
@@ -185,17 +185,12 @@ public abstract class XmppBase : IDisposable
         Error?.Invoke(sender, e);
     }
 
-    /// <summary>
-    /// Handles the connection event from the client socket.
-    /// Initializes the parser and transitions to the connected state.
-    /// </summary>
-    /// <param name="sender">The source of the connection event.</param>
-    /// <param name="e">Event arguments.</param>
+    // Update the Socket_Connection method signature to match the nullability of EventHandler
     private void Socket_Connection(object sender, EventArgs e)
     {
         _logger.Log(LogLevel.Debug, "Setting connection state");
-        Parser.Start();
+        Parser?.Start();
         State = new ConnectedState();
-        State.Execute(this);
+        State?.Execute(this);
     }
 }

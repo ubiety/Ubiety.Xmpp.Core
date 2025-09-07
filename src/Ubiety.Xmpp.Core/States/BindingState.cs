@@ -27,7 +27,7 @@ namespace Ubiety.Xmpp.Core.States;
 public class BindingState : IState
 {
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         if (xmpp is null)
         {

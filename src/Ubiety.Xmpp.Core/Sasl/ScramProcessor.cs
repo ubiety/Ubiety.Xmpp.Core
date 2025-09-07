@@ -43,9 +43,9 @@ public class ScramProcessor : SaslProcessor
 {
     private static readonly ILog Logger = Log.Get<ScramProcessor>();
     private readonly IPreparationProcess _saslprep = SaslprepProfile.Create();
-    private ClientFinalMessage _clientFinalMessage;
-    private ClientFirstMessage _clientFirstMessage;
-    private ServerFirstMessage _serverFirstMessage;
+    private ClientFinalMessage? _clientFinalMessage;
+    private ClientFirstMessage? _clientFirstMessage;
+    private ServerFirstMessage? _serverFirstMessage;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="ScramProcessor" /> class.
@@ -94,7 +94,7 @@ public class ScramProcessor : SaslProcessor
             case Response s:
                 Logger.Log(LogLevel.Debug, "Received response");
                 ServerFinalMessage serverFinalMessage = s.Bytes;
-                return serverFinalMessage.ServerSignature == _clientFinalMessage.ServerSignature ? s : null;
+                return serverFinalMessage.ServerSignature == _clientFinalMessage?.ServerSignature ? s : null;
 
             case Failure f:
                 return f;
@@ -119,7 +119,7 @@ public class ScramProcessor : SaslProcessor
             _ => throw new InvalidTypeException(),
         };
 
-        _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage, _serverFirstMessage, Password, hash);
+        _clientFinalMessage = new ClientFinalMessage(_clientFirstMessage!, _serverFirstMessage, Password, hash);
 
         var message = Client.TagRegistry.GetTag<Response>(Response.XmlName);
         message.Bytes = _clientFinalMessage;

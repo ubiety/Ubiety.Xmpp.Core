@@ -32,7 +32,7 @@ public sealed class Parser
     private readonly Queue<string> _dataQueue;
     private readonly ILog _logger = Log.Get<Parser>();
     private readonly XmppBase _xmpp;
-    private XmlNamespaceManager _namespaceManager;
+    private XmlNamespaceManager? _namespaceManager;
     private bool _running;
 
     /// <summary>
@@ -50,7 +50,7 @@ public sealed class Parser
     /// <summary>
     ///     Tag event.
     /// </summary>
-    public event EventHandler<TagEventArgs> Tag;
+    public event EventHandler<TagEventArgs>? Tag;
 
     private XmlNamespaceManager NamespaceManager
     {
@@ -143,7 +143,7 @@ public sealed class Parser
         }
     }
 
-    private void ClientSocket_Data(object sender, DataEventArgs e)
+    private void ClientSocket_Data(object? sender, DataEventArgs e)
     {
         _dataQueue.Enqueue(e.Message);
     }

@@ -39,7 +39,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
     /// </summary>
     /// <param name="initialState">The initial state of the state machine.</param>
     /// <param name="maxHistorySize">Maximum number of transition records to keep in history.</param>
-    public XmppStateMachineCoordinator(IState initialState = null, int maxHistorySize = 100)
+    public XmppStateMachineCoordinator(IState? initialState = null, int maxHistorySize = 100)
     {
         _logger = Log.Get<XmppStateMachineCoordinator>();
         _maxHistorySize = maxHistorySize;
@@ -49,10 +49,10 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
     }
 
     /// <inheritdoc />
-    public event EventHandler<StateTransitionEventArgs> StateTransitioned;
+    public event EventHandler<StateTransitionEventArgs>? StateTransitioned;
 
     /// <inheritdoc />
-    public event EventHandler<StateTransitionFailedEventArgs> StateTransitionFailed;
+    public event EventHandler<StateTransitionFailedEventArgs>? StateTransitionFailed;
 
     /// <inheritdoc />
     public IState CurrentState
@@ -79,7 +79,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
     }
 
     /// <inheritdoc />
-    public StateProcessingResult ProcessTag(XmppBase xmpp, Tag tag)
+    public StateProcessingResult ProcessTag(XmppBase xmpp, Tag? tag)
     {
         _logger.Log(LogLevel.Debug, $"Processing tag '{tag?.GetType().Name ?? "null"}' in state '{CurrentStateType.Name}'");
 
@@ -128,7 +128,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
     }
 
     /// <inheritdoc />
-    public bool TransitionTo(IState newState, string context = null)
+    public bool TransitionTo(IState newState, string? context = null)
     {
         if (newState == null)
         {
@@ -165,7 +165,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
                 // Call OnExit on current state if it supports it
                 if (_currentState is IEnhancedState currentEnhanced)
                 {
-                    currentEnhanced.OnExit(null, newState); // XmppBase reference would need to be passed in
+                    currentEnhanced.OnExit(null!, newState); // XmppBase reference would need to be passed in
                 }
 
                 // Transition to new state
@@ -174,7 +174,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
                 // Call OnEnter on new state if it supports it
                 if (newState is IEnhancedState newEnhanced)
                 {
-                    newEnhanced.OnEnter(null, context); // XmppBase reference would need to be passed in
+                    newEnhanced.OnEnter(null!, context); // XmppBase reference would need to be passed in
                 }
 
                 _logger.Log(LogLevel.Debug, $"Successfully transitioned from {previousState.GetType().Name} to {newStateType.Name}");
@@ -247,7 +247,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
         }
     }
 
-    private void RecordTransition(Type fromStateType, Type toStateType, string context, bool wasSuccessful, string errorMessage = null)
+    private void RecordTransition(Type fromStateType, Type toStateType, string? context, bool wasSuccessful, string? errorMessage = null)
     {
         var record = new StateTransitionRecord
         {

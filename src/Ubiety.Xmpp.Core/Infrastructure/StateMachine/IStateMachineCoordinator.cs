@@ -28,12 +28,12 @@ public interface IStateMachineCoordinator
     /// <summary>
     /// Event raised when a state transition occurs.
     /// </summary>
-    event EventHandler<StateTransitionEventArgs> StateTransitioned;
+    event EventHandler<StateTransitionEventArgs>? StateTransitioned;
 
     /// <summary>
     /// Event raised when a state transition is invalid or fails.
     /// </summary>
-    event EventHandler<StateTransitionFailedEventArgs> StateTransitionFailed;
+    event EventHandler<StateTransitionFailedEventArgs>? StateTransitionFailed;
 
     /// <summary>
     /// Gets the current state of the state machine.
@@ -56,7 +56,7 @@ public interface IStateMachineCoordinator
     /// <param name="xmpp">The XMPP base instance.</param>
     /// <param name="tag">The incoming tag to process.</param>
     /// <returns>The result of state processing.</returns>
-    StateProcessingResult ProcessTag(XmppBase xmpp, Tag tag);
+    StateProcessingResult ProcessTag(XmppBase xmpp, Tag? tag);
 
     /// <summary>
     /// Transitions to a new state with validation.
@@ -64,7 +64,7 @@ public interface IStateMachineCoordinator
     /// <param name="newState">The state to transition to.</param>
     /// <param name="context">Optional context for the transition.</param>
     /// <returns>True if transition was successful, false otherwise.</returns>
-    bool TransitionTo(IState newState, string context = null);
+    bool TransitionTo(IState newState, string? context = null);
 
     /// <summary>
     /// Checks if a transition to the specified state type is valid from the current state.

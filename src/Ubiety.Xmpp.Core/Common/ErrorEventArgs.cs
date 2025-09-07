@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,7 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
 using Ubiety.Xmpp.Core.Tags.Stream;
 
 namespace Ubiety.Xmpp.Core.Common;
@@ -25,7 +24,7 @@ public class ErrorEventArgs : EventArgs
     /// <summary>
     ///     Gets the error message.
     /// </summary>
-    public string Message { get; init; }
+    public string Message { get; init; } = string.Empty;
 
     /// <summary>
     ///     Gets the stream error.

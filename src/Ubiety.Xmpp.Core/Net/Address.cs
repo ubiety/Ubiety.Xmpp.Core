@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using Ubiety.Dns.Core;
@@ -45,6 +43,7 @@ internal class Address
         _logger.Log(LogLevel.Debug, $"{typeof(Address)} created");
         _resolver = ResolverBuilder.Begin().AddDnsServer("8.8.8.8").EnableCache().SetTimeout(5000).Build();
         _client = client;
+        Hostname = string.Empty;
     }
 
     /// <summary>

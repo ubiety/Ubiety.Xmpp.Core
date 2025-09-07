@@ -37,11 +37,11 @@ public class Md5Processor : SaslProcessor, IDisposable
     private readonly Encoding _encoding = Encoding.UTF8;
     private readonly MD5 _md5 = MD5.Create();
     private bool _disposedValue;
-    private string _cnonce;
-    private string _digestUri;
+    private string _cnonce = string.Empty;
+    private string _digestUri = string.Empty;
 
     private int _nonceCount;
-    private string _responseHash;
+    private string _responseHash = string.Empty;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="Md5Processor" /> class.
