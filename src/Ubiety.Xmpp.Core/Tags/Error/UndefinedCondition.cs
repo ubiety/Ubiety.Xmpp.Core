@@ -40,6 +40,7 @@ public class UndefinedCondition : Tag
     public UndefinedCondition(XElement element)
         : base(element)
     {
+        System.ArgumentNullException.ThrowIfNull(element, nameof(element));
     }
 
     /// <summary>

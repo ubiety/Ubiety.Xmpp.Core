@@ -1,0 +1,38 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "src/Ubiety.Xmpp.Core/**/*.csproj" ]
+        }
+      ],
+      "dest": "api",
+      "properties": {
+        "TargetFramework": "net6.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [ "articles/*.md" ]
+      },
+      {
+        "files": [ "toc.yml" ]
+      },
+      {
+        "files": [ "api/**.yml" ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [ "images/**" ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "Ubiety.Xmpp.Core",
+      "_appFooter": "Copyright © 2025 Ubiety"
+    }
+  }
+}

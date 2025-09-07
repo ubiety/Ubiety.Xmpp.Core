@@ -36,6 +36,7 @@ public abstract class Tag : XElement
     protected Tag(XElement other)
         : base(other)
     {
+        ArgumentNullException.ThrowIfNull(other, nameof(other));
     }
 
     /// <summary>
@@ -45,6 +46,7 @@ public abstract class Tag : XElement
     protected Tag(XName name)
         : base(name)
     {
+        ArgumentNullException.ThrowIfNull(name, nameof(name));
     }
 
     /// <summary>
@@ -64,13 +66,17 @@ public abstract class Tag : XElement
     /// <returns>Constructor info of the tag constructor.</returns>
     public static ConstructorInfo GetConstructor(Type type, IReadOnlyCollection<Type> parameters)
     {
-        var results = from constructor in type.GetTypeInfo().DeclaredConstructors
-            let constructorParameters = constructor.GetParameters().Select(i => i.ParameterType).ToArray()
-            where constructorParameters.Length == parameters.Count &&
-                  !constructorParameters.Except(parameters).Any() &&
-                  !parameters.Except(constructorParameters).Any()
-            select constructor;
-
+        ArgumentNullException.ThrowIfNull(type, nameof(type));
+        ArgumentNullException.ThrowIfNull(parameters, nameof(parameters));
+        var results = type.GetTypeInfo().DeclaredConstructors
+            .Where(static c => c.IsPublic)
+            .Where(constructor =>
+            {
+                var constructorParameters = constructor.GetParameters().Select(static i => i.ParameterType).ToArray();
+                return constructorParameters.Length == parameters.Count &&
+                       !constructorParameters.Except(parameters).Any() &&
+                       !parameters.Except(constructorParameters).Any();
+            });
         return results.FirstOrDefault();
     }
 
@@ -152,12 +158,8 @@ public abstract class Tag : XElement
     private static T Convert<T>(XElement element)
         where T : XElement
     {
-        if (element is null)
-        {
-            return null;
-        }
-
-        var constructor = GetConstructor(typeof(T), [typeof(XElement)]);
-        return (T)constructor?.Invoke([element]);
+        return element is null
+            ? null
+            : (T)GetConstructor(typeof(T), new[] { typeof(XElement) })?.Invoke(new object[] { element });
     }
 }

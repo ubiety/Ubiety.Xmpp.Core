@@ -1,4 +1,4 @@
-// Copyright 2018 Dieter Lunn
+﻿// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -138,6 +138,8 @@ public abstract class XmppBase : IDisposable
     {
         if (e.Tag is Tags.Stream.Stream stream && stream.Errors.Any())
         {
+            var error = stream.Errors.FirstOrDefault();
+            _logger.Log(LogLevel.Error, $"Stream error detected: {error}");
             OnError(
                 this,
                 new ErrorEventArgs { Message = "Error occured", StreamError = stream.Errors.FirstOrDefault() });
@@ -182,6 +184,7 @@ public abstract class XmppBase : IDisposable
     /// <param name="e">Error event arguments containing error details.</param>
     private void OnError(object sender, ErrorEventArgs e)
     {
+        _logger.Log(LogLevel.Error, $"Error event: {e.Message}, StreamError: {e.StreamError}");
         Error?.Invoke(sender, e);
     }
 

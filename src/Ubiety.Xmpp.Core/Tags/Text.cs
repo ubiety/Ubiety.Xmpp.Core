@@ -40,6 +40,7 @@ public class Text : Tag
     public Text(XElement other)
         : base(other)
     {
+        System.ArgumentNullException.ThrowIfNull(other, nameof(other));
     }
 
     /// <summary>

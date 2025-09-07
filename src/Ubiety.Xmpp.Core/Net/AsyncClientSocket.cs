@@ -1,4 +1,4 @@
-// Copyright 2018 Dieter Lunn
+﻿// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -28,13 +28,36 @@ namespace Ubiety.Xmpp.Core.Net;
 /// </summary>
 public class AsyncClientSocket : ISocket, IDisposable
 {
+    /// <summary>
+    ///     The size of the buffer used for reading data from the stream.
+    /// </summary>
     private const int BufferSize = 4 * 1024;
+
+    /// <summary>
+    ///     The XMPP client instance associated with this socket.
+    /// </summary>
     private readonly IClient _client;
+
+    /// <summary>
+    ///     Logger instance for logging socket operations.
+    /// </summary>
     private readonly ILog _logger = Log.Get<AsyncClientSocket>();
+
+    /// <summary>
+    ///     Event used to signal when the socket is ready to read data.
+    /// </summary>
     private readonly AutoResetEvent _resetEvent;
     private readonly UTF8Encoding _utf8 = new();
     private Address _address;
+
+    /// <summary>
+    ///     The underlying network socket.
+    /// </summary>
     private Socket _socket;
+
+    /// <summary>
+    ///     The stream used for network communication.
+    /// </summary>
     private Stream _stream;
 
     /// <summary>
@@ -64,11 +87,13 @@ public class AsyncClientSocket : ISocket, IDisposable
     public bool Connected { get; private set; }
 
     /// <summary>
-    ///     Gets a value indicating whether the socket is secure.
+    ///     Gets a value indicating whether the socket is secured with SSL/TLS.
     /// </summary>
     public bool Secure { get; private set; }
 
-    /// <inheritdoc />
+    /// <summary>
+    ///     Releases all resources used by the <see cref="AsyncClientSocket"/>.
+    /// </summary>
     public void Dispose()
     {
         Dispose(true);
@@ -111,7 +136,8 @@ public class AsyncClientSocket : ISocket, IDisposable
             Console.WriteLine(e);
             throw;
         }
-    }
+    }
+
     /// <summary>
     ///     Disconnects the client from the XMPP server and releases associated resources.
     /// </summary>
@@ -130,7 +156,18 @@ public class AsyncClientSocket : ISocket, IDisposable
     /// <param name="message">The message to send to the server.</param>
     public void Send(string message)
     {
-        if (!Connected)
+        SendAsync(message).GetAwaiter().GetResult();
+    }
+
+    /// <summary>
+    ///     Asynchronously sends a message to the server.
+    /// </summary>
+    /// <param name="message">The message to send.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous send operation.</returns>
+    public async Task SendAsync(string message, CancellationToken cancellationToken = default)
+    {
+        if (!Connected || _stream is null)
         {
             return;
         }
@@ -139,18 +176,19 @@ public class AsyncClientSocket : ISocket, IDisposable
 
         var bytes = _utf8.GetBytes(message);
         _stream?.WriteAsync(bytes, 0, bytes.Length);
-    }
+    }
+
     /// <summary>
-    ///     Sends a tag to the server.
+    ///     Sends a tag to the server synchronously.
     /// </summary>
-    /// <param name="tag"><see cref="Tag" /> to send.</param>
+    /// <param name="tag">The <see cref="Tag"/> to send.</param>
     public void Send(Tag tag)
     {
         Send(tag.ToString());
     }
 
     /// <summary>
-    ///     Starts SSL/TLS connection.
+    ///     Starts an SSL/TLS session on the current connection.
     /// </summary>
     public void StartSsl()
     {
@@ -171,7 +209,7 @@ public class AsyncClientSocket : ISocket, IDisposable
     }
 
     /// <summary>
-    ///     Set that we are clear to read data.
+    ///     Signals that the socket is ready to read data.
     /// </summary>
     public void SetReadClear()
     {
@@ -180,9 +218,9 @@ public class AsyncClientSocket : ISocket, IDisposable
     }
 
     /// <summary>
-    ///     Dispose of class resources.
+    ///     Releases the unmanaged resources used by the <see cref="AsyncClientSocket"/> and optionally releases the managed resources.
     /// </summary>
-    /// <param name="disposing">Are we disposing from a direct call?.</param>
+    /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     protected virtual void Dispose(bool disposing)
     {
         _logger.Log(LogLevel.Debug, "Dispose(bool) called");
@@ -196,9 +234,9 @@ public class AsyncClientSocket : ISocket, IDisposable
     }
 
     /// <summary>
-    ///     Raise the data event with the specified arguments.
+    ///     Raises the <see cref="Data"/> event with the specified arguments.
     /// </summary>
-    /// <param name="e">Data event arguments.</param>
+    /// <param name="e">The data event arguments.</param>
     private void OnData(DataEventArgs e)
     {
         _logger.Log(LogLevel.Debug, "OnData(DataEventArgs) called");
@@ -206,7 +244,7 @@ public class AsyncClientSocket : ISocket, IDisposable
     }
 
     /// <summary>
-    ///     Raise the connection event.
+    ///     Raises the <see cref="Connection"/> event.
     /// </summary>
     private void OnConnection()
     {
@@ -214,6 +252,14 @@ public class AsyncClientSocket : ISocket, IDisposable
         Connection?.Invoke(this, EventArgs.Empty);
     }
 
+    /// <summary>
+    ///     Validates the SSL certificate during authentication.
+    /// </summary>
+    /// <param name="sender">The sender of the validation event.</param>
+    /// <param name="certificate">The certificate to validate.</param>
+    /// <param name="chain">The certificate chain.</param>
+    /// <param name="sslPolicyErrors">The SSL policy errors, if any.</param>
+    /// <returns>true if the certificate is valid; otherwise, false.</returns>
     private bool CertificateValidation(
         object sender,
         X509Certificate certificate,
@@ -239,6 +285,11 @@ public class AsyncClientSocket : ISocket, IDisposable
         return false;
     }
 
+    /// <summary>
+    ///     Handles the completion of the asynchronous connect operation.
+    /// </summary>
+    /// <param name="sender">The sender of the event.</param>
+    /// <param name="e">The socket async event arguments.</param>
     private void ConnectCompleted(object sender, SocketAsyncEventArgs e)
     {
         _logger.Log(LogLevel.Debug, "ConnectCompleted(object, SocketEventArgs) called");
@@ -258,30 +309,47 @@ public class AsyncClientSocket : ISocket, IDisposable
         BeginReadAsync().ConfigureAwait(false);
     }
 
+    /// <summary>
+    ///     Begins reading data asynchronously from the server.
+    /// </summary>
+    /// <returns>A <see cref="Task"/> representing the asynchronous read operation.</returns>
     private async Task BeginReadAsync()
     {
         _logger.Log(LogLevel.Debug, "BeginReadAsync() called");
         while (Connected)
         {
-            var message = await ReadData();
+            var message = await ReadDataAsync().ConfigureAwait(false);
             _logger.Log(LogLevel.Debug, $"Received message: {message}");
             OnData(new DataEventArgs { Message = message });
         }
     }
 
+    /// <summary>
+    ///     Reads data from the stream asynchronously.
+    /// </summary>
+    /// <returns>A <see cref="Task{TResult}"/> representing the asynchronous read operation, with the received message as a string.</returns>
     private Task<string> ReadData()
+    {
+        return ReadDataAsync();
+    }
+
+    /// <summary>
+    ///     Asynchronously reads data from the stream.
+    /// </summary>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>A <see cref="Task{TResult}"/> representing the asynchronous read operation, with the received message as a string.</returns>
+    private async Task<string> ReadDataAsync(CancellationToken cancellationToken = default)
     {
         _resetEvent.WaitOne();
         var buffer = new byte[BufferSize];
-        var received = _stream.ReadAsync(buffer, 0, BufferSize);
-
-        var task = received.ContinueWith(_ =>
+        if (_stream is null)
         {
-            Array.Resize(ref buffer, received.Result);
-            var message = _utf8.GetString(buffer);
-            return message;
-        });
+            return string.Empty;
+        }
 
-        return task;
+        var received = await _stream.ReadAsync(buffer, 0, BufferSize, cancellationToken).ConfigureAwait(false);
+        Array.Resize(ref buffer, received);
+        var message = _utf8.GetString(buffer);
+        return message;
     }
 }
