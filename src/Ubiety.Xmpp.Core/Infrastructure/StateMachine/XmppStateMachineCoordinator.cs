@@ -44,7 +44,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
         _logger = Log.Get<XmppStateMachineCoordinator>();
         _maxHistorySize = maxHistorySize;
         _currentState = initialState ?? new DisconnectedState();
-        
+
         _logger.Log(LogLevel.Debug, $"State machine coordinator initialized with state: {CurrentStateType.Name}");
     }
 
@@ -55,15 +55,15 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
     public event EventHandler<StateTransitionFailedEventArgs> StateTransitionFailed;
 
     /// <inheritdoc />
-    public IState CurrentState 
-    { 
-        get 
-        { 
+    public IState CurrentState
+    {
+        get
+        {
             lock (_stateLock)
             {
                 return _currentState;
             }
-        } 
+        }
     }
 
     /// <inheritdoc />
@@ -86,7 +86,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
         try
         {
             StateProcessingResult result;
-            
+
             // Check if current state implements enhanced interface
             if (CurrentState is IEnhancedState enhancedState)
             {
@@ -114,13 +114,13 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
         catch (Exception ex)
         {
             _logger.Log(LogLevel.Error, $"Error processing tag in state {CurrentStateType.Name}: {ex.Message}");
-            
+
             OnStateTransitionFailed(new StateTransitionFailedEventArgs
             {
                 CurrentState = CurrentState,
                 AttemptedStateType = null,
                 Reason = "Exception during tag processing",
-                Exception = ex
+                Exception = ex,
             });
 
             return StateProcessingResult.Failure($"Exception during processing: {ex.Message}");
@@ -146,12 +146,12 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
             {
                 var reason = $"Invalid transition from {CurrentStateType.Name} to {newStateType.Name}";
                 _logger.Log(LogLevel.Warning, reason);
-                
+
                 OnStateTransitionFailed(new StateTransitionFailedEventArgs
                 {
                     CurrentState = CurrentState,
                     AttemptedStateType = newStateType,
-                    Reason = reason
+                    Reason = reason,
                 });
 
                 RecordTransition(CurrentStateType, newStateType, context, false, reason);
@@ -187,7 +187,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
                 {
                     FromState = previousState,
                     ToState = newState,
-                    Context = context
+                    Context = context,
                 });
 
                 return true;
@@ -195,13 +195,13 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
             catch (Exception ex)
             {
                 _logger.Log(LogLevel.Error, $"Exception during state transition: {ex.Message}");
-                
+
                 OnStateTransitionFailed(new StateTransitionFailedEventArgs
                 {
                     CurrentState = CurrentState,
                     AttemptedStateType = newStateType,
                     Reason = "Exception during transition",
-                    Exception = ex
+                    Exception = ex,
                 });
 
                 RecordTransition(CurrentStateType, newStateType, context, false, ex.Message);
@@ -211,10 +211,11 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
     }
 
     /// <inheritdoc />
-    public bool CanTransitionTo<TState>() where TState : IState
+    public bool CanTransitionTo<TState>()
+        where TState : IState
     {
         var targetType = typeof(TState);
-        
+
         if (CurrentState is IEnhancedState enhancedState)
         {
             return enhancedState.CanTransitionTo(targetType);
@@ -229,19 +230,19 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
     public void Reset()
     {
         _logger.Log(LogLevel.Debug, "Resetting state machine to initial state");
-        
+
         lock (_stateLock)
         {
             var previousState = _currentState;
             _currentState = new DisconnectedState();
-            
+
             RecordTransition(previousState.GetType(), typeof(DisconnectedState), "Reset", true);
-            
+
             OnStateTransitioned(new StateTransitionEventArgs
             {
                 FromState = previousState,
                 ToState = _currentState,
-                Context = "State machine reset"
+                Context = "State machine reset",
             });
         }
     }
@@ -255,7 +256,7 @@ public class XmppStateMachineCoordinator : IStateMachineCoordinator
             Context = context,
             Timestamp = DateTime.UtcNow,
             WasSuccessful = wasSuccessful,
-            ErrorMessage = errorMessage
+            ErrorMessage = errorMessage,
         };
 
         _transitionHistory.Enqueue(record);

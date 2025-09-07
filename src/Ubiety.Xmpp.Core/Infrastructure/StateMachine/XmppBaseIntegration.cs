@@ -34,18 +34,18 @@ public abstract class EnhancedXmppBase : XmppBase
     {
         _logger = Log.Get<EnhancedXmppBase>();
         _stateCoordinator = new XmppStateMachineCoordinator(new DisconnectedState());
-        
+
         // Subscribe to state machine events
         _stateCoordinator.StateTransitioned += OnStateTransitioned;
         _stateCoordinator.StateTransitionFailed += OnStateTransitionFailed;
-        
+
         _logger.Log(LogLevel.Debug, $"{GetType()} created with state machine coordinator");
     }
 
     /// <summary>
     /// Event that is raised when a stream error occurs during XMPP communication.
     /// </summary>
-    public event EventHandler<ErrorEventArgs> Error;
+    public new event EventHandler<Ubiety.Xmpp.Core.Common.ErrorEventArgs> Error;
 
     /// <summary>
     /// Event raised when the connection state changes.
@@ -60,7 +60,7 @@ public abstract class EnhancedXmppBase : XmppBase
     /// <summary>
     /// Gets the current state through the coordinator.
     /// </summary>
-    public IState State => _stateCoordinator.CurrentState;
+    public new IState State => _stateCoordinator.CurrentState;
 
     /// <summary>
     /// Gets the state machine coordinator for advanced operations.
@@ -73,7 +73,7 @@ public abstract class EnhancedXmppBase : XmppBase
     /// </summary>
     /// <param name="sender">The source of the tag event.</param>
     /// <param name="e">Event arguments containing the parsed XMPP tag.</param>
-    protected void Parser_Tag(object sender, TagEventArgs e)
+    protected new void Parser_Tag(object sender, TagEventArgs e)
     {
         _logger.Log(LogLevel.Debug, $"Processing tag '{e.Tag?.GetType().Name}' through state coordinator");
 
@@ -83,10 +83,10 @@ public abstract class EnhancedXmppBase : XmppBase
         if (!result.Success)
         {
             _logger.Log(LogLevel.Error, $"State processing failed: {result.ErrorMessage}");
-            
+
             // Handle processing failures
-            OnError(this, new ErrorEventArgs 
-            { 
+            OnError(this, new Ubiety.Xmpp.Core.Common.ErrorEventArgs
+            {
                 Message = result.ErrorMessage,
                 StreamError = null // Could extract from the result if needed
             });
@@ -142,21 +142,21 @@ public abstract class EnhancedXmppBase : XmppBase
         if (disposing)
         {
             _logger.Log(LogLevel.Debug, "Disposing enhanced XMPP base");
-            
+
             // Unsubscribe from events
             _stateCoordinator.StateTransitioned -= OnStateTransitioned;
             _stateCoordinator.StateTransitionFailed -= OnStateTransitionFailed;
         }
 
         _disposedValue = true;
-        
+
         // Call base class disposal
         base.Dispose(disposing);
     }
 
     private void OnStateTransitioned(object sender, StateTransitionEventArgs e)
     {
-        _logger.Log(LogLevel.Debug, 
+        _logger.Log(LogLevel.Debug,
             $"State transitioned from {e.FromState.GetType().Name} to {e.ToState.GetType().Name}. Context: {e.Context ?? "none"}");
 
         // Raise the public event
@@ -165,7 +165,7 @@ public abstract class EnhancedXmppBase : XmppBase
 
     private void OnStateTransitionFailed(object sender, StateTransitionFailedEventArgs e)
     {
-        _logger.Log(LogLevel.Warning, 
+        _logger.Log(LogLevel.Warning,
             $"State transition failed from {e.CurrentState.GetType().Name} to {e.AttemptedStateType?.Name ?? "unknown"}. Reason: {e.Reason}");
 
         // Raise the public event
@@ -175,7 +175,7 @@ public abstract class EnhancedXmppBase : XmppBase
         // For example, transition to a safe state on certain types of failures
     }
 
-    private void OnError(object sender, ErrorEventArgs e)
+    private void OnError(object sender, Ubiety.Xmpp.Core.Common.ErrorEventArgs e)
     {
         Error?.Invoke(sender, e);
     }
@@ -196,9 +196,9 @@ public class ExampleEnhancedXmppClient : EnhancedXmppBase, IClient
 
     public Jid Id { get; set; }
     public string Password { get; set; }
-    public int Port { get; set; } = 5222;
-    public bool UseSsl { get; internal init; }
-    public bool UseIPv6 { get; internal init; }
+    public new int Port { get; set; } = 5222;
+    public new bool UseSsl { get; internal init; }
+    public new bool UseIPv6 { get; internal init; }
     public bool Authenticated { get; internal set; }
 
     public void Connect(Jid jid, string password)

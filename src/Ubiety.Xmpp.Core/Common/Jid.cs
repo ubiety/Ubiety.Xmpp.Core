@@ -153,7 +153,7 @@ public sealed partial class Jid : IEquatable<Jid>
 
         if (!match.Success)
         {
-            jid = null;
+            jid = null!;
             return false;
         }
 
@@ -168,13 +168,13 @@ public sealed partial class Jid : IEquatable<Jid>
     }
 
     /// <inheritdoc />
-    public bool Equals(Jid other)
+    public bool Equals(Jid? other)
     {
         return Id.Equals(other?.Id);
     }
 
     /// <inheritdoc />
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         return obj switch
         {

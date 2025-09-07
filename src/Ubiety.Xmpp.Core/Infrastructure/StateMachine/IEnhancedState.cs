@@ -106,7 +106,7 @@ public abstract class EnhancedStateBase : IEnhancedState
         {
             throw new InvalidOperationException($"State {StateName} processing failed: {result.ErrorMessage}");
         }
-        
+
         // Note: In the enhanced model, the coordinator handles transitions
         // This Execute method is kept for backward compatibility
     }
