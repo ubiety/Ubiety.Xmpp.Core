@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
-
 namespace Ubiety.Xmpp.Core.Common;
 
 /// <inheritdoc />
@@ -25,5 +23,5 @@ public class DataEventArgs : EventArgs
     /// <summary>
     ///     Gets the message from the server.
     /// </summary>
-    public string Message { get; init; }
+    public string Message { get; init; } = string.Empty;
 }

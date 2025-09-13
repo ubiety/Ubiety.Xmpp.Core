@@ -33,9 +33,8 @@ public sealed class Parser : IDisposable
     private readonly System.Collections.Concurrent.ConcurrentQueue<string> _dataQueue;
     private readonly ILog _logger = Log.Get<Parser>();
     private readonly XmppBase _xmpp;
-    private XmlNamespaceManager _namespaceManager;
-    private CancellationTokenSource _cts;
-    private bool _disposed;
+    private XmlNamespaceManager? _namespaceManager;
+    private bool _running;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="Parser"/> class.
@@ -52,15 +51,7 @@ public sealed class Parser : IDisposable
     /// <summary>
     ///     Finalizes an instance of the <see cref="Parser"/> class. Ensures unmanaged resources are released.
     /// </summary>
-    ~Parser()
-    {
-        Dispose(false);
-    }
-
-    /// <summary>
-    ///     Occurs when a tag is parsed from the incoming XMPP data.
-    /// </summary>
-    public event EventHandler<TagEventArgs> Tag;
+    public event EventHandler<TagEventArgs>? Tag;
 
     private XmlNamespaceManager NamespaceManager
     {
@@ -164,7 +155,7 @@ public sealed class Parser : IDisposable
         }
     }
 
-    private void ClientSocket_Data(object sender, DataEventArgs e)
+    private void ClientSocket_Data(object? sender, DataEventArgs e)
     {
         _dataQueue.Enqueue(e.Message);
     }

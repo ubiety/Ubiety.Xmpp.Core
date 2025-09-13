@@ -27,5 +27,5 @@ public interface IState
     /// </summary>
     /// <param name="xmpp">XMPP instance.</param>
     /// <param name="tag">Tag for the state to work with.</param>
-    void Execute(XmppBase xmpp, Tag tag = null);
+    void Execute(XmppBase xmpp, Tag? tag = null);
 }

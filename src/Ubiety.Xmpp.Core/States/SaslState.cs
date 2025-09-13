@@ -25,7 +25,7 @@ namespace Ubiety.Xmpp.Core.States;
 public class SaslState : IState
 {
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         if (xmpp is not XmppClient client)
         {

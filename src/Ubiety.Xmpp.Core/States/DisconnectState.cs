@@ -27,7 +27,7 @@ public class DisconnectState : IState
     private static readonly ILog Logger = Log.Get<DisconnectState>();
 
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         Logger.Log(LogLevel.Debug, "Disconnecting from the server");
         xmpp.ClientSocket.Disconnect();

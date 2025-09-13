@@ -12,15 +12,11 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
-using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
@@ -51,15 +47,7 @@ public class AsyncClientSocket : ISocket, IDisposable
     ///     Event used to signal when the socket is ready to read data.
     /// </summary>
     private readonly AutoResetEvent _resetEvent;
-
-    /// <summary>
-    ///     UTF-8 encoding used for message serialization.
-    /// </summary>
     private readonly UTF8Encoding _utf8 = new();
-
-    /// <summary>
-    ///     The address information for the XMPP server.
-    /// </summary>
     private Address _address;
 
     /// <summary>
@@ -94,7 +82,7 @@ public class AsyncClientSocket : ISocket, IDisposable
     public event EventHandler<DataEventArgs> Data;
 
     /// <summary>
-    ///     Gets a value indicating whether the socket is currently connected.
+    ///     Gets a value indicating whether the socket is connected to the server.
     /// </summary>
     public bool Connected { get; private set; }
 
@@ -113,9 +101,9 @@ public class AsyncClientSocket : ISocket, IDisposable
     }
 
     /// <summary>
-    ///     Connects to the XMPP server using the specified JID.
+    ///     Connects the client to the XMPP server using the specified JID.
     /// </summary>
-    /// <param name="jid">The Jabber ID to use for the connection.</param>
+    /// <param name="jid">The Jabber ID (JID) to use for the connection.</param>
     public void Connect(Jid jid)
     {
         _logger.Log(LogLevel.Debug, "Connect(Jid) called");
@@ -151,30 +139,21 @@ public class AsyncClientSocket : ISocket, IDisposable
     }
 
     /// <summary>
-    ///     Disconnects from the XMPP server and releases the socket.
+    ///     Disconnects the client from the XMPP server and releases associated resources.
     /// </summary>
     public void Disconnect()
     {
         _logger.Log(LogLevel.Debug, "Disconnect() called");
         Connected = false;
         _stream?.Close();
-        if (_socket != null)
-        {
-            try
-            {
-                _socket.Shutdown(SocketShutdown.Both);
-                _socket.Disconnect(true);
-            }
-            catch (ObjectDisposedException)
-            {
-            }
-        }
+        _socket?.Shutdown(SocketShutdown.Both);
+        _socket?.Disconnect(true);
     }
 
     /// <summary>
-    ///     Sends a message to the server synchronously.
+    ///     Sends a string message to the server.
     /// </summary>
-    /// <param name="message">The message to send.</param>
+    /// <param name="message">The message to send to the server.</param>
     public void Send(string message)
     {
         SendAsync(message).GetAwaiter().GetResult();
@@ -196,7 +175,7 @@ public class AsyncClientSocket : ISocket, IDisposable
         _logger.Log(LogLevel.Debug, $"Sending message: {message}");
 
         var bytes = _utf8.GetBytes(message);
-        await _stream.WriteAsync(bytes, 0, bytes.Length, cancellationToken).ConfigureAwait(false);
+        _stream?.WriteAsync(bytes, 0, bytes.Length);
     }
 
     /// <summary>
@@ -214,10 +193,10 @@ public class AsyncClientSocket : ISocket, IDisposable
     public void StartSsl()
     {
         _logger.Log(LogLevel.Debug, "StartSsl() called");
-        var secureStream = new SslStream(_stream, true, CertificateValidation);
+        var secureStream = new SslStream(_stream!, true, CertificateValidation);
 
         _logger.Log(LogLevel.Debug, "Authenticating as client...");
-        secureStream.AuthenticateAsClient(_address.Hostname);
+        secureStream.AuthenticateAsClient(_address!.Hostname);
         _logger.Log(LogLevel.Debug, $"Using SSL protocol version: {secureStream.SslProtocol}");
 
         if (secureStream.IsAuthenticated)
@@ -225,7 +204,7 @@ public class AsyncClientSocket : ISocket, IDisposable
             _logger.Log(LogLevel.Debug, "Stream is encrypted");
             Secure = true;
             _stream = secureStream;
-            _client.State.Execute((XmppClient)_client);
+            _client.State?.Execute((XmppClient)_client);
         }
     }
 
@@ -247,12 +226,8 @@ public class AsyncClientSocket : ISocket, IDisposable
         _logger.Log(LogLevel.Debug, "Dispose(bool) called");
         if (disposing)
         {
-            if (_socket != null)
-            {
-                _logger.Log(LogLevel.Debug, $"Disposing {_socket.GetType()}");
-                _socket.Dispose();
-            }
-
+            _logger.Log(LogLevel.Debug, $"Disposing {_socket?.GetType()}");
+            _socket?.Dispose();
             _stream?.Dispose();
             _resetEvent.Dispose();
         }
@@ -296,7 +271,7 @@ public class AsyncClientSocket : ISocket, IDisposable
             return true;
         }
 
-        if (chain.ChainStatus.Length == 1 &&
+        if (chain != null && chain.ChainStatus.Length == 1 &&
             (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors ||
              certificate.Subject == certificate.Issuer) &&
             chain.ChainStatus[0].Status == X509ChainStatusFlags.UntrustedRoot)

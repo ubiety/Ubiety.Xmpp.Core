@@ -25,14 +25,14 @@ namespace Ubiety.Xmpp.Core.States;
 public class ConnectedState : IState
 {
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         if (xmpp is not XmppClient client)
         {
             return;
         }
 
-        var stream = xmpp.TagRegistry.GetTag<Stream>(Stream.XmlName);
+            var stream = xmpp.TagRegistry.GetTag<Tags.Stream.Stream>(Tags.Stream.Stream.XmlName);
         stream.Version = "1.0";
         stream.To = client.Id.Server;
         stream.Namespace = Namespaces.Client;

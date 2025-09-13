@@ -1,4 +1,4 @@
-// Copyright 2018 Dieter Lunn
+// Copyright 2024 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -13,44 +13,37 @@
 //   limitations under the License.
 
 using System;
-using Ubiety.Xmpp.Core.Common;
+using Ubiety.Xmpp.Core.States;
 
-namespace Ubiety.Xmpp.Core.Net;
+namespace Ubiety.Xmpp.Core.Infrastructure.StateMachine;
 
 /// <summary>
-///     Defines a socket interface.
+/// Event arguments for failed state transitions.
 /// </summary>
-public interface ISocket
+public class StateTransitionFailedEventArgs : EventArgs
 {
     /// <summary>
-    ///     Raised when data is received from the server.
+    /// Gets or sets the current state when the transition failed.
     /// </summary>
-    event EventHandler<DataEventArgs> Data;
+    public IState CurrentState { get; init; }
 
     /// <summary>
-    ///     Raised when the socket is connected to the server.
+    /// Gets or sets the type of state that was attempted to transition to.
     /// </summary>
-    event EventHandler Connection;
+    public Type AttemptedStateType { get; init; }
 
     /// <summary>
-    ///     Gets a value indicating whether the socket is connected.
+    /// Gets or sets the reason for the transition failure.
     /// </summary>
-    bool Connected { get; }
+    public string Reason { get; init; }
 
     /// <summary>
-    ///     Connect to an XMPP server.
+    /// Gets or sets the exception that caused the failure, if any.
     /// </summary>
-    /// <param name="jid"><see cref="Jid" /> of the user.</param>
-    void Connect(Jid jid);
+    public Exception Exception { get; init; }
 
     /// <summary>
-    ///     Disconnects from the server.
+    /// Gets or sets the timestamp when the failure occurred.
     /// </summary>
-    void Disconnect();
-
-    /// <summary>
-    ///     Send a message to the server.
-    /// </summary>
-    /// <param name="message">Message to send.</param>
-    void Send(string message);
+    public DateTime Timestamp { get; init; } = DateTime.UtcNow;
 }

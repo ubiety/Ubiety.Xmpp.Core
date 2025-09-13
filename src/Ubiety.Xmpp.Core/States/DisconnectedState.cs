@@ -24,7 +24,7 @@ namespace Ubiety.Xmpp.Core.States;
 public class DisconnectedState : IState
 {
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag tag = null)
+    public void Execute(XmppBase xmpp, Tag? tag = null)
     {
         // Disconnected from a server - nothing to do
     }
