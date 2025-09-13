@@ -18,6 +18,7 @@ using Ubiety.Dns.Core;
 using Ubiety.Dns.Core.Common;
 using Ubiety.Dns.Core.Records;
 using Ubiety.Dns.Core.Records.General;
+using Ubiety.Xmpp.Core.Client;
 using Ubiety.Xmpp.Core.Logging;
 
 namespace Ubiety.Xmpp.Core.Net;

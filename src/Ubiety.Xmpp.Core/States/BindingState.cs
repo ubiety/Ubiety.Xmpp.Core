@@ -1,4 +1,4 @@
-﻿// Copyright 2019 Dieter Lunn
+// Copyright 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,8 +12,8 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using System;
 using System.Xml.Linq;
+using Ubiety.Xmpp.Core.Client;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
 using Ubiety.Xmpp.Core.Tags.Binding;
@@ -27,12 +27,9 @@ namespace Ubiety.Xmpp.Core.States;
 public class BindingState : IState
 {
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag? tag = null)
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
-        if (xmpp is null)
-        {
-            throw new ArgumentNullException(nameof(xmpp));
-        }
+        ArgumentNullException.ThrowIfNull(xmpp);
 
         if (tag is null && xmpp is XmppClient client)
         {

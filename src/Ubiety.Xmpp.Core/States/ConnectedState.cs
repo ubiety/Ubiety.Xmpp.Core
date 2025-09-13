@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,9 +12,9 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using Ubiety.Xmpp.Core.Client;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Tags;
-using Ubiety.Xmpp.Core.Tags.Stream;
 
 namespace Ubiety.Xmpp.Core.States;
 
@@ -25,14 +25,14 @@ namespace Ubiety.Xmpp.Core.States;
 public class ConnectedState : IState
 {
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag? tag = null)
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
         if (xmpp is not XmppClient client)
         {
             return;
         }
 
-            var stream = xmpp.TagRegistry.GetTag<Tags.Stream.Stream>(Tags.Stream.Stream.XmlName);
+        var stream = xmpp.TagRegistry.GetTag<Tags.Stream.Stream>(Tags.Stream.Stream.XmlName);
         stream.Version = "1.0";
         stream.To = client.Id.Server;
         stream.Namespace = Namespaces.Client;

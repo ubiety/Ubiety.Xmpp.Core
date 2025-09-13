@@ -1,4 +1,4 @@
-// Copyright 2018 Dieter Lunn
+// Copyright 2025 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,27 +12,26 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-namespace Ubiety.Xmpp.Core;
-
-/// <summary>
-///     Builds an XMPP connection.
-/// </summary>
-public static class XmppBuilder
+namespace Ubiety.Xmpp.Core.Server
 {
     /// <summary>
-    ///     Build a client connection.
+    ///     Represents a server in the XMPP core infrastructure.
     /// </summary>
-    /// <returns>Returns a new <see cref="XmppClientBuilder" /> instance.</returns>
-    public static XmppClientBuilder BeginClientBuild()
+    internal interface IServer
     {
-        return new XmppClientBuilder();
-    }
+        /// <summary>
+        ///     Gets the port number on which the server is listening.
+        /// </summary>
+        int Port { get; }
 
-    /// <summary>
-    ///     Build a server connection.
-    /// </summary>
-    public static void BuildServer()
-    {
-        throw new NotImplementedException();
+        /// <summary>
+        ///     Starts the server and begins listening for incoming connections.
+        /// </summary>
+        void Start();
+
+        /// <summary>
+        ///     Stops the server and ceases listening for incoming connections.
+        /// </summary>
+        void Stop();
     }
 }
