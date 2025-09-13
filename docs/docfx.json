@@ -16,6 +16,9 @@
   "build": {
     "content": [
       {
+        "files": [ "index.md" ]
+      },
+      {
         "files": [ "articles/*.md" ]
       },
       {
@@ -34,6 +37,10 @@
     "globalMetadata": {
       "_appTitle": "Ubiety.Xmpp.Core",
       "_appFooter": "Copyright © 2025 Ubiety"
-    }
+    },
+    "template": [
+        "modern",
+      "templates/_theme"
+    ]
   }
 }
