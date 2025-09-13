@@ -1,5 +1,6 @@
 using System.Linq;
 using Nuke.Common;
+using Nuke.Common.CI.AppVeyor;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
@@ -21,7 +22,11 @@ using static Nuke.Common.Tools.SonarScanner.SonarScannerTasks;
     OnPullRequestBranches = new[] { "master", "develop", "main" },
     InvokedTargets = new[] { nameof(Test), nameof(Pack) },
     ImportSecrets = new[] { "NUGET_API_KEY", "SONAR_TOKEN" },
-    EnableGitHubToken = true)]
+    EnableGitHubToken = true,
+    FetchDepth = 0)]
+[AppVeyor(AppVeyorImage.VisualStudioLatest,
+    InvokedTargets = new[] { nameof(Test), nameof(Pack) },
+    BranchesExcept = new[] {"gh-pages"})]
 class Build : NukeBuild
 {
     public static int Main () => Execute<Build>(x => x.Test);
