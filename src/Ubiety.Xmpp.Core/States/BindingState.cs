@@ -38,6 +38,9 @@ public class BindingState : IState
 
             if (!string.IsNullOrEmpty(client.Resource))
             {
+                var resource = xmpp.TagRegistry.GetTag<Resource>(Resource.XmlName);
+                resource.Value = client.Resource;
+                bind.Add(resource);
             }
 
             iq.IqType = IqType.Set;
@@ -46,8 +49,17 @@ public class BindingState : IState
             xmpp.ClientSocket.SetReadClear();
             xmpp.ClientSocket.Send(iq);
         }
-        else
+        else if (tag is Iq iq)
         {
+            if (iq.IqType == IqType.Result)
+            {
+                xmpp.ClientSocket.SetReadClear();
+            }
+            else if (iq.IqType == IqType.Error)
+            {
+                xmpp.State = new DisconnectState();
+                xmpp.State.Execute(xmpp);
+            }
         }
     }
 }

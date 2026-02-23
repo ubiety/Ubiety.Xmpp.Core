@@ -50,6 +50,7 @@ public class AsyncClientSocket : ISocket, IDisposable
     private readonly AutoResetEvent _resetEvent;
     private readonly UTF8Encoding _utf8 = new();
     private Address _address;
+    private Task? _readTask;
 
     /// <summary>
     ///     The underlying network socket.
@@ -307,7 +308,7 @@ public class AsyncClientSocket : ISocket, IDisposable
         Connected = true;
         OnConnection();
 
-        BeginReadAsync().ConfigureAwait(false);
+        _readTask = BeginReadAsync();
     }
 
     /// <summary>
@@ -317,11 +318,19 @@ public class AsyncClientSocket : ISocket, IDisposable
     private async Task BeginReadAsync()
     {
         _logger.Log(LogLevel.Debug, "BeginReadAsync() called");
-        while (Connected)
+        try
         {
-            var message = await ReadDataAsync().ConfigureAwait(false);
-            _logger.Log(LogLevel.Debug, $"Received message: {message}");
-            OnData(new DataEventArgs { Message = message });
+            while (Connected)
+            {
+                var message = await ReadDataAsync().ConfigureAwait(false);
+                _logger.Log(LogLevel.Debug, $"Received message: {message}");
+                OnData(new DataEventArgs { Message = message });
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.Log(LogLevel.Error, ex, "Read loop terminated unexpectedly");
+            Connected = false;
         }
     }
 
