@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using Ubiety.Xmpp.Core.Client;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Registries;

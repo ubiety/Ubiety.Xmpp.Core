@@ -18,7 +18,7 @@ using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Net;
 using Ubiety.Xmpp.Core.States;
 
-namespace Ubiety.Xmpp.Core;
+namespace Ubiety.Xmpp.Core.Client;
 
 /// <summary>
 ///     Main XMPP client class.

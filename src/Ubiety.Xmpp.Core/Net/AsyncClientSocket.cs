@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Dieter Lunn
+// Copyright 2018 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Ubiety.Xmpp.Core.Client;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.Tags;
@@ -49,6 +50,7 @@ public class AsyncClientSocket : ISocket, IDisposable
     private readonly AutoResetEvent _resetEvent;
     private readonly UTF8Encoding _utf8 = new();
     private Address _address;
+    private Task? _readTask;
 
     /// <summary>
     ///     The underlying network socket.
@@ -306,7 +308,7 @@ public class AsyncClientSocket : ISocket, IDisposable
         Connected = true;
         OnConnection();
 
-        BeginReadAsync().ConfigureAwait(false);
+        _readTask = BeginReadAsync();
     }
 
     /// <summary>
@@ -316,11 +318,19 @@ public class AsyncClientSocket : ISocket, IDisposable
     private async Task BeginReadAsync()
     {
         _logger.Log(LogLevel.Debug, "BeginReadAsync() called");
-        while (Connected)
+        try
         {
-            var message = await ReadDataAsync().ConfigureAwait(false);
-            _logger.Log(LogLevel.Debug, $"Received message: {message}");
-            OnData(new DataEventArgs { Message = message });
+            while (Connected)
+            {
+                var message = await ReadDataAsync().ConfigureAwait(false);
+                _logger.Log(LogLevel.Debug, $"Received message: {message}");
+                OnData(new DataEventArgs { Message = message });
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.Log(LogLevel.Error, ex, "Read loop terminated unexpectedly");
+            Connected = false;
         }
     }
 

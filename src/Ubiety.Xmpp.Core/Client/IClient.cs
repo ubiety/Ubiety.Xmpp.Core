@@ -15,7 +15,7 @@
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.States;
 
-namespace Ubiety.Xmpp.Core;
+namespace Ubiety.Xmpp.Core.Client;
 
 /// <summary>
 ///     Defines a client interface.

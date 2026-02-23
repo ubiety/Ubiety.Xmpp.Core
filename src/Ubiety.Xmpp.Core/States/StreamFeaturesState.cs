@@ -1,4 +1,4 @@
-﻿// Copyright 2018, 2019 Dieter Lunn
+// Copyright 2018, 2019 Dieter Lunn
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -12,6 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using Ubiety.Xmpp.Core.Client;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Infrastructure.Exceptions;
 using Ubiety.Xmpp.Core.Infrastructure.Extensions;
@@ -29,7 +30,7 @@ public class StreamFeaturesState : IState
     private static readonly ILog Logger = Log.Get<StreamFeaturesState>();
 
     /// <inheritdoc />
-    public void Execute(XmppBase xmpp, Tag? tag = null)
+    public void Execute(XmppBase xmpp, Tag tag = null)
     {
         Features features;
 

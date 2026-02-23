@@ -14,6 +14,7 @@
 
 using System;
 using System.Collections.Generic;
+using Ubiety.Xmpp.Core.Client;
 using Ubiety.Xmpp.Core.Common;
 using Ubiety.Xmpp.Core.Logging;
 using Ubiety.Xmpp.Core.States;

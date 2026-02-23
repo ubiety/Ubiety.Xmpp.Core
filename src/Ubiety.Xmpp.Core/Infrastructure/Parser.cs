@@ -35,6 +35,8 @@ public sealed class Parser : IDisposable
     private readonly XmppBase _xmpp;
     private XmlNamespaceManager? _namespaceManager;
     private bool _running;
+    private CancellationTokenSource? _cts;
+    private bool _disposed;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="Parser"/> class.

@@ -1,0 +1,5 @@
+workflow: GitFlow/v1
+
+branches:
+  main:
+    regex: ^(main|master)$
